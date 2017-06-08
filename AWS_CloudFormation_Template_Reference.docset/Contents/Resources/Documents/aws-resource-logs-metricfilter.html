@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="css/awsdocs.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/awsdocs.min.js"></script>
+    <meta charset="utf-8">
+</head>
+<body>
+    <div id="content" style="padding: 10px 30px;">
+    <h1 class="topictitle" id="aws-resource-logs-metricfilter">AWS::Logs::MetricFilter</h1><p>The <code class="code">AWS::Logs::MetricFilter</code> resource creates a metric filter that describes
+                        how Amazon CloudWatch Logs extracts information from logs that you specify and transforms
+                        it into Amazon CloudWatch
+                        metrics. If you have multiple metric filters that are associated with a log group,
+                        all the
+                        filters are applied to the log streams in that group.
+                     </p><div class="highlights">
+                        <p><strong>Topics</strong></p>
+                        <ul>
+                           <li><a href="#aws-resource-logs-metricfilter-syntax">Syntax</a></li>
+                           <li><a href="#w2ab2c19c12d654c11">Properties</a></li>
+                           <li><a href="#w2ab2c19c12d654c13">Examples</a></li>
+                           <li><a href="#w2ab2c19c12d654c15">Additional Information</a></li>
+                        </ul>
+                     </div><h2 id="aws-resource-logs-metricfilter-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-resource-logs-metricfilter-syntax.json">JSON</h3>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">{
+  &quot;Type&quot;: &quot;AWS::Logs::MetricFilter&quot;, &#xA0;&#xA0;&#xA0;
+  &quot;Properties&quot;: {
+    &quot;<a href="aws-resource-logs-metricfilter.html#cfn-cwl-metricfilter-filterpattern"><code class="literal">FilterPattern</code></a>&quot;: <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-resource-logs-metricfilter.html#cfn-cwl-metricfilter-loggroupname"><code class="literal">LogGroupName</code></a>&quot;: <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-resource-logs-metricfilter.html#cfn-cwl-metricfilter-metrictransformations"><code class="literal">MetricTransformations</code></a>&quot;: [ <em class="replaceable"><code>MetricTransformations, ...</code></em> ]
+  }
+}</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-logs-metricfilter-syntax.yaml">YAML</h3>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">Type: &quot;AWS::Logs::MetricFilter&quot;
+Properties: 
+  <a href="aws-resource-logs-metricfilter.html#cfn-cwl-metricfilter-filterpattern"><code class="literal">FilterPattern</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-resource-logs-metricfilter.html#cfn-cwl-metricfilter-loggroupname"><code class="literal">LogGroupName</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-resource-logs-metricfilter.html#cfn-cwl-metricfilter-metrictransformations"><code class="literal">MetricTransformations</code></a>:
+    <em class="replaceable"><code>MetricTransformations</code></em>
+</code></pre>
+                        </div><h2 id="w2ab2c19c12d654c11">Properties</h2><div class="aws-note">
+                        <p class="aws-note">Note</p>
+                        <p>For more information about constraints and values for each property, see <a href="http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutMetricFilter.html" target="_blank">PutMetricFilter</a> in the
+                           <em>Amazon CloudWatch Logs API Reference</em>.
+                        </p>
+                     </div><div class="variablelist">
+                        
+                        
+                        
+                        
+                        <dl>
+                           
+                           <dt><a id="cfn-cwl-metricfilter-filterpattern"></a><span class="term"><code class="literal">FilterPattern</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>Describes the pattern that CloudWatch Logs follows to interpret each entry in a log.
+                                 For
+                                 example, a log entry might contain fields such as timestamps, IP addresses, error
+                                 codes, bytes transferred, and so on. You use the pattern to specify those fields
+                                 and to specify what to look for in the log file. For example, if you&apos;re interested
+                                 in error codes that begin with <code class="code">1234</code>, your filter pattern might be
+                                 <code class="code">[timestamps, ip_addresses, error_codes = 1234*, size, ...]</code>.
+                              </p>
+                              
+                              <p><em>Required</em>: Yes
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-cwl-metricfilter-loggroupname"></a><span class="term"><code class="literal">LogGroupName</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The name of an existing log group that you want to associate with this metric
+                                 filter.
+                              </p>
+                              
+                              <p><em>Required</em>: Yes
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-cwl-metricfilter-metrictransformations"></a><span class="term"><code class="literal">MetricTransformations</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>Describes how to transform data from a log into a CloudWatch metric.</p>
+                              
+                              <p><em>Required</em>: Yes
+                              </p>
+                              
+                              <p><em>Type</em>: A list of <a href="aws-properties-logs-metricfilter-metrictransformation.html">CloudWatch Logs MetricFilter
+                                    MetricTransformation Property</a></p>
+                              <div class="aws-note">
+                                 <p class="aws-note">Important</p>
+                                 <p>Currently, you can specify only one metric transformation for each metric
+                                    filter. If you want to specify multiple metric transformations, you must
+                                    specify multiple metric filters.
+                                 </p>
+                              </div>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                        </dl>
+                     </div><h2 id="w2ab2c19c12d654c13">Examples</h2><h3 id="w2ab2c19c12d654c13b3"></h3><p>The following example sends a value of <code class="code">1</code> to the <code class="code">404Count</code>
+                        metric whenever the status code field includes a <code class="code">404</code> value.
+                     </p><div id="JSON" name="JSON" class="section langfilter">
+                        <h4 id="aws-resource-logs-metricfilter-example.json">JSON</h4>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">&quot;404MetricFilter&quot;: {
+    &quot;Type&quot;: &quot;AWS::Logs::MetricFilter&quot;,
+    &quot;Properties&quot;: {
+        &quot;LogGroupName&quot;: { &quot;Ref&quot;: &quot;myLogGroup&quot; },
+        &quot;FilterPattern&quot;: &quot;[ip, identity, user_id, timestamp, request, status_code = 404, size]&quot;,
+        &quot;MetricTransformations&quot;: [
+            {
+                &quot;MetricValue&quot;: &quot;1&quot;,
+                &quot;MetricNamespace&quot;: &quot;WebServer/404s&quot;,
+                &quot;MetricName&quot;: &quot;404Count&quot;
+            }
+        ]
+    }
+}</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        <h4 id="aws-resource-logs-metricfilter-example.yaml">YAML</h4>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">404MetricFilter: 
+  Type: &quot;AWS::Logs::MetricFilter&quot;
+  Properties: 
+    LogGroupName: 
+      Ref: &quot;myLogGroup&quot;
+    FilterPattern: &quot;[ip, identity, user_id, timestamp, request, status_code = 404, size]&quot;
+    MetricTransformations: 
+      - 
+        MetricValue: &quot;1&quot;
+        MetricNamespace: &quot;WebServer/404s&quot;
+        MetricName: &quot;404Count&quot;</code></pre>
+                        </div><h2 id="w2ab2c19c12d654c15">Additional Information</h2><p>For an additional sample template, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-cloudwatchlogs.html">Amazon CloudWatch Logs Template Snippets</a>.
+                     </p></div>
+</body>
+</html>

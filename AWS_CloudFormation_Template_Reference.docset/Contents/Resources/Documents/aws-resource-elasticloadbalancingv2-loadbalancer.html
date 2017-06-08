@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="css/awsdocs.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/awsdocs.min.js"></script>
+    <meta charset="utf-8">
+</head>
+<body>
+    <div id="content" style="padding: 10px 30px;">
+    <h1 class="topictitle" id="aws-resource-elasticloadbalancingv2-loadbalancer">AWS::ElasticLoadBalancingV2::LoadBalancer</h1><p>The <code class="code">AWS::ElasticLoadBalancingV2::LoadBalancer</code> resource creates an Elastic Load Balancing
+                        Application load balancer that distributes incoming application traffic across multiple
+                        targets (such as EC2
+                        instances) in multiple Availability Zones. For more information, see the <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/application/" target="_blank"><em>Application Load Balancers Guide</em></a>.
+                     </p><div class="aws-note">
+                        <p class="aws-note">Note</p>
+                        <p>AWS CloudFormation does not automatically create tags (key&#x2013;value pairs) for an Elastic
+                           Load Balancing
+                           Application load balancer. You must use the <a href="aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-tags"><code class="code">Tags</code></a>
+                           property to create tags to associate with the load balancer.
+                        </p>
+                     </div><p><a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/" target="_blank">Elastic Load Balancing API Reference version 2015-12-01</a></p><div class="highlights">
+                        <p><strong>Topics</strong></p>
+                        <ul>
+                           <li><a href="#aws-resource-elasticloadbalancingv2-loadbalancer-syntax">Syntax</a></li>
+                           <li><a href="#w2ab2c19c12d491c13">Properties</a></li>
+                           <li><a href="#w2ab2c19c12d491c15">Return Values</a></li>
+                           <li><a href="#w2ab2c19c12d491c17">Example</a></li>
+                        </ul>
+                     </div><h2 id="aws-resource-elasticloadbalancingv2-loadbalancer-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-resource-elasticloadbalancingv2-loadbalancer-syntax.json">JSON</h3>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">{
+  &quot;Type&quot; : &quot;AWS::ElasticLoadBalancingV2::LoadBalancer&quot;,
+  &quot;Properties&quot; : {    
+    &quot;<a href="aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-loadbalancerattributes"><code class="code">LoadBalancerAttributes</code></a>&quot; : [ <em class="replaceable"><code><a href="aws-properties-elasticloadbalancingv2-loadbalancer-loadbalancerattributes.html">LoadBalancerAttributes</a>, ...</code></em> ],
+    &quot;<a href="aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-name"><code class="code">Name</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-scheme"><code class="code">Scheme</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-securitygroups"><code class="code">SecurityGroups</code></a>&quot; : [ <em class="replaceable"><code>String, ...</code></em> ],
+    &quot;<a href="aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-subnets"><code class="code">Subnets</code></a>&quot; : [ <em class="replaceable"><code>String, ...</code></em> ],
+    &quot;<a href="aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-tags"><code class="code">Tags</code></a>&quot; : [ <em class="replaceable"><code>Resource Tag, ...</code></em> ],
+    &quot;<a href="aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-ipaddresstype"><code class="code">IpAddressType</code></a>&quot; : <em class="replaceable"><code>String</code></em>
+  }
+}</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-elasticloadbalancingv2-loadbalancer-syntax.yaml">YAML</h3>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">Type: &quot;AWS::ElasticLoadBalancingV2::LoadBalancer&quot;
+Properties:
+  <a href="aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-loadbalancerattributes"><code class="code">LoadBalancerAttributes</code></a>:
+    - <em class="replaceable"><code><a href="aws-properties-elasticloadbalancingv2-loadbalancer-loadbalancerattributes.html">LoadBalancerAttributes</a></code></em>
+  <a href="aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-name"><code class="code">Name</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-scheme"><code class="code">Scheme</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-securitygroups"><code class="code">SecurityGroups</code></a>:
+    - <em class="replaceable"><code>String</code></em>
+  <a href="aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-subnets"><code class="code">Subnets</code></a>:
+    - <em class="replaceable"><code>String</code></em>
+  <a href="aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-tags"><code class="code">Tags</code></a>:
+    - <em class="replaceable"><code>Resource Tag</code></em>
+  <a href="aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-ipaddresstype"><code class="code">IpAddressType</code></a>: <em class="replaceable"><code>String</code></em>
+</code></pre>
+                        </div><h2 id="w2ab2c19c12d491c13">Properties</h2><div class="variablelist"> 
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <dl>
+                           
+                           <dt><a id="cfn-elasticloadbalancingv2-loadbalancer-loadbalancerattributes"></a><span class="term"><code class="code">LoadBalancerAttributes</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>Specifies the load balancer configuration.</p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: A list of <a href="aws-properties-elasticloadbalancingv2-loadbalancer-loadbalancerattributes.html">Elastic Load Balancing LoadBalancer LoadBalancerAttributes</a></p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-elasticloadbalancingv2-loadbalancer-name"></a><span class="term"><code class="code">Name</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>Specifies a name for the load balancer. This name must be unique within your AWS
+                                 account and can have a maximum of 32 alphanumeric characters and hyphens. A name can&apos;t
+                                 begin or end with a hyphen.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-elasticloadbalancingv2-loadbalancer-scheme"></a><span class="term"><code class="code">Scheme</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>Specifies whether the load balancer is internal or Internet-facing. An internal load
+                                 balancer routes requests to targets using private IP addresses. An Internet-facing
+                                 load
+                                 balancer routes requests from clients over the Internet to targets in your public
+                                 subnets. 
+                              </p>
+                              
+                              <p>For valid and default values, see the <code class="code">Scheme</code> parameter for the
+                                 <code class="code"><a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateLoadBalancer.html" target="_blank">CreateLoadBalancer</a></code> action in the
+                                 <em>Elastic Load Balancing API Reference version 2015-12-01</em>.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-elasticloadbalancingv2-loadbalancer-securitygroups"></a><span class="term"><code class="code">SecurityGroups</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>Specifies a list of the IDs of the security groups to assign to the load
+                                 balancer.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: List of strings
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-elasticloadbalancingv2-loadbalancer-subnets"></a><span class="term"><code class="code">Subnets</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>Specifies a list of at least two IDs of the subnets to associate with the load
+                                 balancer. The subnets must be in different Availability Zones.
+                              </p>
+                              
+                              <p><em>Required</em>: Yes
+                              </p>
+                              
+                              <p><em>Type</em>: List of strings
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-elasticloadbalancingv2-loadbalancer-tags"></a><span class="term"><code class="code">Tags</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>Specifies an arbitrary set of tags (key&#x2013;value pairs) to associate with this
+                                 load balancer. Use tags to manage your resources.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: <a href="aws-properties-resource-tags.html">AWS CloudFormation Resource Tags</a></p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-elasticloadbalancingv2-loadbalancer-ipaddresstype"></a><span class="term"><code class="code">IpAddressType</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The type of IP addresses that are used by the load balancer&apos;s subnets, such as
+                                 <code class="code">ipv4</code> (for IPv4 addresses) or <code class="code">dualstack</code> (for IPv4 and IPv6
+                                 addresses). For valid values, see the <code class="code">IpAddressType</code> parameter for the
+                                 <code class="code"><a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateLoadBalancer.html" target="_blank">CreateLoadBalancer</a></code> action in the
+                                 <em>Elastic Load Balancing API Reference version 2015-12-01</em>.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                        </dl>
+                     </div><h2 id="w2ab2c19c12d491c15">Return Values</h2><h3 id="w2ab2c19c12d491c15b3">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code>
+                        intrinsic function, <code class="code">Ref</code> returns the ARN of the load balancer, for
+                        example:
+                     </p><pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-internal-load-balancer/50dc6c495c0c9188</code></pre><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
+                     </p><h3 id="w2ab2c19c12d491c15b5">Fn::GetAtt</h3><p><code class="code">Fn::GetAtt</code> returns a value for the following attributes.
+                     </p><div class="variablelist">
+                        
+                        
+                        
+                        
+                        
+                        
+                        <dl>
+                           
+                           <dt><span class="term"><code class="code">DNSName</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The DNS name for the Application load balancer, for example
+                                 <code class="code">my-load-balancer-424835706.us-west-2.elb.amazonaws.com</code>.
+                              </p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><span class="term"><code class="code">CanonicalHostedZoneID</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The ID of the Amazon Route&#xA0;53 hosted zone associated with the load balancer, for example
+                                 <code class="code">Z2P70J7EXAMPLE</code>.
+                              </p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><span class="term"><code class="code">LoadBalancerFullName</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The full name of the Application load balancer, for example
+                                 <code class="code">app/my-load-balancer/50dc6c495c0c9188</code>.
+                              </p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><span class="term"><code class="code">LoadBalancerName</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The name of the Application load balancer, for example <code class="code">my-load-balancer</code>.
+                              </p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><span class="term"><code class="code">SecurityGroups</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The IDs of the security groups for the Application load balancer, for example
+                                 <code class="code">sg-123456a</code>.
+                              </p>
+                              
+                           </dd>
+                           
+                        </dl>
+                     </div><p>For more information about using <code class="code">Fn::GetAtt</code>, see <a href="intrinsic-function-reference-getatt.html">Fn::GetAtt</a>.
+                     </p><h2 id="w2ab2c19c12d491c17">Example</h2><p>The following example creates an internal load balancer with an idle timeout period
+                        of <code class="code">50</code> seconds.
+                     </p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-resource-elasticloadbalancingv2-loadbalancer-example.json">JSON</h3>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">&quot;loadBalancer&quot; : {
+  &quot;Type&quot;: &quot;AWS::ElasticLoadBalancingV2::LoadBalancer&quot;,
+  &quot;Properties&quot;: {
+    &quot;Scheme&quot; : &quot;internal&quot;,
+    &quot;Subnets&quot; : [ {&quot;Ref&quot;: &quot;SubnetAZ1&quot;}, {&quot;Ref&quot; : &quot;SubnetAZ2&quot;}],
+    &quot;LoadBalancerAttributes&quot; : [
+      { &quot;Key&quot; : &quot;idle_timeout.timeout_seconds&quot;, &quot;Value&quot; : &quot;50&quot; }
+    ],
+    &quot;SecurityGroups&quot;: [{&quot;Ref&quot;: &quot;SecurityGroup1&quot;}, {&quot;Ref&quot; : &quot;SecurityGroup2&quot;}],
+    &quot;Tags&quot; : [
+      { &quot;Key&quot; : &quot;key&quot;, &quot;Value&quot; : &quot;value&quot; },
+      { &quot;Key&quot; : &quot;key2&quot;, &quot;Value&quot; : &quot;value2&quot; }
+    ]
+  }
+}</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-elasticloadbalancingv2-loadbalancer-example.yaml">YAML</h3>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">loadBalancer:
+  Type: AWS::ElasticLoadBalancingV2::LoadBalancer
+  Properties:
+    Scheme: internal
+    Subnets:
+    - Ref: SubnetAZ1
+    - Ref: SubnetAZ2
+    LoadBalancerAttributes:
+    - Key: idle_timeout.timeout_seconds
+      Value: &apos;50&apos;
+    SecurityGroups:
+    - Ref: SecurityGroup1
+    - Ref: SecurityGroup2
+    Tags:
+    - Key: key
+      Value: value
+    - Key: key2
+      Value: value2</code></pre>
+                        </div></div>
+</body>
+</html>

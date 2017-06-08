@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="css/awsdocs.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/awsdocs.min.js"></script>
+    <meta charset="utf-8">
+</head>
+<body>
+    <div id="content" style="padding: 10px 30px;">
+    <h1 class="topictitle" id="intrinsic-function-reference-base64"><code class="code">Fn::Base64</code></h1><p>The intrinsic function <code class="code">Fn::Base64</code> returns the Base64 representation of the input string.
+                        This function is typically used to pass encoded data to Amazon EC2 instances by way
+                        of the
+                        <code class="code">UserData</code> property.
+                     </p><h2 id="w2ab2c19c31c16b7">Declaration</h2><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="intrinsic-function-reference-base64-syntax.json">JSON</h3>
+                        
+                        
+                        <p>
+                           
+                        </p><pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">{ &quot;Fn::Base64&quot; : <em class="replaceable"><code>valueToEncode</code></em> }</code></pre><p>
+                           
+                        </p>
+                        
+                     </div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="intrinsic-function-reference-base64-syntax.yaml">YAML</h3>
+                        
+                        
+                        <p>Syntax for the full function name:</p>
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">Fn::Base64: <em class="replaceable"><code>valueToEncode</code></em></code></pre>
+                        <p>Syntax for the short form:</p>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">!Base64 <em class="replaceable"><code>valueToEncode</code></em></code></pre>
+                        <div class="aws-note">
+                           <p class="aws-note">Note</p>
+                           <p>If you use the short
+                              form and immediately include another function in the <code class="code">valueToEncode</code>
+                              parameter, use the full function name for at least one of the functions. For example,
+                              the following syntax is invalid:
+                              
+                           </p><pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">!Base64 !Sub <em class="replaceable"><code>string</code></em>
+<code class="code" copy="true">!Base64 !Ref <em class="replaceable"><code>logical_ID</code></em></code></code></pre><p>
+                              Instead, use the full function name for at least one of the functions, as shown in
+                              the following examples:
+                              
+                           </p><pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">!Base64
+  &quot;Fn::Sub&quot;: <em class="replaceable"><code>string</code></em>
+
+Fn::Base64:
+  !Sub <em class="replaceable"><code>string</code></em></code></pre></div>
+                        
+                     </div><h2 id="w2ab2c19c31c16b9">Parameters</h2><div class="variablelist">
+                        
+                        
+                        <dl>
+                           
+                           <dt><span class="term">valueToEncode</span></dt>
+                           
+                           <dd>
+                              
+                              <p>The string value you want to convert to Base64.</p>
+                              
+                           </dd>
+                           
+                        </dl>
+                     </div><h2 id="w2ab2c19c31c16c11">Return Value:</h2><p>The original string, in Base64 representation.</p><h2 id="w2ab2c19c31c16c13">Example</h2><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="intrinsic-function-reference-base64-example.json">JSON</h3>
+                        
+                        
+                        <p>
+                           
+                        </p><pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">{ &quot;Fn::Base64&quot; : &quot;AWS CloudFormation&quot; }</code></pre><p>
+                           
+                        </p>
+                        
+                     </div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="intrinsic-function-reference-base64-example.yaml">YAML</h3>
+                        
+                        
+                        <p>
+                           
+                        </p><pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">Fn::Base64: AWS CloudFormation</code></pre><p>
+                           
+                        </p>
+                        
+                     </div><h2 id="w2ab2c19c31c16c15">Supported Functions</h2><p>You can use any function that returns a string inside the <code class="code">Fn::Base64</code> function.
+                     </p><h2 id="w2ab2c19c31c16c17">See Also</h2><div class="itemizedlist">
+                        
+                        
+                        <ul class="itemizedlist" type="disc">
+                           <li class="listitem">
+                              
+                              <p><a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference.html">Intrinsic Function Reference</a></p>
+                              
+                           </li>
+                        </ul>
+                     </div></div>
+</body>
+</html>

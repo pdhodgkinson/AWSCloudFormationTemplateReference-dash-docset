@@ -1,0 +1,1550 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="css/awsdocs.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/awsdocs.min.js"></script>
+    <meta charset="utf-8">
+</head>
+<body>
+    <div id="content" style="padding: 10px 30px;">
+    <h1 class="topictitle" id="aws-properties-rds-database-instance">AWS::RDS::DBInstance</h1><p>The <code class="code">AWS::RDS::DBInstance</code> type creates an Amazon Relational Database Service (Amazon RDS) DB instance. For
+                        detailed information about configuring RDS DB instances, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html" target="_blank">CreateDBInstance</a>.
+                     </p><p>
+                        
+                     </p><div class="aws-note">
+                        <p class="aws-note">Important</p>
+                        <p>If a DB instance is deleted or replaced during an update, AWS CloudFormation deletes
+                           all automated
+                           snapshots. However, it retains manual DB snapshots. During an update that requires
+                           replacement, you can apply a stack policy to prevent DB instances from being replaced.
+                           For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html">Prevent Updates to Stack Resources</a>.
+                        </p>
+                     </div><p>
+                        
+                     </p><div class="highlights">
+                        <p><strong>Topics</strong></p>
+                        <ul>
+                           <li><a href="#aws-resource-rds-dbinstance-syntax">Syntax</a></li>
+                           <li><a href="#aws-properties-rds-database-instance-prop">Properties</a></li>
+                           <li><a href="#w2ab2c19c12d708c15">Updating and Deleting AWS::RDS::DBInstance Resources</a></li>
+                           <li><a href="#aws-properties-rds-database-instance-ref">Return Values</a></li>
+                           <li><a href="#w2ab2c19c12d708c19">Examples</a></li>
+                        </ul>
+                     </div><h2 id="aws-resource-rds-dbinstance-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-resource-rds-dbinstance-syntax.json">JSON</h3>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">{
+  &quot;Type&quot; : &quot;AWS::RDS::DBInstance&quot;,
+  &quot;Properties&quot; :
+  {
+    &quot;<a href="aws-properties-rds-database-instance.html#cfn-rds-dbinstance-allocatedstorage">AllocatedStorage</a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-properties-rds-database-instance.html#cfn-rds-dbinstance-allowmajorversionupgrade"><code class="literal">AllowMajorVersionUpgrade</code></a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
+    &quot;<a href="aws-properties-rds-database-instance.html#cfn-rds-dbinstance-autominorversionupgrade">AutoMinorVersionUpgrade</a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
+    &quot;<a href="aws-properties-rds-database-instance.html#cfn-rds-dbinstance-availabilityzone">AvailabilityZone</a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-properties-rds-database-instance.html#cfn-rds-dbinstance-backupretentionperiod">BackupRetentionPeriod</a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-properties-rds-database-instance.html#cfn-rds-dbinstance-charactersetname"><code class="literal">CharacterSetName</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-properties-rds-database-instance.html#cfn-rds-dbinstance-copytagstosnapshot"><code class="code">CopyTagsToSnapshot</code></a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
+    &quot;<a href="aws-properties-rds-database-instance.html#cfn-rds-dbinstance-dbclusteridentifier"><code class="code">DBClusterIdentifier</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-properties-rds-database-instance.html#cfn-rds-dbinstance-dbinstanceclass">DBInstanceClass</a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-properties-rds-database-instance.html#cfn-rds-dbinstance-dbinstanceidentifier"><code class="literal">DBInstanceIdentifier</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-properties-rds-database-instance.html#cfn-rds-dbinstance-dbname">DBName</a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-properties-rds-database-instance.html#cfn-rds-dbinstance-dbparametergroupname">DBParameterGroupName</a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-properties-rds-database-instance.html#cfn-rds-dbinstance-dbsecuritygroups">DBSecurityGroups</a>&quot; : [ <em class="replaceable"><code>String, ...</code></em> ],
+    &quot;<a href="aws-properties-rds-database-instance.html#cfn-rds-dbinstance-dbsnapshotidentifier">DBSnapshotIdentifier</a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-properties-rds-database-instance.html#cfn-rds-dbinstance-dbsubnetgroupname">DBSubnetGroupName</a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-properties-rds-database-instance.html#cfn-rds-dbinstance-domain"><code class="code">Domain</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-properties-rds-database-instance.html#cfn-rds-dbinstance-domainIAMRoleName"><code class="code">DomainIAMRoleName</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-properties-rds-database-instance.html#cfn-rds-dbinstance-engine">Engine</a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-properties-rds-database-instance.html#cfn-rds-dbinstance-engineversion">EngineVersion</a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-properties-rds-database-instance.html#cfn-rds-dbinstance-iops">Iops</a>&quot; : <em class="replaceable"><code>Number</code></em>,
+    &quot;<a href="aws-properties-rds-database-instance.html#cfn-rds-dbinstance-kmskeyid"><code class="literal">KmsKeyId</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-properties-rds-database-instance.html#cfn-rds-dbinstance-licensemodel">LicenseModel</a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-properties-rds-database-instance.html#cfn-rds-dbinstance-masterusername">MasterUsername</a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-properties-rds-database-instance.html#cfn-rds-dbinstance-masteruserpassword">MasterUserPassword</a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-properties-rds-database-instance.html#cfn-rds-dbinstance-monitoringinterval">MonitoringInterval</a>&quot; : <em class="replaceable"><code>Integer</code></em>,
+    &quot;<a href="aws-properties-rds-database-instance.html#cfn-rds-dbinstance-monitoringrolearn">MonitoringRoleArn</a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-properties-rds-database-instance.html#cfn-rds-dbinstance-multiaz">MultiAZ</a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
+    &quot;<a href="aws-properties-rds-database-instance.html#cfn-rds-dbinstance-optiongroupname"><code class="literal">OptionGroupName</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-properties-rds-database-instance.html#cfn-rds-dbinstance-port">Port</a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-properties-rds-database-instance.html#cfn-rds-dbinstance-preferredbackupwindow">PreferredBackupWindow</a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-properties-rds-database-instance.html#cfn-rds-dbinstance-preferredmaintenancewindow">PreferredMaintenanceWindow</a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-properties-rds-database-instance.html#cfn-rds-dbinstance-publiclyaccessible"><code class="literal">PubliclyAccessible</code></a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
+    &quot;<a href="aws-properties-rds-database-instance.html#cfn-rds-dbinstance-sourcedbinstanceidentifier"><code class="literal">SourceDBInstanceIdentifier</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-properties-rds-database-instance.html#cfn-rds-dbinstance-storageencrypted"><code class="literal">StorageEncrypted</code></a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
+    &quot;<a href="aws-properties-rds-database-instance.html#cfn-rds-dbinstance-storagetype"><code class="literal">StorageType</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-properties-rds-database-instance.html#cfn-rds-dbinstance-tags">Tags</a>&quot; : [ <em class="replaceable"><code>Resource Tag, ...</code></em> ],
+    &quot;<a href="aws-properties-rds-database-instance.html#cfn-rds-dbinstance-timezone"><code class="code">Timezone</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-properties-rds-database-instance.html#cfn-rds-dbinstance-vpcsecuritygroups">VPCSecurityGroups</a>&quot; : [ <em class="replaceable"><code>String, ...</code></em> ]
+  }
+}</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-rds-dbinstance-syntax.yaml">YAML</h3>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">Type: &quot;AWS::RDS::DBInstance&quot;
+Properties:
+  <a href="aws-properties-rds-database-instance.html#cfn-rds-dbinstance-allocatedstorage">AllocatedStorage</a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-properties-rds-database-instance.html#cfn-rds-dbinstance-allowmajorversionupgrade"><code class="literal">AllowMajorVersionUpgrade</code></a>: <em class="replaceable"><code>Boolean</code></em>
+  <a href="aws-properties-rds-database-instance.html#cfn-rds-dbinstance-autominorversionupgrade">AutoMinorVersionUpgrade</a>: <em class="replaceable"><code>Boolean</code></em>
+  <a href="aws-properties-rds-database-instance.html#cfn-rds-dbinstance-availabilityzone">AvailabilityZone</a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-properties-rds-database-instance.html#cfn-rds-dbinstance-backupretentionperiod">BackupRetentionPeriod</a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-properties-rds-database-instance.html#cfn-rds-dbinstance-charactersetname"><code class="literal">CharacterSetName</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-properties-rds-database-instance.html#cfn-rds-dbinstance-copytagstosnapshot"><code class="code">CopyTagsToSnapshot</code></a>: <em class="replaceable"><code>Boolean</code></em>
+  <a href="aws-properties-rds-database-instance.html#cfn-rds-dbinstance-dbclusteridentifier"><code class="code">DBClusterIdentifier</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-properties-rds-database-instance.html#cfn-rds-dbinstance-dbinstanceclass">DBInstanceClass</a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-properties-rds-database-instance.html#cfn-rds-dbinstance-dbinstanceidentifier"><code class="literal">DBInstanceIdentifier</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-properties-rds-database-instance.html#cfn-rds-dbinstance-dbname">DBName</a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-properties-rds-database-instance.html#cfn-rds-dbinstance-dbparametergroupname">DBParameterGroupName</a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-properties-rds-database-instance.html#cfn-rds-dbinstance-dbsecuritygroups">DBSecurityGroups</a>:
+    - <em class="replaceable"><code>String</code></em>
+  <a href="aws-properties-rds-database-instance.html#cfn-rds-dbinstance-dbsnapshotidentifier">DBSnapshotIdentifier</a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-properties-rds-database-instance.html#cfn-rds-dbinstance-dbsubnetgroupname">DBSubnetGroupName</a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-properties-rds-database-instance.html#cfn-rds-dbinstance-domain"><code class="code">Domain</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-properties-rds-database-instance.html#cfn-rds-dbinstance-domainIAMRoleName"><code class="code">DomainIAMRoleName</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-properties-rds-database-instance.html#cfn-rds-dbinstance-engine">Engine</a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-properties-rds-database-instance.html#cfn-rds-dbinstance-engineversion">EngineVersion</a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-properties-rds-database-instance.html#cfn-rds-dbinstance-iops">Iops</a>: <em class="replaceable"><code>Number</code></em>
+  <a href="aws-properties-rds-database-instance.html#cfn-rds-dbinstance-kmskeyid"><code class="literal">KmsKeyId</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-properties-rds-database-instance.html#cfn-rds-dbinstance-licensemodel">LicenseModel</a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-properties-rds-database-instance.html#cfn-rds-dbinstance-masterusername">MasterUsername</a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-properties-rds-database-instance.html#cfn-rds-dbinstance-masteruserpassword">MasterUserPassword</a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-properties-rds-database-instance.html#cfn-rds-dbinstance-monitoringinterval">MonitoringInterval</a>: <em class="replaceable"><code>Integer</code></em>
+  <a href="aws-properties-rds-database-instance.html#cfn-rds-dbinstance-monitoringrolearn">MonitoringRoleArn</a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-properties-rds-database-instance.html#cfn-rds-dbinstance-multiaz">MultiAZ</a>: <em class="replaceable"><code>Boolean</code></em>
+  <a href="aws-properties-rds-database-instance.html#cfn-rds-dbinstance-optiongroupname"><code class="literal">OptionGroupName</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-properties-rds-database-instance.html#cfn-rds-dbinstance-port">Port</a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-properties-rds-database-instance.html#cfn-rds-dbinstance-preferredbackupwindow">PreferredBackupWindow</a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-properties-rds-database-instance.html#cfn-rds-dbinstance-preferredmaintenancewindow">PreferredMaintenanceWindow</a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-properties-rds-database-instance.html#cfn-rds-dbinstance-publiclyaccessible"><code class="literal">PubliclyAccessible</code></a>: <em class="replaceable"><code>Boolean</code></em>
+  <a href="aws-properties-rds-database-instance.html#cfn-rds-dbinstance-sourcedbinstanceidentifier"><code class="literal">SourceDBInstanceIdentifier</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-properties-rds-database-instance.html#cfn-rds-dbinstance-storageencrypted"><code class="literal">StorageEncrypted</code></a>: <em class="replaceable"><code>Boolean</code></em>
+  <a href="aws-properties-rds-database-instance.html#cfn-rds-dbinstance-storagetype"><code class="literal">StorageType</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-properties-rds-database-instance.html#cfn-rds-dbinstance-tags">Tags</a>:
+    <em class="replaceable"><code>Resource Tag</code></em>
+  <a href="aws-properties-rds-database-instance.html#cfn-rds-dbinstance-timezone"><code class="code">Timezone</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-properties-rds-database-instance.html#cfn-rds-dbinstance-vpcsecuritygroups">VPCSecurityGroups</a>:
+    - <em class="replaceable"><code>String</code></em>
+</code></pre>
+                        </div><h2 id="aws-properties-rds-database-instance-prop">Properties</h2><div class="variablelist">
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <dl>
+                           
+                           <dt><a id="cfn-rds-dbinstance-allocatedstorage"></a><span class="term"><code class="literal">AllocatedStorage</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The allocated storage size, specified in gigabytes (GB).</p>
+                              
+                              <p>If any value is set in the <code class="code">Iops</code> parameter,
+                                 <code class="code">AllocatedStorage</code> must be at least 100 GB, which
+                                 corresponds to the minimum <code class="code">Iops</code> value of 1,000. If you
+                                 increase the <code class="code">Iops</code> value (in 1,000 IOPS increments), then
+                                 you must also increase the <code class="code">AllocatedStorage</code> value (in 100
+                                 GB increments).
+                              </p>
+                              
+                              <p><em>Required</em>: Conditional. This property is required unless you specify the
+                                 <code class="code">DBClusterIdentifier</code> property. In that case, do not specify this
+                                 property.
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-rds-dbinstance-allowmajorversionupgrade"></a><span class="term"><code class="literal">AllowMajorVersionUpgrade</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>If you update the <code class="code">EngineVersion</code> property to a version that&apos;s
+                                 different from the DB instance&apos;s current major version, set this property to
+                                 <code class="code">true</code>. For more information, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyDBInstance.html" target="_blank">ModifyDBInstance</a> in the
+                                 <em>Amazon Relational Database Service API Reference</em>.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: Boolean
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-rds-dbinstance-autominorversionupgrade"></a><span class="term"><code class="literal">AutoMinorVersionUpgrade</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>Indicates that minor engine upgrades are applied automatically to the DB
+                                 instance during the maintenance window. The default value is
+                                 <code class="code">true</code>.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: Boolean
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a> or <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt">some
+                                    interruptions</a>. For more information, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyDBInstance.html" target="_blank">ModifyDBInstance</a> in the
+                                 <em>Amazon Relational Database Service API Reference</em>.
+                              </p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-rds-dbinstance-availabilityzone"></a><span class="term"><code class="literal">AvailabilityZone</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The name of the Availability Zone where the DB instance is located. You cannot
+                                 set the <code class="code">AvailabilityZone</code> parameter if the
+                                 <code class="code">MultiAZ</code> parameter is set to <code class="code">true</code>.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-rds-dbinstance-backupretentionperiod"></a><span class="term"><code class="literal">BackupRetentionPeriod</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The number of days during which automatic DB snapshots are retained.
+                                 
+                              </p>
+                              
+                              <div class="aws-note">
+                                 <p class="aws-note">Important</p>
+                                 <p>If this DB instance is deleted or replaced during an update, AWS CloudFormation deletes
+                                    all automated snapshots. However, it retains manual DB snapshots.
+                                 </p>
+                              </div>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a> or <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt">some
+                                    interruptions</a>. For more information, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyDBInstance.html" target="_blank">ModifyDBInstance</a> in the
+                                 <em>Amazon Relational Database Service API Reference</em>.
+                              </p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-rds-dbinstance-charactersetname"></a><span class="term"><code class="literal">CharacterSetName</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>For supported engines, specifies the character set to associate with the DB
+                                 instance. For more information, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html" target="_blank">Appendix: Oracle
+                                    Character Sets Supported in Amazon RDS</a> in the
+                                 <em>Amazon Relational Database Service User Guide</em>.
+                              </p>
+                              
+                              <p>If you specify the <code class="code">DBSnapshotIdentifier</code> or
+                                 <code class="code">SourceDBInstanceIdentifier</code> property, do not specify this property.
+                                 The value is inherited from the snapshot or source DB instance.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-rds-dbinstance-copytagstosnapshot"></a><span class="term"><code class="code">CopyTagsToSnapshot</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>Indicates whether to copy all of the user-defined tags from the DB instance to
+                                 snapshots of the DB instance. By default, Amazon RDS doesn&apos;t copy tags to snapshots.
+                                 Amazon RDS doesn&apos;t copy tags with the <code class="code">aws::</code> prefix unless it&apos;s the DB
+                                 instance&apos;s final snapshot (the snapshot when you delete the DB instance).
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: Boolean
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-rds-dbinstance-dbclusteridentifier"></a><span class="term"><code class="code">DBClusterIdentifier</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The name of an existing DB cluster that this instance will be associated with.
+                                 If you specify this property, specify <code class="code">aurora</code> for the
+                                 <code class="code">Engine</code> property and do not specify any of the following
+                                 properties: <code class="code">AllocatedStorage</code>, <code class="code">BackupRetentionPeriod</code>,
+                                 <code class="code">CharacterSetName</code>, <code class="code">DBSecurityGroups</code>,
+                                 <code class="code">PreferredBackupWindow</code>, <code class="code">PreferredMaintenanceWindow</code>,
+                                 <code class="code">Port</code>, <code class="code">SourceDBInstanceIdentifier</code>, or
+                                 <code class="code">StorageType</code>.
+                              </p>
+                              
+                              <p>Amazon RDS assigns the first DB instance in the cluster as the primary, and
+                                 additional DB instances as replicas.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-rds-dbinstance-dbinstanceclass"></a><span class="term"><code class="literal">DBInstanceClass</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The name of the compute and memory capacity classes of the DB instance.</p>
+                              
+                              <p><em>Required</em>: Yes
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt">Some interruptions</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-rds-dbinstance-dbinstanceidentifier"></a><span class="term"><code class="literal">DBInstanceIdentifier</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>A name for the DB instance. If you specify a name, AWS CloudFormation converts it
+                                 to lower
+                                 case. If you don&apos;t specify a name, AWS CloudFormation generates a unique physical
+                                 ID and uses
+                                 that ID for the DB instance. For more information, see <a href="aws-properties-name.html">Name Type</a>.
+                              </p>
+                              <div class="aws-note">
+                                 <p class="aws-note">Important</p>
+                                 <p>If you specify a name, you cannot perform updates that require replacement of this
+                                    resource.
+                                    You can perform updates that require no or some interruption. If you must replace
+                                    the resource, specify a new name.
+                                 </p>
+                              </div>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-rds-dbinstance-dbname"></a><span class="term"><code class="literal">DBName</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The name of the DB instance that was provided at the time of creation, if one
+                                 was specified. This same name is returned for the life of the DB instance.
+                              </p>
+                              
+                              <div class="aws-note">
+                                 <p class="aws-note">Important</p>
+                                 <p>If you specify the <code class="code"><a href="aws-properties-rds-database-instance.html#cfn-rds-dbinstance-dbsnapshotidentifier">DBSnapshotIdentifier</a></code> property, AWS CloudFormation ignores this property.
+                                 </p>
+                                 <p>If you restore DB instances from snapshots, this property doesn&apos;t apply to
+                                    the MySQL, PostgreSQL, or MariaDB engines.
+                                 </p>
+                              </div>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-rds-dbinstance-dbparametergroupname"></a><span class="term"><code class="literal">DBParameterGroupName</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The name of an existing DB parameter group or a reference to an <a href="aws-properties-rds-dbparametergroup.html">AWS::RDS::DBParameterGroup</a>
+                                 resource created in the template.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a> or <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt">some
+                                    interruptions</a>. If any of the data members of the referenced parameter
+                                 group are changed during an update, the DB instance might need to be restarted,
+                                 causing some interruption. If the parameter group contains static parameters,
+                                 whether they were changed or not, an update triggers a reboot.
+                              </p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-rds-dbinstance-dbsecuritygroups"></a><span class="term"><code class="literal">DBSecurityGroups</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>A list of the DB security groups to assign to the DB instance. The list can
+                                 include both the name of existing DB security groups or references to <a href="aws-properties-rds-security-group.html">AWS::RDS::DBSecurityGroup</a>
+                                 resources created in the template.
+                              </p>
+                              
+                              <p>If you set <code class="code">DBSecurityGroups</code>, you must not set <a href="aws-properties-rds-database-instance.html#cfn-rds-dbinstance-vpcsecuritygroups">VPCSecurityGroups</a>, and
+                                 vice-versa.
+                              </p>
+                              
+                              <div class="aws-note">
+                                 <p class="aws-note">Important</p>
+                                 <p>If you specify this property, AWS CloudFormation sends only the following properties
+                                    (if specified) to Amazon RDS: 
+                                 </p>
+                                 <div class="itemizedlist">
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    <ul class="itemizedlist" type="disc">
+                                       <li class="listitem">
+                                          
+                                          <p><code class="code">AllocatedStorage</code></p>
+                                          
+                                       </li>
+                                       <li class="listitem">
+                                          
+                                          <p><code class="code">AutoMinorVersionUpgrade</code></p>
+                                          
+                                       </li>
+                                       <li class="listitem">
+                                          
+                                          <p><code class="code">AvailabilityZone</code></p>
+                                          
+                                       </li>
+                                       <li class="listitem">
+                                          
+                                          <p><code class="code">BackupRetentionPeriod</code></p>
+                                          
+                                       </li>
+                                       <li class="listitem">
+                                          
+                                          <p><code class="code">CharacterSetName</code></p>
+                                          
+                                       </li>
+                                       <li class="listitem">
+                                          
+                                          <p><code class="code">DbInstanceClass</code></p>
+                                          
+                                       </li>
+                                       <li class="listitem">
+                                          
+                                          <p><code class="code">DbName</code></p>
+                                          
+                                       </li>
+                                       <li class="listitem">
+                                          
+                                          <p><code class="code">DbParameterGroupName</code></p>
+                                          
+                                       </li>
+                                       <li class="listitem">
+                                          
+                                          <p><code class="code">DbSecurityGroups</code></p>
+                                          
+                                       </li>
+                                       <li class="listitem">
+                                          
+                                          <p><code class="code">DbSubnetGroupName</code></p>
+                                          
+                                       </li>
+                                       <li class="listitem">
+                                          
+                                          <p><code class="code">Engine</code></p>
+                                          
+                                       </li>
+                                       <li class="listitem">
+                                          
+                                          <p><code class="code">EngineVersion</code></p>
+                                          
+                                       </li>
+                                       <li class="listitem">
+                                          
+                                          <p><code class="code">Iops</code></p>
+                                          
+                                       </li>
+                                       <li class="listitem">
+                                          
+                                          <p><code class="code">LicenseModel</code></p>
+                                          
+                                       </li>
+                                       <li class="listitem">
+                                          
+                                          <p><code class="code">MasterUsername</code></p>
+                                          
+                                       </li>
+                                       <li class="listitem">
+                                          
+                                          <p><code class="code">MasterUserPassword</code></p>
+                                          
+                                       </li>
+                                       <li class="listitem">
+                                          
+                                          <p><code class="code">MultiAZ</code></p>
+                                          
+                                       </li>
+                                       <li class="listitem">
+                                          
+                                          <p><code class="code">OptionGroupName</code></p>
+                                          
+                                       </li>
+                                       <li class="listitem">
+                                          
+                                          <p><code class="code">PreferredBackupWindow</code></p>
+                                          
+                                       </li>
+                                       <li class="listitem">
+                                          
+                                          <p><code class="code">PreferredMaintenanceWindow</code></p>
+                                          
+                                       </li>
+                                    </ul>
+                                 </div>
+                                 <p>All other properties are ignored. Specify a VPC security group if you want
+                                    to submit other properties, such as <code class="code">StorageType</code>,
+                                    <code class="code">StorageEncrypted</code>, or <code class="code">KmsKeyId</code>. If you&apos;re already
+                                    using the <code class="code">DBSecurityGroups</code> property, you can&apos;t use these other
+                                    properties by updating your DB instance to use a VPC security group. You must
+                                    recreate the DB instance.
+                                 </p>
+                              </div>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: List of strings
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-rds-dbinstance-dbsnapshotidentifier"></a><span class="term"><code class="literal">DBSnapshotIdentifier</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The name or ARN of the DB snapshot used to restore the DB instance. If you are
+                                 restoring from a shared manual DB snapshot, you must specify the Amazon Resource
+                                 Name (ARN) of the snapshot.
+                              </p>
+                              
+                              <p>By specifying this property, you can create a DB instance from the specified DB
+                                 snapshot. If the <code class="code">DBSnapshotIdentifier</code> property is an empty string or
+                                 the <code class="code">AWS::RDS::DBInstance</code> declaration has no
+                                 <code class="code">DBSnapshotIdentifier</code> property, AWS CloudFormation creates a new database. If
+                                 the property contains a value (other than an empty string), AWS CloudFormation creates
+                                 a
+                                 database from the specified snapshot. If a snapshot with the specified name does
+                                 not exist, AWS CloudFormation can&apos;t create the database and it rolls the back the
+                                 stack.
+                              </p>
+                              
+                              <p>Some DB instance properties are not valid when you restore from a snapshot,
+                                 such as the <code class="code">MasterUsername</code> and <code class="code">MasterUserPassword</code>
+                                 properties. For information about the properties that you can specify, see the
+                                 <a href="http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_RestoreDBInstanceFromDBSnapshot.html" target="_blank">RestoreDBInstanceFromDBSnapshot</a> action in the
+                                 <em>Amazon Relational Database Service API Reference</em>.
+                              </p>
+                              
+                              <div class="aws-note">
+                                 <p class="aws-note">Important</p>
+                                 <p>If you specify this property, AWS CloudFormation ignores the <code class="code"><a href="aws-properties-rds-database-instance.html#cfn-rds-dbinstance-dbname">DBName</a></code> property.
+                                 </p>
+                              </div>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-rds-dbinstance-dbsubnetgroupname"></a><span class="term"><code class="literal">DBSubnetGroupName</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>A DB subnet group to associate with the DB instance.</p>
+                              
+                              <p>If there is no DB subnet group, then the instance is not a VPC DB
+                                 instance.
+                              </p>
+                              
+                              <p>For more information about using Amazon RDS in a VPC, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html" target="_blank">Using Amazon RDS
+                                    with Amazon Virtual Private Cloud (VPC)</a> in the
+                                 <em>Amazon Relational Database Service Developer Guide</em>.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-rds-dbinstance-domain"></a><span class="term"><code class="code">Domain</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>For an Amazon RDS DB instance that is running Microsoft SQL Server, the Active Directory
+                                 directory ID to create the instance in. Amazon RDS uses Windows Authentication to
+                                 authenticate users that connect to the DB instance. For more information, see
+                                 <a href="http://docs.aws.amazon.com/AmazonRDS/latest/DeveloperGuide/USER_SQLServerWinAuth.html" target="_blank">Using Windows
+                                    Authentication with an Amazon RDS DB Instance Running Microsoft SQL Server</a>
+                                 in the <em>Amazon Relational Database Service User Guide</em>.
+                              </p>
+                              
+                              <p>If you specify this property, you must specify a SQL Server engine for the
+                                 <code class="code">Engine</code> property.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-rds-dbinstance-domainIAMRoleName"></a><span class="term"><code class="code">DomainIAMRoleName</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The name of an IAM role that Amazon RDS uses when calling the Directory Service
+                                 APIs.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-rds-dbinstance-engine"></a><span class="term"><code class="literal">Engine</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The database engine that the DB instance uses. This property is optional when
+                                 you specify the <code class="code">DBSnapshotIdentifier</code> property to create DB
+                                 instances.
+                              </p>
+                              
+                              <p>For valid values, see the <code class="code">Engine</code> parameter of the <a href="http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html" target="_blank">CreateDBInstance</a> action in the
+                                 <em>Amazon Relational Database Service API Reference</em>.
+                              </p>
+                              
+                              <p><em>Required</em>: Conditional
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-rds-dbinstance-engineversion"></a><span class="term"><code class="literal">EngineVersion</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The version number of the database engine that the DB instance uses.</p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt">Some interruptions</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-rds-dbinstance-iops"></a><span class="term"><code class="literal">Iops</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The number of I/O operations per second (IOPS) that the database provisions.
+                                 The value must be equal to or greater than <code class="code">1000</code>.
+                              </p>
+                              
+                              <p>If you specify this property, you must follow the range of allowed ratios of
+                                 your requested IOPS rate to the amount of storage that you allocate (IOPS to
+                                 allocated storage).  For example, you can provision an Oracle database instance
+                                 with <code class="code">1000</code> IOPS and <code class="code">200</code> GB of storage (a ratio of 5:1) or
+                                 specify 2000 IOPS with 200 GB of storage (a ratio of 10:1). For more information,
+                                 see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/DeveloperGuide/CHAP_Storage.html#USER_PIOPS" target="_blank">Amazon RDS Provisioned IOPS
+                                    Storage to Improve Performance</a> in the
+                                 <em>Amazon Relational Database Service User Guide</em>.
+                              </p>
+                              
+                              <p><em>Required</em>: Conditional. If you specify <code class="code">io1</code> for the
+                                 <code class="code">StorageType</code> property, you must specify this property.
+                              </p>
+                              
+                              <p><em>Type</em>: Number
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-rds-dbinstance-kmskeyid"></a><span class="term"><code class="literal">KmsKeyId</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The ARN of the AWS Key Management Service (AWS KMS) master key that is used to encrypt
+                                 the DB
+                                 instance, such as
+                                 <code class="code">arn:aws:kms:us-east-1:012345678910:key/abcd1234-a123-456a-a12b-a123b4cd56ef</code>.
+                                 If you enable the <code class="code">StorageEncrypted</code> property but don&apos;t specify this
+                                 property, AWS CloudFormation uses the default master key. If you specify this property,
+                                 you
+                                 must set the <code class="code">StorageEncrypted</code> property to <code class="code">true</code>.
+                              </p>
+                              
+                              <p>If you specify the <code class="code">DBSnapshotIdentifier</code> or
+                                 <code class="code">SourceDBInstanceIdentifier</code> property, do not specify this property.
+                                 The value is inherited from the snapshot or source database instance.
+                              </p>
+                              
+                              <div class="aws-note">
+                                 <p class="aws-note">Note</p>
+                                 <p>If you specify <code class="code">DBSecurityGroups</code>, AWS CloudFormation ignores this property.
+                                    To specify both a security group and this property, you must use a VPC security
+                                    group. For more information about Amazon RDS and VPC, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html" target="_blank">Using Amazon RDS with Amazon VPC</a> in the
+                                    <em>Amazon Relational Database Service User Guide</em>.
+                                 </p>
+                              </div>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-rds-dbinstance-licensemodel"></a><span class="term"><code class="literal">LicenseModel</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The license model of the DB instance.</p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-rds-dbinstance-masterusername"></a><span class="term"><code class="literal">MasterUsername</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The master user name for the DB instance.</p>
+                              
+                              <div class="aws-note">
+                                 <p class="aws-note">Note</p>
+                                 <p>If you specify the <code class="code">SourceDBInstanceIdentifier</code> or
+                                    <code class="code">DBSnapshotIdentifier</code> property, do not specify this property.
+                                    The value is inherited from the source DB instance or snapshot.
+                                 </p>
+                              </div>
+                              
+                              <p><em>Required</em>: Conditional
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-rds-dbinstance-masteruserpassword"></a><span class="term"><code class="literal">MasterUserPassword</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The master password for the DB instance.</p>
+                              
+                              <div class="aws-note">
+                                 <p class="aws-note">Note</p>
+                                 <p>If you specify the <code class="code">SourceDBInstanceIdentifier</code> or
+                                    <code class="code">DBSnapshotIdentifier</code> property, do not specify this property.
+                                    The value is inherited from the source DB instance or snapshot.
+                                 </p>
+                              </div>
+                              
+                              <p><em>Required</em>: Conditional
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-rds-dbinstance-monitoringinterval"></a><span class="term"><code class="code">MonitoringInterval</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The interval, in seconds, between points when Amazon RDS collects enhanced
+                                 monitoring metrics for the DB instance. To disable metrics collection, specify
+                                 <code class="code">0</code>.
+                              </p>
+                              
+                              <p>For default and valid values, see the <code class="code">MonitoringInterval</code> parameter
+                                 for the <a href="http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html" target="_blank">CreateDBInstance</a> action in the
+                                 <em>Amazon Relational Database Service API Reference</em>.
+                              </p>
+                              
+                              <p><em>Required</em>: Conditional. If you specify the <code class="code">MonitoringRoleArn</code>
+                                 property, specify a value other than <code class="code">0</code> for
+                                 <code class="code">MonitoringInterval</code>.
+                              </p>
+                              
+                              <p><em>Type</em>: Integer
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a> or <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt">some
+                                    interruptions</a>. For more information, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyDBInstance.html" target="_blank">ModifyDBInstance</a> in the
+                                 <em>Amazon Relational Database Service API Reference</em>.
+                              </p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-rds-dbinstance-monitoringrolearn"></a><span class="term"><code class="code">MonitoringRoleArn</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The ARN of the AWS Identity and Access Management (IAM) role that permits Amazon RDS
+                                 to send enhanced
+                                 monitoring metrics to Amazon CloudWatch, for example,
+                                 <code class="code">arn:aws:iam:123456789012:role/emaccess</code>. For information on creating a
+                                 monitoring role, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole" target="_blank">To create an IAM
+                                    role for Amazon RDS Enhanced Monitoring</a> in the
+                                 <em>Amazon Relational Database Service User Guide</em>.
+                              </p>
+                              
+                              <p><em>Required</em>: Conditional. If you specify a value other than <code class="code">0</code> for
+                                 the <code class="code">MonitoringInterval</code> property, specify a value for
+                                 <code class="code">MonitoringRoleArn</code>.
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-rds-dbinstance-multiaz"></a><span class="term"><code class="literal">MultiAZ</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>Specifies if the database instance is a multiple Availability Zone deployment. You
+                                 cannot set the <code class="code">AvailabilityZone</code> parameter if the <code class="code">MultiAZ</code> parameter is set to true.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: Boolean
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-rds-dbinstance-optiongroupname"></a><span class="term"><code class="literal">OptionGroupName</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The option group that this DB instance is associated with.</p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-rds-dbinstance-port"></a><span class="term"><code class="literal">Port</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The port for the instance.</p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-rds-dbinstance-preferredbackupwindow"></a><span class="term"><code class="literal">PreferredBackupWindow</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The daily time range during which automated backups are performed if automated
+                                 backups are enabled, as determined by the <code class="code">BackupRetentionPeriod</code>
+                                 property. For valid values, see the <code class="code">PreferredBackupWindow</code> parameter
+                                 for the <a href="http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html" target="_blank">CreateDBInstance</a> action in the
+                                 <em>Amazon Relational Database Service API Reference</em>.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-rds-dbinstance-preferredmaintenancewindow"></a><span class="term"><code class="literal">PreferredMaintenanceWindow</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The weekly time range (in UTC) during which system maintenance can occur. For valid
+                                 values, see the <code class="code">PreferredMaintenanceWindow</code> parameter for the <a href="http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html" target="_blank">CreateDBInstance</a> action in the <em>Amazon Relational Database Service API Reference</em>.
+                              </p>
+                              <div class="aws-note">
+                                 <p class="aws-note">Note</p>
+                                 <p>This property applies when AWS CloudFormation initially creates the DB instance. If
+                                    you use AWS CloudFormation to update the DB instance, those updates are applied
+                                    immediately.
+                                 </p>
+                              </div>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a> or <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt">some
+                                    interruptions</a>. For more information, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyDBInstance.html" target="_blank">ModifyDBInstance</a> in the
+                                 <em>Amazon Relational Database Service API Reference</em>.
+                              </p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-rds-dbinstance-publiclyaccessible"></a><span class="term"><code class="literal">PubliclyAccessible</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>Indicates whether the DB instance is an Internet-facing instance. If you
+                                 specify <code class="code">true</code>, AWS CloudFormation creates an instance with a publicly resolvable
+                                 DNS name, which resolves to a public IP address. If you specify
+                                 <code class="code">false</code>, AWS CloudFormation creates an internal instance with a DNS name that
+                                 resolves to a private IP address. 
+                              </p>
+                              
+                              <p>The default behavior value depends on your VPC setup and the database subnet
+                                 group. For more information, see the <code class="code">PubliclyAccessible</code> parameter in
+                                 <a href="http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html" target="_blank">CreateDBInstance</a> in the <em>Amazon Relational Database Service API Reference</em>.
+                              </p>
+                              
+                              <p>If this resource has a public IP address and is also in a VPC that is defined in the
+                                 same template, you must use the
+                                 <code class="code">DependsOn</code> attribute to declare a dependency on the VPC-gateway attachment. For more information,
+                                 see <a href="aws-attribute-dependson.html">DependsOn Attribute</a>.
+                              </p>
+                              
+                              <div class="aws-note">
+                                 <p class="aws-note">Note</p>
+                                 <p>If you specify <code class="code">DBSecurityGroups</code>, AWS CloudFormation ignores this property.
+                                    To specify a security group and this property, you must use a VPC security
+                                    group. For more information about Amazon RDS and VPC, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html" target="_blank">Using Amazon RDS with Amazon VPC</a> in the
+                                    <em>Amazon Relational Database Service User Guide</em>.
+                                 </p>
+                              </div>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: Boolean
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-rds-dbinstance-sourcedbinstanceidentifier"></a><span class="term"><code class="literal">SourceDBInstanceIdentifier</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>If you want to create a read replica DB instance, specify the ID of the source
+                                 DB instance. Each DB instance can have a limited number of read replicas. For more
+                                 information, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/DeveloperGuide/USER_ReadRepl.html" target="_blank">Working with Read
+                                    Replicas</a> in the <em>Amazon Relational Database Service Developer Guide</em>.
+                              </p>
+                              
+                              <p>The <code class="code">SourceDBInstanceIdentifier</code> property determines whether a DB
+                                 instance is a read replica. If you remove the
+                                 <code class="code">SourceDBInstanceIdentifier</code> property from your template and then
+                                 update your stack, AWS CloudFormation deletes the read replica and creates a new DB
+                                 instance
+                                 (not a read replica).
+                              </p>
+                              
+                              <div class="aws-note">
+                                 <p class="aws-note">Important</p>
+                                 <div class="itemizedlist">
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    <ul class="itemizedlist" type="disc">
+                                       <li class="listitem">
+                                          
+                                          
+                                          <p>If you specify a source DB instance that uses VPC security groups, we
+                                             recommend that you specify the <code class="code">VPCSecurityGroups</code> property.
+                                             If you don&apos;t specify the property, the read replica inherits the value of
+                                             the <code class="code">VPCSecurityGroups</code> property from the source DB when you
+                                             create the replica. However, if you update the stack, AWS CloudFormation reverts the
+                                             replica&apos;s <code class="code">VPCSecurityGroups</code> property to the default value
+                                             because it&apos;s not defined in the stack&apos;s template. This change might cause
+                                             unexpected issues.
+                                          </p>
+                                          
+                                          
+                                       </li>
+                                       <li class="listitem">
+                                          
+                                          <p>Read replicas do not support deletion policies. AWS CloudFormation ignores any
+                                             deletion policy that&apos;s associated with a read replica.
+                                          </p>
+                                          
+                                       </li>
+                                       <li class="listitem">
+                                          
+                                          <p>If you specify <code class="code">SourceDBInstanceIdentifier</code>, do not set the
+                                             <code class="code">MultiAZ</code> property to <code class="code">true</code> and do not specify
+                                             the <code class="code">DBSnapshotIdentifier</code> property. You cannot deploy read
+                                             replicas in multiple Availability Zones, and you cannot create a read
+                                             replica from a snapshot.
+                                          </p>
+                                          
+                                       </li>
+                                       <li class="listitem">
+                                          
+                                          <p>Do not set the <code class="code">BackupRetentionPeriod</code>,
+                                             <code class="code">DBName</code>, <code class="code">MasterUsername</code>,
+                                             <code class="code">MasterUserPassword</code>, and
+                                             <code class="code">PreferredBackupWindow</code> properties. The database attributes
+                                             are inherited from the source DB instance, and backups are disabled for
+                                             read replicas.
+                                          </p>
+                                          
+                                       </li>
+                                       <li class="listitem">
+                                          
+                                          <p>If the source DB instance is in a different region than the read
+                                             replica, specify an ARN for a valid DB instance. For more information,
+                                             see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html#USER_Tagging.ARN" target="_blank">Constructing a Amazon RDS Amazon Resource Name (ARN)</a> in the
+                                             <em>Amazon Relational Database Service User Guide</em>.
+                                          </p>
+                                          
+                                       </li>
+                                       <li class="listitem">
+                                          
+                                          <p>For DB instances in Amazon Aurora clusters, do not specify this
+                                             property. Amazon RDS automatically assigns writer and reader DB
+                                             instances.
+                                          </p>
+                                          
+                                       </li>
+                                    </ul>
+                                 </div>
+                              </div>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-rds-dbinstance-storageencrypted"></a><span class="term"><code class="literal">StorageEncrypted</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>Indicates whether the DB instance is encrypted.</p>
+                              
+                              <p>If you specify the <code class="code">DBClusterIdentifier</code>,
+                                 <code class="code">DBSnapshotIdentifier</code>, or <code class="code">SourceDBInstanceIdentifier</code>
+                                 property, do not specify this property. The value is inherited from the cluster,
+                                 snapshot, or source DB instance.
+                              </p>
+                              
+                              <p><em>Required</em>: Conditional. If you specify the <code class="code">KmsKeyId</code> property, you
+                                 must enable encryption.
+                              </p>
+                              
+                              <p><em>Type</em>: Boolean
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-rds-dbinstance-storagetype"></a><span class="term"><code class="literal">StorageType</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The storage type associated with this DB instance.</p>
+                              
+                              <p>For the default and valid values, see the <code class="code">StorageType</code> parameter of
+                                 the <a href="http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html" target="_blank">CreateDBInstance</a> action in the
+                                 <em>Amazon Relational Database Service API Reference</em>.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt">Some interruptions</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-rds-dbinstance-tags"></a><span class="term"><code class="literal">Tags</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>An arbitrary set of tags (key&#x2013;value pairs) for this DB instance.</p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: <a href="aws-properties-resource-tags.html">AWS CloudFormation Resource Tags</a></p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-rds-dbinstance-timezone"></a><span class="term"><code class="code">Timezone</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The time zone of the DB instance, which you can specify to match the time zone
+                                 of your applications. To see which engines supports time zones, see the
+                                 <code class="code">Timezone</code> parameter for the <a href="http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html" target="_blank">CreateDBInstance</a> action in the
+                                 <em>Amazon Relational Database Service API Reference</em>.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-rds-dbinstance-vpcsecuritygroups"></a><span class="term"><code class="literal">VPCSecurityGroups</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>A list of the VPC security group IDs to assign to the DB instance. The list can
+                                 include both the physical IDs of existing VPC security groups and references to
+                                 <a href="aws-properties-ec2-security-group.html">AWS::EC2::SecurityGroup</a> resources created in the
+                                 template.
+                              </p>
+                              
+                              <p>If you set <code class="code">VPCSecurityGroups</code>, you must not set <a href="aws-properties-rds-database-instance.html#cfn-rds-dbinstance-dbsecuritygroups">DBSecurityGroups</a>, and vice
+                                 versa.
+                              </p>
+                              
+                              <div class="aws-note">
+                                 <p class="aws-note">Important</p>
+                                 <p>You
+                                    can migrate a
+                                    DB
+                                    instance in your stack from an RDS DB security group to a VPC security group, but
+                                    keep
+                                    the
+                                    following in mind:
+                                 </p>
+                                 <div class="itemizedlist">
+                                    
+                                    
+                                    
+                                    
+                                    <ul class="itemizedlist" type="disc">
+                                       <li class="listitem">
+                                          
+                                          <p>You cannot revert to using an RDS security group after you
+                                             establish a VPC security group membership.
+                                          </p>
+                                          
+                                       </li>
+                                       <li class="listitem">
+                                          
+                                          <p>When you migrate your DB instance to VPC security groups, if your
+                                             stack update rolls back because the DB instance update fails, or because
+                                             an update fails in another AWS CloudFormation resource, the rollback will fail because
+                                             it cannot revert to an RDS security group.
+                                          </p>
+                                          
+                                       </li>
+                                       <li class="listitem">
+                                          
+                                          <p>To use the properties that are available when you use a VPC security
+                                             group, you must recreate the DB instance. If you don&apos;t, AWS CloudFormation submits
+                                             only the property values that are listed in the <a href="aws-properties-rds-database-instance.html#cfn-rds-dbinstance-dbsecuritygroups">DBSecurityGroups</a>
+                                             property.
+                                          </p>
+                                          
+                                       </li>
+                                    </ul>
+                                 </div>
+                                 <p> To avoid this situation, migrate your DB instance to using VPC security
+                                    groups only when that is the only change in your stack template.
+                                 </p>
+                              </div>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: List of strings
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                        </dl>
+                     </div><h2 id="w2ab2c19c12d708c15">Updating and Deleting AWS::RDS::DBInstance Resources</h2><p>When properties labeled &quot;<em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a>&quot; are updated, AWS CloudFormation first creates a
+                        replacement DB instance, then changes references from other dependent resources to
+                        point to
+                        the replacement DB instance, and finally deletes the old DB instance.
+                     </p><div class="aws-note">
+                        <p class="aws-note">Important</p>
+                        <p>We highly recommend that you take a snapshot of the database before updating the
+                           stack. If you don&apos;t, you will lose the data when AWS CloudFormation replaces your
+                           DB instance. To
+                           preserve your data, perform the following procedure:
+                        </p>
+                        <div class="orderedlist">
+                           
+                           
+                           
+                           
+                           
+                           <ol>
+                              <li>
+                                 
+                                 <p>Deactivate any applications that are using the DB instance so that there is no
+                                    activity on the DB instance.
+                                 </p>
+                                 
+                              </li>
+                              <li>
+                                 
+                                 <p>Create a snapshot of the DB instance. For more information about creating DB
+                                    snapshots, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CreateSnapshot.html" target="_blank">Creating a DB snapshot</a>.
+                                 </p>
+                                 
+                              </li>
+                              <li>
+                                 
+                                 <p>If you want to restore your instance using a DB snapshot, modify the updated
+                                    template with your DB instance changes and add the
+                                    <code class="code">DBSnapshotIdentifier</code> property with the ID of the DB
+                                    snapshot that you want to use.
+                                 </p>
+                                 
+                              </li>
+                              <li>
+                                 
+                                 <p>Update the stack.</p>
+                                 
+                              </li>
+                           </ol>
+                        </div>
+                     </div><p>For more information about updating other properties of this resource, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyDBInstance.html" target="_blank">ModifyDBInstance</a>. For more information about updating stacks, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks.html">AWS CloudFormation Stacks Updates</a>.
+                     </p><p>You can set a deletion policy for your DB instance to control how AWS CloudFormation
+                        handles the
+                        instance when the stack is deleted. For Amazon RDS DB instances, you can choose to
+                        <em>retain</em> the instance, to <em>delete</em> the instance,
+                        or to <em>create a snapshot</em> of the instance. For more information, see
+                        <a href="aws-attribute-deletionpolicy.html">DeletionPolicy Attribute</a>.
+                     </p><h2 id="aws-properties-rds-database-instance-ref">Return Values</h2><h3 id="w2ab2c19c12d708c17b3">Ref</h3><p>When you provide the RDS DB instance&apos;s logical name to the <code class="code">Ref</code> intrinsic
+                        function, <code class="code">Ref</code> will return the <code class="code">DBInstanceIdentifier</code>. For
+                        example: <code class="code">mystack-mydb-ea5ugmfvuaxg</code>.
+                     </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
+                     </p><h3 id="w2ab2c19c12d708c17b5">Fn::GetAtt</h3><p><code class="code">Fn::GetAtt</code> returns a value for a specified attribute of this type.
+                        The following are the available attributes and sample return values.
+                     </p><div class="itemizedlist">
+                        
+                        
+                        
+                        <ul class="itemizedlist" type="disc">
+                           <li class="listitem">
+                              
+                              <p><b>Endpoint.Address</b></p>
+                              
+                              <p>The connection endpoint for the database. For example:
+                                 <code class="code">mystack-mydb-1apw1j4phylrk.cg034hpkmmjt.<span>us-east-1</span>.rds.amazonaws.com</code>.
+                              </p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p><b>Endpoint.Port</b></p>
+                              
+                              <p>The port number on which the database accepts connections. For example:
+                                 <code class="code">3306</code>.
+                              </p>
+                              
+                           </li>
+                        </ul>
+                     </div><p>For more information about using <code class="code">Fn::GetAtt</code>, see <a href="intrinsic-function-reference-getatt.html">Fn::GetAtt</a>.
+                     </p><h2 id="w2ab2c19c12d708c19">Examples</h2><h3 id="w2ab2c19c12d708c19b3">DBInstance with a set MySQL version, Tags and DeletionPolicy</h3><p>This example shows how to set the MySQL version that has a <code class="code"><a href="aws-attribute-deletionpolicy.html">DeletionPolicy Attribute</a></code> set. With the
+                        <code class="code">DeletionPolicy</code> set to <code class="code">Snapshot</code>, AWS CloudFormation will take a snapshot
+                        of this DB instance before deleting it during stack deletion. A tag that contains
+                        a
+                        friendly name for the database is also set.
+                     </p><div id="JSON" name="JSON" class="section langfilter">
+                        <h4 id="aws-resource-rds-dbinstance-example.json">JSON</h4>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">
+&quot;MyDB&quot; : {
+   &quot;Type&quot; : &quot;AWS::RDS::DBInstance&quot;,
+   &quot;Properties&quot; : {
+      &quot;DBName&quot; : { &quot;Ref&quot; : &quot;DBName&quot; },
+      &quot;AllocatedStorage&quot; : { &quot;Ref&quot; : &quot;DBAllocatedStorage&quot; },
+      &quot;DBInstanceClass&quot; : { &quot;Ref&quot; : &quot;DBInstanceClass&quot; },
+      &quot;Engine&quot; : &quot;MySQL&quot;,
+      &quot;EngineVersion&quot; : &quot;5.5&quot;,
+      &quot;MasterUsername&quot; : { &quot;Ref&quot; : &quot;DBUser&quot; },
+      &quot;MasterUserPassword&quot; : { &quot;Ref&quot; : &quot;DBPassword&quot; },
+      &quot;Tags&quot; : [ { &quot;Key&quot; : &quot;Name&quot;, &quot;Value&quot; : &quot;My SQL Database&quot; } ]
+   },
+   &quot;DeletionPolicy&quot; : &quot;Snapshot&quot;
+}         </code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        <h4 id="aws-resource-rds-dbinstance-example.yaml">YAML</h4>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">MyDB: 
+  Type: &quot;AWS::RDS::DBInstance&quot;
+  Properties: 
+    DBName: 
+      Ref: &quot;DBName&quot;
+    AllocatedStorage: 
+      Ref: &quot;DBAllocatedStorage&quot;
+    DBInstanceClass: 
+      Ref: &quot;DBInstanceClass&quot;
+    Engine: &quot;MySQL&quot;
+    EngineVersion: &quot;5.5&quot;
+    MasterUsername: 
+      Ref: &quot;DBUser&quot;
+    MasterUserPassword: 
+      Ref: &quot;DBPassword&quot;
+    Tags: 
+      - 
+        Key: &quot;Name&quot;
+        Value: &quot;My SQL Database&quot;
+  DeletionPolicy: &quot;Snapshot&quot;</code></pre>
+                        </div><h3 id="w2ab2c19c12d708c19b5">DBInstance with provisioned IOPS</h3><p>This example sets a provisioned IOPS value in the <a href="aws-properties-rds-database-instance.html#cfn-rds-dbinstance-iops">Iops</a> property. Note that the <a href="aws-properties-rds-database-instance.html#cfn-rds-dbinstance-allocatedstorage">AllocatedStorage</a> property is set
+                        according to the 10:1 ratio between IOPS and GiBs of storage.
+                     </p><div id="JSON" name="JSON" class="section langfilter">
+                        <h4 id="aws-resource-rds-dbinstance-example2.json">JSON</h4>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="json ">
+&quot;MyDB&quot; : {
+   &quot;Type&quot; : &quot;AWS::RDS::DBInstance&quot;,
+   &quot;Properties&quot; : {
+      &quot;AllocatedStorage&quot; : &quot;100&quot;,
+      &quot;DBInstanceClass&quot; : &quot;db.m1.small&quot;,
+      &quot;Engine&quot; : &quot;MySQL&quot;,
+      &quot;EngineVersion&quot; : &quot;5.5&quot;,
+      &quot;Iops&quot; : &quot;1000&quot;,
+      &quot;MasterUsername&quot; : { &quot;Ref&quot; : &quot;DBUser&quot; },
+      &quot;MasterUserPassword&quot; : { &quot;Ref&quot; : &quot;DBPassword&quot; }
+   }
+}        </code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        <h4 id="aws-resource-rds-dbinstance-example2.yaml">YAML</h4>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="yaml ">MyDB: 
+  Type: &quot;AWS::RDS::DBInstance&quot;
+  Properties: 
+    AllocatedStorage: &quot;100&quot;
+    DBInstanceClass: &quot;db.m1.small&quot;
+    Engine: &quot;MySQL&quot;
+    EngineVersion: &quot;5.5&quot;
+    Iops: &quot;1000&quot;
+    MasterUsername: 
+      Ref: &quot;DBUser&quot;
+    MasterUserPassword: 
+      Ref: &quot;DBPassword&quot;</code></pre>
+                        </div></div>
+</body>
+</html>

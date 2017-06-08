@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="css/awsdocs.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/awsdocs.min.js"></script>
+    <meta charset="utf-8">
+</head>
+<body>
+    <div id="content" style="padding: 10px 30px;">
+    <h1 class="topictitle" id="aws-resource-elasticache-replicationgroup">AWS::ElastiCache::ReplicationGroup</h1><p>The <code class="code">AWS::ElastiCache::ReplicationGroup</code> resource creates an Amazon ElastiCache Redis
+                        replication group. A <em>replication group</em> is a
+                        collection of cache clusters, where one of the clusters is a primary read-write cluster
+                        and
+                        the others are read-only replicas. 
+                     </p><div class="highlights">
+                        <p><strong>Topics</strong></p>
+                        <ul>
+                           <li><a href="#aws-resource-elasticache-replicationgroup-syntax">Syntax</a></li>
+                           <li><a href="#w2ab2c19c12d440c11">Properties</a></li>
+                           <li><a href="#w2ab2c19c12d440c13">Return Values</a></li>
+                           <li><a href="#w2ab2c19c12d440c15">Examples</a></li>
+                        </ul>
+                     </div><h2 id="aws-resource-elasticache-replicationgroup-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-resource-elasticache-replicationgroup-syntax.json">JSON</h3>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">{
+  &quot;Type&quot; : &quot;AWS::ElastiCache::ReplicationGroup&quot;,
+  &quot;Properties&quot; : {
+    &quot;<a href="aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-automaticfailoverenabled"><code class="code">AutomaticFailoverEnabled</code></a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
+    &quot;<a href="aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-autominorversionupgrade"><code class="code">AutoMinorVersionUpgrade</code></a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
+    &quot;<a href="aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-cachenodetype"><code class="code">CacheNodeType</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-cacheparametergroupname"><code class="code">CacheParameterGroupName</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-cachesecuritygroupnames"><code class="code">CacheSecurityGroupNames</code></a>&quot; : [ <em class="replaceable"><code>String, ...</code></em> ],
+    &quot;<a href="aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-cachesubnetgroupname"><code class="code">CacheSubnetGroupName</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-engine"><code class="code">Engine</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-engineversion"><code class="code">EngineVersion</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-nodegroupconfiguration"><code class="code">NodeGroupConfiguration</code></a>&quot; : [ <em class="replaceable"><code><a href="aws-properties-elasticache-replicationgroup-nodegroupconfiguration.html">NodeGroupConfiguration</a></code></em> ],
+    &quot;<a href="aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-notificationtopicarn"><code class="code">NotificationTopicArn</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-numcacheclusters"><code class="code">NumCacheClusters</code></a>&quot; : <em class="replaceable"><code>Integer</code></em>,
+    &quot;<a href="aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-numnodegroups"><code class="code">NumNodeGroups</code></a>&quot; : <em class="replaceable"><code>Integer</code></em>,
+    &quot;<a href="aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-port"><code class="code">Port</code></a>&quot; : <em class="replaceable"><code>Integer</code></em>,
+    &quot;<a href="aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-preferredcacheclusterazs"><code class="code">PreferredCacheClusterAZs</code></a>&quot; : [ <em class="replaceable"><code>String, ...</code></em> ],
+    &quot;<a href="aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-preferredmaintenancewindow"><code class="code">PreferredMaintenanceWindow</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-primaryclusterid"><code class="code">PrimaryClusterId</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-replicaspernodegroup"><code class="code">ReplicasPerNodeGroup</code></a>&quot; : <em class="replaceable"><code>Integer</code></em>,
+    &quot;<a href="aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-replicationgroupdescription"><code class="code">ReplicationGroupDescription</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-replicationgroupid"><code class="code">ReplicationGroupId</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-securitygroupids"><code class="code">SecurityGroupIds</code></a>&quot; : [ <em class="replaceable"><code>String, ...</code></em> ],
+    &quot;<a href="aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-snapshotarns"><code class="code">SnapshotArns</code></a>&quot; : [ <em class="replaceable"><code>String, ...</code></em> ],
+    &quot;<a href="aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-snapshotname"><code class="code">SnapshotName</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-snapshotrentionlimit"><code class="code">SnapshotRetentionLimit</code></a>&quot; : <em class="replaceable"><code>Integer</code></em>,
+    &quot;<a href="aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-snapshottingclusterid"><code class="code">SnapshottingClusterId</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-snapshotwindow"><code class="code">SnapshotWindow</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-tags"><code class="code">Tags</code></a>&quot; : <em class="replaceable"><code>Resource Tag, ...</code></em>
+  }
+}</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-elasticache-replicationgroup-syntax.yaml">YAML</h3>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">Type: &quot;AWS::ElastiCache::ReplicationGroup&quot;
+Properties: 
+  <a href="aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-automaticfailoverenabled"><code class="code">AutomaticFailoverEnabled</code></a>: <em class="replaceable"><code>Boolean</code></em>
+  <a href="aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-autominorversionupgrade"><code class="code">AutoMinorVersionUpgrade</code></a>: <em class="replaceable"><code>Boolean</code></em>
+  <a href="aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-cachenodetype"><code class="code">CacheNodeType</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-cacheparametergroupname"><code class="code">CacheParameterGroupName</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-cachesecuritygroupnames"><code class="code">CacheSecurityGroupNames</code></a>:
+    - <em class="replaceable"><code>String</code></em>
+  <a href="aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-cachesubnetgroupname"><code class="code">CacheSubnetGroupName</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-engine"><code class="code">Engine</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-engineversion"><code class="code">EngineVersion</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-nodegroupconfiguration"><code class="code">NodeGroupConfiguration</code></a>:
+    - <em class="replaceable"><code><a href="aws-properties-elasticache-replicationgroup-nodegroupconfiguration.html">NodeGroupConfiguration</a></code></em>
+  <a href="aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-notificationtopicarn"><code class="code">NotificationTopicArn</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-numcacheclusters"><code class="code">NumCacheClusters</code></a>: <em class="replaceable"><code>Integer</code></em>
+  <a href="aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-numnodegroups"><code class="code">NumNodeGroups</code></a>: <em class="replaceable"><code>Integer</code></em>
+  <a href="aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-port"><code class="code">Port</code></a>: <em class="replaceable"><code>Integer</code></em>
+  <a href="aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-preferredcacheclusterazs"><code class="code">PreferredCacheClusterAZs</code></a>:
+    - <em class="replaceable"><code>String</code></em>
+  <a href="aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-preferredmaintenancewindow"><code class="code">PreferredMaintenanceWindow</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-primaryclusterid"><code class="code">PrimaryClusterId</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-replicaspernodegroup"><code class="code">ReplicasPerNodeGroup</code></a>: <em class="replaceable"><code>Integer</code></em>
+  <a href="aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-replicationgroupdescription"><code class="code">ReplicationGroupDescription</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-replicationgroupid"><code class="code">ReplicationGroupId</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-securitygroupids"><code class="code">SecurityGroupIds</code></a>:
+    - <em class="replaceable"><code>String</code></em>
+  <a href="aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-snapshotarns"><code class="code">SnapshotArns</code></a>:
+    - <em class="replaceable"><code>String</code></em>
+  <a href="aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-snapshotname"><code class="code">SnapshotName</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-snapshotrentionlimit"><code class="code">SnapshotRetentionLimit</code></a>: <em class="replaceable"><code>Integer</code></em>
+  <a href="aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-snapshottingclusterid"><code class="code">SnapshottingClusterId</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-snapshotwindow"><code class="code">SnapshotWindow</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-tags"><code class="code">Tags</code></a>
+    - <em class="replaceable"><code>Resource Tag</code></em></code></pre>
+                        </div><h2 id="w2ab2c19c12d440c11">Properties</h2><p>For more information about each property and valid values, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateReplicationGroup.html" target="_blank">CreateReplicationGroup</a> in the <em>Amazon ElastiCache API Reference
+                           Guide</em>.
+                     </p><div class="variablelist">
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <dl>
+                           
+                           <dt><a id="cfn-elasticache-replicationgroup-automaticfailoverenabled"></a><span class="term"><code class="code">AutomaticFailoverEnabled</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>Indicates whether Multi-AZ is enabled. When Multi-AZ is enabled, a read-only
+                                 replica is automatically promoted to a read-write primary cluster if the existing
+                                 primary cluster fails. If you specify <code class="code">true</code>, you must specify a value
+                                 greater than <code class="code">1</code> for the <code class="code">NumCacheClusters</code> property. By
+                                 default, AWS CloudFormation sets the value to <code class="code">true</code>.
+                              </p>
+                              
+                              <p>For Redis (clustered mode enabled) replication groups, you must enable automatic failover.</p>
+                              
+                              <p>For information about Multi-AZ constraints, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/AutoFailover.html" target="_blank">Replication with Multi-AZ and Automatic
+                                    Failover (Redis)</a> in the <em>Amazon ElastiCache User Guide</em>.
+                              </p>
+                              
+                              <div class="aws-note">
+                                 <p class="aws-note">Note</p>
+                                 <p>You cannot enable automatic failover for Redis versions earlier than 2.8.6
+                                    or for T1 and T2
+                                    cache
+                                    node types.
+                                 </p>
+                              </div>
+                              
+                              <div class="aws-note">
+                                 <p class="aws-note">Important</p>
+                                 <p>If you specify the <code class="code">PrimaryClusterId</code>, you can use only the
+                                    following additional parameters:
+                                 </p>
+                                 <div class="itemizedlist">
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    <ul class="itemizedlist" type="disc">
+                                       <li class="listitem">
+                                          
+                                          <p><code class="code">AutomaticFailoverEnabled</code></p>
+                                          
+                                       </li>
+                                       <li class="listitem">
+                                          
+                                          <p><code class="code">NodeGroupConfiguration</code></p>
+                                          
+                                       </li>
+                                       <li class="listitem">
+                                          
+                                          <p><code class="code">NumCacheClusters</code></p>
+                                          
+                                       </li>
+                                       <li class="listitem">
+                                          
+                                          <p><code class="code">NumNodeGroups</code></p>
+                                          
+                                       </li>
+                                       <li class="listitem">
+                                          
+                                          <p><code class="code">PreferredCacheClusterAZs</code></p>
+                                          
+                                       </li>
+                                       <li class="listitem">
+                                          
+                                          <p><code class="code">ReplicationGroupDescription</code></p>
+                                          
+                                       </li>
+                                    </ul>
+                                 </div>
+                              </div>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: Boolean
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-elasticache-replicationgroup-autominorversionupgrade"></a><span class="term"><code class="code">AutoMinorVersionUpgrade</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>Currently, this property isn&apos;t used by ElastiCache.</p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: Boolean
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-elasticache-replicationgroup-cachenodetype"></a><span class="term"><code class="code">CacheNodeType</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The compute and memory capacity of nodes in the node group. For valid values,
+                                 see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateReplicationGroup.html" target="_blank">CreateReplicationGroup</a> in the <em>Amazon ElastiCache API
+                                    Reference Guide</em>.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-elasticache-replicationgroup-cacheparametergroupname"></a><span class="term"><code class="code">CacheParameterGroupName</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The name of the parameter group to associate with this replication group. For
+                                 valid and default values, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateReplicationGroup.html" target="_blank">CreateReplicationGroup</a> in the <em>Amazon ElastiCache API
+                                    Reference Guide</em>.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt">Some interruptions</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-elasticache-replicationgroup-cachesecuritygroupnames"></a><span class="term"><code class="code">CacheSecurityGroupNames</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>A list of cache security group names to associate with this replication
+                                 group.
+                              </p>
+                              
+                              <div class="aws-note">
+                                 <p class="aws-note">Important</p>
+                                 <p>If you specify the <code class="code">CacheSecurityGroupNames</code> property, don&apos;t also
+                                    specify the <code class="code">SecurityGroupIds</code> property.
+                                 </p>
+                                 <p>The <code class="code">SecurityGroupIds</code> property is only for Amazon Virtual Private Cloud (Amazon VPC)
+                                    security groups. If you specify an Amazon VPC security group, the deployment
+                                    fails.
+                                 </p>
+                              </div>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: List of strings
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-elasticache-replicationgroup-cachesubnetgroupname"></a><span class="term"><code class="code">CacheSubnetGroupName</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The name of a cache subnet group to use for this replication group.</p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a> 
+                              </p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-elasticache-replicationgroup-engine"></a><span class="term"><code class="code">Engine</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The name of the cache engine to use for the cache clusters in this replication
+                                 group. Currently, you can specify only <code class="code">redis</code>.
+                              </p>
+                              
+                              <p><em>Required</em>: Yes
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-elasticache-replicationgroup-engineversion"></a><span class="term"><code class="code">EngineVersion</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The version number of the cache engine to use for the cache clusters in this
+                                 replication group.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-elasticache-replicationgroup-nodegroupconfiguration"></a><span class="term"><code class="code">NodeGroupConfiguration</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>Configuration options for the node group (shard).</p>
+                              
+                              <div class="aws-note">
+                                 <p class="aws-note">Important</p>
+                                 <p>If you specify the <code class="code">PrimaryClusterId</code>, you can use only the
+                                    following additional parameters:
+                                 </p>
+                                 <div class="itemizedlist">
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    <ul class="itemizedlist" type="disc">
+                                       <li class="listitem">
+                                          
+                                          <p><code class="code">AutomaticFailoverEnabled</code></p>
+                                          
+                                       </li>
+                                       <li class="listitem">
+                                          
+                                          <p><code class="code">NodeGroupConfiguration</code></p>
+                                          
+                                       </li>
+                                       <li class="listitem">
+                                          
+                                          <p><code class="code">NumCacheClusters</code></p>
+                                          
+                                       </li>
+                                       <li class="listitem">
+                                          
+                                          <p><code class="code">NumNodeGroups</code></p>
+                                          
+                                       </li>
+                                       <li class="listitem">
+                                          
+                                          <p><code class="code">PreferredCacheClusterAZs</code></p>
+                                          
+                                       </li>
+                                       <li class="listitem">
+                                          
+                                          <p><code class="code">ReplicationGroupDescription</code></p>
+                                          
+                                       </li>
+                                    </ul>
+                                 </div>
+                              </div>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: List of <a href="aws-properties-elasticache-replicationgroup-nodegroupconfiguration.html">Amazon ElastiCache
+                                    ReplicationGroup NodeGroupConfiguration</a></p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-elasticache-replicationgroup-notificationtopicarn"></a><span class="term"><code class="code">NotificationTopicArn</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The Amazon Resource Name (ARN) of the Amazon Simple Notification Service topic to
+                                 which notifications are
+                                 sent.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-elasticache-replicationgroup-numcacheclusters"></a><span class="term"><code class="code">NumCacheClusters</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The number of cache clusters for this replication group. If automatic failover
+                                 is enabled, you must specify a value greater than <code class="code">1</code>. For valid
+                                 values, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateReplicationGroup.html" target="_blank">CreateReplicationGroup</a> in the <em>Amazon ElastiCache API
+                                    Reference Guide</em>.
+                              </p>
+                              
+                              <p>If you specify more than one node group (shard), this property is ignored. Use
+                                 the <code class="code">ReplicasPerNodeGroup</code> property instead.
+                              </p>
+                              
+                              <div class="aws-note">
+                                 <p class="aws-note">Important</p>
+                                 <p>If you specify the <code class="code">PrimaryClusterId</code>, you can use only the
+                                    following additional parameters:
+                                 </p>
+                                 <div class="itemizedlist">
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    <ul class="itemizedlist" type="disc">
+                                       <li class="listitem">
+                                          
+                                          <p><code class="code">AutomaticFailoverEnabled</code></p>
+                                          
+                                       </li>
+                                       <li class="listitem">
+                                          
+                                          <p><code class="code">NodeGroupConfiguration</code></p>
+                                          
+                                       </li>
+                                       <li class="listitem">
+                                          
+                                          <p><code class="code">NumCacheClusters</code></p>
+                                          
+                                       </li>
+                                       <li class="listitem">
+                                          
+                                          <p><code class="code">NumNodeGroups</code></p>
+                                          
+                                       </li>
+                                       <li class="listitem">
+                                          
+                                          <p><code class="code">PreferredCacheClusterAZs</code></p>
+                                          
+                                       </li>
+                                       <li class="listitem">
+                                          
+                                          <p><code class="code">ReplicationGroupDescription</code></p>
+                                          
+                                       </li>
+                                    </ul>
+                                 </div>
+                              </div>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: Integer
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-elasticache-replicationgroup-numnodegroups"></a><span class="term"><code class="code">NumNodeGroups</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The number of node groups (shards) for this Redis (clustered mode enabled) replication
+                                 group.
+                                 For Redis (clustered mode disabled), omit this property.
+                              </p>
+                              
+                              <div class="aws-note">
+                                 <p class="aws-note">Important</p>
+                                 <p>If you specify the <code class="code">PrimaryClusterId</code>, you can use only the
+                                    following additional parameters:
+                                 </p>
+                                 <div class="itemizedlist">
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    <ul class="itemizedlist" type="disc">
+                                       <li class="listitem">
+                                          
+                                          <p><code class="code">AutomaticFailoverEnabled</code></p>
+                                          
+                                       </li>
+                                       <li class="listitem">
+                                          
+                                          <p><code class="code">NodeGroupConfiguration</code></p>
+                                          
+                                       </li>
+                                       <li class="listitem">
+                                          
+                                          <p><code class="code">NumCacheClusters</code></p>
+                                          
+                                       </li>
+                                       <li class="listitem">
+                                          
+                                          <p><code class="code">NumNodeGroups</code></p>
+                                          
+                                       </li>
+                                       <li class="listitem">
+                                          
+                                          <p><code class="code">PreferredCacheClusterAZs</code></p>
+                                          
+                                       </li>
+                                       <li class="listitem">
+                                          
+                                          <p><code class="code">ReplicationGroupDescription</code></p>
+                                          
+                                       </li>
+                                    </ul>
+                                 </div>
+                              </div>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: Integer
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-elasticache-replicationgroup-port"></a><span class="term"><code class="code">Port</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The port number on which each member of the replication group accepts
+                                 connections.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: Integer
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-elasticache-replicationgroup-preferredcacheclusterazs"></a><span class="term"><code class="code">PreferredCacheClusterAZs</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>A list of Availability Zones in which the cache clusters in this replication
+                                 group are created.
+                              </p>
+                              
+                              <div class="aws-note">
+                                 <p class="aws-note">Important</p>
+                                 <p>If you specify the <code class="code">PrimaryClusterId</code>, you can use only the
+                                    following additional parameters:
+                                 </p>
+                                 <div class="itemizedlist">
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    <ul class="itemizedlist" type="disc">
+                                       <li class="listitem">
+                                          
+                                          <p><code class="code">AutomaticFailoverEnabled</code></p>
+                                          
+                                       </li>
+                                       <li class="listitem">
+                                          
+                                          <p><code class="code">NodeGroupConfiguration</code></p>
+                                          
+                                       </li>
+                                       <li class="listitem">
+                                          
+                                          <p><code class="code">NumCacheClusters</code></p>
+                                          
+                                       </li>
+                                       <li class="listitem">
+                                          
+                                          <p><code class="code">NumNodeGroups</code></p>
+                                          
+                                       </li>
+                                       <li class="listitem">
+                                          
+                                          <p><code class="code">PreferredCacheClusterAZs</code></p>
+                                          
+                                       </li>
+                                       <li class="listitem">
+                                          
+                                          <p><code class="code">ReplicationGroupDescription</code></p>
+                                          
+                                       </li>
+                                    </ul>
+                                 </div>
+                              </div>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: List of strings
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-elasticache-replicationgroup-preferredmaintenancewindow"></a><span class="term"><code class="code">PreferredMaintenanceWindow</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The weekly time range during which system maintenance can occur. Use the
+                                 following format to specify a time range: <code class="code">ddd:hh24:mi-ddd:hh24:mi</code>
+                                 (24H Clock UTC). For example, you can specify <code class="code">sun:22:00-sun:23:30</code> for
+                                 Sunday from 10 PM to 11:30 PM.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-elasticache-replicationgroup-primaryclusterid"></a><span class="term"><code class="code">PrimaryClusterId</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The cache cluster that ElastiCache uses as the primary cluster for the replication
+                                 group. The cache cluster must have a status of <code class="code">available</code>.
+                              </p>
+                              
+                              <div class="aws-note">
+                                 <p class="aws-note">Important</p>
+                                 <p>If you specify the <code class="code">PrimaryClusterId</code>, you can use only the
+                                    following additional parameters:
+                                 </p>
+                                 <div class="itemizedlist">
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    <ul class="itemizedlist" type="disc">
+                                       <li class="listitem">
+                                          
+                                          <p><code class="code">AutomaticFailoverEnabled</code></p>
+                                          
+                                       </li>
+                                       <li class="listitem">
+                                          
+                                          <p><code class="code">NodeGroupConfiguration</code></p>
+                                          
+                                       </li>
+                                       <li class="listitem">
+                                          
+                                          <p><code class="code">NumCacheClusters</code></p>
+                                          
+                                       </li>
+                                       <li class="listitem">
+                                          
+                                          <p><code class="code">NumNodeGroups</code></p>
+                                          
+                                       </li>
+                                       <li class="listitem">
+                                          
+                                          <p><code class="code">PreferredCacheClusterAZs</code></p>
+                                          
+                                       </li>
+                                       <li class="listitem">
+                                          
+                                          <p><code class="code">ReplicationGroupDescription</code></p>
+                                          
+                                       </li>
+                                    </ul>
+                                 </div>
+                              </div>
+                              
+                              <p><em>Required</em>: Conditional. This property is optional if you specify the
+                                 <code class="code">NumCacheClusters</code>, <code class="code">NumNodeGroups</code>, or
+                                 <code class="code">ReplicasPerNodeGroup</code> properties.
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-elasticache-replicationgroup-replicaspernodegroup"></a><span class="term"><code class="code">ReplicasPerNodeGroup</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The number of replica nodes in each node group (shard). For valid values, see
+                                 <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateReplicationGroup.html" target="_blank">CreateReplicationGroup</a> in the <em>Amazon ElastiCache API
+                                    Reference Guide</em>.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: Integer
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-elasticache-replicationgroup-replicationgroupdescription"></a><span class="term"><code class="code">ReplicationGroupDescription</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>A description of the replication group.</p>
+                              
+                              <div class="aws-note">
+                                 <p class="aws-note">Important</p>
+                                 <p>If you specify the <code class="code">PrimaryClusterId</code>, you can use only the
+                                    following additional parameters:
+                                 </p>
+                                 <div class="itemizedlist">
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    <ul class="itemizedlist" type="disc">
+                                       <li class="listitem">
+                                          
+                                          <p><code class="code">AutomaticFailoverEnabled</code></p>
+                                          
+                                       </li>
+                                       <li class="listitem">
+                                          
+                                          <p><code class="code">NodeGroupConfiguration</code></p>
+                                          
+                                       </li>
+                                       <li class="listitem">
+                                          
+                                          <p><code class="code">NumCacheClusters</code></p>
+                                          
+                                       </li>
+                                       <li class="listitem">
+                                          
+                                          <p><code class="code">NumNodeGroups</code></p>
+                                          
+                                       </li>
+                                       <li class="listitem">
+                                          
+                                          <p><code class="code">PreferredCacheClusterAZs</code></p>
+                                          
+                                       </li>
+                                       <li class="listitem">
+                                          
+                                          <p><code class="code">ReplicationGroupDescription</code></p>
+                                          
+                                       </li>
+                                    </ul>
+                                 </div>
+                              </div>
+                              
+                              <p><em>Required</em>: Yes
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-elasticache-replicationgroup-replicationgroupid"></a><span class="term"><code class="code">ReplicationGroupId</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>An ID for the replication group. If you don&apos;t specify an ID, AWS CloudFormation generates
+                                 a
+                                 unique physical ID. For more information, see <a href="aws-properties-name.html">Name Type</a>.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-elasticache-replicationgroup-securitygroupids"></a><span class="term"><code class="code">SecurityGroupIds</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>A list of Amazon Virtual Private Cloud (Amazon VPC) security groups to associate with
+                                 this replication
+                                 group.
+                              </p>
+                              
+                              <div class="aws-note">
+                                 <p class="aws-note">Important</p>
+                                 <p>If you specify the <code class="code">SecurityGroupIds</code> property, don&apos;t also
+                                    specify the <code class="code">CacheSecurityGroupNames</code> property.
+                                 </p>
+                                 <p>The <code class="code">CacheSecurityGroupNames</code> property is only for EC2-Classic
+                                    security groups. If you specify an EC2-Classic security group, the deployment
+                                    fails.
+                                 </p>
+                              </div>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: List of strings
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-elasticache-replicationgroup-snapshotarns"></a><span class="term"><code class="code">SnapshotArns</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>A single-element string list that specifies an ARN of a Redis
+                                 <code>.rdb</code> snapshot file that is stored in Amazon Simple Storage Service (Amazon S3). The
+                                 snapshot file populates the node group. The Amazon S3 object name in the ARN cannot
+                                 contain commas. For example, you can specify
+                                 <code class="code">arn:aws:s3:::my_bucket/snapshot1.rdb</code>.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: List of strings
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-elasticache-replicationgroup-snapshotname"></a><span class="term"><code class="code">SnapshotName</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The name of a snapshot from which to restore data into the replication
+                                 group.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-elasticache-replicationgroup-snapshotrentionlimit"></a><span class="term"><code class="code">SnapshotRetentionLimit</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The number of days that ElastiCache retains automatic snapshots before deleting
+                                 them.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: Integer
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-elasticache-replicationgroup-snapshottingclusterid"></a><span class="term"><code class="code">SnapshottingClusterId</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The ID of the cache cluster that ElastiCache uses as the daily snapshot source for
+                                 the replication group.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-elasticache-replicationgroup-snapshotwindow"></a><span class="term"><code class="code">SnapshotWindow</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The time range (in UTC) when ElastiCache takes a daily snapshot of the node group
+                                 that you specified in the <code class="code">SnapshottingClusterId</code> property. For
+                                 example, you can specify <code class="code">05:00-09:00</code>.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-elasticache-replicationgroup-tags"></a><span class="term"><code class="code">Tags</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>An arbitrary set of tags (key&#x2013;value pairs) for this replication
+                                 group.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: <a href="aws-properties-resource-tags.html">AWS CloudFormation Resource Tags</a></p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                        </dl>
+                     </div><h2 id="w2ab2c19c12d440c13">Return Values</h2><h3 id="w2ab2c19c12d440c13b3">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code> intrinsic
+                        function, <code class="code">Ref</code> returns the resource name.
+                     </p><p>In the following example, the <code class="code">Ref</code> function returns the name of the
+                        <code class="code">myReplicationGroup</code> replication group, such as
+                        <code class="code">abc12xmy3d1w3hv6</code>.
+                     </p><pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">{ &quot;Ref&quot;: &quot;myReplicationGroup&quot; }</code></pre><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
+                     </p><h3 id="w2ab2c19c12d440c13b5">Fn::GetAtt</h3><p> <code class="code">Fn::GetAtt</code> returns a value for a specified attribute of this type.
+                        The following are the available attributes and sample return values. 
+                     </p><div class="variablelist">
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <dl>
+                           
+                           <dt><span class="term"><code class="code">ConfigurationEndPoint.Address</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The DNS hostname of the cache node.</p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><span class="term"><code class="code">ConfigurationEndPoint.Port</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The port number that the cache engine is listening on.</p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><span class="term"><code class="code">PrimaryEndPoint.Address</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The DNS address of the primary read-write cache node.</p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><span class="term"><code class="code">PrimaryEndPoint.Port</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The number of the port that the primary read-write cache engine is listening
+                                 on.
+                              </p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><span class="term"><code class="code">ReadEndPoint.Addresses</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>A string with a list of endpoints for the read-only replicas. The order of
+                                 the addresses maps to the order of the ports from the
+                                 <code class="code">ReadEndPoint.Ports</code> attribute.
+                              </p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><span class="term"><code class="code">ReadEndPoint.Ports</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>A string with a list of ports for the read-only replicas. The order of the
+                                 ports maps to the order of the addresses from the
+                                 <code class="code">ReadEndPoint.Addresses</code> attribute.
+                              </p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><span class="term"><code class="code">ReadEndPoint.Addresses.List</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>A list of endpoints for the read-only replicas. The order of the addresses
+                                 maps to the order of the ports from the <code class="code">ReadEndPoint.Ports.List</code>
+                                 attribute.
+                              </p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><span class="term"><code class="code">ReadEndPoint.Ports.List</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>A list of ports for the read-only replicas. The order of the ports maps to
+                                 the order of the addresses from the <code class="code">ReadEndPoint.Addresses.List</code>
+                                 attribute.
+                              </p>
+                              
+                           </dd>
+                           
+                        </dl>
+                     </div><p>For more information about using <code class="code">Fn::GetAtt</code>, see <a href="intrinsic-function-reference-getatt.html">Fn::GetAtt</a>.
+                     </p><h2 id="w2ab2c19c12d440c15">Examples</h2><h3 id="w2ab2c19c12d440c15b3">Declare a Replication Group with Two Nodes</h3><p>The following example declares a replication group with two nodes and automatic
+                        failover enabled.
+                     </p><div id="JSON" name="JSON" class="section langfilter">
+                        <h4 id="aws-resource-elasticache-replicationgroup-example.json">JSON</h4>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">&quot;myReplicationGroup&quot; : {
+  &quot;Type&quot;: &quot;AWS::ElastiCache::ReplicationGroup&quot;,
+  &quot;Properties&quot;: {
+    &quot;ReplicationGroupDescription&quot; : &quot;my description&quot;,
+    &quot;NumCacheClusters&quot; : &quot;2&quot;,
+    &quot;Engine&quot; : &quot;redis&quot;,
+    &quot;CacheNodeType&quot; : &quot;cache.m3.medium&quot;,
+    &quot;AutoMinorVersionUpgrade&quot; : &quot;true&quot;,
+    &quot;AutomaticFailoverEnabled&quot; : &quot;true&quot;,
+    &quot;CacheSubnetGroupName&quot; : &quot;subnetgroup&quot;,
+    &quot;EngineVersion&quot; : &quot;2.8.6&quot;,
+    &quot;PreferredMaintenanceWindow&quot; : &quot;wed:09:25-wed:22:30&quot;,
+    &quot;SnapshotRetentionLimit&quot; : &quot;4&quot;,
+    &quot;SnapshotWindow&quot; : &quot;03:30-05:30&quot;
+  }
+}</code></pre>
+                        <div id="YAML" name="YAML" class="section langfilter">
+                           <h5 id="aws-resource-elasticache-replicationgroup-example.yaml">YAML</h5>
+                           
+                           <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">myReplicationGroup: 
+  Type: &quot;AWS::ElastiCache::ReplicationGroup&quot;
+  Properties: 
+    ReplicationGroupDescription: &quot;my description&quot;
+    NumCacheClusters: &quot;2&quot;
+    Engine: &quot;redis&quot;
+    CacheNodeType: &quot;cache.m3.medium&quot;
+    AutoMinorVersionUpgrade: &quot;true&quot;
+    AutomaticFailoverEnabled: &quot;true&quot;
+    CacheSubnetGroupName: &quot;subnetgroup&quot;
+    EngineVersion: &quot;2.8.6&quot;
+    PreferredMaintenanceWindow: &quot;wed:09:25-wed:22:30&quot;
+    SnapshotRetentionLimit: &quot;4&quot;
+    SnapshotWindow: &quot;03:30-05:30&quot;</code></pre>
+                           </div>
+                        
+                     </div><h3 id="w2ab2c19c12d440c15b5">Declare a Replication Group with Two Node Groups</h3><p>The following example declares a replication group with two nodes groups (shards)
+                        with three replicas in each group.
+                     </p><div id="JSON" name="JSON" class="section langfilter">
+                        <h4 id="w2ab2c19c12d440c15b5b5">JSON</h4>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">&quot;BasicReplicationGroup&quot; : {
+  &quot;Type&quot; : &quot;AWS::ElastiCache::ReplicationGroup&quot;,
+  &quot;Properties&quot; : {
+    &quot;AutomaticFailoverEnabled&quot; : true,
+    &quot;AutoMinorVersionUpgrade&quot; : true,
+    &quot;CacheNodeType&quot; : &quot;cache.r3.large&quot;,
+    &quot;CacheSubnetGroupName&quot; : { &quot;Ref&quot; : &quot;CacheSubnetGroup&quot; },
+    &quot;Engine&quot; : &quot;redis&quot;,
+    &quot;EngineVersion&quot; : &quot;3.2&quot;,
+    &quot;NumNodeGroups&quot; : &quot;2&quot;,
+    &quot;ReplicasPerNodeGroup&quot; : &quot;3&quot;,
+    &quot;Port&quot; : 6379,
+    &quot;PreferredMaintenanceWindow&quot; : &quot;sun:05:00-sun:09:00&quot;,
+    &quot;ReplicationGroupDescription&quot; : &quot;A sample replication group&quot;,
+    &quot;SecurityGroupIds&quot; : [
+      { &quot;Ref&quot; : &quot;ReplicationGroupSG&quot; }
+    ],
+    &quot;SnapshotRetentionLimit&quot; : 5,
+    &quot;SnapshotWindow&quot; : &quot;10:00-12:00&quot;
+  }
+}</code></pre>
+                        <div id="YAML" name="YAML" class="section langfilter">
+                           <h5 id="w2ab2c19c12d440c15b5b5b5">YAML</h5>
+                           
+                           <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">BasicReplicationGroup:
+  Type: AWS::ElastiCache::ReplicationGroup
+  Properties:
+    AutomaticFailoverEnabled: true
+    AutoMinorVersionUpgrade: true
+    CacheNodeType: cache.r3.large
+    CacheSubnetGroupName:
+      Ref: CacheSubnetGroup
+    Engine: redis
+    EngineVersion: &apos;3.2&apos;
+    NumNodeGroups: &apos;2&apos;
+    ReplicasPerNodeGroup: &apos;3&apos;
+    Port: 6379
+    PreferredMaintenanceWindow: sun:05:00-sun:09:00
+    ReplicationGroupDescription: A sample replication group
+    SecurityGroupIds:
+    - Ref: ReplicationGroupSG
+    SnapshotRetentionLimit: 5
+    SnapshotWindow: 10:00-12:00</code></pre>
+                           </div>
+                        
+                     </div></div>
+</body>
+</html>

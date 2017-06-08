@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="css/awsdocs.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/awsdocs.min.js"></script>
+    <meta charset="utf-8">
+</head>
+<body>
+    <div id="content" style="padding: 10px 30px;">
+    <h1 class="topictitle" id="aws-resource-ec2-route-table">AWS::EC2::RouteTable</h1><p>Creates a new route table within a VPC. After you create a new route table, you can
+                        add routes and
+                        associate the table with a subnet.
+                     </p><div class="highlights">
+                        <p><strong>Topics</strong></p>
+                        <ul>
+                           <li><a href="#aws-resource-ec2-routetable-syntax">Syntax</a></li>
+                           <li><a href="#w2ab2c19c12d311c11">Properties</a></li>
+                           <li><a href="#w2ab2c19c12d311c13">Return Values</a></li>
+                           <li><a href="#w2ab2c19c12d311c15">Examples</a></li>
+                           <li><a href="#w2ab2c19c12d311c17">See Also</a></li>
+                        </ul>
+                     </div><h2 id="aws-resource-ec2-routetable-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-resource-ec2-routetable-syntax.json">JSON</h3>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">
+{
+   &quot;Type&quot; : &quot;AWS::EC2::RouteTable&quot;,
+   &quot;Properties&quot; : {
+      &quot;<a href="aws-resource-ec2-route-table.html#cfn-ec2-routetable-vpcid">VpcId</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="aws-resource-ec2-route-table.html#cfn-ec2-routetable-tags">Tags</a>&quot; : [ <em class="replaceable"><code>Resource Tag, ...</code></em> ]
+   }
+}     </code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-ec2-routetable-syntax.yaml">YAML</h3>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">
+Type: &quot;AWS::EC2::RouteTable&quot;
+Properties: 
+  <a href="aws-resource-ec2-route-table.html#cfn-ec2-routetable-vpcid">VpcId</a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-resource-ec2-route-table.html#cfn-ec2-routetable-tags">Tags</a>:
+    - <em class="replaceable"><code>Resource Tag</code></em>
+</code></pre>
+                        </div><h2 id="w2ab2c19c12d311c11">Properties</h2><div class="variablelist">
+                        
+                        
+                        
+                        
+                        <dl>
+                           
+                           <dt><a id="cfn-ec2-routetable-vpcid"></a><span class="term"><code class="literal">VpcId</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The ID of the VPC where the route table will be created.</p>
+                              
+                              <p>Example: vpc-11ad4878</p>
+                              
+                              <p><em>Required</em>: Yes
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-ec2-routetable-tags"></a><span class="term"><code class="literal">Tags</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>An arbitrary set of tags (key&#x2013;value pairs) for this route table.</p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: <a href="aws-properties-resource-tags.html">AWS CloudFormation Resource Tags</a></p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>.
+                              </p>
+                              
+                           </dd>
+                           
+                        </dl>
+                     </div><h2 id="w2ab2c19c12d311c13">Return Values</h2><h3 id="w2ab2c19c12d311c13b3">Ref</h3><p>When you specify an <code class="code">AWS::EC2::RouteTable</code> type as an argument to the <code class="code">Ref</code> function, AWS CloudFormation returns the route table ID, such as <code class="code">rtb-12a34567</code>.
+                     </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
+                     </p><h2 id="w2ab2c19c12d311c15">Examples</h2><p>The following example snippet uses the VPC ID from a VPC named <em>myVPC</em> that was declared elsewhere in the same template.
+                     </p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-resource-ec2-routetable-example-1.json">JSON</h3>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">
+{
+   &quot;AWSTemplateFormatVersion&quot; : &quot;2010-09-09&quot;,
+   &quot;Resources&quot; : {
+      &quot;myRouteTable&quot; : {
+         &quot;Type&quot; : &quot;AWS::EC2::RouteTable&quot;,
+         &quot;Properties&quot; : {
+            &quot;VpcId&quot; : { &quot;Ref&quot; : &quot;myVPC&quot; },
+            &quot;Tags&quot; : [ { &quot;Key&quot; : &quot;foo&quot;, &quot;Value&quot; : &quot;bar&quot; } ]
+         }
+      }
+   }
+}        </code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-ec2-routetable-example-1.yaml">YAML</h3>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">AWSTemplateFormatVersion: &apos;2010-09-09&apos;
+Resources:
+  myRouteTable:
+    Type: AWS::EC2::RouteTable
+    Properties:
+      VpcId:
+        Ref: myVPC
+      Tags:
+      - Key: foo
+        Value: bar</code></pre>
+                        </div><h2 id="w2ab2c19c12d311c17">See Also</h2><div class="itemizedlist">
+                        
+                        
+                        
+                        
+                        
+                        <ul class="itemizedlist" type="disc">
+                           <li class="listitem">
+                              
+                              <p><a href="aws-resource-ec2-route.html">AWS::EC2::Route</a></p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p><a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateRouteTable.html" target="_blank">CreateRouteTable</a> in the <em>Amazon EC2 API Reference</em></p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p><a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html" target="_blank">Route
+                                    Tables</a> in the <em>Amazon VPC User Guide</em></p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p><a href="http://docs.aws.amazon.com/AWSEC2/latest/DeveloperGuide/Using_Tags.html" target="_blank">Using
+                                    Tags</a> in the <em>Amazon Elastic Compute Cloud User Guide</em></p>
+                              
+                           </li>
+                        </ul>
+                     </div></div>
+</body>
+</html>

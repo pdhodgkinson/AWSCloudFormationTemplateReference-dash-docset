@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="css/awsdocs.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/awsdocs.min.js"></script>
+    <meta charset="utf-8">
+</head>
+<body>
+    <div id="content" style="padding: 10px 30px;">
+    <h1 class="topictitle" id="aws-properties-stack">AWS::CloudFormation::Stack</h1><p>The <code class="code">AWS::CloudFormation::Stack</code> type nests a stack as a resource in a top-level
+                        template.
+                     </p><p>You can add output values from a nested stack within the containing template. You
+                        use the
+                        <a href="intrinsic-function-reference-getatt.html">GetAtt</a> function with the nested
+                        stack&apos;s logical name and the name of the output value in the nested stack in the format
+                        <code class="code">Outputs.<em class="replaceable"><code>NestedStackOutputName</code></em></code>.
+                     </p><div class="aws-note">
+                        <p class="aws-note">Important</p>
+                        <p>We strongly recommend that updates to nested stacks are run from the parent stack.</p>
+                     </div><p>When you apply template changes to update a top-level stack, AWS CloudFormation updates
+                        the top-level
+                        stack and initiates an update to its nested stacks. AWS CloudFormation updates the
+                        resources of modified
+                        nested stacks, but does not update the resources of unmodified nested stacks. For
+                        more
+                        information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks.html">AWS CloudFormation Stacks Updates</a>.
+                     </p><div class="aws-note">
+                        <p class="aws-note">Note</p>
+                        <p>You must acknowledge IAM capabilities for nested stacks that contain IAM resources.
+                           Also, verify that you have cancel update stack permissions, which is required if an
+                           update
+                           rolls back. For more information about IAM and AWS CloudFormation, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html">Controlling Access with AWS Identity and Access Management</a>.
+                        </p>
+                     </div><div class="highlights">
+                        <p><strong>Topics</strong></p>
+                        <ul>
+                           <li><a href="#aws-resource-cloudformation-stack-syntax">Syntax</a></li>
+                           <li><a href="#aws-properties-stack-prop">Properties</a></li>
+                           <li><a href="#w2ab2c19c12d124c21">Return Values</a></li>
+                           <li><a href="#w2ab2c19c12d124c23">Related Information</a></li>
+                        </ul>
+                     </div><h2 id="aws-resource-cloudformation-stack-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-resource-cloudformation-stack-syntax.json">JSON</h3>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">{
+  &quot;Type&quot; : &quot;AWS::CloudFormation::Stack&quot;,
+  &quot;Properties&quot; : {
+    &quot;<a href="aws-properties-stack.html#cfn-cloudformation-stack-notificationarns"><code class="code">NotificationARNs</code></a>&quot; : [ <em class="replaceable"><code>String, ...</code></em> ],
+    &quot;<a href="aws-properties-stack.html#cfn-cloudformation-stack-parameters"><code class="code">Parameters</code></a>&quot; : { <a href="aws-properties-stack-parameters.html">AWS CloudFormation Stack Parameters</a> },
+    &quot;<a href="aws-properties-stack.html#cfn-cloudformation-stack-tags"><code class="code">Tags</code></a>&quot; : [ <em class="replaceable"><code>Resource Tag, ...</code></em> ],
+    &quot;<a href="aws-properties-stack.html#cfn-cloudformation-stack-templateurl"><code class="code">TemplateURL</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-properties-stack.html#cfn-cloudformation-stack-timeoutinminutes"><code class="code">TimeoutInMinutes</code></a>&quot; : <em class="replaceable"><code>Integer</code></em>
+  }
+}</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-cloudformation-stack-syntax.yaml">YAML</h3>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">Type: &quot;AWS::CloudFormation::Stack&quot;
+Properties:
+  <a href="aws-properties-stack.html#cfn-cloudformation-stack-notificationarns"><code class="code">NotificationARNs</code></a>:
+    - <em class="replaceable"><code>String</code></em>
+  <a href="aws-properties-stack.html#cfn-cloudformation-stack-parameters"><code class="code">Parameters</code></a>:
+    <a href="aws-properties-stack-parameters.html">AWS CloudFormation Stack Parameters</a>
+  <a href="aws-properties-stack.html#cfn-cloudformation-stack-tags"><code class="code">Tags</code></a>:
+    - <em class="replaceable"><code>Resource Tag</code></em>
+  <a href="aws-properties-stack.html#cfn-cloudformation-stack-templateurl"><code class="code">TemplateURL</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-properties-stack.html#cfn-cloudformation-stack-timeoutinminutes"><code class="code">TimeoutInMinutes</code></a>: <em class="replaceable"><code>Integer</code></em>
+</code></pre>
+                        </div><h2 id="aws-properties-stack-prop">Properties</h2><div class="variablelist">
+                        
+                        
+                        
+                        
+                        
+                        
+                        <dl>
+                           
+                           <dt><a id="cfn-cloudformation-stack-notificationarns"></a><span class="term"><code class="code">NotificationARNs</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>A list of existing Amazon SNS topics where notifications about stack events are
+                                 sent.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: List of strings
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-cloudformation-stack-parameters"></a><span class="term"><code class="code">Parameters</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The set of parameters passed to AWS CloudFormation when this nested stack is created.</p>
+                              
+                              <div class="aws-note">
+                                 <p class="aws-note">Note</p>
+                                 <p>If you use the <code class="code">Ref</code> function to pass a parameter value to a
+                                    nested stack, comma-delimited list parameters must be of type
+                                    <code class="code">String</code>. In other words, you cannot pass values that are of type
+                                    <code class="code">CommaDelimitedList</code> to nested stacks.
+                                 </p>
+                              </div>
+                              
+                              <p><em>Required</em>: Conditional (required if the nested stack
+                                 requires input parameters).
+                              </p>
+                              
+                              <p><em>Type</em>: <a href="aws-properties-stack-parameters.html">AWS CloudFormation Stack Parameters</a></p>
+                              
+                              <p><em>Update requires</em>: Whether an update causes interruptions
+                                 depends on the resources that are being updated. An update never causes a nested
+                                 stack to be replaced.
+                              </p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-cloudformation-stack-tags"></a><span class="term"><code class="code">Tags</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>An arbitrary set of tags (key&#x2013;value pairs) to describe this
+                                 stack.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: <a href="aws-properties-resource-tags.html">AWS CloudFormation Resource Tags</a></p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>.
+                              </p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-cloudformation-stack-templateurl"></a><span class="term"><code class="code">TemplateURL</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The URL of a template that specifies the stack that you want to create as a
+                                 resource. The template must be stored on an Amazon S3 bucket, so the URL must have
+                                 the
+                                 form:
+                                 <code class="code">https://s3.amazonaws.com/.../<em class="replaceable"><code>TemplateName</code></em>.template</code></p>
+                              
+                              <p><em>Required</em>: Yes
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: Whether an update causes interruptions
+                                 depends on the resources that are being update. An update never causes a nested
+                                 stack to be replaced.
+                              </p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-cloudformation-stack-timeoutinminutes"></a><span class="term"><code class="code">TimeoutInMinutes</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The length of time, in minutes, that AWS CloudFormation waits for the nested stack
+                                 to reach
+                                 the <code class="code">CREATE_COMPLETE</code> state. The default is no timeout. When AWS CloudFormation detects that the
+                                 nested stack has reached the <code class="code">CREATE_COMPLETE</code> state, it marks the nested stack
+                                 resource as <code class="code">CREATE_COMPLETE</code> in the parent stack and resumes creating the parent
+                                 stack. If the timeout period expires before the nested stack reaches
+                                 <code class="code">CREATE_COMPLETE</code>, AWS CloudFormation marks the nested stack as failed and rolls back both the
+                                 nested stack and parent stack.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: Integer
+                              </p>
+                              
+                              <p><em>Update requires</em>: Updates are not supported.
+                              </p>
+                              
+                           </dd>
+                           
+                        </dl>
+                     </div><h2 id="w2ab2c19c12d124c21">Return Values</h2><h3 id="w2ab2c19c12d124c21b3">Ref</h3><p>For <code class="code">AWS::CloudFormation::Stack</code>, <code class="code">Ref</code> returns the Stack ID. For
+                        example:
+                     </p><p><code class="code">arn:aws:cloudformation:<span>us-east-1</span>:123456789012:stack/mystack-mynestedstack-sggfrhxhum7w/f449b250-b969-11e0-a185-5081d0136786</code></p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
+                     </p><h3 id="w2ab2c19c12d124c21b5">Fn::GetAtt</h3><div class="variablelist">
+                        
+                        
+                        <dl>
+                           
+                           <dt><span class="term"><code class="code">Outputs.<em class="replaceable"><code>NestedStackOutputName</code></em></code></span></dt>
+                           
+                           <dd>
+                              
+                              <p><em>Returns</em>: The output value from the specified nested
+                                 stack where <em class="replaceable"><code>NestedStackOutputName</code></em> is the name of the
+                                 output value.
+                              </p>
+                              
+                           </dd>
+                           
+                        </dl>
+                     </div><p>For more information about using <code class="code">Fn::GetAtt</code>, see <a href="intrinsic-function-reference-getatt.html">Fn::GetAtt</a>.
+                     </p><h2 id="w2ab2c19c12d124c23">Related Information</h2><div class="itemizedlist">
+                        
+                        
+                        
+                        <ul class="itemizedlist" type="disc">
+                           <li class="listitem">
+                              
+                              <p>For sample template snippets, see Nested Stacks in <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-cloudformation.html">AWS CloudFormation Template Snippets</a>.
+                              </p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p>If you have nested stacks that are stuck in an in-progress operation, see
+                                 Troubleshooting Errors in <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html">Troubleshooting
+                                    AWS CloudFormation</a>.
+                              </p>
+                              
+                           </li>
+                        </ul>
+                     </div></div>
+</body>
+</html>

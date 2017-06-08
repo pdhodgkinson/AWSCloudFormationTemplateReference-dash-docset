@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="css/awsdocs.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/awsdocs.min.js"></script>
+    <meta charset="utf-8">
+</head>
+<body>
+    <div id="content" style="padding: 10px 30px;">
+    <h1 class="topictitle" id="aws-properties-waitcondition">AWS::CloudFormation::WaitCondition</h1><div class="aws-note">
+                        <p class="aws-note">Important</p>
+                        <p>For Amazon EC2 and Auto Scaling resources, we recommend that you use a CreationPolicy
+                           attribute instead of wait conditions.
+                           Add a CreationPolicy attribute to those resources, and use the cfn-signal helper script
+                           to signal when an instance creation process has completed successfully.
+                        </p>
+                     </div><p>You can use a wait condition for situations like the following:</p><div class="itemizedlist">
+                        
+                        
+                        
+                        <ul class="itemizedlist" type="disc">
+                           <li class="listitem">
+                              
+                              <p>To coordinate stack resource creation with configuration actions that are external
+                                 to the stack creation
+                              </p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p>To track the status of a configuration process</p>
+                              
+                           </li>
+                        </ul>
+                     </div><p>For these situations, we recommend that you associate a <a href="aws-attribute-creationpolicy.html">CreationPolicy</a>
+                        attribute with the wait condition so that you don&apos;t have to use a wait condition handle.
+                        For
+                        more information and an example, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-waitcondition.html">Creating Wait Conditions in a Template</a>. If you use a CreationPolicy with a wait
+                        condition, do not specify any of the wait condition&apos;s properties.
+                     </p><div class="aws-note">
+                        <p class="aws-note">Note</p>
+                        <p>If you use the <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-endpoints.html" target="_blank">VPC endpoint</a>
+                           feature, resources in the VPC that respond to wait conditions must have access to
+                           AWS CloudFormation-specific Amazon Simple Storage Service (Amazon S3) buckets. Resources
+                           must send wait condition responses to
+                           a pre-signed Amazon S3 URL. If they can&apos;t send responses to Amazon S3, AWS CloudFormation
+                           won&apos;t receive a
+                           response and the stack operation fails. For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-vpce-bucketnames.html">AWS CloudFormation and VPC Endpoints</a>.
+                        </p>
+                     </div><div class="highlights">
+                        <p><strong>Topics</strong></p>
+                        <ul>
+                           <li><a href="#aws-resource-cloudformation-waitcondition-syntax">Syntax</a></li>
+                           <li><a href="#w2ab2c19c12d129c19">Properties</a></li>
+                           <li><a href="#w2ab2c19c12d129c21">Return Values</a></li>
+                           <li><a href="#w2ab2c19c12d129c23">Examples</a></li>
+                           <li><a href="#w2ab2c19c12d129c25">See Also</a></li>
+                        </ul>
+                     </div><h2 id="aws-resource-cloudformation-waitcondition-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-resource-cloudformation-waitcondition-syntax.json">JSON</h3>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">{
+   &quot;Type&quot; : &quot;AWS::CloudFormation::WaitCondition&quot;,
+   &quot;Properties&quot; : {
+      &quot;<a href="aws-properties-waitcondition.html#cfn-waitcondition-count">Count</a>&quot; : <em class="replaceable"><code>Integer</code></em>,
+      &quot;<a href="aws-properties-waitcondition.html#cfn-waitcondition-handle">Handle</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="aws-properties-waitcondition.html#cfn-waitcondition-timeout">Timeout</a>&quot; : <em class="replaceable"><code>String</code></em>
+   }
+}</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-cloudformation-waitcondition-syntax.yaml">YAML</h3>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">Type: &quot;AWS::CloudFormation::WaitCondition&quot;
+Properties: 
+  <a href="aws-properties-waitcondition.html#cfn-waitcondition-count">Count</a>: <em class="replaceable"><code>Integer</code></em>
+  <a href="aws-properties-waitcondition.html#cfn-waitcondition-handle">Handle</a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-properties-waitcondition.html#cfn-waitcondition-timeout">Timeout</a>: <em class="replaceable"><code>String</code></em>
+</code></pre>
+                        </div><h2 id="w2ab2c19c12d129c19">Properties</h2><div class="variablelist">
+                        
+                        
+                        
+                        
+                        <dl>
+                           
+                           <dt><a id="cfn-waitcondition-count"></a><span class="term"><code class="literal">Count</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The number of success signals that AWS CloudFormation must receive before it continues
+                                 the stack creation process. When the wait condition receives the requisite
+                                 number of success signals, AWS CloudFormation resumes the creation of the stack. If
+                                 the
+                                 wait condition does not receive the specified number of success signals
+                                 before the Timeout period expires, AWS CloudFormation assumes that the wait condition
+                                 has
+                                 failed and rolls the stack back.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: Integer
+                              </p>
+                              
+                              <p><em>Update requires</em>: Updates are not supported.
+                              </p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-waitcondition-handle"></a><span class="term"><code class="literal">Handle</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>A reference to the wait condition handle used to signal this wait
+                                 condition. Use the <code class="code">Ref</code> intrinsic function to specify an
+                                 <a href="aws-properties-waitconditionhandle.html">AWS::CloudFormation::WaitConditionHandle</a> resource.
+                              </p>
+                              
+                              <p>Anytime you add a WaitCondition resource during a stack update, you must
+                                 associate the wait condition with a new WaitConditionHandle resource. Do not
+                                 reuse an old wait condition handle that has already been defined in the
+                                 template. If you reuse a wait condition handle, the wait condition might
+                                 evaluate old signals from a previous create or update stack command.
+                              </p>
+                              
+                              <p><em>Required</em>: Yes
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: Updates are not supported.
+                              </p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-waitcondition-timeout"></a><span class="term"><code class="literal">Timeout</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The length of time (in seconds) to wait for the number of signals that the
+                                 <code class="code">Count</code> property specifies. <code class="code">Timeout</code> is a
+                                 minimum-bound property, meaning the timeout occurs no sooner than the time
+                                 you specify, but can occur shortly thereafter. The maximum time that can be
+                                 specified for this property is 12 hours (43200 seconds).
+                              </p>
+                              
+                              <p><em>Required</em>: Yes
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: Updates are not supported.
+                              </p>
+                              
+                           </dd>
+                           
+                        </dl>
+                     </div><h2 id="w2ab2c19c12d129c21">Return Values</h2><h3 id="w2ab2c19c12d129c21b3">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code> intrinsic
+                        function, <code class="code">Ref</code> returns the resource name.
+                     </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
+                     </p><h3 id="w2ab2c19c12d129c21b5">Fn::GetAtt</h3><p><code class="code">Fn::GetAtt</code> returns a value for a specified attribute of this type.
+                        The following are the available attributes and sample return values.
+                     </p><div class="variablelist">
+                        
+                        
+                        <dl>
+                           
+                           <dt><span class="term"><code class="literal">Data</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p><em>Returns</em>: A JSON object that contains the
+                                 <code class="code">UniqueId</code> and <code class="code">Data</code>
+                                 values from the wait condition signal(s) for the specified wait
+                                 condition. For more information about wait condition signals, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-waitcondition.html#using-cfn-waitcondition-signaljson">Wait Condition Signal JSON
+                                    Format</a>.
+                              </p>
+                              
+                              <p>Example return value for a wait condition with 2 signals:</p>
+                              <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">
+{ &quot;Signal1&quot; : &quot;Step 1 complete.&quot; , &quot;Signal2&quot; : &quot;Step 2 complete.&quot; } </code></pre>
+                              </dd>
+                           
+                        </dl>
+                     </div><p>For more information about using <code class="code">Fn::GetAtt</code>, see <a href="intrinsic-function-reference-getatt.html">Fn::GetAtt</a>.
+                     </p><h2 id="w2ab2c19c12d129c23">Examples</h2><h3 id="w2ab2c19c12d129c23b3">WaitCondition that waits for the desired number of instances in a web server
+                        group
+                     </h3><div id="JSON" name="JSON" class="section langfilter">
+                        <h4 id="aws-resource-cloudformation-waitcondition-example.json">JSON</h4>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">&quot;WebServerGroup&quot; : {
+   &quot;Type&quot; : &quot;AWS::AutoScaling::AutoScalingGroup&quot;,
+   &quot;Properties&quot; : {
+      &quot;AvailabilityZones&quot; : { &quot;Fn::GetAZs&quot; : &quot;&quot; },
+      &quot;LaunchConfigurationName&quot; : { &quot;Ref&quot; : &quot;LaunchConfig&quot; },
+      &quot;MinSize&quot; : &quot;1&quot;,
+      &quot;MaxSize&quot; : &quot;5&quot;,
+      &quot;DesiredCapacity&quot; : { &quot;Ref&quot; : &quot;WebServerCapacity&quot; },
+      &quot;LoadBalancerNames&quot; : [ { &quot;Ref&quot; : &quot;ElasticLoadBalancer&quot; } ]
+   }
+},
+
+&quot;WaitHandle&quot; : {
+   &quot;Type&quot; : &quot;AWS::CloudFormation::WaitConditionHandle&quot;
+},
+
+&quot;WaitCondition&quot; : {
+   &quot;Type&quot; : &quot;AWS::CloudFormation::WaitCondition&quot;,
+   &quot;DependsOn&quot; : &quot;WebServerGroup&quot;,
+   &quot;Properties&quot; : {
+      &quot;Handle&quot;  : { &quot;Ref&quot; : &quot;WaitHandle&quot; },
+      &quot;Timeout&quot; : &quot;300&quot;,
+      &quot;Count&quot;   : { &quot;Ref&quot; : &quot;WebServerCapacity&quot; }
+   }
+}        </code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        <h4 id="aws-resource-cloudformation-waitcondition-example.yaml">YAML</h4>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">WebServerGroup: 
+  Type: &quot;AWS::AutoScaling::AutoScalingGroup&quot;
+  Properties: 
+    AvailabilityZones: 
+      Fn::GetAZs: &quot;&quot;
+    LaunchConfigurationName: 
+      Ref: &quot;LaunchConfig&quot;
+    MinSize: &quot;1&quot;
+    MaxSize: &quot;5&quot;
+    DesiredCapacity: 
+      Ref: &quot;WebServerCapacity&quot;
+    LoadBalancerNames: 
+      - 
+        Ref: &quot;ElasticLoadBalancer&quot;
+WaitHandle: 
+  Type: &quot;AWS::CloudFormation::WaitConditionHandle&quot;
+WaitCondition: 
+  Type: &quot;AWS::CloudFormation::WaitCondition&quot;
+  DependsOn: &quot;WebServerGroup&quot;
+  Properties: 
+    Handle: 
+      Ref: &quot;WaitHandle&quot;
+    Timeout: &quot;300&quot;
+    Count: 
+      Ref: &quot;WebServerCapacity&quot;</code></pre>
+                        </div><h2 id="w2ab2c19c12d129c25">See Also</h2><div class="itemizedlist">
+                        
+                        
+                        
+                        <ul class="itemizedlist" type="disc">
+                           <li class="listitem">
+                              
+                              <p><a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-waitcondition.html">Creating Wait Conditions in a Template</a></p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p><a href="aws-attribute-dependson.html">DependsOn Attribute</a></p>
+                              
+                           </li>
+                        </ul>
+                     </div></div>
+</body>
+</html>

@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="css/awsdocs.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/awsdocs.min.js"></script>
+    <meta charset="utf-8">
+</head>
+<body>
+    <div id="content" style="padding: 10px 30px;">
+    <h1 class="topictitle" id="aws-properties-as-launchconfig">AWS::AutoScaling::LaunchConfiguration</h1><p>The <code class="code">AWS::AutoScaling::LaunchConfiguration</code> type creates an Auto Scaling launch
+                        configuration that can be used by an Auto Scaling group to configure Amazon EC2 instances
+                        in the Auto Scaling
+                        group.
+                     </p><div class="aws-note">
+                        <p class="aws-note">Important</p>
+                        <p>When you update a property of the <code class="code">LaunchConfiguration</code> resource, AWS CloudFormation
+                           deletes that resource and creates a new launch configuration with the updated properties
+                           and a new name. This update action does not deploy any change across the running Amazon
+                           EC2
+                           instances in the auto scaling group. In other words, an update simply replaces the
+                           <code class="code">LaunchConfiguration</code> so that when the auto scaling group launches new
+                           instances, they will get the updated configuration, but existing instances continue
+                           to run
+                           with the configuration that they were originally launched with. This works the same
+                           way as
+                           if you made similar changes manually to an auto scaling group.
+                        </p>
+                        <p>If you want to update existing instances when you update the
+                           <code class="code">LaunchConfiguration</code> resource, you must specify an update policy attribute
+                           for the <code class="code">AWS::AutoScaling::AutoScalingGroup</code> resource. For more information, see
+                           <a href="aws-attribute-updatepolicy.html">UpdatePolicy</a>.
+                        </p>
+                     </div><div class="highlights">
+                        <p><strong>Topics</strong></p>
+                        <ul>
+                           <li><a href="#aws-resource-autoscaling-launchconfig-syntax">Syntax</a></li>
+                           <li><a href="#w2ab2c19c12c83c13">Properties</a></li>
+                           <li><a href="#aws-properties-as-launchconfig-ref">Return Value</a></li>
+                           <li><a href="#w2ab2c19c12c83c17">Template Examples</a></li>
+                           <li><a href="#w2ab2c19c12c83c19">See Also</a></li>
+                        </ul>
+                     </div><h2 id="aws-resource-autoscaling-launchconfig-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-resource-autoscaling-launchconfig-syntax.json">JSON</h3>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">
+{
+   &quot;Type&quot; : &quot;AWS::AutoScaling::LaunchConfiguration&quot;,
+   &quot;Properties&quot; : {
+      &quot;<a href="aws-properties-as-launchconfig.html#cf-as-launchconfig-associatepubip"><code class="literal">AssociatePublicIpAddress</code></a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
+      &quot;<a href="aws-properties-as-launchconfig.html#cfn-as-launchconfig-blockdevicemappings"><code class="literal">BlockDeviceMappings</code></a>&quot; : [ <em class="replaceable"><code>BlockDeviceMapping, ...</code></em> ],
+      &quot;<a href="aws-properties-as-launchconfig.html#cfn-as-launchconfig-classiclinkvpcid"><code class="literal">ClassicLinkVPCId</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="aws-properties-as-launchconfig.html#cfn-as-launchconfig-classiclinkvpcsecuritygroups"><code class="literal">ClassicLinkVPCSecurityGroups</code></a>&quot; : [ <em class="replaceable"><code>String, ...</code></em> ],
+      &quot;<a href="aws-properties-as-launchconfig.html#cfn-as-launchconfig-ebsoptimized"><code class="literal">EbsOptimized</code></a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
+      &quot;<a href="aws-properties-as-launchconfig.html#cfn-as-launchconfig-iaminstanceprofile"><code class="literal">IamInstanceProfile</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="aws-properties-as-launchconfig.html#cfn-as-launchconfig-imageid"><code class="literal">ImageId</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="aws-properties-as-launchconfig.html#cfn-as-launchconfig-instanceid"><code class="literal">InstanceId</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="aws-properties-as-launchconfig.html#cfn-as-launchconfig-instancemonitoring"><code class="literal">InstanceMonitoring</code></a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
+      &quot;<a href="aws-properties-as-launchconfig.html#cfn-as-launchconfig-instancetype"><code class="literal">InstanceType</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="aws-properties-as-launchconfig.html#cfn-as-launchconfig-kernelid"><code class="literal">KernelId</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="aws-properties-as-launchconfig.html#cfn-as-launchconfig-keyname"><code class="literal">KeyName</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="aws-properties-as-launchconfig.html#cfn-as-launchconfig-placementtenancy"><code class="literal">PlacementTenancy</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="aws-properties-as-launchconfig.html#cfn-as-launchconfig-ramdiskid"><code class="literal">RamDiskId</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="aws-properties-as-launchconfig.html#cfn-as-launchconfig-securitygroups"><code class="literal">SecurityGroups</code></a>&quot; : [ <em class="replaceable"><code>SecurityGroup, ...</code></em> ],
+      &quot;<a href="aws-properties-as-launchconfig.html#cfn-as-launchconfig-spotprice"><code class="literal">SpotPrice</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="aws-properties-as-launchconfig.html#cfn-as-launchconfig-userdata"><code class="literal">UserData</code></a>&quot; : <em class="replaceable"><code>String</code></em>
+   }
+}     </code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-autoscaling-launchconfig-syntax.yaml">YAML</h3>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">Type: &quot;AWS::AutoScaling::LaunchConfiguration&quot;
+Properties:
+  <a href="aws-properties-as-launchconfig.html#cf-as-launchconfig-associatepubip"><code class="literal">AssociatePublicIpAddress</code></a>: <em class="replaceable"><code>Boolean</code></em>
+  <a href="aws-properties-as-launchconfig.html#cfn-as-launchconfig-blockdevicemappings"><code class="literal">BlockDeviceMappings</code></a>:
+    - <em class="replaceable"><code>BlockDeviceMapping</code></em>
+  <a href="aws-properties-as-launchconfig.html#cfn-as-launchconfig-classiclinkvpcid"><code class="literal">ClassicLinkVPCId</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-properties-as-launchconfig.html#cfn-as-launchconfig-classiclinkvpcsecuritygroups"><code class="literal">ClassicLinkVPCSecurityGroups</code></a>:
+    - <em class="replaceable"><code>String</code></em>
+  <a href="aws-properties-as-launchconfig.html#cfn-as-launchconfig-ebsoptimized"><code class="literal">EbsOptimized</code></a>: <em class="replaceable"><code>Boolean</code></em>
+  <a href="aws-properties-as-launchconfig.html#cfn-as-launchconfig-iaminstanceprofile"><code class="literal">IamInstanceProfile</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-properties-as-launchconfig.html#cfn-as-launchconfig-imageid"><code class="literal">ImageId</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-properties-as-launchconfig.html#cfn-as-launchconfig-instanceid"><code class="literal">InstanceId</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-properties-as-launchconfig.html#cfn-as-launchconfig-instancemonitoring"><code class="literal">InstanceMonitoring</code></a>: <em class="replaceable"><code>Boolean</code></em>
+  <a href="aws-properties-as-launchconfig.html#cfn-as-launchconfig-instancetype"><code class="literal">InstanceType</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-properties-as-launchconfig.html#cfn-as-launchconfig-kernelid"><code class="literal">KernelId</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-properties-as-launchconfig.html#cfn-as-launchconfig-keyname"><code class="literal">KeyName</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-properties-as-launchconfig.html#cfn-as-launchconfig-placementtenancy"><code class="literal">PlacementTenancy</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-properties-as-launchconfig.html#cfn-as-launchconfig-ramdiskid"><code class="literal">RamDiskId</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-properties-as-launchconfig.html#cfn-as-launchconfig-securitygroups"><code class="literal">SecurityGroups</code></a>:
+    - <em class="replaceable"><code>SecurityGroup</code></em>
+  <a href="aws-properties-as-launchconfig.html#cfn-as-launchconfig-spotprice"><code class="literal">SpotPrice</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-properties-as-launchconfig.html#cfn-as-launchconfig-userdata"><code class="literal">UserData</code></a>: <em class="replaceable"><code>String</code></em>
+</code></pre>
+                        </div><h2 id="w2ab2c19c12c83c13">Properties</h2><div class="variablelist">
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <dl>
+                           
+                           <dt><a id="cf-as-launchconfig-associatepubip"></a><span class="term"><code class="literal">AssociatePublicIpAddress</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>For Amazon EC2 instances in a VPC, indicates whether instances in the Auto Scaling
+                                 group
+                                 receive public IP addresses. If you specify <code class="code">true</code>, each instance in
+                                 the Auto Scaling receives a unique public IP address.
+                              </p>
+                              
+                              <div class="aws-note">
+                                 <p class="aws-note">Note</p>
+                                 <p>If this resource has a public IP address and is also in a VPC that is defined in the
+                                    same template, you must use the
+                                    <code class="code">DependsOn</code> attribute to declare a dependency on the VPC-gateway attachment. For more information,
+                                    see <a href="aws-attribute-dependson.html">DependsOn Attribute</a>.
+                                 </p>
+                              </div>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: Boolean
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-as-launchconfig-blockdevicemappings"></a><span class="term"><code class="literal">BlockDeviceMappings</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>Specifies how block devices are exposed to the instance. You can specify
+                                 virtual devices and EBS volumes.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: A list of <a href="aws-properties-as-launchconfig-blockdev-mapping.html">BlockDeviceMappings</a>.
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-as-launchconfig-classiclinkvpcid"></a><span class="term"><code class="literal">ClassicLinkVPCId</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to. You
+                                 can specify this property only for EC2-Classic instances. For more information,
+                                 see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html" target="_blank">ClassicLink</a> in the
+                                 <em>Amazon Elastic Compute Cloud User
+                                    Guide</em>.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-as-launchconfig-classiclinkvpcsecuritygroups"></a><span class="term"><code class="literal">ClassicLinkVPCSecurityGroups</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The IDs of one or more security groups for the VPC that you specified in the
+                                 <code class="code">ClassicLinkVPCId</code> property.
+                              </p>
+                              
+                              <p><em>Required</em>: Conditional. If you specified the <code class="code">ClassicLinkVPCId</code>
+                                 property, you must specify this property.
+                              </p>
+                              
+                              <p><em>Type</em>: List of strings
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-as-launchconfig-ebsoptimized"></a><span class="term"><code class="literal">EbsOptimized</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>Specifies whether the launch configuration is optimized for EBS I/O. This
+                                 optimization provides dedicated throughput to Amazon EBS and an optimized
+                                 configuration stack to provide optimal EBS I/O performance.
+                              </p>
+                              
+                              <p>Additional fees are incurred when using EBS-optimized instances. For more information
+                                 about fees and supported instance types, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html" target="_blank">EBS-Optimized Instances</a> in the <em>Amazon EC2 User Guide for Linux Instances</em>.
+                              </p>
+                              
+                              <p><em>Required</em>: No If this property is not specified, &quot;false&quot; is used.
+                              </p>
+                              
+                              <p><em>Type</em>: Boolean
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-as-launchconfig-iaminstanceprofile"></a><span class="term"><code class="literal">IamInstanceProfile</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>Provides the name or the Amazon Resource Name (ARN) of the instance profile
+                                 associated with the IAM role for the instance. The instance profile contains the
+                                 IAM role.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: String (1&#x2013;1600 chars)
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-as-launchconfig-imageid"></a><span class="term"><code class="literal">ImageId</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>Provides the unique ID of the Amazon Machine Image (AMI) that was assigned
+                                 during registration.
+                              </p>
+                              
+                              <p><em>Required</em>: Yes
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-as-launchconfig-instanceid"></a><span class="term"><code class="literal">InstanceId</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The ID of the Amazon EC2 instance you want to use to create the launch
+                                 configuration. Use this property if you want the launch configuration to use
+                                 settings from an existing Amazon EC2 instance.
+                              </p>
+                              
+                              <p>When you use an instance to create a launch configuration, all properties are
+                                 derived from the instance with the exception of <code class="code">BlockDeviceMapping</code>
+                                 and <code class="code">AssociatePublicIpAddress</code>. You can override any properties from
+                                 the instance by specifying them in the launch configuration.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-as-launchconfig-instancemonitoring"></a><span class="term"><code class="literal">InstanceMonitoring</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>Indicates whether detailed instance monitoring is enabled for the Auto Scaling group.
+                                 By default, this property is set to <code class="code">true</code> (enabled).
+                              </p>
+                              
+                              <p>When detailed monitoring is enabled, Amazon CloudWatch (CloudWatch) generates metrics
+                                 every
+                                 minute and your account is charged a fee. When you disable detailed monitoring,
+                                 CloudWatch generates metrics every 5 minutes. For more information, see <a href="http://docs.aws.amazon.com/autoscaling/latest/userguide/as-instance-monitoring.html" target="_blank">Monitor Your Auto Scaling
+                                    Instances</a> in the <em>Auto Scaling Developer
+                                    Guide</em>.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: Boolean
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-as-launchconfig-instancetype"></a><span class="term"><code class="literal">InstanceType</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>Specifies the instance type of the EC2 instance.</p>
+                              
+                              <p><em>Required</em>: Yes
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-as-launchconfig-kernelid"></a><span class="term"><code class="literal">KernelId</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>Provides the ID of the kernel associated with the EC2 AMI.</p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-as-launchconfig-keyname"></a><span class="term"><code class="literal">KeyName</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>Provides the name of the EC2 key pair.</p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-as-launchconfig-placementtenancy"></a><span class="term"><code class="literal">PlacementTenancy</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The tenancy of the instance. An instance with a tenancy of
+                                 <code class="code">dedicated</code> runs on single-tenant hardware and can only be launched
+                                 in a VPC. You must set the value of this parameter to <code class="code">dedicated</code> if
+                                 want to launch dedicated instances in a shared tenancy VPC (a VPC with the
+                                 instance placement tenancy attribute set to default). For more information, see
+                                 <a href="http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html" target="_blank">CreateLaunchConfiguration</a> in the
+                                 <em>Auto Scaling API Reference</em>.
+                              </p>
+                              
+                              <p>If you specify this property, you must specify at least one subnet in the
+                                 VPCZoneIdentifier property of the <a href="aws-properties-as-group.html">AWS::AutoScaling::AutoScalingGroup</a> resource.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-as-launchconfig-ramdiskid"></a><span class="term"><code class="literal">RamDiskId</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The ID of the RAM disk to select. Some kernels require additional drivers at
+                                 launch. Check the kernel requirements for information about whether you need to
+                                 specify a RAM disk. To find kernel requirements, refer to the AWS Resource Center
+                                 and search for the kernel ID.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-as-launchconfig-securitygroups"></a><span class="term"><code class="literal">SecurityGroups</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>A list that contains the EC2 security groups to assign to the Amazon EC2
+                                 instances in the Auto Scaling group. The list can contain the name of existing EC2
+                                 security groups or references to <code class="code">AWS::EC2::SecurityGroup</code> resources
+                                 created in the template. If your instances are launched within VPC, specify Amazon
+                                 VPC
+                                 security group IDs.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: A list of EC2 security groups.
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-as-launchconfig-spotprice"></a><span class="term"><code class="literal">SpotPrice</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The spot price for this autoscaling group. If a spot price is set, then the
+                                 autoscaling group will launch when the current spot price is less than the amount
+                                 specified in the template.
+                              </p>
+                              
+                              <p>When you have specified a spot price for an auto scaling group, the group will
+                                 only launch when the spot price has been met, regardless of the setting in the
+                                 autoscaling group&apos;s <code class="code">DesiredCapacity</code>.
+                              </p>
+                              
+                              <p>For more information about configuring a spot price for an autoscaling group,
+                                 see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US-SpotInstances.html" target="_blank">Using Auto Scaling to Launch Spot Instances</a> in the
+                                 <em>AutoScaling Developer Guide</em>.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                              <div class="aws-note">
+                                 <p class="aws-note">Note</p>
+                                 <p>When you change your bid price by creating a new launch configuration,
+                                    running instances will continue to run as long as the bid price for those
+                                    running instances is higher than the current Spot price.
+                                 </p>
+                              </div>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-as-launchconfig-userdata"></a><span class="term"><code class="literal">UserData</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The user data available to the launched EC2 instances.</p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                        </dl>
+                     </div><h2 id="aws-properties-as-launchconfig-ref">Return Value</h2><p>When the logical ID of this resource is provided to the <code class="code">Ref</code> intrinsic
+                        function, <code class="code">Ref</code> returns the resource name. For example:
+                     </p><pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">{ &quot;Ref&quot;: &quot;<em class="replaceable"><code>LaunchConfig</code></em>&quot; }</code></pre><p>For the resource with the logical ID <code class="code">LaunchConfig</code>, <code class="code">Ref</code>
+                        will return the Auto Scaling launch configuration name, such as
+                        <code class="code">mystack-mylaunchconfig-1DDYF1E3B3I</code>.
+                     </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
+                     </p><h2 id="w2ab2c19c12c83c17">Template Examples</h2><div class="example">
+                        <p class="title"><b>Example LaunchConfig with block device</b></p>
+                        <div class="example-contents">
+                           <p>This example shows a launch configuration that describes two Amazon Elastic Block
+                              Store
+                              mappings.
+                           </p>
+                           <div id="JSON" name="JSON" class="section langfilter">
+                              <h3 id="aws-resource-autoscaling-launchconfig-example1.json">JSON</h3>
+                              
+                              <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">&quot;LaunchConfig&quot; : {
+   &quot;Type&quot; : &quot;AWS::AutoScaling::LaunchConfiguration&quot;,
+   &quot;Properties&quot; : {
+      &quot;KeyName&quot; : { &quot;Ref&quot; : &quot;KeyName&quot; },
+      &quot;ImageId&quot; : {
+         &quot;Fn::FindInMap&quot; : [
+            &quot;AWSRegionArch2AMI&quot;,
+            { &quot;Ref&quot; : &quot;AWS::Region&quot; },
+            {
+               &quot;Fn::FindInMap&quot; : [
+                  &quot;AWSInstanceType2Arch&quot;, { &quot;Ref&quot; : &quot;InstanceType&quot; }, &quot;Arch&quot;
+               ]
+            }
+         ]
+      },
+      &quot;UserData&quot; : { &quot;Fn::Base64&quot; : { &quot;Ref&quot; : &quot;WebServerPort&quot; }},
+      &quot;SecurityGroups&quot; : [ { &quot;Ref&quot; : &quot;InstanceSecurityGroup&quot; } ],
+      &quot;InstanceType&quot; : { &quot;Ref&quot; : &quot;InstanceType&quot; },
+      &quot;BlockDeviceMappings&quot; : [
+         {
+           &quot;DeviceName&quot; : &quot;/dev/sda1&quot;,
+           &quot;Ebs&quot; : { &quot;VolumeSize&quot; : &quot;50&quot;, &quot;VolumeType&quot; : &quot;io1&quot;, &quot;Iops&quot; : 200 } 
+         },
+         {
+           &quot;DeviceName&quot; : &quot;/dev/sdm&quot;,
+           &quot;Ebs&quot; : { &quot;VolumeSize&quot; : &quot;100&quot;, &quot;DeleteOnTermination&quot; : &quot;true&quot;}
+         }
+      ]
+   }
+} </code></pre>
+                              </div>
+                           <div id="YAML" name="YAML" class="section langfilter">
+                              <h3 id="aws-resource-autoscaling-launchconfig-example1.yaml">YAML</h3>
+                              
+                              <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">LaunchConfig: 
+  Type: &quot;AWS::AutoScaling::LaunchConfiguration&quot;
+  Properties: 
+    KeyName: 
+      Ref: &quot;KeyName&quot;
+    ImageId: 
+      Fn::FindInMap: 
+        - &quot;AWSRegionArch2AMI&quot;
+        - Ref: &quot;AWS::Region&quot;
+        - Fn::FindInMap: 
+            - &quot;AWSInstanceType2Arch&quot;
+            - Ref: &quot;InstanceType&quot;
+            - &quot;Arch&quot;
+    UserData: 
+      Fn::Base64: 
+        Ref: &quot;WebServerPort&quot;
+    SecurityGroups: 
+      - Ref: &quot;InstanceSecurityGroup&quot;
+    InstanceType: 
+      Ref: &quot;InstanceType&quot;
+    BlockDeviceMappings: 
+      - DeviceName: &quot;/dev/sda1&quot;
+        Ebs: 
+          VolumeSize: &quot;50&quot;
+          VolumeType: &quot;io1&quot;
+          Iops: 200
+      - DeviceName: &quot;/dev/sdm&quot;
+        Ebs: 
+          VolumeSize: &quot;100&quot;
+          DeleteOnTermination: &quot;true&quot;</code></pre>
+                              </div>
+                        </div>
+                     </div><div class="example">
+                        <p class="title"><b>Example LaunchConfig with Spot Price in Autoscaling Group</b></p>
+                        <div class="example-contents">
+                           <p>This example shows a launch configuration that features a spot price in the
+                              AutoScaling group. This launch configuration will only be active if the current spot
+                              price is less than the amount in the template specification (0.05).
+                           </p>
+                           <div id="JSON" name="JSON" class="section langfilter">
+                              <h3 id="aws-resource-autoscaling-launchconfig-example2.json">JSON</h3>
+                              
+                              <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">
+&quot;LaunchConfig&quot; : {
+   &quot;Type&quot; : &quot;AWS::AutoScaling::LaunchConfiguration&quot;,
+   &quot;Properties&quot; : {
+      &quot;KeyName&quot; : { &quot;Ref&quot; : &quot;KeyName&quot; },
+      &quot;ImageId&quot; : {
+         &quot;Fn::FindInMap&quot; : [
+            &quot;AWSRegionArch2AMI&quot;,
+            { &quot;Ref&quot; : &quot;AWS::Region&quot; },
+            {
+               &quot;Fn::FindInMap&quot; : [
+                  &quot;AWSInstanceType2Arch&quot;, { &quot;Ref&quot; : &quot;InstanceType&quot; }, &quot;Arch&quot;
+               ]
+            }
+         ]
+      },
+      &quot;SecurityGroups&quot; : [ { &quot;Ref&quot; : &quot;InstanceSecurityGroup&quot; } ],
+      &quot;SpotPrice&quot; :  &quot;0.05&quot;,
+      &quot;InstanceType&quot; : { &quot;Ref&quot; : &quot;InstanceType&quot; }
+   }
+} </code></pre>
+                              </div>
+                           <div id="YAML" name="YAML" class="section langfilter">
+                              <h3 id="aws-resource-autoscaling-launchconfig-example2.yaml">YAML</h3>
+                              
+                              <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">LaunchConfig: 
+  Type: &quot;AWS::AutoScaling::LaunchConfiguration&quot;
+  Properties: 
+    KeyName: 
+      Ref: &quot;KeyName&quot;
+    ImageId: 
+      Fn::FindInMap: 
+        - &quot;AWSRegionArch2AMI&quot;
+        - Ref: &quot;AWS::Region&quot;
+        - Fn::FindInMap: 
+            - &quot;AWSInstanceType2Arch&quot;
+            - Ref: &quot;InstanceType&quot;
+            - &quot;Arch&quot;
+    SecurityGroups: 
+      - Ref: &quot;InstanceSecurityGroup&quot;
+    SpotPrice: &quot;0.05&quot;
+    InstanceType: 
+      Ref: &quot;InstanceType&quot;</code></pre>
+                              </div>
+                        </div>
+                     </div><div class="example">
+                        <p class="title"><b>Example LaunchConfig with IAM Instance Profile</b></p>
+                        <div class="example-contents">
+                           <p>Here&apos;s a launch configuration using the <a href="aws-properties-as-launchconfig.html#cfn-as-launchconfig-iaminstanceprofile">IamInstanceProfile</a>
+                              property.
+                           </p>
+                           <p>Only the <code class="code">AWS::AutoScaling::LaunchConfiguration</code> specification is shown.
+                              For the full template, including the definition of, and further references from the
+                              <a href="aws-resource-iam-instanceprofile.html">AWS::IAM::InstanceProfile</a>
+                              object referenced here as &quot;RootInstanceProfile&quot;, see: <a href="https://s3.amazonaws.com/cloudformation-templates-us-east-1/auto_scaling_with_instance_profile.template" target="_blank">auto_scaling_with_instance_profile.template</a>.
+                           </p>
+                           <div id="JSON" name="JSON" class="section langfilter">
+                              <h3 id="aws-resource-autoscaling-launchconfig-example3.json">JSON</h3>
+                              
+                              <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">
+&quot;myLCOne&quot;: {
+   &quot;Type&quot;: &quot;AWS::AutoScaling::LaunchConfiguration&quot;,
+   &quot;Properties&quot;: {
+      &quot;ImageId&quot;: {
+         &quot;Fn::FindInMap&quot;: [
+            &quot;AWSRegionArch2AMI&quot;,
+            { &quot;Ref&quot;: &quot;AWS::Region&quot; },
+            {
+               &quot;Fn::FindInMap&quot;: [
+                  &quot;AWSInstanceType2Arch&quot;, { &quot;Ref&quot;: &quot;InstanceType&quot; }, &quot;Arch&quot;
+               ]
+            }
+         ]
+      },
+      &quot;InstanceType&quot;: { &quot;Ref&quot;: &quot;InstanceType&quot; },
+      &quot;IamInstanceProfile&quot;: { &quot;Ref&quot;: &quot;RootInstanceProfile&quot; }
+   }
+}</code></pre>
+                              </div>
+                           <div id="YAML" name="YAML" class="section langfilter">
+                              <h3 id="aws-resource-autoscaling-launchconfig-example3.yaml">YAML</h3>
+                              
+                              <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">myLCOne: 
+  Type: &quot;AWS::AutoScaling::LaunchConfiguration&quot;
+  Properties: 
+    ImageId: 
+      Fn::FindInMap: 
+        - &quot;AWSRegionArch2AMI&quot;
+        - Ref: &quot;AWS::Region&quot;
+        - Fn::FindInMap: 
+            - &quot;AWSInstanceType2Arch&quot;
+            - Ref: &quot;InstanceType&quot;
+            - &quot;Arch&quot;
+    InstanceType: 
+      Ref: &quot;InstanceType&quot;
+    IamInstanceProfile: 
+      Ref: &quot;RootInstanceProfile&quot;</code></pre>
+                              </div>
+                        </div>
+                     </div><div class="example">
+                        <p class="title"><b>Example EBS-optimized volume with specified PIOPS</b></p>
+                        <div class="example-contents">
+                           <p>You can create an AWS CloudFormation stack with auto scaled instances that contain
+                              EBS-optimized volumes with a specified PIOPS. This can increase the performance of
+                              your
+                              EBS-backed instances as explained in <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSPerformance.html" target="_blank">Increasing EBS Performance</a> in the <em>Amazon Elastic Compute Cloud
+                                 User Guide</em>.
+                           </p>
+                           <div class="aws-note">
+                              <p class="aws-note">Warning</p>
+                              <p>Additional fees are incurred when using EBS-optimized instances. For more
+                                 information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#EBSOptimized" target="_blank">
+                                    EBS-Optimized Instances</a> in the <em>Amazon Elastic Compute Cloud
+                                    User Guide</em>.
+                              </p>
+                           </div>
+                           <p>Because you cannot override PIOPS settings in an auto scaling launch configuration,
+                              the AMI in your launch configuration must have been configured with a block device
+                              mapping that specifies the desired PIOPS. You can do this by creating your own EC2
+                              AMI
+                              with the following characteristics:
+                           </p>
+                           <div class="itemizedlist">
+                              
+                              
+                              
+                              
+                              <ul class="itemizedlist" type="disc">
+                                 <li class="listitem">
+                                    
+                                    <p>An instance type of <code class="literal">m1.large</code> or greater. This is required
+                                       for EBS optimization.
+                                    </p>
+                                    
+                                 </li>
+                                 <li class="listitem">
+                                    
+                                    <p>An EBS-backed AMI with a volume type of &quot;io1&quot; and the number of IOPS you want
+                                       for the Auto Scaling-launched instances.
+                                    </p>
+                                    
+                                 </li>
+                                 <li class="listitem">
+                                    
+                                    <p>The size of the EBS volume must accommodate the IOPS you need. There is a 10 :
+                                       1 ratio between IOPS and Gibibytes (GiB) of storage, so for 100 PIOPS, you need at
+                                       least 10 GiB storage on the root volume.
+                                    </p>
+                                    
+                                 </li>
+                              </ul>
+                           </div>
+                           <p>Use this AMI in your Auto Scaling launch configuration. For example, an EBS-optimized
+                              AMI with PIOPS that has the AMI ID <code class="literal">ami-7430ba44</code> would be used in your
+                              launch configuration like this:
+                           </p>
+                           <div id="JSON" name="JSON" class="section langfilter">
+                              <h3 id="aws-resource-autoscaling-launchconfig-example4.json">JSON</h3>
+                              
+                              <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">&quot;LaunchConfig&quot; : {
+   &quot;Type&quot; : &quot;AWS::AutoScaling::LaunchConfiguration&quot;,
+   &quot;Properties&quot; : {
+      &quot;KeyName&quot; : { &quot;Ref&quot; : &quot;KeyName&quot; },
+      &quot;ImageId&quot; : &quot;ami-7430ba44&quot;,
+      &quot;UserData&quot; : { &quot;Fn::Base64&quot; : { &quot;Ref&quot; : &quot;WebServerPort&quot; } },
+      &quot;SecurityGroups&quot; : [ { &quot;Ref&quot; : &quot;InstanceSecurityGroup&quot; } ],
+      &quot;InstanceType&quot; : &quot;m1.large&quot;,
+      &quot;EbsOptimized&quot; : &quot;true&quot;
+   }
+}</code></pre>
+                              </div>
+                           <div id="YAML" name="YAML" class="section langfilter">
+                              <h3 id="aws-resource-autoscaling-launchconfig-example4.yaml">YAML</h3>
+                              
+                              <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">LaunchConfig: 
+  Type: &quot;AWS::AutoScaling::LaunchConfiguration&quot;
+  Properties: 
+    KeyName: 
+      Ref: &quot;KeyName&quot;
+    ImageId: &quot;ami-7430ba44&quot;
+    UserData: 
+      Fn::Base64: 
+        Ref: &quot;WebServerPort&quot;
+    SecurityGroups: 
+      - Ref: &quot;InstanceSecurityGroup&quot;
+    InstanceType: &quot;m1.large&quot;
+    EbsOptimized: &quot;true&quot;</code></pre>
+                              </div>
+                           <p>Be sure to set the <code class="code">InstanceType</code> to at least
+                              <em>m1.large</em> and set <code class="code">EbsOptimized</code> to
+                              <em>true</em>.
+                           </p>
+                           <p>When you create a launch configuration such as this one, your launched instances will
+                              contain optimized EBS root volumes with the PIOPS that you selected when creating
+                              the
+                              AMI.
+                           </p>
+                        </div>
+                     </div><p>To view more LaunchConfiguration snippets, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-autoscaling.html#scenario-as-launch-config">Auto Scaling Launch Configuration Resource</a>.
+                     </p><h2 id="w2ab2c19c12c83c19">See Also</h2><div class="itemizedlist">
+                        
+                        
+                        
+                        <ul class="itemizedlist" type="disc">
+                           <li class="listitem">
+                              
+                              <p><a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami.html" target="_blank">Creating Your Own AMIs</a> in the <em>Amazon Elastic Compute Cloud
+                                    User Guide</em>.
+                              </p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p><a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html" target="_blank">Block Device Mapping</a> in the <em>Amazon Elastic Compute Cloud User
+                                    Guide</em>.
+                              </p>
+                              
+                           </li>
+                        </ul>
+                     </div></div>
+</body>
+</html>

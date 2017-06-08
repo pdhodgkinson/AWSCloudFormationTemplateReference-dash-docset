@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="css/awsdocs.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/awsdocs.min.js"></script>
+    <meta charset="utf-8">
+</head>
+<body>
+    <div id="content" style="padding: 10px 30px;">
+    <h1 class="topictitle" id="aws-resource-dynamodb-table">AWS::DynamoDB::Table</h1><p>Creates a DynamoDB table.</p><div class="aws-note">
+                        <p class="aws-note">Note</p>
+                        <p>AWS CloudFormation typically creates DynamoDB tables in parallel. However, if your
+                           template includes
+                           multiple DynamoDB tables with indexes, you must declare dependencies so that the tables
+                           are
+                           created sequentially. DynamoDB limits the number of tables with secondary indexes
+                           that are in
+                           the creating state. If you create multiple tables with indexes at the same time, DynamoDB
+                           returns an error and the stack operation fails. For a sample snippet, see <a href="aws-resource-dynamodb-table.html#cfn-dynamodb-table-examples-dependson">DynamoDB Table with a DependsOn
+                              Attribute</a>.
+                        </p>
+                     </div><div class="highlights">
+                        <p><strong>Topics</strong></p>
+                        <ul>
+                           <li><a href="#aws-resource-dynamodb-table-syntax">Syntax</a></li>
+                           <li><a href="#w2ab2c19c12d236c11">Properties</a></li>
+                           <li><a href="#w2ab2c19c12d236c13">Return Value</a></li>
+                           <li><a href="#cfn-dynamodb-table-examples">DynamoDB Table with Local and Secondary Indexes</a></li>
+                           <li><a href="#cfn-dynamodb-table-examples-dependson">DynamoDB Table with a DependsOn
+                                 Attribute</a></li>
+                        </ul>
+                     </div><h2 id="aws-resource-dynamodb-table-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-resource-dynamodb-table-syntax.json">JSON</h3>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">{
+  &quot;Type&quot; : &quot;AWS::DynamoDB::Table&quot;,
+  &quot;Properties&quot; : {
+    &quot;<a href="aws-resource-dynamodb-table.html#cfn-dynamodb-table-attributedef"><code class="literal">AttributeDefinitions</code></a>&quot; : [ <em class="replaceable"><code>AttributeDefinitions, ...</code></em> ],
+    &quot;<a href="aws-resource-dynamodb-table.html#cfn-dynamodb-table-gsi"><code class="literal">GlobalSecondaryIndexes</code></a>&quot; : [ <em class="replaceable"><code>GlobalSecondaryIndexes, ...</code></em> ],
+    &quot;<a href="aws-resource-dynamodb-table.html#cfn-dynamodb-table-keyschema"><code class="literal">KeySchema</code></a>&quot; : [ <em class="replaceable"><code>KeySchema, ...</code></em> ],
+    &quot;<a href="aws-resource-dynamodb-table.html#cfn-dynamodb-table-lsi"><code class="literal">LocalSecondaryIndexes</code></a>&quot; : [ <em class="replaceable"><code>LocalSecondaryIndexes, ...</code></em> ],
+    &quot;<a href="aws-resource-dynamodb-table.html#cfn-dynamodb-table-provisionedthroughput"><code class="literal">ProvisionedThroughput</code></a>&quot; : <em class="replaceable"><code>ProvisionedThroughput</code></em>,
+    &quot;<a href="aws-resource-dynamodb-table.html#cfn-dynamodb-table-streamspecification"><code class="code">StreamSpecification</code></a>&quot; : <em class="replaceable"><code>StreamSpecification</code></em>,
+    &quot;<a href="aws-resource-dynamodb-table.html#cfn-dynamodb-table-tablename"><code class="literal">TableName</code></a>&quot; : <em class="replaceable"><code>String</code></em>
+  }
+}</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-dynamodb-table-syntax.yaml">YAML</h3>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">Type: &quot;AWS::DynamoDB::Table&quot;
+Properties:
+  <a href="aws-resource-dynamodb-table.html#cfn-dynamodb-table-attributedef"><code class="literal">AttributeDefinitions</code></a>:
+    - <em class="replaceable"><code>AttributeDefinitions</code></em>
+  <a href="aws-resource-dynamodb-table.html#cfn-dynamodb-table-gsi"><code class="literal">GlobalSecondaryIndexes</code></a>:
+    - <em class="replaceable"><code>GlobalSecondaryIndexes</code></em>
+  <a href="aws-resource-dynamodb-table.html#cfn-dynamodb-table-keyschema"><code class="literal">KeySchema</code></a>:
+    - <em class="replaceable"><code>KeySchema</code></em>
+  <a href="aws-resource-dynamodb-table.html#cfn-dynamodb-table-lsi"><code class="literal">LocalSecondaryIndexes</code></a>:
+    - <em class="replaceable"><code>LocalSecondaryIndexes</code></em>
+  <a href="aws-resource-dynamodb-table.html#cfn-dynamodb-table-provisionedthroughput"><code class="literal">ProvisionedThroughput</code></a>:
+    <em class="replaceable"><code>ProvisionedThroughput</code></em>
+  <a href="aws-resource-dynamodb-table.html#cfn-dynamodb-table-streamspecification"><code class="code">StreamSpecification</code></a>:
+    <em class="replaceable"><code>StreamSpecification</code></em>
+  <a href="aws-resource-dynamodb-table.html#cfn-dynamodb-table-tablename"><code class="literal">TableName</code></a>: <em class="replaceable"><code>String</code></em>
+</code></pre>
+                        </div><h2 id="w2ab2c19c12d236c11">Properties</h2><div class="variablelist">
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <dl>
+                           
+                           <dt><a id="cfn-dynamodb-table-attributedef"></a><span class="term"><code class="literal">AttributeDefinitions</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>A list of <code class="code">AttributeName</code> and <code class="code">AttributeType</code> objects
+                                 that describe the key schema for the table and indexes.
+                              </p>
+                              
+                              <p><em>Required</em>: Yes
+                              </p>
+                              
+                              <p><em>Type</em>: List of <a href="aws-properties-dynamodb-attributedef.html">DynamoDB Attribute Definitions</a></p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-dynamodb-table-gsi"></a><span class="term"><code class="literal">GlobalSecondaryIndexes</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>Global secondary indexes to be created on the table. You can create up to 5 global
+                                 secondary indexes.
+                              </p>
+                              
+                              <p>
+                                 
+                              </p>
+                              <div class="aws-note">
+                                 <p class="aws-note">Important</p>
+                                 <p>If you update a table to include a new global secondary index, AWS CloudFormation
+                                    initiates
+                                    the index creation and then proceeds with the stack update. AWS CloudFormation doesn&apos;t
+                                    wait for
+                                    the index to complete creation because the backfilling phase can take a long time,
+                                    depending on the size of the table. You cannot use the index or update the table
+                                    until the index&apos;s status is <code class="code">ACTIVE</code>. You can track its status by using
+                                    the DynamoDB <a href="http://docs.aws.amazon.com/cli/latest/reference/dynamodb/describe-table.html" target="_blank"><code class="code">DescribeTable</code></a> command.
+                                 </p>
+                                 <p>If you add or delete an index during an update, we recommend that you don&apos;t
+                                    update any other resources. If your stack fails to update and is rolled back while
+                                    adding a new index, you must manually delete the index.
+                                 </p>
+                              </div>
+                              <p>
+                                 
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: List of <a href="aws-properties-dynamodb-gsi.html">DynamoDB Global Secondary Indexes</a></p>
+                              
+                              <p><em>Update requires</em>: Updates are not supported. with the following exceptions:
+                              </p>
+                              <div class="itemizedlist">
+                                 
+                                 
+                                 
+                                 <ul class="itemizedlist" type="disc">
+                                    <li class="listitem">
+                                       
+                                       <p>If you update only the provisioned throughput values of global secondary
+                                          indexes, you can update the table <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">without
+                                             interruption</a>.
+                                       </p>
+                                       
+                                    </li>
+                                    <li class="listitem">
+                                       
+                                       <p>You can delete or add one global secondary index <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">without interruption</a>. If you do both in the
+                                          same update (for example, by changing the index&apos;s logical ID), the update
+                                          fails.
+                                       </p>
+                                       
+                                    </li>
+                                 </ul>
+                              </div>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-dynamodb-table-keyschema"></a><span class="term"><code class="literal">KeySchema</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>Specifies the attributes that make up the primary key for the table. The
+                                 attributes in the <code class="code">KeySchema</code> property must also be defined in the
+                                 <code class="code">AttributeDefinitions</code> property.
+                              </p>
+                              
+                              <p><em>Required</em>: Yes
+                              </p>
+                              
+                              <p><em>Type</em>: List of <a href="aws-properties-dynamodb-keyschema.html">DynamoDB Key Schema</a></p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-dynamodb-table-lsi"></a><span class="term"><code class="literal">LocalSecondaryIndexes</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>Local secondary indexes to be created on the table. You can create up to 5 local
+                                 secondary indexes. Each index is scoped to a given hash key value. The size of each
+                                 hash
+                                 key can be up to 10 gigabytes.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: List of <a href="aws-properties-dynamodb-lsi.html">DynamoDB Local Secondary Indexes</a></p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-dynamodb-table-provisionedthroughput"></a><span class="term"><code class="literal">ProvisionedThroughput</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>Throughput for the specified table, consisting of values for ReadCapacityUnits and
+                                 WriteCapacityUnits. For more information about the contents of a provisioned throughput
+                                 structure, see <a href="aws-properties-dynamodb-provisionedthroughput.html">DynamoDB Provisioned
+                                    Throughput</a>.
+                              </p>
+                              
+                              <p><em>Required</em>: Yes
+                              </p>
+                              
+                              <p><em>Type</em>: <a href="aws-properties-dynamodb-provisionedthroughput.html">DynamoDB Provisioned
+                                    Throughput</a></p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-dynamodb-table-streamspecification"></a><span class="term"><code class="code">StreamSpecification</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The settings for the DynamoDB table stream, which capture changes to items stored
+                                 in
+                                 the table.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: <a href="aws-properties-dynamodb-streamspecification.html">DynamoDB Table
+                                    StreamSpecification</a></p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a> to the table; however, the stream is replaced.
+                              </p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-dynamodb-table-tablename"></a><span class="term"><code class="literal">TableName</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>A name for the table. If you don&apos;t specify a name, AWS CloudFormation generates a
+                                 unique
+                                 physical ID and uses that ID for the table name. For more information, see <a href="aws-properties-name.html">Name Type</a>.
+                              </p>
+                              <div class="aws-note">
+                                 <p class="aws-note">Important</p>
+                                 <p>If you specify a name, you cannot perform updates that require replacement of this
+                                    resource.
+                                    You can perform updates that require no or some interruption. If you must replace
+                                    the resource, specify a new name.
+                                 </p>
+                              </div>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                        </dl>
+                     </div><div class="aws-note">
+                        <p class="aws-note">Note</p>
+                        <p>For detailed information about the limits in DynamoDB, see <a href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html" target="_blank">Limits in Amazon DynamoDB</a> in the
+                           <em>Amazon DynamoDB Developer Guide</em>.
+                        </p>
+                     </div><h2 id="w2ab2c19c12d236c13">Return Value</h2><h3 id="w2ab2c19c12d236c13b3">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code> intrinsic
+                        function, <code class="code">Ref</code> returns the resource name. For example:
+                     </p><pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">{ &quot;Ref&quot;: &quot;<em class="replaceable"><code>MyResource</code></em>&quot; }</code></pre><p>For the resource with the logical ID <code class="code">myDynamoDBTable</code>,
+                        <code class="code">Ref</code> will return the DynamoDB table name.
+                     </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
+                     </p><h3 id="w2ab2c19c12d236c13b5">Fn::GetAtt</h3><p><code class="code">Fn::GetAtt</code> returns a value for a specified attribute of this type.
+                        The following are the available attributes and sample return values.
+                     </p><div class="variablelist">
+                        
+                        
+                        <dl>
+                           
+                           <dt><span class="term"><code class="code">StreamArn</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The Amazon Resource Name (ARN) of the DynamoDB stream, such as
+                                 <code class="code">arn:aws:dynamodb:us-east-1:123456789012:table/testddbstack-myDynamoDBTable-012A1SL7SMP5Q/stream/2015-11-30T20:10:00.000</code>.
+                              </p>
+                              
+                              <div class="aws-note">
+                                 <p class="aws-note">Note</p>
+                                 <p>You must specify the <code class="code">StreamSpecification</code> property to use this
+                                    attribute.
+                                 </p>
+                              </div>
+                              
+                           </dd>
+                           
+                        </dl>
+                     </div><p>For more information about using <code class="code">Fn::GetAtt</code>, see <a href="intrinsic-function-reference-getatt.html">Fn::GetAtt</a>.
+                     </p><h2 id="cfn-dynamodb-table-examples">DynamoDB Table with Local and Secondary Indexes</h2><p>The following sample creates an DynamoDB table with <code class="code">Album</code>, <code class="code">Artist</code>,
+                        <code class="code">Sales</code>, <code class="code">NumberOfSongs</code> as attributes. The primary key includes the
+                        <code class="code">Album</code> attribute as the hash key and <code class="code">Artist</code> attribute as the range
+                        key. The table also includes two global and one secondary index. For querying the
+                        number of
+                        sales for a given artist, the global secondary index uses the <code class="code">Sales</code> attribute as
+                        the hash key and the <code class="code">Artist</code> attribute as the range key.
+                     </p><p>For querying the sales based on the number of songs, the global secondary index uses
+                        the
+                        <code class="code">NumberOfSongs</code> attribute as the hash key and the <code class="code">Sales</code> attribute as
+                        the range key.
+                     </p><p>For querying the sales of an album, the local secondary index uses the same hash key
+                        as
+                        the table but uses the <code class="code">Sales</code> attribute as the range key.
+                     </p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-resource-dynamodb-table-example1.json">JSON</h3>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">{
+  &quot;AWSTemplateFormatVersion&quot; : &quot;2010-09-09&quot;,
+  &quot;Resources&quot; : {
+    &quot;myDynamoDBTable&quot; : {
+      &quot;Type&quot; : &quot;AWS::DynamoDB::Table&quot;,
+      &quot;Properties&quot; : {
+        &quot;AttributeDefinitions&quot; : [
+          {
+            &quot;AttributeName&quot; : &quot;Album&quot;,
+            &quot;AttributeType&quot; : &quot;S&quot;   
+          },
+          {
+            &quot;AttributeName&quot; : &quot;Artist&quot;,
+            &quot;AttributeType&quot; : &quot;S&quot;
+          },
+          {
+            &quot;AttributeName&quot; : &quot;Sales&quot;,
+            &quot;AttributeType&quot; : &quot;N&quot;
+          },
+          {
+            &quot;AttributeName&quot; : &quot;NumberOfSongs&quot;,
+            &quot;AttributeType&quot; : &quot;N&quot;
+          }
+        ],
+        &quot;KeySchema&quot; : [
+          {
+            &quot;AttributeName&quot; : &quot;Album&quot;,
+            &quot;KeyType&quot; : &quot;HASH&quot;
+          },
+          {
+            &quot;AttributeName&quot; : &quot;Artist&quot;,
+            &quot;KeyType&quot; : &quot;RANGE&quot;
+          }
+        ],
+        &quot;ProvisionedThroughput&quot; : {
+          &quot;ReadCapacityUnits&quot; : &quot;5&quot;,
+          &quot;WriteCapacityUnits&quot; : &quot;5&quot;
+        },
+        &quot;TableName&quot; : &quot;myTableName&quot;,
+        &quot;GlobalSecondaryIndexes&quot; : [{
+          &quot;IndexName&quot; : &quot;myGSI&quot;,
+          &quot;KeySchema&quot; : [
+            {
+              &quot;AttributeName&quot; : &quot;Sales&quot;,
+              &quot;KeyType&quot; : &quot;HASH&quot;
+            },
+            {
+              &quot;AttributeName&quot; : &quot;Artist&quot;,
+              &quot;KeyType&quot; : &quot;RANGE&quot;
+            }
+          ],                         
+          &quot;Projection&quot; : {
+            &quot;NonKeyAttributes&quot; : [&quot;Album&quot;,&quot;NumberOfSongs&quot;],
+            &quot;ProjectionType&quot; : &quot;INCLUDE&quot;
+          },
+          &quot;ProvisionedThroughput&quot; : {
+            &quot;ReadCapacityUnits&quot; : &quot;5&quot;,
+            &quot;WriteCapacityUnits&quot; : &quot;5&quot;
+          }
+        },
+        {
+          &quot;IndexName&quot; : &quot;myGSI2&quot;,
+          &quot;KeySchema&quot; : [
+            {
+              &quot;AttributeName&quot; : &quot;NumberOfSongs&quot;,
+              &quot;KeyType&quot; : &quot;HASH&quot;
+            },
+            {
+              &quot;AttributeName&quot; : &quot;Sales&quot;,
+              &quot;KeyType&quot; : &quot;RANGE&quot;
+            }
+          ],                         
+          &quot;Projection&quot; : {
+            &quot;NonKeyAttributes&quot; : [&quot;Album&quot;,&quot;Artist&quot;],
+            &quot;ProjectionType&quot; : &quot;INCLUDE&quot;
+          },
+          &quot;ProvisionedThroughput&quot; : {
+            &quot;ReadCapacityUnits&quot; : &quot;5&quot;,
+            &quot;WriteCapacityUnits&quot; : &quot;5&quot;
+          }
+        }],
+        &quot;LocalSecondaryIndexes&quot; :[{
+          &quot;IndexName&quot; : &quot;myLSI&quot;,
+          &quot;KeySchema&quot; : [
+            {
+              &quot;AttributeName&quot; : &quot;Album&quot;,
+              &quot;KeyType&quot; : &quot;HASH&quot;
+            },
+            {
+              &quot;AttributeName&quot; : &quot;Sales&quot;,
+              &quot;KeyType&quot; : &quot;RANGE&quot;
+            }
+          ],                           
+          &quot;Projection&quot; : {
+            &quot;NonKeyAttributes&quot; : [&quot;Artist&quot;,&quot;NumberOfSongs&quot;],
+            &quot;ProjectionType&quot; : &quot;INCLUDE&quot;
+          }
+        }]
+      }
+    }
+  }
+}</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-dynamodb-table-example1.yaml">YAML</h3>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">AWSTemplateFormatVersion: &quot;2010-09-09&quot;
+Resources: 
+  myDynamoDBTable: 
+    Type: &quot;AWS::DynamoDB::Table&quot;
+    Properties: 
+      AttributeDefinitions: 
+        - 
+          AttributeName: &quot;Album&quot;
+          AttributeType: &quot;S&quot;
+        - 
+          AttributeName: &quot;Artist&quot;
+          AttributeType: &quot;S&quot;
+        - 
+          AttributeName: &quot;Sales&quot;
+          AttributeType: &quot;N&quot;
+        - 
+          AttributeName: &quot;NumberOfSongs&quot;
+          AttributeType: &quot;N&quot;
+      KeySchema: 
+        - 
+          AttributeName: &quot;Album&quot;
+          KeyType: &quot;HASH&quot;
+        - 
+          AttributeName: &quot;Artist&quot;
+          KeyType: &quot;RANGE&quot;
+      ProvisionedThroughput: 
+        ReadCapacityUnits: &quot;5&quot;
+        WriteCapacityUnits: &quot;5&quot;
+      TableName: &quot;myTableName&quot;
+      GlobalSecondaryIndexes: 
+        - 
+          IndexName: &quot;myGSI&quot;
+          KeySchema: 
+            - 
+              AttributeName: &quot;Sales&quot;
+              KeyType: &quot;HASH&quot;
+            - 
+              AttributeName: &quot;Artist&quot;
+              KeyType: &quot;RANGE&quot;
+          Projection: 
+            NonKeyAttributes: 
+              - &quot;Album&quot;
+              - &quot;NumberOfSongs&quot;
+            ProjectionType: &quot;INCLUDE&quot;
+          ProvisionedThroughput: 
+            ReadCapacityUnits: &quot;5&quot;
+            WriteCapacityUnits: &quot;5&quot;
+        - 
+          IndexName: &quot;myGSI2&quot;
+          KeySchema: 
+            - 
+              AttributeName: &quot;NumberOfSongs&quot;
+              KeyType: &quot;HASH&quot;
+            - 
+              AttributeName: &quot;Sales&quot;
+              KeyType: &quot;RANGE&quot;
+          Projection: 
+            NonKeyAttributes: 
+              - &quot;Album&quot;
+              - &quot;Artist&quot;
+            ProjectionType: &quot;INCLUDE&quot;
+          ProvisionedThroughput: 
+            ReadCapacityUnits: &quot;5&quot;
+            WriteCapacityUnits: &quot;5&quot;
+      LocalSecondaryIndexes: 
+        - 
+          IndexName: &quot;myLSI&quot;
+          KeySchema: 
+            - 
+              AttributeName: &quot;Album&quot;
+              KeyType: &quot;HASH&quot;
+            - 
+              AttributeName: &quot;Sales&quot;
+              KeyType: &quot;RANGE&quot;
+          Projection: 
+            NonKeyAttributes: 
+              - &quot;Artist&quot;
+              - &quot;NumberOfSongs&quot;
+            ProjectionType: &quot;INCLUDE&quot;
+</code></pre>
+                        </div><h2 id="cfn-dynamodb-table-examples-dependson">DynamoDB Table with a DependsOn
+                        Attribute
+                     </h2><p>If you include multiple DynamoDB tables with indexes in a single template, you must
+                        include
+                        dependencies so that the tables are created sequentially. DynamoDB limits the number
+                        of tables
+                        with secondary indexes that are in the creating state. If you create multiple tables
+                        with
+                        indexes at the same time, DynamoDB returns an error and the stack operation fails.
+                     </p><p>The following sample assumes that the <code class="code">myFirstDDBTable</code> table is declared in
+                        the same template as the <code class="code">mySecondDDBTable</code> table, and both tables include a
+                        secondary index. The <code class="code">mySecondDDBTable</code> table includes a dependency on the
+                        <code class="code">myFirstDDBTable</code> table so that AWS CloudFormation creates the tables one at a
+                        time.
+                     </p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-resource-dynamodb-table-example2.json">JSON</h3>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">&quot;mySecondDDBTable&quot; : {
+  &quot;Type&quot; : &quot;AWS::DynamoDB::Table&quot;,
+  &quot;DependsOn&quot; : &quot;myFirstDDBTable&quot; ,
+  &quot;Properties&quot; : {
+    &quot;AttributeDefinitions&quot; : [
+      {
+        &quot;AttributeName&quot; : &quot;ArtistId&quot;,
+        &quot;AttributeType&quot; : &quot;S&quot;        
+      },
+      {
+        &quot;AttributeName&quot; : &quot;Concert&quot;,
+        &quot;AttributeType&quot; : &quot;S&quot;        
+      },
+      {
+        &quot;AttributeName&quot; : &quot;TicketSales&quot;,
+        &quot;AttributeType&quot; : &quot;S&quot;        
+      }
+    ],
+    &quot;KeySchema&quot; : [
+      {
+        &quot;AttributeName&quot; : &quot;ArtistId&quot;,
+        &quot;KeyType&quot; : &quot;HASH&quot;
+      },
+      {
+        &quot;AttributeName&quot; : &quot;Concert&quot;,
+        &quot;KeyType&quot; : &quot;RANGE&quot;
+      }
+    ],
+    &quot;ProvisionedThroughput&quot; : {
+      &quot;ReadCapacityUnits&quot; : {&quot;Ref&quot; : &quot;ReadCapacityUnits&quot;},
+      &quot;WriteCapacityUnits&quot; : {&quot;Ref&quot; : &quot;WriteCapacityUnits&quot;}
+    },
+    &quot;GlobalSecondaryIndexes&quot; : [{
+      &quot;IndexName&quot; : &quot;myGSI&quot;,
+      &quot;KeySchema&quot; : [
+        {
+          &quot;AttributeName&quot; : &quot;TicketSales&quot;,
+          &quot;KeyType&quot; : &quot;HASH&quot;
+        }
+      ],                           
+      &quot;Projection&quot; : {
+        &quot;ProjectionType&quot; : &quot;KEYS_ONLY&quot;
+      },    
+      &quot;ProvisionedThroughput&quot; : {
+        &quot;ReadCapacityUnits&quot; : {&quot;Ref&quot; : &quot;ReadCapacityUnits&quot;},
+        &quot;WriteCapacityUnits&quot; : {&quot;Ref&quot; : &quot;WriteCapacityUnits&quot;}
+      }
+    }]
+  }
+}</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-dynamodb-table-example2.yaml">YAML</h3>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">mySecondDDBTable: 
+  Type: &quot;AWS::DynamoDB::Table&quot;
+  DependsOn: &quot;myFirstDDBTable&quot;
+  Properties: 
+    AttributeDefinitions: 
+      - 
+        AttributeName: &quot;ArtistId&quot;
+        AttributeType: &quot;S&quot;
+      - 
+        AttributeName: &quot;Concert&quot;
+        AttributeType: &quot;S&quot;
+      - 
+        AttributeName: &quot;TicketSales&quot;
+        AttributeType: &quot;S&quot;
+    KeySchema: 
+      - 
+        AttributeName: &quot;ArtistId&quot;
+        KeyType: &quot;HASH&quot;
+      - 
+        AttributeName: &quot;Concert&quot;
+        KeyType: &quot;RANGE&quot;
+    ProvisionedThroughput: 
+      ReadCapacityUnits: 
+        Ref: &quot;ReadCapacityUnits&quot;
+      WriteCapacityUnits: 
+        Ref: &quot;WriteCapacityUnits&quot;
+    GlobalSecondaryIndexes: 
+      - 
+        IndexName: &quot;myGSI&quot;
+        KeySchema: 
+          - 
+            AttributeName: &quot;TicketSales&quot;
+            KeyType: &quot;HASH&quot;
+        Projection: 
+          ProjectionType: &quot;KEYS_ONLY&quot;
+        ProvisionedThroughput: 
+          ReadCapacityUnits: 
+            Ref: &quot;ReadCapacityUnits&quot;
+          WriteCapacityUnits: 
+            Ref: &quot;WriteCapacityUnits&quot;</code></pre>
+                        </div></div>
+</body>
+</html>

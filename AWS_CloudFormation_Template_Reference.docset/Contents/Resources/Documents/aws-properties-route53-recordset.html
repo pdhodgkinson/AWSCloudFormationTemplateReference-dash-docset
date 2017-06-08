@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="css/awsdocs.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/awsdocs.min.js"></script>
+    <meta charset="utf-8">
+</head>
+<body>
+    <div id="content" style="padding: 10px 30px;">
+    <h1 class="topictitle" id="aws-properties-route53-recordset">AWS::Route53::RecordSet</h1><p>The <code class="code">AWS::Route53::RecordSet</code> type can be used as a standalone resource or as an
+                        embedded property in the <a href="aws-properties-route53-recordsetgroup.html">AWS::Route53::RecordSetGroup</a> type. Note that some
+                        <code class="code">AWS::Route53::RecordSet</code> properties are valid only when used within
+                        <code class="code">AWS::Route53::RecordSetGroup</code>.
+                     </p><p>For more information about constraints and values for each property, see <a href="http://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateHostedZone.html" target="_blank">POST
+                           CreateHostedZone</a> for hosted zones and <a href="http://docs.aws.amazon.com/Route53/latest/APIReference/API_ChangeResourceRecordSets.html" target="_blank">POST
+                           ChangeResourceRecordSet</a> for resource record sets.
+                     </p><div class="highlights">
+                        <p><strong>Topics</strong></p>
+                        <ul>
+                           <li><a href="#aws-resource-route53-recordset-syntax">Syntax</a></li>
+                           <li><a href="#w2ab2c19c12d773c13">Properties</a></li>
+                           <li><a href="#w2ab2c19c12d773c15">Return Value</a></li>
+                           <li><a href="#w2ab2c19c12d773c17">Example</a></li>
+                        </ul>
+                     </div><h2 id="aws-resource-route53-recordset-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-resource-route53-recordset-syntax.json">JSON</h3>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">{
+  &quot;Type&quot; : &quot;AWS::Route53::RecordSet&quot;,
+  &quot;Properties&quot; : {
+    &quot;<a href="aws-properties-route53-recordset.html#cfn-route53-recordset-aliastarget">AliasTarget</a>&quot; : <em class="replaceable"><code><a href="aws-properties-route53-aliastarget.html">AliasTarget</a></code></em>,
+    &quot;<a href="aws-properties-route53-recordset.html#cfn-route53-recordset-comment"><code class="code">Comment</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-properties-route53-recordset.html#cfn-route53-recordset-failover"><code class="literal">Failover</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-properties-route53-recordset.html#cfn-route53-recordset-geolocation"><code class="literal">GeoLocation</code></a>&quot; : <em class="replaceable"><code>GeoLocation</code></em>,
+    &quot;<a href="aws-properties-route53-recordset.html#cfn-route53-recordset-healthcheckid"><code class="literal">HealthCheckId</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-properties-route53-recordset.html#cfn-route53-recordset-hostedzoneid">HostedZoneId</a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-properties-route53-recordset.html#cfn-route53-recordset-hostedzonename">HostedZoneName</a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-properties-route53-recordset.html#cfn-route53-recordset-name">Name</a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-properties-route53-recordset.html#cfn-route53-recordset-region">Region</a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-properties-route53-recordset.html#cfn-route53-recordset-resourcerecords">ResourceRecords</a>&quot; : [ <em class="replaceable"><code>String</code></em> ],
+    &quot;<a href="aws-properties-route53-recordset.html#cfn-route53-recordset-setidentifier">SetIdentifier</a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-properties-route53-recordset.html#cfn-route53-recordset-ttl">TTL</a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-properties-route53-recordset.html#cfn-route53-recordset-type">Type</a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-properties-route53-recordset.html#cfn-route53-recordset-weight">Weight</a>&quot; : <em class="replaceable"><code>Integer</code></em>
+  }
+}</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-route53-recordset-syntax.yaml">YAML</h3>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">Type: &quot;AWS::Route53::RecordSet&quot;
+Properties: 
+  <a href="aws-properties-route53-recordset.html#cfn-route53-recordset-aliastarget">AliasTarget</a>: <em class="replaceable"><code><a href="aws-properties-route53-aliastarget.html">AliasTarget</a></code></em>
+  <a href="aws-properties-route53-recordset.html#cfn-route53-recordset-comment"><code class="code">Comment</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-properties-route53-recordset.html#cfn-route53-recordset-failover"><code class="literal">Failover</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-properties-route53-recordset.html#cfn-route53-recordset-geolocation"><code class="literal">GeoLocation</code></a>:
+    <em class="replaceable"><code>GeoLocation</code></em>
+  <a href="aws-properties-route53-recordset.html#cfn-route53-recordset-healthcheckid"><code class="literal">HealthCheckId</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-properties-route53-recordset.html#cfn-route53-recordset-hostedzoneid">HostedZoneId</a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-properties-route53-recordset.html#cfn-route53-recordset-hostedzonename">HostedZoneName</a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-properties-route53-recordset.html#cfn-route53-recordset-name">Name</a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-properties-route53-recordset.html#cfn-route53-recordset-region">Region</a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-properties-route53-recordset.html#cfn-route53-recordset-resourcerecords">ResourceRecords</a>:
+    - <em class="replaceable"><code>String</code></em>
+  <a href="aws-properties-route53-recordset.html#cfn-route53-recordset-setidentifier">SetIdentifier</a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-properties-route53-recordset.html#cfn-route53-recordset-ttl">TTL</a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-properties-route53-recordset.html#cfn-route53-recordset-type">Type</a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-properties-route53-recordset.html#cfn-route53-recordset-weight">Weight</a>: <em class="replaceable"><code>Integer</code></em>
+</code></pre>
+                        </div><h2 id="w2ab2c19c12d773c13">Properties</h2><div class="variablelist">
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <dl>
+                           
+                           <dt><a id="cfn-route53-recordset-aliastarget"></a><span class="term"><code class="literal">AliasTarget</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p><em>Alias resource record sets only:</em> Information about the
+                                 domain to which you are redirecting traffic.
+                              </p>
+                              
+                              <p>If you specify this property, do not specify the <code class="code">TTL</code> property. The
+                                 alias uses a TTL value from the alias target record.
+                              </p>
+                              
+                              <p>For more information about alias resource record sets, see <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/CreatingAliasRRSets.html" target="_blank">Creating Alias Resource Record Sets</a> in the <em>Amazon Route&#xA0;53 Developer
+                                    Guide</em> and <a href="http://docs.aws.amazon.com/Route53/latest/APIReference/API_ChangeResourceRecordSets.html#API_ChangeResourceRecordSets_RequestAliasSyntax" target="_blank">POST ChangeResourceRecordSets</a> in the Amazon Route&#xA0;53 API reference.
+                              </p>
+                              
+                              <p><em>Required</em>: Conditional. Required if you are creating an alias resource record
+                                 set. 
+                              </p>
+                              
+                              <p><em>Type</em>: <a href="aws-properties-route53-aliastarget.html">AliasTarget</a></p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-route53-recordset-comment"></a><span class="term"><code class="code">Comment</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>Any comments that you want to include about the hosted zone.</p>
+                              
+                              <div class="aws-note">
+                                 <p class="aws-note">Important</p>
+                                 <p>If the record set is part of a record set group, this property isn&apos;t valid.
+                                    Don&apos;t specify this property.
+                                 </p>
+                              </div>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-route53-recordset-failover"></a><span class="term"><code class="literal">Failover</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>Designates the record set as a <code class="code">PRIMARY</code> or <code class="code">SECONDARY</code>
+                                 failover record set. When you have more than one resource performing the same
+                                 function, you can configure Amazon Route&#xA0;53 to check the health of your resources
+                                 and use
+                                 only health resources to respond to DNS queries. You cannot create nonfailover
+                                 resource record sets that have the same <code class="code">Name</code> and <code class="code">Type</code>
+                                 property values as failover resource record sets. For more information, see the
+                                 <a href="http://docs.aws.amazon.com/Route53/latest/APIReference/API_ResourceRecordSet.html#Route53-Type-ResourceRecordSet-Failover" target="_blank">Failover</a> content in the <em>Amazon Route&#xA0;53 API Reference</em>.
+                              </p>
+                              
+                              <p>If you specify this property, you must specify the <code class="code">SetIdentifier</code>
+                                 property.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-route53-recordset-geolocation"></a><span class="term"><code class="literal">GeoLocation</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>Describes how Amazon Route&#xA0;53 responds to DNS queries based on the geographic origin
+                                 of
+                                 the query.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: <a href="aws-properties-route53-recordset-geolocation.html">Amazon Route&#xA0;53 Record Set GeoLocation
+                                    Property</a></p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-route53-recordset-healthcheckid"></a><span class="term"><code class="literal">HealthCheckId</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The health check ID that you want to apply to this record set. Amazon Route&#xA0;53 returns
+                                 this resource record set in response to a DNS query only while record set is
+                                 healthy.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-route53-recordset-hostedzoneid"></a><span class="term"><code class="literal">HostedZoneId</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The ID of the hosted zone.</p>
+                              
+                              <p><em>Required</em>: Conditional. You must specify either the
+                                 <code class="code">HostedZoneName</code> or <code class="code">HostedZoneId</code>,
+                                 but you cannot specify both. If this record set is part of a record set group, do
+                                 not specify this property.
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-route53-recordset-hostedzonename"></a><span class="term"><code class="literal">HostedZoneName</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The name of the domain for the hosted zone where you want to add the record
+                                 set.
+                              </p>
+                              
+                              <p>When you create a stack using an <code class="code">AWS::Route53::RecordSet</code> that
+                                 specifies <code class="code">HostedZoneName</code>, AWS CloudFormation attempts to find a hosted
+                                 zone whose name matches the <code class="code">HostedZoneName</code>. If AWS CloudFormation cannot
+                                 find a hosted zone with a matching domain name, or if there is more than one
+                                 hosted zone with the specified domain name, AWS CloudFormation will not create the
+                                 stack.
+                              </p>
+                              
+                              <p>If you have multiple hosted zones with the same domain name, you must
+                                 explicitly specify the hosted zone using
+                                 <code class="code">HostedZoneId</code>.
+                              </p>
+                              
+                              <p><em>Required</em>: Conditional. You must specify either the
+                                 <code class="code">HostedZoneName</code> or <code class="code">HostedZoneId</code>,
+                                 but you cannot specify both. If this record set is part of a record set group, do
+                                 not specify this property.
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-route53-recordset-name"></a><span class="term"><code class="literal">Name</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The name of the domain. You must specify a fully qualified domain name that
+                                 ends with a period as the last label indication. If you omit the final period,
+                                 Amazon Route&#xA0;53 adds it.
+                              </p>
+                              
+                              <p><em>Required</em>: Yes
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-route53-recordset-region"></a><span class="term"><code class="literal">Region</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>Latency resource record sets only: The Amazon EC2 region where the resource that is
+                                 specified in this resource record set resides. The resource typically is an AWS
+                                 resource, for example, Amazon EC2 instance or an Elastic Load Balancing load balancer,
+                                 and is referred
+                                 to by an IP address or a DNS domain name, depending on the record type.
+                              </p>
+                              
+                              <p>When Amazon Route&#xA0;53 receives a DNS query for a domain name and type for which you
+                                 have
+                                 created latency resource record sets, Amazon Route&#xA0;53 selects the latency resource
+                                 record
+                                 set that has the lowest latency between the end user and the associated Amazon EC2
+                                 region. Amazon Route&#xA0;53 then returns the value that is associated with the selected
+                                 resource
+                                 record set.
+                              </p>
+                              
+                              <p>The following restrictions must be followed:</p>
+                              
+                              <div class="itemizedlist">
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 <ul class="itemizedlist" type="disc">
+                                    <li class="listitem">
+                                       
+                                       <p>You can only specify one resource record per latency resource record
+                                          set.
+                                       </p>
+                                       
+                                    </li>
+                                    <li class="listitem">
+                                       
+                                       <p>You can only create one latency resource record set for each Amazon EC2
+                                          region.
+                                       </p>
+                                       
+                                    </li>
+                                    <li class="listitem">
+                                       
+                                       <p>You are not required to create latency resource record sets for all Amazon EC2
+                                          regions. Amazon Route&#xA0;53 will choose the region with the best latency from among the
+                                          regions for which you create latency resource record sets.
+                                       </p>
+                                       
+                                    </li>
+                                    <li class="listitem">
+                                       
+                                       <p>You cannot create both weighted and latency resource record sets that
+                                          have the same values for the Name and Type elements.
+                                       </p>
+                                       
+                                    </li>
+                                 </ul>
+                              </div>
+                              
+                              <p>To see a list of regions by service, see <a href="http://docs.aws.amazon.com/general/latest/gr/rande.html" target="_blank">Regions and Endpoints</a> in the
+                                 <em>AWS General Reference</em>.
+                              </p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-route53-recordset-resourcerecords"></a><span class="term"><code class="literal">ResourceRecords</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>List of resource records to add. Each record should be in the format
+                                 appropriate for the record type specified by the <code class="code">Type</code>
+                                 property. For information about different record types and their record formats,
+                                 see <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DomainNameFormat.html" target="_blank">Appendix: Domain Name Format</a> in the <em>Amazon Route&#xA0;53 Developer
+                                    Guide</em>.
+                              </p>
+                              
+                              <p> <em>Required</em>: Conditional. If you don&apos;t specify the <code class="code">AliasTarget</code>
+                                 property, you must specify this property. If you are creating an alias resource
+                                 record set, do not specify this property.
+                              </p>
+                              
+                              <p><em>Type</em>: List of strings
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-route53-recordset-setidentifier"></a><span class="term"><code class="literal">SetIdentifier</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>A unique identifier that differentiates among multiple resource record sets
+                                 that have the same combination of DNS name and type.
+                              </p>
+                              
+                              <p><em>Required</em>: Conditional. Required if you are creating a weighted, latency,
+                                 failover, or geolocation resource record set.
+                              </p>
+                              
+                              <p>For more information, see the <a href="http://docs.aws.amazon.com/Route53/latest/APIReference/API_ResourceRecordSet.html#Route53-Type-ResourceRecordSet-SetIdentifier" target="_blank">SetIdentifier</a> content in the <em>Amazon Route&#xA0;53 Developer
+                                    Guide</em>.
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-route53-recordset-ttl"></a><span class="term"><code class="literal">TTL</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The resource record cache time to live (TTL), in seconds. If you specify this
+                                 property, do not specify the <code class="code">AliasTarget</code> property. For alias target
+                                 records, the alias uses a TTL value from the target.
+                              </p>
+                              
+                              <p>If you specify this property, you must specify the
+                                 <code class="code">ResourceRecords</code> property.
+                              </p>
+                              
+                              <p><em>Required</em>: Conditional. If you don&apos;t specify the <code class="code">AliasTarget</code>
+                                 property, you must specify this property. If you are creating an alias resource
+                                 record set, do not specify this property.
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-route53-recordset-type"></a><span class="term"><code class="literal">Type</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The type of records to add. For valid values, see the <a href="http://docs.aws.amazon.com/Route53/latest/APIReference/API_ResourceRecordSet.html#Route53-Type-ResourceRecordSet-Type" target="_blank">Type</a> content in the <em>Amazon Route&#xA0;53 API Reference</em>. In AWS CloudFormation,
+                                 you can&apos;t create records of type <code class="code">NS</code> or <code class="code">SOA</code>.
+                              </p>
+                              
+                              <p><em>Required</em>: Yes
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-route53-recordset-weight"></a><span class="term"><code class="literal">Weight</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p><em>Weighted resource record sets only:</em> Among resource record
+                                 sets that have the same combination of DNS name and type, a value that determines
+                                 what portion of traffic for the current resource record set is routed to the
+                                 associated location.
+                              </p>
+                              
+                              <p>For more information about weighted resource record sets, see <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/WeightedResourceRecordSets.html" target="_blank">Setting Up Weighted Resource Record Sets</a> in the <em>Amazon Route&#xA0;53
+                                    Developer Guide</em>.
+                              </p>
+                              
+                              <p><em>Required</em>: Conditional. Required if you are creating a weighted resource record
+                                 set.
+                              </p>
+                              
+                              <p><em>Type</em>: Number. Weight expects integer values.
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                        </dl>
+                     </div><h2 id="w2ab2c19c12d773c15">Return Value</h2><p>When you specify an <code class="code">AWS::Route53::RecordSet</code> type as an argument to the
+                        <code class="code">Ref</code> function, AWS CloudFormation returns the value of the domain name of the record
+                        set.
+                     </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
+                     </p><h2 id="w2ab2c19c12d773c17">Example</h2><h3 id="w2ab2c19c12d773c17b3">Mapping an Amazon Route&#xA0;53 A record to the public IP of an Amazon EC2 instance</h3><div id="JSON" name="JSON" class="section langfilter">
+                        <h4 id="aws-resource-route53-recordset-example.json">JSON</h4>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="json ">
+&quot;Resources&quot; : {
+   &quot;Ec2Instance&quot; : {
+      &quot;Type&quot; : &quot;AWS::EC2::Instance&quot;,
+      &quot;Properties&quot; : {
+         &quot;ImageId&quot; : { &quot;Fn::FindInMap&quot; : [
+            &quot;RegionMap&quot;, { &quot;Ref&quot; : &quot;AWS::Region&quot; }, &quot;AMI&quot;
+         ] }
+      }
+   },
+   &quot;myDNSRecord&quot; : {
+      &quot;Type&quot; : &quot;AWS::Route53::RecordSet&quot;,
+      &quot;Properties&quot; : {
+         &quot;HostedZoneName&quot; : { &quot;Ref&quot; : &quot;HostedZoneResource&quot; },
+         &quot;Comment&quot; : &quot;DNS name for my instance.&quot;,  
+         &quot;Name&quot; : {
+            &quot;Fn::Join&quot; : [ &quot;&quot;, [
+               {&quot;Ref&quot; : &quot;Ec2Instance&quot;}, &quot;.&quot;,
+               {&quot;Ref&quot; : &quot;AWS::Region&quot;}, &quot;.&quot;,
+               {&quot;Ref&quot; : &quot;HostedZone&quot;} ,&quot;.&quot;
+            ] ]
+         },
+         &quot;Type&quot; : &quot;A&quot;,
+         &quot;TTL&quot; : &quot;900&quot;,
+         &quot;ResourceRecords&quot; : [
+            { &quot;Fn::GetAtt&quot; : [ &quot;Ec2Instance&quot;, &quot;PublicIp&quot; ] }
+         ]
+      }
+   }
+}</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        <h4 id="aws-resource-route53-recordset-example.yaml">YAML</h4>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="yaml ">Resources:
+  Ec2Instance:
+    Type: AWS::EC2::Instance
+    Properties:
+      ImageId: !FindInMap [RegionMap, !Ref &apos;AWS::Region&apos;, AMI]
+  myDNSRecord:
+    Type: AWS::Route53::RecordSet
+    Properties:
+      HostedZoneName: !Ref &apos;HostedZoneResource&apos;
+      Comment: DNS name for my instance.
+      Name: !Join [&apos;&apos;, [!Ref &apos;Ec2Instance&apos;, ., !Ref &apos;AWS::Region&apos;, ., !Ref &apos;HostedZone&apos;, .]]
+      Type: A
+      TTL: &apos;900&apos;
+      ResourceRecords:
+      - !GetAtt Ec2Instance.PublicIp</code></pre>
+                        </div><h3 id="w2ab2c19c12d773c17b5">Additional Information</h3><p>For additional <code class="code">AWS::Route53::RecordSet</code> snippets, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-route53.html">Amazon Route&#xA0;53 Template Snippets</a> .
+                     </p></div>
+</body>
+</html>

@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="css/awsdocs.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/awsdocs.min.js"></script>
+    <meta charset="utf-8">
+</head>
+<body>
+    <div id="content" style="padding: 10px 30px;">
+    <h1 class="topictitle" id="aws-properties-sqs-queues">AWS::SQS::Queue</h1><p>The <code class="code">AWS::SQS::Queue</code> resource creates an Amazon Simple Queue Service (Amazon SQS) queue.
+                     </p><p>For more information about creating FIFO (first-in-first-out) queues, see the tutorial
+                        
+                        <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-create-queue.html#create-queue-cloudformation" target="_blank">Create a queue using AWS CloudFormation</a> in the <em>Amazon Simple Queue Service Developer Guide</em>.
+                     </p><div class="highlights">
+                        <p><strong>Topics</strong></p>
+                        <ul>
+                           <li><a href="#aws-resource-sqs-queues-syntax">Syntax</a></li>
+                           <li><a href="#aws-properties-sqs-queues-prop">Properties</a></li>
+                           <li><a href="#aws-properties-sqs-queues-ref">Return Values</a></li>
+                           <li><a href="#w2ab2c19c12d809c17">Examples</a></li>
+                           <li><a href="#w2ab2c19c12d809c19">More Info</a></li>
+                        </ul>
+                     </div><h2 id="aws-resource-sqs-queues-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-resource-sqs-queues-syntax.json">JSON</h3>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">
+{
+   &quot;Type&quot; : &quot;AWS::SQS::Queue&quot;,
+   &quot;Properties&quot; : {
+      &quot;<a href="aws-properties-sqs-queues.html#cfn-sqs-queue-contentbaseddeduplication"><code class="code">ContentBasedDeduplication</code></a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
+      &quot;<a href="aws-properties-sqs-queues.html#aws-sqs-queue-delayseconds"><code class="literal">DelaySeconds</code></a>&quot;: <em class="replaceable"><code>Integer</code></em>,
+      &quot;<a href="aws-properties-sqs-queues.html#cfn-sqs-queue-fifoqueue"><code class="code">FifoQueue</code></a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
+      &quot;<a href="aws-properties-sqs-queues.html#aws-sqs-queue-maxmsgsize"><code class="literal">MaximumMessageSize</code></a>&quot;: <em class="replaceable"><code>Integer</code></em>,
+      &quot;<a href="aws-properties-sqs-queues.html#aws-sqs-queue-msgretentionperiod"><code class="literal">MessageRetentionPeriod</code></a>&quot;: <em class="replaceable"><code>Integer</code></em>,
+      &quot;<a href="aws-properties-sqs-queues.html#aws-sqs-queue-name"><code class="literal">QueueName</code></a>&quot;: <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="aws-properties-sqs-queues.html#aws-sqs-queue-receivemsgwaittime"><code class="literal">ReceiveMessageWaitTimeSeconds</code></a>&quot;: <em class="replaceable"><code>Integer</code></em>,
+      &quot;<a href="aws-properties-sqs-queues.html#aws-sqs-queue-redrive"><code class="literal">RedrivePolicy</code></a>&quot;: <em class="replaceable"><code>RedrivePolicy</code></em>,
+      &quot;<a href="aws-properties-sqs-queues.html#aws-sqs-queue-visibilitytimeout"><code class="literal">VisibilityTimeout</code></a>&quot;: <em class="replaceable"><code>Integer</code></em>
+   }
+}     </code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-sqs-queues-syntax.yaml">YAML</h3>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">Type: &quot;AWS::SQS::Queue&quot;
+Properties:
+  <a href="aws-properties-sqs-queues.html#cfn-sqs-queue-contentbaseddeduplication"><code class="code">ContentBasedDeduplication</code></a>: <em class="replaceable"><code>Boolean</code></em>
+  <a href="aws-properties-sqs-queues.html#aws-sqs-queue-delayseconds"><code class="literal">DelaySeconds</code></a>: <em class="replaceable"><code>Integer</code></em>
+  <a href="aws-properties-sqs-queues.html#cfn-sqs-queue-fifoqueue"><code class="code">FifoQueue</code></a>: <em class="replaceable"><code>Boolean</code></em>
+  <a href="aws-properties-sqs-queues.html#aws-sqs-queue-maxmsgsize"><code class="literal">MaximumMessageSize</code></a>: <em class="replaceable"><code>Integer</code></em>
+  <a href="aws-properties-sqs-queues.html#aws-sqs-queue-msgretentionperiod"><code class="literal">MessageRetentionPeriod</code></a>: <em class="replaceable"><code>Integer</code></em>
+  <a href="aws-properties-sqs-queues.html#aws-sqs-queue-name"><code class="literal">QueueName</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-properties-sqs-queues.html#aws-sqs-queue-receivemsgwaittime"><code class="literal">ReceiveMessageWaitTimeSeconds</code></a>: <em class="replaceable"><code>Integer</code></em>
+  <a href="aws-properties-sqs-queues.html#aws-sqs-queue-redrive"><code class="literal">RedrivePolicy</code></a>:
+    <em class="replaceable"><code>RedrivePolicy</code></em>
+  <a href="aws-properties-sqs-queues.html#aws-sqs-queue-visibilitytimeout"><code class="literal">VisibilityTimeout</code></a>: <em class="replaceable"><code>Integer</code></em>
+</code></pre>
+                        </div><h2 id="aws-properties-sqs-queues-prop">Properties</h2><div class="variablelist">
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <dl>
+                           <dt><a id="cfn-sqs-queue-contentbaseddeduplication"></a><span class="term"><code class="code">ContentBasedDeduplication</code></span></dt>
+                           <dd>
+                              
+                              <p>For First-In-First-Out (FIFO) queues, specifies whether to enable content-based
+                                 deduplication. During the deduplication interval, Amazon SQS treats messages that
+                                 are sent
+                                 with identical content as duplicates and delivers only one copy of the message. For
+                                 more
+                                 information, see the <code class="code">ContentBasedDeduplication</code> attribute for the <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_CreateQueue.html" target="_blank">CreateQueue</a> action in the
+                                 <em>Amazon Simple Queue Service API Reference</em>.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: Boolean
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="aws-sqs-queue-delayseconds"></a><span class="term"><code class="literal">DelaySeconds</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The time in seconds that the delivery of all messages in the queue is delayed. You
+                                 can specify an integer value of <code class="code">0</code> to <code class="code">900</code> (15 minutes). The
+                                 default value is <code class="code">0</code>.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: Integer
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           <dt><a id="cfn-sqs-queue-fifoqueue"></a><span class="term"><code class="code">FifoQueue</code></span></dt>
+                           <dd>
+                              
+                              <p>Indicates whether this queue is a FIFO queue. For more information, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html" target="_blank">FIFO (First-In-First-Out) Queues</a> in the
+                                 <em>Amazon Simple Queue Service Developer Guide</em>.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: Boolean
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="aws-sqs-queue-maxmsgsize"></a><span class="term"><code class="literal">MaximumMessageSize</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The limit of how many bytes that a message can contain before Amazon SQS rejects it.
+                                 You
+                                 can specify an integer value from <code class="code">1024</code> bytes (1 KiB) to <code class="code">262144</code>
+                                 bytes (256 KiB). The default value is <code class="code">262144</code> (256 KiB).
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: Integer
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="aws-sqs-queue-msgretentionperiod"></a><span class="term"><code class="literal">MessageRetentionPeriod</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The number of seconds that Amazon SQS retains a message. You can specify an integer
+                                 value
+                                 from <code class="code">60</code> seconds (1 minute) to <code class="code">1209600</code> seconds (14 days). The
+                                 default value is <code class="code">345600</code> seconds (4 days).
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: Integer
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="aws-sqs-queue-name"></a><span class="term"><code class="literal">QueueName</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>A name for the queue. To create a FIFO queue, the name of your FIFO queue must end
+                                 with the <code class="literal">.fifo</code> suffix. For more information, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html" target="_blank">FIFO (First-In-First-Out) Queues</a> in the <em>Amazon Simple Queue Service Developer Guide</em>.
+                              </p>
+                              
+                              <p>If you don&apos;t specify a name, AWS CloudFormation generates a unique physical
+                                 ID and uses that ID for the queue name. For more information, see <a href="aws-properties-name.html">Name Type</a>.
+                              </p>
+                              <div class="aws-note">
+                                 <p class="aws-note">Important</p>
+                                 <p>If you specify a name, you cannot perform updates that require replacement of this
+                                    resource.
+                                    You can perform updates that require no or some interruption. If you must replace
+                                    the resource, specify a new name.
+                                 </p>
+                              </div>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="aws-sqs-queue-receivemsgwaittime"></a><span class="term"><code class="literal">ReceiveMessageWaitTimeSeconds</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>Specifies the duration, in seconds, that the <code class="code">ReceiveMessage</code> action call
+                                 waits until a message is in the queue in order to include it in the response, as opposed
+                                 to returning an empty response if a message is not yet available. You can specify
+                                 an
+                                 integer from <code class="code">1</code> to <code class="code">20</code>. The short polling is used as the default
+                                 or when you specify <code class="code">0</code> for this property. For more information, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-long-polling.html" target="_blank">Amazon SQS Long Poll</a>.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: Integer
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="aws-sqs-queue-redrive"></a><span class="term"><code class="literal">RedrivePolicy</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>Specifies an existing dead letter queue to receive messages after the source queue
+                                 (this queue) fails to process a message a specified number of times.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: <a href="aws-properties-sqs-queues-redrivepolicy.html">Amazon SQS RedrivePolicy</a></p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="aws-sqs-queue-visibilitytimeout"></a><span class="term"><code class="literal">VisibilityTimeout</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The length of time during which a message will be unavailable after a message
+                                 is delivered from the queue. This blocks other components from receiving the same
+                                 message and gives the initial component time to process and delete the message from
+                                 the
+                                 queue.
+                              </p>
+                              
+                              <p>Values must be from 0 to 43200 seconds (12 hours). If you don&apos;t specify a
+                                 value, AWS CloudFormation uses the default value of 30 seconds.
+                              </p>
+                              
+                              <p>For more information about Amazon SQS queue visibility timeouts, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html" target="_blank">Visibility Timeout</a> in the <em>Amazon Simple Queue Service Developer
+                                    Guide</em>.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: Integer
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                        </dl>
+                     </div><h2 id="aws-properties-sqs-queues-ref">Return Values</h2><h3 id="w2ab2c19c12d809c15b3">Ref</h3><p>The <code class="code">AWS::SQS::Queue</code> type returns the queue URL, for example:
+                        <code class="code">https://sqs.<span>us-east-1</span>.amazonaws.com/123456789012/aa4-MyQueue-Z5NOSZO2PZE9</code>.
+                     </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
+                     </p><h3 id="w2ab2c19c12d809c15b5">Fn::GetAtt</h3><p><code class="code">Fn::GetAtt</code> returns a value for a specified attribute of this type.
+                        The following are the available attributes and sample return values.
+                     </p><div class="variablelist">
+                        
+                        
+                        
+                        <dl>
+                           
+                           <dt><span class="term"><code class="literal">Arn</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>Returns the Amazon Resource Name (ARN) of the queue. For example:
+                                 <code class="code">arn:aws:sqs:<span>us-east-1</span>:123456789012:mystack-myqueue-15PG5C2FC1CW8</code>.
+                              </p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><span class="term"><code class="literal">QueueName</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>Returns the queue name. For example:</p>
+                              
+                              <p><code class="code">mystack-myqueue-1VF9BKQH5BJVI</code></p>
+                              
+                           </dd>
+                           
+                        </dl>
+                     </div><h2 id="w2ab2c19c12d809c17">Examples</h2><h3 id="w2ab2c19c12d809c17b3">SQS
+                        Queue with Cloudwatch Alarms
+                     </h3><div id="JSON" name="JSON" class="section langfilter">
+                        <h4 id="aws-resource-sqs-queues-example1.json">JSON</h4>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">{
+  &quot;AWSTemplateFormatVersion&quot; : &quot;2010-09-09&quot;,
+ 
+  &quot;Description&quot; : &quot;AWS CloudFormation Sample Template SQS_With_CloudWatch_Alarms: Sample template showing how to create an SQS queue with Amazon CloudWatch alarms on queue depth. **WARNING** This template creates an Amazon SQS queue and one or more Amazon CloudWatch alarms. You will be billed for the AWS resources used if you create a stack from this template.&quot;,
+ 
+  &quot;Parameters&quot; : {
+    &quot;AlarmEmail&quot;: {
+      &quot;Default&quot;: &quot;nobody@amazon.com&quot;,
+      &quot;Description&quot;: &quot;Email address to notify if operational problems arise&quot;,
+      &quot;Type&quot;: &quot;String&quot;
+    }
+  },
+ 
+  &quot;Resources&quot; : {
+    &quot;MyQueue&quot; : {
+      &quot;Type&quot; : &quot;AWS::SQS::Queue&quot;,
+      &quot;Properties&quot; : {
+         &quot;QueueName&quot; : &quot;SampleQueue&quot;
+      }
+    },
+    &quot;AlarmTopic&quot;: {
+      &quot;Type&quot;: &quot;AWS::SNS::Topic&quot;,
+      &quot;Properties&quot;: {
+        &quot;Subscription&quot;: [{
+          &quot;Endpoint&quot;: { &quot;Ref&quot;: &quot;AlarmEmail&quot; },
+          &quot;Protocol&quot;: &quot;email&quot;
+        }]
+      }
+    },
+    &quot;QueueDepthAlarm&quot;: {
+      &quot;Type&quot;: &quot;AWS::CloudWatch::Alarm&quot;,
+      &quot;Properties&quot;: {
+        &quot;AlarmDescription&quot;: &quot;Alarm if queue depth grows beyond 10 messages&quot;,
+        &quot;Namespace&quot;: &quot;AWS/SQS&quot;,
+        &quot;MetricName&quot;: &quot;ApproximateNumberOfMessagesVisible&quot;,
+        &quot;Dimensions&quot;: [{
+          &quot;Name&quot;: &quot;QueueName&quot;,
+          &quot;Value&quot; : { &quot;Fn::GetAtt&quot; : [&quot;MyQueue&quot;, &quot;QueueName&quot;] }
+        }],
+        &quot;Statistic&quot;: &quot;Sum&quot;,
+        &quot;Period&quot;: &quot;300&quot;,
+        &quot;EvaluationPeriods&quot;: &quot;1&quot;,
+        &quot;Threshold&quot;: &quot;10&quot;,
+        &quot;ComparisonOperator&quot;: &quot;GreaterThanThreshold&quot;,
+        &quot;AlarmActions&quot;: [{
+          &quot;Ref&quot;: &quot;AlarmTopic&quot;
+        }],
+        &quot;InsufficientDataActions&quot;: [{
+          &quot;Ref&quot;: &quot;AlarmTopic&quot;
+        }]
+      }
+    }
+  },
+  &quot;Outputs&quot; : {
+    &quot;QueueURL&quot; : {
+      &quot;Description&quot; : &quot;URL of newly created SQS Queue&quot;,
+      &quot;Value&quot; : { &quot;Ref&quot; : &quot;MyQueue&quot; }
+    },
+    &quot;QueueARN&quot; : {
+      &quot;Description&quot; : &quot;ARN of newly created SQS Queue&quot;,
+      &quot;Value&quot; : { &quot;Fn::GetAtt&quot; : [&quot;MyQueue&quot;, &quot;Arn&quot;]}
+    },
+    &quot;QueueName&quot; : {
+      &quot;Description&quot; : &quot;Name newly created SQS Queue&quot;,
+      &quot;Value&quot; : { &quot;Fn::GetAtt&quot; : [&quot;MyQueue&quot;, &quot;QueueName&quot;]}
+    }
+  }
+}</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        <h4 id="aws-resource-sqs-queues-example1.yaml">YAML</h4>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">AWSTemplateFormatVersion: &quot;2010-09-09&quot;
+Description: &quot;AWS CloudFormation Sample Template SQS_With_CloudWatch_Alarms: Sample template showing how to create an SQS queue with Amazon CloudWatch alarms on queue depth. **WARNING** This template creates an Amazon SQS queue and one or more Amazon CloudWatch alarms. You will be billed for the AWS resources used if you create a stack from this template.&quot;
+Parameters: 
+  AlarmEmail: 
+    Default: &quot;nobody@amazon.com&quot;
+    Description: &quot;Email address to notify if operational problems arise&quot;
+    Type: &quot;String&quot;
+Resources: 
+  MyQueue: 
+    Type: &quot;AWS::SQS::Queue&quot;
+    Properties: 
+      QueueName: &quot;SampleQueue&quot;
+  AlarmTopic: 
+    Type: &quot;AWS::SNS::Topic&quot;
+    Properties: 
+      Subscription: 
+        - 
+          Endpoint: 
+            Ref: &quot;AlarmEmail&quot;
+          Protocol: &quot;email&quot;
+  QueueDepthAlarm: 
+    Type: &quot;AWS::CloudWatch::Alarm&quot;
+    Properties: 
+      AlarmDescription: &quot;Alarm if queue depth grows beyond 10 messages&quot;
+      Namespace: &quot;AWS/SQS&quot;
+      MetricName: &quot;ApproximateNumberOfMessagesVisible&quot;
+      Dimensions: 
+        - 
+          Name: &quot;QueueName&quot;
+          Value: 
+            Fn::GetAtt: 
+              - &quot;MyQueue&quot;
+              - &quot;QueueName&quot;
+      Statistic: &quot;Sum&quot;
+      Period: &quot;300&quot;
+      EvaluationPeriods: &quot;1&quot;
+      Threshold: &quot;10&quot;
+      ComparisonOperator: &quot;GreaterThanThreshold&quot;
+      AlarmActions: 
+        - 
+          Ref: &quot;AlarmTopic&quot;
+      InsufficientDataActions: 
+        - 
+          Ref: &quot;AlarmTopic&quot;
+Outputs: 
+  QueueURL: 
+    Description: &quot;URL of newly created SQS Queue&quot;
+    Value: 
+      Ref: &quot;MyQueue&quot;
+  QueueARN: 
+    Description: &quot;ARN of newly created SQS Queue&quot;
+    Value: 
+      Fn::GetAtt: 
+        - &quot;MyQueue&quot;
+        - &quot;Arn&quot;
+  QueueName: 
+    Description: &quot;Name newly created SQS Queue&quot;
+    Value: 
+      Fn::GetAtt: 
+        - &quot;MyQueue&quot;
+        - &quot;QueueName&quot;
+</code></pre>
+                        </div><h3 id="w2ab2c19c12d809c17b5">SQS Queue with a Dead Letter Queue</h3><p>The following sample creates a source queue and a dead letter queue. Because the source
+                        queue specifies the dead letter queue in its redrive policy, the source queue is dependent
+                        on the creation of the dead letter queue.
+                     </p><div id="JSON" name="JSON" class="section langfilter">
+                        <h4 id="aws-resource-sqs-queues-example2.json">JSON</h4>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">{
+  &quot;AWSTemplateFormatVersion&quot; : &quot;2010-09-09&quot;,
+   
+  &quot;Resources&quot; : {
+    &quot;MySourceQueue&quot; : {
+      &quot;Type&quot; : &quot;AWS::SQS::Queue&quot;,
+      &quot;Properties&quot; : {
+        &quot;RedrivePolicy&quot;: {
+          &quot;deadLetterTargetArn&quot; : {&quot;Fn::GetAtt&quot; : [ &quot;MyDeadLetterQueue&quot; , &quot;Arn&quot; ]},
+          &quot;maxReceiveCount&quot; : 5
+        }
+      }
+    },    
+    &quot;MyDeadLetterQueue&quot; : {
+      &quot;Type&quot; : &quot;AWS::SQS::Queue&quot;
+    }
+  },
+
+  &quot;Outputs&quot; : {
+    &quot;SourceQueueURL&quot; : {
+      &quot;Description&quot; : &quot;URL of the source queue&quot;,
+      &quot;Value&quot; : { &quot;Ref&quot; : &quot;MySourceQueue&quot; }
+    },
+    &quot;SourceQueueARN&quot; : {
+      &quot;Description&quot; : &quot;ARN of the source queue&quot;,
+      &quot;Value&quot; : { &quot;Fn::GetAtt&quot; : [&quot;MySourceQueue&quot;, &quot;Arn&quot;]}
+    },
+    &quot;DeadLetterQueueURL&quot; : {
+      &quot;Description&quot; : &quot;URL of the dead letter queue&quot;,
+      &quot;Value&quot; : { &quot;Ref&quot; : &quot;MyDeadLetterQueue&quot; }
+    },
+    &quot;DeadLetterQueueARN&quot; : {
+      &quot;Description&quot; : &quot;ARN of the dead letter queue&quot;,
+      &quot;Value&quot; : { &quot;Fn::GetAtt&quot; : [&quot;MyDeadLetterQueue&quot;, &quot;Arn&quot;]}
+    }    
+  }
+}</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        <h4 id="aws-resource-sqs-queues-example2.yaml">YAML</h4>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">AWSTemplateFormatVersion: &quot;2010-09-09&quot;
+Resources: 
+  MySourceQueue: 
+    Type: &quot;AWS::SQS::Queue&quot;
+    Properties: 
+      RedrivePolicy: 
+        deadLetterTargetArn: 
+          Fn::GetAtt: 
+            - &quot;MyDeadLetterQueue&quot;
+            - &quot;Arn&quot;
+        maxReceiveCount: 5
+  MyDeadLetterQueue: 
+    Type: &quot;AWS::SQS::Queue&quot;
+Outputs: 
+  SourceQueueURL: 
+    Description: &quot;URL of the source queue&quot;
+    Value: 
+      Ref: &quot;MySourceQueue&quot;
+  SourceQueueARN: 
+    Description: &quot;ARN of the source queue&quot;
+    Value: 
+      Fn::GetAtt: 
+        - &quot;MySourceQueue&quot;
+        - &quot;Arn&quot;
+  DeadLetterQueueURL: 
+    Description: &quot;URL of the dead letter queue&quot;
+    Value: 
+      Ref: &quot;MyDeadLetterQueue&quot;
+  DeadLetterQueueARN: 
+    Description: &quot;ARN of the dead letter queue&quot;
+    Value: 
+      Fn::GetAtt: 
+        - &quot;MyDeadLetterQueue&quot;
+        - &quot;Arn&quot;</code></pre>
+                        </div><h2 id="w2ab2c19c12d809c19">More Info</h2><div class="itemizedlist">
+                        
+                        
+                        
+                        <ul class="itemizedlist" type="disc">
+                           <li class="listitem">
+                              
+                              <p><a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/Query_QueryCreateQueue.html" target="_blank">CreateQueue</a> in the <em>Amazon Simple Queue Service API Reference</em></p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p><a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/Welcome.html" target="_blank">What
+                                    is Amazon Simple Queue Service?</a> in the <em>Amazon Simple Queue Service Developer Guide</em></p>
+                              
+                           </li>
+                        </ul>
+                     </div></div>
+</body>
+</html>

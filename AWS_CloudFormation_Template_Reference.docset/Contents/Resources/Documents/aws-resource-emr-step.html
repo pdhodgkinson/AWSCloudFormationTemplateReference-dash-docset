@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="css/awsdocs.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/awsdocs.min.js"></script>
+    <meta charset="utf-8">
+</head>
+<body>
+    <div id="content" style="padding: 10px 30px;">
+    <h1 class="topictitle" id="aws-resource-emr-step">AWS::EMR::Step</h1><p>The <code class="code">AWS::EMR::Step</code> resource creates a unit of work (a job flow step) that you
+                        submit to an Amazon EMR (Amazon EMR) cluster. The job flow step contains instructions
+                        for processing
+                        data on the cluster.
+                     </p><div class="aws-note">
+                        <p class="aws-note">Note</p>
+                        <p>You can&apos;t delete work flow steps. During a stack update, if you remove a step, AWS
+                           CloudFormation takes
+                           no action.
+                        </p>
+                     </div><div class="highlights">
+                        <p><strong>Topics</strong></p>
+                        <ul>
+                           <li><a href="#aws-resource-emr-step-syntax">Syntax</a></li>
+                           <li><a href="#w2ab2c19c12d516c13">Properties</a></li>
+                           <li><a href="#w2ab2c19c12d516c15">Return Values</a></li>
+                           <li><a href="#w2ab2c19c12d516c17">Example</a></li>
+                        </ul>
+                     </div><h2 id="aws-resource-emr-step-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-resource-emr-step-syntax.json">JSON</h3>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">{
+  &quot;Type&quot; : &quot;AWS::EMR::Step&quot;,
+  &quot;Properties&quot; : {
+    &quot;<a href="aws-resource-emr-step.html#cfn-emr-step-actiononfailure"><code class="code">ActionOnFailure</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-resource-emr-step.html#cfn-emr-step-hadoopjarstep"><code class="code">HadoopJarStep</code></a>&quot; : <em class="replaceable"><code>HadoopJarStepConfig</code></em>,
+    &quot;<a href="aws-resource-emr-step.html#cfn-emr-step-jobflowid"><code class="code">JobFlowId</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-resource-emr-step.html#cfn-emr-step-name"><code class="code">Name</code></a>&quot; : <em class="replaceable"><code>String</code></em>
+  }
+}</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-emr-step-syntax.yaml">YAML</h3>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">Type: &quot;AWS::EMR::Step&quot;
+Properties: 
+  <a href="aws-resource-emr-step.html#cfn-emr-step-actiononfailure"><code class="code">ActionOnFailure</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-resource-emr-step.html#cfn-emr-step-hadoopjarstep"><code class="code">HadoopJarStep</code></a>:
+    <em class="replaceable"><code>HadoopJarStepConfig</code></em>
+  <a href="aws-resource-emr-step.html#cfn-emr-step-jobflowid"><code class="code">JobFlowId</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-resource-emr-step.html#cfn-emr-step-name"><code class="code">Name</code></a>: <em class="replaceable"><code>String</code></em>
+</code></pre>
+                        </div><h2 id="w2ab2c19c12d516c13">Properties</h2><div class="variablelist">
+                        
+                        
+                        
+                        
+                        
+                        <dl>
+                           
+                           <dt><a id="cfn-emr-step-actiononfailure"></a><span class="term"><code class="code">ActionOnFailure</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The action to take if the job flow step fails. Currently, AWS CloudFormation supports
+                                 <code class="code">CONTINUE</code> and <code class="code">CANCEL_AND_WAIT</code>. For more information, see <a href="http://docs.aws.amazon.com//ElasticMapReduce/latest/ManagementGuide/UsingEMR_TerminationProtection.html" target="_blank">Managing Cluster Termination</a> in the <em>Amazon EMR Management Guide</em>.
+                              </p>
+                              
+                              <p><em>Required</em>: Yes
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-emr-step-hadoopjarstep"></a><span class="term"><code class="code">HadoopJarStep</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The JAR file that includes the main function that Amazon EMR executes.</p>
+                              
+                              <p><em>Required</em>: Yes
+                              </p>
+                              
+                              <p><em>Type</em>: <a href="aws-properties-emr-step-hadoopjarstepconfig.html">Amazon EMR Step
+                                    HadoopJarStepConfig</a></p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-emr-step-jobflowid"></a><span class="term"><code class="code">JobFlowId</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The ID of a cluster in which you want to run this job flow step.</p>
+                              
+                              <p><em>Required</em>: Yes
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-emr-step-name"></a><span class="term"><code class="code">Name</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>A name for the job flow step.</p>
+                              
+                              <p><em>Required</em>: Yes
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                        </dl>
+                     </div><h2 id="w2ab2c19c12d516c15">Return Values</h2><h3 id="w2ab2c19c12d516c15b3">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code>
+                        intrinsic function, <code class="code">Ref</code> returns the step ID, such as
+                        <code class="code">s-1A2BC3D4EFG56</code>.
+                     </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
+                     </p><h2 id="w2ab2c19c12d516c17">Example</h2><p>The following example creates a step that submits work to the <code class="code">TestCluster</code>
+                        cluster. The step runs the <code class="code">pi</code> program in the
+                        <code class="code">hadoop-mapreduce-examples-2.6.0.jar</code> file with 5 maps and 10 samples, specified
+                        in the <code class="code">Args</code> property.
+                     </p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-resource-emr-step-example.json">JSON</h3>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">&quot;TestStep&quot;: {
+  &quot;Type&quot;: &quot;AWS::EMR::Step&quot;,
+  &quot;Properties&quot;: {
+    &quot;ActionOnFailure&quot;: &quot;CONTINUE&quot;,
+    &quot;HadoopJarStep&quot;: {
+      &quot;Args&quot;: [
+        &quot;5&quot;,
+        &quot;10&quot;
+      ],
+      &quot;Jar&quot;: &quot;s3://emr-cfn-test/hadoop-mapreduce-examples-2.6.0.jar&quot;,
+      &quot;MainClass&quot;: &quot;pi&quot;
+    },
+    &quot;Name&quot;: &quot;TestStep&quot;,
+    &quot;JobFlowId&quot;: {
+      &quot;Ref&quot;: &quot;TestCluster&quot;
+    }
+  }
+}</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-emr-step-example.yaml">YAML</h3>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">TestStep: 
+  Type: &quot;AWS::EMR::Step&quot;
+  Properties: 
+    ActionOnFailure: &quot;CONTINUE&quot;
+    HadoopJarStep: 
+      Args: 
+        - &quot;5&quot;
+        - &quot;10&quot;
+      Jar: &quot;s3://emr-cfn-test/hadoop-mapreduce-examples-2.6.0.jar&quot;
+      MainClass: &quot;pi&quot;
+    Name: &quot;TestStep&quot;
+    JobFlowId: 
+      Ref: &quot;TestCluster&quot;</code></pre>
+                        </div></div>
+</body>
+</html>

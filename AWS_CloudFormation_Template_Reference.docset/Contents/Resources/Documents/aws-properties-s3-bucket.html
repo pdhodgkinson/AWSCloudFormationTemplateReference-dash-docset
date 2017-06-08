@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="css/awsdocs.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/awsdocs.min.js"></script>
+    <meta charset="utf-8">
+</head>
+<body>
+    <div id="content" style="padding: 10px 30px;">
+    <h1 class="topictitle" id="aws-properties-s3-bucket">AWS::S3::Bucket</h1><p>The <code class="code">AWS::S3::Bucket</code> resource creates an Amazon Simple Storage Service (Amazon S3) bucket in the same
+                        AWS
+                        Region in which you create the AWS CloudFormation stack.
+                     </p><p>To control how AWS CloudFormation handles the bucket when the stack is deleted, you
+                        can set a deletion
+                        policy for your bucket. For Amazon S3 buckets, you can choose to <em>retain</em> the
+                        bucket or to <em>delete</em> the bucket. For more information, see <a href="aws-attribute-deletionpolicy.html">DeletionPolicy Attribute</a>.
+                     </p><div class="aws-note">
+                        <p class="aws-note">Important</p>
+                        <p>You can delete only  empty buckets. Deletion will fail for buckets that have
+                           contents.
+                        </p>
+                     </div><div class="highlights">
+                        <p><strong>Topics</strong></p>
+                        <ul>
+                           <li><a href="#aws-resource-s3-bucket-syntax">Syntax</a></li>
+                           <li><a href="#aws-properties-bucket-prop">Properties</a></li>
+                           <li><a href="#aws-properties-bucket-ref">Return Values</a></li>
+                           <li><a href="#w2ab2c19c12d782c19">Examples</a></li>
+                           <li><a href="#w2ab2c19c12d782c21">More Info</a></li>
+                        </ul>
+                     </div><h2 id="aws-resource-s3-bucket-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-resource-s3-bucket-syntax.json">JSON</h3>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">{
+  &quot;Type&quot; : &quot;AWS::S3::Bucket&quot;,
+  &quot;Properties&quot; : {
+    &quot;<a href="aws-properties-s3-bucket.html#cfn-s3-bucket-accesscontrol"><code class="code">AccessControl</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-properties-s3-bucket.html#cfn-s3-bucket-name"><code class="code">BucketName</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-properties-s3-bucket.html#cfn-s3-bucket-crossoriginconfig"><code class="code">CorsConfiguration</code></a>&quot; : <em class="replaceable"><code>CORS Configuration</code></em>,
+    &quot;<a href="aws-properties-s3-bucket.html#cfn-s3-bucket-lifecycleconfig"><code class="code">LifecycleConfiguration</code></a>&quot; : <em class="replaceable"><code>Lifecycle Configuration</code></em>,
+    &quot;<a href="aws-properties-s3-bucket.html#cfn-s3-bucket-loggingconfig"><code class="code">LoggingConfiguration</code></a>&quot; : <em class="replaceable"><code>Logging Configuration</code></em>,
+    &quot;<a href="aws-properties-s3-bucket.html#cfn-s3-bucket-notification"><code class="code">NotificationConfiguration</code></a>&quot; : <em class="replaceable"><code>Notification Configuration</code></em>,
+    &quot;<a href="aws-properties-s3-bucket.html#cfn-s3-bucket-replicationconfiguration"><code class="code">ReplicationConfiguration</code></a>&quot; : <em class="replaceable"><code>Replication Configuration</code></em>,
+    &quot;<a href="aws-properties-s3-bucket.html#cfn-s3-bucket-tags"><code class="code">Tags</code></a>&quot; : [ <em class="replaceable"><code>Resource Tag, ...</code></em> ],
+    &quot;<a href="aws-properties-s3-bucket.html#cfn-s3-bucket-versioning"><code class="code">VersioningConfiguration</code></a>&quot; : <em class="replaceable"><code>Versioning Configuration</code></em>,
+    &quot;<a href="aws-properties-s3-bucket.html#cfn-s3-bucket-websiteconfiguration"><code class="code">WebsiteConfiguration</code></a>&quot; : <em class="replaceable"><code>Website Configuration Type</code></em>
+  }
+}</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-s3-bucket-syntax.yaml">YAML</h3>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">Type: &quot;AWS::S3::Bucket&quot;
+Properties: 
+  <a href="aws-properties-s3-bucket.html#cfn-s3-bucket-accesscontrol"><code class="code">AccessControl</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-properties-s3-bucket.html#cfn-s3-bucket-name"><code class="code">BucketName</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-properties-s3-bucket.html#cfn-s3-bucket-crossoriginconfig"><code class="code">CorsConfiguration</code></a>:
+    <em class="replaceable"><code>CORS Configuration</code></em>
+  <a href="aws-properties-s3-bucket.html#cfn-s3-bucket-lifecycleconfig"><code class="code">LifecycleConfiguration</code></a>:
+    <em class="replaceable"><code>Lifecycle Configuration</code></em>
+  <a href="aws-properties-s3-bucket.html#cfn-s3-bucket-loggingconfig"><code class="code">LoggingConfiguration</code></a>:
+    <em class="replaceable"><code>Logging Configuration</code></em>
+  <a href="aws-properties-s3-bucket.html#cfn-s3-bucket-notification"><code class="code">NotificationConfiguration</code></a>:
+    <em class="replaceable"><code>Notification Configuration</code></em>
+  <a href="aws-properties-s3-bucket.html#cfn-s3-bucket-replicationconfiguration"><code class="code">ReplicationConfiguration</code></a>:
+    <em class="replaceable"><code>Replication Configuration</code></em>
+  <a href="aws-properties-s3-bucket.html#cfn-s3-bucket-tags"><code class="code">Tags</code></a>:
+    - <em class="replaceable"><code>Resource Tag</code></em>
+  <a href="aws-properties-s3-bucket.html#cfn-s3-bucket-versioning"><code class="code">VersioningConfiguration</code></a>:
+    <em class="replaceable"><code>Versioning Configuration</code></em>
+  <a href="aws-properties-s3-bucket.html#cfn-s3-bucket-websiteconfiguration"><code class="code">WebsiteConfiguration</code></a>:
+    <em class="replaceable"><code>Website Configuration Type</code></em>
+</code></pre>
+                        </div><h2 id="aws-properties-bucket-prop">Properties</h2><div class="variablelist">
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <dl>
+                           
+                           <dt><a id="cfn-s3-bucket-accesscontrol"></a><span class="term"><code class="code">AccessControl</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>A canned access control list (ACL) that grants predefined permissions to the
+                                 bucket. For more information about canned ACLs, see <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl" target="_blank">Canned ACLs in the Amazon S3
+                                    documentation</a>  in the
+                                 <em>Amazon Simple Storage Service Developer Guide</em>..
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Valid values</em>: <code class="code">AuthenticatedRead</code> |
+                                 <code class="code">AwsExecRead</code> | <code class="code">BucketOwnerRead</code> |
+                                 <code class="code">BucketOwnerFullControl</code> |
+                                 <code class="code">LogDeliveryWrite</code> | <code class="code">Private</code> |
+                                 <code class="code">PublicRead</code> |
+                                 <code class="code">PublicReadWrite</code></p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-s3-bucket-name"></a><span class="term"><code class="code">BucketName</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>A name for the bucket. If you don&apos;t specify a name, AWS CloudFormation generates a
+                                 unique
+                                 physical ID and uses that ID for the bucket name. For more information, see <a href="aws-properties-name.html">Name Type</a>. The bucket
+                                 name must contain only lowercase letters, numbers, periods (.), and dashes
+                                 (-).
+                              </p>
+                              <div class="aws-note">
+                                 <p class="aws-note">Important</p>
+                                 <p>If you specify a name, you cannot perform updates that require replacement of this
+                                    resource.
+                                    You can perform updates that require no or some interruption. If you must replace
+                                    the resource, specify a new name.
+                                 </p>
+                              </div>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-s3-bucket-crossoriginconfig"></a><span class="term"><code class="code">CorsConfiguration</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>Rules that define cross-origin resource sharing of objects in this bucket.
+                                 For more information, see <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html" target="_blank">Enabling
+                                    Cross-Origin Resource Sharing</a> in the
+                                 <em>Amazon Simple Storage Service Developer Guide</em>.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: <a href="aws-properties-s3-bucket-cors.html">Amazon S3 Cors Configuration</a></p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-s3-bucket-lifecycleconfig"></a><span class="term"><code class="code">LifecycleConfiguration</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>Rules that define how Amazon S3 manages objects during their lifetime. For more
+                                 information, see <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html" target="_blank">Object
+                                    Lifecycle Management</a> in the
+                                 <em>Amazon Simple Storage Service Developer Guide</em>.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: <a href="aws-properties-s3-bucket-lifecycleconfig.html">Amazon S3 Lifecycle Configuration</a></p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-s3-bucket-loggingconfig"></a><span class="term"><code class="code">LoggingConfiguration</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>Settings that define where logs are stored.</p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: <a href="aws-properties-s3-bucket-loggingconfig.html">Amazon S3 Logging Configuration</a></p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-s3-bucket-notification"></a><span class="term"><code class="code">NotificationConfiguration</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>Configuration that defines how Amazon S3 handles bucket notifications.</p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: <a href="aws-properties-s3-bucket-notificationconfig.html">Amazon S3
+                                    NotificationConfiguration</a></p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-s3-bucket-replicationconfiguration"></a><span class="term"><code class="code">ReplicationConfiguration</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>Configuration for replicating objects in an S3 bucket. To enable replication, you
+                                 must also enable versioning by using the <code class="code">VersioningConfiguration</code> property.
+                              </p>
+                              
+                              <p>Amazon S3 can store replicated objects in only one destination (S3 bucket). The
+                                 destination bucket must already exist and be in a different AWS Region than your source
+                                 bucket.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: <a href="aws-properties-s3-bucket-replicationconfiguration.html">Amazon S3
+                                    ReplicationConfiguration</a></p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-s3-bucket-tags"></a><span class="term"><code class="code">Tags</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>An arbitrary set of tags (key-value pairs) for this S3 bucket.</p>
+                              
+                              <div class="aws-note">
+                                 <p class="aws-note">Important</p>
+                                 <p>We recommend limiting the number of tags to seven. Applying more than seven tags
+                                    prevents the AWS CLI and the AWS CloudFormation console and API actions from listing
+                                    the tags
+                                    for the S3 bucket.
+                                 </p>
+                              </div>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: <a href="aws-properties-resource-tags.html">AWS CloudFormation Resource Tags</a></p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-s3-bucket-versioning"></a><span class="term"><code class="code">VersioningConfiguration</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>Enables multiple variants of all objects in this bucket. You might enable
+                                 versioning to prevent objects from being deleted or overwritten by mistake
+                                 or to archive objects so that you can retrieve previous versions of
+                                 them.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: <a href="aws-properties-s3-bucket-versioningconfig.html">Amazon S3 Versioning Configuration</a></p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-s3-bucket-websiteconfiguration"></a><span class="term"><code class="code">WebsiteConfiguration</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>Information used to configure the bucket as a static website. For more information,
+                                 see <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html" target="_blank">Hosting Websites on Amazon
+                                    S3</a>.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: <a href="aws-properties-s3-websiteconfiguration.html">Website Configuration
+                                    Type</a></p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                        </dl>
+                     </div><h2 id="aws-properties-bucket-ref">Return Values</h2><h3 id="w2ab2c19c12d782c17b3">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code> intrinsic
+                        function, <code class="code">Ref</code> returns the resource name.
+                     </p><p>Example: <code class="code">mystack-mybucket-kdwwxmddtr2g</code>.
+                     </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
+                     </p><h3 id="w2ab2c19c12d782c17b5">Fn::GetAtt</h3><p><code class="code">Fn::GetAtt</code> returns a value for a specified attribute of this type.
+                        The following are the available attributes and sample return values.
+                     </p><div class="variablelist">
+                        
+                        
+                        
+                        
+                        
+                        <dl>
+                           
+                           <dt><span class="term"><code class="code">Arn</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>Returns the Amazon Resource Name (ARN) of the specified bucket.</p>
+                              
+                              <p>Example: <code class="code">arn:aws:s3:::mybucket</code></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><span class="term"><code class="code">DomainName</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>Returns the IPv4 DNS name of the specified bucket.</p>
+                              
+                              <p>Example: <code class="code">mystack-mybucket-kdwwxmddtr2g.s3.amazonaws.com</code></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><span class="term"><code class="code">DualStackDomainName</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>Returns the IPv6 DNS name of the specified bucket.</p>
+                              
+                              <p>Example:<code class="code">
+                                    mystack-mybucket-kdwwxmddtr2g.s3.dualstack.<span>us-east-1</span>.amazonaws.com/</code></p>
+                              
+                              <p>For more information about dual-stack endpoints, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/dual-stack-endpoints.html" target="_blank">Using Amazon S3 Dual-Stack Endpoints</a>.
+                              </p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><span class="term"><code class="code">WebsiteURL</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>Returns the
+                                 Amazon S3
+                                 website endpoint for the specified
+                                 bucket.
+                              </p>
+                              
+                              <p>Example (IPv4):
+                                 <code class="code">http://mystack-mybucket-kdwwxmddtr2g.s3-website-<span>us-east-1</span>.amazonaws.com/</code></p>
+                              
+                              <p>Example (IPv6):
+                                 <code class="code">http://mystack-mybucket-kdwwxmddtr2g.s3.dualstack.<span>us-east-1</span>.amazonaws.com/</code></p>
+                              
+                           </dd>
+                           
+                        </dl>
+                     </div><p>For more information about using <code class="code">Fn::GetAtt</code>, see <a href="intrinsic-function-reference-getatt.html">Fn::GetAtt</a>.
+                     </p><h2 id="w2ab2c19c12d782c19">Examples</h2><h3 id="w2ab2c19c12d782c19b3">Associate a Replication Configuration IAM Role with an S3 Bucket</h3><p>The following example creates an S3 bucket and grants it permission to write to a
+                        replication bucket by using an AWS Identity and Access Management (IAM) role. To avoid
+                        a circular dependency, the
+                        role&apos;s policy is declared as a separate resource. The bucket depends on the
+                        <code class="code">WorkItemBucketBackupRole</code> role. If the policy is included in the role, the
+                        role also depends on the bucket.
+                     </p><h4 id="w2ab2c19c12d782c19b3b5">JSON</h4><pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">&quot;RecordServiceS3Bucket&quot;: {
+  &quot;Type&quot;: &quot;AWS::S3::Bucket&quot;,
+  &quot;DeletionPolicy&quot;: &quot;Retain&quot;,
+  &quot;Properties&quot;: {
+    &quot;ReplicationConfiguration&quot;: {
+      &quot;Role&quot;: {
+        &quot;Fn::GetAtt&quot;: [
+          &quot;WorkItemBucketBackupRole&quot;,
+          &quot;Arn&quot;
+        ]
+      },
+      &quot;Rules&quot;: [{
+        &quot;Destination&quot;: {
+          &quot;Bucket&quot;: {
+            &quot;Fn::Join&quot;: [ &quot;&quot;, [
+              &quot;arn:aws:s3:::&quot;, {
+                &quot;Fn::Join&quot;: [ &quot;-&quot;, [
+                  { &quot;Ref&quot;: &quot;AWS::Region&quot; },
+                  { &quot;Ref&quot;: &quot;AWS::StackName&quot; },
+                  &quot;replicationbucket&quot;
+                ]]
+              }
+            ]]
+          },
+          &quot;StorageClass&quot;: &quot;STANDARD&quot;
+        },
+        &quot;Id&quot;: &quot;Backup&quot;,
+        &quot;Prefix&quot;: &quot;&quot;,
+        &quot;Status&quot;: &quot;Enabled&quot;
+      }]
+    },
+    &quot;VersioningConfiguration&quot;: {
+      &quot;Status&quot;: &quot;Enabled&quot;
+    }
+  }
+},
+&quot;WorkItemBucketBackupRole&quot;: {
+  &quot;Type&quot;: &quot;AWS::IAM::Role&quot;,
+  &quot;Properties&quot;: {
+    &quot;AssumeRolePolicyDocument&quot;: {
+      &quot;Statement&quot;: [{
+        &quot;Action&quot;: [ &quot;sts:AssumeRole&quot; ],
+        &quot;Effect&quot;: &quot;Allow&quot;,
+        &quot;Principal&quot;: {
+          &quot;Service&quot;: [ &quot;s3.amazonaws.com&quot; ]
+        }
+      }]
+    }
+  }    
+},
+&quot;BucketBackupPolicy&quot;: {
+  &quot;Type&quot;: &quot;AWS::IAM::Policy&quot;,
+  &quot;Properties&quot;: {
+    &quot;PolicyDocument&quot;: {
+      &quot;Statement&quot;: [{
+        &quot;Action&quot;: [
+          &quot;s3:GetReplicationConfiguration&quot;,
+          &quot;s3:ListBucket&quot;
+        ],
+        &quot;Effect&quot;: &quot;Allow&quot;,
+        &quot;Resource&quot;: [{
+          &quot;Fn::Join&quot;: [ &quot;&quot;, [
+              &quot;arn:aws:s3:::&quot;, {
+                &quot;Ref&quot;: &quot;RecordServiceS3Bucket&quot;
+              }
+            ]
+          ]
+        }]
+      },{
+        &quot;Action&quot;: [
+          &quot;s3:GetObjectVersion&quot;,
+          &quot;s3:GetObjectVersionAcl&quot;
+        ],
+        &quot;Effect&quot;: &quot;Allow&quot;,
+        &quot;Resource&quot;: [{
+          &quot;Fn::Join&quot;: [ &quot;&quot;, [
+              &quot;arn:aws:s3:::&quot;, {
+                &quot;Ref&quot;: &quot;RecordServiceS3Bucket&quot;
+              },
+              &quot;/*&quot;
+            ]
+          ]
+        }]
+      }, {
+        &quot;Action&quot;: [
+          &quot;s3:ReplicateObject&quot;,
+          &quot;s3:ReplicateDelete&quot;
+        ],
+        &quot;Effect&quot;: &quot;Allow&quot;,
+        &quot;Resource&quot;: [{
+          &quot;Fn::Join&quot;: [ &quot;&quot;, [ 
+             &quot;arn:aws:s3:::&quot;, {
+               &quot;Fn::Join&quot;: [ &quot;-&quot;, [ 
+                 { &quot;Ref&quot;: &quot;AWS::Region&quot; }, 
+                 { &quot;Ref&quot;: &quot;AWS::StackName&quot; }, 
+                 &quot;replicationbucket&quot;
+               ]]
+             }, 
+             &quot;/*&quot;
+          ]]
+        }]
+      }]
+    },
+    &quot;PolicyName&quot;: &quot;BucketBackupPolicy&quot;,
+    &quot;Roles&quot;: [{
+      &quot;Ref&quot;: &quot;WorkItemBucketBackupRole&quot;
+    }]
+  }
+}</code></pre><h4 id="w2ab2c19c12d782c19b3b7">YAML</h4><pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">RecordServiceS3Bucket:
+  Type: AWS::S3::Bucket
+  DeletionPolicy: Retain
+  Properties:
+    ReplicationConfiguration:
+      Role: !GetAtt [WorkItemBucketBackupRole, Arn]
+      Rules:
+      - Destination:
+          Bucket: !Join [&apos;&apos;, [&apos;arn:aws:s3:::&apos;, !Join [&apos;-&apos;, [!Ref &apos;AWS::Region&apos;, !Ref &apos;AWS::StackName&apos;,
+                  replicationbucket]]]]
+          StorageClass: STANDARD
+        Id: Backup
+        Prefix: &apos;&apos;
+        Status: Enabled
+    VersioningConfiguration:
+      Status: Enabled
+WorkItemBucketBackupRole:
+  Type: AWS::IAM::Role
+  Properties:
+    AssumeRolePolicyDocument:
+      Statement:
+      - Action: [&apos;sts:AssumeRole&apos;]
+        Effect: Allow
+        Principal:
+          Service: [s3.amazonaws.com]
+BucketBackupPolicy:
+  Type: AWS::IAM::Policy
+  Properties:
+    PolicyDocument:
+      Statement:
+      - Action: [&apos;s3:GetReplicationConfiguration&apos;, &apos;s3:ListBucket&apos;]
+        Effect: Allow
+        Resource:
+        - !Join [&apos;&apos;, [&apos;arn:aws:s3:::&apos;, !Ref &apos;RecordServiceS3Bucket&apos;]]
+      - Action: [&apos;s3:GetObjectVersion&apos;, &apos;s3:GetObjectVersionAcl&apos;]
+        Effect: Allow
+        Resource:
+        - !Join [&apos;&apos;, [&apos;arn:aws:s3:::&apos;, !Ref &apos;RecordServiceS3Bucket&apos;, /*]]
+      - Action: [&apos;s3:ReplicateObject&apos;, &apos;s3:ReplicateDelete&apos;]
+        Effect: Allow
+        Resource:
+        - !Join [&apos;&apos;, [&apos;arn:aws:s3:::&apos;, !Join [&apos;-&apos;, [!Ref &apos;AWS::Region&apos;, !Ref &apos;AWS::StackName&apos;,
+                replicationbucket]], /*]]
+    PolicyName: BucketBackupPolicy
+    Roles: [!Ref &apos;WorkItemBucketBackupRole&apos;]
+</code></pre><h3 id="w2ab2c19c12d782c19b5">Configure a Static Website with a Routing Rule</h3><p>In this example, <code class="code">AWS::S3::Bucket&apos;s Fn::GetAtt</code>
+                        values are used to provide outputs. If an HTTP 404 error occurs, the routing rule
+                        redirects
+                        requests to an EC2 instance and inserts the object key prefix <code class="code">report-404/</code> in
+                        the redirect. For example, if you request a page called <code class="code">ExamplePage.html</code> and it
+                        results in a HTTP 404 error, the request is routed to a page called
+                        <code class="code">report-404/ExamplePage.html</code> on the specified instance. For all other HTTP
+                        error codes, <code class="code">error.html</code> is returned. 
+                     </p><div id="JSON" name="JSON" class="section langfilter">
+                        <h4 id="aws-resource-s3-bucket-example1.json">JSON</h4>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">&quot;Resources&quot; : {
+   &quot;S3Bucket&quot; : {
+      &quot;Type&quot; : &quot;AWS::S3::Bucket&quot;,
+      &quot;Properties&quot; : {
+         &quot;AccessControl&quot; : &quot;PublicRead&quot;,
+         &quot;BucketName&quot; : &quot;PublicBucket&quot;,
+         &quot;WebsiteConfiguration&quot; : {
+            &quot;IndexDocument&quot; : &quot;index.html&quot;,
+            &quot;ErrorDocument&quot; : &quot;error.html&quot;,
+            &quot;RoutingRules&quot;: [
+                {
+                    &quot;RoutingRuleCondition&quot;: {
+                        &quot;HttpErrorCodeReturnedEquals&quot;: &quot;404&quot;,
+                        &quot;KeyPrefixEquals&quot;: &quot;out1/&quot;
+                    },
+                    &quot;RedirectRule&quot;: {
+                        &quot;HostName&quot;: &quot;ec2-11-22-333-44.compute-1.amazonaws.com&quot;,
+                        &quot;ReplaceKeyPrefixWith&quot;: &quot;report-404/&quot;
+                    }
+                }
+            ]
+         }
+      },
+      &quot;DeletionPolicy&quot; : &quot;Retain&quot;
+   }
+},
+
+&quot;Outputs&quot; : {
+   &quot;WebsiteURL&quot; : {
+      &quot;Value&quot; : { &quot;Fn::GetAtt&quot; : [ &quot;S3Bucket&quot;, &quot;WebsiteURL&quot; ] },
+      &quot;Description&quot; : &quot;URL for website hosted on S3&quot;
+   },
+   &quot;S3BucketSecureURL&quot; : {
+      &quot;Value&quot; : { &quot;Fn::Join&quot; : [
+         &quot;&quot;, [ &quot;https://&quot;, { &quot;Fn::GetAtt&quot; : [ &quot;S3Bucket&quot;, &quot;DomainName&quot; ] } ]
+      ] },
+      &quot;Description&quot; : &quot;Name of S3 bucket to hold website content&quot;
+   }
+}</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        <h4 id="aws-resource-s3-bucket-example1.yaml">YAML</h4>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">Resources:
+  S3Bucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      AccessControl: PublicRead
+      BucketName: PublicBucket
+      WebsiteConfiguration:
+        IndexDocument: index.html
+        ErrorDocument: error.html
+        RoutingRules:
+        - RoutingRuleCondition:
+            HttpErrorCodeReturnedEquals: &apos;404&apos;
+            KeyPrefixEquals: out1/
+          RedirectRule:
+            HostName: ec2-11-22-333-44.compute-1.amazonaws.com
+            ReplaceKeyPrefixWith: report-404/
+    DeletionPolicy: Retain
+Outputs:
+  WebsiteURL:
+    Value: !GetAtt [S3Bucket, WebsiteURL]
+    Description: URL for website hosted on S3
+  S3BucketSecureURL:
+    Value: !Join [&apos;&apos;, [&apos;https://&apos;, !GetAtt [S3Bucket, DomainName]]]
+    Description: Name of S3 bucket to hold website content
+</code></pre>
+                        </div><h3 id="w2ab2c19c12d782c19b7">Enable Cross-Origin Resource Sharing</h3><p>The following example template shows an S3 bucket with two cross-origin resource
+                        sharing rules.
+                     </p><div id="JSON" name="JSON" class="section langfilter">
+                        <h4 id="aws-resource-s3-bucket-example2.json">JSON</h4>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">{
+  &quot;AWSTemplateFormatVersion&quot;: &quot;2010-09-09&quot;,
+  &quot;Resources&quot;: {
+        &quot;S3Bucket&quot;: {
+            &quot;Type&quot;: &quot;AWS::S3::Bucket&quot;,
+            &quot;Properties&quot;: {
+                &quot;AccessControl&quot;: &quot;PublicReadWrite&quot;,
+                &quot;CorsConfiguration&quot;: {
+                    &quot;CorsRules&quot;: [
+                        {
+                            &quot;AllowedHeaders&quot;: [
+                                &quot;*&quot;
+                            ],
+                            &quot;AllowedMethods&quot;: [
+                                &quot;GET&quot;
+                            ],
+                            &quot;AllowedOrigins&quot;: [
+                                &quot;*&quot;
+                            ],
+                            &quot;ExposedHeaders&quot;: [
+                                &quot;Date&quot;
+                            ],
+                            &quot;Id&quot;: &quot;myCORSRuleId1&quot;,
+                            &quot;MaxAge&quot;: &quot;3600&quot;
+                        },
+                        {
+                            &quot;AllowedHeaders&quot;: [
+                                &quot;x-amz-*&quot;
+                            ],
+                            &quot;AllowedMethods&quot;: [
+                                &quot;DELETE&quot;
+                            ],
+                            &quot;AllowedOrigins&quot;: [
+                                &quot;http://www.example1.com&quot;,
+                                &quot;http://www.example2.com&quot;
+                            ],
+                            &quot;ExposedHeaders&quot;: [
+                                &quot;Connection&quot;,
+                                &quot;Server&quot;,
+                                &quot;Date&quot;
+                            ],
+                            &quot;Id&quot;: &quot;myCORSRuleId2&quot;,
+                            &quot;MaxAge&quot;: &quot;1800&quot;
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    &quot;Outputs&quot;: {
+        &quot;BucketName&quot;: {
+            &quot;Value&quot;: {
+                &quot;Ref&quot;: &quot;S3Bucket&quot;
+            },
+            &quot;Description&quot;: &quot;Name of the sample Amazon S3 bucket with CORS enabled.&quot;
+        }
+    }
+}</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        <h4 id="aws-resource-s3-bucket-example2.yaml">YAML</h4>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">AWSTemplateFormatVersion: &apos;2010-09-09&apos;
+Resources:
+  S3Bucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      AccessControl: PublicReadWrite
+      CorsConfiguration:
+        CorsRules:
+        - AllowedHeaders: [&apos;*&apos;]
+          AllowedMethods: [GET]
+          AllowedOrigins: [&apos;*&apos;]
+          ExposedHeaders: [Date]
+          Id: myCORSRuleId1
+          MaxAge: &apos;3600&apos;
+        - AllowedHeaders: [x-amz-*]
+          AllowedMethods: [DELETE]
+          AllowedOrigins: [&apos;http://www.example1.com&apos;, &apos;http://www.example2.com&apos;]
+          ExposedHeaders: [Connection, Server, Date]
+          Id: myCORSRuleId2
+          MaxAge: &apos;1800&apos;
+Outputs:
+  BucketName:
+    Value: !Ref &apos;S3Bucket&apos;
+    Description: Name of the sample Amazon S3 bucket with CORS enabled.
+</code></pre>
+                        </div><h3 id="w2ab2c19c12d782c19b9">Manage the Lifecycle for Amazon S3 Objects</h3><p>The following example template shows an S3 bucket with a lifecycle configuration
+                        rule. The rule applies to all objects with the <code class="code">glacier</code> key prefix. The objects
+                        are transitioned to Amazon Glacier after one day, and deleted after one year.
+                     </p><div id="JSON" name="JSON" class="section langfilter">
+                        <h4 id="aws-resource-s3-bucket-example3.json">JSON</h4>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">{
+    &quot;AWSTemplateFormatVersion&quot;: &quot;2010-09-09&quot;,
+    &quot;Resources&quot;: {
+        &quot;S3Bucket&quot;: {
+            &quot;Type&quot;: &quot;AWS::S3::Bucket&quot;,
+            &quot;Properties&quot;: {
+                &quot;AccessControl&quot;: &quot;PublicReadWrite&quot;,
+                &quot;LifecycleConfiguration&quot;: {
+                    &quot;Rules&quot;: [
+                        {
+                            &quot;Id&quot;: &quot;GlacierRule&quot;,
+                            &quot;Prefix&quot;: &quot;glacier&quot;,
+                            &quot;Status&quot;: &quot;Enabled&quot;,
+                            &quot;ExpirationInDays&quot;: &quot;365&quot;,
+                            &quot;Transitions&quot;: [
+                                {
+                                  &quot;TransitionInDays&quot;: &quot;1&quot;,
+                                  &quot;StorageClass&quot;: &quot;Glacier&quot;
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    &quot;Outputs&quot;: {
+        &quot;BucketName&quot;: {
+            &quot;Value&quot;: {
+                &quot;Ref&quot;: &quot;S3Bucket&quot;
+            },
+            &quot;Description&quot;: &quot;Name of the sample Amazon S3 bucket with a lifecycle configuration.&quot;
+        }
+    }
+}</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        <h4 id="aws-resource-s3-bucket-example3.yaml">YAML</h4>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">AWSTemplateFormatVersion: &apos;2010-09-09&apos;
+Resources:
+  S3Bucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      AccessControl: PublicReadWrite
+      LifecycleConfiguration:
+        Rules:
+        - Id: GlacierRule
+          Prefix: glacier
+          Status: Enabled
+          ExpirationInDays: &apos;365&apos;
+          Transitions:
+            - TransitionInDays: &apos;1&apos;
+              StorageClass: Glacier
+Outputs:
+  BucketName:
+    Value: !Ref &apos;S3Bucket&apos;
+    Description: Name of the sample Amazon S3 bucket with a lifecycle configuration.</code></pre>
+                        </div><h3 id="w2ab2c19c12d782c19c11">Log Access Requests for a Specific S3 Bucket</h3><p>The following example template creates two S3 buckets. The
+                        <code class="code">LoggingBucket</code> bucket store the logs from the <code class="code">S3Bucket</code> bucket. To
+                        receive logs from the <code class="code">S3Bucket</code> bucket, the logging bucket requires log delivery
+                        write permissions.
+                     </p><div id="JSON" name="JSON" class="section langfilter">
+                        <h4 id="aws-resource-s3-bucket-example4.json">JSON</h4>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">{
+    &quot;AWSTemplateFormatVersion&quot;: &quot;2010-09-09&quot;,
+    &quot;Resources&quot;: {
+        &quot;S3Bucket&quot;: {
+            &quot;Type&quot;: &quot;AWS::S3::Bucket&quot;,
+            &quot;Properties&quot;: {
+                &quot;AccessControl&quot;: &quot;PublicRead&quot;,
+                &quot;LoggingConfiguration&quot;: {
+                    &quot;DestinationBucketName&quot;: {&quot;Ref&quot; : &quot;LoggingBucket&quot;},
+                    &quot;LogFilePrefix&quot;: &quot;testing-logs&quot;
+                }
+            }
+        },
+        &quot;LoggingBucket&quot;: {
+            &quot;Type&quot;: &quot;AWS::S3::Bucket&quot;,
+            &quot;Properties&quot;: {
+                &quot;AccessControl&quot;: &quot;LogDeliveryWrite&quot;
+            }
+        }
+    },
+    &quot;Outputs&quot;: {
+        &quot;BucketName&quot;: {
+            &quot;Value&quot;: {
+                &quot;Ref&quot;: &quot;S3Bucket&quot;
+            },
+            &quot;Description&quot;: &quot;Name of the sample Amazon S3 bucket with a logging configuration.&quot;
+        }
+    }
+}</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        <h4 id="aws-resource-s3-bucket-example4.yaml">YAML</h4>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">AWSTemplateFormatVersion: &apos;2010-09-09&apos;
+Resources:
+  S3Bucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      AccessControl: PublicRead
+      LoggingConfiguration:
+        DestinationBucketName: !Ref &apos;LoggingBucket&apos;
+        LogFilePrefix: testing-logs
+  LoggingBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      AccessControl: LogDeliveryWrite
+Outputs:
+  BucketName:
+    Value: !Ref &apos;S3Bucket&apos;
+    Description: Name of the sample Amazon S3 bucket with a logging configuration.</code></pre>
+                        </div><h3 id="w2ab2c19c12d782c19c13">Receive S3 Bucket Notifications to an
+                        SNS
+                        Topic
+                     </h3><p>The following example template shows an S3 bucket with a notification
+                        configuration that sends an event to the specified
+                        SNS
+                        topic when Amazon S3 has lost all replicas of an object.
+                     </p><div id="JSON" name="JSON" class="section langfilter">
+                        <h4 id="aws-resource-s3-bucket-example5.json">JSON</h4>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">{
+    &quot;AWSTemplateFormatVersion&quot;: &quot;2010-09-09&quot;,
+    &quot;Resources&quot;: {
+        &quot;S3Bucket&quot;: {
+            &quot;Type&quot;: &quot;AWS::S3::Bucket&quot;,
+            &quot;Properties&quot;: {
+                &quot;AccessControl&quot;: &quot;PublicReadWrite&quot;,
+                &quot;NotificationConfiguration&quot;: {
+                    &quot;TopicConfigurations&quot;: [
+                        {
+                            &quot;Topic&quot;: &quot;arn:aws:sns:us-east-1:123456789012:TestTopic&quot;,
+                            &quot;Event&quot;: &quot;s3:ReducedRedundancyLostObject&quot;
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    &quot;Outputs&quot;: {
+        &quot;BucketName&quot;: {
+            &quot;Value&quot;: {
+                &quot;Ref&quot;: &quot;S3Bucket&quot;
+            },
+            &quot;Description&quot;: &quot;Name of the sample Amazon S3 bucket with a notification configuration.&quot;
+        }
+    }
+}</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        <h4 id="aws-resource-s3-bucket-example5.yaml">YAML</h4>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">AWSTemplateFormatVersion: &apos;2010-09-09&apos;
+Resources:
+  S3Bucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      AccessControl: PublicReadWrite
+      NotificationConfiguration:
+        TopicConfigurations:
+        - Topic: arn:aws:sns:us-east-1:123456789012:TestTopic
+          Event: s3:ReducedRedundancyLostObject
+Outputs:
+  BucketName:
+    Value: !Ref &apos;S3Bucket&apos;
+    Description: Name of the sample Amazon S3 bucket with a notification configuration.</code></pre>
+                        </div><h3 id="w2ab2c19c12d782c19c15">Replicate Objects and Store Them in Another S3 Bucket</h3><p>The following example includes two replication rules. Amazon S3 replicates objects
+                        with
+                        the <code class="code">MyPrefix</code> or <code class="code">MyOtherPrefix</code> prefixes and stores them in the
+                        <code class="code">my-replication-bucket</code> bucket, which must be in a different AWS Region than
+                        the <code class="code">S3Bucket</code> bucket.
+                     </p><div id="JSON" name="JSON" class="section langfilter">
+                        <h4 id="aws-resource-s3-bucket-example6.json">JSON</h4>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">&quot;S3Bucket&quot;: {
+  &quot;Type&quot;: &quot;AWS::S3::Bucket&quot;,
+  &quot;Properties&quot;: {
+    &quot;VersioningConfiguration&quot;:{
+      &quot;Status&quot;:&quot;Enabled&quot;
+    },
+    &quot;ReplicationConfiguration&quot;: {
+      &quot;Role&quot;: &quot;arn:aws:iam::123456789012:role/replication_role&quot;,
+      &quot;Rules&quot;: [
+        {
+          &quot;Id&quot;: &quot;MyRule1&quot;,
+          &quot;Status&quot;: &quot;Enabled&quot;,
+          &quot;Prefix&quot;: &quot;MyPrefix&quot;,
+          &quot;Destination&quot;: {
+            &quot;Bucket&quot;: &quot;arn:aws:s3:::my-replication-bucket&quot;,
+            &quot;StorageClass&quot;: &quot;STANDARD&quot;
+          }
+        },
+        {
+          &quot;Status&quot;: &quot;Enabled&quot;,
+          &quot;Prefix&quot;: &quot;MyOtherPrefix&quot;,
+          &quot;Destination&quot;: {
+            &quot;Bucket&quot;: &quot;arn:aws:s3:::my-replication-bucket&quot;
+          }
+        }
+      ]
+    }
+  }
+}</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        <h4 id="aws-resource-s3-bucket-example6.yaml">YAML</h4>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">S3Bucket:
+  Type: AWS::S3::Bucket
+  Properties:
+    VersioningConfiguration:
+      Status: Enabled
+    ReplicationConfiguration:
+      Role: arn:aws:iam::123456789012:role/replication_role
+      Rules:
+      - Id: MyRule1
+        Status: Enabled
+        Prefix: MyPrefix
+        Destination:
+          Bucket: arn:aws:s3:::my-replication-bucket
+          StorageClass: STANDARD
+      - Status: Enabled
+        Prefix: MyOtherPrefix
+        Destination:
+          Bucket: arn:aws:s3:::my-replication-bucket
+</code></pre>
+                        </div><h2 id="w2ab2c19c12d782c21">More Info</h2><div class="itemizedlist">
+                        
+                        
+                        
+                        
+                        
+                        <ul class="itemizedlist" type="disc">
+                           <li class="listitem">
+                              
+                              <p>For more examples, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-s3.html">Amazon S3 Template Snippets</a>.
+                              </p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p><a href="aws-attribute-deletionpolicy.html">DeletionPolicy Attribute</a></p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p><a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/CannedACL.html" target="_blank">Access Control List (ACL)
+                                    Overview</a> in the <em>Amazon Simple Storage Service Developer Guide</em></p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p><a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html" target="_blank">Hosting a Static Website on Amazon
+                                    S3</a> in the <em>Amazon Simple Storage Service Developer Guide</em></p>
+                              
+                           </li>
+                        </ul>
+                     </div></div>
+</body>
+</html>

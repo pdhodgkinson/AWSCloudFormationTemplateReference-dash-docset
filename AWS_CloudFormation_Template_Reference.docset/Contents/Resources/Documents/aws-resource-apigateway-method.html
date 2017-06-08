@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="css/awsdocs.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/awsdocs.min.js"></script>
+    <meta charset="utf-8">
+</head>
+<body>
+    <div id="content" style="padding: 10px 30px;">
+    <h1 class="topictitle" id="aws-resource-apigateway-method">AWS::ApiGateway::Method</h1><p>The <code class="code">AWS::ApiGateway::Method</code> resource creates Amazon API Gateway (API Gateway) methods that define the parameters
+                        and body that clients must send in their requests.
+                     </p><div class="highlights">
+                        <p><strong>Topics</strong></p>
+                        <ul>
+                           <li><a href="#aws-resource-apigateway-method-syntax">Syntax</a></li>
+                           <li><a href="#w2ab2c19c12c41c11">Properties</a></li>
+                           <li><a href="#w2ab2c19c12c41c13">Return Value</a></li>
+                           <li><a href="#w2ab2c19c12c41c15">Examples</a></li>
+                        </ul>
+                     </div><h2 id="aws-resource-apigateway-method-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-resource-apigateway-method-syntax.json">JSON</h3>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">{
+  &quot;Type&quot; : &quot;AWS::ApiGateway::Method&quot;,
+  &quot;Properties&quot; : {
+    &quot;<a href="aws-resource-apigateway-method.html#cfn-apigateway-method-apikeyrequired"><code class="code">ApiKeyRequired</code></a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
+    &quot;<a href="aws-resource-apigateway-method.html#cfn-apigateway-method-authorizationtype"><code class="code">AuthorizationType</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-resource-apigateway-method.html#cfn-apigateway-method-authorizerid"><code class="code">AuthorizerId</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-resource-apigateway-method.html#cfn-apigateway-method-httpmethod"><code class="code">HttpMethod</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-resource-apigateway-method.html#cfn-apigateway-method-integration"><code class="code">Integration</code></a>&quot; : <em class="replaceable"><code><a href="aws-properties-apitgateway-method-integration.html">Integration</a></code></em>,
+    &quot;<a href="aws-resource-apigateway-method.html#cfn-apigateway-method-methodresponses"><code class="code">MethodResponses</code></a>&quot; : [ <em class="replaceable"><code><a href="aws-properties-apitgateway-method-methodresponse.html">MethodResponse</a>, ...</code></em> ],
+    &quot;<a href="aws-resource-apigateway-method.html#cfn-apigateway-method-requestmodels"><code class="code">RequestModels</code></a>&quot; : { <em class="replaceable"><code>String</code></em>:<em class="replaceable"><code>String, ...</code></em> },
+    &quot;<a href="aws-resource-apigateway-method.html#cfn-apigateway-method-requestparameters"><code class="code">RequestParameters</code></a>&quot; : { <em class="replaceable"><code>String</code></em>:<em class="replaceable"><code>Boolean, ...</code></em> },
+    &quot;<a href="aws-resource-apigateway-method.html#cfn-apigateway-method-resourceid"><code class="code">ResourceId</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-resource-apigateway-method.html#cfn-apigateway-method-restapiid"><code class="code">RestApiId</code></a>&quot; : <em class="replaceable"><code>String</code></em>
+  }
+}</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-apigateway-method-syntax.yaml">YAML</h3>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">Type: &quot;AWS::ApiGateway::Method&quot;
+Properties:
+  <a href="aws-resource-apigateway-method.html#cfn-apigateway-method-apikeyrequired"><code class="code">ApiKeyRequired</code></a>: <em class="replaceable"><code>Boolean</code></em>
+  <a href="aws-resource-apigateway-method.html#cfn-apigateway-method-authorizationtype"><code class="code">AuthorizationType</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-resource-apigateway-method.html#cfn-apigateway-method-authorizerid"><code class="code">AuthorizerId</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-resource-apigateway-method.html#cfn-apigateway-method-httpmethod"><code class="code">HttpMethod</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-resource-apigateway-method.html#cfn-apigateway-method-integration"><code class="code">Integration</code></a>: <em class="replaceable"><code><a href="aws-properties-apitgateway-method-integration.html">Integration</a></code></em>
+  <a href="aws-resource-apigateway-method.html#cfn-apigateway-method-methodresponses"><code class="code">MethodResponses</code></a>:
+    - <em class="replaceable"><code><a href="aws-properties-apitgateway-method-methodresponse.html">MethodResponse</a></code></em>
+  <a href="aws-resource-apigateway-method.html#cfn-apigateway-method-requestmodels"><code class="code">RequestModels</code></a>:
+    <em class="replaceable"><code>String</code></em>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-resource-apigateway-method.html#cfn-apigateway-method-requestparameters"><code class="code">RequestParameters</code></a>:
+    <em class="replaceable"><code>String</code></em>: <em class="replaceable"><code>Boolean</code></em>
+  <a href="aws-resource-apigateway-method.html#cfn-apigateway-method-resourceid"><code class="code">ResourceId</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-resource-apigateway-method.html#cfn-apigateway-method-restapiid"><code class="code">RestApiId</code></a>: <em class="replaceable"><code>String</code></em>
+</code></pre>
+                        </div><h2 id="w2ab2c19c12c41c11">Properties</h2><div class="variablelist">
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <dl>
+                           
+                           <dt><a id="cfn-apigateway-method-apikeyrequired"></a><span class="term"><code class="code">ApiKeyRequired</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>Indicates whether the method requires clients to submit a valid API key.</p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: Boolean
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-apigateway-method-authorizationtype"></a><span class="term"><code class="code">AuthorizationType</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The method&apos;s authorization type.</p>
+                              
+                              <p><em>Required</em>: Yes. If you specify the <code class="code">AuthorizerId</code> property, specify <code class="code">CUSTOM</code> for this property.
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-apigateway-method-authorizerid"></a><span class="term"><code class="code">AuthorizerId</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The identifier of the <a href="aws-resource-apigateway-authorizer.html">authorizer</a> to use on this method. If you specify this property, specify <code class="code">CUSTOM</code> for the <code class="code">AuthorizationType</code> property.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-apigateway-method-httpmethod"></a><span class="term"><code class="code">HttpMethod</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The HTTP method that clients will use to call this method.</p>
+                              
+                              <p><em>Required</em>: Yes
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-apigateway-method-integration"></a><span class="term"><code class="code">Integration</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The back-end system that the method calls when it receives a request.</p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: <a href="aws-properties-apitgateway-method-integration.html">Amazon API Gateway Method Integration</a></p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-apigateway-method-methodresponses"></a><span class="term"><code class="code">MethodResponses</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The responses that can be sent to the client who calls the method.</p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: List of <a href="aws-properties-apitgateway-method-methodresponse.html">Amazon API Gateway Method MethodResponse</a></p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-apigateway-method-requestmodels"></a><span class="term"><code class="code">RequestModels</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The resources used for the response&apos;s content type. Specify response models as key-value
+                                 pairs (string-to-string map), with a content type as the key and a <code class="code">Model</code> resource name as the value.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: Mapping of key-value pairs
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-apigateway-method-requestparameters"></a><span class="term"><code class="code">RequestParameters</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>Request parameters that API Gateway accepts. Specify request parameters as key-value
+                                 pairs (string-to-Boolean map), with a source as the key and a Boolean as the value.
+                                 The Boolean specifies whether a parameter is required. A source must match the following
+                                 format <code class="code">method.request.<em class="replaceable"><code>location</code></em>.<em class="replaceable"><code>name</code></em></code>, where the <em class="replaceable"><code>location</code></em> is <code class="code">querystring</code>, <code class="code">path</code>, or <code class="code">header</code>, and
+                                 <em class="replaceable"><code>name</code></em> is a valid, unique parameter name.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: Mapping of key-value pairs
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-apigateway-method-resourceid"></a><span class="term"><code class="code">ResourceId</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The ID of an API Gateway <a href="aws-resource-apigateway-resource.html">resource</a>. For root resource methods, specify the RestApi root resource ID, such as <code class="code">{ &quot;Fn::GetAtt&quot;: [&quot;MyRestApi&quot;, &quot;RootResourceId&quot;] }</code>.
+                              </p>
+                              
+                              <p><em>Required</em>: Yes
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-apigateway-method-restapiid"></a><span class="term"><code class="code">RestApiId</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The ID of the <a href="aws-resource-apigateway-restapi.html">RestApi</a> resource in which API Gateway creates the method.
+                              </p>
+                              
+                              <p><em>Required</em>: Yes
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                        </dl>
+                     </div><h2 id="w2ab2c19c12c41c13">Return Value</h2><h3 id="w2ab2c19c12c41c13b3">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code> intrinsic function, <code class="code">Ref</code> returns the method ID, such as <code class="code">mysta-metho-01234b567890example</code>.
+                     </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
+                     </p><h2 id="w2ab2c19c12c41c15">Examples</h2><h3 id="w2ab2c19c12c41c15b3">Mock Method</h3><p>The following example creates a mock GET method for the <code class="code">MyApi</code> API.
+                     </p><div id="JSON" name="JSON" class="section langfilter">
+                        <h4 id="aws-resource-apigateway-method-example.json">JSON</h4>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">&quot;MockMethod&quot;: {
+  &quot;Type&quot;: &quot;AWS::ApiGateway::Method&quot;,
+  &quot;Properties&quot;: {
+    &quot;RestApiId&quot;: { &quot;Ref&quot;: &quot;MyApi&quot; },
+    &quot;ResourceId&quot;: { &quot;Fn::GetAtt&quot;: [&quot;RestApi&quot;, &quot;RootResourceId&quot;] },
+    &quot;HttpMethod&quot;: &quot;GET&quot;,
+    &quot;AuthorizationType&quot;: &quot;NONE&quot;,
+    &quot;Integration&quot;: { &quot;Type&quot;: &quot;MOCK&quot; }
+  }
+}</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        <h4 id="aws-resource-apigateway-method-example.yaml">YAML</h4>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">MockMethod: 
+  Type: &quot;AWS::ApiGateway::Method&quot;
+  Properties: 
+    RestApiId: 
+      Ref: &quot;MyApi&quot;
+    ResourceId: 
+      Fn::GetAtt: 
+        - &quot;RestApi&quot;
+        - &quot;RootResourceId&quot;
+    HttpMethod: &quot;GET&quot;
+    AuthorizationType: &quot;NONE&quot;
+    Integration: 
+      Type: &quot;MOCK&quot;</code></pre>
+                        </div><h3 id="w2ab2c19c12c41c15b5">Lambda Proxy</h3><p>The following example creates a proxy resource to enable clients to call a Lambda
+                        function with a single integration setup on a catch-all <code class="code">ANY</code> method. The
+                        <code class="code">Uri</code> property specifies the Lambda function. For more information about Lambda
+                        proxy integration and a sample Lambda function, see <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-create-api-as-simple-proxy-for-lambda.html" target="_blank">Create an API with Lambda Proxy Integration through a Proxy Resource</a> in the
+                        <em>API Gateway Developer Guide</em>.
+                     </p><div class="aws-note">
+                        <p class="aws-note">Note</p>
+                        <p>Use the <a href="aws-resource-lambda-permission.html">AWS::Lambda::Permission</a> resource to grant API Gateway permission to
+                           invoke your Lambda function.
+                        </p>
+                     </div><div id="JSON" name="JSON" class="section langfilter">
+                        <h4 id="aws-resource-apigateway-method-example2.json">JSON</h4>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">&quot;ProxyResource&quot;: {
+  &quot;Type&quot;: &quot;AWS::ApiGateway::Resource&quot;,
+  &quot;Properties&quot;: {
+    &quot;RestApiId&quot;: { &quot;Ref&quot;:&quot;LambdaSimpleProxy&quot;},
+    &quot;ParentId&quot;: { &quot;Fn::GetAtt&quot; : [
+      &quot;LambdaSimpleProxy&quot;,
+      &quot;RootResourceId&quot;
+    ]},
+    &quot;PathPart&quot;: &quot;{proxy+}&quot;
+  }
+},
+&quot;ProxyResourceANY&quot;: {
+  &quot;Type&quot;: &quot;AWS::ApiGateway::Method&quot;,
+  &quot;Properties&quot;: {
+    &quot;RestApiId&quot;: {&quot;Ref&quot;:&quot;LambdaSimpleProxy&quot;},
+    &quot;ResourceId&quot;: {&quot;Ref&quot;:&quot;ProxyResource&quot;},
+    &quot;HttpMethod&quot;: &quot;ANY&quot;,
+    &quot;AuthorizationType&quot;: &quot;NONE&quot;,
+    &quot;Integration&quot;: {
+      &quot;Type&quot;: &quot;AWS_PROXY&quot;,
+      &quot;IntegrationHttpMethod&quot;: &quot;POST&quot;,
+      &quot;Uri&quot;: { &quot;Fn::Sub&quot;:&quot;arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${LambdaForSimpleProxy.Arn}/invocations&quot;}
+    }
+  }
+}</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        <h4 id="aws-resource-apigateway-method-example2.yaml">YAML</h4>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">ProxyResource:
+  Type: AWS::ApiGateway::Resource
+  Properties:
+    RestApiId: !Ref LambdaSimpleProxy
+    ParentId: !GetAtt [LambdaSimpleProxy, RootResourceId]
+    PathPart: &apos;{proxy+}&apos;
+ProxyResourceANY:
+  Type: AWS::ApiGateway::Method
+  Properties:
+    RestApiId: !Ref LambdaSimpleProxy
+    ResourceId: !Ref ProxyResource
+    HttpMethod: ANY      
+    AuthorizationType: NONE
+    Integration:
+      Type: AWS_PROXY
+      IntegrationHttpMethod: POST
+      Uri: !Sub arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${LambdaForSimpleProxy.Arn}/invocations</code></pre>
+                        </div></div>
+</body>
+</html>

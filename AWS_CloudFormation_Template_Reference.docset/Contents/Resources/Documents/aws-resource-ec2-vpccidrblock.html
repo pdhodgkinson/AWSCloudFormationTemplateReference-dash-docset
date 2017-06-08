@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="css/awsdocs.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/awsdocs.min.js"></script>
+    <meta charset="utf-8">
+</head>
+<body>
+    <div id="content" style="padding: 10px 30px;">
+    <h1 class="topictitle" id="aws-resource-ec2-vpccidrblock">AWS::EC2::VPCCidrBlock</h1><p>The <code class="code">AWS::EC2::VPCCidrBlock</code> resource associates a single Amazon-provided IPv6
+                        CIDR block with an Amazon VPC VPC.
+                     </p><div class="highlights">
+                        <p><strong>Topics</strong></p>
+                        <ul>
+                           <li><a href="#aws-resource-ec2-vpccidrblock-syntax">Syntax</a></li>
+                           <li><a href="#w2ab2c19c12d366c11">Properties</a></li>
+                           <li><a href="#w2ab2c19c12d366c13">Example</a></li>
+                        </ul>
+                     </div><h2 id="aws-resource-ec2-vpccidrblock-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-resource-ec2-vpccidrblock-syntax.json">JSON</h3>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">{
+   &quot;Type&quot; : &quot;AWS::EC2::VPCCidrBlock&quot;,
+   &quot;Properties&quot; : {
+      &quot;<a href="aws-resource-ec2-vpccidrblock.html#cfn-ec2-vpccidrblock-amazonprovidedipv6cidrblock"><code class="code">AmazonProvidedIpv6CidrBlock</code></a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
+      &quot;<a href="aws-resource-ec2-vpccidrblock.html#cfn-ec2-vpccidrblock-vpcid"><code class="code">VpcId</code></a>&quot; : <em class="replaceable"><code>String</code></em>
+   }
+}     </code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-ec2-vpccidrblock-syntax.yaml">YAML</h3>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">Type: &quot;AWS::EC2::VPCCidrBlock&quot;
+Properties: 
+  <a href="aws-resource-ec2-vpccidrblock.html#cfn-ec2-vpccidrblock-amazonprovidedipv6cidrblock"><code class="code">AmazonProvidedIpv6CidrBlock</code></a>: <em class="replaceable"><code>Boolean</code></em>
+  <a href="aws-resource-ec2-vpccidrblock.html#cfn-ec2-vpccidrblock-vpcid"><code class="code">VpcId</code></a>: <em class="replaceable"><code>String</code></em></code></pre>
+                        </div><h2 id="w2ab2c19c12d366c11">Properties</h2><div class="variablelist">
+                        
+                        
+                        
+                        <dl>
+                           
+                           <dt><a id="cfn-ec2-vpccidrblock-amazonprovidedipv6cidrblock"></a><span class="term"><code class="code">AmazonProvidedIpv6CidrBlock</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>Whether to request an Amazon-provided IPv6 CIDR block with a /56 prefix length
+                                 for the VPC. You can&apos;t specify the range of IPv6 addresses or the size of the CIDR
+                                 block.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: Boolean
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-ec2-vpccidrblock-vpcid"></a><span class="term"><code class="code">VpcId</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The ID of the VPC to associate the Amazon-provided IPv6 CIDR block with.</p>
+                              
+                              <p><em>Required</em>: Yes
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                        </dl>
+                     </div><h2 id="w2ab2c19c12d366c13">Example</h2><p>The following example associates an Amazon-provided IPv6 CIDR block (with a prefix
+                        length of /56) with the <code class="code">TestVPCIpv6</code> VPC.
+                     </p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-resource-ec2-vpccidrblock-example.json">JSON</h3>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">{
+  &quot;Ipv6VPCCidrBlock&quot;: {
+    &quot;Type&quot;: &quot;AWS::EC2::VPCCidrBlock&quot;,
+    &quot;Properties&quot;: {
+      &quot;AmazonProvidedIpv6CidrBlock&quot;: true,
+      &quot;VpcId&quot;: { &quot;Ref&quot; : &quot;TestVPCIpv6&quot; }
+    }
+  }
+}</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-ec2-vpccidrblock-example.yaml">YAML</h3>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">Ipv6VPCCidrBlock:
+  Type: &quot;AWS::EC2::VPCCidrBlock&quot;
+  Properties:
+    AmazonProvidedIpv6CidrBlock: true
+    VpcId: !Ref TestVPCIpv6</code></pre>
+                        </div></div>
+</body>
+</html>

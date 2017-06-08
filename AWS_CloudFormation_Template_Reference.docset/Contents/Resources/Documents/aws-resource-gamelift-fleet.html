@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="css/awsdocs.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/awsdocs.min.js"></script>
+    <meta charset="utf-8">
+</head>
+<body>
+    <div id="content" style="padding: 10px 30px;">
+    <h1 class="topictitle" id="aws-resource-gamelift-fleet">AWS::GameLift::Fleet</h1><p>The <code class="code">AWS::GameLift::Fleet</code> resource creates an Amazon GameLift (GameLift) fleet to host
+                        game servers. A fleet is a set of EC2 instances, each of which is a host in the fleet.
+                        For more
+                        information, see the <a href="http://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateFleet.html" target="_blank">CreateFleet</a> action in
+                        the <em>Amazon GameLift API Reference</em>.
+                     </p><div class="highlights">
+                        <p><strong>Topics</strong></p>
+                        <ul>
+                           <li><a href="#aws-resource-gamelift-fleet-syntax">Syntax</a></li>
+                           <li><a href="#w2ab2c19c12d533c11">Properties</a></li>
+                           <li><a href="#w2ab2c19c12d533c13">Return Value</a></li>
+                           <li><a href="#w2ab2c19c12d533c15">Example</a></li>
+                        </ul>
+                     </div><h2 id="aws-resource-gamelift-fleet-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-resource-gamelift-fleet-syntax.json">JSON</h3>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">{
+  &quot;Type&quot; : &quot;AWS::GameLift::Fleet&quot;,
+  &quot;Properties&quot; : {
+    &quot;<a href="aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-buildid"><code class="code">BuildId</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-description"><code class="code">Description</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-desiredec2instances"><code class="code">DesiredEC2Instances</code></a>&quot; : <em class="replaceable"><code>Integer</code></em>,
+    &quot;<a href="aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-ec2inboundpermissions"><code class="code">EC2InboundPermissions</code></a>&quot; : [ <em class="replaceable"><code><a href="aws-properties-gamelift-fleet-ec2inboundpermission.html">EC2InboundPermission</a>, ...</code></em> ],
+    &quot;<a href="aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-ec2instancetype"><code class="code">EC2InstanceType</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-logpaths"><code class="code">LogPaths</code></a>&quot; : [ <em class="replaceable"><code>String, ...</code></em> ],
+    &quot;<a href="aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-maxsize"><code class="code">MaxSize</code></a>&quot; : <em class="replaceable"><code>Integer</code></em>,
+    &quot;<a href="aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-minsize"><code class="code">MinSize</code></a>&quot; : <em class="replaceable"><code>Integer</code></em>,
+    &quot;<a href="aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-name"><code class="code">Name</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-serverlaunchparameters"><code class="code">ServerLaunchParameters</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-serverlaunchpath"><code class="code">ServerLaunchPath</code></a>&quot; : <em class="replaceable"><code>String</code></em>
+  }
+}</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-gamelift-fleet-syntax.yaml">YAML</h3>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">Type: &quot;AWS::GameLift::Fleet&quot;
+Properties: 
+  <a href="aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-buildid"><code class="code">BuildId</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-description"><code class="code">Description</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-desiredec2instances"><code class="code">DesiredEC2Instances</code></a>: <em class="replaceable"><code>Integer</code></em>
+  <a href="aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-ec2inboundpermissions"><code class="code">EC2InboundPermissions</code></a>:
+    - <em class="replaceable"><code><a href="aws-properties-gamelift-fleet-ec2inboundpermission.html">EC2InboundPermission</a></code></em>
+  <a href="aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-ec2instancetype"><code class="code">EC2InstanceType</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-logpaths"><code class="code">LogPaths</code></a>:
+    [ <em class="replaceable"><code>String, ...</code></em> ]
+  <a href="aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-maxsize"><code class="code">MaxSize</code></a>: <em class="replaceable"><code>Integer</code></em>
+  <a href="aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-minsize"><code class="code">MinSize</code></a>: <em class="replaceable"><code>Integer</code></em>
+  <a href="aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-name"><code class="code">Name</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-serverlaunchparameters"><code class="code">ServerLaunchParameters</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-serverlaunchpath"><code class="code">ServerLaunchPath</code></a>: <em class="replaceable"><code>String</code></em>
+</code></pre>
+                        </div><h2 id="w2ab2c19c12d533c11">Properties</h2><div class="variablelist">
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <dl>
+                           
+                           <dt><a id="cfn-gamelift-fleet-buildid"></a><span class="term"><code class="code">BuildId</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The unique identifier for the build that you want to use with this fleet.</p>
+                              
+                              <p><em>Required</em>: Yes
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-gamelift-fleet-description"></a><span class="term"><code class="code">Description</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>Information that helps you identify the purpose of this fleet.</p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-gamelift-fleet-desiredec2instances"></a><span class="term"><code class="code">DesiredEC2Instances</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The number of EC2 instances that you want in this fleet.</p>
+                              
+                              <p><em>Required</em>: Yes
+                              </p>
+                              
+                              <p><em>Type</em>: Integer
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-gamelift-fleet-ec2inboundpermissions"></a><span class="term"><code class="code">EC2InboundPermissions</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The incoming traffic, expressed as IP ranges and port numbers, that is permitted to
+                                 access the game server. If you don&apos;t specify values, no traffic is permitted to your
+                                 game servers.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: List of <a href="aws-properties-gamelift-fleet-ec2inboundpermission.html">Amazon GameLift Fleet
+                                    EC2InboundPermission</a></p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-gamelift-fleet-ec2instancetype"></a><span class="term"><code class="code">EC2InstanceType</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The type of EC2 instances that the fleet uses. EC2 instance types define the CPU,
+                                 memory, storage, and networking capacity of the fleet&apos;s hosts. For more information
+                                 about the instance types that are supported by GameLift, see the <a href="http://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateFleet.html#gamelift-CreateFleet-request-EC2InstanceType" target="_blank">EC2InstanceType</a> parameter in the
+                                 <em>Amazon GameLift API Reference</em>.
+                              </p>
+                              
+                              <p><em>Required</em>: Yes
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-gamelift-fleet-logpaths"></a><span class="term"><code class="code">LogPaths</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The path to game-session log files that are generated by your game server, with the
+                                 slashes (<code class="code">\</code>) escaped. After a game session has been terminated, GameLift
+                                 captures and stores the logs in an S3 bucket.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: List of strings
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-gamelift-fleet-maxsize"></a><span class="term"><code class="code">MaxSize</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The maximum number of EC2 instances that you want to allow in this fleet. By default,
+                                 AWS CloudFormation, sets this property to <code class="code">1</code>.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: Integer
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-gamelift-fleet-minsize"></a><span class="term"><code class="code">MinSize</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The minimum number of EC2 instances that you want to allow in this fleet. By default,
+                                 AWS CloudFormation, sets this property to <code class="code">0</code>.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: Integer
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-gamelift-fleet-name"></a><span class="term"><code class="code">Name</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>An identifier to associate with this fleet. Fleet names don&apos;t need to be
+                                 unique.
+                              </p>
+                              
+                              <p><em>Required</em>: Yes
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-gamelift-fleet-serverlaunchparameters"></a><span class="term"><code class="code">ServerLaunchParameters</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The parameters that are required to launch your game server. Specify these
+                                 parameters as a string of command-line parameters, such as <code class="code">+sv_port 33435
+                                    +start_lobby</code>.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-gamelift-fleet-serverlaunchpath"></a><span class="term"><code class="code">ServerLaunchPath</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The location of your game server that GameLift launches. You must escape the slashes
+                                 (<code class="code">\</code>) and use the following pattern:
+                                 <code>C:\\game\\<em class="replaceable"><code>launchpath</code></em></code>. For example,
+                                 if your game server files are in the <code class="code">MyGame</code> folder, the path should be
+                                 <code>C:\\game\\MyGame\\server.exe</code>.
+                              </p>
+                              
+                              <p><em>Required</em>: Yes
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                        </dl>
+                     </div><h2 id="w2ab2c19c12d533c13">Return Value</h2><h3 id="w2ab2c19c12d533c13b3">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code>
+                        intrinsic function, <code class="code">Ref</code> returns the fleet ID, such as
+                        <code class="code">myfleet-a01234b56-7890-1de2-f345-g67h8i901j2k</code>.
+                     </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
+                     </p><h2 id="w2ab2c19c12d533c15">Example</h2><p>The following example creates a GameLift fleet named <code class="code">MyGameFleet</code> with two
+                        inbound permissions. The fleet uses a <code class="code">Ref</code> intrinsic function to specify a build,
+                        which can be declared elsewhere in the same template. For the log path and server
+                        launch path,
+                        the example uses the escape character (<code class="code">\</code>) to escape the slashes
+                        (<code class="code">\</code>).
+                     </p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-resource-gamelift-fleet-example.json">JSON</h3>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">&quot;FleetResource&quot;: {
+  &quot;Type&quot;: &quot;AWS::GameLift::Fleet&quot;,
+  &quot;Properties&quot;: {
+    &quot;Name&quot;: &quot;MyGameFleet&quot;,
+    &quot;Description&quot;: &quot;A fleet for my game&quot;,
+    &quot;BuildId&quot;: { &quot;Ref&quot;: &quot;BuildResource&quot; },
+    &quot;ServerLaunchPath&quot;: &quot;c:\\game\\TestApplicationServer.exe&quot;,
+    &quot;LogPaths&quot;: [
+      &quot;c:\\game\\testlog.log&quot;,
+      &quot;c:\\game\\testlog2.log&quot;
+    ],
+    &quot;EC2InstanceType&quot;: &quot;t2.small&quot;,
+    &quot;DesiredEC2Instances&quot;: &quot;2&quot;,
+    &quot;EC2InboundPermissions&quot;: [
+      {
+        &quot;FromPort&quot;: &quot;1234&quot;,
+        &quot;ToPort&quot;: &quot;1324&quot;,
+        &quot;IpRange&quot;: &quot;0.0.0.0/24&quot;,
+        &quot;Protocol&quot;: &quot;TCP&quot;
+      },
+      {
+        &quot;FromPort&quot;: &quot;1356&quot;,
+        &quot;ToPort&quot;: &quot;1578&quot;,
+        &quot;IpRange&quot;: &quot;192.168.0.0/24&quot;,
+        &quot;Protocol&quot;: &quot;UDP&quot;
+      }
+    ]
+  } 
+}</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-gamelift-fleet-example.yaml">YAML</h3>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">FleetResource: 
+  Type: &quot;AWS::GameLift::Fleet&quot;
+  Properties: 
+    Name: &quot;MyGameFleet&quot;
+    Description: &quot;A fleet for my game&quot;
+    BuildId: 
+      Ref: &quot;BuildResource&quot;
+    ServerLaunchPath: &quot;c:\\game\\TestApplicationServer.exe&quot;
+    LogPaths: 
+      - &quot;c:\\game\\testlog.log&quot;
+      - &quot;c:\\game\\testlog2.log&quot;
+    EC2InstanceType: &quot;t2.small&quot;
+    DesiredEC2Instances: &quot;2&quot;
+    EC2InboundPermissions: 
+      - 
+        FromPort: &quot;1234&quot;
+        ToPort: &quot;1324&quot;
+        IpRange: &quot;0.0.0.0/24&quot;
+        Protocol: &quot;TCP&quot;
+      - 
+        FromPort: &quot;1356&quot;
+        ToPort: &quot;1578&quot;
+        IpRange: &quot;192.168.0.0/24&quot;
+        Protocol: &quot;UDP&quot;
+</code></pre>
+                        </div></div>
+</body>
+</html>

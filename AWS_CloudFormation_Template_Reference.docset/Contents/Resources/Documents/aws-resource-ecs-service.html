@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="css/awsdocs.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/awsdocs.min.js"></script>
+    <meta charset="utf-8">
+</head>
+<body>
+    <div id="content" style="padding: 10px 30px;">
+    <h1 class="topictitle" id="aws-resource-ecs-service">AWS::ECS::Service</h1><p>The <code class="code">AWS::ECS::Service</code> resource creates an Amazon EC2 Container Service (Amazon ECS) service that runs
+                        and maintains the requested number of tasks and associated load balancers.
+                     </p><div class="highlights">
+                        <p><strong>Topics</strong></p>
+                        <ul>
+                           <li><a href="#aws-resource-ecs-service-syntax">Syntax</a></li>
+                           <li><a href="#w2ab2c19c12d414c11">Properties</a></li>
+                           <li><a href="#w2ab2c19c12d414c13">Return Values</a></li>
+                           <li><a href="#w2ab2c19c12d414c15">Examples</a></li>
+                           <li><a href="#w2ab2c19c12d414c17">More Info</a></li>
+                        </ul>
+                     </div><h2 id="aws-resource-ecs-service-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-resource-ecs-service-syntax.json">JSON</h3>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">{
+  &quot;Type&quot; : &quot;AWS::ECS::Service&quot;,
+  &quot;Properties&quot; : {
+    &quot;<a href="aws-resource-ecs-service.html#cfn-ecs-service-cluster"><code class="code">Cluster</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-resource-ecs-service.html#cfn-ecs-service-deploymentconfiguration"><code class="code">DeploymentConfiguration</code></a>&quot; : <em class="replaceable"><code>DeploymentConfiguration</code></em>,
+    &quot;<a href="aws-resource-ecs-service.html#cfn-ecs-service-desiredcount"><code class="code">DesiredCount</code></a>&quot; : <em class="replaceable"><code>Integer</code></em>,
+    &quot;<a href="aws-resource-ecs-service.html#cfn-ecs-service-loadbalancers"><code class="code">LoadBalancers</code></a>&quot; : [ <em class="replaceable"><code>Load Balancer Objects, ...</code></em> ],
+    &quot;<a href="aws-resource-ecs-service.html#cfn-ecs-service-placementconstraints"><code class="code">PlacementConstraints</code></a>&quot; : [ <em class="replaceable"><code>PlacementConstraints, ...</code></em> ],
+    &quot;<a href="aws-resource-ecs-service.html#cfn-ecs-service-role"><code class="code">Role</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-resource-ecs-service.html#cfn-ecs-service-placementstrategies"><code class="code">PlacementStrategies</code></a>&quot; : [ <em class="replaceable"><code>PlacementStrategies, ...</code></em> ],
+    &quot;<a href="aws-resource-ecs-service.html#cfn-ecs-service-servicename"><code class="code">ServiceName</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-resource-ecs-service.html#cfn-ecs-service-taskdefinition"><code class="code">TaskDefinition</code></a>&quot; : <em class="replaceable"><code>String</code></em>
+  }
+}</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-ecs-service-syntax.yaml">YAML</h3>
+                        
+                        
+                        
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">Type: &quot;AWS::ECS::Service&quot;
+Properties: 
+  <a href="aws-resource-ecs-service.html#cfn-ecs-service-cluster"><code class="code">Cluster</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-resource-ecs-service.html#cfn-ecs-service-deploymentconfiguration"><code class="code">DeploymentConfiguration</code></a>:
+    <em class="replaceable"><code>DeploymentConfiguration</code></em>
+  <a href="aws-resource-ecs-service.html#cfn-ecs-service-desiredcount"><code class="code">DesiredCount</code></a>: <em class="replaceable"><code>Integer</code></em>
+  <a href="aws-resource-ecs-service.html#cfn-ecs-service-loadbalancers"><code class="code">LoadBalancers</code></a>:
+    - <em class="replaceable"><code>Load Balancer Objects, ...</code></em>
+  <a href="aws-resource-ecs-service.html#cfn-ecs-service-placementconstraints"><code class="code">PlacementConstraints</code></a>: 
+   - <em class="replaceable"><code>PlacementConstraints, ...</code></em>
+  <a href="aws-resource-ecs-service.html#cfn-ecs-service-placementstrategies"><code class="code">PlacementStrategies</code></a>: 
+   - <em class="replaceable"><code>PlacementStrategies, ...</code></em>
+  <a href="aws-resource-ecs-service.html#cfn-ecs-service-role"><code class="code">Role</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-resource-ecs-service.html#cfn-ecs-service-servicename"><code class="code">ServiceName</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-resource-ecs-service.html#cfn-ecs-service-taskdefinition"><code class="code">TaskDefinition</code></a>: <em class="replaceable"><code>String</code></em></code></pre>
+                        </div><h2 id="w2ab2c19c12d414c11">Properties</h2><div class="aws-note">
+                        <p class="aws-note">Note</p>
+                        <p>When you use Auto Scaling or Amazon Elastic Compute Cloud (Amazon EC2) to create container
+                           instances for an Amazon ECS
+                           cluster, the Amazon ECS service
+                           resource
+                           must have a dependency on the Auto Scaling group or the Amazon EC2 instances. This
+                           makes the container instances available and associates them with the Amazon ECS cluster
+                           before AWS CloudFormation creates the Amazon ECS service.
+                        </p>
+                     </div><div class="variablelist">
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <dl>
+                           
+                           <dt><a id="cfn-ecs-service-cluster"></a><span class="term"><code class="code">Cluster</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The name or Amazon Resource Name (ARN) of the cluster that you want to run your
+                                 Amazon ECS
+                                 service on. If you do not specify a cluster, Amazon ECS uses the default
+                                 cluster.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-ecs-service-deploymentconfiguration"></a><span class="term"><code class="code">DeploymentConfiguration</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>Configures how many tasks run during a deployment.</p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: <a href="aws-properties-ecs-service-deploymentconfiguration.html">Amazon EC2 Container Service Service
+                                    DeploymentConfiguration</a></p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-ecs-service-placementconstraints"></a><span class="term"><code class="code">PlacementConstraints</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The placement constraints for the tasks in the service.</p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: <a href="aws-properties-ecs-service-placementconstraints-placementconstraint.html">Amazon EC2 Container Service Service
+                                    PlacementConstraint</a></p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-ecs-service-placementstrategies"></a><span class="term"><code class="code">PlacementStrategies</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The placement strategies that determine how tasks for the service are placed.</p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: <a href="aws-properties-ecs-service-placementstrategies-placementstrategy.html">Amazon EC2 Container Service Service
+                                    PlacementStrategies</a></p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-ecs-service-desiredcount"></a><span class="term"><code class="code">DesiredCount</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The number of simultaneous tasks that you want to run on the cluster. Specify
+                                 the tasks with the <code class="code">TaskDefinition</code> property.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: Integer
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-ecs-service-loadbalancers"></a><span class="term"><code class="code">LoadBalancers</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>A list of load balancer objects to associate with the cluster. For information
+                                 about the number of load balancers that you can specify per service, see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html" target="_blank">Service Load Balancing</a>
+                                 in the <em>Amazon EC2 Container Service Developer Guide</em>.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: List of <a href="aws-properties-ecs-service-loadbalancers.html">Amazon EC2 Container Service Service
+                                    LoadBalancers</a></p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-ecs-service-role"></a><span class="term"><code class="code">Role</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The name or ARN of an AWS Identity and Access Management (IAM) role that allows your
+                                 Amazon ECS container
+                                 agent to make calls to your load balancer.
+                              </p>
+                              
+                              <div class="aws-note">
+                                 <p class="aws-note">Note</p>
+                                 <p>In some cases, you might need to add a dependency on the service role&apos;s
+                                    policy. For more information, see IAM role policy in <a href="aws-attribute-dependson.html">DependsOn Attribute</a>.
+                                 </p>
+                              </div>
+                              
+                              <p><em>Required</em>: Conditional. Required only if you specify the
+                                 <code class="code">LoadBalancers</code> property.
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-ecs-service-servicename"></a><span class="term"><code class="code">ServiceName</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The name of your
+                                 service.
+                                 The name is limited to 255 letters (uppercase and lowercase), numbers, hyphens,
+                                 and underscores. Service names must be unique within a cluster, but you can have
+                                 similarly named services in multiple clusters within a region or across multiple
+                                 regions.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-ecs-service-taskdefinition"></a><span class="term"><code class="code">TaskDefinition</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The ARN of the task definition (including the revision number) that you want to
+                                 run on the cluster, such as
+                                 <code class="code">arn:aws:ecs:us-east-1:123456789012:task-definition/mytask:3</code>.
+                                 You can&apos;t use <code class="code">:latest</code> to specify a revision because it&apos;s ambiguous.
+                                 For example, if AWS CloudFormation needed to roll back an update, it wouldn&apos;t know
+                                 which
+                                 revision to roll back to.
+                              </p>
+                              
+                              <p><em>Required</em>: Yes
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt">Some interruptions</a></p>
+                              
+                           </dd>
+                           
+                        </dl>
+                     </div><h2 id="w2ab2c19c12d414c13">Return Values</h2><h3 id="w2ab2c19c12d414c13b3">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code>
+                        intrinsic function, <code class="code">Ref</code> returns the ARN.
+                     </p><p>In the following sample, the <code class="code">Ref</code> function returns the ARN of the
+                        <code class="code">MyECSService</code> service, such as
+                        <code class="code">arn:aws:ecs:us-west-2:123456789012:service/sample-webapp</code>.
+                     </p><pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">{ &quot;Ref&quot;: &quot;MyECSService&quot; }</code></pre><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
+                     </p><h3 id="w2ab2c19c12d414c13b5">Fn::GetAtt</h3><p><code class="code">Fn::GetAtt</code> returns a value for a specified attribute of this type.
+                        The following are the available attributes and sample return values.
+                     </p><div class="variablelist">
+                        
+                        
+                        <dl>
+                           
+                           <dt><span class="term"><code class="code">Name</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The name of the Amazon ECS service, such as <code class="code">sample-webapp</code>.
+                              </p>
+                              
+                           </dd>
+                           
+                        </dl>
+                     </div><p>For more information about using <code class="code">Fn::GetAtt</code>, see <a href="intrinsic-function-reference-getatt.html">Fn::GetAtt</a>.
+                     </p><h2 id="w2ab2c19c12d414c15">Examples</h2><h3 id="w2ab2c19c12d414c15b3">Define a Basic Amazon ECS Service</h3><p>The following examples define an Amazon ECS service that uses a cluster and task
+                        definition that are declared elsewhere in the same template.
+                     </p><div id="JSON" name="JSON" class="section langfilter">
+                        <h4 id="aws-resource-ecs-service-example.json">JSON</h4>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">&quot;WebApp&quot;: {
+  &quot;Type&quot;: &quot;AWS::ECS::Service&quot;,
+  &quot;Properties&quot; : {
+    &quot;Cluster&quot;: { &quot;Ref&quot;: &quot;cluster&quot; },
+    &quot;DesiredCount&quot;: { &quot;Ref&quot;: &quot;desiredcount&quot; },
+    &quot;TaskDefinition&quot; : { &quot;Ref&quot;: &quot;taskdefinition&quot; }
+  }
+}</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        <h4 id="aws-resource-ecs-service-example.yaml">YAML</h4>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">WebApp: 
+  Type: &quot;AWS::ECS::Service&quot;
+  Properties: 
+    Cluster: 
+      Ref: &quot;cluster&quot;
+    DesiredCount: 
+      Ref: &quot;desiredcount&quot;
+    TaskDefinition: 
+      Ref: &quot;taskdefinition&quot;
+</code></pre>
+                        </div><h3 id="w2ab2c19c12d414c15b5">Associate an Application Load Balancer with a Service</h3><p>The following example associates an Application Load Balancer with an Amazon ECS service
+                        by referencing an <code class="code">AWS::ElasticLoadBalancingV2::TargetGroup</code> resource. 
+                     </p><div class="aws-note">
+                        <p class="aws-note">Note</p>
+                        <p>The Amazon ECS service requires an explicit dependency on the Application load balancer
+                           listener rule
+                           and the Application load balancer listener. This prevents the service from starting
+                           before the
+                           listener is ready.
+                        </p>
+                     </div><div id="JSON" name="JSON" class="section langfilter">
+                        <h4 id="aws-resource-ecs-service-example-2.json">JSON</h4>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">&quot;service&quot; : {
+  &quot;Type&quot; : &quot;AWS::ECS::Service&quot;,
+  &quot;DependsOn&quot;: [&quot;Listener&quot;],
+  &quot;Properties&quot; : {
+    &quot;Role&quot; : { &quot;Ref&quot; : &quot;ECSServiceRole&quot; },
+    &quot;TaskDefinition&quot; : { &quot;Ref&quot; : &quot;taskdefinition&quot; },
+    &quot;DesiredCount&quot; : &quot;1&quot;,
+    &quot;LoadBalancers&quot; : [{
+      &quot;TargetGroupArn&quot; : { &quot;Ref&quot; : &quot;TargetGroup&quot; },
+      &quot;ContainerPort&quot; : &quot;80&quot;,
+      &quot;ContainerName&quot; : &quot;sample-app&quot;
+    }],
+    &quot;Cluster&quot; : { &quot;Ref&quot; : &quot;ECSCluster&quot; }
+  }
+}</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        <h4 id="aws-resource-ecs-service-example-2.yaml">YAML</h4>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">service:
+  Type: AWS::ECS::Service
+  DependsOn:
+  - Listener
+  Properties:
+    Role:
+      Ref: ECSServiceRole
+    TaskDefinition:
+      Ref: taskdefinition
+    DesiredCount: 1
+    LoadBalancers:
+    - TargetGroupArn:
+        Ref: TargetGroup
+      ContainerPort: 80
+      ContainerName: sample-app
+    Cluster:
+      Ref: ECSCluster</code></pre>
+                        </div><h2 id="w2ab2c19c12d414c17">More Info</h2><div class="itemizedlist">
+                        
+                        
+                        
+                        
+                        <ul class="itemizedlist" type="disc">
+                           <li class="listitem">
+                              
+                              <p>To use
+                                 Application Auto Scaling
+                                 to scale an Amazon ECS service in response to Amazon CloudWatch alarms, use the
+                                 <a href="aws-resource-applicationautoscaling-scalabletarget.html">AWS::ApplicationAutoScaling::ScalableTarget</a> and <a href="aws-resource-applicationautoscaling-scalingpolicy.html">AWS::ApplicationAutoScaling::ScalingPolicy</a>
+                                 resources.
+                              </p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p>To use an Application Load Balancer to distribute incoming application traffic across
+                                 multiple targets, use the <a href="aws-resource-elasticloadbalancingv2-targetgroup.html">AWS::ElasticLoadBalancingV2::TargetGroup</a>, <a href="aws-resource-elasticloadbalancingv2-listener.html">AWS::ElasticLoadBalancingV2::Listener</a>, <a href="aws-resource-elasticloadbalancingv2-listenerrule.html">AWS::ElasticLoadBalancingV2::ListenerRule</a>,
+                                 and <a href="aws-resource-elasticloadbalancingv2-loadbalancer.html">AWS::ElasticLoadBalancingV2::LoadBalancer</a> resources.
+                              </p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p>For a complete sample template that shows how you can create an Amazon ECS cluster
+                                 and service, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-ecs.html">Amazon EC2 Container Service Template Snippets</a>.
+                              </p>
+                              
+                           </li>
+                        </ul>
+                     </div></div>
+</body>
+</html>

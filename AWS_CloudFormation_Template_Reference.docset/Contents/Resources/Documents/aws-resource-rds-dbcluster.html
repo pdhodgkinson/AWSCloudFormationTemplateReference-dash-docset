@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="css/awsdocs.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/awsdocs.min.js"></script>
+    <meta charset="utf-8">
+</head>
+<body>
+    <div id="content" style="padding: 10px 30px;">
+    <h1 class="topictitle" id="aws-resource-rds-dbcluster">AWS::RDS::DBCluster</h1><p>The <code class="code">AWS::RDS::DBCluster</code> resource creates a cluster, such as an Aurora for
+                        Amazon RDS (Amazon Aurora) DB cluster. Amazon Aurora is a fully managed, MySQL-compatible,
+                        relational database engine. For more information, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html" target="_blank">Aurora on Amazon RDS</a> in the
+                        <em>Amazon Relational Database Service User Guide</em>.
+                     </p><div class="aws-note">
+                        <p class="aws-note">Note</p>
+                        <p>Currently, you can create this resource only in regions in which Amazon Aurora is
+                           supported.
+                        </p>
+                     </div><div class="highlights">
+                        <p><strong>Topics</strong></p>
+                        <ul>
+                           <li><a href="#aws-resource-rds-dbcluster-syntax">Syntax</a></li>
+                           <li><a href="#w2ab2c19c12d699c13">Properties</a></li>
+                           <li><a href="#aws-resource-rds-dbcluster-ref">Return Values</a></li>
+                           <li><a href="#w2ab2c19c12d699c17">Example</a></li>
+                        </ul>
+                     </div><h2 id="aws-resource-rds-dbcluster-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-resource-rds-dbcluster-syntax.json">JSON</h3>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">{
+  &quot;Type&quot; : &quot;AWS::RDS::DBCluster&quot;,
+  &quot;Properties&quot; :
+  {
+    &quot;<a href="aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-availabilityzones"><code class="code">AvailabilityZones</code></a>&quot; : [ <em class="replaceable"><code>String, ...</code></em> ],
+    &quot;<a href="aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-backuprententionperiod"><code class="code">BackupRetentionPeriod</code></a>&quot; : <em class="replaceable"><code>Integer</code></em>,
+    &quot;<a href="aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-databasename"><code class="code">DatabaseName</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-dbclusterparametergroupname"><code class="code">DBClusterParameterGroupName</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-dbsubnetgroupname"><code class="code">DBSubnetGroupName</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-engine"><code class="code">Engine</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-engineversion"><code class="code">EngineVersion</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-kmskeyid"><code class="code">KmsKeyId</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-masterusername"><code class="code">MasterUsername</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-masteruserpassword"><code class="code">MasterUserPassword</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-port"><code class="code">Port</code></a>&quot; : <em class="replaceable"><code>Integer</code></em>,
+    &quot;<a href="aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-preferredbackupwindow"><code class="code">PreferredBackupWindow</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-preferredmaintenancewindow"><code class="code">PreferredMaintenanceWindow</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-snapshotidentifier"><code class="code">SnapshotIdentifier</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-storageencrypted"><code class="code">StorageEncrypted</code></a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
+    &quot;<a href="aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-tags"><code class="code">Tags</code></a>&quot; : [ <em class="replaceable"><code>Resource Tag, ...</code></em> ],
+    &quot;<a href="aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-vpcsecuritygroupids"><code class="code">VpcSecurityGroupIds</code></a>&quot; : [ <em class="replaceable"><code>String, ...</code></em> ]
+  }
+}</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-rds-dbcluster-syntax.yaml">YAML</h3>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">Type: &quot;AWS::RDS::DBCluster&quot;
+Properties:
+  <a href="aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-availabilityzones"><code class="code">AvailabilityZones</code></a>:
+    - <em class="replaceable"><code>String</code></em>
+  <a href="aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-backuprententionperiod"><code class="code">BackupRetentionPeriod</code></a>: <em class="replaceable"><code>Integer</code></em>
+  <a href="aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-databasename"><code class="code">DatabaseName</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-dbclusterparametergroupname"><code class="code">DBClusterParameterGroupName</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-dbsubnetgroupname"><code class="code">DBSubnetGroupName</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-engine"><code class="code">Engine</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-engineversion"><code class="code">EngineVersion</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-kmskeyid"><code class="code">KmsKeyId</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-masterusername"><code class="code">MasterUsername</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-masteruserpassword"><code class="code">MasterUserPassword</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-port"><code class="code">Port</code></a>: <em class="replaceable"><code>Integer</code></em>
+  <a href="aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-preferredbackupwindow"><code class="code">PreferredBackupWindow</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-preferredmaintenancewindow"><code class="code">PreferredMaintenanceWindow</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-snapshotidentifier"><code class="code">SnapshotIdentifier</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-storageencrypted"><code class="code">StorageEncrypted</code></a>: <em class="replaceable"><code>Boolean</code></em>
+  <a href="aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-tags"><code class="code">Tags</code></a>:
+    - <em class="replaceable"><code>Resource Tag</code></em>
+  <a href="aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-vpcsecuritygroupids"><code class="code">VpcSecurityGroupIds</code></a>:
+    - <em class="replaceable"><code>String</code></em>
+</code></pre>
+                        </div><h2 id="w2ab2c19c12d699c13">Properties</h2><div class="variablelist">
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <dl>
+                           
+                           <dt><a id="cfn-rds-dbcluster-availabilityzones"></a><span class="term"><code class="code">AvailabilityZones</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>A list of Availability Zones (AZs) in which DB instances in the cluster can be
+                                 created.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-rds-dbcluster-backuprententionperiod"></a><span class="term"><code class="code">BackupRetentionPeriod</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The number of days for which automatic backups are retained. For more
+                                 information, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBCluster.html" target="_blank">CreateDBCluster</a> in the <em>Amazon Relational Database Service API Reference</em>.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: Integer
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a> or <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt">some
+                                    interruptions</a>. For more information, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyDBInstance.html" target="_blank">ModifyDBInstance</a> in the
+                                 <em>Amazon Relational Database Service API Reference</em>.
+                              </p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-rds-dbcluster-databasename"></a><span class="term"><code class="code">DatabaseName</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The name of your database. You can specify a name of up to eight alpha-numeric
+                                 characters. If you do not provide a name, Amazon Relational Database Service (Amazon
+                                 RDS) won&apos;t create a
+                                 database in this DB cluster.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-rds-dbcluster-dbclusterparametergroupname"></a><span class="term"><code class="code">DBClusterParameterGroupName</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The name of the DB cluster parameter group to associate with this DB cluster.
+                                 For the default value, see the <code class="code">DBClusterParameterGroupName</code> parameter
+                                 of the <a href="http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBCluster.html" target="_blank">CreateDBCluster</a>
+                                 action in the <em>Amazon Relational Database Service API Reference</em>.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt">Some interruptions</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-rds-dbcluster-dbsubnetgroupname"></a><span class="term"><code class="code">DBSubnetGroupName</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>A DB subnet group that you want to associate with this DB cluster.</p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-rds-dbcluster-engine"></a><span class="term"><code class="code">Engine</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The name of the database engine that you want to use for this DB
+                                 cluster.
+                              </p>
+                              
+                              <p>For valid values, see the <code class="code">Engine</code> parameter of the <a href="http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBCluster.html" target="_blank">CreateDBCluster</a> action in the
+                                 <em>Amazon Relational Database Service API Reference</em>.
+                              </p>
+                              
+                              <p><em>Required</em>: Yes
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-rds-dbcluster-engineversion"></a><span class="term"><code class="code">EngineVersion</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The version number of the database engine that you want to use.</p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-rds-dbcluster-kmskeyid"></a><span class="term"><code class="code">KmsKeyId</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The Amazon Resource Name (ARN) of the AWS Key Management Service master key that is
+                                 used to
+                                 encrypt the database instances in the DB cluster, such as
+                                 <code class="code">arn:aws:kms:us-east-1:012345678910:key/abcd1234-a123-456a-a12b-a123b4cd56ef</code>.
+                                 If you enable the <code class="code">StorageEncrypted</code> property but don&apos;t specify this
+                                 property, the default master key is used. If you specify this property, you must
+                                 set the <code class="code">StorageEncrypted</code> property to <code class="code">true</code>.
+                              </p>
+                              
+                              <p>If you specify the <code class="code">SnapshotIdentifier</code>, do not specify this
+                                 property. The value is inherited from the snapshot DB cluster.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a>.
+                              </p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-rds-dbcluster-masterusername"></a><span class="term"><code class="code">MasterUsername</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The master user name for the DB instance.</p>
+                              
+                              <p><em>Required</em>: Conditional. You must specify this property unless you specify the
+                                 <code class="code">SnapshotIdentifier</code> property. In that case, do not specify this
+                                 property.
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a>.
+                              </p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-rds-dbcluster-masteruserpassword"></a><span class="term"><code class="code">MasterUserPassword</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The password for the master database user.</p>
+                              
+                              <p><em>Required</em>: Conditional. You must specify this property unless you specify the
+                                 <code class="code">SnapshotIdentifier</code> property. In that case, do not specify this
+                                 property.
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-rds-dbcluster-port"></a><span class="term"><code class="code">Port</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The port number on which the DB instances in the cluster can accept
+                                 connections.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: Integer
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-rds-dbcluster-preferredbackupwindow"></a><span class="term"><code class="code">PreferredBackupWindow</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>if automated backups are enabled (see the <code class="code">BackupRetentionPeriod</code>
+                                 property), the daily time range in UTC during which you want to create automated
+                                 backups.
+                              </p>
+                              
+                              <p>For valid values, see the <code class="code">PreferredBackupWindow</code> parameter of the
+                                 <a href="http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html" target="_blank">CreateDBInstance</a> action in the
+                                 <em>Amazon Relational Database Service API Reference</em>.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-rds-dbcluster-preferredmaintenancewindow"></a><span class="term"><code class="code">PreferredMaintenanceWindow</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The weekly time range (in UTC) during which system maintenance can
+                                 occur.
+                              </p>
+                              
+                              <p>For valid values, see the <code class="code">PreferredMaintenanceWindow</code> parameter of
+                                 the <a href="http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html" target="_blank">CreateDBInstance</a> action in the
+                                 <em>Amazon Relational Database Service API Reference</em>.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a> or <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt">some
+                                    interruptions</a>. For more information, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyDBInstance.html" target="_blank">ModifyDBInstance</a> in the
+                                 <em>Amazon Relational Database Service API Reference</em>.
+                              </p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-rds-dbcluster-snapshotidentifier"></a><span class="term"><code class="code">SnapshotIdentifier</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The identifier for the DB cluster snapshot from which you want to
+                                 restore.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-rds-dbcluster-storageencrypted"></a><span class="term"><code class="code">StorageEncrypted</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>Indicates whether the DB instances in the cluster are encrypted.</p>
+                              
+                              <p>If you specify the <code class="code">SnapshotIdentifier</code> property, do not specify
+                                 this property. The value is inherited from the snapshot DB cluster.
+                              </p>
+                              
+                              <p><em>Required</em>: Conditional. If you specify the <code class="code">KmsKeyId</code> property, you
+                                 must enable encryption.
+                              </p>
+                              
+                              <p><em>Type</em>: Boolean
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a>.
+                              </p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-rds-dbcluster-tags"></a><span class="term"><code class="code">Tags</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The tags that you want to attach to this DB cluster.</p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: A list of <a href="aws-properties-resource-tags.html">resource tags</a></p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-rds-dbcluster-vpcsecuritygroupids"></a><span class="term"><code class="code">VpcSecurityGroupIds</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>A list of VPC security groups to associate with this DB cluster.</p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: List of strings
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                        </dl>
+                     </div><h2 id="aws-resource-rds-dbcluster-ref">Return Values</h2><h3 id="w2ab2c19c12d699c15b3">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code> intrinsic
+                        function, <code class="code">Ref</code> returns the resource name.
+                     </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
+                     </p><h3 id="w2ab2c19c12d699c15b5">Fn::GetAtt</h3><p><code class="code">Fn::GetAtt</code> returns a value for a specified attribute of this type.
+                        The following are the available attributes and sample return values.
+                     </p><div class="variablelist">
+                        
+                        
+                        
+                        
+                        <dl>
+                           
+                           <dt><span class="term"><code class="code">Endpoint.Address</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The connection endpoint for the DB cluster. For example:
+                                 <code class="code">mystack-mydbcluster-1apw1j4phylrk.cg034hpkmmjt.<span>us-east-1</span>.rds.amazonaws.com</code>.
+                              </p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><span class="term"><code class="code">Endpoint.Port</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The port number on which the Amazon Redshift cluster accepts connections. For example:
+                                 <code class="code">5439</code>.
+                              </p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><span class="term"><code class="code">ReadEndpoint.Address</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The reader endpoint for the DB cluster. For example:
+                                 <code class="code">mystack-mydbcluster-ro-1apw1j4phylrk.cg034hpkmmjt.<span>us-east-1</span>.rds.amazonaws.com</code>.
+                              </p>
+                              
+                           </dd>
+                           
+                        </dl>
+                     </div><p>For more information about using <code class="code">Fn::GetAtt</code>, see <a href="intrinsic-function-reference-getatt.html">Fn::GetAtt</a>.
+                     </p><h2 id="w2ab2c19c12d699c17">Example</h2><p>The following snippet creates an Amazon Aurora DB cluster and adds two DB instances
+                        to
+                        it. Because Amazon RDS automatically assigns a writer and reader DB instances in the
+                        cluster,
+                        use the cluster endpoint to read and write data, not the individual DB instance
+                        endpoints.
+                     </p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-resource-rds-dbcluster-example.json">JSON</h3>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">&quot;RDSCluster&quot; : {
+  &quot;Type&quot; : &quot;AWS::RDS::DBCluster&quot;,
+  &quot;Properties&quot; : {
+    &quot;MasterUsername&quot; : { &quot;Ref&quot; : &quot;username&quot; },
+    &quot;MasterUserPassword&quot; : { &quot;Ref&quot; : &quot;password&quot; },
+    &quot;Engine&quot; : &quot;aurora&quot;,
+    &quot;DBSubnetGroupName&quot; : { &quot;Ref&quot; : &quot;DBSubnetGroup&quot; },
+    &quot;DBClusterParameterGroupName&quot; : { &quot;Ref&quot; : &quot;RDSDBClusterParameterGroup&quot; }
+  }
+},
+&quot;RDSDBInstance1&quot; : {
+  &quot;Type&quot; : &quot;AWS::RDS::DBInstance&quot;,
+  &quot;Properties&quot; : {
+    &quot;DBSubnetGroupName&quot; : {
+      &quot;Ref&quot; : &quot;DBSubnetGroup&quot;
+    },
+    &quot;DBParameterGroupName&quot; :{&quot;Ref&quot;: &quot;RDSDBParameterGroup&quot;},
+    &quot;Engine&quot; : &quot;aurora&quot;,
+    &quot;DBClusterIdentifier&quot; : {
+      &quot;Ref&quot; : &quot;RDSCluster&quot;
+    },
+    &quot;PubliclyAccessible&quot; : &quot;true&quot;,
+    &quot;AvailabilityZone&quot; : { &quot;Fn::GetAtt&quot; : [ &quot;Subnet1&quot;, &quot;AvailabilityZone&quot; ] },
+    &quot;DBInstanceClass&quot; : &quot;db.r3.xlarge&quot;
+  }
+},
+&quot;RDSDBInstance2&quot; : {
+  &quot;Type&quot; : &quot;AWS::RDS::DBInstance&quot;,
+  &quot;Properties&quot; : {
+    &quot;DBSubnetGroupName&quot; : {
+      &quot;Ref&quot; : &quot;DBSubnetGroup&quot;
+    },
+    &quot;DBParameterGroupName&quot; :{&quot;Ref&quot;: &quot;RDSDBParameterGroup&quot;},
+    &quot;Engine&quot; : &quot;aurora&quot;,
+    &quot;DBClusterIdentifier&quot; : {
+      &quot;Ref&quot; : &quot;RDSCluster&quot;
+    },
+    &quot;PubliclyAccessible&quot; : &quot;true&quot;,
+    &quot;AvailabilityZone&quot; : { &quot;Fn::GetAtt&quot; : [ &quot;Subnet2&quot;, &quot;AvailabilityZone&quot; ] },
+    &quot;DBInstanceClass&quot; : &quot;db.r3.xlarge&quot;
+  }
+},
+&quot;RDSDBClusterParameterGroup&quot; : {
+  &quot;Type&quot;: &quot;AWS::RDS::DBClusterParameterGroup&quot;,
+  &quot;Properties&quot; : {
+    &quot;Description&quot; : &quot;CloudFormation Sample Aurora Cluster Parameter Group&quot;,
+    &quot;Family&quot; : &quot;aurora5.6&quot;,
+    &quot;Parameters&quot; : {
+      &quot;time_zone&quot; : &quot;US/Eastern&quot;
+    }
+  }
+},
+&quot;RDSDBParameterGroup&quot;: {
+  &quot;Type&quot;: &quot;AWS::RDS::DBParameterGroup&quot;,
+  &quot;Properties&quot; : {
+    &quot;Description&quot; : &quot;CloudFormation Sample Aurora Parameter Group&quot;,
+    &quot;Family&quot; : &quot;aurora5.6&quot;,
+    &quot;Parameters&quot; : {
+      &quot;sql_mode&quot;: &quot;IGNORE_SPACE&quot;
+    }
+  }
+}</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-rds-dbcluster-example.yaml">YAML</h3>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">RDSCluster:
+  Type: AWS::RDS::DBCluster
+  Properties:
+    MasterUsername:
+      Ref: username
+    MasterUserPassword:
+      Ref: password
+    Engine: aurora
+    DBSubnetGroupName:
+      Ref: DBSubnetGroup
+    DBClusterParameterGroupName:
+      Ref: RDSDBClusterParameterGroup
+RDSDBInstance1:
+  Type: AWS::RDS::DBInstance
+  Properties:
+    DBSubnetGroupName:
+      Ref: DBSubnetGroup
+    DBParameterGroupName:
+      Ref: RDSDBParameterGroup
+    Engine: aurora
+    DBClusterIdentifier:
+      Ref: RDSCluster
+    PubliclyAccessible: &apos;true&apos;
+    AvailabilityZone:
+      Fn::GetAtt:
+      - Subnet1
+      - AvailabilityZone
+    DBInstanceClass: db.r3.xlarge
+RDSDBInstance2:
+  Type: AWS::RDS::DBInstance
+  Properties:
+    DBSubnetGroupName:
+      Ref: DBSubnetGroup
+    DBParameterGroupName:
+      Ref: RDSDBParameterGroup
+    Engine: aurora
+    DBClusterIdentifier:
+      Ref: RDSCluster
+    PubliclyAccessible: &apos;true&apos;
+    AvailabilityZone:
+      Fn::GetAtt:
+      - Subnet2
+      - AvailabilityZone
+    DBInstanceClass: db.r3.xlarge
+RDSDBClusterParameterGroup:
+  Type: AWS::RDS::DBClusterParameterGroup
+  Properties:
+    Description: CloudFormation Sample Aurora Cluster Parameter Group
+    Family: aurora5.6
+    Parameters:
+      time_zone: US/Eastern
+RDSDBParameterGroup:
+  Type: AWS::RDS::DBParameterGroup
+  Properties:
+    Description: CloudFormation Sample Aurora Parameter Group
+    Family: aurora5.6
+    Parameters:
+      sql_mode: IGNORE_SPACE</code></pre>
+                        </div></div>
+</body>
+</html>

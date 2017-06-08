@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="css/awsdocs.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/awsdocs.min.js"></script>
+    <meta charset="utf-8">
+</head>
+<body>
+    <div id="content" style="padding: 10px 30px;">
+    <h1 class="topictitle" id="aws-attribute-creationpolicy">CreationPolicy Attribute</h1><p>Associate the <code class="code">CreationPolicy</code> attribute with a resource to prevent its status from reaching create complete until
+                        AWS CloudFormation receives a specified number of success signals or the timeout period
+                        is exceeded. To signal a resource, you can use the <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-signal.html">cfn-signal</a> helper script or <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_SignalResource.html" target="_blank"><code class="code">SignalResource</code></a> API. AWS CloudFormation publishes valid signals to the stack events so that you track
+                        the number of
+                        signals sent.
+                     </p><p>The creation policy is invoked only when AWS CloudFormation creates the associated
+                        resource. Currently,
+                        the only AWS CloudFormation resources that support creation policies are <a href="aws-properties-as-group.html">AWS::AutoScaling::AutoScalingGroup</a>, <a href="aws-properties-ec2-instance.html">AWS::EC2::Instance</a>, and <a href="aws-properties-waitcondition.html">AWS::CloudFormation::WaitCondition</a>.
+                     </p><p>Use the <code class="code">CreationPolicy</code> attribute when you want to wait on resource configuration actions before stack creation
+                        proceeds. For example, if you install and configure software applications on an EC2
+                        instance, you might want those applications to be running before proceeding. In such
+                        cases, you can add a <code class="code">CreationPolicy</code> attribute to the instance, and then send a success signal to the instance after the
+                        applications are installed and configured. For a detailed
+                        example, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/deploying.applications.html">Deploying Applications on Amazon EC2 with AWS CloudFormation</a>.
+                     </p><h2 id="w2ab2c19c26c11c13">Syntax</h2><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-attribute-creationpolicy-syntax.json">JSON</h3>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">&quot;CreationPolicy&quot; : {
+  &quot;<a href="aws-attribute-creationpolicy.html#cfn-attributes-creationpolicy-autoscalingcreationpolicy"><code class="code">AutoScalingCreationPolicy</code></a>&quot; : {
+    &quot;<a href="aws-attribute-creationpolicy.html#cfn-attributes-creationpolicy-autoscalingcreationpolicy-minsuccessfulinstancespercent"><code class="code">MinSuccessfulInstancesPercent</code></a>&quot; : <em class="replaceable"><code>Integer</code></em>
+  },
+  &quot;<a href="aws-attribute-creationpolicy.html#cfn-attributes-creationpolicy-resourcesignal"><code class="code">ResourceSignal</code></a>&quot; : {    
+    &quot;<a href="aws-attribute-creationpolicy.html#cfn-attributes-creationpolicy-resourcesignal-count"><code class="code">Count</code></a>&quot; : <em class="replaceable"><code>Integer</code></em>,
+    &quot;<a href="aws-attribute-creationpolicy.html#cfn-attributes-creationpolicy-resourcesignal-timeout"><code class="code">Timeout</code></a>&quot; : <em class="replaceable"><code>String</code></em>
+  }
+}</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-attribute-creationpolicy-syntax.yaml">YAML</h3>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">CreationPolicy:
+  <a href="aws-attribute-creationpolicy.html#cfn-attributes-creationpolicy-autoscalingcreationpolicy"><code class="code">AutoScalingCreationPolicy</code></a>:
+    <a href="aws-attribute-creationpolicy.html#cfn-attributes-creationpolicy-autoscalingcreationpolicy-minsuccessfulinstancespercent"><code class="code">MinSuccessfulInstancesPercent</code></a>: <em class="replaceable"><code>Integer</code></em>
+  <a href="aws-attribute-creationpolicy.html#cfn-attributes-creationpolicy-resourcesignal"><code class="code">ResourceSignal</code></a>:    
+    <a href="aws-attribute-creationpolicy.html#cfn-attributes-creationpolicy-resourcesignal-count"><code class="code">Count</code></a>: <em class="replaceable"><code>Integer</code></em>
+    <a href="aws-attribute-creationpolicy.html#cfn-attributes-creationpolicy-resourcesignal-timeout"><code class="code">Timeout</code></a>: <em class="replaceable"><code>String</code></em>
+</code></pre>
+                        </div><h2 id="cfn-attributes-creationpolicy-properties">CreationPolicy Properties</h2><div class="variablelist">
+                        
+                        
+                        
+                        <dl>
+                           
+                           <dt><a id="cfn-attributes-creationpolicy-autoscalingcreationpolicy"></a><span class="term"><code class="code">AutoScalingCreationPolicy</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>For an Auto Scaling group <a href="aws-attribute-updatepolicy.html#cfn-attributes-updatepolicy-replacingupdate">replacement update</a>, specifies how many instances must signal success for the update to succeed.
+                              </p>
+                              
+                              <div class="variablelist">
+                                 
+                                 
+                                 <dl>
+                                    
+                                    <dt><a id="cfn-attributes-creationpolicy-autoscalingcreationpolicy cfn-attributes-creationpolicy-autoscalingcreationpolicy-minsuccessfulinstancespercent"></a><span class="term"><code class="code">MinSuccessfulInstancesPercent</code></span></dt>
+                                    
+                                    <dd>
+                                       
+                                       <p>Specifies the percentage of instances in an Auto Scaling replacement update that must
+                                          signal success for the update to succeed. You can specify a value from <code class="code">0</code> to <code class="code">100</code>. AWS CloudFormation rounds to the nearest tenth of a percent. For example, if you
+                                          update five instances with a minimum successful percentage of <code class="code">50</code>, three instances must signal success. If an instance doesn&apos;t send a signal within
+                                          the time specified by the <code class="code">Timeout</code>
+                                          property, AWS CloudFormation assumes that the instance wasn&apos;t created.
+                                       </p>
+                                       
+                                       <p><em>Default</em>: <code class="code">100</code></p>
+                                       
+                                       <p><em>Type</em>: Integer
+                                       </p>
+                                       
+                                       <p><em>Required</em>: No
+                                       </p>
+                                       
+                                    </dd>
+                                    
+                                 </dl>
+                              </div>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-attributes-creationpolicy-resourcesignal"></a><span class="term"><code class="code">ResourceSignal</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>When AWS CloudFormation creates the associated resource, configures the number of
+                                 required success signals and the length of time that AWS CloudFormation waits for
+                                 those signals.
+                              </p>
+                              
+                              <div class="variablelist">
+                                 
+                                 
+                                 
+                                 <dl>
+                                    
+                                    <dt><a id="cfn-attributes-creationpolicy-resourcesignal cfn-attributes-creationpolicy-resourcesignal-count"></a><span class="term"><code class="code">Count</code></span></dt>
+                                    
+                                    <dd>
+                                       
+                                       <p>The number of success signals AWS CloudFormation must receive before it sets the resource
+                                          status as <code class="code">CREATE_COMPLETE</code>. If the resource receives a failure signal or doesn&apos;t receive the specified number
+                                          of signals before the timeout period expires, the resource creation fails and AWS
+                                          CloudFormation rolls the stack back.
+                                       </p>
+                                       
+                                       <p><em>Default</em>: <code class="code">1</code></p>
+                                       
+                                       <p><em>Type</em>: Integer
+                                       </p>
+                                       
+                                       <p><em>Required</em>: No
+                                       </p>
+                                       
+                                    </dd>
+                                    
+                                    
+                                    <dt><a id="cfn-attributes-creationpolicy-resourcesignal cfn-attributes-creationpolicy-resourcesignal-timeout"></a><span class="term"><code class="code">Timeout</code></span></dt>
+                                    
+                                    <dd>
+                                       
+                                       <p>The length of time that AWS CloudFormation waits for the number of signals that was
+                                          specified in the <code class="code">Count</code> property. The timeout period starts after AWS CloudFormation starts creating the
+                                          resource, and the timeout expires no sooner than the time you specify but can occur
+                                          shortly thereafter. The maximum time that you can specify is 12 hours.
+                                       </p>
+                                       
+                                       <p>The value must be in <a href="http://en.wikipedia.org/wiki/ISO_8601#Durations" target="_blank">ISO8601 duration format</a>, in the form: &quot;PT<em class="replaceable"><code>#</code></em>H<em class="replaceable"><code>#</code></em>M<em class="replaceable"><code>#</code></em>S&quot;, where each <em class="replaceable"><code>#</code></em> is the number of hours, minutes, and seconds, respectively. For best results, specify
+                                          a period of time that gives your instances plenty of time to get up and running. A
+                                          shorter timeout can cause a rollback.
+                                       </p>
+                                       
+                                       <p><em>Default</em>: <code class="code">PT5M</code> (5 minutes)
+                                       </p>
+                                       
+                                       <p><em>Type</em>: String
+                                       </p>
+                                       
+                                       <p><em>Required</em>: No
+                                       </p>
+                                       
+                                    </dd>
+                                    
+                                 </dl>
+                              </div>
+                              
+                           </dd>
+                           
+                        </dl>
+                     </div><h2 id="w2ab2c19c26c11c17">Examples</h2><h3 id="w2ab2c19c26c11c17b3">Auto Scaling Group</h3><p>The following example shows how to add a creation policy to an Auto Scaling group.
+                        The creation policy requires three success signals and times out after 15 minutes.
+                     </p><p>To have instances wait for an Elastic Load Balancing health check before they signal
+                        success, add a
+                        health-check verification by using the <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-init.html" target="_blank">cfn-init</a> helper script. For an example, see the
+                        <code class="code">verify_instance_health</code> command in the <a href="https://github.com/awslabs/aws-cloudformation-templates/blob/master/aws/services/AutoScaling/AutoScalingRollingUpdates.yaml" target="_blank">Auto Scaling rolling updates</a> sample template.
+                     </p><div id="JSON" name="JSON" class="section langfilter">
+                        <h4 id="aws-attribute-creationpolicy-example-1.json">JSON</h4>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">&quot;AutoScalingGroup&quot;: {
+  &quot;Type&quot;: &quot;AWS::AutoScaling::AutoScalingGroup&quot;,
+  &quot;Properties&quot;: {
+    &quot;AvailabilityZones&quot;: { &quot;Fn::GetAZs&quot;: &quot;&quot; },
+    &quot;LaunchConfigurationName&quot;: { &quot;Ref&quot;: &quot;LaunchConfig&quot; },
+    &quot;DesiredCapacity&quot;: &quot;3&quot;,
+    &quot;MinSize&quot;: &quot;1&quot;,
+    &quot;MaxSize&quot;: &quot;4&quot;
+  },
+  &quot;CreationPolicy&quot;: {
+    &quot;ResourceSignal&quot;: {
+      &quot;Count&quot;: &quot;3&quot;,
+      &quot;Timeout&quot;: &quot;PT15M&quot;
+    }
+  },
+  &quot;UpdatePolicy&quot; : {
+    &quot;AutoScalingScheduledAction&quot; : {
+      &quot;IgnoreUnmodifiedGroupSizeProperties&quot; : &quot;true&quot;
+    },
+    &quot;AutoScalingRollingUpdate&quot; : {
+      &quot;MinInstancesInService&quot; : &quot;1&quot;,
+      &quot;MaxBatchSize&quot; : &quot;2&quot;,
+      &quot;PauseTime&quot; : &quot;PT1M&quot;,
+      &quot;WaitOnResourceSignals&quot; : &quot;true&quot;
+    }
+  }
+},
+&quot;LaunchConfig&quot;: {
+  &quot;Type&quot;: &quot;AWS::AutoScaling::LaunchConfiguration&quot;,
+  &quot;Properties&quot;: {
+    &quot;ImageId&quot;: &quot;ami-16d18a7e&quot;,
+    &quot;InstanceType&quot;: &quot;t2.micro&quot;,
+    &quot;UserData&quot;: {
+      &quot;Fn::Base64&quot;: {
+        &quot;Fn::Join&quot; : [ &quot;&quot;, [
+          &quot;#!/bin/bash -xe\n&quot;,
+          &quot;yum install -y aws-cfn-bootstrap\n&quot;,
+          &quot;/opt/aws/bin/cfn-signal -e 0 --stack &quot;, { &quot;Ref&quot;: &quot;AWS::StackName&quot; },
+          &quot; --resource AutoScalingGroup &quot;,
+          &quot; --region &quot;, { &quot;Ref&quot; : &quot;AWS::Region&quot; }, &quot;\n&quot;
+        ] ]
+      }
+    }
+  }
+}</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        <h4 id="aws-attribute-creationpolicy-example-1.yaml">YAML</h4>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">AutoScalingGroup:
+  Type: AWS::AutoScaling::AutoScalingGroup
+  Properties:
+    AvailabilityZones:
+      Fn::GetAZs: &apos;&apos;
+    LaunchConfigurationName:
+      Ref: LaunchConfig
+    DesiredCapacity: &apos;3&apos;
+    MinSize: &apos;1&apos;
+    MaxSize: &apos;4&apos;
+  CreationPolicy:
+    ResourceSignal:
+      Count: &apos;3&apos;
+      Timeout: PT15M
+  UpdatePolicy:
+    AutoScalingScheduledAction:
+      IgnoreUnmodifiedGroupSizeProperties: &apos;true&apos;
+    AutoScalingRollingUpdate:
+      MinInstancesInService: &apos;1&apos;
+      MaxBatchSize: &apos;2&apos;
+      PauseTime: PT1M
+      WaitOnResourceSignals: &apos;true&apos;
+LaunchConfig:
+  Type: AWS::AutoScaling::LaunchConfiguration
+  Properties:
+    ImageId: ami-16d18a7e
+    InstanceType: t2.micro
+    UserData:
+      &quot;Fn::Base64&quot;:
+        !Sub |
+          #!/bin/bash -xe
+          yum update -y aws-cfn-bootstrap
+          /opt/aws/bin/cfn-signal -e $? --stack ${AWS::StackName} --resource AutoScalingGroup --region ${AWS::Region}</code></pre>
+                        </div><h3 id="w2ab2c19c26c11c17b5">WaitCondition</h3><p>The following example shows how to add a creation policy to a wait condition.</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h4 id="aws-attribute-creationpolicy-example-2.json">JSON</h4>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">&quot;WaitCondition&quot; : {
+    &quot;Type&quot; : &quot;AWS::CloudFormation::WaitCondition&quot;,
+    &quot;CreationPolicy&quot; : {
+        &quot;ResourceSignal&quot; : {
+            &quot;Timeout&quot; : &quot;PT15M&quot;,
+            &quot;Count&quot; : &quot;5&quot;
+        }
+    }
+}</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        <h4 id="aws-attribute-creationpolicy-example-2.yaml">YAML</h4>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">WaitCondition:
+  Type: AWS::CloudFormation::WaitCondition
+  CreationPolicy:
+    ResourceSignal:
+      Timeout: PT15M
+      Count: 5</code></pre>
+                        </div></div>
+</body>
+</html>

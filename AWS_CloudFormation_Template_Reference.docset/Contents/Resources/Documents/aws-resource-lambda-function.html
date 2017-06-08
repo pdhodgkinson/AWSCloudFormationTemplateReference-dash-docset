@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="css/awsdocs.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/awsdocs.min.js"></script>
+    <meta charset="utf-8">
+</head>
+<body>
+    <div id="content" style="padding: 10px 30px;">
+    <h1 class="topictitle" id="aws-resource-lambda-function">AWS::Lambda::Function</h1><p>The <code class="code">AWS::Lambda::Function</code> resource creates an AWS Lambda (Lambda) function that
+                        can run code in response to events. For more information, see <code class="code"><a href="http://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html" target="_blank">CreateFunction</a></code> in the
+                        <em>AWS Lambda Developer Guide</em>.
+                     </p><div class="highlights">
+                        <p><strong>Topics</strong></p>
+                        <ul>
+                           <li><a href="#aws-resource-lambda-function-syntax">Syntax</a></li>
+                           <li><a href="#w2ab2c19c12d629c11">Properties</a></li>
+                           <li><a href="#w2ab2c19c12d629c13">Return Values</a></li>
+                           <li><a href="#w2ab2c19c12d629c15">Example</a></li>
+                           <li><a href="#w2ab2c19c12d629c17">Related Resources</a></li>
+                        </ul>
+                     </div><h2 id="aws-resource-lambda-function-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-resource-lambda-function-syntax.json">JSON</h3>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">{
+  &quot;Type&quot; : &quot;AWS::Lambda::Function&quot;,
+  &quot;Properties&quot; : {
+    &quot;<a href="aws-resource-lambda-function.html#cfn-lambda-function-code"><code class="code">Code</code></a>&quot; : <em class="replaceable"><code>Code</code></em>,
+    &quot;<a href="aws-resource-lambda-function.html#cfn-lambda-function-deadletterconfig"><code class="code">DeadLetterConfig</code></a>&quot; : <a href="aws-properties-lambda-function-deadletterconfig.html"><em class="replaceable"><code>DeadLetterConfig</code></em></a>,
+    &quot;<a href="aws-resource-lambda-function.html#cfn-lambda-function-description"><code class="code">Description</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-resource-lambda-function.html#cfn-lambda-function-environment"><code class="code">Environment</code></a>&quot; : <a href="aws-properties-lambda-function-environment.html"><em class="replaceable"><code>Environment</code></em></a>,
+    &quot;<a href="aws-resource-lambda-function.html#cfn-lambda-function-functionname"><code class="code">FunctionName</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-resource-lambda-function.html#cfn-lambda-function-handler"><code class="code">Handler</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-resource-lambda-function.html#cfn-lambda-function-kmskeyarn"><code class="code">KmsKeyArn</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-resource-lambda-function.html#cfn-lambda-function-memorysize"><code class="code">MemorySize</code></a>&quot; : <em class="replaceable"><code>Integer</code></em>,
+    &quot;<a href="aws-resource-lambda-function.html#cfn-lambda-function-role"><code class="code">Role</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-resource-lambda-function.html#cfn-lambda-function-runtime"><code class="code">Runtime</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-resource-lambda-function.html#cfn-lambda-function-timeout"><code class="code">Timeout</code></a>&quot; : <em class="replaceable"><code>Integer</code></em>,
+    &quot;<a href="aws-resource-lambda-function.html#cfn-lambda-function-tracingconfig"><code class="code">TracingConfig</code></a>&quot; : <a href="aws-properties-lambda-function-tracingconfig.html"><em class="replaceable"><code>TracingConfig</code></em></a>,
+    &quot;<a href="aws-resource-lambda-function.html#cfn-lambda-function-vpcconfig"><code class="code">VpcConfig</code></a>&quot; : <a href="aws-properties-lambda-function-vpcconfig.html"><em class="replaceable"><code>VPCConfig</code></em></a>,
+    &quot;<a href="aws-resource-lambda-function.html#cfn-lambda-function-tags">Tags</a>&quot; : [ <em class="replaceable"><code>Resource Tag, ...</code></em> ]
+  }
+}</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-lambda-function-syntax.yaml">YAML</h3>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">Type: &quot;AWS::Lambda::Function&quot;
+Properties: 
+  <a href="aws-resource-lambda-function.html#cfn-lambda-function-code"><code class="code">Code</code></a>:
+    <em class="replaceable"><code>Code</code></em>
+  <a href="aws-resource-lambda-function.html#cfn-lambda-function-deadletterconfig"><code class="code">DeadLetterConfig</code></a>:
+    <a href="aws-properties-lambda-function-deadletterconfig.html"><em class="replaceable"><code>DeadLetterConfig</code></em></a>
+  <a href="aws-resource-lambda-function.html#cfn-lambda-function-description"><code class="code">Description</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-resource-lambda-function.html#cfn-lambda-function-environment"><code class="code">Environment</code></a>:
+    <a href="aws-properties-lambda-function-environment.html"><em class="replaceable"><code>Environment</code></em></a>
+  <a href="aws-resource-lambda-function.html#cfn-lambda-function-functionname"><code class="code">FunctionName</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-resource-lambda-function.html#cfn-lambda-function-handler"><code class="code">Handler</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-resource-lambda-function.html#cfn-lambda-function-kmskeyarn"><code class="code">KmsKeyArn</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-resource-lambda-function.html#cfn-lambda-function-memorysize"><code class="code">MemorySize</code></a>: <em class="replaceable"><code>Integer</code></em>
+  <a href="aws-resource-lambda-function.html#cfn-lambda-function-role"><code class="code">Role</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-resource-lambda-function.html#cfn-lambda-function-runtime"><code class="code">Runtime</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-resource-lambda-function.html#cfn-lambda-function-timeout"><code class="code">Timeout</code></a>: <em class="replaceable"><code>Integer</code></em>
+  <a href="aws-resource-lambda-function.html#cfn-lambda-function-tracingconfig"><code class="code">TracingConfig</code></a>:
+    <a href="aws-properties-lambda-function-tracingconfig.html"><em class="replaceable"><code>TracingConfig</code></em></a>
+  <a href="aws-resource-lambda-function.html#cfn-lambda-function-vpcconfig"><code class="code">VpcConfig</code></a>:
+    <a href="aws-properties-lambda-function-vpcconfig.html"><em class="replaceable"><code>VPCConfig</code></em></a>
+  <a href="aws-resource-lambda-function.html#cfn-lambda-function-tags">Tags</a>: 
+    <em class="replaceable"><code>Resource Tag</code></em>
+</code></pre>
+                        </div><h2 id="w2ab2c19c12d629c11">Properties</h2><div class="variablelist">
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <dl>
+                           
+                           <dt><a id="cfn-lambda-function-code"></a><span class="term"><code class="code">Code</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The source code of your Lambda function. You can point to a file in an Amazon Simple
+                                 Storage Service
+                                 (Amazon S3) bucket or specify your source code as inline text.
+                              </p>
+                              
+                              <p><em>Required</em>: Yes
+                              </p>
+                              
+                              <p><em>Type</em>: <a href="aws-properties-lambda-function-code.html">AWS Lambda Function Code</a></p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-lambda-function-deadletterconfig"></a><span class="term"><code class="code">DeadLetterConfig</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>Configures how Lambda handles events that it can&apos;t process. If you don&apos;t specify
+                                 a Dead Letter Queue (DLQ) configuration, Lambda discards events after the maximum
+                                 number of retries. For more information, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/dlq.html" target="_blank">Dead Letter Queues</a> in the
+                                 <em>AWS Lambda Developer Guide</em>.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: <a href="aws-properties-lambda-function-deadletterconfig.html">AWS Lambda Function
+                                    DeadLetterConfig</a></p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-lambda-function-description"></a><span class="term"><code class="code">Description</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>A description of the function.</p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-lambda-function-environment"></a><span class="term"><code class="code">Environment</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>Key-value pairs that Lambda caches and makes available for your Lambda functions.
+                                 Use environment variables to apply configuration changes, such as test and
+                                 production environment configurations, without changing your Lambda function source
+                                 code.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: <a href="aws-properties-lambda-function-environment.html">AWS Lambda Function
+                                    Environment</a></p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-lambda-function-functionname"></a><span class="term"><code class="code">FunctionName</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>A name for the function. If you don&apos;t specify a name, AWS CloudFormation generates
+                                 a unique physical ID and uses that ID for the function&apos;s name. For more information,
+                                 see <a href="aws-properties-name.html">Name Type</a>.
+                              </p>
+                              <div class="aws-note">
+                                 <p class="aws-note">Important</p>
+                                 <p>If you specify a name, you cannot perform updates that require replacement of this
+                                    resource.
+                                    You can perform updates that require no or some interruption. If you must replace
+                                    the resource, specify a new name.
+                                 </p>
+                              </div>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-lambda-function-handler"></a><span class="term"><code class="code">Handler</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The name of the function (within your source code) that Lambda calls to start running
+                                 your code. For more information, see the <code class="code"><a href="http://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Handler" target="_blank">Handler</a></code> property
+                                 in the <em>AWS Lambda Developer Guide</em>.
+                              </p>
+                              
+                              <div class="aws-note">
+                                 <p class="aws-note">Note</p>
+                                 <p>If you specify your source code as inline text by specifying the <code class="code">ZipFile</code> property within the <code class="code">Code</code> property, specify <code class="code">index.<em class="replaceable"><code>function_name</code></em></code> as the handler.
+                                 </p>
+                              </div>
+                              
+                              <p><em>Required</em>: Yes
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-lambda-function-kmskeyarn"></a><span class="term"><code class="code">KmsKeyArn</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The Amazon Resource Name (ARN) of an AWS Key Management Service (AWS KMS) key that
+                                 Lambda uses to
+                                 encrypt and decrypt environment variable values.
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-lambda-function-memorysize"></a><span class="term"><code class="code">MemorySize</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The amount of memory, in MB, that is allocated to your Lambda function. Lambda
+                                 uses this value to proportionally allocate the amount of CPU power. For more
+                                 information, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/resource-model.html" target="_blank">Resource
+                                    Model</a> in the <em>AWS Lambda Developer Guide</em>.
+                              </p>
+                              
+                              <p>Your function use case determines your CPU and memory requirements. For
+                                 example, a database operation might need less memory than an image processing
+                                 function. You must specify a value that is greater than or equal to
+                                 <code class="code">128</code>, and it must be a multiple of 64. You cannot specify a size
+                                 larger than <code class="code">1536</code>. The default value is 128 MB.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: Integer
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-lambda-function-role"></a><span class="term"><code class="code">Role</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) execution
+                                 role that
+                                 Lambda assumes when it runs your code to access AWS services.
+                              </p>
+                              
+                              <p><em>Required</em>: Yes
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-lambda-function-runtime"></a><span class="term"><code class="code">Runtime</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The runtime environment for the Lambda function that you are uploading. For valid
+                                 values, see the <a href="http://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime" target="_blank">Runtime</a> property in the <em>AWS Lambda Developer Guide</em>.
+                              </p>
+                              
+                              <p><em>Required</em>: Yes
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                              <div class="aws-note">
+                                 <p class="aws-note">Note</p>
+                                 <p>Because Node.js 0.10.32 has been deprecated, you can no longer roll back a
+                                    template that uses Node.js 0.10.32. If you update a stack to Node.js 0.10.32 and the
+                                    update fails, AWS CloudFormation won&apos;t roll it back.
+                                 </p>
+                              </div>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-lambda-function-timeout"></a><span class="term"><code class="code">Timeout</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The function execution time (in seconds) after which Lambda terminates the
+                                 function. Because the execution time affects cost, set this value based on the
+                                 function&apos;s expected execution time. By default,  <code class="code">Timeout</code> is set to
+                                 <code class="code">3</code> seconds. For more information, see the <a href="https://aws.amazon.com//lambda/faqs/" target="_blank">FAQs</a>.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: Integer
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-lambda-function-tracingconfig"></a><span class="term"><code class="code">TracingConfig</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The parent object that contains your Lambda function&apos;s tracing settings. By default,
+                                 the <code class="code">Mode</code> property is set to <code class="code">PassThrough</code>. For valid values, see the <a href="http://docs.aws.amazon.com/lambda/latest/dg/API_TracingConfig.html" target="_blank">TracingConfig</a> data type in the <em>AWS Lambda Developer Guide</em>.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: <a href="aws-properties-lambda-function-tracingconfig.html">AWS Lambda Function TracingConfig</a></p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-lambda-function-vpcconfig"></a><span class="term"><code class="code">VpcConfig</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>If the Lambda function requires access to resources in a VPC, specify a VPC configuration
+                                 that Lambda uses to set up an elastic network interface (ENI). The ENI enables your
+                                 function to connect to other resources in your VPC, but it doesn&apos;t provide public
+                                 Internet access. If your function requires Internet access (for example, to access
+                                 AWS services that don&apos;t have VPC endpoints), configure a Network Address Translation
+                                 (NAT) instance inside your VPC or use an Amazon Virtual Private Cloud
+                                 (Amazon VPC) NAT gateway. For more information, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html" target="_blank">NAT Gateways</a> in the <em>Amazon VPC User Guide</em>.
+                              </p>
+                              
+                              <div class="aws-note">
+                                 <p class="aws-note">Note</p>
+                                 <p>When you specify this property, AWS CloudFormation might not be able to delete the
+                                    stack if another resource in the template (such as a security group) requires the
+                                    attached ENI 
+                                    to be deleted before it can be deleted. We recommend that you run AWS CloudFormation
+                                    with the <code class="code">ec2:DescribeNetworkInterfaces</code> permission, which enables AWS CloudFormation to monitor 
+                                    the state of the ENI and to wait (up to 40 minutes) for Lambda to delete the ENI.
+                                 </p>
+                              </div>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: <a href="aws-properties-lambda-function-vpcconfig.html">AWS Lambda Function VpcConfig</a></p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-lambda-function-tags"></a><span class="term"><code class="code">Tags</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>An arbitrary set of tags (key&#x2013;value pairs) for this Lambda function.</p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: <a href="aws-properties-resource-tags.html">AWS CloudFormation Resource Tags</a></p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                        </dl>
+                     </div><h2 id="w2ab2c19c12d629c13">Return Values</h2><h3 id="w2ab2c19c12d629c13b3">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code> intrinsic
+                        function, <code class="code">Ref</code> returns the resource name.
+                     </p><p>In the following sample, the <code class="code">Ref</code> function returns the name of the
+                        <code class="code">AMILookUp</code> function, such as
+                        <code class="code">MyStack-AMILookUp-NT5EUXTNTXXD</code>.
+                     </p><pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">{ &quot;Ref&quot;: &quot;AMILookUp&quot; }</code></pre><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
+                     </p><h3 id="w2ab2c19c12d629c13b5">Fn::GetAtt</h3><p><code class="code">Fn::GetAtt</code> returns a value for a specified attribute of this type.
+                        The following are the available attributes and sample return values.
+                     </p><div class="variablelist">
+                        
+                        
+                        <dl>
+                           
+                           <dt><span class="term"><code class="code">Arn</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The ARN of the Lambda function, such as
+                                 <code class="code">arn:aws:lambda:us-west-2:123456789012:MyStack-AMILookUp-NT5EUXTNTXXD</code>.
+                              </p>
+                              
+                           </dd>
+                           
+                        </dl>
+                     </div><p>For more information about using <code class="code">Fn::GetAtt</code>, see <a href="intrinsic-function-reference-getatt.html">Fn::GetAtt</a>.
+                     </p><h2 id="w2ab2c19c12d629c15">Example</h2><p>The following example uses a packaged file in an S3 bucket to create a Lambda
+                        function.
+                     </p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-resource-lambda-function-example.json">JSON</h3>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">&quot;AMIIDLookup&quot;: {
+  &quot;Type&quot;: &quot;AWS::Lambda::Function&quot;,
+  &quot;Properties&quot;: {
+    &quot;Handler&quot;: &quot;index.handler&quot;,
+    &quot;Role&quot;: { &quot;Fn::GetAtt&quot; : [&quot;LambdaExecutionRole&quot;, &quot;Arn&quot;] },
+    &quot;Code&quot;: {
+      &quot;S3Bucket&quot;: &quot;lambda-functions&quot;,
+      &quot;S3Key&quot;: &quot;amilookup.zip&quot;
+    },
+    &quot;Runtime&quot;: &quot;nodejs4.3&quot;,
+    &quot;Timeout&quot;: &quot;25&quot;,
+    &quot;TracingConfig&quot;: {
+      &quot;Mode&quot;: &quot;Active&quot;
+   }
+  }
+}</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-lambda-function-example.yaml">YAML</h3>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">AMIIDLookup: 
+  Type: &quot;AWS::Lambda::Function&quot;
+  Properties: 
+    Handler: &quot;index.handler&quot;
+    Role: 
+      Fn::GetAtt: 
+        - &quot;LambdaExecutionRole&quot;
+        - &quot;Arn&quot;
+    Code: 
+      S3Bucket: &quot;lambda-functions&quot;
+      S3Key: &quot;amilookup.zip&quot;
+    Runtime: &quot;nodejs4.3&quot;
+    Timeout: &quot;25&quot;
+    TracingConfig:
+      Mode: &quot;Active&quot;</code></pre>
+                        </div><h2 id="w2ab2c19c12d629c17">Related Resources</h2><p>For more information about how you can use a Lambda function with AWS CloudFormation
+                        custom resources, see
+                        <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-custom-resources-lambda.html">AWS Lambda-backed Custom Resources</a>.
+                     </p><p>For a sample template, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-lambda.html">AWS Lambda Template</a>.
+                     </p></div>
+</body>
+</html>
