@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="css/awsdocs.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/awsdocs.min.js"></script>
+    <meta charset="utf-8">
+</head>
+<body>
+    <div id="content" style="padding: 10px 30px;">
+    <h1 class="topictitle" id="intrinsic-function-reference-findinmap"><code class="code">Fn::FindInMap</code></h1><p>The intrinsic function <code class="code">Fn::FindInMap</code> returns the value corresponding
+                        to keys in a two-level map that is declared in the <code class="code">Mappings</code> section.
+                     </p><h2 id="w2ab2c19c31c26b7">Declaration</h2><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="intrinsic-function-reference-findinmap-syntax.json">JSON</h3>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">{ &quot;Fn::FindInMap&quot; : [ &quot;<em class="replaceable"><code>MapName</code></em>&quot;, &quot;<em class="replaceable"><code>TopLevelKey</code></em>&quot;, &quot;<em class="replaceable"><code>SecondLevelKey</code></em>&quot;] }</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="intrinsic-function-reference-findinmap-syntax.yaml">YAML</h3>
+                        
+                        
+                        <p>Syntax for the full function name:</p>
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">Fn::FindInMap: [ <em class="replaceable"><code>MapName</code></em>, <em class="replaceable"><code>TopLevelKey</code></em>, <em class="replaceable"><code>SecondLevelKey</code></em> ]</code></pre>
+                        <p>Syntax for the short form:</p>
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">!FindInMap [ <em class="replaceable"><code>MapName</code></em>, <em class="replaceable"><code>TopLevelKey</code></em>, <em class="replaceable"><code>SecondLevelKey</code></em> ]</code></pre>
+                        <div class="aws-note">
+                           <p class="aws-note">Note</p>
+                           <p>You can&apos;t nest two instances of two functions in short form.</p>
+                        </div>
+                        
+                     </div><h2 id="w2ab2c19c31c26b9">Parameters</h2><div class="variablelist">
+                        
+                        
+                        
+                        
+                        <dl>
+                           
+                           <dt><span class="term">MapName</span></dt>
+                           
+                           <dd>
+                              
+                              <p>The logical name of a mapping declared in the Mappings section that contains
+                                 the keys and values.
+                              </p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><span class="term">TopLevelKey</span></dt>
+                           
+                           <dd>
+                              
+                              <p>The top-level key name. Its value is a list of key-value pairs.</p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><span class="term">SecondLevelKey</span></dt>
+                           
+                           <dd>
+                              
+                              <p>The second-level key name, which is set to one of the keys from the list
+                                 assigned to <code class="code">TopLevelKey</code>.
+                              </p>
+                              
+                           </dd>
+                           
+                        </dl>
+                     </div><h2 id="w2ab2c19c31c26c11">Return Value:</h2><p>The value that is assigned to <code class="code">SecondLevelKey</code>. 
+                     </p><h2 id="w2ab2c19c31c26c13">Example</h2><p>The following example shows how to use <code class="code">Fn::FindInMap</code> for a template
+                        with a <code class="code">Mappings</code> section that contains a single map, <code class="code">RegionMap</code>,
+                        that associates AMIs with AWS regions. 
+                     </p><div class="itemizedlist">
+                        
+                        
+                        
+                        
+                        <ul class="itemizedlist" type="disc">
+                           <li class="listitem">
+                              
+                              <p>The map has 5 top-level keys that correspond to various AWS regions.</p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p>Each top-level key is assigned a list with two second level keys,
+                                 <code class="code">&quot;32&quot;</code> and <code class="code">&quot;64&quot;</code>, that correspond to the AMI&apos;s
+                                 architecture.
+                              </p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p>Each of the second-level keys is assigned an appropriate AMI name.</p>
+                              
+                           </li>
+                        </ul>
+                     </div><p>The example template contains an <code class="code">AWS::EC2::Instance</code> resource whose
+                        <code class="code">ImageId</code> property is set by the <code class="code">FindInMap</code> function. 
+                     </p><p><code class="code">MapName</code> is set to the map of interest, <code class="code">&quot;RegionMap&quot;</code> in this example. <code class="code">TopLevelKey</code> is set to the region where the stack is created, which is determined by using the
+                        <code class="code">&quot;AWS::Region&quot;</code> pseudo parameter. <code class="code">SecondLevelKey</code> is set to the desired architecture, <code class="code">&quot;32&quot;</code> for this example.
+                     </p><p><code class="code">FindInMap</code> returns the AMI assigned to
+                        <code class="code">FindInMap</code>. For a 32-bit instance in us-east-1,
+                        <code class="code">FindInMap</code> would return <code class="code">&quot;ami-6411e20d&quot;</code>.
+                     </p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="intrinsic-function-reference-findinmap-example.json">JSON</h3>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">{
+  ...
+  &quot;Mappings&quot; : {
+    &quot;RegionMap&quot; : {
+      &quot;us-east-1&quot; : { &quot;32&quot; : &quot;ami-6411e20d&quot;, &quot;64&quot; : &quot;ami-7a11e213&quot; },
+      &quot;us-west-1&quot; : { &quot;32&quot; : &quot;ami-c9c7978c&quot;, &quot;64&quot; : &quot;ami-cfc7978a&quot; },
+      &quot;eu-west-1&quot; : { &quot;32&quot; : &quot;ami-37c2f643&quot;, &quot;64&quot; : &quot;ami-31c2f645&quot; },
+      &quot;ap-southeast-1&quot; : { &quot;32&quot; : &quot;ami-66f28c34&quot;, &quot;64&quot; : &quot;ami-60f28c32&quot; },
+      &quot;ap-northeast-1&quot; : { &quot;32&quot; : &quot;ami-9c03a89d&quot;, &quot;64&quot; : &quot;ami-a003a8a1&quot; }
+    }
+  },
+
+  &quot;Resources&quot; : {
+     &quot;myEC2Instance&quot; : {
+        &quot;Type&quot; : &quot;AWS::EC2::Instance&quot;,
+        &quot;Properties&quot; : {
+           &quot;ImageId&quot; : { &quot;Fn::FindInMap&quot; : [ &quot;RegionMap&quot;, { &quot;Ref&quot; : &quot;AWS::Region&quot; }, &quot;32&quot;]},
+           &quot;InstanceType&quot; : &quot;m1.small&quot;
+        }
+     }
+ }
+}</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="intrinsic-function-reference-findinmap-example.yaml">YAML</h3>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">Mappings: 
+  RegionMap: 
+    us-east-1: 
+      32: &quot;ami-6411e20d&quot;
+      64: &quot;ami-7a11e213&quot;
+    us-west-1: 
+      32: &quot;ami-c9c7978c&quot;
+      64: &quot;ami-cfc7978a&quot;
+    eu-west-1: 
+      32: &quot;ami-37c2f643&quot;
+      64: &quot;ami-31c2f645&quot;
+    ap-southeast-1: 
+      32: &quot;ami-66f28c34&quot;
+      64: &quot;ami-60f28c32&quot;
+    ap-northeast-1: 
+      32: &quot;ami-9c03a89d&quot;
+      64: &quot;ami-a003a8a1&quot;
+Resources: 
+  myEC2Instance: 
+    Type: &quot;AWS::EC2::Instance&quot;
+    Properties: 
+      ImageId: !FindInMap [ RegionMap, !Ref &quot;AWS::Region&quot;, 32 ]
+      InstanceType: m1.small</code></pre>
+                        </div><h2 id="w2ab2c19c31c26c15">Supported Functions</h2><p>You can use the following functions in a <code class="code">Fn::FindInMap</code> function:
+                     </p><div class="itemizedlist">
+                        
+                        
+                        
+                        <ul class="itemizedlist" type="disc">
+                           <li class="listitem">
+                              
+                              <p><code class="code">Fn::FindInMap</code></p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p><code class="code">Ref</code></p>
+                              
+                           </li>
+                        </ul>
+                     </div></div>
+</body>
+</html>

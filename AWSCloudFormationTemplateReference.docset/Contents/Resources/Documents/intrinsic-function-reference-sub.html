@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="css/awsdocs.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/awsdocs.min.js"></script>
+    <meta charset="utf-8">
+</head>
+<body>
+    <div id="content" style="padding: 10px 30px;">
+    <h1 class="topictitle" id="intrinsic-function-reference-sub"><code class="code">Fn::Sub</code></h1><p>The intrinsic function <code class="code">Fn::Sub</code> substitutes variables in an input string with values that you specify. In your templates,
+                        you can use this function to construct commands or outputs that include values that
+                        aren&apos;t available until you create or update a stack.
+                     </p><h2 id="w2ab2c19c31c60b7">Declaration</h2><p>The following sections show the function&apos;s syntax.</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="intrinsic-function-reference-sub-syntax.json">JSON</h3>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">{ &quot;Fn::Sub&quot; : [ <em class="replaceable"><code>String</code></em>, { <em class="replaceable"><code>Var1Name</code></em>: <em class="replaceable"><code>Var1Value</code></em>, <em class="replaceable"><code>Var2Name</code></em>: <em class="replaceable"><code>Var2Value</code></em> } ] }</code></pre>
+                        <p>If you&apos;re substituting only template parameters, resource logical IDs, or resource
+                           attributes in the <code class="code"><em class="replaceable"><code>String</code></em></code> parameter, don&apos;t specify a
+                           variable map.
+                        </p>
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">{ &quot;Fn::Sub&quot; : <em class="replaceable"><code>String</code></em> }</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="intrinsic-function-reference-sub-syntax.yaml">YAML</h3>
+                        
+                        
+                        <p>Syntax for the full function name:</p>
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">Fn::Sub:
+  - <em class="replaceable"><code>String</code></em>
+  - { <em class="replaceable"><code>Var1Name</code></em>: <em class="replaceable"><code>Var1Value</code></em>, <em class="replaceable"><code>Var2Name</code></em>: <em class="replaceable"><code>Var2Value</code></em> }</code></pre>
+                        <p>Syntax for the short form:</p>
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">!Sub
+  - <em class="replaceable"><code>String</code></em>
+  - { <em class="replaceable"><code>Var1Name</code></em>: <em class="replaceable"><code>Var1Value</code></em>, <em class="replaceable"><code>Var2Name</code></em>: <em class="replaceable"><code>Var2Value</code></em> }</code></pre>
+                        <p>If you&apos;re substituting only template parameters, resource logical IDs, or resource
+                           attributes in the <code class="code"><em class="replaceable"><code>String</code></em></code> parameter, don&apos;t specify a variable map.
+                        </p>
+                        
+                        <p>Syntax for the full function name:</p>
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">Fn::Sub: <em class="replaceable"><code>String</code></em></code></pre>
+                        <p>Syntax for the short form:</p>
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">!Sub <em class="replaceable"><code>String</code></em></code></pre>
+                        </div><h2 id="w2ab2c19c31c60b9">Parameters</h2><div class="variablelist">
+                        
+                        
+                        
+                        
+                        <dl>
+                           
+                           <dt><span class="term"><code class="code">String</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>A string with variables that AWS CloudFormation substitutes with their associated
+                                 values at runtime. Write variables as <code class="code">${<em class="replaceable"><code>MyVarName</code></em>}</code>. Variables can be template parameter names, resource logical IDs, resource attributes,
+                                 or a variable in a key-value map. If you specify only template parameter names, resource
+                                 logical IDs, and resource attributes, don&apos;t specify a key-value map.
+                              </p>
+                              
+                              <p>If you specify template parameter names or resource logical IDs, such as <code class="code">${InstanceTypeParameter}</code>, AWS CloudFormation returns the same values as if you used the <code class="code">Ref</code> intrinsic function. If you specify resource attributes, such as <code class="code">${MyInstance.PublicIp}</code>, AWS CloudFormation returns the same values as if you used the <code class="code">Fn::GetAtt</code> intrinsic function.
+                              </p>
+                              
+                              <p>To write a dollar sign and curly braces (<code class="code">${}</code>) literally, add an exclamation point (<code class="code">!</code>) after the open curly brace, such as <code class="code">${!Literal}</code>. AWS CloudFormation resolves this text as <code class="code">${Literal}</code>.
+                              </p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><span class="term"><code class="code">VarName</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The name of a variable that you included in the <code class="code">String</code>
+                                 parameter.
+                              </p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><span class="term"><code class="code">VarValue</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The value that AWS CloudFormation substitutes for the associated variable name at
+                                 runtime.
+                              </p>
+                              
+                           </dd>
+                           
+                        </dl>
+                     </div><h2 id="w2ab2c19c31c60c11">Return Value</h2><p>AWS CloudFormation returns the original string, substituting the values for all of
+                        the variables.
+                     </p><h2 id="w2ab2c19c31c60c13">Examples</h2><p>The following examples demonstrate how to use the <code class="code">Fn::Sub</code> function.
+                     </p><h3 id="w2ab2c19c31c60c13b5">UserData Commands</h3><p>The following example uses <code class="code">Fn::Sub</code> to substitute the AWS CloudFormation stack name and the AWS region pseudo parameters
+                        for the actual stack name and region at runtime.
+                     </p><div id="JSON" name="JSON" class="section langfilter">
+                        <h4 id="intrinsic-function-reference-sub-example.json">JSON</h4>
+                        
+                        
+                        <p>For readability, the JSON example uses the <code class="code">Fn::Join</code> function to separate each command, instead of specifying the entire user data script
+                           in a single string value.
+                        </p>
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">&quot;UserData&quot;: { &quot;Fn::Base64&quot;: { &quot;Fn::Join&quot;: [&quot;\n&quot;, [
+  &quot;#!/bin/bash -xe&quot;,
+  &quot;yum update -y aws-cfn-bootstrap&quot;,
+  { &quot;Fn::Sub&quot;: &quot;/opt/aws/bin/cfn-init -v --stack ${AWS::StackName} --resource LaunchConfig --configsets wordpress_install --region ${AWS::Region}&quot; },
+  { &quot;Fn::Sub&quot;: &quot;/opt/aws/bin/cfn-signal -e $? --stack ${AWS::StackName} --stack ${AWS::StackName} --resource WebServer --region ${AWS::Region}&quot; }]]
+}}</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        <h4 id="intrinsic-function-reference-sub-example.yaml">YAML</h4>
+                        
+                        
+                        <p>The YAML example uses a literal block to specify the user data script.</p>
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">UserData:
+  Fn::Base64:
+    !Sub |
+      #!/bin/bash -xe
+      yum update -y aws-cfn-bootstrap
+      /opt/aws/bin/cfn-init -v --stack ${AWS::StackName} --resource LaunchConfig --configsets wordpress_install --region ${AWS::Region}
+      /opt/aws/bin/cfn-signal -e $? --stack ${AWS::StackName} --resource WebServerGroup --region ${AWS::Region}</code></pre>
+                        </div><h3 id="w2ab2c19c31c60c13b7">Fn::Sub with a Mapping</h3><p>The following example uses a mapping to substitute the <code class="code">${Domain}</code> variable with the resulting value from the <code class="code">Ref</code> function.
+                     </p><div id="JSON" name="JSON" class="section langfilter">
+                        <h4 id="intrinsic-function-reference-sub-example-2.json">JSON</h4>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">{ &quot;Fn::Sub&quot;: [ &quot;www.${Domain}&quot;, { &quot;Domain&quot;: {&quot;Ref&quot; : &quot;RootDomainName&quot; }} ]}</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        <h4 id="intrinsic-function-reference-sub-example-2.yaml">YAML</h4>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">Name: !Sub
+  - www.${Domain}
+  - { Domain: !Ref RootDomainName }</code></pre>
+                        </div><h2 id="w2ab2c19c31c60c15">Supported Functions</h2><p>You can use the following functions in the <code class="code">Fn::Sub</code> function:
+                     </p><div class="itemizedlist">
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <ul class="itemizedlist" type="disc">
+                           <li class="listitem">
+                              
+                              <p><code class="code">Fn::Base64</code></p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p><code class="code">Fn::FindInMap</code></p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p><code class="code">Fn::GetAtt</code></p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p><code class="code">Fn::GetAZs</code></p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p><code class="code">Fn::If</code></p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p><code class="code">Fn::Join</code></p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p><code class="code">Fn::Select</code></p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p><code class="code">Ref</code></p>
+                              
+                           </li>
+                        </ul>
+                     </div></div>
+</body>
+</html>

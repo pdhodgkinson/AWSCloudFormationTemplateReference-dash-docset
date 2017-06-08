@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="css/awsdocs.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/awsdocs.min.js"></script>
+    <meta charset="utf-8">
+</head>
+<body>
+    <div id="content" style="padding: 10px 30px;">
+    <h1 class="topictitle" id="intrinsic-function-reference-select"><code class="code">Fn::Select</code></h1><p>The intrinsic function <code class="code">Fn::Select</code> returns a single object from a list of objects by
+                        index.
+                     </p><div class="aws-note">
+                        <p class="aws-note">Important</p>
+                        <p>Fn::Select does not check for null values or if the index is out of bounds of the
+                           array. Both conditions
+                           will result in a stack error, so you should be certain that the index you choose is
+                           valid, and that the list
+                           contains non-null values.
+                        </p>
+                     </div><h2 id="w2ab2c19c31c52b9">Declaration</h2><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="intrinsic-function-reference-select-syntax.json">JSON</h3>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">{ &quot;Fn::Select&quot; : [ <em class="replaceable"><code>index</code></em>, <em class="replaceable"><code>listOfObjects</code></em> ] }</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="intrinsic-function-reference-select-syntax.yaml">YAML</h3>
+                        
+                        
+                        <p>Syntax for the full function name:</p>
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">Fn::Select: [ <em class="replaceable"><code>index</code></em>, <em class="replaceable"><code>listOfObjects</code></em> ] </code></pre>
+                        <p>Syntax for the short form:</p>
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">!Select [ <em class="replaceable"><code>index</code></em>, <em class="replaceable"><code>listOfObjects</code></em> ]</code></pre>
+                        </div><h2 id="w2ab2c19c31c52c11">Parameters</h2><div class="variablelist">
+                        
+                        
+                        
+                        <dl>
+                           
+                           <dt><span class="term">index</span></dt>
+                           
+                           <dd>
+                              
+                              <p>The index of the object to retrieve. This must be a value from zero to N-1, where
+                                 N represents the
+                                 number of elements in the array.
+                              </p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><span class="term">listOfObjects</span></dt>
+                           
+                           <dd>
+                              
+                              <p>The list of objects to select from. This list must not be null, nor can it have null
+                                 entries.
+                              </p>
+                              
+                           </dd>
+                           
+                        </dl>
+                     </div><h2 id="w2ab2c19c31c52c13">Return Value</h2><p>The selected object.</p><h2 id="w2ab2c19c31c52c15">Examples</h2><h3 id="w2ab2c19c31c52c15b3">Basic Example</h3><p>The following example returns: <code class="code">&quot;grapes&quot;</code>.
+                     </p><div id="JSON" name="JSON" class="section langfilter">
+                        <h4 id="intrinsic-function-reference-select-example0.json">JSON</h4>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">{ &quot;Fn::Select&quot; : [ &quot;1&quot;, [ &quot;apples&quot;, &quot;grapes&quot;, &quot;oranges&quot;, &quot;mangoes&quot; ] ] }</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        <h4 id="intrinsic-function-reference-select-example0.yaml">YAML</h4>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">!Select [ &quot;1&quot;, [ &quot;apples&quot;, &quot;grapes&quot;, &quot;oranges&quot;, &quot;mangoes&quot; ] ]</code></pre>
+                        </div><h3 id="w2ab2c19c31c52c15b5">Comma-delimited List Parameter Type</h3><p>You can use <code class="code">Fn::Select</code> to select an object from a
+                        <code class="code">CommaDelimitedList</code> parameter. You might use a
+                        <code class="code">CommaDelimitedList</code> parameter to combine the values of related
+                        parameters, which reduces the total number of parameters in your template. For example,
+                        the following parameter specifies a comma-delimited list of three CIDR blocks:
+                     </p><div class="example">
+                        <p class="title"><b>Example JSON</b></p>
+                        <div class="example-contents"><pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">&quot;Parameters&quot; : {
+  &quot;DbSubnetIpBlocks&quot;: {
+    &quot;Description&quot;: &quot;Comma-delimited list of three CIDR blocks&quot;,
+    &quot;Type&quot;: &quot;CommaDelimitedList&quot;,
+      &quot;Default&quot;: &quot;10.0.48.0/24, 10.0.112.0/24, 10.0.176.0/24&quot;
+  }
+}</code></pre></div>
+                     </div><div class="example">
+                        <p class="title"><b>Example YAML</b></p>
+                        <div class="example-contents"><pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">Parameters: 
+  DbSubnetIpBlocks: 
+    Description: &quot;Comma-delimited list of three CIDR blocks&quot;
+    Type: CommaDelimitedList
+    Default: &quot;10.0.48.0/24, 10.0.112.0/24, 10.0.176.0/24&quot;
+</code></pre></div>
+                     </div><p>To specify one of the three CIDR blocks, use <code class="code">Fn::Select</code> in the Resources
+                        section of the same template, as shown in the following sample snippet:
+                     </p><div id="JSON" name="JSON" class="section langfilter">
+                        <h4 id="intrinsic-function-reference-select-example2.json">JSON</h4>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">&quot;Subnet0&quot;: {
+  &quot;Type&quot;: &quot;AWS::EC2::Subnet&quot;,
+    &quot;Properties&quot;: {
+      &quot;VpcId&quot;: { &quot;Ref&quot;: &quot;VPC&quot; },
+      &quot;CidrBlock&quot;: { &quot;Fn::Select&quot; : [ &quot;0&quot;, {&quot;Ref&quot;: &quot;DbSubnetIpBlocks&quot;} ] }
+    }
+}</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        <h4 id="intrinsic-function-reference-select-example2.yaml">YAML</h4>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">Subnet0: 
+  Type: &quot;AWS::EC2::Subnet&quot;
+  Properties: 
+    VpcId: !Ref VPC
+    CidrBlock: !Select [ 0, !Ref DbSubnetIpBlocks ]
+</code></pre>
+                        </div><h2 id="w2ab2c19c31c52c17">Supported Functions</h2><p>For the <code class="code">Fn::Select</code> index value, you can use the <code class="code">Ref</code> and
+                        <code class="code">Fn::FindInMap</code> functions.
+                     </p><p>For the <code class="code">Fn::Select</code> list of objects, you can use the following functions:
+                     </p><div class="itemizedlist">
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <ul class="itemizedlist" type="disc">
+                           <li class="listitem">
+                              
+                              <p><code class="code">Fn::FindInMap</code></p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p><code class="code">Fn::GetAtt</code></p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p><code class="code">Fn::GetAZs</code></p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p><code class="code">Fn::If</code></p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p><code class="code">Fn::Split</code></p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p><code class="code">Ref</code></p>
+                              
+                           </li>
+                        </ul>
+                     </div></div>
+</body>
+</html>

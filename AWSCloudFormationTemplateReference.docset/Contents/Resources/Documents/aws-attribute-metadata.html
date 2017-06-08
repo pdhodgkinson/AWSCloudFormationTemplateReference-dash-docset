@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="css/awsdocs.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/awsdocs.min.js"></script>
+    <meta charset="utf-8">
+</head>
+<body>
+    <div id="content" style="padding: 10px 30px;">
+    <h1 class="topictitle" id="aws-attribute-metadata">Metadata Attribute</h1><p>The Metadata attribute enables you to associate structured data with a resource. By
+                        adding a Metadata attribute to a resource, you can add data in JSON or YAML to the
+                        resource declaration. In addition, you can use intrinsic functions (such as <a href="intrinsic-function-reference-getatt.html">GetAtt</a> and <a href="intrinsic-function-reference-ref.html">Ref</a>), parameters, and pseudo parameters within the Metadata attribute to add those interpreted
+                        values.
+                     </p><div class="aws-note">
+                        <p class="aws-note">Note</p>
+                        <p>AWS CloudFormation does not validate the syntax within the Metadata attribute.</p>
+                     </div><p>You can retrieve this data using the AWS command <a href="http://docs.aws.amazon.com/cli/latest/reference/cloudformation/describe-stack-resource.html" target="_blank"><code class="code">aws cloudformation describe-stack-resource</code></a> or the <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeStackResource.html" target="_blank">DescribeStackResource action</a>.
+                     </p><h2 id="w2ab2c19c26c23c13">Example</h2><p>The following template contains an Amazon S3 bucket resource with a Metadata attribute.</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-attribute-metadata-example.json">JSON</h3>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="json ">
+{
+   &quot;AWSTemplateFormatVersion&quot; : &quot;2010-09-09&quot;,
+   &quot;Resources&quot; : {
+      &quot;MyS3Bucket&quot; : {
+         &quot;Type&quot; : &quot;AWS::S3::Bucket&quot;,
+         &quot;Metadata&quot; : { &quot;Object1&quot; : &quot;Location1&quot;,  &quot;Object2&quot; : &quot;Location2&quot; }
+      }
+   }
+}     </code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-attribute-metadata-example.yaml">YAML</h3>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="json ">AWSTemplateFormatVersion: &apos;2010-09-09&apos;
+Resources:
+  MyS3Bucket:
+    Type: AWS::S3::Bucket
+    Metadata:
+      Object1: Location1
+      Object2: Location2</code></pre>
+                        </div></div>
+</body>
+</html>

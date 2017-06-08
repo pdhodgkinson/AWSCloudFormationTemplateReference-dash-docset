@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="css/awsdocs.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/awsdocs.min.js"></script>
+    <meta charset="utf-8">
+</head>
+<body>
+    <div id="content" style="padding: 10px 30px;">
+    <h1 class="topictitle" id="intrinsic-function-reference-getavailabilityzones"><code class="code">Fn::GetAZs</code></h1><p>The intrinsic function <code class="code">Fn::GetAZs</code> returns an array that lists Availability
+                        Zones for a specified region. Because customers have access to different Availability
+                        Zones,
+                        the intrinsic function <code class="code">Fn::GetAZs</code> enables template authors to write templates
+                        that adapt to the calling user&apos;s access. That way you don&apos;t have to hard-code a full
+                        list of
+                        Availability Zones for a specified region.
+                     </p><div class="aws-note">
+                        <p class="aws-note">Important</p>
+                        <p>For the EC2-Classic platform, the <code class="code">Fn::GetAZs</code> function returns all
+                           Availability Zones for a region. For the <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html" target="_blank">EC2-VPC</a> platform, the
+                           <code class="code">Fn::GetAZs</code> function returns only Availability Zones that have a default
+                           subnet unless none of the Availability Zones has a default subnet; in that case, all
+                           Availability Zones are returned.
+                        </p>
+                        <p>Similarly to the response from the <code class="code">describe-availability-zones</code> AWS CLI
+                           command, the order of the results from the <code class="code">Fn::GetAZs</code> function is not
+                           guaranteed and can change when new Availability Zones are added.
+                        </p>
+                     </div><p>IAM permissions</p><p>The permissions that you need in order to use the <code class="code">Fn::GetAZs</code> function depend
+                        on the platform in which you&apos;re launching Amazon EC2 instances. For both platforms,
+                        you need
+                        permissions to the Amazon EC2 <code class="code">DescribeAvailabilityZones</code> and
+                        <code class="code">DescribeAccountAttributes</code> actions. For EC2-VPC, you also need permissions to
+                        the Amazon EC2 <code class="code">DescribeSubnets</code> action.
+                     </p><h2 id="w2ab2c19c31c37c13">Declaration</h2><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="intrinsic-function-reference-getazs-syntax.json">JSON</h3>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">{ &quot;Fn::GetAZs&quot; : &quot;<em class="replaceable"><code>region</code></em>&quot; }</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="intrinsic-function-reference-getazs-syntax.yaml">YAML</h3>
+                        
+                        
+                        <p>Syntax for the full function name:</p>
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">Fn::GetAZs: <em class="replaceable"><code>region</code></em></code></pre>
+                        <p>Syntax for the short form:</p>
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">!GetAZs <em class="replaceable"><code>region</code></em></code></pre>
+                        </div><h2 id="w2ab2c19c31c37c15">Parameters</h2><div class="variablelist">
+                        
+                        
+                        <dl>
+                           
+                           <dt><span class="term">region</span></dt>
+                           
+                           <dd>
+                              
+                              <p>The name of the region for which you want to get the Availability Zones.</p>
+                              
+                              <p>You can use the <code class="code">AWS::Region</code> pseudo parameter to
+                                 specify the region in which the stack is created. Specifying an empty string is
+                                 equivalent to specifying <code class="code">AWS::Region</code>.
+                              </p>
+                              
+                           </dd>
+                           
+                        </dl>
+                     </div><h2 id="w2ab2c19c31c37c17">Return Value</h2><p>The list of Availability Zones for the region.</p><h2 id="w2ab2c19c31c37c19">Examples</h2><h3 id="w2ab2c19c31c37c19b3"></h3><p>For these examples, AWS CloudFormation evaluates <code class="code">Fn::GetAZs</code> to the
+                        following array&#x2014;assuming that the user has created the stack in the
+                        <code class="code">us-east-1</code> region:
+                     </p><pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">[ &quot;us-east-1a&quot;, &quot;us-east-1b&quot;, &quot;us-east-1c&quot;, &quot;us-east-1d&quot; ]</code></pre><div id="JSON" name="JSON" class="section langfilter">
+                        <h4 id="intrinsic-function-reference-getazs-example1.json">JSON</h4>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">{ &quot;Fn::GetAZs&quot; : &quot;&quot; }
+{ &quot;Fn::GetAZs&quot; : { &quot;Ref&quot; : &quot;AWS::Region&quot; } }
+{ &quot;Fn::GetAZs&quot; : &quot;<span>us-east-1</span>&quot; }</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        <h4 id="intrinsic-function-reference-getazs-example1.yaml">YAML</h4>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">Fn::GetAZs: &quot;&quot;
+Fn::GetAZs:
+  Ref: &quot;AWS::Region&quot;
+Fn::GetAZs: <span>us-east-1</span></code></pre>
+                        </div><h3 id="w2ab2c19c31c37c19b5">Specify a Subnet&apos;s Availability Zone</h3><p>The following example uses <code class="code">Fn::GetAZs</code> to specify a subnet&apos;s Availability Zone:
+                     </p><div id="JSON" name="JSON" class="section langfilter">
+                        <h4 id="intrinsic-function-reference-getazs-example.json">JSON</h4>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">&quot;mySubnet&quot; : {
+  &quot;Type&quot; : &quot;AWS::EC2::Subnet&quot;,
+  &quot;Properties&quot; : {
+    &quot;VpcId&quot; : { &quot;Ref&quot; : &quot;VPC&quot; },
+    &quot;CidrBlock&quot; : &quot;10.0.0.0/24&quot;,
+    &quot;AvailabilityZone&quot; : {
+      &quot;Fn::Select&quot; : [ &quot;0&quot;, { &quot;Fn::GetAZs&quot; : &quot;&quot; } ]
+    }
+  }
+}</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        <h4 id="intrinsic-function-reference-getazs-example.yaml">YAML</h4>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">mySubnet: 
+  Type: &quot;AWS::EC2::Subnet&quot;
+  Properties: 
+    VpcId: 
+      !Ref VPC
+    CidrBlock: 10.0.0.0/24
+    AvailabilityZone: 
+      Fn::Select: 
+        - 0
+        - Fn::GetAZs: &quot;&quot;</code></pre>
+                        </div><h2 id="w2ab2c19c31c37c21">Supported Functions</h2><p>You can use the <code class="code">Ref</code> function in the <code class="code">Fn::GetAZs</code>
+                        function.
+                     </p></div>
+</body>
+</html>

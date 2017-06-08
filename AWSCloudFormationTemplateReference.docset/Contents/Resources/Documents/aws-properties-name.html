@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="css/awsdocs.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/awsdocs.min.js"></script>
+    <meta charset="utf-8">
+</head>
+<body>
+    <div id="content" style="padding: 10px 30px;">
+    <h1 class="topictitle" id="aws-properties-name">Name Type</h1><p>For some resources, you can specify a custom name. By default, AWS CloudFormation
+                        generates a unique
+                        physical ID to name a resource. For example, AWS CloudFormation might name an Amazon
+                        S3 bucket with the
+                        following physical ID <code class="code">stack123123123123-s3bucket-abcdefghijk1</code>. With custom names,
+                        you can specify a name that&apos;s easier to read and identify, such as
+                        <code class="code">production-app-logs</code> or <code class="code">business-metrics</code>.
+                     </p><p>Resource names must be unique across all of your active stacks. If you reuse templates
+                        to
+                        create multiple stacks, you must change or remove custom names from your template.
+                        If you
+                        don&apos;t specify a name, AWS CloudFormation generates a unique physical ID to name the
+                        resource. Names must
+                        begin with a letter; contain only ASCII letters, digits, and hyphens; and not end
+                        with a
+                        hyphen or contain two consecutive hyphens.
+                     </p><p>Also, do not manage stack resources outside of AWS CloudFormation. For example, if
+                        you rename a resource
+                        that&apos;s part of a stack without using AWS CloudFormation, you might get an error any
+                        time you try to update
+                        or delete that stack.
+                     </p><div class="aws-note">
+                        <p class="aws-note">Important</p>
+                        <p>You can&apos;t perform an update that causes a custom-named resource to be replaced. If
+                           you
+                           must replace the resource, specify a new name.
+                        </p>
+                     </div><h2 id="aws-properties-name-example">Example</h2><p>If you want to use a custom name, specify a name property for that resource in your
+                        AWS CloudFormation template. Each resource that supports custom names has its own
+                        property that you specify. For example, to name an DynamoDB table, you use the <code class="code">TableName</code> property, as shown in the following sample:
+                     </p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-properties-name-example.json">JSON</h3>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">&quot;myDynamoDBTable&quot; : {
+   &quot;Type&quot; : &quot;AWS::DynamoDB::Table&quot;,
+   &quot;Properties&quot; : {
+      &quot;KeySchema&quot; : {
+         &quot;HashKeyElement&quot;: {
+            &quot;AttributeName&quot; : &quot;AttributeName1&quot;,
+            &quot;AttributeType&quot; : &quot;S&quot;
+         },
+         &quot;RangeKeyElement&quot; : {
+            &quot;AttributeName&quot; : &quot;AttributeName2&quot;,
+            &quot;AttributeType&quot; : &quot;N&quot;
+         }
+      },
+      &quot;ProvisionedThroughput&quot; : {
+         &quot;ReadCapacityUnits&quot; : &quot;5&quot;,
+         &quot;WriteCapacityUnits&quot; : &quot;10&quot;
+      },
+      &quot;TableName&quot; : &quot;SampleTable&quot;
+   }
+}</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-properties-name-example.yaml">YAML</h3>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">myDynamoDBTable: 
+  Type: &quot;AWS::DynamoDB::Table&quot;
+  Properties: 
+    KeySchema: 
+      HashKeyElement: 
+        AttributeName: &quot;AttributeName1&quot;
+        AttributeType: &quot;S&quot;
+      RangeKeyElement: 
+        AttributeName: &quot;AttributeName2&quot;
+        AttributeType: &quot;N&quot;
+    ProvisionedThroughput: 
+      ReadCapacityUnits: &quot;5&quot;
+      WriteCapacityUnits: &quot;10&quot;
+    TableName: &quot;SampleTable&quot;</code></pre>
+                        </div><h2 id="w2ab2c19c17d881c15">Supported Resources</h2><p>The following resource types support custom names:</p><div class="itemizedlist">
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <ul class="itemizedlist" type="disc">
+                           <li class="listitem">
+                              
+                              <p><a href="aws-resource-apigateway-apikey.html">AWS::ApiGateway::ApiKey</a></p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p><a href="aws-resource-apigateway-model.html">AWS::ApiGateway::Model</a></p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p><a href="aws-properties-cw-alarm.html">AWS::CloudWatch::Alarm</a></p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p><a href="aws-resource-dynamodb-table.html">AWS::DynamoDB::Table</a></p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p><a href="aws-properties-beanstalk.html">AWS::ElasticBeanstalk::Application</a></p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p><a href="aws-properties-beanstalk-environment.html">AWS::ElasticBeanstalk::Environment</a></p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p><a href="aws-resource-codedeploy-application.html">AWS::CodeDeploy::Application</a></p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p><a href="aws-resource-codedeploy-deploymentconfig.html">AWS::CodeDeploy::DeploymentConfig</a></p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p><a href="aws-resource-codedeploy-deploymentgroup.html">AWS::CodeDeploy::DeploymentGroup</a></p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p><a href="aws-resource-config-configrule.html">AWS::Config::ConfigRule</a></p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p><a href="aws-resource-config-deliverychannel.html">AWS::Config::DeliveryChannel</a></p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p><a href="aws-resource-config-configurationrecorder.html">AWS::Config::ConfigurationRecorder</a></p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p><a href="aws-properties-ec2-elb.html">AWS::ElasticLoadBalancing::LoadBalancer</a></p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p><a href="aws-properties-ec2-security-group.html">AWS::EC2::SecurityGroup</a></p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p><a href="aws-properties-elasticache-cache-cluster.html">AWS::ElastiCache::CacheCluster</a></p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p><a href="aws-resource-ecr-repository.html">AWS::ECR::Repository</a></p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p><a href="aws-resource-ecs-cluster.html">AWS::ECS::Cluster</a></p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p><a href="aws-resource-elasticsearch-domain.html">AWS::Elasticsearch::Domain</a></p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p><a href="aws-resource-events-rule.html">AWS::Events::Rule</a></p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p><a href="aws-properties-iam-group.html">AWS::IAM::Group</a></p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p><a href="aws-resource-iam-managedpolicy.html">AWS::IAM::ManagedPolicy</a></p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p><a href="aws-resource-iam-role.html">AWS::IAM::Role</a></p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p><a href="aws-properties-iam-user.html">AWS::IAM::User</a></p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p><a href="aws-resource-lambda-function.html">AWS::Lambda::Function</a></p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p><a href="aws-properties-rds-database-instance.html">AWS::RDS::DBInstance</a></p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p><a href="aws-properties-s3-bucket.html">AWS::S3::Bucket</a></p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p><a href="aws-properties-sns-topic.html">AWS::SNS::Topic</a></p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p><a href="aws-properties-sqs-queues.html">AWS::SQS::Queue</a></p>
+                              
+                           </li>
+                        </ul>
+                     </div></div>
+</body>
+</html>

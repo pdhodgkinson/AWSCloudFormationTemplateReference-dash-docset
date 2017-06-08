@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="css/awsdocs.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/awsdocs.min.js"></script>
+    <meta charset="utf-8">
+</head>
+<body>
+    <div id="content" style="padding: 10px 30px;">
+    <h1 class="topictitle" id="aws-properties-ec2-elb-listener">ElasticLoadBalancing Listener Property Type</h1><p>The <code class="code">Listener</code> property is an embedded property of the <code class="code"><a href="aws-properties-ec2-elb.html">AWS::ElasticLoadBalancing::LoadBalancer</a></code>
+                        type.
+                     </p><h2 id="w2ab2c19c17d593b9">Syntax</h2><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-properties-ec2-elb-listener-syntax.json">JSON</h3>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">{
+  &quot;<a href="aws-properties-ec2-elb-listener.html#cfn-ec2-elb-listener-instanceport">InstancePort</a>&quot; : <em class="replaceable"><code>String</code></em>,
+  &quot;<a href="aws-properties-ec2-elb-listener.html#cfn-ec2-elb-listener-instanceprotocol">InstanceProtocol</a>&quot; : <em class="replaceable"><code>String</code></em>,
+  &quot;<a href="aws-properties-ec2-elb-listener.html#cfn-ec2-elb-listener-loadbalancerport">LoadBalancerPort</a>&quot; : <em class="replaceable"><code>String</code></em>,
+  &quot;<a href="aws-properties-ec2-elb-listener.html#cfn-ec2-elb-listener-policynames">PolicyNames</a>&quot; :  [ <em class="replaceable"><code>String</code></em>, ... ],
+  &quot;<a href="aws-properties-ec2-elb-listener.html#cfn-ec2-elb-listener-protocol">Protocol</a>&quot; : <em class="replaceable"><code>String</code></em>,
+  &quot;<a href="aws-properties-ec2-elb-listener.html#cfn-ec2-elb-listener-sslcertificateid">SSLCertificateId</a>&quot; : <em class="replaceable"><code>String</code></em>
+}</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-properties-ec2-elb-listener-syntax.yaml">YAML</h3>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight"><a href="aws-properties-ec2-elb-listener.html#cfn-ec2-elb-listener-instanceport">InstancePort</a>: <em class="replaceable"><code>String</code></em>
+<a href="aws-properties-ec2-elb-listener.html#cfn-ec2-elb-listener-instanceprotocol">InstanceProtocol</a>: <em class="replaceable"><code>String</code></em>
+<a href="aws-properties-ec2-elb-listener.html#cfn-ec2-elb-listener-loadbalancerport">LoadBalancerPort</a>: <em class="replaceable"><code>String</code></em>
+<a href="aws-properties-ec2-elb-listener.html#cfn-ec2-elb-listener-policynames">PolicyNames</a>:
+  - <em class="replaceable"><code>String</code></em>
+<a href="aws-properties-ec2-elb-listener.html#cfn-ec2-elb-listener-protocol">Protocol</a>: <em class="replaceable"><code>String</code></em>
+<a href="aws-properties-ec2-elb-listener.html#cfn-ec2-elb-listener-sslcertificateid">SSLCertificateId</a>: <em class="replaceable"><code>String</code></em>
+</code></pre>
+                        </div><h2 id="w2ab2c19c17d593c11">Properties</h2><div class="variablelist">
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <dl>
+                           
+                           <dt><a id="cfn-ec2-elb-listener-instanceport"></a><span class="term"><code class="code">InstancePort</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>Specifies the TCP port on which the instance server listens. You can&apos;t modify
+                                 this property during the life of the load balancer.
+                              </p>
+                              
+                              <p><em>Required</em>: Yes
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-ec2-elb-listener-instanceprotocol"></a><span class="term"><code class="code">InstanceProtocol</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>Specifies the protocol to use for routing traffic to back-end instances: HTTP,
+                                 HTTPS, TCP, or SSL. You can&apos;t modify this property during the life of the load
+                                 balancer.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <div class="aws-note">
+                                 <p class="aws-note">Note</p>
+                                 <div class="itemizedlist">
+                                    
+                                    
+                                    
+                                    <ul class="itemizedlist" type="disc">
+                                       <li class="listitem">
+                                          
+                                          <p>If the front-end protocol is HTTP or HTTPS,
+                                             <code class="code">InstanceProtocol</code> must be on the same protocol layer (HTTP
+                                             or HTTPS). Likewise, if the front-end protocol is TCP or SSL,
+                                             <code class="code">InstanceProtocol</code> must be TCP or SSL. By default, Elastic Load Balancing
+                                             sets the instance protocol to HTTP or TCP.
+                                          </p>
+                                          
+                                       </li>
+                                       <li class="listitem">
+                                          
+                                          <p>If there is another <code class="code">Listener</code> with the same
+                                             <code class="code">InstancePort</code> whose <code class="code">InstanceProtocol</code> is
+                                             secure, (using HTTPS or SSL), the <code class="code">InstanceProtocol</code> of the
+                                             <code class="code">Listener</code> must be secure (using HTTPS or SSL). If there is
+                                             another <code class="code">Listener</code> with the same <code class="code">InstancePort</code>
+                                             whose <code class="code">InstanceProtocol</code> is HTTP or TCP, the
+                                             <code class="code">InstanceProtocol</code> of the <code class="code">Listener</code> must be
+                                             either HTTP or TCP.
+                                          </p>
+                                          
+                                       </li>
+                                    </ul>
+                                 </div>
+                              </div>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-ec2-elb-listener-loadbalancerport"></a><span class="term"><code class="code">LoadBalancerPort</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>Specifies the external load balancer port number. You can&apos;t modify this
+                                 property during the life of the load balancer.
+                              </p>
+                              
+                              <p><em>Required</em>: Yes
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-ec2-elb-listener-policynames"></a><span class="term"><code class="code">PolicyNames</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>A list of <a href="aws-properties-ec2-elb-policy.html"><code class="code">ElasticLoadBalancing</code> policy</a> names to associate with the
+                                 <code class="code">Listener</code>. Specify only policies that are compatible with a
+                                 <code class="code">Listener</code>. For more information, see <code class="code"><a href="http://docs.aws.amazon.com/elasticloadbalancing/2012-06-01/APIReference/API_DescribeLoadBalancerPolicyTypes.html" target="_blank">DescribeLoadBalancerPolicyTypes</a></code> in the
+                                 <em>Elastic Load Balancing API Reference version 2012-06-01</em>.
+                              </p>
+                              <div class="aws-note">
+                                 <p class="aws-note">Note</p>
+                                 <p>By default, Elastic Load Balancing associates the latest predefined policy with your
+                                    load
+                                    balancer. When a new predefined policy is added, we recommend that you
+                                    update your load balancer to use the new predefined policy. Alternatively,
+                                    you can select a different predefined security policy or create a custom
+                                    policy. To create a security policy, use the <code class="code">Policies</code> property
+                                    of the <a href="aws-properties-ec2-elb.html">AWS::ElasticLoadBalancing::LoadBalancer</a> resource.
+                                 </p>
+                              </div>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: List of strings
+                              </p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-ec2-elb-listener-protocol"></a><span class="term"><code class="code">Protocol</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>Specifies the load balancer transport protocol to use for routing: HTTP, HTTPS,
+                                 TCP or SSL. You can&apos;t modify this property during the life of the load
+                                 balancer.
+                              </p>
+                              
+                              <p><em>Required</em>: Yes
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-ec2-elb-listener-sslcertificateid"></a><span class="term"><code class="code">SSLCertificateId</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The ARN of the SSL certificate to use. For more information about SSL
+                                 certificates, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingServerCerts.html" target="_blank">Managing
+                                    Server Certificates</a> in the <em>AWS Identity and Access
+                                    Management User Guide</em>.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                           </dd>
+                           
+                        </dl>
+                     </div></div>
+</body>
+</html>
