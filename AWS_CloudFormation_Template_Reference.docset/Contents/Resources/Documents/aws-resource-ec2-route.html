@@ -8,17 +8,18 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-resource-ec2-route">AWS::EC2::Route</h1><p>Creates a new route in a route table within a VPC. The route&apos;s target can be either
-                        a gateway attached to the
-                        VPC or a NAT instance in the VPC.
+    <h1 class="topictitle" id="aws-resource-ec2-route">AWS::EC2::Route</h1><p>The <code class="code">AWS::EC2::Route</code> resource creates a new route in a route table within a
+                        VPC. The route&apos;s target can be either a gateway attached to the VPC or a NAT instance
+                        in the
+                        VPC.
                      </p><div class="highlights">
                         <p><strong>Topics</strong></p>
                         <ul>
                            <li><a href="#aws-resource-ec2-route-syntax">Syntax</a></li>
-                           <li><a href="#w2ab2c19c12d306c11">Properties</a></li>
-                           <li><a href="#w2ab2c19c12d306c13">Return Values</a></li>
-                           <li><a href="#w2ab2c19c12d306c15">Examples</a></li>
-                           <li><a href="#w2ab2c19c12d306c17">More Info</a></li>
+                           <li><a href="#w2ab2c21c10d405b9">Properties</a></li>
+                           <li><a href="#w2ab2c21c10d405c11">Return Values</a></li>
+                           <li><a href="#w2ab2c21c10d405c13">Examples</a></li>
+                           <li><a href="#w2ab2c21c10d405c15">More Info</a></li>
                         </ul>
                      </div><h2 id="aws-resource-ec2-route-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
                         <h3 id="aws-resource-ec2-route-syntax.json">JSON</h3>
@@ -28,6 +29,7 @@
   &quot;Properties&quot; : {
     &quot;<a href="aws-resource-ec2-route.html#cfn-ec2-route-destinationcidrblock">DestinationCidrBlock</a>&quot; : <em class="replaceable"><code>String</code></em>,
     &quot;<a href="aws-resource-ec2-route.html#cfn-ec2-route-destinationipv6cidrblock"><code class="code">DestinationIpv6CidrBlock</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-resource-ec2-route.html#cfn-ec2-route-egressonlyinternetgatewayid">EgressOnlyInternetGatewayId</a>&quot; : <em class="replaceable"><code>String</code></em>,
     &quot;<a href="aws-resource-ec2-route.html#cfn-ec2-route-gatewayid">GatewayId</a>&quot; : <em class="replaceable"><code>String</code></em>,
     &quot;<a href="aws-resource-ec2-route.html#cfn-ec2-route-instanceid">InstanceId</a>&quot; : <em class="replaceable"><code>String</code></em>,
     &quot;<a href="aws-resource-ec2-route.html#cfn-ec2-route-natgatewayid"><code class="code">NatGatewayId</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
@@ -44,6 +46,7 @@ Type: &quot;AWS::EC2::Route&quot;
 Properties: 
   <a href="aws-resource-ec2-route.html#cfn-ec2-route-destinationcidrblock">DestinationCidrBlock</a>: <em class="replaceable"><code>String</code></em>
   <a href="aws-resource-ec2-route.html#cfn-ec2-route-destinationipv6cidrblock"><code class="code">DestinationIpv6CidrBlock</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-resource-ec2-route.html#cfn-ec2-route-egressonlyinternetgatewayid">EgressOnlyInternetGatewayId</a>: <em class="replaceable"><code>String</code></em>
   <a href="aws-resource-ec2-route.html#cfn-ec2-route-gatewayid">GatewayId</a>: <em class="replaceable"><code>String</code></em>
   <a href="aws-resource-ec2-route.html#cfn-ec2-route-instanceid">InstanceId</a>: <em class="replaceable"><code>String</code></em>
   <a href="aws-resource-ec2-route.html#cfn-ec2-route-natgatewayid"><code class="code">NatGatewayId</code></a>: <em class="replaceable"><code>String</code></em>
@@ -51,7 +54,8 @@ Properties:
   <a href="aws-resource-ec2-route.html#cfn-ec2-route-routetableid">RouteTableId</a>: <em class="replaceable"><code>String</code></em>
   <a href="aws-resource-ec2-route.html#cfn-ec2-route-vpcpeeringconnectionid"><code class="literal">VpcPeeringConnectionId</code></a>: <em class="replaceable"><code>String</code></em>
 </code></pre>
-                        </div><h2 id="w2ab2c19c12d306c11">Properties</h2><div class="variablelist">
+                        </div><h2 id="w2ab2c21c10d405b9">Properties</h2><div class="variablelist">
+                        
                         
                         
                         
@@ -71,7 +75,7 @@ Properties:
                                  match.
                               </p>
                               
-                              <p><em>Required</em>: Conditional. You must specify the <code class="code">DestinationCidrBlock</code> or <code class="code">DestinationIpv6CidrBlock</code> property.
+                              <p><em>Required: </em>Conditional. You must specify the <code class="code">DestinationCidrBlock</code> or <code class="code">DestinationIpv6CidrBlock</code> property.
                               </p>
                               
                               <p><em>Type</em>: String
@@ -91,7 +95,7 @@ Properties:
                                  match.
                               </p>
                               
-                              <p><em>Required</em>: Conditional. You must specify the <code class="code">DestinationCidrBlock</code> or <code class="code">DestinationIpv6CidrBlock</code> property.
+                              <p><em>Required: </em>Conditional. You must specify the <code class="code">DestinationCidrBlock</code> or <code class="code">DestinationIpv6CidrBlock</code> property.
                               </p>
                               
                               <p><em>Type</em>: String
@@ -102,20 +106,44 @@ Properties:
                            </dd>
                            
                            
+                           <dt><a id="cfn-ec2-route-egressonlyinternetgatewayid"></a><span class="term"><code class="literal">EgressOnlyInternetGatewayId</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The ID of an egress-only internet gateway that is attached to your VPC (over IPv6
+                                 only).
+                              </p>
+                              
+                              <p><em>Required: </em>Conditional. You must specify only one of the following properties:
+                                 <code class="code">EgressOnlyInternetGatewayId</code>, <code class="code">GatewayId</code>, <code class="code">InstanceId</code>, <code class="code">NatGatewayId</code>,
+                                 <code class="code">NetworkInterfaceId</code>, or <code class="code">VpcPeeringConnectionId</code>. For an example that uses this property, see 
+                                 <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-ec2.html#quickref-ec2-route-egressonlyinternetgateway" target="_blank">Amazon EC2 Route with Egress-Only Internet Gateway</a>.
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
                            <dt><a id="cfn-ec2-route-gatewayid"></a><span class="term"><code class="literal">GatewayId</code></span></dt>
                            
                            <dd>
                               
-                              <p>The ID of an Internet gateway or virtual private gateway that is attached to
-                                 your VPC. For example: <code class="code">igw-eaad4883</code>.
+                              <p>The
+                                 ID of an internet gateway or virtual private gateway that is attached to your VPC.
+                                 For example:
+                                 <code class="code">igw-eaad4883</code>.
                               </p>
                               
                               <p>For route entries that specify a gateway, you must specify a dependency on the
                                  gateway attachment resource.  For more information, see <a href="aws-attribute-dependson.html">DependsOn Attribute</a>.
                               </p>
                               
-                              <p><em>Required</em>: Conditional. You must specify only one of the following properties:
-                                 <code class="code">GatewayId</code>, <code class="code">InstanceId</code>, <code class="code">NatGatewayId</code>,
+                              <p><em>Required: </em>Conditional. You must specify only one of the following properties:
+                                 <code class="code">EgressOnlyInternetGatewayId</code>, <code class="code">GatewayId</code>, <code class="code">InstanceId</code>, <code class="code">NatGatewayId</code>,
                                  <code class="code">NetworkInterfaceId</code>, or <code class="code">VpcPeeringConnectionId</code>.
                               </p>
                               
@@ -131,12 +159,13 @@ Properties:
                            
                            <dd>
                               
-                              <p>The ID of a NAT instance in your VPC. For example,
+                              <p>The
+                                 ID of a NAT instance in your VPC. For example,
                                  <code class="code">i-1a2b3c4d</code>.
                               </p>
                               
-                              <p><em>Required</em>: Conditional. You must specify only one of the following properties:
-                                 <code class="code">GatewayId</code>, <code class="code">InstanceId</code>, <code class="code">NatGatewayId</code>,
+                              <p><em>Required: </em>Conditional. You must specify only one of the following properties:
+                                 <code class="code">EgressOnlyInternetGatewayId</code>, <code class="code">GatewayId</code>, <code class="code">InstanceId</code>, <code class="code">NatGatewayId</code>,
                                  <code class="code">NetworkInterfaceId</code>, or <code class="code">VpcPeeringConnectionId</code>.
                               </p>
                               
@@ -152,12 +181,13 @@ Properties:
                            
                            <dd>
                               
-                              <p>The ID of a NAT gateway. For example,
+                              <p>The
+                                 ID of a NAT gateway. For example,
                                  <code class="code">nat-0a12bc456789de0fg</code>.
                               </p>
                               
-                              <p><em>Required</em>: Conditional. You must specify only one of the following properties:
-                                 <code class="code">GatewayId</code>, <code class="code">InstanceId</code>, <code class="code">NatGatewayId</code>,
+                              <p><em>Required: </em>Conditional. You must specify only one of the following properties:
+                                 <code class="code">EgressOnlyInternetGatewayId</code>, <code class="code">GatewayId</code>, <code class="code">InstanceId</code>, <code class="code">NatGatewayId</code>,
                                  <code class="code">NetworkInterfaceId</code>, or <code class="code">VpcPeeringConnectionId</code>.
                               </p>
                               
@@ -173,10 +203,12 @@ Properties:
                            
                            <dd>
                               
-                              <p>Allows the routing of network interface IDs.</p>
+                              <p>Allows
+                                 the routing of network interface IDs.
+                              </p>
                               
-                              <p><em>Required</em>: Conditional. You must specify only one of the following properties:
-                                 <code class="code">GatewayId</code>, <code class="code">InstanceId</code>, <code class="code">NatGatewayId</code>,
+                              <p><em>Required: </em>Conditional. You must specify only one of the following properties:
+                                 <code class="code">EgressOnlyInternetGatewayId</code>, <code class="code">GatewayId</code>, <code class="code">InstanceId</code>, <code class="code">NatGatewayId</code>,
                                  <code class="code">NetworkInterfaceId</code>, or <code class="code">VpcPeeringConnectionId</code>.
                               </p>
                               
@@ -218,8 +250,8 @@ Properties:
                               
                               <p>The ID of a VPC peering connection.</p>
                               
-                              <p><em>Required</em>: Conditional. You must specify only one of the following properties:
-                                 <code class="code">GatewayId</code>, <code class="code">InstanceId</code>, <code class="code">NatGatewayId</code>,
+                              <p><em>Required: </em>Conditional. You must specify only one of the following properties:
+                                 <code class="code">EgressOnlyInternetGatewayId</code>, <code class="code">GatewayId</code>, <code class="code">InstanceId</code>, <code class="code">NatGatewayId</code>,
                                  <code class="code">NetworkInterfaceId</code>, or <code class="code">VpcPeeringConnectionId</code>.
                               </p>
                               
@@ -231,10 +263,10 @@ Properties:
                            </dd>
                            
                         </dl>
-                     </div><h2 id="w2ab2c19c12d306c13">Return Values</h2><h3 id="w2ab2c19c12d306c13b3">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code> intrinsic
+                     </div><h2 id="w2ab2c21c10d405c11">Return Values</h2><h3 id="w2ab2c21c10d405c11b2">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code> intrinsic
                         function, <code class="code">Ref</code> returns the resource name.
                      </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                     </p><h2 id="w2ab2c19c12d306c15">Examples</h2><p>The following example creates a route that is added to a gateway.</p><div id="JSON" name="JSON" class="section langfilter">
+                     </p><h2 id="w2ab2c21c10d405c13">Examples</h2><p>The following example creates a route that is added to a gateway.</p><div id="JSON" name="JSON" class="section langfilter">
                         <h3 id="aws-resource-ec2-route-example-1.json">JSON</h3>
                         
                         <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">
@@ -266,7 +298,7 @@ Resources:
       DestinationCidrBlock: 0.0.0.0/0
       GatewayId:
         Ref: myInternetGateway</code></pre>
-                        </div><h2 id="w2ab2c19c12d306c17">More Info</h2><div class="itemizedlist">
+                        </div><h2 id="w2ab2c21c10d405c15">More Info</h2><div class="itemizedlist">
                         
                         
                         
@@ -284,9 +316,7 @@ Resources:
                            </li>
                            <li class="listitem">
                               
-                              <p><a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html" target="_blank">Route
-                                    Tables</a> in the <em>Amazon VPC User Guide</em>.
-                              </p>
+                              <p><a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html" target="_blank">Route Tables</a> in the <em>Amazon VPC User Guide</em></p>
                               
                            </li>
                         </ul>

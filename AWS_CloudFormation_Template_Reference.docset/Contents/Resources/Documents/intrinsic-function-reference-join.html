@@ -12,7 +12,7 @@
                         by the specified delimiter. If a delimiter is the empty string, the set of values
                         are concatenated with no
                         delimiter.
-                     </p><h2 id="w2ab2c19c31c47b7">Declaration</h2><div id="JSON" name="JSON" class="section langfilter">
+                     </p><h2 id="w2ab2c21c28c43b5">Declaration</h2><div id="JSON" name="JSON" class="section langfilter">
                         <h3 id="intrinsic-function-reference-join-syntax.json">JSON</h3>
                         
                         <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">{ &quot;Fn::Join&quot; : [ &quot;<code class="code" copy="true">delimiter</code>&quot;, [ <em class="replaceable"><code>comma-delimited list of values</code></em> ] ] }</code></pre>
@@ -24,7 +24,7 @@
                         <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">Fn::Join: [ <code class="code" copy="true">delimiter</code>, [ <em class="replaceable"><code>comma-delimited list of values</code></em> ] ]</code></pre>
                         <p>Syntax for the short form:</p>
                         <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">!Join [ <code class="code" copy="true">delimiter</code>, [ <em class="replaceable"><code>comma-delimited list of values</code></em> ] ]</code></pre>
-                        </div><h2 id="w2ab2c19c31c47b9">Parameters</h2><div class="variablelist">
+                        </div><h2 id="intrinsic-function-reference-join-parameters">Parameters</h2><div class="variablelist">
                         
                         
                         
@@ -51,19 +51,54 @@
                            </dd>
                            
                         </dl>
-                     </div><h2 id="w2ab2c19c31c47c11">Return Value</h2><p>The combined string.</p><h2 id="w2ab2c19c31c47c13">Example</h2><p>The following example returns: <code class="code">&quot;a:b:c&quot;</code>.
+                     </div><h2 id="intrinsic-function-reference-join-returnvalues">Return Value</h2><p>The combined string.</p><h2 id="intrinsic-function-reference-join-examples">Examples</h2><h3 id="intrinsic-function-reference-join-example1">Join a Simple String Array</h3><p>The following example returns: <code class="code">&quot;a:b:c&quot;</code>.
                      </p><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="intrinsic-function-reference-join-example.json">JSON</h3>
+                        <h4 id="intrinsic-function-reference-join-example1.json">JSON</h4>
                         
                         <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">&quot;Fn::Join&quot; : [ &quot;:&quot;, [ &quot;a&quot;, &quot;b&quot;, &quot;c&quot; ] ]</code></pre>
                         </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="intrinsic-function-reference-join-example.yaml">YAML</h3>
+                        <h4 id="intrinsic-function-reference-join-example1.yaml">YAML</h4>
                         
                         <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">!Join [ &quot;:&quot;, [ a, b, c ] ]</code></pre>
-                        </div><h2 id="w2ab2c19c31c47c15">Supported Functions</h2><p>For the <code class="code">Fn::Join</code> delimiter, you cannot use any functions. You must specify
+                        </div><h3 id="intrinsic-function-reference-join-example2">Join Using the Ref Function with Parameters</h3><p>The following example uses <code class="code">Fn::Join</code> to construct a string value. It uses the <code class="code">Ref</code> function with 
+                        the <code class="code">Partition</code> parameter and the <code class="code">AWS::AccountId</code> pseudo parameter.
+                     </p><div id="JSON" name="JSON" class="section langfilter">
+                        <h4 id="intrinsic-function-reference-join-example2.json">JSON</h4>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">{
+  &quot;Fn::Join&quot;: [
+    &quot;&quot;, [
+      &quot;arn:&quot;,
+      {
+        &quot;Ref&quot;: &quot;Partition&quot;
+      },
+      &quot;:s3:::elasticbeanstalk-*-&quot;,
+      {
+        &quot;Ref&quot;: &quot;AWS::AccountId&quot;
+      }
+    ]
+  ]
+}}</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        <h4 id="intrinsic-function-reference-join-example2.yaml">YAML</h4>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">!Join
+  - &apos;&apos;
+  - - &apos;arn:&apos;
+    - !Ref Partition
+    - &apos;:s3:::elasticbeanstalk-*-&apos;
+    - !Ref &apos;AWS::AccountId&apos;</code></pre>
+                        </div><div class="aws-note">
+                        <p class="aws-note">Note</p>
+                        <p>Also see the <a href="intrinsic-function-reference-sub.html"><code class="code">Fn::Sub</code></a> 
+                           function for similar functionality.
+                        </p>
+                     </div><h2 id="intrinsic-function-reference-join-supportedfunctions">Supported Functions</h2><p>For the <code class="code">Fn::Join</code> delimiter, you cannot use any functions. You must specify
                         a string value.
                      </p><p>For the <code class="code">Fn::Join</code> list of values, you can use the following functions:
                      </p><div class="itemizedlist">
+                        
+                        
                         
                         
                         
@@ -102,6 +137,11 @@
                            </li>
                            <li class="listitem">
                               
+                              <p><code class="code">Fn::ImportValue</code></p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
                               <p><code class="code">Fn::Join</code></p>
                               
                            </li>
@@ -113,6 +153,11 @@
                            <li class="listitem">
                               
                               <p><code class="code">Fn::Select</code></p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p><code class="code">Fn::Sub</code></p>
                               
                            </li>
                            <li class="listitem">

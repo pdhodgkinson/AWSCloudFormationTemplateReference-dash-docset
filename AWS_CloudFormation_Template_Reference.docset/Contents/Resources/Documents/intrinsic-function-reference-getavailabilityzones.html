@@ -33,7 +33,7 @@
                         permissions to the Amazon EC2 <code class="code">DescribeAvailabilityZones</code> and
                         <code class="code">DescribeAccountAttributes</code> actions. For EC2-VPC, you also need permissions to
                         the Amazon EC2 <code class="code">DescribeSubnets</code> action.
-                     </p><h2 id="w2ab2c19c31c37c13">Declaration</h2><div id="JSON" name="JSON" class="section langfilter">
+                     </p><h2 id="w2ab2c21c28c33c11">Declaration</h2><div id="JSON" name="JSON" class="section langfilter">
                         <h3 id="intrinsic-function-reference-getazs-syntax.json">JSON</h3>
                         
                         <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">{ &quot;Fn::GetAZs&quot; : &quot;<em class="replaceable"><code>region</code></em>&quot; }</code></pre>
@@ -45,7 +45,7 @@
                         <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">Fn::GetAZs: <em class="replaceable"><code>region</code></em></code></pre>
                         <p>Syntax for the short form:</p>
                         <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">!GetAZs <em class="replaceable"><code>region</code></em></code></pre>
-                        </div><h2 id="w2ab2c19c31c37c15">Parameters</h2><div class="variablelist">
+                        </div><h2 id="w2ab2c21c28c33c13">Parameters</h2><div class="variablelist">
                         
                         
                         <dl>
@@ -64,23 +64,23 @@
                            </dd>
                            
                         </dl>
-                     </div><h2 id="w2ab2c19c31c37c17">Return Value</h2><p>The list of Availability Zones for the region.</p><h2 id="w2ab2c19c31c37c19">Examples</h2><h3 id="w2ab2c19c31c37c19b3"></h3><p>For these examples, AWS CloudFormation evaluates <code class="code">Fn::GetAZs</code> to the
+                     </div><h2 id="w2ab2c21c28c33c15">Return Value</h2><p>The list of Availability Zones for the region.</p><h2 id="w2ab2c21c28c33c17">Examples</h2><h3 id="w2ab2c21c28c33c17b2">Evaluate a Region</h3><p>For these examples, AWS CloudFormation evaluates <code class="code">Fn::GetAZs</code> to the
                         following array&#x2014;assuming that the user has created the stack in the
                         <code class="code">us-east-1</code> region:
-                     </p><pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">[ &quot;us-east-1a&quot;, &quot;us-east-1b&quot;, &quot;us-east-1c&quot;, &quot;us-east-1d&quot; ]</code></pre><div id="JSON" name="JSON" class="section langfilter">
+                     </p><p><code class="code">[ &quot;us-east-1a&quot;, &quot;us-east-1b&quot;, &quot;us-east-1c&quot;, &quot;us-east-1d&quot; ]</code></p><div id="JSON" name="JSON" class="section langfilter">
                         <h4 id="intrinsic-function-reference-getazs-example1.json">JSON</h4>
                         
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">{ &quot;Fn::GetAZs&quot; : &quot;&quot; }
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">{ &quot;Fn::GetAZs&quot; : &quot;&quot; }
 { &quot;Fn::GetAZs&quot; : { &quot;Ref&quot; : &quot;AWS::Region&quot; } }
-{ &quot;Fn::GetAZs&quot; : &quot;<span>us-east-1</span>&quot; }</code></pre>
+{ &quot;Fn::GetAZs&quot; : &quot;us-east-1&quot; }</code></pre>
                         </div><div id="YAML" name="YAML" class="section langfilter">
                         <h4 id="intrinsic-function-reference-getazs-example1.yaml">YAML</h4>
                         
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">Fn::GetAZs: &quot;&quot;
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">Fn::GetAZs: &quot;&quot;
 Fn::GetAZs:
   Ref: &quot;AWS::Region&quot;
-Fn::GetAZs: <span>us-east-1</span></code></pre>
-                        </div><h3 id="w2ab2c19c31c37c19b5">Specify a Subnet&apos;s Availability Zone</h3><p>The following example uses <code class="code">Fn::GetAZs</code> to specify a subnet&apos;s Availability Zone:
+Fn::GetAZs: us-east-1</code></pre>
+                        </div><p>&#xA0;</p><h3 id="w2ab2c21c28c33c17b4">Specify a Subnet&apos;s Availability Zone</h3><p>The following example uses <code class="code">Fn::GetAZs</code> to specify a subnet&apos;s Availability Zone:
                      </p><div id="JSON" name="JSON" class="section langfilter">
                         <h4 id="intrinsic-function-reference-getazs-example.json">JSON</h4>
                         
@@ -107,7 +107,23 @@ Fn::GetAZs: <span>us-east-1</span></code></pre>
       Fn::Select: 
         - 0
         - Fn::GetAZs: &quot;&quot;</code></pre>
-                        </div><h2 id="w2ab2c19c31c37c21">Supported Functions</h2><p>You can use the <code class="code">Ref</code> function in the <code class="code">Fn::GetAZs</code>
+                        </div><p>&#xA0;</p><h3 id="w2ab2c21c28c33c17b8">Nested Functions with Short Form YAML</h3><p>The following examples show valid patterns for using nested intrinsic functions using
+                        short form YAML. 
+                        You can&apos;t nest short form functions consecutively, so a pattern like <code class="code">!GetAZs !Ref</code> is invalid.
+                     </p><div id="YAML" name="YAML" class="section langfilter">
+                        
+                        <h4 id="intrinsic-function-reference-select-example3.yaml">YAML</h4>
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">AvailabilityZone: !Select 
+  - 0
+  - !GetAZs 
+    Ref: &apos;AWS::Region&apos;</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        
+                        <h4 id="intrinsic-function-reference-select-example4.yaml">YAML</h4>
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">AvailabilityZone: !Select 
+  - 0
+  - Fn::GetAZs: !Ref &apos;AWS::Region&apos;</code></pre>
+                        </div><h2 id="w2ab2c21c28c33c19">Supported Functions</h2><p>You can use the <code class="code">Ref</code> function in the <code class="code">Fn::GetAZs</code>
                         function.
                      </p></div>
 </body>

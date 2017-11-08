@@ -18,10 +18,10 @@
                         <p><strong>Topics</strong></p>
                         <ul>
                            <li><a href="#aws-resource-efs-filesystem-syntax">Syntax</a></li>
-                           <li><a href="#w2ab2c19c12d422c11">Properties</a></li>
-                           <li><a href="#w2ab2c19c12d422c13">Return Value</a></li>
-                           <li><a href="#w2ab2c19c12d422c15">Example</a></li>
-                           <li><a href="#w2ab2c19c12d422c17">Additional Resources</a></li>
+                           <li><a href="#w2ab2c21c10d522b9">Properties</a></li>
+                           <li><a href="#w2ab2c21c10d522c11">Return Value</a></li>
+                           <li><a href="#w2ab2c21c10d522c13">Example</a></li>
+                           <li><a href="#w2ab2c21c10d522c15">Additional Resources</a></li>
                         </ul>
                      </div><h2 id="aws-resource-efs-filesystem-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
                         <h3 id="aws-resource-efs-filesystem-syntax.json">JSON</h3>
@@ -29,7 +29,9 @@
                         <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">{
   &quot;Type&quot; : &quot;AWS::EFS::FileSystem&quot;,
   &quot;Properties&quot; : {
-    &quot;<a href="aws-resource-efs-filesystem.html#cfn-efs-filesystem-filesystemtags"><code class="code">FileSystemTags</code></a>&quot; : [ <em class="replaceable"><code>FileSystemTags, ...</code></em> ],
+    &quot;<a href="aws-resource-efs-filesystem.html#cfn-efs-filesystem-encrypted"><code class="code">Encrypted</code></a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
+    &quot;<a href="aws-resource-efs-filesystem.html#cfn-efs-filesystem-filesystemtags"><code class="code">FileSystemTags</code></a>&quot; : [ <em class="replaceable"><code>FileSystemTags</code></em>, ... ],
+    &quot;<a href="aws-resource-efs-filesystem.html#cfn-efs-filesystem-kmskeyid"><code class="code">KmsKeyId</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
     &quot;<a href="aws-resource-efs-filesystem.html#cfn-efs-filesystem-performancemode"><code class="code">PerformanceMode</code></a>&quot; : <em class="replaceable"><code>String</code></em>
   }
 }</code></pre>
@@ -38,11 +40,15 @@
                         
                         <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">Type: &quot;AWS::EFS::FileSystem&quot;
 Properties: 
+  <a href="aws-resource-efs-filesystem.html#cfn-efs-filesystem-encrypted"><code class="code">Encrypted</code></a>: <em class="replaceable"><code>Boolean</code></em>
   <a href="aws-resource-efs-filesystem.html#cfn-efs-filesystem-filesystemtags"><code class="code">FileSystemTags</code></a>:
     - <em class="replaceable"><code>FileSystemTags</code></em>
+  <a href="aws-resource-efs-filesystem.html#cfn-efs-filesystem-kmskeyid"><code class="code">KmsKeyId</code></a>: <em class="replaceable"><code>String</code></em>
   <a href="aws-resource-efs-filesystem.html#cfn-efs-filesystem-performancemode"><code class="code">PerformanceMode</code></a>: <em class="replaceable"><code>String</code></em>
 </code></pre>
-                        </div><h2 id="w2ab2c19c12d422c11">Properties</h2><div class="variablelist">
+                        </div><h2 id="w2ab2c21c10d522b9">Properties</h2><div class="variablelist">
+                        
+                        
                         
                         
                         
@@ -54,13 +60,56 @@ Properties:
                               
                               <p>Tags to associate with the file system.</p>
                               
-                              <p><em>Required</em>: No
+                              <p><em>Required: </em>No
                               </p>
                               
                               <p><em>Type</em>: <a href="aws-properties-efs-filesystem-filesystemtags.html">Amazon Elastic File System FileSystem
                                     FileSystemTags</a></p>
                               
                               <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-efs-filesystem-encrypted"></a><span class="term"><code class="code">Encrypted</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>A boolean value that, if true, creates an encrypted file system. For more information,
+                                 see 
+                                 <a href="http://docs.aws.amazon.com/efs/latest/ug/API_CreateFileSystem.html" target="_blank">CreateFileSystem</a> in the 
+                                 <em>Amazon Elastic File System User Guide</em>.
+                              </p>
+                              
+                              <p><em>Required: </em>No
+                              </p>
+                              
+                              <p><em>Type</em>: Boolean
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-efs-filesystem-kmskeyid"></a><span class="term"><code class="code">KmsKeyId</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The ID of the AWS KMS customer master key (CMK) to use to protect the encrypted file
+                                 system.  This parameter 
+                                 is only required if you want to use a non-default CMK. For more information, see 
+                                 <a href="http://docs.aws.amazon.com/efs/latest/ug/API_CreateFileSystem.html" target="_blank">CreateFileSystem</a> in the 
+                                 <em>Amazon Elastic File System User Guide</em>.
+                              </p>
+                              
+                              <p><em>Required: </em>Conditional. This parameter is required if you use a non-default CMK.
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
                               
                            </dd>
                            
@@ -75,7 +124,7 @@ Properties:
                               <p>For more information about performance modes, see <a href="http://docs.aws.amazon.com/efs/latest/ug/performance.html" target="_blank">Amazon EFS Performance</a> in the <em>Amazon Elastic File System User Guide</em>.
                               </p>
                               
-                              <p><em>Required</em>: No
+                              <p><em>Required: </em>No
                               </p>
                               
                               <p><em>Type</em>: String
@@ -86,37 +135,108 @@ Properties:
                            </dd>
                            
                         </dl>
-                     </div><h2 id="w2ab2c19c12d422c13">Return Value</h2><h3 id="w2ab2c19c12d422c13b3">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code>
+                     </div><h2 id="w2ab2c21c10d522c11">Return Value</h2><h3 id="w2ab2c21c10d522c11b2">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code>
                         intrinsic function, <code class="code">Ref</code> returns the resource ID, such as
                         <code class="code">fs-47a2c22e</code>.
                      </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                     </p><h2 id="w2ab2c19c12d422c15">Example</h2><p>The following example declares a file system with a tag key <code class="code">Name</code> and tag
-                        value <code class="code">TestFileSystem</code>:
-                     </p><div id="JSON" name="JSON" class="section langfilter">
+                     </p><h2 id="w2ab2c21c10d522c13">Example</h2><p>The following example declares an encrypted file system:</p><div id="JSON" name="JSON" class="section langfilter">
                         <h3 id="aws-resource-efs-filesystem-example.json">JSON</h3>
                         
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">&quot;WebServerFileSystem&quot; : {
-  &quot;Type&quot; : &quot;AWS::EFS::FileSystem&quot;,
-  &quot;Properties&quot; : {
-    &quot;FileSystemTags&quot; : [
-      {
-        &quot;Key&quot; : &quot;Name&quot;,
-        &quot;Value&quot; : &quot;TestFileSystem&quot;
-      }
-    ]
-  }
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">{
+    &quot;Resources&quot;: {
+        &quot;filesystem&quot;: {
+            &quot;Type&quot;: &quot;AWS::EFS::FileSystem&quot;,
+            &quot;Properties&quot;: {
+                &quot;Encrypted&quot;: true,
+                &quot;KmsKeyId&quot;: {
+                    &quot;Fn::GetAtt&quot;: [
+                        &quot;key&quot;,
+                        &quot;Arn&quot;
+                    ]
+                }
+            }
+        },
+        &quot;key&quot;: {
+            &quot;Type&quot;: &quot;AWS::KMS::Key&quot;,
+            &quot;Properties&quot;: {
+                &quot;KeyPolicy&quot;: {
+                    &quot;Version&quot;: &quot;2012-10-17&quot;,
+                    &quot;Id&quot;: &quot;key-default-1&quot;,
+                    &quot;Statement&quot;: [
+                        {
+                            &quot;Sid&quot;: &quot;Allow administration of the key&quot;,
+                            &quot;Effect&quot;: &quot;Allow&quot;,
+                            &quot;Principal&quot;: {
+                                &quot;AWS&quot;: {
+                                    &quot;Fn::Join&quot;: [
+                                        &quot;&quot;,
+                                        [
+                                            &quot;arn:aws:iam::&quot;,
+                                            {
+                                                &quot;Ref&quot;: &quot;AWS::AccountId&quot;
+                                            },
+                                            &quot;:root&quot;
+                                        ]
+                                    ]
+                                }
+                            },
+                            &quot;Action&quot;: [
+                                &quot;kms:*&quot;
+                            ],
+                            &quot;Resource&quot;: &quot;*&quot;
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    &quot;Outputs&quot;: {
+        &quot;KeyId&quot;: {
+            &quot;Value&quot;: {
+                &quot;Fn::GetAtt&quot;: [
+                    &quot;key&quot;,
+                    &quot;Arn&quot;
+                ]
+            }
+        }
+    }
 }</code></pre>
                         </div><div id="YAML" name="YAML" class="section langfilter">
                         <h3 id="aws-resource-efs-filesystem-example.yaml">YAML</h3>
                         
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">WebServerFileSystem: 
-  Type: &quot;AWS::EFS::FileSystem&quot;
-  Properties: 
-    FileSystemTags: 
-      - 
-        Key: &quot;Name&quot;
-        Value: &quot;TestFileSystem&quot;</code></pre>
-                        </div><h2 id="w2ab2c19c12d422c17">Additional Resources</h2><p>For a complete sample template, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-efs.html">Amazon Elastic File System Sample Template</a>.
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">Resources:
+  filesystem:
+    Type: &apos;AWS::EFS::FileSystem&apos;
+    Properties:
+      Encrypted: true
+      KmsKeyId: !GetAtt 
+        - key
+        - Arn
+  key:
+    Type: &apos;AWS::KMS::Key&apos;
+    Properties:
+      KeyPolicy:
+        Version: 2012-10-17
+        Id: key-default-1
+        Statement:
+          - Sid: Allow administration of the key
+            Effect: Allow
+            Principal:
+              AWS: !Join 
+                - &apos;&apos;
+                - - &apos;arn:aws:iam::&apos;
+                  - !Ref &apos;AWS::AccountId&apos;
+                  - &apos;:root&apos;
+            Action:
+              - &apos;kms:*&apos;
+            Resource: &apos;*&apos;
+Outputs:
+  KeyId:
+    Value: !GetAtt 
+      - key
+      - Arn
+</code></pre>
+                        </div><h2 id="w2ab2c21c10d522c15">Additional Resources</h2><p>For a complete sample template, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-efs.html">Amazon Elastic File System Sample Template</a>.
                      </p></div>
 </body>
 </html>

@@ -9,15 +9,16 @@
 <body>
     <div id="content" style="padding: 10px 30px;">
     <h1 class="topictitle" id="aws-resource-codedeploy-deploymentgroup">AWS::CodeDeploy::DeploymentGroup</h1><p>The <code class="code">AWS::CodeDeploy::DeploymentGroup</code> resource creates an AWS CodeDeploy deployment
-                        group that details which application revision to use and which instances your application
-                        revisions are deployed to.
+                        group that specifies which instances your application revisions are deployed to, along
+                        with other deployment options. 
+                        For more information, see <a href="http://docs.aws.amazon.com//codedeploy/latest/APIReference/API_CreateDeploymentGroup.html" target="_blank">CreateDeploymentGroup</a> in the <em>AWS CodeDeploy API Reference</em>.
                      </p><div class="highlights">
                         <p><strong>Topics</strong></p>
                         <ul>
                            <li><a href="#aws-resource-codedeploy-deploymentgroup-syntax">Syntax</a></li>
-                           <li><a href="#w2ab2c19c12d169c11">Properties</a></li>
-                           <li><a href="#w2ab2c19c12d169c13">Return Value</a></li>
-                           <li><a href="#w2ab2c19c12d169c15">Example</a></li>
+                           <li><a href="#w2ab2c21c10d221b9">Properties</a></li>
+                           <li><a href="#w2ab2c21c10d221c11">Return Value</a></li>
+                           <li><a href="#w2ab2c21c10d221c13">Examples</a></li>
                         </ul>
                      </div><h2 id="aws-resource-codedeploy-deploymentgroup-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
                         <h3 id="aws-resource-codedeploy-deploymentgroup-syntax.json">JSON</h3>
@@ -25,14 +26,19 @@
                         <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">{
   &quot;Type&quot; : &quot;AWS::CodeDeploy::DeploymentGroup&quot;,
   &quot;Properties&quot; : {
+    &quot;<a href="aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-alarmconfiguration"><code class="code">AlarmConfiguration</code></a>&quot; : <a href="aws-properties-codedeploy-deploymentgroup-alarmconfiguration.html"><em class="replaceable"><code>AlarmConfiguration</code></em></a>,
     &quot;<a href="aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-applicationname"><code class="code">ApplicationName</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-autorollbackconfiguration"><code class="code">AutoRollbackConfiguration</code></a>&quot; : <a href="aws-properties-codedeploy-deploymentgroup-autorollbackconfiguration.html"><em class="replaceable"><code>AutoRollbackConfiguration</code></em></a>,
     &quot;<a href="aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-autoscalinggroups"><code class="code">AutoScalingGroups</code></a>&quot; : [ <em class="replaceable"><code>String, ...</code></em> ],
-    &quot;<a href="aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-deployment"><code class="code">Deployment</code></a>&quot; : <em class="replaceable"><code>Deployment</code></em>,
+    &quot;<a href="aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-deployment"><code class="code">Deployment</code></a>&quot; : <a href="aws-properties-codedeploy-deploymentgroup-deployment.html"><em class="replaceable"><code>Deployment</code></em></a>,
     &quot;<a href="aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-deploymentconfigname"><code class="code">DeploymentConfigName</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
     &quot;<a href="aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-deploymentgroupname"><code class="code">DeploymentGroupName</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-ec2tagfilters"><code class="code">Ec2TagFilters</code></a>&quot; : [ <em class="replaceable"><code>Ec2TagFilters, ...</code></em> ],
-    &quot;<a href="aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-onpremisesinstancetagfilters"><code class="code">OnPremisesInstanceTagFilters</code></a>&quot; : [ <em class="replaceable"><code>OnPremisesInstanceTagFilters, ...</code></em> ],
-    &quot;<a href="aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-servicerolearn"><code class="code">ServiceRoleArn</code></a>&quot; : <em class="replaceable"><code>String</code></em>
+    &quot;<a href="aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-deploymentstyle"><code class="code">DeploymentStyle</code></a>&quot; : <a href="aws-properties-codedeploy-deploymentgroup-deploymentstyle.html"><em class="replaceable"><code>DeploymentStyle</code></em></a>,
+    &quot;<a href="aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-ec2tagfilters"><code class="code">Ec2TagFilters</code></a>&quot; : [ <a href="aws-properties-codedeploy-deploymentgroup-ec2tagfilters.html"><em class="replaceable"><code>Ec2TagFilter, ...</code></em></a> ],
+    &quot;<a href="aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-loadbalancerinfo"><code class="code">LoadBalancerInfo</code></a>&quot; : <a href="aws-properties-codedeploy-deploymentgroup-loadbalancerinfo.html"><em class="replaceable"><code>LoadBalancerInfo</code></em></a>,
+    &quot;<a href="aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-onpremisesinstancetagfilters"><code class="code">OnPremisesInstanceTagFilters</code></a>&quot; : [ <a href="aws-properties-codedeploy-deploymentgroup-onpremisesinstancetagfilters.html"><em class="replaceable"><code>OnPremisesInstanceTagFilter, ...</code></em></a> ],
+    &quot;<a href="aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-servicerolearn"><code class="code">ServiceRoleArn</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-triggerconfigurations"><code class="code">TriggerConfigurations</code></a>&quot; : [ <a href="aws-properties-codedeploy-deploymentgroup-triggerconfig.html"><em class="replaceable"><code>TriggerConfig, ...</code></em></a> ]
   }
 }</code></pre>
                         </div><div id="YAML" name="YAML" class="section langfilter">
@@ -40,20 +46,35 @@
                         
                         <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">Type: &quot;AWS::CodeDeploy::DeploymentGroup&quot;
 Properties:
+  <a href="aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-alarmconfiguration"><code class="code">AlarmConfiguration</code></a>:
+    <a href="aws-properties-codedeploy-deploymentgroup-alarmconfiguration.html"><em class="replaceable"><code>AlarmConfiguration</code></em></a>
   <a href="aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-applicationname"><code class="code">ApplicationName</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-autorollbackconfiguration"><code class="code">AutoRollbackConfiguration</code></a>: 
+    <a href="aws-properties-codedeploy-deploymentgroup-autorollbackconfiguration.html"><em class="replaceable"><code>AutoRollbackConfiguration</code></em></a>
   <a href="aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-autoscalinggroups"><code class="code">AutoScalingGroups</code></a>:
     - <em class="replaceable"><code>String</code></em>
   <a href="aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-deployment"><code class="code">Deployment</code></a>:
-    <em class="replaceable"><code>Deployment</code></em>
+    <a href="aws-properties-codedeploy-deploymentgroup-deployment.html"><em class="replaceable"><code>Deployment</code></em></a>
   <a href="aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-deploymentconfigname"><code class="code">DeploymentConfigName</code></a>: <em class="replaceable"><code>String</code></em>
   <a href="aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-deploymentgroupname"><code class="code">DeploymentGroupName</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-deploymentstyle"><code class="code">DeploymentStyle</code></a>: 
+    <a href="aws-properties-codedeploy-deploymentgroup-deploymentstyle.html"><em class="replaceable"><code>DeploymentStyle</code></em></a>
   <a href="aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-ec2tagfilters"><code class="code">Ec2TagFilters</code></a>:
-    - <em class="replaceable"><code>Ec2TagFilters</code></em>
+    - <a href="aws-properties-codedeploy-deploymentgroup-ec2tagfilters.html"><em class="replaceable"><code>Ec2TagFilters</code></em></a>
+  <a href="aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-loadbalancerinfo"><code class="code">LoadBalancerInfo</code></a>: 
+    <a href="aws-properties-codedeploy-deploymentgroup-loadbalancerinfo.html"><em class="replaceable"><code>LoadBalancerInfo</code></em></a>
   <a href="aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-onpremisesinstancetagfilters"><code class="code">OnPremisesInstanceTagFilters</code></a>:
-    - <em class="replaceable"><code>OnPremisesInstanceTagFilters</code></em>
+    - <a href="aws-properties-codedeploy-deploymentgroup-onpremisesinstancetagfilters.html"><em class="replaceable"><code>OnPremisesInstanceTagFilters</code></em></a>
   <a href="aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-servicerolearn"><code class="code">ServiceRoleArn</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-triggerconfigurations"><code class="code">TriggerConfigurations</code></a>:
+    - <a href="aws-properties-codedeploy-deploymentgroup-triggerconfig.html"><em class="replaceable"><code>TriggerConfig</code></em></a>
 </code></pre>
-                        </div><h2 id="w2ab2c19c12d169c11">Properties</h2><div class="variablelist">
+                        </div><h2 id="w2ab2c21c10d221b9">Properties</h2><div class="variablelist">
+                        
+                        
+                        
+                        
+                        
                         
                         
                         
@@ -65,13 +86,33 @@ Properties:
                         
                         <dl>
                            
+                           <dt><a id="cfn-codedeploy-deploymentgroup-alarmconfiguration"></a><span class="term"><code class="code">AlarmConfiguration</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>Information about the Amazon CloudWatch alarms that are associated with the deployment
+                                 group.
+                              </p>
+                              
+                              <p><em>Required: </em>No
+                              </p>
+                              
+                              <p><em>Type</em>: <a href="aws-properties-codedeploy-deploymentgroup-alarmconfiguration.html">AWS CodeDeploy DeploymentGroup AlarmConfiguration</a></p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
                            <dt><a id="cfn-codedeploy-deploymentgroup-applicationname"></a><span class="term"><code class="code">ApplicationName</code></span></dt>
                            
                            <dd>
                               
-                              <p>The name of an AWS CodeDeploy application for this deployment group.</p>
+                              <p>The name of an existing AWS CodeDeploy application to associate this deployment group
+                                 with.
+                              </p>
                               
-                              <p><em>Required</em>: Yes
+                              <p><em>Required: </em>Yes
                               </p>
                               
                               <p><em>Type</em>: String
@@ -82,19 +123,44 @@ Properties:
                            </dd>
                            
                            
+                           <dt><a id="cfn-codedeploy-deploymentgroup-autorollbackconfiguration"></a><span class="term"><code class="code">AutoRollbackConfiguration</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>Information about the automatic rollback configuration that is associated with the
+                                 deployment group. 
+                                 If you specify this property, don&apos;t specify the <code class="code">Deployment</code> property.
+                              </p>
+                              
+                              <p>
+                                 <em>Required</em>: No
+                              </p>
+                              
+                              <p>
+                                 <em>Type</em>: <a href="aws-properties-codedeploy-deploymentgroup-autorollbackconfiguration.html">AWS CodeDeploy DeploymentGroup AutoRollbackConfiguration</a></p>
+                              
+                              <p>
+                                 <em>Update requires</em>:              
+                                 <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
+                                 
+                              </p>
+                              
+                           </dd>
+                           
+                           
                            <dt><a id="cfn-codedeploy-deploymentgroup-autoscalinggroups"></a><span class="term"><code class="code">AutoScalingGroups</code></span></dt>
                            
                            <dd>
                               
                               <p>A list of associated Auto Scaling groups that AWS CodeDeploy automatically deploys
                                  revisions to
-                                 when new instances are created.
+                                 when new instances are created. Duplicates are not allowed.
                               </p>
                               
-                              <p><em>Required</em>: No
+                              <p><em>Required: </em>No
                               </p>
                               
-                              <p><em>Type</em>: List of strings
+                              <p><em>Type</em>: List of String values
                               </p>
                               
                               <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
@@ -106,9 +172,14 @@ Properties:
                            
                            <dd>
                               
-                              <p>The application revision that will be deployed to this deployment group.</p>
+                              <p>The application revision to deploy to this deployment group. If you specify this property,
+                                 your target application revision will be 
+                                 deployed as soon as the provisioning process is complete. If you specify this property,
+                                 
+                                 don&apos;t specify the <code class="code">AutoRollbackConfiguration</code> property.
+                              </p>
                               
-                              <p><em>Required</em>: No
+                              <p><em>Required: </em>No
                               </p>
                               
                               <p><em>Type</em>: <a href="aws-properties-codedeploy-deploymentgroup-deployment.html">AWS CodeDeploy DeploymentGroup
@@ -126,12 +197,11 @@ Properties:
                               <p>A deployment configuration name or a predefined configuration name. With
                                  predefined configurations, you can deploy application revisions to one instance at
                                  a time, half of the instances at a time, or all the instances at once. For more
-                                 information and valid values, see the <code class="code">DeploymentConfigName</code> parameter
-                                 for the <a href="http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_CreateDeploymentGroup.html" target="_blank">CreateDeploymentGroup</a> action in the
-                                 <em>AWS CodeDeploy API Reference</em>.
+                                 information and valid values, see <a href="http://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations.html" target="_blank">Working with Deployment Configurations</a> 
+                                 in the <em>AWS CodeDeploy User Guide</em>.
                               </p>
                               
-                              <p><em>Required</em>: No
+                              <p><em>Required: </em>No
                               </p>
                               
                               <p><em>Type</em>: String
@@ -151,6 +221,7 @@ Properties:
                                  unique physical ID and uses that ID for the deployment group name. For more
                                  information, see <a href="aws-properties-name.html">Name Type</a>.
                               </p>
+                              
                               <div class="aws-note">
                                  <p class="aws-note">Important</p>
                                  <p>If you specify a name, you cannot perform updates that require replacement of this
@@ -160,7 +231,7 @@ Properties:
                                  </p>
                               </div>
                               
-                              <p><em>Required</em>: No
+                              <p><em>Required: </em>No
                               </p>
                               
                               <p><em>Type</em>: String
@@ -171,22 +242,87 @@ Properties:
                            </dd>
                            
                            
+                           <dt><a id="cfn-codedeploy-deploymentgroup-deploymentstyle"></a><span class="term"><code class="code">DeploymentStyle</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>Attributes that determine the type of deployment, 
+                                 including specifying whether to route deployment traffic behind a load balancer for
+                                 an AWS CodeDeploy deployment group.
+                              </p>
+                              
+                              
+                              <div class="aws-note">
+                                 <p class="aws-note">Note</p>
+                                 <p>Currently, AWS CloudFormation only supports <code class="code">IN_PLACE</code> deployment types.
+                                 </p>
+                              </div>
+                              
+                              <p>
+                                 <em>Required</em>: No
+                              </p>
+                              
+                              <p>
+                                 <em>Type</em>: <a href="aws-properties-codedeploy-deploymentgroup-deploymentstyle.html">AWS CodeDeploy DeploymentGroup DeploymentStyle</a></p>
+                              
+                              <p>
+                                 <em>Update requires</em>:              
+                                 <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
+                                 
+                              </p>
+                              
+                           </dd>
+                           
+                           
                            <dt><a id="cfn-codedeploy-deploymentgroup-ec2tagfilters"></a><span class="term"><code class="code">Ec2TagFilters</code></span></dt>
                            
                            <dd>
                               
-                              <p>The Amazon EC2 tags to filter on. AWS CodeDeploy includes all instances that match
-                                 the tag
-                                 filter with this deployment group.
+                              <p>The EC2 tags that are already applied to EC2 instances that you want to include in
+                                 the deployment group. AWS CodeDeploy includes all 
+                                 EC2 instances identified by any of the tags you specify in this deployment group.
+                                 Duplicates are not allowed.
                               </p>
                               
-                              <p><em>Required</em>: No
+                              <p><em>Required: </em>No
                               </p>
                               
-                              <p><em>Type</em>: <a href="aws-properties-codedeploy-deploymentgroup-ec2tagfilters.html">AWS CodeDeploy DeploymentGroup
+                              <p><em>Type</em>: List of <a href="aws-properties-codedeploy-deploymentgroup-ec2tagfilters.html">AWS CodeDeploy DeploymentGroup
                                     Ec2TagFilters</a></p>
                               
                               <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-codedeploy-deploymentgroup-loadbalancerinfo"></a><span class="term"><code class="code">LoadBalancerInfo</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>Information about the load balancer to use in an in-place deployment. For more information,
+                                 see <a href="http://docs.aws.amazon.com/codedeploy/latest/userguide/integrations-aws-elastic-load-balancing.html" target="_blank">
+                                    Integrating AWS CodeDeploy with Elastic Load Balancing</a> in the <em>AWS CodeDeploy User Guide</em>.
+                              </p>
+                              
+                              
+                              <div class="aws-note">
+                                 <p class="aws-note">Note</p>
+                                 <p>Currently, AWS CloudFormation only supports <code class="code">IN_PLACE</code> deployment types.
+                                 </p>
+                              </div>
+                              
+                              <p>
+                                 <em>Required</em>: No
+                              </p>
+                              
+                              <p>
+                                 <em>Type</em>: <a href="aws-properties-codedeploy-deploymentgroup-loadbalancerinfo.html">AWS CodeDeploy DeploymentGroup LoadBalancerInfo</a></p>
+                              
+                              <p>
+                                 <em>Update requires</em>:              
+                                 <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
+                                 
+                              </p>
                               
                            </dd>
                            
@@ -195,17 +331,18 @@ Properties:
                            
                            <dd>
                               
-                              <p>The on-premises instance tags to filter on. AWS CodeDeploy includes all on-premises
-                                 instances that match the tag filter with this deployment group. To register
-                                 on-premises instances with AWS CodeDeploy, see <a href="http://docs.aws.amazon.com/codedeploy/latest/userguide/how-to-configure-on-premises-host.html" target="_blank">Configure Existing
-                                    On-Premises Instances by Using AWS CodeDeploy</a> in the
-                                 <em>AWS CodeDeploy User Guide</em>.
+                              <p>The on-premises instance tags already applied to on-premises instances that you want
+                                 to include in the deployment group. 
+                                 AWS CodeDeploy includes all on-premises instances identified by any of the tags you
+                                 specify in this deployment group. To register
+                                 on-premises instances with AWS CodeDeploy, see <a href="http://docs.aws.amazon.com/codedeploy/latest/userguide/instances-on-premises.html" target="_blank">Working with On-Premises Instances for AWS CodeDeploy</a> in the
+                                 <em>AWS CodeDeploy User Guide</em>. Duplicates are not allowed.
                               </p>
                               
-                              <p><em>Required</em>: No
+                              <p><em>Required: </em>No
                               </p>
                               
-                              <p><em>Type</em>: <a href="aws-properties-codedeploy-deploymentgroup-onpremisesinstancetagfilters.html">AWS CodeDeploy
+                              <p><em>Type</em>: List of <a href="aws-properties-codedeploy-deploymentgroup-onpremisesinstancetagfilters.html">AWS CodeDeploy
                                     DeploymentGroup OnPremisesInstanceTagFilters</a></p>
                               
                               <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
@@ -229,7 +366,7 @@ Properties:
                                  </p>
                               </div>
                               
-                              <p><em>Required</em>: Yes
+                              <p><em>Required: </em>Yes
                               </p>
                               
                               <p><em>Type</em>: String
@@ -239,12 +376,31 @@ Properties:
                               
                            </dd>
                            
+                           
+                           <dt><a id="cfn-codedeploy-deploymentgroup-triggerconfigurations"></a><span class="term"><code class="code">TriggerConfigurations</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>Information
+                                 about the notification triggers for the deployment group.
+                                 Duplicates are not allowed.
+                              </p>
+                              
+                              <p><em>Required: </em>No
+                              </p>
+                              
+                              <p><em>Type</em>: List of <a href="aws-properties-codedeploy-deploymentgroup-triggerconfig.html">AWS CodeDeploy DeploymentGroup TriggerConfig</a></p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
                         </dl>
-                     </div><h2 id="w2ab2c19c12d169c13">Return Value</h2><h3 id="w2ab2c19c12d169c13b3">Ref</h3><p>When you pass the logical ID of an <code class="code">AWS::CodeDeploy::DeploymentGroup</code>
+                     </div><h2 id="w2ab2c21c10d221c11">Return Value</h2><h3 id="w2ab2c21c10d221c11b2">Ref</h3><p>When you pass the logical ID of an <code class="code">AWS::CodeDeploy::DeploymentGroup</code>
                         resource to the intrinsic <code class="code">Ref</code> function, the function returns the
                         deployment group name, such as <code class="code">mydeploymentgroup-a123d0d1</code>.
                      </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                     </p><h2 id="w2ab2c19c12d169c15">Example</h2><h3 id="w2ab2c19c12d169c15b3">Revision in GitHub</h3><p>The following example creates a deployment group that is associated with Auto Scaling
+                     </p><h2 id="w2ab2c21c10d221c13">Examples</h2><h3 id="w2ab2c21c10d221c13b2">Revision in GitHub</h3><p>The following example creates a deployment group that is associated with Auto Scaling
                         groups and
                         uses an application revision that is stored in a GitHub repository. You specify the
                         repository information as input parameters.
@@ -292,7 +448,7 @@ Properties:
             Ref: Repository
     ServiceRoleArn: 
       Ref: RoleArn</code></pre>
-                        </div><h3 id="w2ab2c19c12d169c15b5">Associate EC2 Instances</h3><p>The following example creates a deployment group that uses instance tags to associate
+                        </div><h3 id="w2ab2c21c10d221c13b4">Associate EC2 Instances</h3><p>The following example creates a deployment group that uses instance tags to associate
                         EC2 instances with the deployment group. The deployment group uses an application
                         revision
                         that is stored in an S3 bucket.
@@ -357,6 +513,660 @@ Properties:
         Type: &quot;KEY_AND_VALUE&quot;
     ServiceRoleArn: 
       Ref: RoleArn</code></pre>
+                        </div><h3 id="w2ab2c21c10d221c13b6">Alarm and Trigger</h3><p>The following example configures a billing alarm and a notification trigger for the
+                        deployment group.
+                     </p><div id="JSON" name="JSON" class="section langfilter">
+                        <h4 id="aws-resource-codedeploy-deploymentgroup-example3.json">JSON</h4>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">{
+  &quot;AWSTemplateFormatVersion&quot;: &quot;2010-09-09&quot;,
+  &quot;Parameters&quot;: {
+    &quot;EC2TagKey0&quot;: {
+      &quot;Type&quot;: &quot;String&quot;,
+      &quot;Default&quot;: &quot;ec2TagKey0&quot;
+    },
+    &quot;EC2TagValue0&quot;: {
+      &quot;Type&quot;: &quot;String&quot;,
+      &quot;Default&quot;: &quot;ec2TagValue0&quot;
+    },
+    &quot;EC2TagKey1&quot;: {
+      &quot;Type&quot;: &quot;String&quot;,
+      &quot;Default&quot;: &quot;ec2TagKey1&quot;
+    },
+    &quot;EC2TagValue1&quot;: {
+      &quot;Type&quot;: &quot;String&quot;,
+      &quot;Default&quot;: &quot;ec2TagValue1&quot;
+    },
+    &quot;CodeDeployServiceRole&quot;: {
+      &quot;Type&quot;: &quot;String&quot;
+    },
+    &quot;DeploymentGroupName&quot;: {
+      &quot;Type&quot;: &quot;String&quot;
+    }
+  },
+  &quot;Resources&quot;: {
+    &quot;myAlarm&quot;: {
+      &quot;Type&quot;: &quot;AWS::CloudWatch::Alarm&quot;,
+      &quot;Properties&quot;: {
+        &quot;Namespace&quot;: &quot;AWS/Billing&quot;,
+        &quot;MetricName&quot;: &quot;EstimatedCharges&quot;,
+        &quot;Statistic&quot;: &quot;Maximum&quot;,
+        &quot;Period&quot;: &quot;21600&quot;,
+        &quot;EvaluationPeriods&quot;: &quot;1&quot;,
+        &quot;Threshold&quot;: 1000,
+        &quot;ComparisonOperator&quot;: &quot;GreaterThanThreshold&quot;
+      }
+    },
+    &quot;mySNSTopic&quot;: {
+      &quot;Type&quot;: &quot;AWS::SNS::Topic&quot;,
+      &quot;Properties&quot;: {}
+    },
+    &quot;Application&quot;: {
+      &quot;Type&quot;: &quot;AWS::CodeDeploy::Application&quot;
+    },
+    &quot;DeploymentConfig&quot;: {
+      &quot;Type&quot;: &quot;AWS::CodeDeploy::DeploymentConfig&quot;,
+      &quot;Properties&quot;: {
+        &quot;MinimumHealthyHosts&quot;: {
+          &quot;Type&quot;: &quot;FLEET_PERCENT&quot;,
+          &quot;Value&quot;: &quot;25&quot;
+        }
+      }
+    },
+    &quot;DeploymentGroup&quot;: {
+      &quot;Type&quot;: &quot;AWS::CodeDeploy::DeploymentGroup&quot;,
+      &quot;Properties&quot;: {
+        &quot;AlarmConfiguration&quot;: {
+          &quot;Alarms&quot;: [
+            {
+              &quot;Name&quot;: {
+                &quot;Ref&quot;: &quot;myAlarm&quot;
+              }
+            }
+          ]
+        },
+        &quot;ApplicationName&quot;: {
+          &quot;Ref&quot;: &quot;Application&quot;
+        },
+        &quot;DeploymentConfigName&quot;: {
+          &quot;Ref&quot;: &quot;DeploymentConfig&quot;
+        },
+        &quot;DeploymentGroupName&quot;: {
+          &quot;Ref&quot;: &quot;DeploymentGroupName&quot;
+        },
+        &quot;Ec2TagFilters&quot;: [
+          {
+            &quot;Key&quot;: {
+              &quot;Ref&quot;: &quot;EC2TagKey0&quot;
+            },
+            &quot;Value&quot;: {
+              &quot;Ref&quot;: &quot;EC2TagValue0&quot;
+            },
+            &quot;Type&quot;: &quot;KEY_AND_VALUE&quot;
+          },
+          {
+            &quot;Key&quot;: {
+              &quot;Ref&quot;: &quot;EC2TagKey1&quot;
+            },
+            &quot;Type&quot;: &quot;KEY_ONLY&quot;
+          },
+          {
+            &quot;Value&quot;: {
+              &quot;Ref&quot;: &quot;EC2TagValue1&quot;
+            },
+            &quot;Type&quot;: &quot;VALUE_ONLY&quot;
+          }
+        ],
+        &quot;ServiceRoleArn&quot;: {
+          &quot;Ref&quot;: &quot;CodeDeployServiceRole&quot;
+        },
+        &quot;TriggerConfigurations&quot;: [
+          {
+            &quot;TriggerEvents&quot;: [
+              &quot;DeploymentSuccess&quot;,
+              &quot;DeploymentRollback&quot;
+            ],
+            &quot;TriggerName&quot;: &quot;MyTarget&quot;,
+            &quot;TriggerTargetArn&quot;: {
+              &quot;Ref&quot;: &quot;mySNSTopic&quot;
+            }
+          }
+        ]
+      }
+    }
+  }
+}</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        <h4 id="aws-resource-codedeploy-deploymentgroup-example3.yaml">YAML</h4>
+                        
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">AWSTemplateFormatVersion: 2010-09-09
+Parameters:
+  EC2TagKey0:
+    Type: String
+    Default: ec2TagKey0
+  EC2TagValue0:
+    Type: String
+    Default: ec2TagValue0
+  EC2TagKey1:
+    Type: String
+    Default: ec2TagKey1
+  EC2TagValue1:
+    Type: String
+    Default: ec2TagValue1
+  CodeDeployServiceRole:
+    Type: String
+  DeploymentGroupName:
+    Type: String
+Resources:
+  myAlarm:
+    Type: &apos;AWS::CloudWatch::Alarm&apos;
+    Properties:
+      Namespace: AWS/Billing
+      MetricName: EstimatedCharges
+      Statistic: Maximum
+      Period: &apos;21600&apos;
+      EvaluationPeriods: &apos;1&apos;
+      Threshold: 1000
+      ComparisonOperator: GreaterThanThreshold
+  mySNSTopic:
+    Type: &apos;AWS::SNS::Topic&apos;
+    Properties: {}
+  Application:
+    Type: &apos;AWS::CodeDeploy::Application&apos;
+  DeploymentConfig:
+    Type: &apos;AWS::CodeDeploy::DeploymentConfig&apos;
+    Properties:
+      MinimumHealthyHosts:
+        Type: FLEET_PERCENT
+        Value: &apos;25&apos;
+  DeploymentGroup:
+    Type: &apos;AWS::CodeDeploy::DeploymentGroup&apos;
+    Properties:
+      AlarmConfiguration:
+        Alarms:
+          - Name: !Ref myAlarm
+      ApplicationName: !Ref Application
+      DeploymentConfigName: !Ref DeploymentConfig
+      DeploymentGroupName: !Ref DeploymentGroupName
+      Ec2TagFilters:
+        - Key: !Ref EC2TagKey0
+          Value: !Ref EC2TagValue0
+          Type: KEY_AND_VALUE
+        - Key: !Ref EC2TagKey1
+          Type: KEY_ONLY
+        - Value: !Ref EC2TagValue1
+          Type: VALUE_ONLY
+      ServiceRoleArn: !Ref CodeDeployServiceRole
+      TriggerConfigurations:
+        - TriggerEvents:
+            - DeploymentSuccess
+            - DeploymentRollback
+          TriggerName: MyTarget
+          TriggerTargetArn: !Ref mySNSTopic</code></pre>
+                        </div><h3 id="w2ab2c21c10d221c13b8">Automatic Rollback Configuration</h3><p>The following example configures automatic rollback for the deployment group.</p><div id="JSON" name="JSON" class="section langfilter">
+                        
+                        <h4 id="aws-resource-codedeploy-deploymentgroup-example4.json">JSON</h4>
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">{
+  &quot;Parameters&quot;: {
+    &quot;EC2TagKey0&quot;: {
+      &quot;Type&quot;: &quot;String&quot;,
+      &quot;Default&quot;: &quot;ec2TagKey0&quot;
+    },
+    &quot;EC2TagValue0&quot;: {
+      &quot;Type&quot;: &quot;String&quot;,
+      &quot;Default&quot;: &quot;ec2TagValue0&quot;
+    },
+    &quot;EC2TagKey1&quot;: {
+      &quot;Type&quot;: &quot;String&quot;,
+      &quot;Default&quot;: &quot;ec2TagKey1&quot;
+    },
+    &quot;EC2TagValue1&quot;: {
+      &quot;Type&quot;: &quot;String&quot;,
+      &quot;Default&quot;: &quot;ec2TagValue1&quot;
+    },
+    &quot;CodeDeployServiceRole&quot;: {
+      &quot;Type&quot;: &quot;String&quot;
+    },
+    &quot;DeploymentGroupName&quot;: {
+      &quot;Type&quot;: &quot;String&quot;
+    }
+  },
+  &quot;Resources&quot;: {
+    &quot;myAlarm&quot;: {
+      &quot;Type&quot;: &quot;AWS::CloudWatch::Alarm&quot;,
+      &quot;Properties&quot;: {
+        &quot;Namespace&quot;: &quot;AWS/Billing&quot;,
+        &quot;MetricName&quot;: &quot;EstimatedCharges&quot;,
+        &quot;Statistic&quot;: &quot;Maximum&quot;,
+        &quot;Period&quot;: &quot;21600&quot;,
+        &quot;EvaluationPeriods&quot;: &quot;1&quot;,
+        &quot;Threshold&quot;: 1000,
+        &quot;ComparisonOperator&quot;: &quot;GreaterThanThreshold&quot;
+      }
+    },
+    &quot;mySNSTopic&quot;: {
+      &quot;Type&quot;: &quot;AWS::SNS::Topic&quot;,
+      &quot;Properties&quot;: {}
+    },
+    &quot;Application&quot;: {
+      &quot;Type&quot;: &quot;AWS::CodeDeploy::Application&quot;
+    },
+    &quot;DeploymentConfig&quot;: {
+      &quot;Type&quot;: &quot;AWS::CodeDeploy::DeploymentConfig&quot;,
+      &quot;Properties&quot;: {
+        &quot;MinimumHealthyHosts&quot;: {
+          &quot;Type&quot;: &quot;FLEET_PERCENT&quot;,
+          &quot;Value&quot;: &quot;25&quot;
+        }
+      }
+    },
+    &quot;DeploymentGroup&quot;: {
+      &quot;Type&quot;: &quot;AWS::CodeDeploy::DeploymentGroup&quot;,
+      &quot;Properties&quot;: {
+        &quot;AlarmConfiguration&quot;: {
+          &quot;Alarms&quot;: [
+            {
+              &quot;Name&quot;: { &quot;Ref&quot;: &quot;myAlarm&quot; }
+            }
+          ]
+        },
+        &quot;ApplicationName&quot;: {
+          &quot;Ref&quot;: &quot;Application&quot;
+        },
+        &quot;AutoRollbackConfiguration&quot;: {
+          &quot;Enabled&quot;: &quot;true&quot;,
+          &quot;Events&quot;: [ &quot;DEPLOYMENT_FAILURE&quot; ]
+        },
+        &quot;DeploymentConfigName&quot;: {
+          &quot;Ref&quot;: &quot;DeploymentConfig&quot;
+        },
+        &quot;DeploymentGroupName&quot;: {
+          &quot;Ref&quot;: &quot;DeploymentGroupName&quot;
+        },
+        &quot;Ec2TagFilters&quot;: [
+          {
+            &quot;Key&quot;: {
+              &quot;Ref&quot;: &quot;EC2TagKey0&quot;
+            },
+            &quot;Value&quot;: {
+              &quot;Ref&quot;: &quot;EC2TagValue0&quot;
+            },
+            &quot;Type&quot;: &quot;KEY_AND_VALUE&quot;
+          },
+          {
+            &quot;Key&quot;: {
+              &quot;Ref&quot;: &quot;EC2TagKey1&quot;
+            },
+            &quot;Type&quot;: &quot;KEY_ONLY&quot;
+          },
+          {
+            &quot;Value&quot;: {
+              &quot;Ref&quot;: &quot;EC2TagValue1&quot;
+            },
+            &quot;Type&quot;: &quot;VALUE_ONLY&quot;
+          }
+        ],
+        &quot;ServiceRoleArn&quot;: {
+          &quot;Ref&quot;: &quot;CodeDeployServiceRole&quot;
+        },
+        &quot;TriggerConfigurations&quot;: [
+          {
+            &quot;TriggerEvents&quot;: [ &quot;DeploymentSuccess&quot;, &quot;DeploymentRollback&quot; ],
+            &quot;TriggerName&quot;: &quot;MyTarget&quot;,
+            &quot;TriggerTargetArn&quot;: { &quot;Ref&quot;: &quot;mySNSTopic&quot; }
+          }
+        ]
+      }
+    }
+  }
+}</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        
+                        <h4 id="aws-resource-codedeploy-deploymentgroup-example4.yaml">YAML</h4>
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">Parameters:
+  EC2TagKey0:
+    Type: String
+    Default: ec2TagKey0
+  EC2TagValue0:
+    Type: String
+    Default: ec2TagValue0
+  EC2TagKey1:
+    Type: String
+    Default: ec2TagKey1
+  EC2TagValue1:
+    Type: String
+    Default: ec2TagValue1
+  CodeDeployServiceRole:
+    Type: String
+  DeploymentGroupName:
+    Type: String
+Resources:
+  myAlarm:
+    Type: &apos;AWS::CloudWatch::Alarm&apos;
+    Properties:
+      Namespace: AWS/Billing
+      MetricName: EstimatedCharges
+      Statistic: Maximum
+      Period: &apos;21600&apos;
+      EvaluationPeriods: &apos;1&apos;
+      Threshold: 1000
+      ComparisonOperator: GreaterThanThreshold
+  mySNSTopic:
+    Type: &apos;AWS::SNS::Topic&apos;
+    Properties: {}
+  Application:
+    Type: &apos;AWS::CodeDeploy::Application&apos;
+  DeploymentConfig:
+    Type: &apos;AWS::CodeDeploy::DeploymentConfig&apos;
+    Properties:
+      MinimumHealthyHosts:
+        Type: FLEET_PERCENT
+        Value: &apos;25&apos;
+  DeploymentGroup:
+    Type: &apos;AWS::CodeDeploy::DeploymentGroup&apos;
+    Properties:
+      AlarmConfiguration:
+        Alarms:
+          - Name: !Ref myAlarm
+      ApplicationName: !Ref Application
+      AutoRollbackConfiguration:
+        Enabled: &apos;true&apos;
+        Events:
+          - DEPLOYMENT_FAILURE
+      DeploymentConfigName: !Ref DeploymentConfig
+      DeploymentGroupName: !Ref DeploymentGroupName
+      Ec2TagFilters:
+        - Key: !Ref EC2TagKey0
+          Value: !Ref EC2TagValue0
+          Type: KEY_AND_VALUE
+        - Key: !Ref EC2TagKey1
+          Type: KEY_ONLY
+        - Value: !Ref EC2TagValue1
+          Type: VALUE_ONLY
+      ServiceRoleArn: !Ref CodeDeployServiceRole
+      TriggerConfigurations:
+        - TriggerEvents:
+            - DeploymentSuccess
+            - DeploymentRollback
+          TriggerName: MyTarget
+          TriggerTargetArn: !Ref mySNSTopic
+</code></pre>
+                        </div><h3 id="w2ab2c21c10d221c13c10">Load Balancer</h3><p>The following example configures an Elastic Load Balancing load balancer for the deployment
+                        group.
+                     </p><div id="JSON" name="JSON" class="section langfilter">
+                        
+                        <h4 id="aws-resource-codedeploy-deploymentgroup-example5.json">JSON</h4>
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">{
+  &quot;Parameters&quot;: {
+    &quot;EC2TagKey0&quot;: {
+      &quot;Type&quot;: &quot;String&quot;,
+      &quot;Default&quot;: &quot;ec2TagKey0&quot;
+    },
+    &quot;EC2TagValue0&quot;: {
+      &quot;Type&quot;: &quot;String&quot;,
+      &quot;Default&quot;: &quot;ec2TagValue0&quot;
+    },
+    &quot;EC2TagKey1&quot;: {
+      &quot;Type&quot;: &quot;String&quot;,
+      &quot;Default&quot;: &quot;ec2TagKey1&quot;
+    },
+    &quot;EC2TagValue1&quot;: {
+      &quot;Type&quot;: &quot;String&quot;,
+      &quot;Default&quot;: &quot;ec2TagValue1&quot;
+    },
+    &quot;CodeDeployServiceRole&quot;: {
+      &quot;Type&quot;: &quot;String&quot;
+    },
+    &quot;DeploymentGroupName&quot;: {
+      &quot;Type&quot;: &quot;String&quot;
+    },
+    &quot;VpcCidr&quot;: {
+      &quot;Type&quot;: &quot;String&quot;
+    },
+    &quot;SubnetCidr&quot;: {
+      &quot;Type&quot;: &quot;String&quot;
+    }
+  },
+  &quot;Resources&quot;: {
+    &quot;myVpc&quot;: {
+      &quot;Type&quot;: &quot;AWS::EC2::VPC&quot;,
+      &quot;Properties&quot;: {
+        &quot;CidrBlock&quot;: { &quot;Ref&quot;: &quot;VpcCidr&quot; }
+      }
+    },
+    &quot;mySubnet&quot; : {
+      &quot;Type&quot; : &quot;AWS::EC2::Subnet&quot;,
+      &quot;Properties&quot; : {
+        &quot;VpcId&quot; : { &quot;Ref&quot; : &quot;myVpc&quot; },
+        &quot;CidrBlock&quot; : { &quot;Ref&quot;: &quot;SubnetCidr&quot; }
+      }
+    },
+    &quot;InternetGateway&quot; : {
+      &quot;Type&quot; : &quot;AWS::EC2::InternetGateway&quot;
+    },
+    &quot;AttachGateway&quot; : {
+      &quot;Type&quot; : &quot;AWS::EC2::VPCGatewayAttachment&quot;,
+      &quot;Properties&quot; : {
+        &quot;VpcId&quot; : { &quot;Ref&quot; : &quot;myVpc&quot; },
+        &quot;InternetGatewayId&quot; : { &quot;Ref&quot; : &quot;InternetGateway&quot; }
+      }
+    },
+    &quot;myELB&quot;: {
+      &quot;Type&quot;: &quot;AWS::ElasticLoadBalancing::LoadBalancer&quot;,
+      &quot;Properties&quot;: {
+        &quot;Listeners&quot;: [{
+          &quot;InstancePort&quot;: &quot;8000&quot;,
+          &quot;LoadBalancerPort&quot;: &quot;80&quot;,
+          &quot;Protocol&quot;: &quot;HTTP&quot;
+        }],
+        &quot;Subnets&quot;: [ { &quot;Ref&quot; : &quot;mySubnet&quot; } ]
+      }
+    },
+    &quot;mySNSTopic&quot;: {
+      &quot;Type&quot;: &quot;AWS::SNS::Topic&quot;,
+      &quot;Properties&quot;: {}
+    },
+    &quot;Application&quot;: {
+      &quot;Type&quot;: &quot;AWS::CodeDeploy::Application&quot;
+    },
+    &quot;DeploymentConfig&quot;: {
+      &quot;Type&quot;: &quot;AWS::CodeDeploy::DeploymentConfig&quot;,
+      &quot;Properties&quot;: {
+        &quot;MinimumHealthyHosts&quot;: {
+          &quot;Type&quot;: &quot;FLEET_PERCENT&quot;,
+          &quot;Value&quot;: &quot;25&quot;
+        }
+      }
+    },
+    &quot;DeploymentGroup&quot;: {
+      &quot;Type&quot;: &quot;AWS::CodeDeploy::DeploymentGroup&quot;,
+      &quot;Properties&quot;: {
+        &quot;ApplicationName&quot;: {
+          &quot;Ref&quot;: &quot;Application&quot;
+        },
+        &quot;DeploymentConfigName&quot;: {
+          &quot;Ref&quot;: &quot;DeploymentConfig&quot;
+        },
+        &quot;DeploymentGroupName&quot;: {
+          &quot;Ref&quot;: &quot;DeploymentGroupName&quot;
+        },
+        &quot;Ec2TagFilters&quot;: [
+          {
+            &quot;Key&quot;: {
+              &quot;Ref&quot;: &quot;EC2TagKey0&quot;
+            },
+            &quot;Value&quot;: {
+              &quot;Ref&quot;: &quot;EC2TagValue0&quot;
+            },
+            &quot;Type&quot;: &quot;KEY_AND_VALUE&quot;
+          },
+          {
+            &quot;Key&quot;: {
+              &quot;Ref&quot;: &quot;EC2TagKey1&quot;
+            },
+            &quot;Type&quot;: &quot;KEY_ONLY&quot;
+          }
+        ],
+        &quot;LoadBalancerInfo&quot;: {
+          &quot;ElbInfoList&quot;: [{
+            &quot;Name&quot;: { &quot;Ref&quot; : &quot;myELB&quot; }
+          }]
+        },
+        &quot;DeploymentStyle&quot;: {
+          &quot;DeploymentOption&quot;: &quot;WITH_TRAFFIC_CONTROL&quot;
+        },
+        &quot;ServiceRoleArn&quot;: {
+          &quot;Ref&quot;: &quot;CodeDeployServiceRole&quot;
+        },
+        &quot;TriggerConfigurations&quot;: [
+          {
+            &quot;TriggerEvents&quot;: [ &quot;DeploymentSuccess&quot;, &quot;DeploymentFailure&quot; ],
+            &quot;TriggerName&quot;: &quot;MyTarget&quot;,
+            &quot;TriggerTargetArn&quot;: { &quot;Ref&quot;: &quot;mySNSTopic&quot; }
+          }
+        ]
+      }
+    }
+  },
+  &quot;Outputs&quot;: {
+    &quot;ELB&quot;: {
+      &quot;Description&quot;: &quot;ELB for DeploymentGroup&quot;,
+      &quot;Value&quot; : { &quot;Ref&quot; : &quot;myELB&quot; }
+    }
+  }
+}</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        
+                        <h4 id="aws-resource-codedeploy-deploymentgroup-example5.yaml">YAML</h4>
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">Parameters:
+  EC2TagKey0:
+    Type: String
+    Default: ec2TagKey0
+  EC2TagValue0:
+    Type: String
+    Default: ec2TagValue0
+  EC2TagKey1:
+    Type: String
+    Default: ec2TagKey1
+  EC2TagValue1:
+    Type: String
+    Default: ec2TagValue1
+  CodeDeployServiceRole:
+    Type: String
+  DeploymentGroupName:
+    Type: String
+  VpcCidr:
+    Type: String
+  SubnetCidr:
+    Type: String
+Resources:
+  myVpc:
+    Type: &apos;AWS::EC2::VPC&apos;
+    Properties:
+      CidrBlock: !Ref VpcCidr
+  mySubnet:
+    Type: &apos;AWS::EC2::Subnet&apos;
+    Properties:
+      VpcId: !Ref myVpc
+      CidrBlock: !Ref SubnetCidr
+  InternetGateway:
+    Type: &apos;AWS::EC2::InternetGateway&apos;
+  AttachGateway:
+    Type: &apos;AWS::EC2::VPCGatewayAttachment&apos;
+    Properties:
+      VpcId: !Ref myVpc
+      InternetGatewayId: !Ref InternetGateway
+  myELB:
+    Type: &apos;AWS::ElasticLoadBalancing::LoadBalancer&apos;
+    Properties:
+      Listeners:
+        - InstancePort: &apos;8000&apos;
+          LoadBalancerPort: &apos;80&apos;
+          Protocol: HTTP
+      Subnets:
+        - !Ref mySubnet
+  mySNSTopic:
+    Type: &apos;AWS::SNS::Topic&apos;
+    Properties: {}
+  Application:
+    Type: &apos;AWS::CodeDeploy::Application&apos;
+  DeploymentConfig:
+    Type: &apos;AWS::CodeDeploy::DeploymentConfig&apos;
+    Properties:
+      MinimumHealthyHosts:
+        Type: FLEET_PERCENT
+        Value: &apos;25&apos;
+  DeploymentGroup:
+    Type: &apos;AWS::CodeDeploy::DeploymentGroup&apos;
+    Properties:
+      ApplicationName: !Ref Application
+      DeploymentConfigName: !Ref DeploymentConfig
+      DeploymentGroupName: !Ref DeploymentGroupName
+      Ec2TagFilters:
+        - Key: !Ref EC2TagKey0
+          Value: !Ref EC2TagValue0
+          Type: KEY_AND_VALUE
+        - Key: !Ref EC2TagKey1
+          Type: KEY_ONLY
+      LoadBalancerInfo:
+        ElbInfoList:
+          - Name: !Ref myELB
+      DeploymentStyle:
+        DeploymentOption: WITH_TRAFFIC_CONTROL
+      ServiceRoleArn: !Ref CodeDeployServiceRole
+      TriggerConfigurations:
+        - TriggerEvents:
+            - DeploymentSuccess
+            - DeploymentFailure
+          TriggerName: MyTarget
+          TriggerTargetArn: !Ref mySNSTopic
+Outputs:
+  ELB:
+    Description: ELB for DeploymentGroup
+    Value: !Ref myELB
+</code></pre>
+                        </div><h3 id="w2ab2c21c10d221c13c12">Target Group Info</h3><p>The following example specifies the target group to use in a deployment. Instances
+                        are registered as targets in a target group, and traffic is routed to the target group.
+                     </p><div id="JSON" name="JSON" class="section langfilter">
+                        
+                        <h4 id="aws-resource-codedeploy-deploymentgroup-example6.json">JSON</h4>
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">{
+    &quot;AWSTemplateFormatVersion&quot;: &quot;2010-09-09&quot;,
+    &quot;Resources&quot;: {
+        &quot;AppDeploymentGroup&quot;: {
+            &quot;Type&quot;: &quot;AWS::CodeDeploy::DeploymentGroup&quot;,
+            &quot;Properties&quot;: {
+                &quot;ApplicationName&quot;: &quot;MyApp&quot;,
+                &quot;DeploymentStyle&quot;: {
+                    &quot;DeploymentOption&quot;: &quot;WITH_TRAFFIC_CONTROL&quot;
+                },
+                &quot;LoadBalancerInfo&quot;: {
+                    &quot;TargetGroupInfoList&quot;: [
+                        {
+                            &quot;Name&quot;: &quot;myTargetGroup&quot;
+                        }
+                    ]
+                },
+                &quot;ServiceRoleArn&quot;: &quot;arn:aws:iam::12345678:role/CodeDeployServiceRole&quot;
+            }
+        }
+    }
+}</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        
+                        <h4 id="aws-resource-codedeploy-deploymentgroup-example6.yaml">YAML</h4>
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">AWSTemplateFormatVersion: 2010-09-09
+Resources:
+  AppDeploymentGroup:
+    Type: &apos;AWS::CodeDeploy::DeploymentGroup&apos;
+    Properties:
+      ApplicationName: MyApp
+      DeploymentStyle:
+        DeploymentOption: WITH_TRAFFIC_CONTROL
+      LoadBalancerInfo:
+        TargetGroupInfoList:
+          - Name: myTargetGroup
+      ServiceRoleArn: &apos;arn:aws:iam::12345678:role/CodeDeployServiceRole&apos;</code></pre>
                         </div></div>
 </body>
 </html>

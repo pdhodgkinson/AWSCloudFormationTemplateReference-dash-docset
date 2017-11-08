@@ -23,9 +23,9 @@
                         <p><strong>Topics</strong></p>
                         <ul>
                            <li><a href="#aws-resource-ec2-securitygroupegress-syntax">Syntax</a></li>
-                           <li><a href="#w2ab2c19c12d321c13">Properties</a></li>
-                           <li><a href="#w2ab2c19c12d321c15">Return Values</a></li>
-                           <li><a href="#w2ab2c19c12d321c17">VPC Security Groups Example</a></li>
+                           <li><a href="#w2ab2c21c10d421c11">Properties</a></li>
+                           <li><a href="#w2ab2c21c10d421c13">Return Values</a></li>
+                           <li><a href="#w2ab2c21c10d421c15">VPC Security Groups Example</a></li>
                         </ul>
                      </div><h2 id="aws-resource-ec2-securitygroupegress-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
                         <h3 id="aws-resource-ec2-securitygroupegress-syntax.json">JSON</h3>
@@ -35,6 +35,7 @@
   &quot;Properties&quot; : {
     &quot;<a href="aws-resource-ec2-security-group-egress.html#cfn-ec2-securitygroupegress-cidrip"><code class="literal">CidrIp</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
     &quot;<a href="aws-resource-ec2-security-group-egress.html#cfn-ec2-securitygroupegress-cidripv6"><code class="code">CidrIpv6</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-resource-ec2-security-group-egress.html#cfn-ec2-securitygroupegress-description"><code class="literal">Description</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
     &quot;<a href="aws-resource-ec2-security-group-egress.html#cfn-ec2-securitygroupegress-destinationprefixlistid"><code class="code">DestinationPrefixListId</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
     &quot;<a href="aws-resource-ec2-security-group-egress.html#cfn-ec2-securitygroupegress-destinationsecuritygroupid"><code class="literal">DestinationSecurityGroupId</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
     &quot;<a href="aws-resource-ec2-security-group-egress.html#cfn-ec2-securitygroupegress-fromport"><code class="literal">FromPort</code></a>&quot; : <em class="replaceable"><code>Integer</code></em>,
@@ -51,6 +52,7 @@ Type: &quot;AWS::EC2::SecurityGroupEgress&quot;
 Properties:
   <a href="aws-resource-ec2-security-group-egress.html#cfn-ec2-securitygroupegress-cidrip"><code class="literal">CidrIp</code></a>: <em class="replaceable"><code>String</code></em>
   <a href="aws-resource-ec2-security-group-egress.html#cfn-ec2-securitygroupegress-cidripv6"><code class="code">CidrIpv6</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-resource-ec2-security-group-egress.html#cfn-ec2-securitygroupegress-description"><code class="literal">Description</code></a>: <em class="replaceable"><code>String</code></em>
   <a href="aws-resource-ec2-security-group-egress.html#cfn-ec2-securitygroupegress-destinationprefixlistid"><code class="code">DestinationPrefixListId</code></a>: <em class="replaceable"><code>String</code></em>
   <a href="aws-resource-ec2-security-group-egress.html#cfn-ec2-securitygroupegress-destinationsecuritygroupid"><code class="literal">DestinationSecurityGroupId</code></a>:  <em class="replaceable"><code>String</code></em>
   <a href="aws-resource-ec2-security-group-egress.html#cfn-ec2-securitygroupegress-fromport"><code class="literal">FromPort</code></a>: <em class="replaceable"><code>Integer</code></em>
@@ -58,13 +60,15 @@ Properties:
   <a href="aws-resource-ec2-security-group-egress.html#cfn-ec2-securitygroupegress-ipprotocol"><code class="literal">IpProtocol</code></a>: <em class="replaceable"><code>String</code></em>
   <a href="aws-resource-ec2-security-group-egress.html#cfn-ec2-securitygroupegress-toport"><code class="literal">ToPort</code></a>: <em class="replaceable"><code>Integer</code></em>
 </code></pre>
-                        </div><h2 id="w2ab2c19c12d321c13">Properties</h2><p>For more information about adding egress rules to VPC security groups, go to <a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AuthorizeSecurityGroupEgress.html" target="_blank">AuthorizeSecurityGroupEgress</a> in the <em>Amazon EC2 API Reference</em>.
+                        </div><h2 id="w2ab2c21c10d421c11">Properties</h2><p>For more information about adding egress rules to VPC security groups, go to <a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AuthorizeSecurityGroupEgress.html" target="_blank">AuthorizeSecurityGroupEgress</a> in the <em>Amazon EC2 API Reference</em>.
                      </p><div class="aws-note">
                         <p class="aws-note">Note</p>
                         <p>If you change this resource&apos;s logical ID, you must also update a property value in
                            order to trigger an update for this resource.
                         </p>
                      </div><div class="variablelist">
+                        
+                        
                         
                         
                         
@@ -82,7 +86,7 @@ Properties:
                               
                               <p>An IPv4 CIDR range.</p>
                               
-                              <p><em>Required</em>: Conditional. You must specify a destination security group
+                              <p><em>Required: </em>Conditional. You must specify a destination security group
                                  (<code class="code">DestinationPrefixListId</code> or <code class="code">DestinationSecurityGroupId</code>) or a
                                  CIDR range (<code class="code">CidrIp</code> or <code class="code">CidrIpv6</code>).
                               </p>
@@ -104,9 +108,49 @@ Properties:
                               <p><em>Type</em>: String
                               </p>
                               
-                              <p><em>Required</em>: Conditional. You must specify a destination security group
+                              <p><em>Required: </em>Conditional. You must specify a destination security group
                                  (<code class="code">DestinationPrefixListId</code> or <code class="code">DestinationSecurityGroupId</code>) or a
                                  CIDR range (<code class="code">CidrIp</code> or <code class="code">CidrIpv6</code>).
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-ec2-securitygroupegress-description"></a><span class="term"><code class="literal">Description</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>Description of the egress rule.</p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: 
+                                 <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-ec2-security-group-rule-destinationprefixlistid"></a><span class="term"><code class="code">DestinationPrefixListId (SecurityGroupEgress only)</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The AWS service prefix of an Amazon VPC endpoint. For more information, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-endpoints.html" target="_blank">VPC Endpoints</a> in the
+                                 <em>Amazon VPC User Guide</em>.
+                              </p>
+                              
+                              <p><em>Required: </em>Conditional. You must specify only one of the following properties:
+                                 <code class="code">CidrIp</code>, <code class="code">CidrIpv6</code>,
+                                 <code class="code">DestinationPrefixListId</code>, <code class="code">DestinationSecurityGroupId</code>,
+                                 or <code class="code">SourceSecurityGroupId</code>.
+                              </p>
+                              
+                              <p><em>Type</em>: String
                               </p>
                               
                               <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
@@ -122,7 +166,7 @@ Properties:
                                  <em>Amazon VPC User Guide</em>.
                               </p>
                               
-                              <p><em>Required</em>: Conditional. You must specify a destination security group
+                              <p><em>Required: </em>Conditional. You must specify a destination security group
                                  (<code class="code">DestinationPrefixListId</code> or <code class="code">DestinationSecurityGroupId</code>) or a
                                  CIDR range (<code class="code">CidrIp</code> or <code class="code">CidrIpv6</code>).
                               </p>
@@ -141,7 +185,7 @@ Properties:
                               
                               <p>Specifies the group ID of the destination Amazon VPC security group.</p>
                               
-                              <p><em>Required</em>: Conditional. You must specify a destination security group
+                              <p><em>Required: </em>Conditional. You must specify a destination security group
                                  (<code class="code">DestinationPrefixListId</code> or <code class="code">DestinationSecurityGroupId</code>) or a
                                  CIDR range (<code class="code">CidrIp</code> or <code class="code">CidrIpv6</code>).
                               </p>
@@ -163,7 +207,7 @@ Properties:
                                  specify -1 as a wildcard (i.e., any ICMP type number).
                               </p>
                               
-                              <p><em>Required</em>: Yes
+                              <p><em>Required: </em>Yes
                               </p>
                               
                               <p><em>Type</em>: Integer
@@ -183,7 +227,7 @@ Properties:
                                  valid <code class="code">VpcId</code> property or the ID of an existing Amazon VPC security group.
                               </p>
                               
-                              <p><em>Required</em>: Yes
+                              <p><em>Required: </em>Yes
                               </p>
                               
                               <p><em>Type</em>: String
@@ -200,7 +244,7 @@ Properties:
                               
                               <p>IP protocol name or number. For valid values, see the IpProtocol parameter in <a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AuthorizeSecurityGroupIngress.html" target="_blank">AuthorizeSecurityGroupIngress</a></p>
                               
-                              <p><em>Required</em>: Yes
+                              <p><em>Required: </em>Yes
                               </p>
                               
                               <p><em>Type</em>: String
@@ -220,7 +264,7 @@ Properties:
                                  specify -1 as a wildcard (i.e., any ICMP code).
                               </p>
                               
-                              <p><em>Required</em>: Yes
+                              <p><em>Required: </em>Yes
                               </p>
                               
                               <p><em>Type</em>: Integer
@@ -231,10 +275,10 @@ Properties:
                            </dd>
                            
                         </dl>
-                     </div><h2 id="w2ab2c19c12d321c15">Return Values</h2><h3 id="w2ab2c19c12d321c15b3">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code> intrinsic
+                     </div><h2 id="w2ab2c21c10d421c13">Return Values</h2><h3 id="w2ab2c21c10d421c13b2">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code> intrinsic
                         function, <code class="code">Ref</code> returns the resource name.
                      </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                     </p><h2 id="w2ab2c19c12d321c17">VPC Security Groups Example</h2><p>In some cases, you might have an originating (source) security group to which you
+                     </p><h2 id="w2ab2c21c10d421c15">VPC Security Groups Example</h2><p>In some cases, you might have an originating (source) security group to which you
                         want
                         to add an outbound rule that allows traffic to a destination (target) security group.
                         The

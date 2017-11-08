@@ -12,10 +12,10 @@
                         <p><strong>Topics</strong></p>
                         <ul>
                            <li><a href="#aws-resource-ec2-subnet-syntax">Syntax</a></li>
-                           <li><a href="#w2ab2c19c12d335c11">Properties</a></li>
-                           <li><a href="#w2ab2c19c12d335c13">Return Values</a></li>
-                           <li><a href="#w2ab2c19c12d335c15">Example</a></li>
-                           <li><a href="#w2ab2c19c12d335c17">More Info</a></li>
+                           <li><a href="#aws-resource-ec2-subnet-properties">Properties</a></li>
+                           <li><a href="#aws-resource-ec2-subnet-returnvalues">Return Values</a></li>
+                           <li><a href="#aws-resource-ec2-subnet-examples">Example</a></li>
+                           <li><a href="#w2ab2c21c10d435c15">More Info</a></li>
                         </ul>
                      </div><h2 id="aws-resource-ec2-subnet-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
                         <h3 id="aws-resource-ec2-subnet-syntax.json">JSON</h3>
@@ -23,8 +23,10 @@
                         <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">{
   &quot;Type&quot; : &quot;AWS::EC2::Subnet&quot;,
   &quot;Properties&quot; : {
+    &quot;<a href="aws-resource-ec2-subnet.html#cfn-ec2-subnet-assignipv6addressoncreation"><code class="code">AssignIpv6AddressOnCreation</code></a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
     &quot;<a href="aws-resource-ec2-subnet.html#cfn-ec2-subnet-availabilityzone">AvailabilityZone</a>&quot; : <em class="replaceable"><code>String</code></em>,
     &quot;<a href="aws-resource-ec2-subnet.html#cfn-ec2-subnet-cidrblock">CidrBlock</a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-resource-ec2-subnet.html#cfn-ec2-subnet-ipv6cidrblock"><code class="code">Ipv6CidrBlock</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
     &quot;<a href="aws-resource-ec2-subnet.html#cfn-ec2-subnet-mappubliciponlaunch"><code class="code">MapPublicIpOnLaunch</code></a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
     &quot;<a href="aws-resource-ec2-subnet.html#cfn-ec2-subnet-tags">Tags</a>&quot; : [ <em class="replaceable"><code>Resource Tag, ...</code></em> ],
     &quot;<a href="aws-resource-ec2-subnet.html#cfn-awsec2subnet-prop-vpcid">VpcId</a>&quot; : <em class="replaceable"><code>String</code></em>
@@ -34,15 +36,19 @@
                         <h3 id="aws-resource-ec2-subnet-syntax.yaml">YAML</h3>
                         
                         <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">Type: &quot;AWS::EC2::Subnet&quot;
-Properties: 
+Properties:
+  <a href="aws-resource-ec2-subnet.html#cfn-ec2-subnet-assignipv6addressoncreation"><code class="code">AssignIpv6AddressOnCreation</code></a>: <em class="replaceable"><code>Boolean</code></em>
   <a href="aws-resource-ec2-subnet.html#cfn-ec2-subnet-availabilityzone">AvailabilityZone</a>: <em class="replaceable"><code>String</code></em>
   <a href="aws-resource-ec2-subnet.html#cfn-ec2-subnet-cidrblock">CidrBlock</a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-resource-ec2-subnet.html#cfn-ec2-subnet-ipv6cidrblock"><code class="code">Ipv6CidrBlock</code></a>: <em class="replaceable"><code>String</code></em>
   <a href="aws-resource-ec2-subnet.html#cfn-ec2-subnet-mappubliciponlaunch"><code class="code">MapPublicIpOnLaunch</code></a>: <em class="replaceable"><code>Boolean</code></em>
   <a href="aws-resource-ec2-subnet.html#cfn-ec2-subnet-tags">Tags</a>:
-    <em class="replaceable"><code>Resource Tag</code></em>
+    - <em class="replaceable"><code>Resource Tag</code></em>
   <a href="aws-resource-ec2-subnet.html#cfn-awsec2subnet-prop-vpcid">VpcId</a>: <em class="replaceable"><code>String</code></em>
 </code></pre>
-                        </div><h2 id="w2ab2c19c12d335c11">Properties</h2><div class="variablelist">
+                        </div><h2 id="aws-resource-ec2-subnet-properties">Properties</h2><div class="variablelist">
+                        
+                        
                         
                         
                         
@@ -50,6 +56,26 @@ Properties:
                         
                         
                         <dl>
+                           
+                           <dt><a id="cfn-ec2-subnet-assignipv6addressoncreation"></a><span class="term"><code class="code">AssignIpv6AddressOnCreation</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>Indicates whether a network interface created in this subnet receives an IPv6 address.</p>
+                              
+                              
+                              
+                              <p><em>Required</em>: Conditional. If <code class="code">AssignIpv6AddressOnCreation</code> is <code class="code">true</code>, <code class="code">Ipv6CidrBlock</code> must be specified.
+                              </p>
+                              
+                              <p><em>Type</em>: Boolean
+                              </p>
+                              
+                              <p><em>Update requires</em>: 
+                                 <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
                            
                            <dt><a id="cfn-ec2-subnet-availabilityzone"></a><span class="term"><code class="code">AvailabilityZone</code></span></dt>
                            
@@ -75,9 +101,6 @@ Properties:
                                     <code class="code">CidrBlock</code> property.
                                  </p>
                               </div>
-                              <p>
-                                 
-                              </p>
                               
                            </dd>
                            
@@ -106,9 +129,25 @@ Properties:
                                     <code class="code">AvailabilityZone</code> property.
                                  </p>
                               </div>
-                              <p>
-                                 
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-ec2-subnet-ipv6cidrblock"></a><span class="term"><code class="code">Ipv6CidrBlock</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The IPv6 network range for the subnet, in CIDR notation. The subnet size must use
+                                 a <code class="code">/64</code> prefix length.
                               </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                               
                            </dd>
                            
@@ -121,14 +160,13 @@ Properties:
                                  IP address. By default, the value is <code class="code">false</code>.
                               </p>
                               
-                              <p><em>Required</em>: No
+                              <p><em>Required: </em>No
                               </p>
                               
                               <p><em>Type</em>: Boolean
                               </p>
                               
-                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>.
-                              </p>
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                               
                            </dd>
                            
@@ -139,13 +177,12 @@ Properties:
                               
                               <p>An arbitrary set of tags (key&#x2013;value pairs) for this subnet.</p>
                               
-                              <p><em>Required</em>: No
+                              <p><em>Required: </em>No
                               </p>
                               
                               <p><em>Type</em>: <a href="aws-properties-resource-tags.html">AWS CloudFormation Resource Tags</a></p>
                               
-                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>.
-                              </p>
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                               
                            </dd>
                            
@@ -175,23 +212,22 @@ Properties:
                                     <code class="code">CidrBlock</code> property.
                                  </p>
                               </div>
-                              <p>
-                                 
-                              </p>
                               
                            </dd>
                            
                         </dl>
-                     </div><h2 id="w2ab2c19c12d335c13">Return Values</h2><p>You can pass the logical ID of the resource to an intrinsic function to get a value
+                     </div><h2 id="aws-resource-ec2-subnet-returnvalues">Return Values</h2><p>You can pass the logical ID of the resource to an intrinsic function to get a value
                         back
                         from the resource. The value that is returned depends on the function that you used.
-                     </p><h3 id="w2ab2c19c12d335c13b5">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code>
+                     </p><h3 id="aws-resource-ec2-subnet-ref">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code>
                         intrinsic function, <code class="code">Ref</code> returns the resource ID, such as
                         <code class="code">subnet-e19f0178</code>.
                      </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                     </p><h3 id="w2ab2c19c12d335c13b7">Fn::GetAtt</h3><p><code class="code">Fn::GetAtt</code> returns a value for a specified attribute of this type.
+                     </p><h3 id="aws-resource-ec2-subnet-getatt">Fn::GetAtt</h3><p><code class="code">Fn::GetAtt</code> returns a value for a specified attribute of this type.
                         The following are the available attributes and sample return values.
                      </p><div class="variablelist">
+                        
+                        
                         
                         
                         
@@ -201,7 +237,7 @@ Properties:
                            
                            <dd>
                               
-                              <p>Returns the availability zone (for example, <code class="code">&quot;<span>us-east-1a</span>&quot;</code>) of
+                              <p>Returns the availability zone (for example, &quot;<span><code class="code">us-east-1a</code></span>&quot;) of
                                  this subnet.
                               </p>
                               
@@ -221,9 +257,31 @@ Properties:
                               
                            </dd>
                            
+                           
+                           <dt><span class="term"><code class="code">NetworkAclAssociationId</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The ID of the network ACL that is associated with the subnet&apos;s VPC, such as 
+                                 <code class="code">acl-5fb85d36</code>.
+                              </p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><span class="term"><code class="code">VpcId</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The ID of the subnet&apos;s VPC, such as 
+                                 <code class="code">vpc-11ad4878</code>.
+                              </p>
+                              
+                           </dd>
+                           
                         </dl>
                      </div><p>For more information about using <code class="code">Fn::GetAtt</code>, see <a href="intrinsic-function-reference-getatt.html">Fn::GetAtt</a>.
-                     </p><h2 id="w2ab2c19c12d335c15">Example</h2><p>The following example snippet uses the VPC ID from a VPC named
+                     </p><h2 id="aws-resource-ec2-subnet-examples">Example</h2><p>The following example snippet uses the VPC ID from a VPC named
                         <em>myVPC</em> that was declared elsewhere in the same template.
                      </p><div id="JSON" name="JSON" class="section langfilter">
                         <h3 id="aws-resource-ec2-subnet-example-1.json">JSON</h3>
@@ -237,7 +295,7 @@ Properties:
          &quot;Properties&quot; : {
             &quot;VpcId&quot; : { &quot;Ref&quot; : &quot;myVPC&quot; },
             &quot;CidrBlock&quot; : &quot;10.0.0.0/24&quot;,
-            &quot;AvailabilityZone&quot; : &quot;<span>us-east-1a</span>&quot;,
+            &quot;AvailabilityZone&quot; : &quot;<span><code class="code" copy="true">us-east-1a</code></span>&quot;,
             &quot;Tags&quot; : [ { &quot;Key&quot; : &quot;foo&quot;, &quot;Value&quot; : &quot;bar&quot; } ]
          }
       }
@@ -254,11 +312,11 @@ Resources:
       VpcId:
         Ref: myVPC
       CidrBlock: 10.0.0.0/24
-      AvailabilityZone: &quot;<span>us-east-1a</span>&quot;
+      AvailabilityZone: &quot;<span><code class="code" copy="true">us-east-1a</code></span>&quot;
       Tags:
       - Key: foo
         Value: bar</code></pre>
-                        </div><h2 id="w2ab2c19c12d335c17">More Info</h2><div class="itemizedlist">
+                        </div><h2 id="w2ab2c21c10d435c15">More Info</h2><div class="itemizedlist">
                         
                         
                         

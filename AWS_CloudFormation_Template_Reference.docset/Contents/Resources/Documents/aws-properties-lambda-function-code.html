@@ -11,14 +11,14 @@
     <h1 class="topictitle" id="aws-properties-lambda-function-code">AWS Lambda Function Code</h1><p><code class="code">Code</code> is a property of the <a href="aws-resource-lambda-function.html">AWS::Lambda::Function</a> resource that enables you to specify the source
                         code of an AWS Lambda function. Your source code can be located in either the template
                         or a file
-                        in an S3 bucket. For <code class="code">nodejs4.3</code>, <code class="code">nodejs6.10</code>, <code class="code">python2.7</code>, and <code class="code">python3.6</code> runtime environments
+                        in an Amazon Simple Storage Service (Amazon S3) bucket. For <code class="code">nodejs4.3</code>, <code class="code">nodejs6.10</code>, <code class="code">python2.7</code>, and <code class="code">python3.6</code> runtime environments
                         only, you can provide source code as inline text in your template.
                      </p><div class="aws-note">
                         <p class="aws-note">Note</p>
-                        <p>To update a Lambda function whose source code is in an S3 bucket, you must trigger
-                           an update by updating the <code class="code">S3Bucket</code>, <code class="code">S3Key</code>, or <code class="code">S3ObjectVersion</code> property. Updating the source code alone doesn&apos;t update the function.
+                        <p>To update a Lambda function whose source code is in an Amazon S3 bucket, you must
+                           trigger an update by updating the <code class="code">S3Bucket</code>, <code class="code">S3Key</code>, or <code class="code">S3ObjectVersion</code> property. Updating the source code alone doesn&apos;t update the function.
                         </p>
-                     </div><h2 id="w2ab2c19c17d869b9">Syntax</h2><div id="JSON" name="JSON" class="section langfilter">
+                     </div><h2 id="w2ab2c21c14e1275b7">Syntax</h2><div id="JSON" name="JSON" class="section langfilter">
                         <h3 id="aws-properties-lambda-function-code-syntax.json">JSON</h3>
                         
                         <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">{
@@ -35,7 +35,7 @@
 <a href="aws-properties-lambda-function-code.html#cfn-lambda-function-code-s3objectversion"><code class="code">S3ObjectVersion</code></a>: <em class="replaceable"><code>String</code></em>
 <a href="aws-properties-lambda-function-code.html#cfn-lambda-function-code-zipfile"><code class="code">ZipFile</code></a>: <em class="replaceable"><code>String</code></em>
 </code></pre>
-                        </div><h2 id="w2ab2c19c17d869c11">Properties</h2><div class="variablelist">
+                        </div><h2 id="w2ab2c21c14e1275b9">Properties</h2><div class="variablelist">
                         
                         
                         
@@ -47,18 +47,21 @@
                            
                            <dd>
                               
-                              <p>The name of the S3 bucket that contains the source code of your Lambda function. The
-                                 S3 bucket must be in the same region as the stack.
+                              <p>The name of the Amazon S3 bucket where the <code>.zip</code> file that contains your deployment package is stored. 
+                                 This bucket must reside in the same AWS region where you are creating the Lambda function.
+                                 
+                                 You can specify a bucket from another AWS account as long as the Lambda function and
+                                 the bucket are in the same region.
                               </p>
                               
                               <div class="aws-note">
                                  <p class="aws-note">Note</p>
-                                 <p>The <code class="code">cfn-response</code> module isn&apos;t available for source code stored in S3
+                                 <p>The <code class="code">cfn-response</code> module isn&apos;t available for source code stored in Amazon S3
                                     buckets. To send responses, write your own functions.
                                  </p>
                               </div>
                               
-                              <p><em>Required</em>: Conditional Specify both the <code class="code">S3Bucket</code> and <code class="code">S3Key</code>
+                              <p><em>Required: </em>Conditional Specify both the <code class="code">S3Bucket</code> and <code class="code">S3Key</code>
                                  properties or specify the <code class="code">ZipFile</code> property.
                               </p>
                               
@@ -76,7 +79,7 @@
                                  specify the <code class="code">S3Bucket</code> property.
                               </p>
                               
-                              <p><em>Required</em>: Conditional You must specify both the <code class="code">S3Bucket</code> and <code class="code">S3Key</code> properties or specify the <code class="code">ZipFile</code> property.
+                              <p><em>Required: </em>Conditional You must specify both the <code class="code">S3Bucket</code> and <code class="code">S3Key</code> properties or specify the <code class="code">ZipFile</code> property.
                               </p>
                               
                               <p><em>Type</em>: String
@@ -93,7 +96,7 @@
                                  the <code class="code">S3Bucket</code> and <code class="code">S3Key</code> properties.
                               </p>
                               
-                              <p><em>Required</em>: No
+                              <p><em>Required: </em>No
                               </p>
                               
                               <p><em>Type</em>: String
@@ -121,7 +124,7 @@
                                  sending responses. For more information, see <a href="aws-properties-lambda-function-code.html#cfn-lambda-function-code-cfnresponsemodule"><code class="code">cfn-response</code> Module</a>.
                               </p>
                               
-                              <p><em>Required</em>: Conditional You must specify both the <code class="code">S3Bucket</code> and <code class="code">S3Key</code> properties or specify the <code class="code">ZipFile</code> property.
+                              <p><em>Required: </em>Conditional You must specify both the <code class="code">S3Bucket</code> and <code class="code">S3Key</code> properties or specify the <code class="code">ZipFile</code> property.
                               </p>
                               
                               <p><em>Type</em>: String
@@ -138,9 +141,10 @@
                      </p><div class="aws-note">
                         <p class="aws-note">Note</p>
                         <p>The <code class="code">cfn-response</code> module is available only when you use the <code class="code">ZipFile</code> property to write your source code. It isn&apos;t available for source code stored in
-                           S3 buckets. For code in S3 buckets, you must write your own functions to send responses.
+                           Amazon S3 buckets. For code in buckets, you must write your own functions to send
+                           responses.
                         </p>
-                     </div><h3 id="w2ab2c19c17d869c13b9">Loading the <code class="code">cfn-response</code> Module
+                     </div><h3 id="w2ab2c21c14e1275c11b8">Loading the <code class="code">cfn-response</code> Module
                      </h3><p>For the <code class="code">nodejs4.3</code> or <code class="code">nodejs6.10</code> runtime environment, use the <code class="code">require()</code>
                         function to load the <code class="code">cfn-response</code> module. For example, the following code
                         example creates a <code class="code">cfn-response</code> object with the name
@@ -151,7 +155,7 @@
                         <p>Use this exact import statement. If you use other variants of the import statement,
                            AWS CloudFormation won&apos;t include the response module.
                         </p>
-                     </div><pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">import cfnresponse</code></pre><p></p><h3 id="w2ab2c19c17d869c13c11"><code class="code">send</code> Method Parameters
+                     </div><pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">import cfnresponse</code></pre><h3 id="w2ab2c21c14e1275c11c10"><code class="code">send</code> Method Parameters
                      </h3><p>You can use the following parameters with the <code class="code">send</code> method.
                      </p><div class="variablelist">
                         
@@ -216,7 +220,7 @@
                            </dd>
                            
                         </dl>
-                     </div><h3 id="w2ab2c19c17d869c13c13">Examples</h3><h4 id="w2ab2c19c17d869c13c13b3">Node.js</h4><p>In the following Node.js example, the inline Lambda function takes an input value
+                     </div><h3 id="w2ab2c21c14e1275c11c12">Examples</h3><h4 id="w2ab2c21c14e1275c11c12b2">Node.js</h4><p>In the following Node.js example, the inline Lambda function takes an input value
                         and multiplies it by 5. Inline functions are especially useful for smaller functions
                         because they allow you to specify the source code directly in the template instead
                         of creating a package and uploading it to an Amazon S3 bucket. The function uses the
@@ -243,7 +247,7 @@
     var responseData = {Value: input * 5};
     response.send(event, context, response.SUCCESS, responseData);
   };</code></pre>
-                        </div><h4 id="w2ab2c19c17d869c13c13b5">Python</h4><p>As in the preceding example, in the following Python example (the example works in
+                        </div><h4 id="w2ab2c21c14e1275c11c12b4">Python</h4><p>As in the preceding example, in the following Python example (the example works in
                         both version 2.7 and 3.6), the inline Lambda function takes an integer value and multiplies
                         it by 5.
                      </p><div id="JSON" name="JSON" class="section langfilter">
@@ -270,7 +274,7 @@
     responseData[&apos;Data&apos;] = responseValue
     cfnresponse.send(event, context, cfnresponse.SUCCESS, responseData, &quot;CustomResourcePhysicalID&quot;)
 </code></pre>
-                        </div><h3 id="w2ab2c19c17d869c13c15">Module Source Code</h3><p>The response module source code for the <code class="code">nodejs4.3</code> or <code class="code">nodejs6.10</code> runtime environment
+                        </div><h3 id="w2ab2c21c14e1275c11c14">Module Source Code</h3><p>The response module source code for the <code class="code">nodejs4.3</code> or <code class="code">nodejs6.10</code> runtime environment
                         follows. Review it to understand what the module does and for help with implementing
                         your
                         own response functions.
