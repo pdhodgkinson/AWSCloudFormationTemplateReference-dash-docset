@@ -14,9 +14,10 @@
                         <p><strong>Topics</strong></p>
                         <ul>
                            <li><a href="#aws-resource-apigateway-method-syntax">Syntax</a></li>
-                           <li><a href="#w2ab2c19c12c41c11">Properties</a></li>
-                           <li><a href="#w2ab2c19c12c41c13">Return Value</a></li>
-                           <li><a href="#w2ab2c19c12c41c15">Examples</a></li>
+                           <li><a href="#w2ab2c21c10c56b9">Properties</a></li>
+                           <li><a href="#w2ab2c21c10c56c11">Return Value</a></li>
+                           <li><a href="#aws-resource-apigateway-method-examples">Examples</a></li>
+                           <li><a href="#aws-resource-apigateway-method-seealso">See Also</a></li>
                         </ul>
                      </div><h2 id="aws-resource-apigateway-method-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
                         <h3 id="aws-resource-apigateway-method-syntax.json">JSON</h3>
@@ -30,8 +31,10 @@
     &quot;<a href="aws-resource-apigateway-method.html#cfn-apigateway-method-httpmethod"><code class="code">HttpMethod</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
     &quot;<a href="aws-resource-apigateway-method.html#cfn-apigateway-method-integration"><code class="code">Integration</code></a>&quot; : <em class="replaceable"><code><a href="aws-properties-apitgateway-method-integration.html">Integration</a></code></em>,
     &quot;<a href="aws-resource-apigateway-method.html#cfn-apigateway-method-methodresponses"><code class="code">MethodResponses</code></a>&quot; : [ <em class="replaceable"><code><a href="aws-properties-apitgateway-method-methodresponse.html">MethodResponse</a>, ...</code></em> ],
+    &quot;<a href="aws-resource-apigateway-method.html#cfn-apigateway-method-operationname"><code class="code">OperationName</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
     &quot;<a href="aws-resource-apigateway-method.html#cfn-apigateway-method-requestmodels"><code class="code">RequestModels</code></a>&quot; : { <em class="replaceable"><code>String</code></em>:<em class="replaceable"><code>String, ...</code></em> },
     &quot;<a href="aws-resource-apigateway-method.html#cfn-apigateway-method-requestparameters"><code class="code">RequestParameters</code></a>&quot; : { <em class="replaceable"><code>String</code></em>:<em class="replaceable"><code>Boolean, ...</code></em> },
+    &quot;<a href="aws-resource-apigateway-method.html#cfn-apigateway-method-requestvalidatorid"><code class="code">RequestValidatorId</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
     &quot;<a href="aws-resource-apigateway-method.html#cfn-apigateway-method-resourceid"><code class="code">ResourceId</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
     &quot;<a href="aws-resource-apigateway-method.html#cfn-apigateway-method-restapiid"><code class="code">RestApiId</code></a>&quot; : <em class="replaceable"><code>String</code></em>
   }
@@ -45,17 +48,22 @@ Properties:
   <a href="aws-resource-apigateway-method.html#cfn-apigateway-method-authorizationtype"><code class="code">AuthorizationType</code></a>: <em class="replaceable"><code>String</code></em>
   <a href="aws-resource-apigateway-method.html#cfn-apigateway-method-authorizerid"><code class="code">AuthorizerId</code></a>: <em class="replaceable"><code>String</code></em>
   <a href="aws-resource-apigateway-method.html#cfn-apigateway-method-httpmethod"><code class="code">HttpMethod</code></a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-apigateway-method.html#cfn-apigateway-method-integration"><code class="code">Integration</code></a>: <em class="replaceable"><code><a href="aws-properties-apitgateway-method-integration.html">Integration</a></code></em>
+  <a href="aws-resource-apigateway-method.html#cfn-apigateway-method-integration"><code class="code">Integration</code></a>:
+    <em class="replaceable"><code><a href="aws-properties-apitgateway-method-integration.html">Integration</a></code></em>
   <a href="aws-resource-apigateway-method.html#cfn-apigateway-method-methodresponses"><code class="code">MethodResponses</code></a>:
     - <em class="replaceable"><code><a href="aws-properties-apitgateway-method-methodresponse.html">MethodResponse</a></code></em>
+  <a href="aws-resource-apigateway-method.html#cfn-apigateway-method-operationname"><code class="code">OperationName</code></a>: <em class="replaceable"><code>String</code></em>
   <a href="aws-resource-apigateway-method.html#cfn-apigateway-method-requestmodels"><code class="code">RequestModels</code></a>:
     <em class="replaceable"><code>String</code></em>: <em class="replaceable"><code>String</code></em>
   <a href="aws-resource-apigateway-method.html#cfn-apigateway-method-requestparameters"><code class="code">RequestParameters</code></a>:
     <em class="replaceable"><code>String</code></em>: <em class="replaceable"><code>Boolean</code></em>
+  <a href="aws-resource-apigateway-method.html#cfn-apigateway-method-requestvalidatorid"><code class="code">RequestValidatorId</code></a>: <em class="replaceable"><code>String</code></em>
   <a href="aws-resource-apigateway-method.html#cfn-apigateway-method-resourceid"><code class="code">ResourceId</code></a>: <em class="replaceable"><code>String</code></em>
   <a href="aws-resource-apigateway-method.html#cfn-apigateway-method-restapiid"><code class="code">RestApiId</code></a>: <em class="replaceable"><code>String</code></em>
 </code></pre>
-                        </div><h2 id="w2ab2c19c12c41c11">Properties</h2><div class="variablelist">
+                        </div><h2 id="w2ab2c21c10c56b9">Properties</h2><div class="variablelist">
+                        
+                        
                         
                         
                         
@@ -75,7 +83,7 @@ Properties:
                               
                               <p>Indicates whether the method requires clients to submit a valid API key.</p>
                               
-                              <p><em>Required</em>: No
+                              <p><em>Required: </em>No
                               </p>
                               
                               <p><em>Type</em>: Boolean
@@ -92,7 +100,7 @@ Properties:
                               
                               <p>The method&apos;s authorization type.</p>
                               
-                              <p><em>Required</em>: Yes. If you specify the <code class="code">AuthorizerId</code> property, specify <code class="code">CUSTOM</code> for this property.
+                              <p><em>Required: </em>Yes. If you specify the <code class="code">AuthorizerId</code> property, specify <code class="code">CUSTOM</code> for this property.
                               </p>
                               
                               <p><em>Type</em>: String
@@ -110,7 +118,7 @@ Properties:
                               <p>The identifier of the <a href="aws-resource-apigateway-authorizer.html">authorizer</a> to use on this method. If you specify this property, specify <code class="code">CUSTOM</code> for the <code class="code">AuthorizationType</code> property.
                               </p>
                               
-                              <p><em>Required</em>: No
+                              <p><em>Required: </em>No
                               </p>
                               
                               <p><em>Type</em>: String
@@ -127,7 +135,7 @@ Properties:
                               
                               <p>The HTTP method that clients will use to call this method.</p>
                               
-                              <p><em>Required</em>: Yes
+                              <p><em>Required: </em>Yes
                               </p>
                               
                               <p><em>Type</em>: String
@@ -144,7 +152,7 @@ Properties:
                               
                               <p>The back-end system that the method calls when it receives a request.</p>
                               
-                              <p><em>Required</em>: No
+                              <p><em>Required: </em>No
                               </p>
                               
                               <p><em>Type</em>: <a href="aws-properties-apitgateway-method-integration.html">Amazon API Gateway Method Integration</a></p>
@@ -160,12 +168,32 @@ Properties:
                               
                               <p>The responses that can be sent to the client who calls the method.</p>
                               
-                              <p><em>Required</em>: No
+                              <p><em>Required: </em>No
                               </p>
                               
                               <p><em>Type</em>: List of <a href="aws-properties-apitgateway-method-methodresponse.html">Amazon API Gateway Method MethodResponse</a></p>
                               
                               <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-apigateway-method-operationname"></a><span class="term"><code class="code">OperationName</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>A friendly operation name for the method. For example, you can assign the <code class="code">OperationName</code> of <em>ListPets</em> 
+                                 for the <code class="code">GET /pets</code> method.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: 
+                                 <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                               
                            </dd>
                            
@@ -178,7 +206,7 @@ Properties:
                                  pairs (string-to-string map), with a content type as the key and a <code class="code">Model</code> resource name as the value.
                               </p>
                               
-                              <p><em>Required</em>: No
+                              <p><em>Required: </em>No
                               </p>
                               
                               <p><em>Type</em>: Mapping of key-value pairs
@@ -200,13 +228,31 @@ Properties:
                                  <em class="replaceable"><code>name</code></em> is a valid, unique parameter name.
                               </p>
                               
-                              <p><em>Required</em>: No
+                              <p><em>Required: </em>No
                               </p>
                               
                               <p><em>Type</em>: Mapping of key-value pairs
                               </p>
                               
                               <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-apigateway-method-requestvalidatorid"></a><span class="term"><code class="code">RequestValidatorId</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The ID of the associated request validator.</p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: 
+                                 <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                               
                            </dd>
                            
@@ -218,7 +264,7 @@ Properties:
                               <p>The ID of an API Gateway <a href="aws-resource-apigateway-resource.html">resource</a>. For root resource methods, specify the RestApi root resource ID, such as <code class="code">{ &quot;Fn::GetAtt&quot;: [&quot;MyRestApi&quot;, &quot;RootResourceId&quot;] }</code>.
                               </p>
                               
-                              <p><em>Required</em>: Yes
+                              <p><em>Required: </em>Yes
                               </p>
                               
                               <p><em>Type</em>: String
@@ -236,7 +282,7 @@ Properties:
                               <p>The ID of the <a href="aws-resource-apigateway-restapi.html">RestApi</a> resource in which API Gateway creates the method.
                               </p>
                               
-                              <p><em>Required</em>: Yes
+                              <p><em>Required: </em>Yes
                               </p>
                               
                               <p><em>Type</em>: String
@@ -247,9 +293,9 @@ Properties:
                            </dd>
                            
                         </dl>
-                     </div><h2 id="w2ab2c19c12c41c13">Return Value</h2><h3 id="w2ab2c19c12c41c13b3">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code> intrinsic function, <code class="code">Ref</code> returns the method ID, such as <code class="code">mysta-metho-01234b567890example</code>.
+                     </div><h2 id="w2ab2c21c10c56c11">Return Value</h2><h3 id="w2ab2c21c10c56c11b2">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code> intrinsic function, <code class="code">Ref</code> returns the method ID, such as <code class="code">mysta-metho-01234b567890example</code>.
                      </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                     </p><h2 id="w2ab2c19c12c41c15">Examples</h2><h3 id="w2ab2c19c12c41c15b3">Mock Method</h3><p>The following example creates a mock GET method for the <code class="code">MyApi</code> API.
+                     </p><h2 id="aws-resource-apigateway-method-examples">Examples</h2><h3 id="w2ab2c21c10c56c13b2">Mock Method</h3><p>The following example creates a mock GET method for the <code class="code">MyApi</code> API.
                      </p><div id="JSON" name="JSON" class="section langfilter">
                         <h4 id="aws-resource-apigateway-method-example.json">JSON</h4>
                         
@@ -279,7 +325,7 @@ Properties:
     AuthorizationType: &quot;NONE&quot;
     Integration: 
       Type: &quot;MOCK&quot;</code></pre>
-                        </div><h3 id="w2ab2c19c12c41c15b5">Lambda Proxy</h3><p>The following example creates a proxy resource to enable clients to call a Lambda
+                        </div><h3 id="w2ab2c21c10c56c13b4">Lambda Proxy</h3><p>The following example creates a proxy resource to enable clients to call a Lambda
                         function with a single integration setup on a catch-all <code class="code">ANY</code> method. The
                         <code class="code">Uri</code> property specifies the Lambda function. For more information about Lambda
                         proxy integration and a sample Lambda function, see <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-create-api-as-simple-proxy-for-lambda.html" target="_blank">Create an API with Lambda Proxy Integration through a Proxy Resource</a> in the
@@ -337,6 +383,153 @@ ProxyResourceANY:
       Type: AWS_PROXY
       IntegrationHttpMethod: POST
       Uri: !Sub arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${LambdaForSimpleProxy.Arn}/invocations</code></pre>
-                        </div></div>
+                        </div><h3 id="aws-resource-apigateway-method-example3">Associated Request Validator</h3><p>The following example creates a REST API, method, and request validator, and associates
+                        the request validator with the method.
+                     </p><div id="JSON" name="JSON" class="section langfilter">
+                        
+                        <h4 id="aws-resource-apigateway-method-example3.json">JSON</h4>
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">{
+  &quot;Parameters&quot;: {
+    &quot;operationName&quot;: {
+      &quot;Type&quot;: &quot;String&quot;,
+      &quot;Default&quot;: &quot;testoperationName&quot;
+    },
+    &quot;restApiName&quot;: {
+      &quot;Type&quot;: &quot;String&quot;,
+      &quot;Default&quot;: &quot;testrestApiName&quot;
+    },
+    &quot;validatorName&quot;: {
+      &quot;Type&quot;: &quot;String&quot;,
+      &quot;Default&quot;: &quot;testvalidatorName&quot;
+    },
+    &quot;validateRequestBody&quot;: {
+      &quot;Type&quot;: &quot;String&quot;,
+      &quot;Default&quot;: &quot;testvalidateRequestBody&quot;
+    },
+    &quot;validateRequestParameters&quot;: {
+      &quot;Type&quot;: &quot;String&quot;,
+      &quot;Default&quot;: true
+    }
+  },
+  &quot;Resources&quot;: {
+    &quot;RestApi&quot;: {
+      &quot;Type&quot;: &quot;AWS::ApiGateway::RestApi&quot;,
+      &quot;Properties&quot;: {
+        &quot;Name&quot;: {
+          &quot;Ref&quot;: &quot;restApiName&quot;
+        }
+      }
+    },
+    &quot;Method&quot;: {
+      &quot;Type&quot;: &quot;AWS::ApiGateway::Method&quot;,
+      &quot;Properties&quot;: {
+        &quot;HttpMethod&quot;: &quot;POST&quot;,
+        &quot;ResourceId&quot;: {
+          &quot;Fn::GetAtt&quot;: [
+            &quot;RestApi&quot;,
+            &quot;RootResourceId&quot;
+          ]
+        },
+        &quot;RestApiId&quot;: {
+          &quot;Ref&quot;: &quot;RestApi&quot;
+        },
+        &quot;AuthorizationType&quot;: &quot;NONE&quot;,
+        &quot;Integration&quot;: {
+          &quot;Type&quot;: &quot;MOCK&quot;
+        },
+        &quot;RequestValidatorId&quot;: {
+          &quot;Ref&quot;: &quot;RequestValidator&quot;
+        },
+        &quot;OperationName&quot;: {
+          &quot;Ref&quot;: &quot;operationName&quot;
+        }
+      }
+    },
+    &quot;RequestValidator&quot;: {
+      &quot;Type&quot;: &quot;AWS::ApiGateway::RequestValidator&quot;,
+      &quot;Properties&quot;: {
+        &quot;Name&quot;: {
+          &quot;Ref&quot;: &quot;validatorName&quot;
+        },
+        &quot;RestApiId&quot;: {
+          &quot;Ref&quot;: &quot;RestApi&quot;
+        },
+        &quot;ValidateRequestBody&quot;: {
+          &quot;Ref&quot;: &quot;validateRequestBody&quot;
+        },
+        &quot;ValidateRequestParameters&quot;: {
+          &quot;Ref&quot;: &quot;validateRequestParameters&quot;
+        }
+      }
+    }
+  },
+  &quot;Outputs&quot;: {
+    &quot;RootResourceId&quot;: {
+      &quot;Value&quot;: {
+        &quot;Fn::GetAtt&quot;: [
+          &quot;RestApi&quot;,
+          &quot;RootResourceId&quot;
+        ]
+      }
+    }
+  }
+}</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        
+                        <h4 id="aws-resource-apigateway-method-example3.yaml">YAML</h4>
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">Parameters:
+  operationName:
+    Type: String
+    Default: testoperationName
+  restApiName:
+    Type: String
+    Default: testrestApiName
+  validatorName:
+    Type: String
+    Default: testvalidatorName
+  validateRequestBody:
+    Type: String
+    Default: testvalidateRequestBody
+  validateRequestParameters:
+    Type: String
+    Default: true
+Resources:
+  RestApi:
+    Type: &apos;AWS::ApiGateway::RestApi&apos;
+    Properties:
+      Name: !Ref restApiName
+  Method:
+    Type: &apos;AWS::ApiGateway::Method&apos;
+    Properties:
+      HttpMethod: POST
+      ResourceId: !GetAtt RestApi.RootResourceId
+      RestApiId: !Ref RestApi
+      AuthorizationType: NONE
+      Integration:
+        Type: MOCK
+      RequestValidatorId: !Ref RequestValidator
+      OperationName: !Ref operationName
+  RequestValidator:
+    Type: &apos;AWS::ApiGateway::RequestValidator&apos;
+    Properties:
+      Name: !Ref validatorName
+      RestApiId: !Ref RestApi
+      ValidateRequestBody: !Ref validateRequestBody
+      ValidateRequestParameters: !Ref validateRequestParameters
+Outputs:
+  RootResourceId:
+    Value: !GetAtt RestApi.RootResourceId</code></pre>
+                        </div><h2 id="aws-resource-apigateway-method-seealso">See Also</h2><div class="itemizedlist">
+                        
+                        <ul class="itemizedlist" type="disc">
+                           <li class="listitem">
+                              
+                              <p><a href="http://docs.aws.amazon.com/apigateway/api-reference/resource/method/" target="_blank">Method</a> in the             
+                                 <em>Amazon API Gateway REST API Reference</em>
+                                 
+                              </p>
+                           </li>
+                        </ul>
+                     </div></div>
 </body>
 </html>

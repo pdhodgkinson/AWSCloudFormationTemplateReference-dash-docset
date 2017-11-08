@@ -16,10 +16,10 @@
                         <p><strong>Topics</strong></p>
                         <ul>
                            <li><a href="#aws-resource-iam-role-syntax">Syntax</a></li>
-                           <li><a href="#w2ab2c19c12d561c13">Properties</a></li>
-                           <li><a href="#w2ab2c19c12d561c15">Return Values</a></li>
+                           <li><a href="#w2ab2c21c10d698c11">Properties</a></li>
+                           <li><a href="#w2ab2c21c10d698c13">Return Values</a></li>
                            <li><a href="#cfn-iam-role-templateexamples">Template Examples</a></li>
-                           <li><a href="#w2ab2c19c12d561c19">See Also</a></li>
+                           <li><a href="#w2ab2c21c10d698c17">See Also</a></li>
                         </ul>
                      </div><h2 id="aws-resource-iam-role-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
                         <h3 id="aws-resource-iam-role-syntax.json">JSON</h3>
@@ -48,7 +48,7 @@ Properties:
     - <em class="replaceable"><code>Policies</code></em>
   <a href="aws-resource-iam-role.html#cfn-iam-role-rolename"><code class="code">RoleName</code></a>: <em class="replaceable"><code>String</code></em>
 </code></pre>
-                        </div><h2 id="w2ab2c19c12d561c13">Properties</h2><div class="variablelist">
+                        </div><h2 id="w2ab2c21c10d698c11">Properties</h2><div class="variablelist">
                         
                         
                         
@@ -63,9 +63,12 @@ Properties:
                            
                            <dd>
                               
-                              <p>The trust policy that is associated with this role.</p>
+                              <p>The trust policy that is associated with this role. You can associate only one assume
+                                 role policy with a role. For an example of
+                                 an assume role policy, see <a href="aws-resource-iam-role.html#cfn-iam-role-templateexamples">Template Examples</a>. For more information about the elements that you can use in an IAM policy, see <a href="http://docs.aws.amazon.com//IAM/latest/UserGuide/reference_policies_elements.html" target="_blank">IAM Policy Elements Reference</a> in the <em>IAM User Guide</em>.
+                              </p>
                               
-                              <p><em>Required</em>: Yes
+                              <p><em>Required: </em>Yes
                               </p>
                               
                               <p><em>Type</em>: A JSON policy document
@@ -82,13 +85,6 @@ Properties:
                               
                               <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                               
-                              <div class="aws-note">
-                                 <p class="aws-note">Note</p>
-                                 <p>You can associate only one assume role policy with a role. For an example of
-                                    an assume role policy, see <a href="aws-resource-iam-role.html#cfn-iam-role-templateexamples">Template Examples</a>.
-                                 </p>
-                              </div>
-                              
                            </dd>
                            
                            
@@ -98,10 +94,10 @@ Properties:
                               
                               <p>One or more managed policy ARNs to attach to this role.</p>
                               
-                              <p><em>Required</em>: No
+                              <p><em>Required: </em>No
                               </p>
                               
-                              <p><em>Type</em>: List of strings
+                              <p><em>Type</em>: List of String values
                               </p>
                               
                               <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
@@ -118,7 +114,7 @@ Properties:
                                  <em>IAM User Guide</em>.
                               </p>
                               
-                              <p><em>Required</em>: No
+                              <p><em>Required: </em>No
                               </p>
                               
                               <p><em>Type</em>: String
@@ -152,7 +148,7 @@ Properties:
                                  </p>
                               </div>
                               
-                              <p><em>Required</em>: No
+                              <p><em>Required: </em>No
                               </p>
                               
                               <p><em>Type</em>: List of <a href="aws-properties-iam-policy.html">IAM Policies</a></p>
@@ -179,8 +175,9 @@ Properties:
                                  </p>
                               </div>
                               
-                              <p>If you specify a name, you must specify the <code class="code">CAPABILITY_NAMED_IAM</code> value to acknowledge your template&apos;s capabilities. For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#using-iam-capabilities">Acknowledging IAM Resources in AWS CloudFormation Templates</a>. 
+                              <p>If you specify a name, you must specify the <code class="code">CAPABILITY_NAMED_IAM</code> value to acknowledge your template&apos;s capabilities. For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#using-iam-capabilities">Acknowledging IAM Resources in AWS CloudFormation Templates</a>.
                               </p>
+                              
                               <div class="aws-note">
                                  <p class="aws-note">Warning</p>
                                  <p>Naming an IAM resource can cause an unrecoverable error if you reuse the same template
@@ -200,19 +197,19 @@ Properties:
                            
                         </dl>
                      </div><h3 id="cfn-iam-role-policynotes">Notes on policies for IAM roles</h3><p>For general information about IAM policies and policy documents, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/AccessPolicyLanguage_HowToWritePolicies.html" target="_blank">How to Write a Policy</a> in <em>IAM User Guide</em>.
-                     </p><h2 id="w2ab2c19c12d561c15">Return Values</h2><h3 id="w2ab2c19c12d561c15b3">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code> intrinsic
+                     </p><h2 id="w2ab2c21c10d698c13">Return Values</h2><h3 id="w2ab2c21c10d698c13b2">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code> intrinsic
                         function, <code class="code">Ref</code> returns the resource name. For example:
                      </p><pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">{ &quot;Ref&quot;: &quot;<em class="replaceable"><code>RootRole</code></em>&quot; }</code></pre><p>For the IAM::Role with the logical ID &quot;RootRole&quot;, <code class="code">Ref</code> will return the resource
                         name.
                      </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                     </p><h3 id="w2ab2c19c12d561c15b5">Fn::GetAtt</h3><p><code class="code">Fn::GetAtt</code> returns a value for a specified attribute of this type.
+                     </p><h3 id="w2ab2c21c10d698c13b4">Fn::GetAtt</h3><p><code class="code">Fn::GetAtt</code> returns a value for a specified attribute of this type.
                         The following are the available attributes and sample return values.
                      </p><div class="variablelist">
                         
                         
                         <dl>
                            
-                           <dt><span class="term"><code class="literal">Arn</code></span></dt>
+                           <dt><span class="term"><code class="code">Arn</code></span></dt>
                            
                            <dd>
                               
@@ -225,12 +222,12 @@ Properties:
                            
                         </dl>
                      </div><p>For more information about using <code class="code">Fn::GetAtt</code>, see <a href="intrinsic-function-reference-getatt.html">Fn::GetAtt</a>.
-                     </p><h2 id="cfn-iam-role-templateexamples">Template Examples</h2><h3 id="w2ab2c19c12d561c17b5">IAM Role with Embedded Policy and Instance Profiles</h3><p>This example shows an embedded Policy in the IAM::Role. The policy is specified inline
+                     </p><h2 id="cfn-iam-role-templateexamples">Template Examples</h2><h3 id="w2ab2c21c10d698c15b4">IAM Role with Embedded Policy and Instance Profiles</h3><p>This example shows an embedded Policy in the IAM::Role. The policy is specified inline
                         in the IAM::Role Policies
                         property.
                      </p><div id="JSON" name="JSON" class="section langfilter">
-                        <h4 id="aws-resource-iam-role-example1.json">JSON</h4>
                         
+                        <h4 id="aws-resource-iam-role-example1.json">JSON</h4>
                         <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">{
    &quot;AWSTemplateFormatVersion&quot;: &quot;2010-09-09&quot;,
    &quot;Resources&quot;: {
@@ -273,8 +270,8 @@ Properties:
    }
 }</code></pre>
                         </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h4 id="aws-resource-iam-role-example1.yaml">YAML</h4>
                         
+                        <h4 id="aws-resource-iam-role-example1.yaml">YAML</h4>
                         <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">AWSTemplateFormatVersion: &quot;2010-09-09&quot;
 Resources: 
   RootRole: 
@@ -308,12 +305,12 @@ Resources:
       Roles: 
         - 
           Ref: &quot;RootRole&quot;</code></pre>
-                        </div><h3 id="w2ab2c19c12d561c17b9">IAM Role with External Policy and Instance Profiles</h3><p>In this example, the Policy and InstanceProfile resources are specified externally
+                        </div><h3 id="w2ab2c21c10d698c15b8">IAM Role with External Policy and Instance Profiles</h3><p>In this example, the Policy and InstanceProfile resources are specified externally
                         to the IAM Role. They refer
                         to the role by specifying its name, &quot;RootRole&quot;, in their respective Roles properties.
                      </p><div id="JSON" name="JSON" class="section langfilter">
-                        <h4 id="aws-resource-iam-role-example2.json">JSON</h4>
                         
+                        <h4 id="aws-resource-iam-role-example2.json">JSON</h4>
                         <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">{
    &quot;AWSTemplateFormatVersion&quot;: &quot;2010-09-09&quot;,
    &quot;Resources&quot;: {
@@ -362,8 +359,8 @@ Resources:
    }
 }  </code></pre>
                         </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h4 id="aws-resource-iam-role-example2.yaml">YAML</h4>
                         
+                        <h4 id="aws-resource-iam-role-example2.yaml">YAML</h4>
                         <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">AWSTemplateFormatVersion: &quot;2010-09-09&quot;
 Resources: 
   RootRole: 
@@ -402,7 +399,7 @@ Resources:
         - 
           Ref: &quot;RootRole&quot;
 </code></pre>
-                        </div><h2 id="w2ab2c19c12d561c19">See Also</h2><div class="itemizedlist">
+                        </div><h2 id="w2ab2c21c10d698c17">See Also</h2><div class="itemizedlist">
                         
                         
                         

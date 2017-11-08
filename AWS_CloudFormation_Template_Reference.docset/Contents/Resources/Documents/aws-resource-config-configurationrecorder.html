@@ -12,16 +12,19 @@
                         types for which AWS Config records configuration changes. The configuration recorder
                         stores the
                         configurations of the supported resources in your account as configuration items.
-                     </p><p>AWS CloudFormation starts the recorder as soon as the delivery channel becomes available.
-                        To stop the
-                        recorder, delete the configuration recorder from your stack.
                      </p><div class="aws-note">
                         <p class="aws-note">Note</p>
-                        <p>If you create this resource, you must also create or have an
-                           <code class="code">AWS::Config::DeliveryChannel</code> resource already running in your account. These
-                           two interdependent resources must be present to successfully create both resources.
+                        <p>To enable AWS Config, you must create a configuration recorder and a delivery channel.
+                           AWS Config uses
+                           the delivery channel to deliver the configuration changes to your Amazon S3 bucket
+                           or Amazon SNS topic.
+                           For more information, see <a href="aws-resource-config-deliverychannel.html">AWS::Config::DeliveryChannel</a>. 
                         </p>
-                     </div><h2 id="aws-resource-config-configurationrecorder-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                     </div><p>AWS CloudFormation starts the recorder as soon as the delivery channel is available.
+                        To stop the
+                        recorder, delete the configuration recorder from your stack. 
+                     </p><p>For more information, see <a href="http://docs.aws.amazon.com/config/latest/developerguide/config-concepts.html#config-recorder" target="_blank">Configuration Recorder</a> in the <em>AWS Config Developer Guide</em>.
+                     </p><h2 id="aws-resource-config-configurationrecorder-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
                         <h3 id="aws-resource-config-configurationrecorder-syntax.json">JSON</h3>
                         
                         <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">{
@@ -42,7 +45,7 @@ Properties:
     <em class="replaceable"><code>Recording group</code></em>
   <a href="aws-resource-config-configurationrecorder.html#cfn-config-configurationrecorder-rolearn"><code class="code">RoleARN</code></a>: <em class="replaceable"><code>String</code></em>
 </code></pre>
-                        </div><h2 id="w2ab2c19c12d214c13">Properties</h2><div class="variablelist">
+                        </div><h2 id="w2ab2c21c10d267c13">Properties</h2><div class="variablelist">
                         
                         
                         
@@ -62,11 +65,11 @@ Properties:
                               <div class="aws-note">
                                  <p class="aws-note">Note</p>
                                  <p>After you create a configuration recorder, you cannot rename it. If you don&apos;t want
-                                    a AWS CloudFormation-generated name, specify a value for this property.
+                                    a name that AWS CloudFormation generates, specify a value for this property.
                                  </p>
                               </div>
                               
-                              <p><em>Required</em>: No
+                              <p><em>Required: </em>No
                               </p>
                               
                               <p><em>Type</em>: String
@@ -86,7 +89,7 @@ Properties:
                                  of resource types. The resource types that you list must be supported by AWS Config.
                               </p>
                               
-                              <p><em>Required</em>: No
+                              <p><em>Required: </em>No
                               </p>
                               
                               <p><em>Type</em>: <a href="aws-properties-config-configurationrecorder-recordinggroup.html">AWS Config
@@ -104,11 +107,11 @@ Properties:
                               <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role
                                  that is used to make
                                  read or write requests to the delivery channel that you specify and to get configuration
-                                 details for supported AWS resources. For more information, see <a href="http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html" target="_blank">Permissions for the AWS Config IAM
-                                    Role</a> in the <em>AWS Config Developer Guide</em>.
+                                 details for supported AWS resources. For more information, see <a href="http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html" target="_blank">Permissions for the IAM Role Assigned to
+                                    AWS Config</a> in the <em>AWS Config Developer Guide</em>.
                               </p>
                               
-                              <p><em>Required</em>: Yes
+                              <p><em>Required: </em>Yes
                               </p>
                               
                               <p><em>Type</em>: String
@@ -119,11 +122,11 @@ Properties:
                            </dd>
                            
                         </dl>
-                     </div><h2 id="w2ab2c19c12d214c15">Return Values</h2><h3 id="w2ab2c19c12d214c15b3">Ref</h3><p>When you pass the logical ID of an <code class="code">AWS::Config::ConfigurationRecorder</code>
-                        resource to the intrinsic <code class="code">Ref</code> function, the function returns the
-                        configuration recorder name, such as <code class="code">default</code>.
+                     </div><h2 id="w2ab2c21c10d267c15">Return Values</h2><h3 id="w2ab2c21c10d267c15b2">Ref</h3><p>When you pass the logical ID of an <code class="code">AWS::Config::ConfigurationRecorder</code>
+                        resource to the intrinsic <code class="code">Ref</code> function, the function returns the configuration
+                        recorder name, such as <code class="code">default</code>.
                      </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                     </p><h2 id="w2ab2c19c12d214c17">Example</h2><p>The following example creates a configuration recorder for EC2 volumes.</p><div id="JSON" name="JSON" class="section langfilter">
+                     </p><h2 id="w2ab2c21c10d267c17">Example</h2><p>The following example creates a configuration recorder for EC2 volumes.</p><div id="JSON" name="JSON" class="section langfilter">
                         <h3 id="aws-resource-config-configurationrecorder-example.json">JSON</h3>
                         
                         <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">&quot;ConfigRecorder&quot;: {

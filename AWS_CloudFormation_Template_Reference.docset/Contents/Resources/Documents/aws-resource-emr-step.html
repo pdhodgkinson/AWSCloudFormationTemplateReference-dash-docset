@@ -22,9 +22,9 @@
                         <p><strong>Topics</strong></p>
                         <ul>
                            <li><a href="#aws-resource-emr-step-syntax">Syntax</a></li>
-                           <li><a href="#w2ab2c19c12d516c13">Properties</a></li>
-                           <li><a href="#w2ab2c19c12d516c15">Return Values</a></li>
-                           <li><a href="#w2ab2c19c12d516c17">Example</a></li>
+                           <li><a href="#w2ab2c21c10d625c11">Properties</a></li>
+                           <li><a href="#w2ab2c21c10d625c13">Return Values</a></li>
+                           <li><a href="#w2ab2c21c10d625c15">Example</a></li>
                         </ul>
                      </div><h2 id="aws-resource-emr-step-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
                         <h3 id="aws-resource-emr-step-syntax.json">JSON</h3>
@@ -49,7 +49,7 @@ Properties:
   <a href="aws-resource-emr-step.html#cfn-emr-step-jobflowid"><code class="code">JobFlowId</code></a>: <em class="replaceable"><code>String</code></em>
   <a href="aws-resource-emr-step.html#cfn-emr-step-name"><code class="code">Name</code></a>: <em class="replaceable"><code>String</code></em>
 </code></pre>
-                        </div><h2 id="w2ab2c19c12d516c13">Properties</h2><div class="variablelist">
+                        </div><h2 id="w2ab2c21c10d625c11">Properties</h2><div class="variablelist">
                         
                         
                         
@@ -62,10 +62,34 @@ Properties:
                            <dd>
                               
                               <p>The action to take if the job flow step fails. Currently, AWS CloudFormation supports
-                                 <code class="code">CONTINUE</code> and <code class="code">CANCEL_AND_WAIT</code>. For more information, see <a href="http://docs.aws.amazon.com//ElasticMapReduce/latest/ManagementGuide/UsingEMR_TerminationProtection.html" target="_blank">Managing Cluster Termination</a> in the <em>Amazon EMR Management Guide</em>.
+                                 <code class="code">CONTINUE</code> and <code class="code">CANCEL_AND_WAIT</code>.
+                              </p>
+                              		  
+                              <div class="itemizedlist">
+                                 
+                                 		  
+                                 		  
+                                 <ul class="itemizedlist" type="disc">
+                                    <li class="listitem">
+                                       		    
+                                       <p><code class="code">TERMINATE_CLUSTER</code> indicates that all associated cluster resources terminate if the step fails, and
+                                          no subsequent steps or jobs are attempted.
+                                       </p>
+                                       		  
+                                    </li>
+                                    <li class="listitem">
+                                       		    
+                                       <p><code class="code">CANCEL_AND_WAIT</code> indicates that the step is canceled, and all subsequent steps and jobs are attempted.
+                                       </p>
+                                       		  
+                                    </li>
+                                 </ul>
+                              </div>
+                              		  
+                              <p>For more information, see <a href="http://docs.aws.amazon.com//ElasticMapReduce/latest/ManagementGuide/UsingEMR_TerminationProtection.html" target="_blank">Managing Cluster Termination</a> in the <em>Amazon EMR Management Guide</em>.
                               </p>
                               
-                              <p><em>Required</em>: Yes
+                              <p><em>Required: </em>Yes
                               </p>
                               
                               <p><em>Type</em>: String
@@ -82,7 +106,7 @@ Properties:
                               
                               <p>The JAR file that includes the main function that Amazon EMR executes.</p>
                               
-                              <p><em>Required</em>: Yes
+                              <p><em>Required: </em>Yes
                               </p>
                               
                               <p><em>Type</em>: <a href="aws-properties-emr-step-hadoopjarstepconfig.html">Amazon EMR Step
@@ -99,7 +123,7 @@ Properties:
                               
                               <p>The ID of a cluster in which you want to run this job flow step.</p>
                               
-                              <p><em>Required</em>: Yes
+                              <p><em>Required: </em>Yes
                               </p>
                               
                               <p><em>Type</em>: String
@@ -116,7 +140,7 @@ Properties:
                               
                               <p>A name for the job flow step.</p>
                               
-                              <p><em>Required</em>: Yes
+                              <p><em>Required: </em>Yes
                               </p>
                               
                               <p><em>Type</em>: String
@@ -127,11 +151,11 @@ Properties:
                            </dd>
                            
                         </dl>
-                     </div><h2 id="w2ab2c19c12d516c15">Return Values</h2><h3 id="w2ab2c19c12d516c15b3">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code>
+                     </div><h2 id="w2ab2c21c10d625c13">Return Values</h2><h3 id="w2ab2c21c10d625c13b2">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code>
                         intrinsic function, <code class="code">Ref</code> returns the step ID, such as
                         <code class="code">s-1A2BC3D4EFG56</code>.
                      </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                     </p><h2 id="w2ab2c19c12d516c17">Example</h2><p>The following example creates a step that submits work to the <code class="code">TestCluster</code>
+                     </p><h2 id="w2ab2c21c10d625c15">Example</h2><p>The following example creates a step that submits work to the <code class="code">TestCluster</code>
                         cluster. The step runs the <code class="code">pi</code> program in the
                         <code class="code">hadoop-mapreduce-examples-2.6.0.jar</code> file with 5 maps and 10 samples, specified
                         in the <code class="code">Args</code> property.

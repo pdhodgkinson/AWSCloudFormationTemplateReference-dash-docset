@@ -9,16 +9,18 @@
 <body>
     <div id="content" style="padding: 10px 30px;">
     <h1 class="topictitle" id="aws-properties-cloudfront-customorigin">CloudFront DistributionConfig Origin
-                        CustomOrigin
-                     </h1><p><code class="code">CustomOrigin</code> is a property of the <a href="aws-properties-cloudfront-origin.html">Amazon CloudFront Origin</a> property that describes an
+                        CustomOriginConfig
+                     </h1><p><code class="code">CustomOriginConfig</code> is a property of the <a href="aws-properties-cloudfront-origin.html">Amazon CloudFront Origin</a> property that describes an
                         HTTP server.
-                     </p><h2 id="w2ab2c19c17d121b7">Syntax</h2><div id="JSON" name="JSON" class="section langfilter">
+                     </p><h2 id="w2ab2c21c14d190b5">Syntax</h2><div id="JSON" name="JSON" class="section langfilter">
                         <h3 id="aws-properties-cloudfront-customorigin-syntax.json">JSON</h3>
                         
                         <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">{
   &quot;<a href="aws-properties-cloudfront-customorigin.html#cfn-cloudfront-customorigin-httpport"><code class="code">HTTPPort</code></a>&quot; : <em class="replaceable"><code>Integer</code></em>,
   &quot;<a href="aws-properties-cloudfront-customorigin.html#cfn-cloudfront-customorigin-httpsport"><code class="code">HTTPSPort</code></a>&quot; : <em class="replaceable"><code>Integer</code></em>,
+  &quot;<a href="aws-properties-cloudfront-customorigin.html#cfn-cloudfront-distribution-customoriginconfig-originkeepalivetimeout"><code class="code">OriginKeepaliveTimeout</code></a>&quot; : <em class="replaceable"><code>Integer</code></em>,
   &quot;<a href="aws-properties-cloudfront-customorigin.html#cfn-cloudfront-customorigin-originprotocolpolicy"><code class="code">OriginProtocolPolicy</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+  &quot;<a href="aws-properties-cloudfront-customorigin.html#cfn-cloudfront-distribution-customoriginconfig-originreadtimeout"><code class="code">OriginReadTimeout</code></a>&quot; : <em class="replaceable"><code>Integer</code></em>,
   &quot;<a href="aws-properties-cloudfront-customorigin.html#cfn-cloudfront-customorigin-originsslprotocols"><code class="code">OriginSSLProtocols</code></a>&quot; : [ <em class="replaceable"><code>String, ...</code></em> ]
 }</code></pre>
                         </div><div id="YAML" name="YAML" class="section langfilter">
@@ -26,11 +28,13 @@
                         
                         <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight"><a href="aws-properties-cloudfront-customorigin.html#cfn-cloudfront-customorigin-httpport"><code class="code">HTTPPort</code></a>: <em class="replaceable"><code>Integer</code></em>
 <a href="aws-properties-cloudfront-customorigin.html#cfn-cloudfront-customorigin-httpsport"><code class="code">HTTPSPort</code></a>: <em class="replaceable"><code>Integer</code></em>
+<a href="aws-properties-cloudfront-customorigin.html#cfn-cloudfront-distribution-customoriginconfig-originkeepalivetimeout"><code class="code">OriginKeepaliveTimeout</code></a>: <em class="replaceable"><code>Integer</code></em>
 <a href="aws-properties-cloudfront-customorigin.html#cfn-cloudfront-customorigin-originprotocolpolicy"><code class="code">OriginProtocolPolicy</code></a>: <em class="replaceable"><code>String</code></em>
+<a href="aws-properties-cloudfront-customorigin.html#cfn-cloudfront-distribution-customoriginconfig-originreadtimeout"><code class="code">OriginReadTimeout</code></a>: <em class="replaceable"><code>Integer</code></em>
 <a href="aws-properties-cloudfront-customorigin.html#cfn-cloudfront-customorigin-originsslprotocols"><code class="code">OriginSSLProtocols</code></a>:
   - <em class="replaceable"><code>String</code></em>
 </code></pre>
-                        </div><h2 id="w2ab2c19c17d121b9">Properties</h2><div class="aws-note">
+                        </div><h2 id="w2ab2c21c14d190b7">Properties</h2><div class="aws-note">
                         <p class="aws-note">Note</p>
                         <p>For more information about the constraints and valid values of each property, see
                            the
@@ -38,6 +42,8 @@
                            type in the <em>Amazon CloudFront API Reference</em>.
                         </p>
                      </div><div class="variablelist">
+                        
+                        
                         
                         
                         
@@ -51,7 +57,7 @@
                               
                               <p>The HTTP port the custom origin listens on.</p>
                               
-                              <p><em>Required</em>: No
+                              <p><em>Required: </em>No
                               </p>
                               
                               <p><em>Type</em>: Integer
@@ -66,10 +72,37 @@
                               
                               <p>The HTTPS port the custom origin listens on.</p>
                               
-                              <p><em>Required</em>: No
+                              <p><em>Required: </em>No
                               </p>
                               
                               <p><em>Type</em>: Integer
+                              </p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-cloudfront-distribution-customoriginconfig-originkeepalivetimeout"></a><span class="term"><code class="code">OriginKeepaliveTimeout</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>You can create a custom keep-alive timeout. All timeout units are in seconds. The
+                                 default keep-alive timeout is 5 seconds, but you can configure custom timeout lengths.
+                                 The minimum timeout length is 1 second; the maximum is 60 seconds.
+                              </p>
+                              
+                              <p>
+                                 <em>Required</em>: No
+                              </p>
+                              
+                              <p>
+                                 <em>Type</em>: Integer
+                              </p>
+                              
+                              <p>
+                                 <em>Update requires</em>: 
+                                 
+                                 <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
+                                 
                               </p>
                               
                            </dd>
@@ -81,10 +114,39 @@
                               
                               <p>The origin protocol policy to apply to your origin.</p>
                               
-                              <p><em>Required</em>: Yes
+                              <p><em>Required: </em>Yes
                               </p>
                               
                               <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Valid Values</em>: <code class="code">http-only</code>, <code class="code"> match-viewer</code>, <code class="code">https-only</code></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-cloudfront-distribution-customoriginconfig-originreadtimeout"></a><span class="term"><code class="code">OriginReadTimeout</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>You can create a custom origin read timeout. All timeout units are in seconds. The
+                                 default origin read timeout is 30 seconds, but you can configure custom timeout lengths.
+                                 The minimum timeout length is 4 seconds; the maximum is 60 seconds.
+                              </p>
+                              
+                              <p>
+                                 <em>Required</em>: No
+                              </p>
+                              
+                              <p>
+                                 <em>Type</em>: Integer
+                              </p>
+                              
+                              <p>
+                                 <em>Update requires</em>: 
+                                 
+                                 <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
+                                 
                               </p>
                               
                            </dd>
@@ -98,10 +160,10 @@
                                  your origin. By default, AWS CloudFormation specifies the <code class="code">TLSv1</code> and <code class="code">SSLv3</code> protocols.
                               </p>
                               
-                              <p><em>Required</em>: No
+                              <p><em>Required: </em>No
                               </p>
                               
-                              <p><em>Type</em>: List of strings
+                              <p><em>Type</em>: List of String values
                               </p>
                               
                            </dd>

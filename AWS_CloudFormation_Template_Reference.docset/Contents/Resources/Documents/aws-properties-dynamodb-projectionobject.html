@@ -8,11 +8,14 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-properties-dynamodb-projectionobject">DynamoDB Projection Object</h1><p>Attributes that are copied (projected) from the source table into the index. These
+    <h1 class="topictitle" id="aws-properties-dynamodb-projectionobject">Amazon DynamoDB Table Projection</h1><p>Attributes that are copied (projected) from the source table into the index. These
                         attributes are additions to the primary key attributes and index key attributes, which
                         are
                         automatically projected.
-                     </p><h2 id="w2ab2c19c17d376b7">Syntax</h2><div id="JSON" name="JSON" class="section langfilter">
+                     </p><p>Projection is a property of the 
+                        <a href="aws-properties-dynamodb-gsi.html">DynamoDB Table GlobalSecondaryIndex</a> and          
+                        <a href="aws-properties-dynamodb-lsi.html">DynamoDB Table LocalSecondaryIndex</a> property types.
+                     </p><h2 id="w2ab2c21c14d524b7">Syntax</h2><div id="JSON" name="JSON" class="section langfilter">
                         <h3 id="aws-properties-dynamodb-projectionobject-syntax.json">JSON</h3>
                         
                         <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">{
@@ -26,7 +29,9 @@
   - <em class="replaceable"><code>String</code></em>
 <a href="aws-properties-dynamodb-projectionobject.html#cfn-dynamodb-projectionobj-projtype"><code class="literal">ProjectionType</code></a>: <em class="replaceable"><code>String</code></em>
 </code></pre>
-                        </div><h2 id="w2ab2c19c17d376b9">Properties</h2><div class="variablelist">
+                        </div><h2 id="w2ab2c21c14d524b9">Properties</h2><p>For more information about each property, including constraints, see <a href="http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_Projection.html" target="_blank">
+                           Projection</a> in the <em>Amazon DynamoDB API Reference</em>.
+                     </p><div class="variablelist">
                         
                         
                         
@@ -41,13 +46,15 @@
                               <p>For local secondary indexes, the total count of <code class="code">NonKeyAttributes</code>
                                  summed across all of the local secondary indexes must not exceed 20. If you
                                  project the same attribute into two different indexes, this counts as two distinct
-                                 attributes in determining the total.
+                                 attributes in determining the total. This limit does not apply for secondary indexes
+                                 
+                                 with a ProjectionType of <code class="code">KEYS_ONLY</code> or <code class="code">ALL</code>.
                               </p>
                               
-                              <p><em>Required</em>: Yes
+                              <p><em>Required: </em>No
                               </p>
                               
-                              <p><em>Type</em>: List of strings
+                              <p><em>Type</em>: List of String values
                               </p>
                               
                            </dd>
@@ -99,7 +106,7 @@
                                  </dl>
                               </div>
                               
-                              <p><em>Required</em>: Yes
+                              <p><em>Required: </em>Yes
                               </p>
                               
                               <p><em>Type</em>: String

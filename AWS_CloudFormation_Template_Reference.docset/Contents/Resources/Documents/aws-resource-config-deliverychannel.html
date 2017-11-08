@@ -8,22 +8,62 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-resource-config-deliverychannel">AWS::Config::DeliveryChannel</h1><p>The <code class="code">AWS::Config::DeliveryChannel</code> resource describes where AWS Config stores
-                        configuration changes to an AWS resource.
+    <h1 class="topictitle" id="aws-resource-config-deliverychannel">AWS::Config::DeliveryChannel</h1><p>The <code class="code">AWS::Config::DeliveryChannel</code> resource describes where AWS Config sends
+                        notifications and updated configuration states for AWS resources. 
+                     </p><p>When you create the delivery channel, you can specify the following: </p><div class="itemizedlist">
+                        
+                        
+                        
+                        
+                        <ul class="itemizedlist" type="disc">
+                           <li class="listitem">
+                              
+                              <p>How often AWS Config delivers configuration snapshots to your Amazon S3 bucket (for
+                                 example, 24
+                                 hours)
+                              </p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p>The S3 bucket to which AWS Config sends configuration snapshots and configuration
+                                 history
+                                 files
+                              </p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p>The Amazon SNS topic to which AWS Config sends notifications about configuration changes,
+                                 such as
+                                 updated resources, AWS Config rule evaluations, and when AWS Config delivers the configuration
+                                 snapshot
+                                 to your S3 bucket.
+                              </p>
+                              
+                           </li>
+                        </ul>
+                     </div><p>For more information, see <a href="http://docs.aws.amazon.com/config/latest/developerguide/how-does-config-work.html#delivery-channel" target="_blank">Deliver Configuration
+                           Items</a> in the <em>AWS Config Developer Guide</em>.
                      </p><div class="aws-note">
                         <p class="aws-note">Note</p>
-                        <p>If you create this resource, you must also create or have an
-                           <code class="code">AWS::Config::ConfigurationRecorder</code> resource already running in your account.
-                           These two interdependent resources must be present to successfully create both
-                           resources.
+                        <p>To enable AWS Config, you must create a configuration recorder and a delivery channel.
+                           If you
+                           want to create the resources separately, you must create a configuration recorder
+                           before you
+                           can create a delivery channel. AWS Config uses the configuration recorder to capture
+                           configuration
+                           changes to your resources. For more information, see <a href="aws-resource-config-configurationrecorder.html">AWS::Config::ConfigurationRecorder</a>. 
                         </p>
-                     </div><div class="highlights">
+                     </div><p>For more information, see <a href="http://docs.aws.amazon.com/config/latest/developerguide/manage-delivery-channel.html" target="_blank">Managing the
+                           Delivery Channel</a> in the <em>AWS Config Developer Guide</em>.
+                     </p><div class="highlights">
                         <p><strong>Topics</strong></p>
                         <ul>
                            <li><a href="#aws-resource-config-deliverychannel-syntax">Syntax</a></li>
-                           <li><a href="#w2ab2c19c12d218c11">Properties</a></li>
-                           <li><a href="#w2ab2c19c12d218c13">Return Values</a></li>
-                           <li><a href="#w2ab2c19c12d218c15">Example</a></li>
+                           <li><a href="#w2ab2c21c10d271c19">Properties</a></li>
+                           <li><a href="#w2ab2c21c10d271c21">Return Values</a></li>
+                           <li><a href="#w2ab2c21c10d271c23">Example</a></li>
                         </ul>
                      </div><h2 id="aws-resource-config-deliverychannel-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
                         <h3 id="aws-resource-config-deliverychannel-syntax.json">JSON</h3>
@@ -50,7 +90,7 @@ Properties:
   <a href="aws-resource-config-deliverychannel.html#cfn-config-deliverychannel-s3keyprefix"><code class="code">S3KeyPrefix</code></a>: <em class="replaceable"><code>String</code></em>
   <a href="aws-resource-config-deliverychannel.html#cfn-config-deliverychannel-snstopicarn"><code class="code">SnsTopicARN</code></a>: <em class="replaceable"><code>String</code></em>
 </code></pre>
-                        </div><h2 id="w2ab2c19c12d218c11">Properties</h2><div class="variablelist">
+                        </div><h2 id="w2ab2c21c10d271c19">Properties</h2><div class="variablelist">
                         
                         
                         
@@ -68,7 +108,7 @@ Properties:
                                  your delivery channel.
                               </p>
                               
-                              <p><em>Required</em>: No
+                              <p><em>Required: </em>No
                               </p>
                               
                               <p><em>Type</em>: <a href="aws-properties-config-deliverychannel-configsnapshotdeliveryproperties.html">AWS Config
@@ -89,15 +129,16 @@ Properties:
                                  see <a href="aws-properties-name.html">Name Type</a>.
                               </p>
                               
-                              <p><em>Required</em>: No
+                              <p><em>Required: </em>No
                               </p>
                               
                               <p><em>Type</em>: String
                               </p>
                               
-                              <p><em>Update requires</em>: Updates are not supported.. To change the name, you must run two separate updates.
-                                 Delete this resource in the first update and then recreate it with a new name in the
-                                 second update.
+                              <p><em>Update requires</em>: Updates are not supported. To change the name, you must run two separate updates.
+                                 In the
+                                 first update, delete this resource, and then recreate it with a new name in the second
+                                 update.
                               </p>
                               
                            </dd>
@@ -111,7 +152,7 @@ Properties:
                                  delivery channel.
                               </p>
                               
-                              <p><em>Required</em>: Yes
+                              <p><em>Required: </em>Yes
                               </p>
                               
                               <p><em>Type</em>: String
@@ -128,7 +169,7 @@ Properties:
                               
                               <p>A key prefix (folder) for the specified S3 bucket.</p>
                               
-                              <p><em>Required</em>: No
+                              <p><em>Required: </em>No
                               </p>
                               
                               <p><em>Type</em>: String
@@ -148,7 +189,7 @@ Properties:
                                  notifications to.
                               </p>
                               
-                              <p><em>Required</em>: No
+                              <p><em>Required: </em>No
                               </p>
                               
                               <p><em>Type</em>: String
@@ -159,11 +200,11 @@ Properties:
                            </dd>
                            
                         </dl>
-                     </div><h2 id="w2ab2c19c12d218c13">Return Values</h2><h3 id="w2ab2c19c12d218c13b3">Ref</h3><p>When you pass the logical ID of an <code class="code">AWS::Config::DeliveryChannel</code> resource to
-                        the intrinsic <code class="code">Ref</code> function, the function returns the delivery channel
-                        name, such as <code class="code">default</code>.
+                     </div><h2 id="w2ab2c21c10d271c21">Return Values</h2><h3 id="w2ab2c21c10d271c21b2">Ref</h3><p>When you pass the logical ID of an <code class="code">AWS::Config::DeliveryChannel</code> resource to
+                        the intrinsic <code class="code">Ref</code> function, the function returns the delivery channel name,
+                        such as <code class="code">default</code>.
                      </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                     </p><h2 id="w2ab2c19c12d218c15">Example</h2><p>The following example creates a delivery channel that sends notifications to the specified
+                     </p><h2 id="w2ab2c21c10d271c23">Example</h2><p>The following example creates a delivery channel that sends notifications to the specified
                         Amazon SNS topic. The delivery channel also sends configuration changes and snapshots
                         to the
                         specified S3 bucket.

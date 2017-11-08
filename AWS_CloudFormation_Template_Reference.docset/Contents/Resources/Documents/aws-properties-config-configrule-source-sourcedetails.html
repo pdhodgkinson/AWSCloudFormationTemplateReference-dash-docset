@@ -8,11 +8,11 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-properties-config-configrule-source-sourcedetails">AWS Config ConfigRule Source
+    <h1 class="topictitle" id="aws-properties-config-configrule-source-sourcedetails">AWS Config ConfigRule
                         SourceDetails
                      </h1><p><code class="code">SourceDetails</code> is a property of the <a href="aws-properties-config-configrule-source.html">AWS Config ConfigRule Source</a> property that specifies the source
                         and type of event that triggers AWS Config to evaluate your AWS resources.
-                     </p><h2 id="w2ab2c19c17d311b7">Syntax</h2><div id="JSON" name="JSON" class="section langfilter">
+                     </p><h2 id="w2ab2c21c14d447b5">Syntax</h2><div id="JSON" name="JSON" class="section langfilter">
                         <h3 id="aws-properties-config-configrule-source-sourcedetails-syntax.json">JSON</h3>
                         
                         <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">{
@@ -27,7 +27,7 @@
 <a href="aws-properties-config-configrule-source-sourcedetails.html#cfn-config-configrule-source-sourcedetail-maximumexecutionfrequency"><code class="code">MaximumExecutionFrequency</code></a>: <em class="replaceable"><code>String</code></em>
 <a href="aws-properties-config-configrule-source-sourcedetails.html#cfn-config-configrule-source-sourcedetail-messagetype"><code class="code">MessageType</code></a>: <em class="replaceable"><code>String</code></em>
 </code></pre>
-                        </div><h2 id="w2ab2c19c17d311b9">Properties</h2><div class="variablelist">
+                        </div><h2 id="w2ab2c21c14d447b7">Properties</h2><div class="variablelist">
                         
                         
                         
@@ -39,11 +39,12 @@
                            <dd>
                               
                               <p>The source, such as an AWS service, that generate events, triggering AWS Config to
-                                 evaluate your AWS resources. For valid values, see the <a href="http://docs.aws.amazon.com/config/latest/APIReference/API_SourceDetail.html" target="_blank">SourceDetail</a> data type in the
-                                 <em>AWS Config API Reference</em>.
+                                 evaluate your AWS resources.
                               </p>
                               
-                              <p><em>Required</em>: Yes
+                              <p><em>Valid Values</em>: <code class="code">aws.config</code></p>
+                              
+                              <p><em>Required: </em>Yes
                               </p>
                               
                               <p><em>Type</em>: String
@@ -58,13 +59,14 @@
                               
                               <p>The frequency that you want AWS Config to run evaluations for a custom rule with a
                                  periodic trigger. By default, rules with a periodic trigger are evaluated every 24
-                                 hours. If you specify a value for <code class="code">MaximumExecutionFrequency</code>, then <code class="code">MessageType</code> must use the <code class="code">ScheduledNotification</code> value.
+                                 hours. 
+                                 If you specify a value for <code class="code">MaximumExecutionFrequency</code>, then <code class="code">MessageType</code> must use the <code class="code">ScheduledNotification</code> value.
                               </p>
                               
-                              <p>Valid values: <code class="code">One_Hour</code>,  <code class="code">Three_Hours</code>,  <code class="code">Six_Hours</code>,  <code class="code">Twelve_Hours</code>, or <code class="code">TwentyFour_Hours</code>.
+                              <p><em>Valid values</em>: <code class="code">One_Hour</code>,  <code class="code">Three_Hours</code>,  <code class="code">Six_Hours</code>,  <code class="code">Twelve_Hours</code>, or <code class="code">TwentyFour_Hours</code>.
                               </p>
                               
-                              <p><em>Required</em>: No
+                              <p><em>Required: </em>No
                               </p>
                               
                               <p><em>Type</em>: String
@@ -79,18 +81,13 @@
                               
                               <p>The type of Amazon Simple Notification Service (Amazon SNS) message that triggers
                                  AWS Config to run an
-                                 evaluation.
+                                 evaluation. For more information, see the <a href="http://docs.aws.amazon.com/config/latest/APIReference/API_SourceDetail.html" target="_blank">SourceDetail</a> data type in the
+                                 <em>AWS Config API Reference</em>.
                               </p>
                               
-                              <p>To run an evaluation when AWS Config delivers a configuration item change notification,
-                                 specify <code class="code">ConfigurationItemChangeNotification</code>.
-                              </p>
+                              <p><em>Valid Values</em>: <code class="code">ConfigurationItemChangeNotification</code>, <code class="code">ConfigurationSnapshotDeliveryCompleted</code>, <code class="code">ScheduledNotification</code>, <code class="code">OversizedConfigurationItemChangeNotification</code></p>
                               
-                              <p>To run an evaluation when AWS Config delivers a configuration snapshot, specify
-                                 <code class="code">ConfigurationSnapshotDeliveryCompleted</code>.
-                              </p>
-                              
-                              <p><em>Required</em>: Yes
+                              <p><em>Required: </em>Yes
                               </p>
                               
                               <p><em>Type</em>: String

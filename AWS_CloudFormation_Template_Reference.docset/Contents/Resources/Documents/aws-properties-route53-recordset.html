@@ -19,9 +19,9 @@
                         <p><strong>Topics</strong></p>
                         <ul>
                            <li><a href="#aws-resource-route53-recordset-syntax">Syntax</a></li>
-                           <li><a href="#w2ab2c19c12d773c13">Properties</a></li>
-                           <li><a href="#w2ab2c19c12d773c15">Return Value</a></li>
-                           <li><a href="#w2ab2c19c12d773c17">Example</a></li>
+                           <li><a href="#w2ab2c21c10d922c11">Properties</a></li>
+                           <li><a href="#w2ab2c21c10d922c13">Return Value</a></li>
+                           <li><a href="#w2ab2c21c10d922c15">Example</a></li>
                         </ul>
                      </div><h2 id="aws-resource-route53-recordset-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
                         <h3 id="aws-resource-route53-recordset-syntax.json">JSON</h3>
@@ -67,7 +67,7 @@ Properties:
   <a href="aws-properties-route53-recordset.html#cfn-route53-recordset-type">Type</a>: <em class="replaceable"><code>String</code></em>
   <a href="aws-properties-route53-recordset.html#cfn-route53-recordset-weight">Weight</a>: <em class="replaceable"><code>Integer</code></em>
 </code></pre>
-                        </div><h2 id="w2ab2c19c12d773c13">Properties</h2><div class="variablelist">
+                        </div><h2 id="w2ab2c21c10d922c11">Properties</h2><div class="variablelist">
                         
                         
                         
@@ -101,7 +101,7 @@ Properties:
                                     Guide</em> and <a href="http://docs.aws.amazon.com/Route53/latest/APIReference/API_ChangeResourceRecordSets.html#API_ChangeResourceRecordSets_RequestAliasSyntax" target="_blank">POST ChangeResourceRecordSets</a> in the Amazon Route&#xA0;53 API reference.
                               </p>
                               
-                              <p><em>Required</em>: Conditional. Required if you are creating an alias resource record
+                              <p><em>Required: </em>Conditional. Required if you are creating an alias resource record
                                  set. 
                               </p>
                               
@@ -125,7 +125,7 @@ Properties:
                                  </p>
                               </div>
                               
-                              <p><em>Required</em>: No
+                              <p><em>Required: </em>No
                               </p>
                               
                               <p><em>Type</em>: String
@@ -154,7 +154,7 @@ Properties:
                                  property.
                               </p>
                               
-                              <p><em>Required</em>: No
+                              <p><em>Required: </em>No
                               </p>
                               
                               <p><em>Type</em>: String
@@ -169,12 +169,13 @@ Properties:
                            
                            <dd>
                               
-                              <p>Describes how Amazon Route&#xA0;53 responds to DNS queries based on the geographic origin
-                                 of
-                                 the query.
+                              <p>Describes how Amazon Route&#xA0;53 responds to DNS queries based on the
+                                 geographic origin of the query. This property is not
+                                 compatible with the <code class="literal">Region</code>
+                                 property.
                               </p>
                               
-                              <p><em>Required</em>: No
+                              <p><em>Required: </em>No
                               </p>
                               
                               <p><em>Type</em>: <a href="aws-properties-route53-recordset-geolocation.html">Amazon Route&#xA0;53 Record Set GeoLocation
@@ -194,7 +195,7 @@ Properties:
                                  healthy.
                               </p>
                               
-                              <p><em>Required</em>: No
+                              <p><em>Required: </em>No
                               </p>
                               
                               <p><em>Type</em>: String
@@ -211,7 +212,7 @@ Properties:
                               
                               <p>The ID of the hosted zone.</p>
                               
-                              <p><em>Required</em>: Conditional. You must specify either the
+                              <p><em>Required: </em>Conditional. You must specify either the
                                  <code class="code">HostedZoneName</code> or <code class="code">HostedZoneId</code>,
                                  but you cannot specify both. If this record set is part of a record set group, do
                                  not specify this property.
@@ -246,7 +247,7 @@ Properties:
                                  <code class="code">HostedZoneId</code>.
                               </p>
                               
-                              <p><em>Required</em>: Conditional. You must specify either the
+                              <p><em>Required: </em>Conditional. You must specify either the
                                  <code class="code">HostedZoneName</code> or <code class="code">HostedZoneId</code>,
                                  but you cannot specify both. If this record set is part of a record set group, do
                                  not specify this property.
@@ -269,7 +270,7 @@ Properties:
                                  Amazon Route&#xA0;53 adds it.
                               </p>
                               
-                              <p><em>Required</em>: Yes
+                              <p><em>Required: </em>Yes
                               </p>
                               
                               <p><em>Type</em>: String
@@ -309,6 +310,7 @@ Properties:
                                  
                                  
                                  
+                                 
                                  <ul class="itemizedlist" type="disc">
                                     <li class="listitem">
                                        
@@ -339,6 +341,12 @@ Properties:
                                        </p>
                                        
                                     </li>
+                                    <li class="listitem">
+                                       
+                                       <p>This property is not compatible with the <code class="literal">GeoLocation</code> property.
+                                       </p>
+                                       
+                                    </li>
                                  </ul>
                               </div>
                               
@@ -356,16 +364,17 @@ Properties:
                               <p>List of resource records to add. Each record should be in the format
                                  appropriate for the record type specified by the <code class="code">Type</code>
                                  property. For information about different record types and their record formats,
-                                 see <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DomainNameFormat.html" target="_blank">Appendix: Domain Name Format</a> in the <em>Amazon Route&#xA0;53 Developer
+                                 see <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-values-basic.html" target="_blank">Values for Basic Resource Record Sets</a> and 
+                                 <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DomainNameFormat.html" target="_blank">Appendix: Domain Name Format</a> in the <em>Amazon Route&#xA0;53 Developer
                                     Guide</em>.
                               </p>
                               
-                              <p> <em>Required</em>: Conditional. If you don&apos;t specify the <code class="code">AliasTarget</code>
+                              <p> <em>Required: </em>Conditional. If you don&apos;t specify the <code class="code">AliasTarget</code>
                                  property, you must specify this property. If you are creating an alias resource
                                  record set, do not specify this property.
                               </p>
                               
-                              <p><em>Type</em>: List of strings
+                              <p><em>Type</em>: List of String values
                               </p>
                               
                               <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
@@ -381,7 +390,7 @@ Properties:
                                  that have the same combination of DNS name and type.
                               </p>
                               
-                              <p><em>Required</em>: Conditional. Required if you are creating a weighted, latency,
+                              <p><em>Required: </em>Conditional. Required if you are creating a weighted, latency,
                                  failover, or geolocation resource record set.
                               </p>
                               
@@ -410,7 +419,7 @@ Properties:
                                  <code class="code">ResourceRecords</code> property.
                               </p>
                               
-                              <p><em>Required</em>: Conditional. If you don&apos;t specify the <code class="code">AliasTarget</code>
+                              <p><em>Required: </em>Conditional. If you don&apos;t specify the <code class="code">AliasTarget</code>
                                  property, you must specify this property. If you are creating an alias resource
                                  record set, do not specify this property.
                               </p>
@@ -427,11 +436,17 @@ Properties:
                            
                            <dd>
                               
-                              <p>The type of records to add. For valid values, see the <a href="http://docs.aws.amazon.com/Route53/latest/APIReference/API_ResourceRecordSet.html#Route53-Type-ResourceRecordSet-Type" target="_blank">Type</a> content in the <em>Amazon Route&#xA0;53 API Reference</em>. In AWS CloudFormation,
-                                 you can&apos;t create records of type <code class="code">NS</code> or <code class="code">SOA</code>.
+                              <p>The type of records to add. For valid values, see the <a href="http://docs.aws.amazon.com/Route53/latest/APIReference/API_ResourceRecordSet.html#Route53-Type-ResourceRecordSet-Type" target="_blank">Type</a> content in the <em>Amazon Route&#xA0;53 API Reference</em>.
                               </p>
                               
-                              <p><em>Required</em>: Yes
+                              <p>In AWS CloudFormation, you cannot modify the NS and SOA records for a hosted zone
+                                 created automatically by Amazon Route&#xA0;53. Specifically, you can&apos;t create or delete
+                                 NS or SOA records for the root domain of your hosted zone, 
+                                 but you can create them for subdomains to delegate. For example, for hosted zone <code class="code">mydomain.net</code>, you cannot create an NS record for <code class="code">mydomain.net</code> but you can create an NS record for 
+                                 <code class="code">nnnn.mydomain.net</code> for delegation.
+                              </p>
+                              
+                              <p><em>Required: </em>Yes
                               </p>
                               
                               <p><em>Type</em>: String
@@ -456,7 +471,7 @@ Properties:
                                     Developer Guide</em>.
                               </p>
                               
-                              <p><em>Required</em>: Conditional. Required if you are creating a weighted resource record
+                              <p><em>Required: </em>Conditional. Required if you are creating a weighted resource record
                                  set.
                               </p>
                               
@@ -468,11 +483,11 @@ Properties:
                            </dd>
                            
                         </dl>
-                     </div><h2 id="w2ab2c19c12d773c15">Return Value</h2><p>When you specify an <code class="code">AWS::Route53::RecordSet</code> type as an argument to the
+                     </div><h2 id="w2ab2c21c10d922c13">Return Value</h2><p>When you specify an <code class="code">AWS::Route53::RecordSet</code> type as an argument to the
                         <code class="code">Ref</code> function, AWS CloudFormation returns the value of the domain name of the record
                         set.
                      </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                     </p><h2 id="w2ab2c19c12d773c17">Example</h2><h3 id="w2ab2c19c12d773c17b3">Mapping an Amazon Route&#xA0;53 A record to the public IP of an Amazon EC2 instance</h3><div id="JSON" name="JSON" class="section langfilter">
+                     </p><h2 id="w2ab2c21c10d922c15">Example</h2><h3 id="w2ab2c21c10d922c15b2">Mapping an Amazon Route&#xA0;53 A record to the public IP of an Amazon EC2 instance</h3><div id="JSON" name="JSON" class="section langfilter">
                         <h4 id="aws-resource-route53-recordset-example.json">JSON</h4>
                         
                         <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="json ">
@@ -523,7 +538,7 @@ Properties:
       TTL: &apos;900&apos;
       ResourceRecords:
       - !GetAtt Ec2Instance.PublicIp</code></pre>
-                        </div><h3 id="w2ab2c19c12d773c17b5">Additional Information</h3><p>For additional <code class="code">AWS::Route53::RecordSet</code> snippets, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-route53.html">Amazon Route&#xA0;53 Template Snippets</a> .
+                        </div><h3 id="w2ab2c21c10d922c15b4">Additional Information</h3><p>For additional <code class="code">AWS::Route53::RecordSet</code> snippets, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-route53.html">Amazon Route&#xA0;53 Template Snippets</a> .
                      </p></div>
 </body>
 </html>
