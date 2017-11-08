@@ -18,8 +18,8 @@
                         <p><strong>Topics</strong></p>
                         <ul>
                            <li><a href="#aws-resource-lambda-permission-syntax">Syntax</a></li>
-                           <li><a href="#w2ab2c19c12d634c11">Properties</a></li>
-                           <li><a href="#w2ab2c19c12d634c13">Example</a></li>
+                           <li><a href="#w2ab2c21c10d782b9">Properties</a></li>
+                           <li><a href="#w2ab2c21c10d782c11">Example</a></li>
                         </ul>
                      </div><h2 id="aws-resource-lambda-permission-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
                         <h3 id="aws-resource-lambda-permission-syntax.json">JSON</h3>
@@ -28,6 +28,7 @@
   &quot;Type&quot; : &quot;AWS::Lambda::Permission&quot;,
   &quot;Properties&quot; : {
     &quot;<a href="aws-resource-lambda-permission.html#cfn-lambda-permission-action"><code class="code">Action</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-resource-lambda-permission.html#cfn-lambda-permission-eventsourcetoken"><code class="code">EventSourceToken</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
     &quot;<a href="aws-resource-lambda-permission.html#cfn-lambda-permission-functionname"><code class="code">FunctionName</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
     &quot;<a href="aws-resource-lambda-permission.html#cfn-lambda-permission-principal"><code class="code">Principal</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
     &quot;<a href="aws-resource-lambda-permission.html#cfn-lambda-permission-sourceaccount"><code class="code">SourceAccount</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
@@ -40,12 +41,15 @@
                         <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">Type: &quot;AWS::Lambda::Permission&quot;
 Properties: 
   <a href="aws-resource-lambda-permission.html#cfn-lambda-permission-action"><code class="code">Action</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-resource-lambda-permission.html#cfn-lambda-permission-eventsourcetoken"><code class="code">EventSourceToken</code></a>: <em class="replaceable"><code>String</code></em>
   <a href="aws-resource-lambda-permission.html#cfn-lambda-permission-functionname"><code class="code">FunctionName</code></a>: <em class="replaceable"><code>String</code></em>
   <a href="aws-resource-lambda-permission.html#cfn-lambda-permission-principal"><code class="code">Principal</code></a>: <em class="replaceable"><code>String</code></em>
   <a href="aws-resource-lambda-permission.html#cfn-lambda-permission-sourceaccount"><code class="code">SourceAccount</code></a>: <em class="replaceable"><code>String</code></em>
   <a href="aws-resource-lambda-permission.html#cfn-lambda-permission-sourcearn"><code class="code">SourceArn</code></a>: <em class="replaceable"><code>String</code></em>
 </code></pre>
-                        </div><h2 id="w2ab2c19c12d634c11">Properties</h2><div class="variablelist">
+                        </div><h2 id="w2ab2c21c10d782b9">Properties</h2><p>For more information and current valid values, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/API_AddPermission.html" target="_blank">AddPermission</a> in the <em>AWS Lambda Developer Guide</em>.
+                     </p><div class="variablelist">
+                        
                         
                         
                         
@@ -62,7 +66,24 @@ Properties:
                                  specify <code class="code">lambda:CreateFunction</code> to specify a certain action, or use a wildcard (<code class="code">lambda:*</code>) to grant permission to all Lambda actions. For a list of actions, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/list_lambda.html" target="_blank">Actions and Condition Context Keys for AWS Lambda</a> in the <em>IAM User Guide</em>.
                               </p>
                               
-                              <p><em>Required</em>: Yes
+                              <p><em>Required: </em>Yes
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-lambda-permission-eventsourcetoken"></a><span class="term"><code class="code">EventSourceToken</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>A unique token that must be supplied by the principal invoking the function.</p>
+                              
+                              <p><em>Required: </em>No
                               </p>
                               
                               <p><em>Type</em>: String
@@ -82,7 +103,7 @@ Properties:
                                  to the function&apos;s access policy.
                               </p>
                               
-                              <p><em>Required</em>: Yes
+                              <p><em>Required: </em>Yes
                               </p>
                               
                               <p><em>Type</em>: String
@@ -105,7 +126,7 @@ Properties:
                                  invoking your function.
                               </p>
                               
-                              <p><em>Required</em>: Yes
+                              <p><em>Required: </em>Yes
                               </p>
                               
                               <p><em>Type</em>: String
@@ -133,7 +154,7 @@ Properties:
                                  </p>
                               </div>
                               
-                              <p><em>Required</em>: No
+                              <p><em>Required: </em>No
                               </p>
                               
                               <p><em>Type</em>: String
@@ -163,7 +184,7 @@ Properties:
                                  </p>
                               </div>
                               
-                              <p><em>Required</em>: No
+                              <p><em>Required: </em>No
                               </p>
                               
                               <p><em>Type</em>: String
@@ -174,32 +195,46 @@ Properties:
                            </dd>
                            
                         </dl>
-                     </div><h2 id="w2ab2c19c12d634c13">Example</h2><p>The following example grants an S3 bucket permission to invoke a Lambda function.</p><div id="JSON" name="JSON" class="section langfilter">
+                     </div><h2 id="w2ab2c21c10d782c11">Example</h2><p>The following example grants an S3 bucket permission to invoke a Lambda function.</p><div id="JSON" name="JSON" class="section langfilter">
                         <h3 id="aws-resource-lambda-permission-example.json">JSON</h3>
                         
                         <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">&quot;LambdaInvokePermission&quot;: {
-  &quot;Type&quot;: &quot;AWS::Lambda::Permission&quot;,
-  &quot;Properties&quot;: {
-    &quot;FunctionName&quot; : { &quot;Fn::GetAtt&quot; : [&quot;MyLambdaFunction&quot;, &quot;Arn&quot;] },
-    &quot;Action&quot;: &quot;lambda:InvokeFunction&quot;,
-    &quot;Principal&quot;: &quot;s3.amazonaws.com&quot;,
-    &quot;SourceAccount&quot;: { &quot;Ref&quot; : &quot;AWS::AccountId&quot; }
-  }
+	&quot;Type&quot;: &quot;AWS::Lambda::Permission&quot;,
+	&quot;Properties&quot;: {
+		&quot;FunctionName&quot;: {
+			&quot;Fn::GetAtt&quot;: [
+				&quot;MyLambdaFunction&quot;,
+				&quot;Arn&quot;
+			]
+		},
+		&quot;Action&quot;: &quot;lambda:InvokeFunction&quot;,
+		&quot;Principal&quot;: &quot;s3.amazonaws.com&quot;,
+		&quot;SourceAccount&quot;: {
+			&quot;Ref&quot;: &quot;AWS::AccountId&quot;
+		},
+		&quot;SourceArn&quot;: {
+			&quot;Fn::GetAtt&quot;: [
+				&quot;MyBucket&quot;,
+				&quot;Arn&quot;
+			]
+		}
+	}
 }</code></pre>
                         </div><div id="YAML" name="YAML" class="section langfilter">
                         <h3 id="aws-resource-lambda-permission-example.yaml">YAML</h3>
                         
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">LambdaInvokePermission: 
-  Type: &quot;AWS::Lambda::Permission&quot;
-  Properties: 
-    FunctionName: 
-      Fn::GetAtt: 
-        - &quot;MyLambdaFunction&quot;
-        - &quot;Arn&quot;
-    Action: &quot;lambda:InvokeFunction&quot;
-    Principal: &quot;s3.amazonaws.com&quot;
-    SourceAccount: 
-      Ref: &quot;AWS::AccountId&quot;</code></pre>
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">LambdaInvokePermission:
+  Type: &apos;AWS::Lambda::Permission&apos;
+  Properties:
+    FunctionName: !GetAtt 
+      - MyLambdaFunction
+      - Arn
+    Action: &apos;lambda:InvokeFunction&apos;
+    Principal: s3.amazonaws.com
+    SourceAccount: !Ref &apos;AWS::AccountId&apos;
+    SourceArn: !GetAtt 
+      - MyBucket
+      - Arn</code></pre>
                         </div></div>
 </body>
 </html>

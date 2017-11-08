@@ -18,7 +18,7 @@
                            valid, and that the list
                            contains non-null values.
                         </p>
-                     </div><h2 id="w2ab2c19c31c52b9">Declaration</h2><div id="JSON" name="JSON" class="section langfilter">
+                     </div><h2 id="w2ab2c21c28c48b7">Declaration</h2><div id="JSON" name="JSON" class="section langfilter">
                         <h3 id="intrinsic-function-reference-select-syntax.json">JSON</h3>
                         
                         <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">{ &quot;Fn::Select&quot; : [ <em class="replaceable"><code>index</code></em>, <em class="replaceable"><code>listOfObjects</code></em> ] }</code></pre>
@@ -30,7 +30,7 @@
                         <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">Fn::Select: [ <em class="replaceable"><code>index</code></em>, <em class="replaceable"><code>listOfObjects</code></em> ] </code></pre>
                         <p>Syntax for the short form:</p>
                         <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">!Select [ <em class="replaceable"><code>index</code></em>, <em class="replaceable"><code>listOfObjects</code></em> ]</code></pre>
-                        </div><h2 id="w2ab2c19c31c52c11">Parameters</h2><div class="variablelist">
+                        </div><h2 id="w2ab2c21c28c48b9">Parameters</h2><div class="variablelist">
                         
                         
                         
@@ -59,7 +59,7 @@
                            </dd>
                            
                         </dl>
-                     </div><h2 id="w2ab2c19c31c52c13">Return Value</h2><p>The selected object.</p><h2 id="w2ab2c19c31c52c15">Examples</h2><h3 id="w2ab2c19c31c52c15b3">Basic Example</h3><p>The following example returns: <code class="code">&quot;grapes&quot;</code>.
+                     </div><h2 id="w2ab2c21c28c48c11">Return Value</h2><p>The selected object.</p><h2 id="w2ab2c21c28c48c13">Examples</h2><h3 id="w2ab2c21c28c48c13b2">Basic Example</h3><p>The following example returns: <code class="code">&quot;grapes&quot;</code>.
                      </p><div id="JSON" name="JSON" class="section langfilter">
                         <h4 id="intrinsic-function-reference-select-example0.json">JSON</h4>
                         
@@ -68,29 +68,31 @@
                         <h4 id="intrinsic-function-reference-select-example0.yaml">YAML</h4>
                         
                         <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">!Select [ &quot;1&quot;, [ &quot;apples&quot;, &quot;grapes&quot;, &quot;oranges&quot;, &quot;mangoes&quot; ] ]</code></pre>
-                        </div><h3 id="w2ab2c19c31c52c15b5">Comma-delimited List Parameter Type</h3><p>You can use <code class="code">Fn::Select</code> to select an object from a
+                        </div><p>&#xA0;</p><h3 id="w2ab2c21c28c48c13b4">Comma-delimited List Parameter Type</h3><p>You can use <code class="code">Fn::Select</code> to select an object from a
                         <code class="code">CommaDelimitedList</code> parameter. You might use a
                         <code class="code">CommaDelimitedList</code> parameter to combine the values of related
                         parameters, which reduces the total number of parameters in your template. For example,
                         the following parameter specifies a comma-delimited list of three CIDR blocks:
-                     </p><div class="example">
-                        <p class="title"><b>Example JSON</b></p>
-                        <div class="example-contents"><pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">&quot;Parameters&quot; : {
+                     </p><div id="JSON" name="JSON" class="section langfilter">
+                        
+                        <h4 id="intrinsic-function-reference-select-example1.json">JSON</h4>
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">&quot;Parameters&quot; : {
   &quot;DbSubnetIpBlocks&quot;: {
     &quot;Description&quot;: &quot;Comma-delimited list of three CIDR blocks&quot;,
     &quot;Type&quot;: &quot;CommaDelimitedList&quot;,
       &quot;Default&quot;: &quot;10.0.48.0/24, 10.0.112.0/24, 10.0.176.0/24&quot;
   }
-}</code></pre></div>
-                     </div><div class="example">
-                        <p class="title"><b>Example YAML</b></p>
-                        <div class="example-contents"><pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">Parameters: 
+}</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        
+                        <h4 id="intrinsic-function-reference-select-example1.yaml">YAML</h4>
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">Parameters: 
   DbSubnetIpBlocks: 
     Description: &quot;Comma-delimited list of three CIDR blocks&quot;
     Type: CommaDelimitedList
     Default: &quot;10.0.48.0/24, 10.0.112.0/24, 10.0.176.0/24&quot;
-</code></pre></div>
-                     </div><p>To specify one of the three CIDR blocks, use <code class="code">Fn::Select</code> in the Resources
+</code></pre>
+                        </div><p>To specify one of the three CIDR blocks, use <code class="code">Fn::Select</code> in the Resources
                         section of the same template, as shown in the following sample snippet:
                      </p><div id="JSON" name="JSON" class="section langfilter">
                         <h4 id="intrinsic-function-reference-select-example2.json">JSON</h4>
@@ -111,7 +113,23 @@
     VpcId: !Ref VPC
     CidrBlock: !Select [ 0, !Ref DbSubnetIpBlocks ]
 </code></pre>
-                        </div><h2 id="w2ab2c19c31c52c17">Supported Functions</h2><p>For the <code class="code">Fn::Select</code> index value, you can use the <code class="code">Ref</code> and
+                        </div><p>&#xA0;</p><h3 id="w2ab2c21c28c48c13b6">Nested Functions with Short Form YAML</h3><p>The following examples show valid patterns for using nested intrinsic functions with
+                        the <code class="code">!Select</code> short form. 
+                        You can&apos;t nest short form functions consecutively, so a pattern like <code class="code">!GetAZs !Ref</code> is invalid.
+                     </p><div id="YAML" name="YAML" class="section langfilter">
+                        
+                        <h4 id="intrinsic-function-reference-select-example3.yaml">YAML</h4>
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">AvailabilityZone: !Select 
+  - 0
+  - !GetAZs 
+    Ref: &apos;AWS::Region&apos;</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        
+                        <h4 id="intrinsic-function-reference-select-example4.yaml">YAML</h4>
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">AvailabilityZone: !Select 
+  - 0
+  - Fn::GetAZs: !Ref &apos;AWS::Region&apos;</code></pre>
+                        </div><h2 id="w2ab2c21c28c48c15">Supported Functions</h2><p>For the <code class="code">Fn::Select</code> index value, you can use the <code class="code">Ref</code> and
                         <code class="code">Fn::FindInMap</code> functions.
                      </p><p>For the <code class="code">Fn::Select</code> list of objects, you can use the following functions:
                      </p><div class="itemizedlist">

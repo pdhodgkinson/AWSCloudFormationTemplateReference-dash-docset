@@ -15,10 +15,10 @@
                         <p><strong>Topics</strong></p>
                         <ul>
                            <li><a href="#aws-resource-ec2-vpcgateway-syntax">Syntax</a></li>
-                           <li><a href="#w2ab2c19c12d397c11">Properties</a></li>
-                           <li><a href="#w2ab2c19c12d397c13">Return Value</a></li>
-                           <li><a href="#w2ab2c19c12d397c15">Example</a></li>
-                           <li><a href="#w2ab2c19c12d397c17">See Also</a></li>
+                           <li><a href="#w2ab2c21c10d497b9">Properties</a></li>
+                           <li><a href="#w2ab2c21c10d497c11">Return Value</a></li>
+                           <li><a href="#w2ab2c21c10d497c13">Example</a></li>
+                           <li><a href="#w2ab2c21c10d497c15">See Also</a></li>
                         </ul>
                      </div><h2 id="aws-resource-ec2-vpcgateway-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
                         <h3 id="aws-resource-ec2-vpcgateway-syntax.json">JSON</h3>
@@ -27,6 +27,7 @@
 {
    &quot;Type&quot; : &quot;AWS::EC2::VPNGateway&quot;,
    &quot;Properties&quot; : {
+      &quot;<a href="aws-resource-ec2-vpn-gateway.html#cfn-ec2-vpngateway-amazonsideasn"><code class="literal">AmazonSideAsn</code></a>&quot; : <em class="replaceable"><code>Long</code></em>,
       &quot;<a href="aws-resource-ec2-vpn-gateway.html#cfn-ec2-vpngateway-type">Type</a>&quot; : <em class="replaceable"><code>String</code></em>,
       &quot;<a href="aws-resource-ec2-vpn-gateway.html#cfn-ec2-vpngateway-tags">Tags</a>&quot; : [ <em class="replaceable"><code>Resource Tag, ...</code></em> ]
    }
@@ -37,17 +38,40 @@
                         
                         <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">Type: &quot;AWS::EC2::VPNGateway&quot;
 Properties: 
+  <a href="aws-resource-ec2-vpn-gateway.html#cfn-ec2-vpngateway-amazonsideasn"><code class="literal">AmazonSideAsn</code></a>: <em class="replaceable"><code>Long</code></em>
   <a href="aws-resource-ec2-vpn-gateway.html#cfn-ec2-vpngateway-type">Type</a>: <em class="replaceable"><code>String</code></em>
   <a href="aws-resource-ec2-vpn-gateway.html#cfn-ec2-vpngateway-tags">Tags</a>:
     <em class="replaceable"><code>Resource Tag</code></em> 
 </code></pre>
-                        </div><h2 id="w2ab2c19c12d397c11">Properties</h2><div class="variablelist">
+                        </div><h2 id="w2ab2c21c10d497b9">Properties</h2><div class="variablelist">
+                        
                         
                         
                         
                         
                         
                         <dl>
+                           
+                           <dt><a id="cfn-ec2-vpngateway-amazonsideasn"></a><span class="term"><code class="literal">AmazonSideAsn</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The private Autonomous System Number (ASN) for the Amazon side of a BGP session.</p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: Long
+                              </p>
+                              
+                              <p>
+                                 <em>Update requires</em>:                             
+                                 <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
+                                 
+                              </p>
+                              
+                           </dd>
+                           
                            
                            <dt><a id="cfn-ec2-vpngateway-type"></a><span class="term"><code class="literal">Type</code></span></dt>
                            
@@ -75,7 +99,7 @@ Properties:
                               
                               <p>An arbitrary set of tags (key&#x2013;value pairs) for this resource.</p>
                               
-                              <p><em>Required</em>: No
+                              <p><em>Required: </em>No
                               </p>
                               
                               <p><em>Type</em>: <a href="aws-properties-resource-tags.html">AWS CloudFormation Resource Tags</a></p>
@@ -86,12 +110,12 @@ Properties:
                            </dd>
                            
                         </dl>
-                     </div><h2 id="w2ab2c19c12d397c13">Return Value</h2><p>When the logical ID of this resource is provided to the <code class="code">Ref</code> intrinsic
+                     </div><h2 id="w2ab2c21c10d497c11">Return Value</h2><p>When the logical ID of this resource is provided to the <code class="code">Ref</code> intrinsic
                         function, <code class="code">Ref</code> returns the resource name. For example:
                      </p><pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">{ &quot;Ref&quot;: &quot;<em class="replaceable"><code>MyVPNGateway</code></em>&quot; }</code></pre><p>For the VPN gateway with the logical ID &quot;MyVPNGateway&quot;, <code class="code">Ref</code> will return the gateway&apos;s
                         resource name.
                      </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                     </p><h2 id="w2ab2c19c12d397c15">Example</h2><div id="JSON" name="JSON" class="section langfilter">
+                     </p><h2 id="w2ab2c21c10d497c13">Example</h2><div id="JSON" name="JSON" class="section langfilter">
                         <h3 id="aws-resource-ec2-vpcgateway-example.json">JSON</h3>
                         
                         <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">
@@ -120,7 +144,7 @@ Resources:
         - 
           Key: Use
           Value: Test</code></pre>
-                        </div><h2 id="w2ab2c19c12d397c17">See Also</h2><div class="itemizedlist">
+                        </div><h2 id="w2ab2c21c10d497c15">See Also</h2><div class="itemizedlist">
                         
                         
                         <ul class="itemizedlist" type="disc">

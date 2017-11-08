@@ -9,10 +9,10 @@
 <body>
     <div id="content" style="padding: 10px 30px;">
     <h1 class="topictitle" id="aws-properties-datapipeline-pipeline-pipelineobjects">AWS Data Pipeline
-                        PipelineObjects
+                        PipelineObject
                      </h1><p><code class="code">PipelineObjects</code> is a property of the <a href="aws-resource-datapipeline-pipeline.html">AWS::DataPipeline::Pipeline</a> resource that describes a data
                         pipeline object.
-                     </p><h2 id="w2ab2c19c17d335b7">Syntax</h2><div id="JSON" name="JSON" class="section langfilter">
+                     </p><h2 id="w2ab2c21c14d471b5">Syntax</h2><div id="JSON" name="JSON" class="section langfilter">
                         <h3 id="aws-properties-datapipeline-pipeline-pipelineobjects-syntax.json">JSON</h3>
                         
                         <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">{
@@ -28,7 +28,7 @@
 <a href="aws-properties-datapipeline-pipeline-pipelineobjects.html#cfn-datapipeline-pipeline-pipelineobjects-id"><code class="literal">Id</code></a>: <em class="replaceable"><code>String</code></em>
 <a href="aws-properties-datapipeline-pipeline-pipelineobjects.html#cfn-datapipeline-pipeline-pipelineobjects-name"><code class="literal">Name</code></a>: <em class="replaceable"><code>String</code></em>
 </code></pre>
-                        </div><h2 id="w2ab2c19c17d335b9">Properties</h2><div class="variablelist">
+                        </div><h2 id="w2ab2c21c14d471b7">Properties</h2><div class="variablelist">
                         
                         
                         
@@ -39,13 +39,15 @@
                            
                            <dd>
                               
-                              <p>Key-value pairs that define the properties of the object.</p>
-                              
-                              <p><em>Required</em>: Yes
+                              <p>Key-value pairs that define the properties of the object. Duplicates allowed. You
+                                 can use the same key multiple times within a field to define array attributes.
                               </p>
                               
-                              <p><em>Type</em>: <a href="aws-properties-datapipeline-pipeline-pipelineobjects-fields.html">AWS Data Pipeline
-                                    Data Pipeline Object Fields</a></p>
+                              <p><em>Required: </em>Yes
+                              </p>
+                              
+                              <p><em>Type</em>: List of <a href="aws-properties-datapipeline-pipeline-pipelineobjects-fields.html">AWS Data Pipeline
+                                    Pipeline Field</a></p>
                               
                            </dd>
                            
@@ -56,7 +58,7 @@
                               
                               <p>Identifier of the object.</p>
                               
-                              <p><em>Required</em>: Yes
+                              <p><em>Required: </em>Yes
                               </p>
                               
                               <p><em>Type</em>: String
@@ -71,7 +73,7 @@
                               
                               <p>Name of the object.</p>
                               
-                              <p><em>Required</em>: Yes
+                              <p><em>Required: </em>Yes
                               </p>
                               
                               <p><em>Type</em>: String
@@ -80,6 +82,96 @@
                            </dd>
                            
                         </dl>
-                     </div></div>
+                     </div><h2 id="aws-properties-datapipeline-pipeline-pipelineobjects-examples">Examples</h2><h3 id="aws-properties-datapipeline-pipeline-pipelineobjects-example1"></h3><p>The following snippet shows how to use the same key for fields in the <code class="code">PipelineObjects</code> property for an <code class="code">AWS::DataPipeline::Pipeline</code> resource.
+                     </p><div id="JSON" name="JSON" class="section langfilter">
+                        
+                        <h4 id="aws-properties-datapipeline-pipeline-pipelineobjects-example1.json">JSON</h4>
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">&quot;PipelineObjects&quot;: [
+  {
+    &quot;Id&quot;: &quot;ResourceId_I1mCc&quot;,
+    &quot;Name&quot;: &quot;ReleaseLabelCluster&quot;,
+    &quot;Fields&quot;: [
+      {
+        &quot;Key&quot;: &quot;releaseLabel&quot;,
+        &quot;StringValue&quot;: &quot;emr-4.1.0&quot;
+      },
+      {
+        &quot;Key&quot;: &quot;applications&quot;,
+        &quot;StringValue&quot;: &quot;spark&quot;
+      },
+      {
+        &quot;Key&quot;: &quot;applications&quot;,
+        &quot;StringValue&quot;: &quot;hive&quot;
+      },
+      {
+        &quot;Key&quot;: &quot;applications&quot;,
+        &quot;StringValue&quot;: &quot;pig&quot;
+      },
+      {
+        &quot;Key&quot;: &quot;type&quot;,
+        &quot;StringValue&quot;: &quot;EmrCluster&quot;
+      },
+      {
+        &quot;Key&quot;: &quot;configuration&quot;,
+        &quot;RefValue&quot;: &quot;coresite&quot;
+      }
+    ]
+  },
+  {
+    &quot;Id&quot;: &quot;coresite&quot;,
+    &quot;Name&quot;: &quot;coresite&quot;,
+    &quot;Fields&quot;: [
+      {
+        &quot;Key&quot;: &quot;type&quot;,
+        &quot;StringValue&quot;: &quot;EmrConfiguration&quot;
+      },
+      {
+        &quot;Key&quot;: &quot;classification&quot;,
+        &quot;StringValue&quot;: &quot;core-site&quot;
+      },
+      {
+        &quot;Key&quot;: &quot;property&quot;,
+        &quot;RefValue&quot;: &quot;io-file-buffer-size&quot;
+      },
+      {
+        &quot;Key&quot;: &quot;property&quot;,
+        &quot;RefValue&quot;: &quot;fs-s3-block-size&quot;
+      }
+    ]
+  },
+  ...
+]</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        
+                        <h4 id="aws-properties-datapipeline-pipeline-pipelineobjects-example1.yaml">YAML</h4>
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">PipelineObjects:
+  - Id: ResourceId_I1mCc
+    Name: ReleaseLabelCluster
+    Fields:
+      - Key: releaseLabel
+        StringValue: emr-4.1.0
+      - Key: applications
+        StringValue: spark
+      - Key: applications
+        StringValue: hive
+      - Key: applications
+        StringValue: pig
+      - Key: type
+        StringValue: EmrCluster
+      - Key: configuration
+        RefValue: coresite
+  - Id: coresite
+    Name: coresite
+    Fields:
+      - Key: type
+        StringValue: EmrConfiguration
+      - Key: classification
+        StringValue: core-site
+      - Key: property
+        RefValue: io-file-buffer-size
+      - Key: property
+        RefValue: fs-s3-block-size
+  ...</code></pre>
+                        </div></div>
 </body>
 </html>

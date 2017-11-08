@@ -8,16 +8,17 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-resource-elasticloadbalancingv2-listener">AWS::ElasticLoadBalancingV2::Listener</h1><p>The <code class="code">AWS::ElasticLoadBalancingV2::Listener</code> resource creates a listener for an Elastic Load Balancing Application load balancer.
-                        The listener checks for connection requests and forwards them to one or more target
-                        groups. For more information, see the <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html" target="_blank">Listeners for Your Application Load Balancers</a> in the <em>Application Load Balancers Guide</em>.
+    <h1 class="topictitle" id="aws-resource-elasticloadbalancingv2-listener">AWS::ElasticLoadBalancingV2::Listener</h1><p>The <code class="code">AWS::ElasticLoadBalancingV2::Listener</code> resource creates a listener for an
+                        Elastic Load Balancing Application or Network load balancer. The listener checks for
+                        connection requests and
+                        forwards them to one or more target groups. For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/load-balancer-getting-started.html" target="_blank">Getting Started</a> in the <em>Elastic Load Balancing User Guide</em>.
                      </p><div class="highlights">
                         <p><strong>Topics</strong></p>
                         <ul>
                            <li><a href="#aws-resource-elasticloadbalancingv2-listener-syntax">Syntax</a></li>
-                           <li><a href="#w2ab2c19c12d483c11">Properties</a></li>
-                           <li><a href="#w2ab2c19c12d483c13">Return Value</a></li>
-                           <li><a href="#w2ab2c19c12d483c15">Example</a></li>
+                           <li><a href="#w2ab2c21c10d583b9">Properties</a></li>
+                           <li><a href="#w2ab2c21c10d583c11">Return Value</a></li>
+                           <li><a href="#w2ab2c21c10d583c13">Example</a></li>
                         </ul>
                      </div><h2 id="aws-resource-elasticloadbalancingv2-listener-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
                         <h3 id="aws-resource-elasticloadbalancingv2-listener-syntax.json">JSON</h3>
@@ -47,7 +48,7 @@ Properties:
   <a href="aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-protocol"><code class="code">Protocol</code></a>: <em class="replaceable"><code>String</code></em>
   <a href="aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-sslpolicy"><code class="code">SslPolicy</code></a>: <em class="replaceable"><code>String</code></em>
 </code></pre>
-                        </div><h2 id="w2ab2c19c12d483c11">Properties</h2><div class="variablelist">
+                        </div><h2 id="w2ab2c21c10d583b9">Properties</h2><div class="variablelist">
                         
                         
                         
@@ -66,7 +67,7 @@ Properties:
                                  between the load balancer and your targets.
                               </p>
                               
-                              <p><em>Required</em>: Conditional. If you specify <code class="code">HTTPS</code> for the <code class="code">Protocol</code> property, specify a certificate.
+                              <p><em>Required: </em>Conditional. If you specify <code class="code">HTTPS</code> for the <code class="code">Protocol</code> property, specify a certificate.
                               </p>
                               
                               <p><em>Type</em>: List of <a href="aws-properties-elasticloadbalancingv2-listener-certificates.html">Elastic Load Balancing Listener Certificates</a></p>
@@ -82,7 +83,7 @@ Properties:
                               
                               <p>The default actions that the listener takes when handling incoming requests.</p>
                               
-                              <p><em>Required</em>: Yes
+                              <p><em>Required: </em>Yes
                               </p>
                               
                               <p><em>Type</em>: List of <a href="aws-properties-elasticloadbalancingv2-listener-defaultactions.html">Elastic Load Balancing Listener DefaultActions</a></p>
@@ -98,7 +99,7 @@ Properties:
                               
                               <p>The Amazon Resource Name (ARN) of the load balancer to associate with the listener.</p>
                               
-                              <p><em>Required</em>: Yes
+                              <p><em>Required: </em>Yes
                               </p>
                               
                               <p><em>Type</em>: String
@@ -118,7 +119,7 @@ Properties:
                               <p>For valid values, see the <code class="code">Port</code> parameter for the <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateListener.html" target="_blank">CreateListener</a> action in the <em>Elastic Load Balancing API Reference version 2015-12-01</em>.
                               </p>
                               
-                              <p><em>Required</em>: Yes
+                              <p><em>Required: </em>Yes
                               </p>
                               
                               <p><em>Type</em>: Integer
@@ -138,7 +139,7 @@ Properties:
                               <p>For valid values, see the <code class="code">Protocol</code> parameter for the <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateListener.html" target="_blank">CreateListener</a> action in the <em>Elastic Load Balancing API Reference version 2015-12-01</em>.
                               </p>
                               
-                              <p><em>Required</em>: Yes
+                              <p><em>Required: </em>Yes
                               </p>
                               
                               <p><em>Type</em>: String
@@ -157,7 +158,7 @@ Properties:
                                  supports.
                               </p>
                               
-                              <p><em>Required</em>: No
+                              <p><em>Required: </em>No
                               </p>
                               
                               <p><em>Type</em>: String
@@ -168,9 +169,9 @@ Properties:
                            </dd>
                            
                         </dl>
-                     </div><h2 id="w2ab2c19c12d483c13">Return Value</h2><h3 id="w2ab2c19c12d483c13b3">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code> intrinsic function, <code class="code">Ref</code> returns the listener&apos;s ARN, such as <code class="code">arn:aws:elasticloadbalancing:us-west-2:123456789012:listener/app/my-load-balancer/50dc6c495c0c9188/f2f7dc8efc522ab2</code>.
+                     </div><h2 id="w2ab2c21c10d583c11">Return Value</h2><h3 id="w2ab2c21c10d583c11b2">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code> intrinsic function, <code class="code">Ref</code> returns the listener&apos;s ARN, such as <code class="code">arn:aws:elasticloadbalancing:us-west-2:123456789012:listener/app/my-load-balancer/50dc6c495c0c9188/f2f7dc8efc522ab2</code>.
                      </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                     </p><h2 id="w2ab2c19c12d483c15">Example</h2><p>The following example creates a listener for the <code class="code">myLoadBalancer</code> resource. The listener&apos;s default action is to forward requests to the <code class="code">myTargetGroup</code> target group.
+                     </p><h2 id="w2ab2c21c10d583c13">Example</h2><p>The following example creates a listener for the <code class="code">myLoadBalancer</code> resource. The listener&apos;s default action is to forward requests to the <code class="code">myTargetGroup</code> target group.
                      </p><div id="JSON" name="JSON" class="section langfilter">
                         <h3 id="aws-resource-elasticloadbalancingv2-listener-example.json">JSON</h3>
                         

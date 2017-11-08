@@ -14,10 +14,10 @@
                         <p><strong>Topics</strong></p>
                         <ul>
                            <li><a href="#aws-resource-ecs-service-syntax">Syntax</a></li>
-                           <li><a href="#w2ab2c19c12d414c11">Properties</a></li>
-                           <li><a href="#w2ab2c19c12d414c13">Return Values</a></li>
-                           <li><a href="#w2ab2c19c12d414c15">Examples</a></li>
-                           <li><a href="#w2ab2c19c12d414c17">More Info</a></li>
+                           <li><a href="#w2ab2c21c10d514b9">Properties</a></li>
+                           <li><a href="#w2ab2c21c10d514c11">Return Values</a></li>
+                           <li><a href="#w2ab2c21c10d514c13">Examples</a></li>
+                           <li><a href="#w2ab2c21c10d514c15">More Info</a></li>
                         </ul>
                      </div><h2 id="aws-resource-ecs-service-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
                         <h3 id="aws-resource-ecs-service-syntax.json">JSON</h3>
@@ -57,7 +57,7 @@ Properties:
   <a href="aws-resource-ecs-service.html#cfn-ecs-service-role"><code class="code">Role</code></a>: <em class="replaceable"><code>String</code></em>
   <a href="aws-resource-ecs-service.html#cfn-ecs-service-servicename"><code class="code">ServiceName</code></a>: <em class="replaceable"><code>String</code></em>
   <a href="aws-resource-ecs-service.html#cfn-ecs-service-taskdefinition"><code class="code">TaskDefinition</code></a>: <em class="replaceable"><code>String</code></em></code></pre>
-                        </div><h2 id="w2ab2c19c12d414c11">Properties</h2><div class="aws-note">
+                        </div><h2 id="w2ab2c21c10d514b9">Properties</h2><div class="aws-note">
                         <p class="aws-note">Note</p>
                         <p>When you use Auto Scaling or Amazon Elastic Compute Cloud (Amazon EC2) to create container
                            instances for an Amazon ECS
@@ -90,7 +90,7 @@ Properties:
                                  cluster.
                               </p>
                               
-                              <p><em>Required</em>: No
+                              <p><em>Required: </em>No
                               </p>
                               
                               <p><em>Type</em>: String
@@ -107,7 +107,7 @@ Properties:
                               
                               <p>Configures how many tasks run during a deployment.</p>
                               
-                              <p><em>Required</em>: No
+                              <p><em>Required: </em>No
                               </p>
                               
                               <p><em>Type</em>: <a href="aws-properties-ecs-service-deploymentconfiguration.html">Amazon EC2 Container Service Service
@@ -124,7 +124,7 @@ Properties:
                               
                               <p>The placement constraints for the tasks in the service.</p>
                               
-                              <p><em>Required</em>: No
+                              <p><em>Required: </em>No
                               </p>
                               
                               <p><em>Type</em>: <a href="aws-properties-ecs-service-placementconstraints-placementconstraint.html">Amazon EC2 Container Service Service
@@ -141,7 +141,7 @@ Properties:
                               
                               <p>The placement strategies that determine how tasks for the service are placed.</p>
                               
-                              <p><em>Required</em>: No
+                              <p><em>Required: </em>No
                               </p>
                               
                               <p><em>Type</em>: <a href="aws-properties-ecs-service-placementstrategies-placementstrategy.html">Amazon EC2 Container Service Service
@@ -160,7 +160,8 @@ Properties:
                                  the tasks with the <code class="code">TaskDefinition</code> property.
                               </p>
                               
-                              <p><em>Required</em>: No
+                              
+                              <p><em>Required: </em>Conditional. Required only when creating an Amazon ECS Service.
                               </p>
                               
                               <p><em>Type</em>: Integer
@@ -175,12 +176,14 @@ Properties:
                            
                            <dd>
                               
-                              <p>A list of load balancer objects to associate with the cluster. For information
+                              <p>A list of load balancer objects to associate with the
+                                 cluster. If you specify the <code class="code">Role</code> property,
+                                 <code class="code">LoadBalancers</code> must be specified as well. For information
                                  about the number of load balancers that you can specify per service, see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html" target="_blank">Service Load Balancing</a>
                                  in the <em>Amazon EC2 Container Service Developer Guide</em>.
                               </p>
                               
-                              <p><em>Required</em>: No
+                              <p><em>Required: </em>Conditional
                               </p>
                               
                               <p><em>Type</em>: List of <a href="aws-properties-ecs-service-loadbalancers.html">Amazon EC2 Container Service Service
@@ -207,7 +210,7 @@ Properties:
                                  </p>
                               </div>
                               
-                              <p><em>Required</em>: Conditional. Required only if you specify the
+                              <p><em>Required: </em>Conditional. Required only if you specify the
                                  <code class="code">LoadBalancers</code> property.
                               </p>
                               
@@ -231,7 +234,7 @@ Properties:
                                  regions.
                               </p>
                               
-                              <p><em>Required</em>: No
+                              <p><em>Required: </em>No
                               </p>
                               
                               <p><em>Type</em>: String
@@ -255,7 +258,7 @@ Properties:
                                  revision to roll back to.
                               </p>
                               
-                              <p><em>Required</em>: Yes
+                              <p><em>Required: </em>Yes
                               </p>
                               
                               <p><em>Type</em>: String
@@ -266,13 +269,13 @@ Properties:
                            </dd>
                            
                         </dl>
-                     </div><h2 id="w2ab2c19c12d414c13">Return Values</h2><h3 id="w2ab2c19c12d414c13b3">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code>
+                     </div><h2 id="w2ab2c21c10d514c11">Return Values</h2><h3 id="w2ab2c21c10d514c11b2">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code>
                         intrinsic function, <code class="code">Ref</code> returns the ARN.
                      </p><p>In the following sample, the <code class="code">Ref</code> function returns the ARN of the
                         <code class="code">MyECSService</code> service, such as
                         <code class="code">arn:aws:ecs:us-west-2:123456789012:service/sample-webapp</code>.
                      </p><pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">{ &quot;Ref&quot;: &quot;MyECSService&quot; }</code></pre><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                     </p><h3 id="w2ab2c19c12d414c13b5">Fn::GetAtt</h3><p><code class="code">Fn::GetAtt</code> returns a value for a specified attribute of this type.
+                     </p><h3 id="w2ab2c21c10d514c11b4">Fn::GetAtt</h3><p><code class="code">Fn::GetAtt</code> returns a value for a specified attribute of this type.
                         The following are the available attributes and sample return values.
                      </p><div class="variablelist">
                         
@@ -290,7 +293,7 @@ Properties:
                            
                         </dl>
                      </div><p>For more information about using <code class="code">Fn::GetAtt</code>, see <a href="intrinsic-function-reference-getatt.html">Fn::GetAtt</a>.
-                     </p><h2 id="w2ab2c19c12d414c15">Examples</h2><h3 id="w2ab2c19c12d414c15b3">Define a Basic Amazon ECS Service</h3><p>The following examples define an Amazon ECS service that uses a cluster and task
+                     </p><h2 id="w2ab2c21c10d514c13">Examples</h2><h3 id="w2ab2c21c10d514c13b2">Define a Basic Amazon ECS Service</h3><p>The following examples define an Amazon ECS service that uses a cluster and task
                         definition that are declared elsewhere in the same template.
                      </p><div id="JSON" name="JSON" class="section langfilter">
                         <h4 id="aws-resource-ecs-service-example.json">JSON</h4>
@@ -316,7 +319,7 @@ Properties:
     TaskDefinition: 
       Ref: &quot;taskdefinition&quot;
 </code></pre>
-                        </div><h3 id="w2ab2c19c12d414c15b5">Associate an Application Load Balancer with a Service</h3><p>The following example associates an Application Load Balancer with an Amazon ECS service
+                        </div><h3 id="w2ab2c21c10d514c13b4">Associate an Application Load Balancer with a Service</h3><p>The following example associates an Application Load Balancer with an Amazon ECS service
                         by referencing an <code class="code">AWS::ElasticLoadBalancingV2::TargetGroup</code> resource. 
                      </p><div class="aws-note">
                         <p class="aws-note">Note</p>
@@ -364,7 +367,7 @@ Properties:
       ContainerName: sample-app
     Cluster:
       Ref: ECSCluster</code></pre>
-                        </div><h2 id="w2ab2c19c12d414c17">More Info</h2><div class="itemizedlist">
+                        </div><h2 id="w2ab2c21c10d514c15">More Info</h2><div class="itemizedlist">
                         
                         
                         

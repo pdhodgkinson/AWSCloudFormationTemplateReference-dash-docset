@@ -17,9 +17,10 @@
                         <p><strong>Topics</strong></p>
                         <ul>
                            <li><a href="#aws-resource-autoscaling-lifecyclehook-syntax">Syntax</a></li>
-                           <li><a href="#w2ab2c19c12c87c11">Properties</a></li>
-                           <li><a href="#w2ab2c19c12c87c13">Return Value</a></li>
-                           <li><a href="#w2ab2c19c12c87c15">Example</a></li>
+                           <li><a href="#w2ab2c21c10d113b9">Properties</a></li>
+                           <li><a href="#w2ab2c21c10d113c11">Return Value</a></li>
+                           <li><a href="#w2ab2c21c10d113c13">Example</a></li>
+                           <li><a href="#aws-resource-autoscaling-lifecyclehook-seealso">See Also</a></li>
                         </ul>
                      </div><h2 id="aws-resource-autoscaling-lifecyclehook-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
                         <h3 id="aws-resource-autoscaling-lifecyclehook-syntax.json">JSON</h3>
@@ -49,7 +50,7 @@ Properties:
   <a href="aws-resource-as-lifecyclehook.html#cfn-as-lifecyclehook-notificationtargetarn"><code class="code">NotificationTargetARN</code></a>: <em class="replaceable"><code>String</code></em>
   <a href="aws-resource-as-lifecyclehook.html#cfn-as-lifecyclehook-rolearn"><code class="code">RoleARN</code></a>: <em class="replaceable"><code>String</code></em>
 </code></pre>
-                        </div><h2 id="w2ab2c19c12c87c11">Properties</h2><p>For information about valid and default values, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_LifecycleHook.html" target="_blank">LifecycleHook</a> in the
+                        </div><h2 id="w2ab2c21c10d113b9">Properties</h2><p>For information about valid and default values, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_LifecycleHook.html" target="_blank">LifecycleHook</a> in the
                         <em>Auto Scaling API Reference</em>.
                      </p><div class="variablelist">
                         
@@ -68,7 +69,7 @@ Properties:
                               
                               <p>The name of the Auto Scaling group for the lifecycle hook.</p>
                               
-                              <p><em>Required</em>: Yes
+                              <p><em>Required: </em>Yes
                               </p>
                               
                               <p><em>Type</em>: String
@@ -85,10 +86,10 @@ Properties:
                               
                               <p>The action the Auto Scaling group takes when the lifecycle hook timeout elapses or
                                  if
-                                 an unexpected failure occurs.
+                                 an unexpected failure occurs. Valid values are <code class="code">CONTINUE</code> (default) and <code class="code">ABANDON</code>.
                               </p>
                               
-                              <p><em>Required</em>: No
+                              <p><em>Required: </em>No
                               </p>
                               
                               <p><em>Type</em>: String
@@ -109,7 +110,7 @@ Properties:
                                  DefaultResult property.
                               </p>
                               
-                              <p><em>Required</em>: No
+                              <p><em>Required: </em>No
                               </p>
                               
                               <p><em>Type</em>: Integer
@@ -129,7 +130,7 @@ Properties:
                                  <em>Auto Scaling API Reference</em>.
                               </p>
                               
-                              <p><em>Required</em>: Yes
+                              <p><em>Required: </em>Yes
                               </p>
                               
                               <p><em>Type</em>: String
@@ -149,7 +150,7 @@ Properties:
                                  the notification target.
                               </p>
                               
-                              <p><em>Required</em>: No
+                              <p><em>Required: </em>No
                               </p>
                               
                               <p><em>Type</em>: String
@@ -172,7 +173,7 @@ Properties:
                                  metadata.
                               </p>
                               
-                              <p><em>Required</em>: No
+                              <p><em>Required: </em>No
                               </p>
                               
                               <p><em>Type</em>: String
@@ -192,7 +193,7 @@ Properties:
                                  Amazon SQS.
                               </p>
                               
-                              <p><em>Required</em>: No
+                              <p><em>Required: </em>No
                               </p>
                               
                               <p><em>Type</em>: String
@@ -203,12 +204,12 @@ Properties:
                            </dd>
                            
                         </dl>
-                     </div><h2 id="w2ab2c19c12c87c13">Return Value</h2><p>When the logical ID of this resource is provided to the <code class="code">Ref</code> intrinsic
+                     </div><h2 id="w2ab2c21c10d113c11">Return Value</h2><p>When the logical ID of this resource is provided to the <code class="code">Ref</code> intrinsic
                         function, <code class="code">Ref</code> returns the resource name. For example:
                      </p><pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">{ &quot;Ref&quot;: &quot;<em class="replaceable"><code>myLifecycleHook</code></em>&quot; }</code></pre><p><code class="code">Ref</code> returns the lifecycle hook name, such as
                         <code class="code">mylifecyclehookname</code>.
                      </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                     </p><h2 id="w2ab2c19c12c87c15">Example</h2><p>In the following template snippet, the Auto Scaling pauses instances before completely
+                     </p><h2 id="w2ab2c21c10d113c13">Example</h2><p>In the following template snippet, the Auto Scaling pauses instances before completely
                         terminating them. While in the pending state, you can, for example, connect to the
                         instance
                         and download logs or any other data before the instance is terminated.
@@ -239,6 +240,30 @@ Properties:
       Fn::GetAtt: 
         - lifecycleHookRole
         - Arn</code></pre>
-                        </div></div>
+                        </div><h2 id="aws-resource-autoscaling-lifecyclehook-seealso">See Also</h2><div class="itemizedlist">
+                        
+                        
+                        
+                        <ul class="itemizedlist" type="disc">
+                           <li class="listitem">
+                              
+                              <p>
+                                 <a href="http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_LifecycleHook.html" target="_blank">LifecycleHook</a> in the
+                                 <em>Auto Scaling API Reference</em> (for valid values and default values) 
+                                 
+                              </p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p>
+                                 <a href="http://docs.aws.amazon.com/autoscaling/latest/userguide/lifecycle-hooks.html" target="_blank">Examples of How to Use Lifecycle Hooks</a> in the
+                                 <em>Auto Scaling User Guide</em>
+                                 
+                              </p>
+                              
+                           </li>
+                        </ul>
+                     </div></div>
 </body>
 </html>

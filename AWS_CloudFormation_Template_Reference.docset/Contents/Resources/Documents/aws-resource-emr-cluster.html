@@ -17,9 +17,9 @@
                         <p><strong>Topics</strong></p>
                         <ul>
                            <li><a href="#aws-resource-emr-cluster-syntax">Syntax</a></li>
-                           <li><a href="#w2ab2c19c12d503c11">Properties</a></li>
-                           <li><a href="#w2ab2c19c12d503c13">Return Values</a></li>
-                           <li><a href="#w2ab2c19c12d503c15">Examples</a></li>
+                           <li><a href="#w2ab2c21c10d607b9">Properties</a></li>
+                           <li><a href="#w2ab2c21c10d607c11">Return Values</a></li>
+                           <li><a href="#aws-resource-emr-cluster-examples">Examples</a></li>
                         </ul>
                      </div><h2 id="aws-resource-emr-cluster-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
                         <h3 id="aws-resource-emr-cluster-syntax.json">JSON</h3>
@@ -32,6 +32,7 @@
     &quot;<a href="aws-resource-emr-cluster.html#cfn-emr-cluster-autoscalingrole"><code class="code">AutoScalingRole</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
     &quot;<a href="aws-resource-emr-cluster.html#cfn-emr-cluster-bootstrapactions"><code class="code">BootstrapActions</code></a>&quot; [ <em class="replaceable"><code>Bootstrap Actions, ...</code></em> ],
     &quot;<a href="aws-resource-emr-cluster.html#cfn-emr-cluster-configurations"><code class="code">Configurations</code></a>&quot; : [ <em class="replaceable"><code>Configurations, ...</code></em> ],
+    &quot;<a href="aws-resource-emr-cluster.html#cfn-elasticmapreduce-cluster-customamiid"><code class="code">CustomAmiId</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
     &quot;<a href="aws-resource-emr-cluster.html#cfn-emr-cluster-instances"><code class="code">Instances</code></a>&quot; : <em class="replaceable"><code>JobFlowInstancesConfig</code></em>,
     &quot;<a href="aws-resource-emr-cluster.html#cfn-emr-cluster-jobflowrole"><code class="code">JobFlowRole</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
     &quot;<a href="aws-resource-emr-cluster.html#cfn-emr-cluster-loguri"><code class="code">LogUri</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
@@ -56,7 +57,8 @@ Properties:
   <a href="aws-resource-emr-cluster.html#cfn-emr-cluster-bootstrapactions"><code class="code">BootstrapActions</code></a>:
     - <em class="replaceable"><code>Bootstrap Actions</code></em>
   <a href="aws-resource-emr-cluster.html#cfn-emr-cluster-configurations"><code class="code">Configurations</code></a>:
-    - <em class="replaceable"><code>Configurations</code></em>
+    - <em class="replaceable"><code>Configurations</code></em>        
+  <a href="aws-resource-emr-cluster.html#cfn-elasticmapreduce-cluster-customamiid"><code class="code">CustomAmiId</code></a>: <em class="replaceable"><code>String</code></em>
   <a href="aws-resource-emr-cluster.html#cfn-emr-cluster-instances"><code class="code">Instances</code></a>:
     <em class="replaceable"><code>JobFlowInstancesConfig</code></em>
   <a href="aws-resource-emr-cluster.html#cfn-emr-cluster-jobflowrole"><code class="code">JobFlowRole</code></a>: <em class="replaceable"><code>String</code></em>
@@ -70,12 +72,14 @@ Properties:
     - <em class="replaceable"><code>Resource Tag</code></em>
   <a href="aws-resource-emr-cluster.html#cfn-emr-cluster-visibletoallusers"><code class="code">VisibleToAllUsers</code></a>: <em class="replaceable"><code>Boolean</code></em>
 </code></pre>
-                        </div><h2 id="w2ab2c19c12d503c11">Properties</h2><div class="aws-note">
+                        </div><h2 id="w2ab2c21c10d607b9">Properties</h2><div class="aws-note">
                         <p class="aws-note">Note</p>
                         <p>For more information about the constraints and valid values of each property, see
-                           the <a href="http://docs.aws.amazon.com//ElasticMapReduce/latest/API/API_Cluster.html" target="_blank">Cluster</a> data type in the Amazon EMR API Reference.
+                           the <a href="http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_Cluster.html" target="_blank">
+                              Cluster</a> data type in the <em>Amazon EMR API Reference</em>.
                         </p>
                      </div><div class="variablelist">
+                        
                         
                         
                         
@@ -98,11 +102,12 @@ Properties:
                            
                            <dd>
                               
-                              <p>Additional
-                                 features that you want to select.
+                              <p>Additional features that you want to select. Intended for advanced uses only. This
+                                 is meta information about third-party applications that third-party vendors use for
+                                 testing purposes.
                               </p>
                               
-                              <p><em>Required</em>: No
+                              <p><em>Required: </em>No
                               </p>
                               
                               <p><em>Type</em>: JSON object
@@ -122,7 +127,7 @@ Properties:
                                  passes to those applications.
                               </p>
                               
-                              <p><em>Required</em>: No
+                              <p><em>Required: </em>No
                               </p>
                               
                               <p><em>Type</em>: List of <a href="aws-properties-emr-cluster-application.html">Amazon EMR Cluster Application</a></p>
@@ -142,7 +147,7 @@ Properties:
                                  terminate Amazon EC2 instances in an instance group.
                               </p>
                               
-                              <p><em>Required</em>: No
+                              <p><em>Required: </em>No
                               </p>
                               
                               <p><em>Type</em>: String
@@ -161,7 +166,7 @@ Properties:
                                  cluster.
                               </p>
                               
-                              <p><em>Required</em>: No
+                              <p><em>Required: </em>No
                               </p>
                               
                               <p><em>Type</em>: List of <a href="aws-properties-emr-cluster-bootstrapactionconfig.html">Amazon EMR Cluster
@@ -178,12 +183,34 @@ Properties:
                               
                               <p>The software configuration of the Amazon EMR cluster.</p>
                               
-                              <p><em>Required</em>: No
+                              <p><em>Required: </em>No
                               </p>
                               
-                              <p><em>Type</em>: List of <a href="aws-properties-emr-cluster-configuration.html">Amazon EMR Cluster Configuration</a></p>
+                              <p><em>Type</em>: List of <a href="aws-properties-emr-cluster-configuration.html">Amazon EMR Cluster
+                                    Configurations</a></p>
                               
                               <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-elasticmapreduce-cluster-customamiid"></a><span class="term"><code class="code">CustomAmiId</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>Specifies a custom Amazon Linux AMI for the cluster (instead of an EMR-owned AMI).
+                                 For more information, see <a href="http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-custom-ami.html" target="_blank">Using a Custom AMI</a> in the <em>Amazon EMR Management Guide</em>.
+                              </p>
+                              
+                              <p><em>Required: </em>No
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                              <p><em>Example</em>: <code class="code">&quot;CustomAmiId&quot; : &quot;ami-7fb3bc69&quot;</code></p>
                               
                            </dd>
                            
@@ -194,13 +221,13 @@ Properties:
                               
                               <p>Configures the EC2 instances that will run jobs in the Amazon EMR cluster.</p>
                               
-                              <p><em>Required</em>: Yes
+                              <p><em>Required: </em>Yes
                               </p>
                               
                               <p><em>Type</em>: <a href="aws-properties-emr-cluster-jobflowinstancesconfig.html">Amazon EMR Cluster
                                     JobFlowInstancesConfig</a></p>
                               
-                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt">Some interruptions</a></p>
                               
                            </dd>
                            
@@ -209,14 +236,13 @@ Properties:
                            
                            <dd>
                               
-                              <p>Also
-                                 called <em>instance profile</em> and <em>EC2 role</em>. Accepts
-                                 an instance profile associated with the role that you want to use. All EC2 instances
-                                 in
-                                 the cluster assume this role. 
+                              <p>Also called <em>instance profile</em> and <em>EC2 role</em>.
+                                 Accepts an instance profile associated with the role that you want to use. All EC2
+                                 instances in the cluster assume this role. For more information, see <a href="http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-iam-roles-creatingroles.html" target="_blank">Create and Use IAM Roles for Amazon EMR</a> 
+                                 in the <em>Amazon EMR Management Guide</em>.
                               </p>
                               
-                              <p><em>Required</em>: Yes
+                              <p><em>Required: </em>Yes
                               </p>
                               
                               <p><em>Type</em>: String
@@ -236,7 +262,7 @@ Properties:
                                  specify a value, Amazon EMR doesn&apos;t write any log files.
                               </p>
                               
-                              <p><em>Required</em>: No
+                              <p><em>Required: </em>No
                               </p>
                               
                               <p><em>Type</em>: String
@@ -253,7 +279,7 @@ Properties:
                               
                               <p>A name for the Amazon EMR cluster.</p>
                               
-                              <p><em>Required</em>: Yes
+                              <p><em>Required: </em>Yes
                               </p>
                               
                               <p><em>Type</em>: String
@@ -277,7 +303,7 @@ Properties:
                               
                               <p>Currently, AWS CloudFormation supports only Amazon EMR 4.0 and later software releases.</p>
                               
-                              <p><em>Required</em>: Conditional. If you specify the <code class="code">Applications</code> property, you must specify this property.
+                              <p><em>Required: </em>Conditional. If you specify the <code class="code">Applications</code> property, you must specify this property.
                               </p>
                               
                               <p><em>Type</em>: String
@@ -292,14 +318,12 @@ Properties:
                            
                            <dd>
                               
-                              <p>Indicates how individual EC2 instances terminate when an automatic
-                                 scale-in
-                                 activity occurs or an instance group is resized. For more
-                                 information, see <a href="http://docs.aws.amazon.com//ElasticMapReduce/latest/API/API_Cluster.html" target="_blank">Cluster</a> in
+                              <p>Indicates how individual EC2 instances terminate when an automatic scale-in activity
+                                 occurs or an instance group is resized. For more information, see <a href="http://docs.aws.amazon.com//ElasticMapReduce/latest/API/API_Cluster.html" target="_blank">Cluster</a> in
                                  the Amazon EMR API Reference.
                               </p>
                               
-                              <p><em>Required</em>: No
+                              <p><em>Required: </em>No
                               </p>
                               
                               <p><em>Type</em>: String
@@ -316,7 +340,7 @@ Properties:
                               
                               <p>The name of the security configuration applied to the cluster.</p>
                               
-                              <p><em>Required</em>: No
+                              <p><em>Required: </em>No
                               </p>
                               
                               <p><em>Type</em>: String
@@ -336,7 +360,7 @@ Properties:
                                     Guide</em>.
                               </p>
                               
-                              <p><em>Required</em>: Yes
+                              <p><em>Required: </em>Yes
                               </p>
                               
                               <p><em>Type</em>: String
@@ -355,7 +379,7 @@ Properties:
                                  cluster.
                               </p>
                               
-                              <p><em>Required</em>: No
+                              <p><em>Required: </em>No
                               </p>
                               
                               <p><em>Type</em>: <a href="aws-properties-resource-tags.html">AWS CloudFormation Resource Tags</a></p>
@@ -372,12 +396,10 @@ Properties:
                               <p>Indicates whether the instances in the cluster are visible to all IAM users in the
                                  AWS account. If you specify <code class="code">true</code>, all IAM users can view and (if they
                                  have permissions) manage the instances. If you specify <code class="code">false</code>, only the
-                                 IAM user that created the cluster can view and manage it. By default, AWS CloudFormation
-                                 sets this
-                                 property to <code class="code">false</code>.
+                                 IAM user that created the cluster can view and manage it.
                               </p>
                               
-                              <p><em>Required</em>: No
+                              <p><em>Required: </em>No
                               </p>
                               
                               <p><em>Type</em>: Boolean
@@ -385,14 +407,16 @@ Properties:
                               
                               <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                               
+                              <p><em>Default value</em>: <code class="code">false</code></p>
+                              
                            </dd>
                            
                         </dl>
-                     </div><h2 id="w2ab2c19c12d503c13">Return Values</h2><h3 id="w2ab2c19c12d503c13b3">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code>
+                     </div><h2 id="w2ab2c21c10d607c11">Return Values</h2><h3 id="w2ab2c21c10d607c11b2">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code>
                         intrinsic function, <code class="code">Ref</code> returns the cluster ID, such as
                         <code class="code">j-1ABCD123AB1A</code>.
                      </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                     </p><h3 id="w2ab2c19c12d503c13b5">Fn::GetAtt</h3><p><code class="code">Fn::GetAtt</code> returns a value for a specified attribute of this type.
+                     </p><h3 id="w2ab2c21c10d607c11b4">Fn::GetAtt</h3><p><code class="code">Fn::GetAtt</code> returns a value for a specified attribute of this type.
                         The following are the available attributes and sample return values.
                      </p><div class="variablelist">
                         
@@ -411,7 +435,7 @@ Properties:
                            
                         </dl>
                      </div><p>For more information about using <code class="code">Fn::GetAtt</code>, see <a href="intrinsic-function-reference-getatt.html">Fn::GetAtt</a>.
-                     </p><h2 id="w2ab2c19c12d503c15">Examples</h2><h3 id="w2ab2c19c12d503c15b3">Create a Cluster With Two Core Nodes</h3><p>The following example creates an Amazon EMR cluster with one master node and two core
+                     </p><h2 id="aws-resource-emr-cluster-examples">Examples</h2><h3 id="aws-resource-emr-cluster-example1">Create a Cluster With Two Core Nodes</h3><p>The following example creates an Amazon EMR cluster with one master node and two core
                         nodes.
                         The specified IAM roles are the default roles provided by Amazon EMR. The example
                         also assumes
@@ -481,7 +505,7 @@ Properties:
         Key: &quot;IsTest&quot;
         Value: &quot;True&quot;
 </code></pre>
-                        </div><h3 id="w2ab2c19c12d503c15b5">Create a Cluster with a Bootstrap Action</h3><p>The following example creates an Amazon EMR cluster with a bootstrap action.</p><div id="JSON" name="JSON" class="section langfilter">
+                        </div><h3 id="aws-resource-emr-cluster-example2">Create a Cluster with a Bootstrap Action</h3><p>The following example creates an Amazon EMR cluster with a bootstrap action.</p><div id="JSON" name="JSON" class="section langfilter">
                         <h4 id="aws-resource-emr-cluster-example2.json">JSON</h4>
                         
                         <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">&quot;TestCluster&quot;: {
@@ -554,6 +578,202 @@ Properties:
         Key: &quot;IsTest&quot;
         Value: &quot;True&quot;
 </code></pre>
+                        </div><h3 id="aws-resource-emr-cluster-example3">Create a Cluster with a Custom AMI</h3><p>The following example template enables specifying a custom Amazon Linux AMI when creating
+                        an Amazon EMR cluster.
+                     </p><div id="JSON" name="JSON" class="section langfilter">
+                        
+                        <h4 id="aws-resource-emr-cluster-example3.json">JSON</h4>
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">{
+  &quot;AWSTemplateFormatVersion&quot;: &quot;2010-09-09&quot;,
+  &quot;Parameters&quot; : {
+    &quot;CustomAmiId&quot; : {
+      &quot;Type&quot; : &quot;String&quot;
+    },
+    &quot;InstanceType&quot; : {
+      &quot;Type&quot; : &quot;String&quot;
+    },
+    &quot;ReleaseLabel&quot; : {
+      &quot;Type&quot; : &quot;String&quot;
+    },
+    &quot;SubnetId&quot; : {
+      &quot;Type&quot; : &quot;String&quot;
+    },
+    &quot;TerminationProtected&quot; : {
+      &quot;Type&quot; : &quot;String&quot;,
+      &quot;Default&quot; : &quot;false&quot;
+    },
+    &quot;ElasticMapReducePrincipal&quot; : {
+      &quot;Type&quot; : &quot;String&quot;
+    },
+    &quot;Ec2Principal&quot; : {
+      &quot;Type&quot; : &quot;String&quot;
+    }
+  },
+  &quot;Resources&quot;: {
+    &quot;cluster&quot;: {
+      &quot;Type&quot;: &quot;AWS::EMR::Cluster&quot;,
+      &quot;Properties&quot;: {
+        &quot;CustomAmiId&quot; : {&quot;Ref&quot; : &quot;CustomAmiId&quot;},
+        &quot;Instances&quot;: {
+          &quot;MasterInstanceGroup&quot;: {
+            &quot;InstanceCount&quot;: 1,
+            &quot;InstanceType&quot;: {&quot;Ref&quot; : &quot;InstanceType&quot;},
+            &quot;Market&quot;: &quot;ON_DEMAND&quot;,
+            &quot;Name&quot;: &quot;cfnMaster&quot;
+          },
+          &quot;CoreInstanceGroup&quot;: {
+            &quot;InstanceCount&quot;: 1,
+            &quot;InstanceType&quot;: {&quot;Ref&quot; : &quot;InstanceType&quot;},
+            &quot;Market&quot;: &quot;ON_DEMAND&quot;,
+            &quot;Name&quot;: &quot;cfnCore&quot;
+          },
+          &quot;TerminationProtected&quot; : {&quot;Ref&quot; : &quot;TerminationProtected&quot;},
+          &quot;Ec2SubnetId&quot; : {&quot;Ref&quot; : &quot;SubnetId&quot;}
+        },
+        &quot;Name&quot;: &quot;CFNtest&quot;,
+        &quot;JobFlowRole&quot; : {&quot;Ref&quot;: &quot;emrEc2InstanceProfile&quot;},
+        &quot;ServiceRole&quot; : {&quot;Ref&quot;: &quot;emrRole&quot;},
+        &quot;ReleaseLabel&quot; : {&quot;Ref&quot; : &quot;ReleaseLabel&quot;},
+        &quot;VisibleToAllUsers&quot; : true,
+        &quot;Tags&quot;: [
+          {
+            &quot;Key&quot;: &quot;key1&quot;,
+            &quot;Value&quot;: &quot;value1&quot;
+          }
+        ]
+      }
+    },
+    &quot;emrRole&quot;: {
+      &quot;Type&quot;: &quot;AWS::IAM::Role&quot;,
+      &quot;Properties&quot;: {
+        &quot;AssumeRolePolicyDocument&quot;: {
+          &quot;Version&quot;: &quot;2008-10-17&quot;,
+          &quot;Statement&quot;: [
+            {
+              &quot;Sid&quot;: &quot;&quot;,
+              &quot;Effect&quot;: &quot;Allow&quot;,
+              &quot;Principal&quot;: {
+                &quot;Service&quot;: {&quot;Ref&quot; : &quot;ElasticMapReducePrincipal&quot;}
+              },
+              &quot;Action&quot;: &quot;sts:AssumeRole&quot;
+            }
+          ]
+        },
+        &quot;Path&quot;: &quot;/&quot;,
+        &quot;ManagedPolicyArns&quot;: [&quot;arn:aws:iam::aws:policy/service-role/AmazonElasticMapReduceRole&quot;]
+      }
+    },
+    &quot;emrEc2Role&quot;: {
+      &quot;Type&quot;: &quot;AWS::IAM::Role&quot;,
+      &quot;Properties&quot;: {
+        &quot;AssumeRolePolicyDocument&quot;: {
+          &quot;Version&quot;: &quot;2008-10-17&quot;,
+          &quot;Statement&quot;: [
+            {
+              &quot;Sid&quot;: &quot;&quot;,
+              &quot;Effect&quot;: &quot;Allow&quot;,
+              &quot;Principal&quot;: {
+                &quot;Service&quot;: {&quot;Ref&quot; : &quot;Ec2Principal&quot;}
+              },
+              &quot;Action&quot;: &quot;sts:AssumeRole&quot;
+            }
+          ]
+        },
+        &quot;Path&quot;: &quot;/&quot;,
+        &quot;ManagedPolicyArns&quot;: [&quot;arn:aws:iam::aws:policy/service-role/AmazonElasticMapReduceforEC2Role&quot;]
+      }
+    },
+    &quot;emrEc2InstanceProfile&quot;: {
+      &quot;Type&quot;: &quot;AWS::IAM::InstanceProfile&quot;,
+      &quot;Properties&quot;: {
+        &quot;Path&quot;: &quot;/&quot;,
+        &quot;Roles&quot;: [ {
+          &quot;Ref&quot;: &quot;emrEc2Role&quot;
+        } ]
+      }
+    }
+  }
+}</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        
+                        <h4 id="aws-resource-emr-cluster-example3.yaml">YAML</h4>
+                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">AWSTemplateFormatVersion: 2010-09-09
+Parameters:
+  CustomAmiId:
+    Type: String
+  InstanceType:
+    Type: String
+  ReleaseLabel:
+    Type: String
+  SubnetId:
+    Type: String
+  TerminationProtected:
+    Type: String
+    Default: &apos;false&apos;
+  ElasticMapReducePrincipal:
+    Type: String
+  Ec2Principal:
+    Type: String
+Resources:
+  cluster:
+    Type: &apos;AWS::EMR::Cluster&apos;
+    Properties:
+      CustomAmiId: !Ref CustomAmiId
+      Instances:
+        MasterInstanceGroup:
+          InstanceCount: 1
+          InstanceType: !Ref InstanceType
+          Market: ON_DEMAND
+          Name: cfnMaster
+        CoreInstanceGroup:
+          InstanceCount: 1
+          InstanceType: !Ref InstanceType
+          Market: ON_DEMAND
+          Name: cfnCore
+        TerminationProtected: !Ref TerminationProtected
+        Ec2SubnetId: !Ref SubnetId
+      Name: CFNtest
+      JobFlowRole: !Ref emrEc2InstanceProfile
+      ServiceRole: !Ref emrRole
+      ReleaseLabel: !Ref ReleaseLabel
+      VisibleToAllUsers: true
+      Tags:
+        - Key: key1
+          Value: value1
+  emrRole:
+    Type: &apos;AWS::IAM::Role&apos;
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: 2008-10-17
+        Statement:
+          - Sid: &apos;&apos;
+            Effect: Allow
+            Principal:
+              Service: !Ref ElasticMapReducePrincipal
+            Action: &apos;sts:AssumeRole&apos;
+      Path: /
+      ManagedPolicyArns:
+        - &apos;arn:aws:iam::aws:policy/service-role/AmazonElasticMapReduceRole&apos;
+  emrEc2Role:
+    Type: &apos;AWS::IAM::Role&apos;
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: 2008-10-17
+        Statement:
+          - Sid: &apos;&apos;
+            Effect: Allow
+            Principal:
+              Service: !Ref Ec2Principal
+            Action: &apos;sts:AssumeRole&apos;
+      Path: /
+      ManagedPolicyArns:
+        - &apos;arn:aws:iam::aws:policy/service-role/AmazonElasticMapReduceforEC2Role&apos;
+  emrEc2InstanceProfile:
+    Type: &apos;AWS::IAM::InstanceProfile&apos;
+    Properties:
+      Path: /
+      Roles:
+        - !Ref emrEc2Role</code></pre>
                         </div></div>
 </body>
 </html>
