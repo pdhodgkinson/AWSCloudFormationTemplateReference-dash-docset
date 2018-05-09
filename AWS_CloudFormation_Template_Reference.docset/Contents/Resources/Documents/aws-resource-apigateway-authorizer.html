@@ -11,20 +11,21 @@
     <h1 class="topictitle" id="aws-resource-apigateway-authorizer">AWS::ApiGateway::Authorizer</h1><p>The <code class="code">AWS::ApiGateway::Authorizer</code> resource creates an authorization layer that Amazon API Gateway (API Gateway) activates
                         for methods that have authorization enabled. API Gateway activates the authorizer
                         when a client calls those methods.
-                     </p><div class="highlights">
+                     </p><div class="highlights" id="inline-topiclist">
                         <p><strong>Topics</strong></p>
                         <ul>
                            <li><a href="#aws-resource-apigateway-authorizer-syntax">Syntax</a></li>
-                           <li><a href="#w2ab2c21c10c21b9">Properties</a></li>
-                           <li><a href="#w2ab2c21c10c21c11">Return Value</a></li>
-                           <li><a href="#w2ab2c21c10c21c13">Examples</a></li>
+                           <li><a href="#w2ab2c21c10c22b9">Properties</a></li>
+                           <li><a href="#w2ab2c21c10c22c11">Return Value</a></li>
+                           <li><a href="#w2ab2c21c10c22c13">Examples</a></li>
                         </ul>
                      </div><h2 id="aws-resource-apigateway-authorizer-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
                         <h3 id="aws-resource-apigateway-authorizer-syntax.json">JSON</h3>
                         
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">{
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
   &quot;Type&quot; : &quot;AWS::ApiGateway::Authorizer&quot;,
   &quot;Properties&quot; : {
+    &quot;<a href="aws-resource-apigateway-authorizer.html#cfn-apigateway-authorizer-authtype"><code class="code">AuthType</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
     &quot;<a href="aws-resource-apigateway-authorizer.html#cfn-apigateway-authorizer-authorizercredentials"><code class="code">AuthorizerCredentials</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
     &quot;<a href="aws-resource-apigateway-authorizer.html#cfn-apigateway-authorizer-authorizerresultttlinseconds"><code class="code">AuthorizerResultTtlInSeconds</code></a>&quot; : <em class="replaceable"><code>Integer</code></em>,
     &quot;<a href="aws-resource-apigateway-authorizer.html#cfn-apigateway-authorizer-authorizeruri"><code class="code">AuthorizerUri</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
@@ -39,8 +40,9 @@
                         </div><div id="YAML" name="YAML" class="section langfilter">
                         <h3 id="aws-resource-apigateway-authorizer-syntax.yaml">YAML</h3>
                         
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">Type: &quot;AWS::ApiGateway::Authorizer&quot;
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">Type: &quot;AWS::ApiGateway::Authorizer&quot;
 Properties:
+  <a href="aws-resource-apigateway-authorizer.html#cfn-apigateway-authorizer-authtype"><code class="code">AuthType</code></a>: <em class="replaceable"><code>String</code></em>
   <a href="aws-resource-apigateway-authorizer.html#cfn-apigateway-authorizer-authorizercredentials"><code class="code">AuthorizerCredentials</code></a>: <em class="replaceable"><code>String</code></em>
   <a href="aws-resource-apigateway-authorizer.html#cfn-apigateway-authorizer-authorizerresultttlinseconds"><code class="code">AuthorizerResultTtlInSeconds</code></a>: <em class="replaceable"><code>Integer</code></em>
   <a href="aws-resource-apigateway-authorizer.html#cfn-apigateway-authorizer-authorizeruri"><code class="code">AuthorizerUri</code></a>: <em class="replaceable"><code>String</code></em>
@@ -52,7 +54,8 @@ Properties:
   <a href="aws-resource-apigateway-authorizer.html#cfn-apigateway-authorizer-restapiid"><code class="code">RestApiId</code></a>: <em class="replaceable"><code>String</code></em>
   <a href="aws-resource-apigateway-authorizer.html#cfn-apigateway-authorizer-type"><code class="code">Type</code></a>: <em class="replaceable"><code>String</code></em>
 </code></pre>
-                        </div><h2 id="w2ab2c21c10c21b9">Properties</h2><div class="variablelist">
+                        </div><h2 id="w2ab2c21c10c22b9">Properties</h2><div class="variablelist">
+                        
                         
                         
                         
@@ -65,17 +68,38 @@ Properties:
                         
                         <dl>
                            
+                           <dt><a id="cfn-apigateway-authorizer-authtype"></a><span class="term"><code class="code">AuthType</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>An optional customer-defined field that&apos;s used in Swagger imports and exports
+                                 without functional impact.
+                              </p>
+                              
+                              <p><em>Required: </em>No
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: 
+                                 <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
                            <dt><a id="cfn-apigateway-authorizer-authorizercredentials"></a><span class="term"><code class="code">AuthorizerCredentials</code></span></dt>
                            
                            <dd>
                               
-                              <p>The credentials required for the authorizer. To specify an AWS Identity and Access
-                                 Management (IAM) role that API Gateway assumes, specify the role&apos;s Amazon Resource
-                                 Name (ARN). To use resource-based permissions on the AWS Lambda (Lambda) function,
-                                 specify null.
+                              <p>The credentials that are required for the authorizer. To specify an AWS Identity and
+                                 Access Management
+                                 (IAM) role that API Gateway assumes, specify the role&apos;s Amazon Resource Name (ARN).
+                                 To use
+                                 resource-based permissions on the AWS Lambda (Lambda) function, specify null.
                               </p>
                               
-                              <p><em>Required: </em>No
+                              <p><em>Required</em>: No
                               </p>
                               
                               <p><em>Type</em>: String
@@ -95,7 +119,7 @@ Properties:
                                  to <code class="code">300</code>. The maximum value is <code class="code">3600</code>, or 1 hour.
                               </p>
                               
-                              <p><em>Required: </em>No
+                              <p><em>Required</em>: No
                               </p>
                               
                               <p><em>Type</em>: Integer
@@ -110,10 +134,15 @@ Properties:
                            
                            <dd>
                               
-                              <p>The authorizer&apos;s Uniform Resource Identifier (URI). If you specify <code class="code">TOKEN</code> for the authorizer&apos;s <code class="code">Type</code> property, specify a Lambda function URI, which has the form <code class="code">arn:aws:apigateway:<em class="replaceable"><code>region</code></em>:lambda:path/<em class="replaceable"><code>path</code></em></code>. The path usually has the form <code class="code">/2015-03-31/functions/<em class="replaceable"><code>LambdaFunctionARN</code></em>/invocations</code>.
+                              <p>The authorizer&apos;s Uniform Resource Identifier (URI). If you specify
+                                 <code class="code">TOKEN</code> for the authorizer&apos;s <code class="code">Type</code> property, specify a Lambda
+                                 function URI that has the form
+                                 <code class="code">arn:aws:apigateway:<em class="replaceable"><code>region</code></em>:lambda:path/<em class="replaceable"><code>path</code></em></code>.
+                                 The path usually has the form
+                                 <code class="code">/2015-03-31/functions/<em class="replaceable"><code>LambdaFunctionARN</code></em>/invocations</code>.
                               </p>
                               
-                              <p><em>Required: </em>Conditional. Specify this property for Lambda functions only.
+                              <p><em>Required</em>: Conditional. Specify this property for Lambda functions only.
                               </p>
                               
                               <p><em>Type</em>: String
@@ -133,7 +162,7 @@ Properties:
                                  requests.
                               </p>
                               
-                              <p><em>Required: </em>Yes
+                              <p><em>Required</em>: Yes
                               </p>
                               
                               <p><em>Type</em>: String
@@ -153,7 +182,7 @@ Properties:
                                  doesn&apos;t match, API Gateway responds with a 401 (unauthorized request) error code.
                               </p>
                               
-                              <p><em>Required: </em>No
+                              <p><em>Required</em>: No
                               </p>
                               
                               <p><em>Type</em>: String
@@ -170,7 +199,7 @@ Properties:
                               
                               <p>The name of the authorizer.</p>
                               
-                              <p><em>Required: </em>Yes
+                              <p><em>Required</em>: Yes
                               </p>
                               
                               <p><em>Type</em>: String
@@ -189,7 +218,7 @@ Properties:
                                  this authorizer. For more information, see <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-integrate-with-cognito.html#apigateway-enable-cognito-user-pool" target="_blank">Use Amazon Cognito Your User Pool</a> in the <em>API Gateway Developer Guide</em>.
                               </p>
                               
-                              <p><em>Required: </em>No
+                              <p><em>Required</em>: No
                               </p>
                               
                               <p><em>Type</em>: List of String values
@@ -204,10 +233,11 @@ Properties:
                            
                            <dd>
                               
-                              <p>The ID of the <code class="code">RestApi</code> resource in which API Gateway creates the authorizer.
+                              <p>The ID of the <code class="code">RestApi</code> resource that API Gateway creates the authorizer
+                                 in.
                               </p>
                               
-                              <p><em>Required: </em>Yes
+                              <p><em>Required</em>: Yes
                               </p>
                               
                               <p><em>Type</em>: String
@@ -243,7 +273,7 @@ Properties:
                                  </ul>
                               </div>
                               
-                              <p><em>Required: </em>Yes
+                              <p><em>Required</em>: Yes
                               </p>
                               
                               <p><em>Type</em>: String
@@ -254,12 +284,12 @@ Properties:
                            </dd>
                            
                         </dl>
-                     </div><h2 id="w2ab2c21c10c21c11">Return Value</h2><h3 id="w2ab2c21c10c21c11b2">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code> intrinsic function, <code class="code">Ref</code> returns the authorizer&apos;s ID, such as <code class="code">abcde1</code>.
+                     </div><h2 id="w2ab2c21c10c22c11">Return Value</h2><h3 id="w2ab2c21c10c22c11b2">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code> intrinsic function, <code class="code">Ref</code> returns the authorizer&apos;s ID, such as <code class="code">abcde1</code>.
                      </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                     </p><h2 id="w2ab2c21c10c21c13">Examples</h2><p>The following examples create a custom authorizer that is an AWS Lambda function.</p><div id="JSON" name="JSON" class="section langfilter">
+                     </p><h2 id="w2ab2c21c10c22c13">Examples</h2><p>The following examples create a custom authorizer that is an AWS Lambda function.</p><div id="JSON" name="JSON" class="section langfilter">
                         <h3 id="aws-resource-apigateway-authorizer-example.json">JSON</h3>
                         
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">&quot;Authorizer&quot;: {
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">&quot;Authorizer&quot;: {
   &quot;Type&quot;: &quot;AWS::ApiGateway::Authorizer&quot;,
   &quot;Properties&quot;: {
     &quot;AuthorizerCredentials&quot;: { &quot;Fn::GetAtt&quot;: [&quot;LambdaInvocationRole&quot;, &quot;Arn&quot;] },
@@ -281,7 +311,7 @@ Properties:
                         </div><div id="YAML" name="YAML" class="section langfilter">
                         <h3 id="aws-resource-apigateway-authorizer-example.yaml">YAML</h3>
                         
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">Authorizer: 
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">Authorizer: 
   Type: &quot;AWS::ApiGateway::Authorizer&quot;
   Properties: 
     AuthorizerCredentials: 

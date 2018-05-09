@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="css/awsdocs.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/awsdocs.min.js"></script>
+    <meta charset="utf-8">
+</head>
+<body>
+    <div id="content" style="padding: 10px 30px;">
+    <h1 class="topictitle" id="aws-resource-servicediscovery-instance">AWS::ServiceDiscovery::Instance</h1><p>The <code class="code">AWS::ServiceDiscovery::Instance</code> resource specifies information about an instance that 
+                        		Amazon Route&#xA0;53 creates. For more information, see 
+                        		<a href="http://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Instance.html" target="_blank">Instance</a> in the <em>Amazon Route&#xA0;53 API Reference</em>.
+                     </p><div class="highlights" id="inline-topiclist">
+                        <p><strong>Topics</strong></p>
+                        <ul>
+                           <li><a href="#aws-resource-servicediscovery-instance-syntax">Syntax</a></li>
+                           <li><a href="#aws-resource-servicediscovery-instance-properties">Properties</a></li>
+                           <li><a href="#aws-resource-servicediscovery-instance-returnvalues">Return Values</a></li>
+                           <li><a href="#aws-resource-servicediscovery-instance-seealso">See Also</a></li>
+                        </ul>
+                     </div><h2 id="aws-resource-servicediscovery-instance-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        			
+                        <h3 id="aws-resource-servicediscovery-instance-syntax.json">JSON</h3>
+                        				<pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
+  &quot;Type&quot; : &quot;AWS::ServiceDiscovery::Instance&quot;,
+  &quot;Properties&quot; : {
+    &quot;<a href="aws-resource-servicediscovery-instance.html#cfn-servicediscovery-instance-instanceattributes"><code class="code">InstanceAttributes</code></a>&quot; : <em class="replaceable"><code>JSON object</code></em>,
+    &quot;<a href="aws-resource-servicediscovery-instance.html#cfn-servicediscovery-instance-instanceid"><code class="code">InstanceId</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-resource-servicediscovery-instance.html#cfn-servicediscovery-instance-serviceid"><code class="code">ServiceId</code></a>&quot; : <em class="replaceable"><code>String</code></em>
+  }
+}</code></pre>
+                        		</div><div id="YAML" name="YAML" class="section langfilter">
+                        			
+                        <h3 id="aws-resource-servicediscovery-instance-syntax.yaml">YAML</h3>
+                        			
+                        			<pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">Type: &quot;AWS::ServiceDiscovery::Instance&quot;
+Properties:
+  <a href="aws-resource-servicediscovery-instance.html#cfn-servicediscovery-instance-instanceattributes"><code class="code">InstanceAttributes</code></a>: <em class="replaceable"><code>JSON object</code></em>
+  <a href="aws-resource-servicediscovery-instance.html#cfn-servicediscovery-instance-instanceid"><code class="code">InstanceId</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-resource-servicediscovery-instance.html#cfn-servicediscovery-instance-serviceid"><code class="code">ServiceId</code></a>: <em class="replaceable"><code>String</code></em></code></pre>
+                        		</div><h2 id="aws-resource-servicediscovery-instance-properties">Properties</h2><div class="variablelist">
+                        			
+                        			
+                        			
+                        		
+                        <dl>
+                           				
+                           <dt><a id="cfn-servicediscovery-instance-instanceattributes"></a><span class="term"><code class="code">InstanceAttributes</code></span></dt>
+                           				
+                           <dd>
+                              					
+                              <p>A string map that contains attribute keys and values. Supported attribute keys include
+                                 the following:
+                              </p>
+                              					
+                              <div class="itemizedlist">
+                                 						
+                                 						
+                                 						
+                                 					
+                                 <ul class="itemizedlist" type="disc">
+                                    <li class="listitem">
+                                       <p><code class="code">AWS_INSTANCE_PORT</code>: The port on the endpoint that you want Route&#xA0;53 to perform health checks on. 
+                                          							This value is also used for the port value in an SRV record if the service
+                                          that you specify includes an SRV record. 
+                                          							You can also specify a default port that is applied to all instances in the
+                                          <code class="code">Service</code> configuration. 
+                                          							For more information, see <a href="http://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_CreateService.html" target="_blank">CreateService</a> in the 
+                                          							<em>Amazon Route&#xA0;53 API Reference</em>.
+                                       </p>
+                                    </li>
+                                    <li class="listitem">
+                                       <p><code class="code">AWS_INSTANCE_IPV4</code>: If the service that you specify contains a resource record set template for an 
+                                          							A record, the IPv4 address that you want Route&#xA0;53 to use for the value of the
+                                          A record.
+                                       </p>
+                                    </li>
+                                    <li class="listitem">
+                                       <p><code class="code">AWS_INSTANCE_IPV6</code>: If the service that you specify contains a resource record set template for an 
+                                          							AAAA record, the IPv6 address that you want Route&#xA0;53 to use for the value of
+                                          the AAAA record.
+                                       </p>
+                                    </li>
+                                 </ul>
+                              </div>
+                              					
+                              <p><em>Required</em>: Yes
+                              </p>
+                              					
+                              <p><em>Type</em>: JSON object
+                              </p>
+                              					
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              				
+                           </dd>
+                           			
+                           				
+                           <dt><a id="cfn-servicediscovery-instance-instanceid"></a><span class="term"><code class="code">InstanceId</code></span></dt>
+                           				
+                           <dd>
+                              					
+                              <p>An identifier that you want to associate with the instance. Note the following:</p>
+                              					
+                              <div class="itemizedlist">
+                                 						
+                                 						
+                                 					
+                                 <ul class="itemizedlist" type="disc">
+                                    <li class="listitem">
+                                       <p>You can use this value to update an existing instance.</p>
+                                    </li>
+                                    <li class="listitem">
+                                       <p>To associate a new instance, you must specify a value that is unique among instances
+                                          
+                                          							that you associate by using the same service.
+                                       </p>
+                                    </li>
+                                 </ul>
+                              </div>
+                              					
+                              <p><em>Required</em>: Yes
+                              </p>
+                              					
+                              <p><em>Type</em>: String
+                              </p>
+                              					
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              				
+                           </dd>
+                           			
+                           				
+                           <dt><a id="cfn-servicediscovery-instance-serviceid"></a><span class="term"><code class="code">ServiceId</code></span></dt>
+                           				
+                           <dd>
+                              					
+                              <p>The ID of the service that you want to use for settings for the resource record sets
+                                 and health check that Route&#xA0;53 will create. 
+                              </p>
+                              					
+                              <p><em>Required</em>: Yes
+                              </p>
+                              					
+                              <p><em>Type</em>: String
+                              </p>
+                              					
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              				
+                           </dd>
+                           			
+                        </dl>
+                     </div><h2 id="aws-resource-servicediscovery-instance-returnvalues">Return Values</h2><h3 id="aws-resource-servicediscovery-instance-ref">Ref</h3><p>When you pass the logical ID of an <code class="code">AWS::ServiceDiscovery::Instance</code> resource to the intrinsic 
+                        				<code class="code">Ref</code> function, the function returns the value of <code class="code">Id</code> for the instance.
+                     </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
+                     </p><h2 id="aws-resource-servicediscovery-instance-seealso">See Also</h2><div class="itemizedlist">
+                        			
+                        			
+                        			
+                        		
+                        <ul class="itemizedlist" type="disc">
+                           <li class="listitem">
+                              				
+                              <p><a href="http://docs.aws.amazon.com/Route53/latest/APIReference/overview-service-discovery.html" target="_blank">Using Autonaming for Service Discovery</a> in the <em>Amazon Route&#xA0;53 API Reference</em></p>
+                              			
+                           </li>
+                           <li class="listitem">
+                              				
+                              <p><a href="http://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_RegisterInstance.html" target="_blank">RegisterInstance</a> in the <em>Amazon Route&#xA0;53 API Reference</em></p>
+                              			
+                           </li>
+                           <li class="listitem">
+                              				
+                              <p><a href="http://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_CreateService.html" target="_blank">CreateService</a> in the <em>Amazon Route&#xA0;53 API Reference</em></p>
+                              			
+                           </li>
+                        </ul>
+                     </div></div>
+</body>
+</html>

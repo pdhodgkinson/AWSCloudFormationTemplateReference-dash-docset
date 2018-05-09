@@ -8,41 +8,80 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-resource-dynamodb-table">AWS::DynamoDB::Table</h1><p>The <code class="code">AWS::DynamoDB::Table</code> resource creates a DynamoDB table.
-                     </p><div class="aws-note">
-                        <p class="aws-note">Note</p>
-                        <p>AWS CloudFormation typically creates DynamoDB tables in parallel. However, if your
-                           template includes
-                           multiple DynamoDB tables
-                           with
-                           indexes, you must declare dependencies so that the tables are created
-                           sequentially. Amazon DynamoDB limits the number of tables with
-                           secondary
-                           indexes that are in the creating state. If you create multiple tables with
-                           indexes at the same time, DynamoDB returns an error and the stack operation fails.
-                           For an
-                           example, see <a href="aws-resource-dynamodb-table.html#cfn-dynamodb-table-examples-dependson">DynamoDB Table with a DependsOn
-                              Attribute</a>.
-                        </p>
-                     </div><div class="highlights">
+    <h1 class="topictitle" id="aws-resource-dynamodb-table">AWS::DynamoDB::Table</h1><p>The <code class="code">AWS::DynamoDB::Table</code> resource creates a DynamoDB table. For more information, see <a href="http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_CreateTable.html" target="_blank">CreateTable</a> in the <em>Amazon DynamoDB API Reference</em>.
+                     </p><p>You should be aware of the following behaviors when working with DynamoDB tables:</p><div class="itemizedlist">
+                        
+                        
+                        
+                        <ul class="itemizedlist" type="disc">
+                           <li class="listitem">
+                              
+                              <p>AWS CloudFormation typically creates DynamoDB tables in parallel. However, if your
+                                 template includes
+                                 multiple DynamoDB tables with indexes, you must declare dependencies so that the tables
+                                 are
+                                 created sequentially. Amazon DynamoDB limits the number of tables with secondary indexes
+                                 that are
+                                 in the creating state. If you create multiple tables with indexes at the same time,
+                                 DynamoDB
+                                 returns an error and the stack operation fails. For an example, see <a href="aws-resource-dynamodb-table.html#cfn-dynamodb-table-examples-dependson">DynamoDB Table with a DependsOn
+                                    Attribute</a>.
+                              </p>
+                           </li>
+                           <li class="listitem">
+                              
+                              <p>Updates to <code class="code">AWS::DynamoDB::Table</code> resources that are associated with <code class="code">AWS::ApplicationAutoScaling::ScalableTarget</code> 
+                                 resources will always result in an update failure and then an update rollback failure.
+                                 
+                                 The following <code class="code">ScalableDimension</code> attributes cause this problem when associated with the table:
+                              </p>
+                              
+                              <div class="itemizedlist">
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 <ul class="itemizedlist" type="disc">
+                                    <li class="listitem">
+                                       <p>dynamodb:table:ReadCapacityUnits</p>
+                                    </li>
+                                    <li class="listitem">
+                                       <p>dynamodb:table:WriteCapacityUnits</p>
+                                    </li>
+                                    <li class="listitem">
+                                       <p>dynamodb:index:ReadCapacityUnits</p>
+                                    </li>
+                                    <li class="listitem">
+                                       <p>dynamodb:index:WriteCapacityUnits</p>
+                                    </li>
+                                 </ul>
+                              </div>
+                              
+                              <p>As a workaround, please deregister scalable targets before performing updates to <code class="code">AWS::DynamoDB::Table</code> resources.
+                              </p>
+                           </li>
+                        </ul>
+                     </div><div class="highlights" id="inline-topiclist">
                         <p><strong>Topics</strong></p>
                         <ul>
                            <li><a href="#aws-resource-dynamodb-table-syntax">Syntax</a></li>
-                           <li><a href="#w2ab2c21c10d328c11">Properties</a></li>
-                           <li><a href="#w2ab2c21c10d328c13">Return Values</a></li>
+                           <li><a href="#w2ab2c21c10d365c13">Properties</a></li>
+                           <li><a href="#w2ab2c21c10d365c15">Return Values</a></li>
                            <li><a href="#cfn-dynamodb-table-examples">Examples</a></li>
                         </ul>
                      </div><h2 id="aws-resource-dynamodb-table-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
                         <h3 id="aws-resource-dynamodb-table-syntax.json">JSON</h3>
                         
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">{
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
   &quot;Type&quot; : &quot;AWS::DynamoDB::Table&quot;,
   &quot;Properties&quot; : {
-    &quot;<a href="aws-resource-dynamodb-table.html#cfn-dynamodb-table-attributedef"><code class="literal">AttributeDefinitions</code></a>&quot; : [ <em class="replaceable"><code>AttributeDefinitions, ...</code></em> ],
+    &quot;<a href="aws-resource-dynamodb-table.html#cfn-dynamodb-table-attributedef"><code class="literal">AttributeDefinitions</code></a>&quot; : [ <em class="replaceable"><code>AttributeDefinition, ...</code></em> ],
     &quot;<a href="aws-resource-dynamodb-table.html#cfn-dynamodb-table-gsi"><code class="literal">GlobalSecondaryIndexes</code></a>&quot; : [ <em class="replaceable"><code>GlobalSecondaryIndexes, ...</code></em> ],
     &quot;<a href="aws-resource-dynamodb-table.html#cfn-dynamodb-table-keyschema"><code class="literal">KeySchema</code></a>&quot; : [ <em class="replaceable"><code>KeySchema, ...</code></em> ],
     &quot;<a href="aws-resource-dynamodb-table.html#cfn-dynamodb-table-lsi"><code class="literal">LocalSecondaryIndexes</code></a>&quot; : [ <em class="replaceable"><code>LocalSecondaryIndexes, ...</code></em> ],
     &quot;<a href="aws-resource-dynamodb-table.html#cfn-dynamodb-table-provisionedthroughput"><code class="literal">ProvisionedThroughput</code></a>&quot; : <em class="replaceable"><code>ProvisionedThroughput</code></em>,
+    &quot;<a href="aws-resource-dynamodb-table.html#cfn-dynamodb-table-ssespecification"><code class="code">SSESpecification</code></a>&quot; : <em class="replaceable"><code>SSESpecification</code></em>,
     &quot;<a href="aws-resource-dynamodb-table.html#cfn-dynamodb-table-streamspecification"><code class="code">StreamSpecification</code></a>&quot; : <em class="replaceable"><code>StreamSpecification</code></em>,
     &quot;<a href="aws-resource-dynamodb-table.html#cfn-dynamodb-table-tablename"><code class="literal">TableName</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
     &quot;<a href="aws-resource-dynamodb-table.html#cfn-dynamodb-table-tags"><code class="code">Tags</code></a>&quot; : [ <em class="replaceable"><code>Resource Tag, ...</code></em> ],
@@ -52,10 +91,10 @@
                         </div><div id="YAML" name="YAML" class="section langfilter">
                         <h3 id="aws-resource-dynamodb-table-syntax.yaml">YAML</h3>
                         
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">Type: &quot;AWS::DynamoDB::Table&quot;
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">Type: &quot;AWS::DynamoDB::Table&quot;
 Properties:
   <a href="aws-resource-dynamodb-table.html#cfn-dynamodb-table-attributedef"><code class="literal">AttributeDefinitions</code></a>:
-    - <em class="replaceable"><code>AttributeDefinitions</code></em>
+    - <em class="replaceable"><code>AttributeDefinition</code></em>
   <a href="aws-resource-dynamodb-table.html#cfn-dynamodb-table-gsi"><code class="literal">GlobalSecondaryIndexes</code></a>:
     - <em class="replaceable"><code>GlobalSecondaryIndexes</code></em>
   <a href="aws-resource-dynamodb-table.html#cfn-dynamodb-table-keyschema"><code class="literal">KeySchema</code></a>:
@@ -64,6 +103,8 @@ Properties:
     - <em class="replaceable"><code>LocalSecondaryIndexes</code></em>
   <a href="aws-resource-dynamodb-table.html#cfn-dynamodb-table-provisionedthroughput"><code class="literal">ProvisionedThroughput</code></a>:
     <em class="replaceable"><code>ProvisionedThroughput</code></em>
+  <a href="aws-resource-dynamodb-table.html#cfn-dynamodb-table-ssespecification"><code class="code">SSESpecification</code></a>:
+&#xA0; &#xA0; <em class="replaceable"><code>SSESpecification</code></em>
   <a href="aws-resource-dynamodb-table.html#cfn-dynamodb-table-streamspecification"><code class="code">StreamSpecification</code></a>:
     <em class="replaceable"><code>StreamSpecification</code></em>
   <a href="aws-resource-dynamodb-table.html#cfn-dynamodb-table-tablename"><code class="literal">TableName</code></a>: <em class="replaceable"><code>String</code></em>
@@ -72,7 +113,8 @@ Properties:
   <a href="aws-resource-dynamodb-table.html#cfn-dynamodb-table-timetolivespecification"><code class="code">TimeToLiveSpecification</code></a>: 
     <em class="replaceable"><code><a href="aws-properties-dynamodb-table-timetolivespecification.html">TimeToLiveSpecification</a></code></em>
 </code></pre>
-                        </div><h2 id="w2ab2c21c10d328c11">Properties</h2><div class="variablelist">
+                        </div><h2 id="w2ab2c21c10d365c13">Properties</h2><div class="variablelist">
+                        
                         
                         
                         
@@ -89,16 +131,17 @@ Properties:
                            
                            <dd>
                               
-                              <p>A list of <code class="code">AttributeName</code> and <code class="code">AttributeType</code> objects
-                                 that describe the key schema for the table and indexes. Duplicates are allowed.
+                              <p>A list of attributes that describe the key schema for the table and indexes. Duplicates
+                                 are allowed.
                               </p>
                               
                               <p><em>Required</em>: Yes
                               </p>
                               
-                              <p><em>Type</em>: List of <a href="aws-properties-dynamodb-attributedef.html">DynamoDB Table AttributeDefinitions</a></p>
+                              <p><em>Type</em>: List of <a href="aws-properties-dynamodb-attributedef.html">DynamoDB Table AttributeDefinition</a></p>
                               
-                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt">Some interruptions</a>. Replacement if you edit an existing <code class="code">AttributeDefinition</code>.
+                              </p>
                               
                            </dd>
                            
@@ -221,6 +264,22 @@ Properties:
                            </dd>
                            
                            
+                           <dt><a id="cfn-dynamodb-table-ssespecification"></a><span class="term"><code class="code">SSESpecification</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>Specifies the settings to enable server-side encryption.</p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: <a href="aws-properties-dynamodb-table-ssespecification.html">DynamoDB  SSESpecification</a></p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt">Some interruptions</a></p>
+                              
+                           </dd>
+                           
+                           
                            <dt><a id="cfn-dynamodb-table-streamspecification"></a><span class="term"><code class="code">StreamSpecification</code></span></dt>
                            
                            <dd>
@@ -278,7 +337,7 @@ Properties:
                                  table. Use tags to manage your resources.
                               </p>
                               
-                              <p><em>Required: </em>No
+                              <p><em>Required</em>: No
                               </p>
                               
                               <p><em>Type</em>: <a href="aws-properties-resource-tags.html">AWS CloudFormation Resource Tags</a></p>
@@ -292,12 +351,9 @@ Properties:
                            
                            <dd>
                               
-                              <p>Specifies the Time to Live (TTL)
-                                 settings
-                                 for the table.
-                              </p>
+                              <p>Specifies the Time to Live (TTL) settings for the table.</p>
                               
-                              <p><em>Required: </em>No
+                              <p><em>Required</em>: No
                               </p>
                               
                               <p><em>Type</em>: <a href="aws-properties-dynamodb-table-timetolivespecification.html">DynamoDB Table TimeToLiveSpecification</a></p>
@@ -312,12 +368,12 @@ Properties:
                         <p>For detailed information about the limits in DynamoDB, see <a href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html" target="_blank">Limits in Amazon DynamoDB</a> in the
                            <em>Amazon DynamoDB Developer Guide</em>.
                         </p>
-                     </div><h2 id="w2ab2c21c10d328c13">Return Values</h2><h3 id="w2ab2c21c10d328c13b2">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code> intrinsic
+                     </div><h2 id="w2ab2c21c10d365c15">Return Values</h2><h3 id="w2ab2c21c10d365c15b2">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code> intrinsic
                         function, <code class="code">Ref</code> returns the resource name. For example:
-                     </p><pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">{ &quot;Ref&quot;: &quot;<em class="replaceable"><code>MyResource</code></em>&quot; }</code></pre><p>For the resource with the logical ID <code class="code">myDynamoDBTable</code>,
+                     </p><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{ &quot;Ref&quot;: &quot;<em class="replaceable"><code>MyResource</code></em>&quot; }</code></pre><p>For the resource with the logical ID <code class="code">myDynamoDBTable</code>,
                         <code class="code">Ref</code> will return the DynamoDB table name.
                      </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                     </p><h3 id="w2ab2c21c10d328c13b4">Fn::GetAtt</h3><p><code class="code">Fn::GetAtt</code> returns a value for a specified attribute of this type.
+                     </p><h3 id="w2ab2c21c10d365c15b4">Fn::GetAtt</h3><p><code class="code">Fn::GetAtt</code> returns a value for a specified attribute of this type.
                         The following are the available attributes and sample return values.
                      </p><div class="variablelist">
                         
@@ -372,7 +428,7 @@ Properties:
                      </p><div id="JSON" name="JSON" class="section langfilter">
                         <h4 id="aws-resource-dynamodb-table-example1.json">JSON</h4>
                         
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">{
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">{
   &quot;AWSTemplateFormatVersion&quot; : &quot;2010-09-09&quot;,
   &quot;Resources&quot; : {
     &quot;myDynamoDBTable&quot; : {
@@ -477,7 +533,7 @@ Properties:
                         </div><div id="YAML" name="YAML" class="section langfilter">
                         <h4 id="aws-resource-dynamodb-table-example1.yaml">YAML</h4>
                         
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">AWSTemplateFormatVersion: &quot;2010-09-09&quot;
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">AWSTemplateFormatVersion: &quot;2010-09-09&quot;
 Resources: 
   myDynamoDBTable: 
     Type: &quot;AWS::DynamoDB::Table&quot;
@@ -574,7 +630,7 @@ Resources:
                      </p><div id="JSON" name="JSON" class="section langfilter">
                         <h4 id="aws-resource-dynamodb-table-example2.json">JSON</h4>
                         
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">&quot;mySecondDDBTable&quot; : {
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">&quot;mySecondDDBTable&quot; : {
   &quot;Type&quot; : &quot;AWS::DynamoDB::Table&quot;,
   &quot;DependsOn&quot; : &quot;myFirstDDBTable&quot; ,
   &quot;Properties&quot; : {
@@ -633,7 +689,7 @@ Resources:
                         </div><div id="YAML" name="YAML" class="section langfilter">
                         <h4 id="aws-resource-dynamodb-table-example2.yaml">YAML</h4>
                         
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">mySecondDDBTable: 
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">mySecondDDBTable: 
   Type: &quot;AWS::DynamoDB::Table&quot;
   DependsOn: &quot;myFirstDDBTable&quot;
   Properties: 
@@ -681,7 +737,7 @@ Resources:
                      </p><div id="JSON" name="JSON" class="section langfilter">
                         <h4 id="cfn-dynamodb-table-examples-application-autoscaling.json">JSON</h4>
                         
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">{
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">{
   &quot;Resources&quot;: {
     &quot;DDBTable&quot;: {
       &quot;Type&quot;: &quot;AWS::DynamoDB::Table&quot;,
@@ -821,7 +877,7 @@ Resources:
                         </div><div id="YAML" name="YAML" class="section langfilter">
                         <h4 id="cfn-dynamodb-table-examples-application-autoscaling.yaml">YAML</h4>
                         
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">Resources:
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">Resources:
   DDBTable:
     Type: &quot;AWS::DynamoDB::Table&quot;
     Properties:

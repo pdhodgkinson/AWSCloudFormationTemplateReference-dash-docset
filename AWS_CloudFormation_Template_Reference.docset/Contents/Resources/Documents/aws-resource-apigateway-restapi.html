@@ -17,35 +17,40 @@
                         <p>On January 1, 2016, the Swagger Specification was donated to the
                            <a href="https://www.openapis.org/" target="_blank">OpenAPI initiative</a>, becoming the foundation of the OpenAPI Specification.
                         </p>
-                     </div><div class="highlights">
+                     </div><div class="highlights" id="inline-topiclist">
                         <p><strong>Topics</strong></p>
                         <ul>
                            <li><a href="#aws-resource-apigateway-restapi-syntax">Syntax</a></li>
-                           <li><a href="#w2ab2c21c10c73c11">Properties</a></li>
-                           <li><a href="#w2ab2c21c10c73c13">Return Values</a></li>
-                           <li><a href="#w2ab2c21c10c73c15">Examples</a></li>
+                           <li><a href="#w2ab2c21c10c76c11">Properties</a></li>
+                           <li><a href="#aws-resource-apigateway-restapi-returnvalues">Return Values</a></li>
+                           <li><a href="#aws-resource-apigateway-restapi-examples">Examples</a></li>
+                           <li><a href="#aws-resource-apigateway-restapi-seealso">See Also</a></li>
                         </ul>
                      </div><h2 id="aws-resource-apigateway-restapi-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
                         <h3 id="aws-resource-apigateway-restapi-syntax.json">JSON</h3>
                         
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">{
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
   &quot;Type&quot; : &quot;AWS::ApiGateway::RestApi&quot;,
   &quot;Properties&quot; : {  
+    &quot;<a href="aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-apikeysourcetype"><code class="code">ApiKeySourceType</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
     &quot;<a href="aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-binarymediatypes"><code class="code">BinaryMediaTypes</code></a>&quot; : [ <em class="replaceable"><code>String, ...</code></em> ],
     &quot;<a href="aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-body"><code class="code">Body</code></a>&quot; : <em class="replaceable"><code>JSON object</code></em>,
     &quot;<a href="aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-bodys3location"><code class="code">BodyS3Location</code></a>&quot; : <a href="aws-properties-apitgateway-restapi-bodys3location.html"><em class="replaceable"><code>S3Location</code></em></a>,
     &quot;<a href="aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-clonefrom"><code class="code">CloneFrom</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-description"><code class="code">Description</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-description"><code class="code">Description</code></a>&quot; : <em class="replaceable"><code>String</code></em>,      
+    &quot;<a href="aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-endpointconfiguration"><code class="code">EndpointConfiguration</code></a>&quot; : <a href="aws-properties-apigateway-restapi-endpointconfiguration.html"><em class="replaceable"><code>EndpointConfiguration</code></em></a>,
     &quot;<a href="aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-failonwarning"><code class="code">FailOnWarnings</code></a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
+    &quot;<a href="aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-minimumcompressionsize"><code class="code">MinimumCompressionSize</code></a>&quot; : <em class="replaceable"><code>Integer</code></em>,
     &quot;<a href="aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-name"><code class="code">Name</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-parameters"><code class="code">Parameters</code></a>&quot; : [ <em class="replaceable"><code>String, ...</code></em> ]
+    &quot;<a href="aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-parameters"><code class="code">Parameters</code></a>&quot; : { <em class="replaceable"><code>String</code></em>:<em class="replaceable"><code>String, ...</code></em> }
   }
 }</code></pre>
                         </div><div id="YAML" name="YAML" class="section langfilter">
                         <h3 id="aws-resource-apigateway-restapi-syntax.yaml">YAML</h3>
                         
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">Type: &quot;AWS::ApiGateway::RestApi&quot;
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">Type: &quot;AWS::ApiGateway::RestApi&quot;
 Properties:
+  <a href="aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-apikeysourcetype"><code class="code">ApiKeySourceType</code></a>: <em class="replaceable"><code>String</code></em>
   <a href="aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-binarymediatypes"><code class="code">BinaryMediaTypes</code></a>:
     - <em class="replaceable"><code>String</code></em>
   <a href="aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-body"><code class="code">Body</code></a>: <em class="replaceable"><code>JSON object</code></em>
@@ -53,12 +58,17 @@ Properties:
     <a href="aws-properties-apitgateway-restapi-bodys3location.html"><em class="replaceable"><code>S3Location</code></em></a>
   <a href="aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-clonefrom"><code class="code">CloneFrom</code></a>: <em class="replaceable"><code>String</code></em>
   <a href="aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-description"><code class="code">Description</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-endpointconfiguration"><code class="code">EndpointConfiguration</code></a>: <a href="aws-properties-apigateway-restapi-endpointconfiguration.html"><em class="replaceable"><code>EndpointConfiguration</code></em></a>
   <a href="aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-failonwarning"><code class="code">FailOnWarnings</code></a>: <em class="replaceable"><code>Boolean</code></em>
+  <a href="aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-minimumcompressionsize"><code class="code">MinimumCompressionSize</code></a>: <em class="replaceable"><code>Integer</code></em>
   <a href="aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-name"><code class="code">Name</code></a>: <em class="replaceable"><code>String</code></em>
   <a href="aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-parameters"><code class="code">Parameters</code></a>:
-    - <em class="replaceable"><code>String</code></em>
+    <em class="replaceable"><code>String</code></em>: <em class="replaceable"><code>String</code></em>
 </code></pre>
-                        </div><h2 id="w2ab2c21c10c73c11">Properties</h2><div class="variablelist">
+                        </div><h2 id="w2ab2c21c10c76c11">Properties</h2><div class="variablelist">
+                        
+                        
+                        
                         
                         
                         
@@ -71,15 +81,53 @@ Properties:
                         
                         <dl>
                            
+                           <dt><a id="cfn-apigateway-restapi-apikeysourcetype"></a><span class="term"><code class="code">ApiKeySourceType</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The source of the API key for metering requests according to a usage plan. Valid values
+                                 are:
+                              </p>
+                              
+                              <div class="itemizedlist">
+                                 
+                                 
+                                 
+                                 <ul class="itemizedlist" type="disc">
+                                    <li class="listitem">
+                                       <p><code class="code">HEADER</code> to read the API key from the <code class="code">X-API-Key</code> header of a request.
+                                       </p>
+                                    </li>
+                                    <li class="listitem">
+                                       <p><code class="code">AUTHORIZER</code> to read the API key from the <code class="code">UsageIdentifierKey</code> from a custom authorizer.
+                                       </p>
+                                    </li>
+                                 </ul>
+                              </div>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
                            <dt><a id="cfn-apigateway-restapi-binarymediatypes"></a><span class="term"><code class="code">BinaryMediaTypes</code></span></dt>
                            
                            <dd>
                               
-                              <p>The list of binary media types supported by the <code class="code">RestApi</code> resource, such as <code class="code">image/png</code> or <code class="code">application/octet-stream</code>. By default, <code class="code">RestApi</code> supports only UTF-8-encoded 
-                                 text payloads. For more information, see <a href="http://docs.aws.amazon.com//apigateway/latest/developerguide/api-gateway-payload-encodings.html" target="_blank">Enable Support for Binary Payloads in API Gateway</a> in the <em>API Gateway Developer Guide</em>. Duplicates are not allowed.
+                              <p>The list of binary media types that are supported by the <code class="code">RestApi</code>
+                                 resource, such as <code class="code">image/png</code> or <code class="code">application/octet-stream</code>. By
+                                 default, <code class="code">RestApi</code> supports only UTF-8-encoded text payloads. For more
+                                 information, see <a href="http://docs.aws.amazon.com//apigateway/latest/developerguide/api-gateway-payload-encodings.html" target="_blank">Enable Support for Binary Payloads in API Gateway</a> in the
+                                 <em>API Gateway Developer Guide</em>. Duplicates are not allowed.
                               </p>
                               
-                              <p><em>Required: </em>No
+                              <p><em>Required</em>: No
                               </p>
                               
                               <p><em>Type</em>: List of String values
@@ -98,7 +146,7 @@ Properties:
                                  For YAML templates, you can also provide the specification in the YAML format.
                               </p>
                               
-                              <p><em>Required: </em>No
+                              <p><em>Required</em>: No
                               </p>
                               
                               <p><em>Type</em>: JSON object
@@ -113,12 +161,12 @@ Properties:
                            
                            <dd>
                               
-                              <p>The Amazon Simple Storage Service (Amazon S3) location that points to a OpenAPI file,
+                              <p>The Amazon Simple Storage Service (Amazon S3) location that points to an OpenAPI file,
                                  which defines a set
                                  of RESTful APIs in JSON or YAML format.
                               </p>
                               
-                              <p><em>Required: </em>No
+                              <p><em>Required</em>: No
                               </p>
                               
                               <p><em>Type</em>: <a href="aws-properties-apitgateway-restapi-bodys3location.html">Amazon API Gateway RestApi S3Location</a></p>
@@ -132,11 +180,10 @@ Properties:
                            
                            <dd>
                               
-                              <p>The ID of the API Gateway <code class="code">RestApi</code> resource that you want to
-                                 clone.
+                              <p>The ID of the API Gateway <code class="code">RestApi</code> resource that you want to clone.
                               </p>
                               
-                              <p><em>Required: </em>No
+                              <p><em>Required</em>: No
                               </p>
                               
                               <p><em>Type</em>: String
@@ -154,7 +201,7 @@ Properties:
                               <p>A description of the purpose of this API Gateway <code class="code">RestApi</code> resource.
                               </p>
                               
-                              <p><em>Required: </em>No
+                              <p><em>Required</em>: No
                               </p>
                               
                               <p><em>Type</em>: String
@@ -165,17 +212,65 @@ Properties:
                            </dd>
                            
                            
+                           <dt><a id="cfn-apigateway-restapi-endpointconfiguration"></a><span class="term"><code class="code">EndpointConfiguration</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>A list of the endpoint types of the API. Use this property when creating an API. When
+                                 importing an existing API, specify the endpoint configuration types using the <code class="code">Parameters</code> property.
+                              </p>
+                              
+                              <p>
+                                 <em>Required</em>: No
+                              </p>
+                              
+                              <p>
+                                 <em>Type</em>: <a href="aws-properties-apigateway-restapi-endpointconfiguration.html">API Gateway RestApi EndpointConfiguration</a></p>
+                              
+                              <p>
+                                 <em>Update requires</em>:                             
+                                 <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
+                                 
+                              </p>
+                              
+                           </dd>
+                           
+                           
                            <dt><a id="cfn-apigateway-restapi-failonwarning"></a><span class="term"><code class="code">FailOnWarnings</code></span></dt>
                            
                            <dd>
                               
-                              <p>If a warning occurs while API Gateway is creating the <code class="code">RestApi</code> resource, indicates whether to roll back the resource.
+                              <p>Indicates whether to roll back the resource if a warning occurs while API Gateway
+                                 is
+                                 creating the <code class="code">RestApi</code> resource.
                               </p>
                               
-                              <p><em>Required: </em>No
+                              <p><em>Required</em>: No
                               </p>
                               
                               <p><em>Type</em>: Boolean
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-apigateway-restapi-minimumcompressionsize"></a><span class="term"><code class="code">MinimumCompressionSize</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>A nullable integer that is used to enable compression (with non-negative between 0
+                                 and 10485760 (10M) bytes, inclusive) or disable compression (with a null value) on
+                                 an API. When compression is enabled, compression or decompression is not applied on
+                                 the payload if the payload size is smaller than this value. Setting it to zero allows
+                                 compression for any payload size.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: Integer
                               </p>
                               
                               <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
@@ -190,7 +285,7 @@ Properties:
                               <p>A name for the API Gateway <code class="code">RestApi</code> resource.
                               </p>
                               
-                              <p><em>Required: </em>Conditional. Required if you don&apos;t specify a OpenAPI definition.
+                              <p><em>Required</em>: Conditional. Required if you don&apos;t specify a OpenAPI definition.
                               </p>
                               
                               <p><em>Type</em>: String
@@ -207,10 +302,14 @@ Properties:
                               
                               <p>Custom header parameters for the request.</p>
                               
-                              <p><em>Required: </em>No
+                              <p>For more information on specifying parameters when importing an API, see <a href="http://docs.aws.amazon.com/cli/latest/reference/apigateway/import-rest-api.html" target="_blank">import-rest-api</a> operation in the 
+                                 <em>AWS CLI Command Reference</em>.
                               </p>
                               
-                              <p><em>Type</em>: List of String values
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: String to String map
                               </p>
                               
                               <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
@@ -218,9 +317,9 @@ Properties:
                            </dd>
                            
                         </dl>
-                     </div><h2 id="w2ab2c21c10c73c13">Return Values</h2><h3 id="w2ab2c21c10c73c13b2">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code> intrinsic function, <code class="code">Ref</code> returns the <code class="code">RestApi</code> ID, such as <code class="code">a1bcdef2gh</code>.
+                     </div><h2 id="aws-resource-apigateway-restapi-returnvalues">Return Values</h2><h3 id="aws-resource-apigateway-restapi-ref">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code> intrinsic function, <code class="code">Ref</code> returns the <code class="code">RestApi</code> ID, such as <code class="code">a1bcdef2gh</code>.
                      </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                     </p><h3 id="w2ab2c21c10c73c13b4">Fn::GetAtt</h3><p><code class="code">Fn::GetAtt</code> returns a value for a specified attribute of this type. This section lists the available
+                     </p><h3 id="aws-resource-apigateway-restapi-examplegetatt">Fn::GetAtt</h3><p><code class="code">Fn::GetAtt</code> returns a value for a specified attribute of this type. This section lists the available
                         attribute and a sample return value.
                      </p><div class="variablelist">
                         
@@ -238,11 +337,10 @@ Properties:
                            
                         </dl>
                      </div><p>For more information about using <code class="code">Fn::GetAtt</code>, see <a href="intrinsic-function-reference-getatt.html">Fn::GetAtt</a>.
-                     </p><h2 id="w2ab2c21c10c73c15">Examples</h2><p>The following example create an API Gateway <code class="code">RestApi</code> resource.
+                     </p><h2 id="aws-resource-apigateway-restapi-examples">Examples</h2><h3 id="aws-resource-apigateway-restapi-example1"></h3><p>The following example creates an API Gateway <code class="code">RestApi</code> resource based on an OpenAPI specification.
                      </p><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-resource-apigateway-restapi-example.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">&quot;MyRestApi&quot;: {
+                        <h4 id="aws-resource-apigateway-restapi-example1.json">JSON</h4>
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">&quot;MyRestApi&quot;: {
   &quot;Type&quot;: &quot;AWS::ApiGateway::RestApi&quot;,
   &quot;Properties&quot;: {
     &quot;Body&quot;: {
@@ -253,15 +351,201 @@ Properties:
   }
 }</code></pre>
                         </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-resource-apigateway-restapi-example.yaml">YAML</h3>
+                        <h4 id="aws-resource-apigateway-restapi-example1.yaml">YAML</h4>
                         
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">MyRestApi: 
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">MyRestApi: 
   Type: &quot;AWS::ApiGateway::RestApi&quot;
   Properties:
     Body:
       <em class="replaceable"><code>OpenAPI specification</code></em>    
     Description: &quot;A test API&quot;
     Name: &quot;MyRestAPI&quot;</code></pre>
-                        </div></div>
+                        </div><h3 id="aws-resource-apigateway-restapi-example2"></h3><p>The following example creates an API Gateway <code class="code">RestApi</code> resource with an endpoint type.
+                     </p><div id="JSON" name="JSON" class="section langfilter">
+                        <h4 id="aws-resource-apigateway-restapi-example2.json">JSON</h4>
+                        
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">{
+  &quot;Parameters&quot;: {
+    &quot;apiName&quot;: {
+      &quot;Type&quot;: &quot;String&quot;
+    },
+    &quot;type&quot;: {
+      &quot;Type&quot;: &quot;String&quot;
+    }
+  },
+  &quot;Resources&quot;: {
+    &quot;MyRestApi&quot;: {
+      &quot;Type&quot;: &quot;AWS::ApiGateway::RestApi&quot;,
+      &quot;Properties&quot;: {
+        &quot;EndpointConfiguration&quot;: {
+          &quot;Types&quot;: [
+            {
+              &quot;Ref&quot;: &quot;type&quot;
+            }
+          ]
+        },
+        &quot;Name&quot;: {
+          &quot;Ref&quot;: &quot;apiName&quot;
+        }
+      }
+    }
+  }
+}</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        <h4 id="aws-resource-apigateway-restapi-example.yaml">YAML</h4>
+                        
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">Parameters:
+  apiName:
+    Type: String
+  type:
+    Type: String
+Resources:
+  MyRestApi:
+    Type: &apos;AWS::ApiGateway::RestApi&apos;
+    Properties:
+      EndpointConfiguration:
+        Types:
+          - !Ref type
+      Name: !Ref apiName</code></pre>
+                        </div><h3 id="aws-resource-apigateway-restapi-example3"></h3><p>The following example imports an API Gateway <code class="code">RestApi</code> resource with an endpoint
+                        type of REGIONAL.
+                     </p><div id="JSON" name="JSON" class="section langfilter">
+                        <h4 id="aws-resource-apigateway-restapi-example3.json">JSON</h4>
+                        
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">{
+    &quot;Resources&quot;: {
+        &quot;RestApi&quot;: {
+            &quot;Type&quot;: &quot;AWS::ApiGateway::RestApi&quot;,
+            &quot;Properties&quot;: {
+                &quot;Body&quot;: {
+                    &quot;swagger&quot;: 2,
+                    &quot;info&quot;: {
+                        &quot;version&quot;: &quot;0.0.1&quot;,
+                        &quot;title&quot;: &quot;test&quot;
+                    },
+                    &quot;basePath&quot;: &quot;/pete&quot;,
+                    &quot;schemes&quot;: [
+                        &quot;https&quot;
+                    ],
+                    &quot;definitions&quot;: {
+                        &quot;Empty&quot;: {
+                            &quot;type&quot;: &quot;object&quot;
+                        }
+                    }
+                },
+                &quot;Name&quot;: &quot;myApi&quot;,
+                &quot;Parameters&quot;: {
+                    &quot;endpointConfigurationTypes&quot;: &quot;REGIONAL&quot;
+                }
+            }
+        }
+    }
+}</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        <h4 id="aws-resource-apigateway-restapi-example3.yaml">YAML</h4>
+                        
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">Resources :
+    RestApi :
+        Type : AWS::ApiGateway::RestApi
+        Properties :
+            Body :
+                swagger : 2.0
+                info :
+                    version : 0.0.1
+                    title : test
+                basePath : /pete
+                schemes :
+                    - https
+                definitions:
+                    Empty :
+                        type : object
+            Name : myApi
+            Parameters:
+                endpointConfigurationTypes: REGIONAL</code></pre>
+                        </div><h3 id="aws-resource-apigateway-restapi-example4"></h3><p>The following example creates an API Gateway <code class="code">RestApi</code> resource with ApiKeySourceType, BinaryMediaTypes and MinimumCompressionSize.
+                     </p><div id="JSON" name="JSON" class="section langfilter">
+                        <h4 id="aws-resource-apigateway-restapi-example4.json">JSON</h4>
+                        
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">{
+    &quot;Parameters&quot;: {
+        &quot;apiKeySourceType&quot;: {
+            &quot;Type&quot;: &quot;String&quot;
+        },
+        &quot;apiName&quot;: {
+            &quot;Type&quot;: &quot;String&quot;
+        },
+        &quot;binaryMediaType1&quot;: {
+            &quot;Type&quot;: &quot;String&quot;
+        },
+        &quot;binaryMediaType2&quot;: {
+            &quot;Type&quot;: &quot;String&quot;
+        },
+        &quot;minimumCompressionSize&quot;: {
+            &quot;Type&quot;: &quot;String&quot;
+        }
+    },
+    &quot;Resources&quot;: {
+        &quot;MyRestApi&quot;: {
+            &quot;Type&quot;: &quot;AWS::ApiGateway::RestApi&quot;,
+            &quot;Properties&quot;: {
+                &quot;ApiKeySourceType&quot;: {
+                    &quot;Ref&quot;: &quot;apiKeySourceType&quot;
+                },
+                &quot;BinaryMediaTypes&quot;: [
+                    {
+                        &quot;Ref&quot;: &quot;binaryMediaType1&quot;
+                    },
+                    {
+                        &quot;Ref&quot;: &quot;binaryMediaType2&quot;
+                    }
+                ],
+                &quot;MinimumCompressionSize&quot;: {
+                    &quot;Ref&quot;: &quot;minimumCompressionSize&quot;
+                },
+                &quot;Name&quot;: {
+                    &quot;Ref&quot;: &quot;apiName&quot;
+                }
+            }
+        }
+    }
+}</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        <h4 id="aws-resource-apigateway-restapi-example4.yaml">YAML</h4>
+                        
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">Parameters:
+    apiKeySourceType:
+        Type: String
+    apiName:
+        Type: String
+    binaryMediaType1:
+        Type: String
+    binaryMediaType2:
+        Type: String
+    minimumCompressionSize:
+        Type: String
+Resources:
+    MyRestApi:
+        Type: AWS::ApiGateway::RestApi
+        Properties:
+            ApiKeySourceType: !Ref apiKeySourceType
+            BinaryMediaTypes:
+                - !Ref binaryMediaType1
+                - !Ref binaryMediaType2
+            MinimumCompressionSize: !Ref minimumCompressionSize
+            Name: !Ref apiName</code></pre>
+                        </div><h2 id="aws-resource-apigateway-restapi-seealso">See Also</h2><div class="itemizedlist">
+                        
+                        
+                        <ul class="itemizedlist" type="disc">
+                           <li class="listitem">
+                              <p><a href="http://docs.aws.amazon.com/apigateway/api-reference/link-relation/restapi-create/" target="_blank">restapi:create</a> operation in the 
+                                 <em>Amazon API Gateway REST API Reference</em></p>
+                           </li>
+                           <li class="listitem">
+                              <p><a href="http://docs.aws.amazon.com/cli/latest/reference/apigateway/import-rest-api.html" target="_blank">import-rest-api</a> operation in the 
+                                 <em>AWS CLI Command Reference</em></p>
+                           </li>
+                        </ul>
+                     </div></div>
 </body>
 </html>

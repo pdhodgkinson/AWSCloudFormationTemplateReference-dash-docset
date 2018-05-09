@@ -8,19 +8,19 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-resource-ec2-subnet">AWS::EC2::Subnet</h1><p>Creates a subnet in an existing VPC.</p><div class="highlights">
+    <h1 class="topictitle" id="aws-resource-ec2-subnet">AWS::EC2::Subnet</h1><p>Creates a subnet in an existing VPC.</p><div class="highlights" id="inline-topiclist">
                         <p><strong>Topics</strong></p>
                         <ul>
                            <li><a href="#aws-resource-ec2-subnet-syntax">Syntax</a></li>
                            <li><a href="#aws-resource-ec2-subnet-properties">Properties</a></li>
                            <li><a href="#aws-resource-ec2-subnet-returnvalues">Return Values</a></li>
                            <li><a href="#aws-resource-ec2-subnet-examples">Example</a></li>
-                           <li><a href="#w2ab2c21c10d435c15">More Info</a></li>
+                           <li><a href="#w2ab2c21c10d475c15">More Info</a></li>
                         </ul>
                      </div><h2 id="aws-resource-ec2-subnet-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
                         <h3 id="aws-resource-ec2-subnet-syntax.json">JSON</h3>
                         
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">{
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
   &quot;Type&quot; : &quot;AWS::EC2::Subnet&quot;,
   &quot;Properties&quot; : {
     &quot;<a href="aws-resource-ec2-subnet.html#cfn-ec2-subnet-assignipv6addressoncreation"><code class="code">AssignIpv6AddressOnCreation</code></a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
@@ -35,7 +35,7 @@
                         </div><div id="YAML" name="YAML" class="section langfilter">
                         <h3 id="aws-resource-ec2-subnet-syntax.yaml">YAML</h3>
                         
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">Type: &quot;AWS::EC2::Subnet&quot;
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">Type: &quot;AWS::EC2::Subnet&quot;
 Properties:
   <a href="aws-resource-ec2-subnet.html#cfn-ec2-subnet-assignipv6addressoncreation"><code class="code">AssignIpv6AddressOnCreation</code></a>: <em class="replaceable"><code>Boolean</code></em>
   <a href="aws-resource-ec2-subnet.html#cfn-ec2-subnet-availabilityzone">AvailabilityZone</a>: <em class="replaceable"><code>String</code></em>
@@ -61,11 +61,13 @@ Properties:
                            
                            <dd>
                               
-                              <p>Indicates whether a network interface created in this subnet receives an IPv6 address.</p>
+                              <p>Indicates whether a network interface created in this subnet receives an IPv6 address.
+                                 The default value is <code class="code">false</code>.
+                              </p>
                               
                               
                               
-                              <p><em>Required</em>: Conditional. If <code class="code">AssignIpv6AddressOnCreation</code> is <code class="code">true</code>, <code class="code">Ipv6CidrBlock</code> must be specified.
+                              <p><em>Required</em>: Conditional. If you specify a <code class="code">true</code> or <code class="code">false</code> value for <code class="code">AssignIpv6AddressOnCreation</code>, <code class="code">Ipv6CidrBlock</code> must also be specified.
                               </p>
                               
                               <p><em>Type</em>: Boolean
@@ -73,6 +75,12 @@ Properties:
                               
                               <p><em>Update requires</em>: 
                                  <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                              <div class="aws-note">
+                                 <p class="aws-note">Note</p>
+                                 <p>If <code class="code">AssignIpv6AddressOnCreation</code> is specified, <code class="code">MapPublicIpOnLaunch</code> cannot be specified.
+                                 </p>
+                              </div>
                               
                            </dd>
                            
@@ -141,7 +149,7 @@ Properties:
                                  a <code class="code">/64</code> prefix length.
                               </p>
                               
-                              <p><em>Required</em>: No
+                              <p><em>Required</em>: Conditional. If you specify a <code class="code">true</code> or <code class="code">false</code> value for <code class="code">AssignIpv6AddressOnCreation</code>, <code class="code">Ipv6CidrBlock</code> must be specified.
                               </p>
                               
                               <p><em>Type</em>: String
@@ -160,13 +168,19 @@ Properties:
                                  IP address. By default, the value is <code class="code">false</code>.
                               </p>
                               
-                              <p><em>Required: </em>No
+                              <p><em>Required</em>: No
                               </p>
                               
                               <p><em>Type</em>: Boolean
                               </p>
                               
                               <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                              <div class="aws-note">
+                                 <p class="aws-note">Note</p>
+                                 <p>If <code class="code">MapPublicIpOnLaunch</code> is specified. <code class="code">AssignIpv6AddressOnCreation</code> cannot be specified.
+                                 </p>
+                              </div>
                               
                            </dd>
                            
@@ -177,7 +191,7 @@ Properties:
                               
                               <p>An arbitrary set of tags (key&#x2013;value pairs) for this subnet.</p>
                               
-                              <p><em>Required: </em>No
+                              <p><em>Required</em>: No
                               </p>
                               
                               <p><em>Type</em>: <a href="aws-properties-resource-tags.html">AWS CloudFormation Resource Tags</a></p>
@@ -242,7 +256,7 @@ Properties:
                               </p>
                               
                               <p>Example:</p>
-                              <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">
+                              <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">
 { &quot;Fn::GetAtt&quot; : [ &quot;mySubnet&quot;, &quot;AvailabilityZone&quot; ] } </code></pre>
                               </dd>
                            
@@ -286,7 +300,7 @@ Properties:
                      </p><div id="JSON" name="JSON" class="section langfilter">
                         <h3 id="aws-resource-ec2-subnet-example-1.json">JSON</h3>
                         
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">
 {
    &quot;AWSTemplateFormatVersion&quot; : &quot;2010-09-09&quot;,
    &quot;Resources&quot; : {
@@ -304,7 +318,7 @@ Properties:
                         </div><div id="YAML" name="YAML" class="section langfilter">
                         <h3 id="aws-resource-ec2-subnet-example-1.yaml">YAML</h3>
                         
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">AWSTemplateFormatVersion: &apos;2010-09-09&apos;
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">AWSTemplateFormatVersion: &apos;2010-09-09&apos;
 Resources:
   mySubnet:
     Type: AWS::EC2::Subnet
@@ -316,7 +330,7 @@ Resources:
       Tags:
       - Key: foo
         Value: bar</code></pre>
-                        </div><h2 id="w2ab2c21c10d435c15">More Info</h2><div class="itemizedlist">
+                        </div><h2 id="w2ab2c21c10d475c15">More Info</h2><div class="itemizedlist">
                         
                         
                         

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="css/awsdocs.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/awsdocs.min.js"></script>
+    <meta charset="utf-8">
+</head>
+<body>
+    <div id="content" style="padding: 10px 30px;">
+    <h1 class="topictitle" id="aws-properties-servicediscovery-service-healthcheckconfig">Amazon Route&#xA0;53 ServiceDiscovery HealthCheckConfig</h1><p>The 
+                        		<code class="code">HealthCheckConfig</code> property type specifies settings for an optional Amazon Route&#xA0;53 health check. 
+                        		If you specify settings for a health check, Route&#xA0;53 associates the health check
+                        with all the resource record sets 
+                        		that you specify in <code class="code">DnsConfig</code>.
+                     </p><p><code class="code">HealthCheckConfig</code> is a property of the 
+                        		<a href="aws-resource-servicediscovery-service.html">AWS::ServiceDiscovery::Service</a> resource.
+                     </p><h2 id="aws-properties-servicediscovery-service-healthcheckconfig-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        			
+                        <h3 id="aws-properties-servicediscovery-service-healthcheckconfig-syntax.json">JSON</h3>
+                        			
+                        			<pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
+  &quot;<a href="aws-properties-servicediscovery-service-healthcheckconfig.html#cfn-servicediscovery-service-healthcheckconfig-type"><code class="code">Type</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+  &quot;<a href="aws-properties-servicediscovery-service-healthcheckconfig.html#cfn-servicediscovery-service-healthcheckconfig-resourcepath"><code class="code">ResourcePath</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+  &quot;<a href="aws-properties-servicediscovery-service-healthcheckconfig.html#cfn-servicediscovery-service-healthcheckconfig-failurethreshold"><code class="code">FailureThreshold</code></a>&quot; : <em class="replaceable"><code>Double</code></em>
+}</code></pre>
+                        		</div><div id="YAML" name="YAML" class="section langfilter">
+                        			
+                        <h3 id="aws-properties-servicediscovery-service-healthcheckconfig-syntax.yaml">YAML</h3>
+                        			
+                        			<pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight"><a href="aws-properties-servicediscovery-service-healthcheckconfig.html#cfn-servicediscovery-service-healthcheckconfig-type"><code class="code">Type</code></a>: <em class="replaceable"><code>String</code></em>
+<a href="aws-properties-servicediscovery-service-healthcheckconfig.html#cfn-servicediscovery-service-healthcheckconfig-resourcepath"><code class="code">ResourcePath</code></a>: <em class="replaceable"><code>String</code></em>
+<a href="aws-properties-servicediscovery-service-healthcheckconfig.html#cfn-servicediscovery-service-healthcheckconfig-failurethreshold"><code class="code">FailureThreshold</code></a>: <em class="replaceable"><code>Double</code></em></code></pre>
+                        		</div><h2 id="aws-properties-servicediscovery-service-healthcheckconfig-properties">Properties</h2><div class="variablelist">
+                        			
+                        			
+                        			
+                        		
+                        <dl>
+                           				
+                           <dt><a id="cfn-servicediscovery-service-healthcheckconfig-type"></a><span class="term"><code class="code">Type</code></span></dt>
+                           				
+                           <dd>
+                              					
+                              <p>The type of health check that you want to create, which indicates how Route&#xA0;53 determines
+                                 whether an endpoint is healthy. 
+                                 						Valid types include <code class="code">HTTP</code>, <code class="code">HTTPS</code>, and <code class="code">TCP</code>.
+                              </p>
+                              					
+                              <p><em>Required</em>: Yes
+                              </p>
+                              					
+                              <p><em>Type</em>: String
+                              </p>
+                              					
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              				
+                           </dd>
+                           			
+                           				
+                           <dt><a id="cfn-servicediscovery-service-healthcheckconfig-resourcepath"></a><span class="term"><code class="code">ResourcePath</code></span></dt>
+                           				
+                           <dd>
+                              					
+                              <p>The path that you want Route&#xA0;53 to request when performing health checks. The path
+                                 can be any value for which your endpoint 
+                                 						will return an HTTP status code of 2xx or 3xx when the endpoint is healthy,
+                                 such as the file 
+                                 						<code class="code">/docs/route53-health-check.html</code>. Route&#xA0;53 automatically adds the DNS name for the service and a 
+                                 						leading forward slash (/) character. 
+                              </p>
+                              					
+                              <p><em>Required</em>: No
+                              </p>
+                              					
+                              <p><em>Type</em>: String
+                              </p>
+                              					
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              				
+                           </dd>
+                           			
+                           				
+                           <dt><a id="cfn-servicediscovery-service-healthcheckconfig-failurethreshold"></a><span class="term"><code class="code">FailureThreshold</code></span></dt>
+                           				
+                           <dd>
+                              					
+                              <p>The number of consecutive health checks that an endpoint must pass or fail for Route&#xA0;53
+                                 to change the current status 
+                                 						of the endpoint from unhealthy to healthy or vice versa. For more information,
+                                 see 
+                                 						<a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html" target="_blank">How Route&#xA0;53 Determines Whether an Endpoint Is Healthy</a> 
+                                 						in the <em>Amazon Route&#xA0;53 Developer Guide</em></p>
+                              					
+                              <p><em>Required</em>: No
+                              </p>
+                              					
+                              <p><em>Type</em>: Double
+                              </p>
+                              					
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              				
+                           </dd>
+                           			
+                        </dl>
+                     </div><h2 id="aws-properties-servicediscovery-service-healthcheckconfig-seealso">See Also</h2><div class="itemizedlist">
+                        			
+                        			
+                        		
+                        <ul class="itemizedlist" type="disc">
+                           <li class="listitem">
+                              				
+                              <p><a href="http://docs.aws.amazon.com/Route53/latest/APIReference/overview-service-discovery.html" target="_blank">Using Autonaming for Service Discovery</a> 
+                                 					in the <em>Amazon Route&#xA0;53 API Reference</em></p>
+                              			
+                           </li>
+                           <li class="listitem">
+                              				
+                              <p><a href="http://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_CreateService.html" target="_blank">CreateService</a> 
+                                 					in the <em>Amazon Route&#xA0;53 API Reference</em></p>
+                              			
+                           </li>
+                        </ul>
+                     </div></div>
+</body>
+</html>

@@ -10,34 +10,44 @@
     <div id="content" style="padding: 10px 30px;">
     <h1 class="topictitle" id="aws-resource-apigateway-domainname">AWS::ApiGateway::DomainName</h1><p>The <code class="code">AWS::ApiGateway::DomainName</code> resource specifies a custom domain name for your API in Amazon API Gateway (API Gateway).
                      </p><p>You can use a custom domain name to provide a URL that&apos;s more intuitive and easier
-                        to recall. 
-                        For more information about using custom domain names, see <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html" target="_blank">Use Custom Domain Name as API Gateway API Host Name</a> data type in the <em>API Gateway Developer Guide</em>.
-                     </p><div class="highlights">
+                        to
+                        recall. For more information about using custom domain names, see <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html" target="_blank">Use Custom
+                           Domain Name as API Gateway API Host Name</a> in the
+                        <em>API Gateway Developer Guide</em>.
+                     </p><div class="highlights" id="inline-topiclist">
                         <p><strong>Topics</strong></p>
                         <ul>
                            <li><a href="#aws-resource-apigateway-domainname-syntax">Syntax</a></li>
                            <li><a href="#aws-resource-apigateway-domainname-properties">Properties</a></li>
                            <li><a href="#aws-resource-apigateway-domainname-returnvalues">Return Values</a></li>
                            <li><a href="#aws-resource-apigateway-domainname-examples">Examples</a></li>
+                           <li><a href="#aws-resource-apigateway-domainname-seealso">See Also</a></li>
                         </ul>
                      </div><h2 id="aws-resource-apigateway-domainname-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
                         <h3 id="aws-resource-apigateway-domainname-syntax.json">JSON</h3>
                         
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">{
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
   &quot;Type&quot;: &quot;AWS::ApiGateway::DomainName&quot;,
   &quot;Properties&quot;: {
     &quot;<a href="aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-certificatearn"><code class="code">CertificateArn</code></a>&quot;: <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-domainname"><code class="code">DomainName</code></a>&quot;: <em class="replaceable"><code>String</code></em>
+    &quot;<a href="aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-domainname"><code class="code">DomainName</code></a>&quot;: <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-endpointconfiguration"><code class="code">EndpointConfiguration</code></a>&quot; : <a href="aws-properties-apigateway-domainname-endpointconfiguration.html"><em class="replaceable"><code>EndpointConfiguration</code></em></a>,
+    &quot;<a href="aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-regionalcertificatearn"><code class="code">RegionalCertificateArn</code></a>&quot; : <em class="replaceable"><code>String</code></em>
   }
 }</code></pre>
                         </div><div id="YAML" name="YAML" class="section langfilter">
                         <h3 id="aws-resource-apigateway-domainname-syntax.yaml">YAML</h3>
                         
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">Type: &quot;AWS::ApiGateway::DomainName&quot;
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">Type: &quot;AWS::ApiGateway::DomainName&quot;
 Properties: 
   <a href="aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-certificatearn"><code class="code">CertificateArn</code></a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-domainname"><code class="code">DomainName</code></a>: <em class="replaceable"><code>String</code></em></code></pre>
+  <a href="aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-domainname"><code class="code">DomainName</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-endpointconfiguration"><code class="code">EndpointConfiguration</code></a>: 
+    <a href="aws-properties-apigateway-domainname-endpointconfiguration.html"><em class="replaceable"><code>EndpointConfiguration</code></em></a>
+  <a href="aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-regionalcertificatearn"><code class="code">RegionalCertificateArn</code></a>: <em class="replaceable"><code>String</code></em></code></pre>
                         </div><h2 id="aws-resource-apigateway-domainname-properties">Properties</h2><div class="variablelist">
+                        
+                        
                         
                         
                         
@@ -47,14 +57,15 @@ Properties:
                            
                            <dd>
                               
-                              <p>The
-                                 Amazon Resource Name (ARN) of an AWS-managed certificate stored in
-                                 AWS Certificate Manager. For requirements and additional information about setting
+                              <p>The reference to an AWS-managed certificate for use by the edge-optimized endpoint
+                                 for this domain name. 
+                                 AWS Certificate Manager is the only supported source. 
+                                 For requirements and additional information about setting
                                  up certificates, see <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html#how-to-custom-domains-prerequisites" target="_blank">Get Certificates Ready in AWS Certificate Manager</a> in the
                                  <em>API Gateway Developer Guide</em>.
                               </p>
                               
-                              <p><em>Required: </em>Yes
+                              <p><em>Required</em>: No
                               </p>
                               
                               <p><em>Type</em>: String
@@ -71,7 +82,7 @@ Properties:
                               
                               <p>The custom domain name for your API in Amazon API Gateway.</p>
                               
-                              <p><em>Required: </em>Yes
+                              <p><em>Required</em>: Yes
                               </p>
                               
                               <p><em>Type</em>: String
@@ -81,12 +92,61 @@ Properties:
                               
                            </dd>
                            
+                           
+                           <dt><a id="cfn-apigateway-domainname-endpointconfiguration"></a><span class="term"><code class="code">EndpointConfiguration</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>A list of the endpoint types of the domain name.</p>
+                              
+                              <p>
+                                 <em>Required</em>: No
+                              </p>
+                              
+                              <p>
+                                 <em>Type</em>: <a href="aws-properties-apigateway-domainname-endpointconfiguration.html">API Gateway DomainName EndpointConfiguration</a></p>
+                              
+                              <p>
+                                 <em>Update requires</em>:                             
+                                 <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
+                                 
+                              </p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-apigateway-domainname-regionalcertificatearn"></a><span class="term"><code class="code">RegionalCertificateArn</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The reference to an AWS-managed certificate for use by the regional endpoint for the
+                                 domain name. 
+                                 AWS Certificate Manager is the only supported source.
+                              </p>
+                              
+                              <p>
+                                 <em>Required</em>: No
+                              </p>
+                              
+                              <p>
+                                 <em>Type</em>: String
+                              </p>
+                              
+                              <p>
+                                 <em>Update requires</em>:                             
+                                 <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
+                                 
+                              </p>
+                              
+                           </dd>
+                           
                         </dl>
-                     </div><h2 id="aws-resource-apigateway-domainname-returnvalues">Return Values</h2><h3 id="w2ab2c21c10c47c13b2">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code> intrinsic function, <code class="code">Ref</code> returns the domain name.
+                     </div><h2 id="aws-resource-apigateway-domainname-returnvalues">Return Values</h2><h3 id="w2ab2c21c10c49c13b2">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code> intrinsic function, <code class="code">Ref</code> returns the domain name.
                      </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                     </p><h3 id="w2ab2c21c10c47c13b4">Fn::GetAtt</h3><p><code class="code">Fn::GetAtt</code> returns a value for a specified attribute of this type. This section lists the available
+                     </p><h3 id="w2ab2c21c10c49c13b4">Fn::GetAtt</h3><p><code class="code">Fn::GetAtt</code> returns a value for a specified attribute of this type. This section lists the available
                         attribute and a sample return value.
                      </p><div class="variablelist">
+                        
                         
                         
                         <dl>
@@ -95,7 +155,7 @@ Properties:
                            
                            <dd>
                               
-                              <p>The Amazon CloudFront distribution domain name that is mapped to the custom domain
+                              <p>The Amazon CloudFront distribution domain name that&apos;s mapped to the custom domain
                                  name.
                               </p>
                               
@@ -105,12 +165,12 @@ Properties:
                            
                         </dl>
                      </div><p>For more information about using <code class="code">Fn::GetAtt</code>, see <a href="intrinsic-function-reference-getatt.html">Fn::GetAtt</a>.
-                     </p><h2 id="aws-resource-apigateway-domainname-examples">Examples</h2><h3 id="w2ab2c21c10c47c15b2">Create Custom Domain</h3><p>The following example creates a custom domain name of
+                     </p><h2 id="aws-resource-apigateway-domainname-examples">Examples</h2><h3 id="aws-resource-apigateway-domainname-example1">Create Custom Domain</h3><p>The following example creates a custom domain name of
                         <code class="code">api.mydomain.com</code>.
                      </p><div id="JSON" name="JSON" class="section langfilter">
-                        <h4 id="aws-resource-apigateway-domainname-examples.json">JSON</h4>
+                        <h4 id="aws-resource-apigateway-domainname-example1.json">JSON</h4>
                         
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">&quot;MyDomainName&quot;: {
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">&quot;MyDomainName&quot;: {
   &quot;Type&quot;: &quot;AWS::ApiGateway::DomainName&quot;,
   &quot;Properties&quot;: {
     &quot;DomainName&quot;: &quot;api.mydomain.com&quot;,
@@ -118,18 +178,18 @@ Properties:
   }
 }</code></pre>
                         </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h4 id="aws-resource-apigateway-domainname-examples.yaml">YAML</h4>
+                        <h4 id="aws-resource-apigateway-domainname-example1.yaml">YAML</h4>
                         
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">MyDomainName:
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">MyDomainName:
   Type: &apos;AWS::ApiGateway::DomainName&apos;
   Properties:
     DomainName: api.mydomain.com
     CertificateArn: arn:aws:acm:us-east-1:111122223333:certificate/fb1b9770-a305-495d-aefb-27e5e101ff3</code></pre>
-                        </div><h3 id="w2ab2c21c10c47c15b4">Create Custom Domain From Parameter</h3><p>The following example creates a custom domain name of <code class="code">example.mydomain.com</code>.
+                        </div><h3 id="aws-resource-apigateway-domainname-example2">Create Custom Domain from Parameters</h3><p>The following example creates a custom domain name of <code class="code">example.mydomain.com</code>.
                      </p><div id="JSON" name="JSON" class="section langfilter">
-                        <h4 id="aws-resource-apigateway-domainname-examples1.json">JSON</h4>
+                        <h4 id="aws-resource-apigateway-domainname-example2.json">JSON</h4>
                         
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">{
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">{
   &quot;Parameters&quot;: {
     &quot;basePath&quot;: {
       &quot;Type&quot;: &quot;String&quot;,
@@ -199,9 +259,9 @@ Properties:
   }
 }</code></pre>
                         </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h4 id="aws-resource-apigateway-domainname-examples1.yaml">YAML</h4>
+                        <h4 id="aws-resource-apigateway-domainname-example2.yaml">YAML</h4>
                         
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">Parameters:
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">Parameters:
   basePath:
     Type: String
     Default: examplepath
@@ -236,6 +296,82 @@ Outputs:
     Value: !GetAtt 
       - myDomainName
       - DistributionDomainName</code></pre>
-                        </div></div>
+                        </div><h3 id="aws-resource-apigateway-domainname-example3"></h3><p>The following example creates a custom domain name that specifies a regional certificate
+                        ARN and an endpoint type.
+                     </p><div id="JSON" name="JSON" class="section langfilter">
+                        <h4 id="aws-resource-apigateway-domainname-example3.json">JSON</h4>
+                        
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">{
+  &quot;Parameters&quot;: {
+    &quot;cfnDomainName&quot;: {
+      &quot;Type&quot;: &quot;String&quot;
+    },
+    &quot;certificateArn&quot;: {
+      &quot;Type&quot;: &quot;String&quot;
+    },
+    &quot;type&quot;: {
+      &quot;Type&quot;: &quot;String&quot;
+    }
+  },
+  &quot;Resources&quot;: {
+    &quot;myDomainName&quot;: {
+      &quot;Type&quot;: &quot;AWS::ApiGateway::DomainName&quot;,
+      &quot;Properties&quot;: {
+        &quot;CertificateArn&quot;: {
+          &quot;Ref&quot;: &quot;certificateArn&quot;
+        },
+        &quot;DomainName&quot;: {
+          &quot;Ref&quot;: &quot;cfnDomainName&quot;
+        },
+        &quot;EndpointConfiguration&quot;: {
+          &quot;Types&quot;: [
+            {
+              &quot;Ref&quot;: &quot;type&quot;
+            }
+          ]
+        },
+        &quot;RegionalCertificateArn&quot;: {
+          &quot;Ref&quot;: &quot;certificateArn&quot;
+        }
+      }
+    },
+    &quot;DomainName&quot;: {
+      &quot;Value&quot;: {
+        &quot;Ref&quot;: &quot;myDomainName&quot;
+      }
+    }
+  }
+}</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        <h4 id="aws-resource-apigateway-domainname-example3.yaml">YAML</h4>
+                        
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">Parameters:
+  cfnDomainName:
+    Type: String
+  certificateArn:
+    Type: String
+  type:
+    Type: String
+Resources:
+  myDomainName:
+    Type: &apos;AWS::ApiGateway::DomainName&apos;
+    Properties:
+      CertificateArn: !Ref certificateArn
+      DomainName: !Ref cfnDomainName
+      EndpointConfiguration:
+        Types:
+          - !Ref type
+      RegionalCertificateArn: !Ref certificateArn
+  DomainName:
+    Value: !Ref myDomainName</code></pre>
+                        </div><h2 id="aws-resource-apigateway-domainname-seealso">See Also</h2><div class="itemizedlist">
+                        
+                        <ul class="itemizedlist" type="disc">
+                           <li class="listitem">
+                              <p><a href="http://docs.aws.amazon.com/apigateway/api-reference/link-relation/domainname-create/" target="_blank">domainname:create</a> operation in the 
+                                 <em>Amazon API Gateway REST API Reference</em></p>
+                           </li>
+                        </ul>
+                     </div></div>
 </body>
 </html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="css/awsdocs.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/awsdocs.min.js"></script>
+    <meta charset="utf-8">
+</head>
+<body>
+    <div id="content" style="padding: 10px 30px;">
+    <h1 class="topictitle" id="aws-resource-ses-receiptfilter">AWS::SES::ReceiptFilter</h1><p>The 
+                        <code class="code">AWS::SES::ReceiptFilter</code> resource whether to accept or reject mail originating from an IP address or range
+                        of IP addresses for Amazon SES. For more information, see 
+                        <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/url-ses-dev;receiving-email-ip-filters.html" target="_blank">Creating IP Address Filters for Amazon SES Email Receiving</a> in the <em>Amazon Simple Email Service Developer Guide</em>.
+                        
+                     </p><div class="highlights" id="inline-topiclist">
+                        <p><strong>Topics</strong></p>
+                        <ul>
+                           <li><a href="#aws-resource-ses-receiptfilter-syntax">Syntax</a></li>
+                           <li><a href="#aws-resource-ses-receiptfilter-properties">Properties</a></li>
+                           <li><a href="#aws-resource-ses-receiptfilter-examples">Example</a></li>
+                           <li><a href="#aws-resource-ses-receiptfilter-seealso">See Also</a></li>
+                        </ul>
+                     </div><h2 id="aws-resource-ses-receiptfilter-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        
+                        <h3 id="aws-resource-ses-receiptfilter-syntax.json">JSON</h3>
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
+  &quot;Type&quot; : &quot;AWS::SES::ReceiptFilter&quot;,
+  &quot;Properties&quot; : {
+    &quot;<a href="aws-resource-ses-receiptfilter.html#cfn-ses-receiptfilter-filter"><code class="code">Filter</code></a>&quot; : <a href="aws-properties-ses-receiptfilter-filter.html"><em class="replaceable"><code>Filter</code></em></a>
+  }
+}</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        
+                        <h3 id="aws-resource-ses-receiptfilter-syntax.yaml">YAML</h3>
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">Type: &quot;AWS::SES::ReceiptFilter&quot;
+Properties:
+  <a href="aws-resource-ses-receiptfilter.html#cfn-ses-receiptfilter-filter"><code class="code">Filter</code></a>: <a href="aws-properties-ses-receiptfilter-filter.html"><em class="replaceable"><code>Filter</code></em></a></code></pre>
+                        </div><h2 id="aws-resource-ses-receiptfilter-properties">Properties</h2><div class="variablelist">
+                        
+                        
+                        <dl>
+                           
+                           <dt><a id="cfn-ses-receiptfilter-filter"></a><span class="term"><code class="code">Filter</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The IP addresses to block or allow, and whether to block or allow incoming mail from
+                                 them.
+                              </p>
+                              
+                              <p>
+                                 <em>Required</em>: Yes
+                              </p>
+                              
+                              <p>
+                                 <em>Type</em>: <a href="aws-properties-ses-receiptfilter-filter.html">Amazon SES ReceiptFilter Filter</a></p>
+                              
+                              <p>
+                                 <em>Update requires</em>: 
+                                 
+                                 <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a>
+                                 
+                              </p>
+                              
+                           </dd>
+                           
+                        </dl>
+                     </div><h2 id="aws-resource-ses-receiptfilter-examples">Example</h2><div id="JSON" name="JSON" class="section langfilter">
+                        
+                        <h4 id="aws-resource-ses-receiptfilter-example1.json">JSON</h4>
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">{
+    &quot;AWSTemplateFormatVersion&quot;: &quot;2010-09-09&quot;,
+    &quot;Description&quot;: &quot;AWS SES ReceiptFilter Sample Template&quot;,
+    &quot;Parameters&quot;: {
+        &quot;FilterName&quot;: {
+            &quot;Type&quot;: &quot;String&quot;
+        },
+        &quot;Policy&quot;: {
+            &quot;Type&quot;: &quot;String&quot;
+        },
+        &quot;Cidr&quot;: {
+            &quot;Type&quot;: &quot;String&quot;
+        }
+    },
+    &quot;Resources&quot;: {
+        &quot;ReceiptFilter&quot;: {
+            &quot;Type&quot;: &quot;AWS::SES::ReceiptFilter&quot;,
+            &quot;Properties&quot;: {
+                &quot;Filter&quot;: {
+                    &quot;Name&quot;: {
+                        &quot;Ref&quot;: &quot;FilterName&quot;
+                    },
+                    &quot;IpFilter&quot;: {
+                        &quot;Policy&quot;: {
+                            &quot;Ref&quot;: &quot;Policy&quot;
+                        },
+                        &quot;Cidr&quot;: {
+                            &quot;Ref&quot;: &quot;Cidr&quot;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        
+                        <h4 id="aws-resource-ses-receiptfilter-example1.yaml">YAML</h4>
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">AWSTemplateFormatVersion: 2010-09-09
+Description: &apos;AWS SES ReceiptFilter Sample Template&apos;
+Parameters:
+  FilterName:
+    Type: String
+  Policy:
+    Type: String
+  Cidr:
+    Type: String
+Resources:
+  ReceiptFilter:
+    Type: &apos;AWS::SES::ReceiptFilter&apos;
+    Properties:
+      Filter:
+        Name: !Ref FilterName
+        IpFilter:
+          Policy: !Ref Policy
+          Cidr: !Ref Cidr</code></pre>
+                        </div><h2 id="aws-resource-ses-receiptfilter-seealso">See Also</h2><div class="itemizedlist">
+                        
+                        
+                        
+                        <ul class="itemizedlist" type="disc">
+                           <li class="listitem">
+                              <p><a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/url-ses-dev;receiving-email-ip-filters.html" target="_blank">Creating IP Address Filters for Amazon SES Email Receiving</a> in the <em>Amazon Simple Email Service Developer Guide</em></p>
+                           </li>
+                           <li class="listitem">
+                              <p><a href="http://docs.aws.amazon.com/ses/latest/APIReference/API_ReceiptFilter.html" target="_blank">ReceiptFilter</a> in the <em>Amazon Simple Email Service API Reference</em></p>
+                           </li>
+                        </ul>
+                     </div></div>
+</body>
+</html>

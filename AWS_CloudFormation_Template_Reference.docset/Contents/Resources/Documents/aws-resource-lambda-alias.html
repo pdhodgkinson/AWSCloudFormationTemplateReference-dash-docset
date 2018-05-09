@@ -14,37 +14,38 @@
                         function&apos;s alias so that they don&apos;t need to be updated whenever you release a new
                         version of your function. For more information, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html" target="_blank">Introduction to
                            AWS Lambda Aliases</a> in the <em>AWS Lambda Developer Guide</em>.
-                     </p><div class="highlights">
+                     </p><div class="highlights" id="inline-topiclist">
                         <p><strong>Topics</strong></p>
                         <ul>
                            <li><a href="#aws-resource-lambda-alias-syntax">Syntax</a></li>
-                           <li><a href="#w2ab2c21c10d773b9">Properties</a></li>
-                           <li><a href="#w2ab2c21c10d773c11">Return Value</a></li>
-                           <li><a href="#w2ab2c21c10d773c13">Examples</a></li>
+                           <li><a href="#w2ab2c21c10d838b9">Properties</a></li>
+                           <li><a href="#w2ab2c21c10d838c11">Return Value</a></li>
+                           <li><a href="#aws-resource-lambda-alias-examples">Examples</a></li>
                         </ul>
                      </div><h2 id="aws-resource-lambda-alias-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
                         <h3 id="aws-resource-lambda-alias-syntax.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">{
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
   &quot;Type&quot; : &quot;AWS::Lambda::Alias&quot;,
-  &quot;Properties&quot; : {    
+  &quot;Properties&quot; : { 
     &quot;<a href="aws-resource-lambda-alias.html#cfn-lambda-alias-description"><code class="code">Description</code></a>&quot; : <em class="replaceable"><code>String</code></em>,         
     &quot;<a href="aws-resource-lambda-alias.html#cfn-lambda-alias-functionname"><code class="code">FunctionName</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
     &quot;<a href="aws-resource-lambda-alias.html#cfn-lambda-alias-functionversion"><code class="code">FunctionVersion</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-lambda-alias.html#cfn-lambda-alias-name"><code class="code">Name</code></a>&quot; : <em class="replaceable"><code>String</code></em>
+    &quot;<a href="aws-resource-lambda-alias.html#cfn-lambda-alias-name"><code class="code">Name</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-resource-lambda-alias.html#cfn-lambda-alias-routingconfig"><code class="code">RoutingConfig</code></a>&quot; : <a href="aws-properties-lambda-alias-aliasroutingconfiguration.html"><em class="replaceable"><code>AliasRoutingConfiguration</code></em></a>
   }
 }</code></pre>
                         </div><div id="YAML" name="YAML" class="section langfilter">
                         <h3 id="aws-resource-lambda-alias-syntax.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">Type: &quot;AWS::Lambda::Alias&quot;
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">Type: &quot;AWS::Lambda::Alias&quot;
 Properties:     
   <a href="aws-resource-lambda-alias.html#cfn-lambda-alias-description"><code class="code">Description</code></a>: <em class="replaceable"><code>String</code></em>         
   <a href="aws-resource-lambda-alias.html#cfn-lambda-alias-functionname"><code class="code">FunctionName</code></a>: <em class="replaceable"><code>String</code></em>
   <a href="aws-resource-lambda-alias.html#cfn-lambda-alias-functionversion"><code class="code">FunctionVersion</code></a>: <em class="replaceable"><code>String</code></em>
   <a href="aws-resource-lambda-alias.html#cfn-lambda-alias-name"><code class="code">Name</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-resource-lambda-alias.html#cfn-lambda-alias-routingconfig"><code class="code">RoutingConfig</code></a>: 
+    <em class="replaceable"><code>AliasRoutingConfiguration</code></em>
 </code></pre>
-                        </div><h2 id="w2ab2c21c10d773b9">Properties</h2><div class="variablelist">
+                        </div><h2 id="w2ab2c21c10d838b9">Properties</h2><div class="variablelist">
                         
                         
                         
@@ -61,7 +62,7 @@ Properties:
                                  with it.
                               </p>
                               
-                              <p><em>Required: </em>No
+                              <p><em>Required</em>: No
                               </p>
                               
                               <p><em>Type</em>: String
@@ -80,7 +81,7 @@ Properties:
                                  function&apos;s name or its Amazon Resource Name (ARN).
                               </p>
                               
-                              <p><em>Required: </em>Yes
+                              <p><em>Required</em>: Yes
                               </p>
                               
                               <p><em>Type</em>: String
@@ -97,7 +98,7 @@ Properties:
                               
                               <p>The version of the Lambda function that you want to associate with this alias.</p>
                               
-                              <p><em>Required: </em>Yes
+                              <p><em>Required</em>: Yes
                               </p>
                               
                               <p><em>Type</em>: String
@@ -114,7 +115,7 @@ Properties:
                               
                               <p>A name for the alias.</p>
                               
-                              <p><em>Required: </em>Yes
+                              <p><em>Required</em>: Yes
                               </p>
                               
                               <p><em>Type</em>: String
@@ -124,14 +125,41 @@ Properties:
                               
                            </dd>
                            
+                           
+                           <dt><a id="cfn-lambda-alias-routingconfig"></a><span class="term"><code class="code">RoutingConfig</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>Use this parameter to point your alias to two different function versions,
+                                 allowing you to dictate what percentage of traffic will invoke each version. For
+                                 more information, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html" target="_blank">Routing Traffic
+                                    to Different Function Versions Using Aliases</a> in the
+                                 <em>AWS Lambda Developer Guide</em>.
+                              </p>
+                              
+                              <p>
+                                 <em>Required</em>: No
+                              </p>
+                              
+                              <p>
+                                 <em>Type</em>: <a href="aws-properties-lambda-alias-aliasroutingconfiguration.html">AWS Lambda Alias AliasRoutingConfiguration</a></p>
+                              
+                              <p>
+                                 <em>Update requires</em>:                  
+                                 <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
+                                 
+                              </p>
+                              
+                           </dd>
+                           
                         </dl>
-                     </div><h2 id="w2ab2c21c10d773c11">Return Value</h2><h3 id="w2ab2c21c10d773c11b2">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code> intrinsic function, <code class="code">Ref</code> returns the ARN of the Lambda alias.
+                     </div><h2 id="w2ab2c21c10d838c11">Return Value</h2><h3 id="w2ab2c21c10d838c11b2">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code> intrinsic function, <code class="code">Ref</code> returns the ARN of the Lambda alias.
                      </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                     </p><h2 id="w2ab2c21c10d773c13">Examples</h2><p>The following examples create an alias named <code class="code">TestingForMyApp</code>. The alias points to the <code class="code">TestingNewFeature</code> version of the <code class="code">MyFunction</code> Lambda function.
+                     </p><h2 id="aws-resource-lambda-alias-examples">Examples</h2><h3 id="aws-resource-lambda-alias-example1">Lambda Alias</h3><p>The following example creates an alias named <code class="code">TestingForMyApp</code>. The alias points to the <code class="code">TestingNewFeature</code> version of the <code class="code">MyFunction</code> Lambda function.
                      </p><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-resource-lambda-alias-example.json">JSON</h3>
+                        <h4 id="aws-resource-lambda-alias-example.json">JSON</h4>
                         
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">&quot;AliasForMyApp&quot; : {
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">&quot;AliasForMyApp&quot; : {
   &quot;Type&quot; : &quot;AWS::Lambda::Alias&quot;,
   &quot;Properties&quot; : {
     &quot;FunctionName&quot; : { &quot;Ref&quot; : &quot;MyFunction&quot; },
@@ -140,9 +168,9 @@ Properties:
   }
 }</code></pre>
                         </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-resource-lambda-alias-example.yaml">YAML</h3>
+                        <h4 id="aws-resource-lambda-alias-example.yaml">YAML</h4>
                         
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">AliasForMyApp: 
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">AliasForMyApp: 
   Type: &quot;AWS::Lambda::Alias&quot;
   Properties: 
     FunctionName: 
@@ -152,6 +180,55 @@ Properties:
         - &quot;TestingNewFeature&quot;
         - &quot;Version&quot;
     Name: &quot;TestingForMyApp&quot;</code></pre>
+                        </div><h3 id="aws-resource-lambda-alias-example2">Lambda Alias Update Policy</h3><p>The following example defines an update policy for an alias.</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h4 id="aws-resource-lambda-alias-example2.json">JSON</h4>
+                        
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">&quot;Alias&quot;: {
+  &quot;Type&quot;: &quot;AWS::Lambda::Alias&quot;,
+  &quot;Properties&quot;: {
+    &quot;FunctionName&quot;: {
+      &quot;Ref&quot;: &quot;LambdaFunction&quot;
+    },
+    &quot;FunctionVersion&quot;: {
+      &quot;Fn::GetAtt&quot;: [
+        &quot;FunctionVersionTwo&quot;,
+        &quot;Version&quot;
+      ]
+    },
+    &quot;Name&quot;: &quot;MyAlias&quot;
+  },
+  &quot;UpdatePolicy&quot;: {
+    &quot;CodeDeployLambdaAliasUpdate&quot;: {
+      &quot;ApplicationName&quot;: {
+        &quot;Ref&quot;: &quot;CodeDeployApplication&quot;
+      },
+      &quot;DeploymentGroupName&quot;: {
+        &quot;Ref&quot;: &quot;CodeDeployDeploymentGroup&quot;
+      },
+      &quot;BeforeAllowTrafficHook&quot;: {
+        &quot;Ref&quot;: &quot;PreHookLambdaFunction&quot;
+      },
+      &quot;AfterAllowTrafficHook&quot;: {
+        &quot;Ref&quot;: &quot;PreHookLambdaFunction&quot;
+      }
+    }
+  }
+}</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        <h4 id="aws-resource-lambda-alias-example2.yaml">YAML</h4>
+                        
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">Alias:
+  Type: &apos;AWS::Lambda::Alias&apos;
+  Properties:
+    FunctionName: !Ref LambdaFunction
+    FunctionVersion: !GetAtt FunctionVersionTwo.Version
+    Name: MyAlias
+  UpdatePolicy:
+    CodeDeployLambdaAliasUpdate:
+      ApplicationName: !Ref CodeDeployApplication
+      DeploymentGroupName: !Ref CodeDeployDeploymentGroup
+      BeforeAllowTrafficHook: !Ref PreHookLambdaFunction
+      AfterAllowTrafficHook: !Ref PreHookLambdaFunction</code></pre>
                         </div></div>
 </body>
 </html>
