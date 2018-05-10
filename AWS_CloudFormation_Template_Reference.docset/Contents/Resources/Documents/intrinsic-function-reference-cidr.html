@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="css/awsdocs.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/awsdocs.min.js"></script>
+    <meta charset="utf-8">
+</head>
+<body>
+    <div id="content" style="padding: 10px 30px;">
+    <h1 class="topictitle" id="intrinsic-function-reference-cidr"><code class="code">Fn::Cidr</code></h1><p>The intrinsic function <code class="code">Fn::Cidr</code> returns the specified Cidr address block.
+                     </p><h2 id="w2ab2c21c28c16b5">Declaration</h2><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="intrinsic-function-reference-cidr-syntax.json">JSON</h3>
+                        
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{ &quot;Fn::Cidr&quot; : [<em class="replaceable"><code>ipBlock</code></em>, <em class="replaceable"><code>count</code></em>, <em class="replaceable"><code>sizeMask</code></em>]}</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="intrinsic-function-reference-cidr-syntax.yaml">YAML</h3>
+                        
+                        
+                        <p>Syntax for the full function name:</p>
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">Fn::Cidr: [ <em class="replaceable"><code>ipBlock</code></em>, <em class="replaceable"><code>count</code></em>, <em class="replaceable"><code>sizeMask</code></em> ] </code></pre>
+                        <p>Syntax for the short form:</p>
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">!Cidr [ <em class="replaceable"><code>ipBlock</code></em>, <em class="replaceable"><code>count</code></em>, <em class="replaceable"><code>sizeMask</code></em> ]</code></pre>
+                        </div><h2 id="w2ab2c21c28c16b7">Parameters</h2><div class="variablelist">
+                        
+                        
+                        
+                        
+                        <dl>
+                           
+                           <dt><span class="term">ipBlock</span></dt>
+                           
+                           <dd>
+                              
+                              <p>The user-specified default Cidr address block.</p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><span class="term">count</span></dt>
+                           
+                           <dd>
+                              
+                              <p>The number of subnets&apos; Cidr block wanted. Count can be 1 to 256.</p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><span class="term">sizeMask</span></dt>
+                           
+                           <dd>
+                              
+                              <p>Optional. The digit covered in the subnet.</p>
+                              
+                           </dd>
+                           
+                        </dl>
+                     </div><h2 id="w2ab2c21c28c16b9">Return Value</h2><p>The specified Cidr block.</p><h2 id="intrinsic-function-reference-cidr-examples">Example</h2><div id="YAML" name="YAML" class="section langfilter">
+                        
+                        <h4 id="intrinsic-function-reference-cidr-example1.yaml">YAML</h4>
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">AWSTemplateFormatVersion: 2010-09-09
+Parameters:
+    cidrBlock :
+        Type : String
+    count:
+        Type : String
+    maskSizeForIPv4:
+        Type: String
+    maskSizeForIPv6:
+        Type: String
+Resources:
+    Subnet1:
+        Type: AWS::EC2::Subnet
+        Properties:
+            AssignIPv6AddressOnCreation: true
+            VpcId: !Ref VPC
+            #Test Ipv4 CidrBlock
+            CidrBlock: !Select [0, !Cidr [!Ref cidrBlock, !Ref count, !Ref maskSizeForIPv4]]
+            #Test Ipv6 CidrBlock
+            Ipv6CidrBlock: !Select [0, !Cidr [!Select [0, !GetAtt VPC.Ipv6CidrBlocks], !Ref count, !Ref maskSizeForIPv6]]
+        DependsOn: Ipv6VPCCidrBlock
+    Subnet2:
+        Type: AWS::EC2::Subnet
+        Properties:
+            AssignIPv6AddressOnCreation: true
+            VpcId: !Ref VPC
+            #Test Ipv4 CidrBlock
+            CidrBlock: !Select [1, !Cidr [!Ref cidrBlock, !Ref count, !Ref maskSizeForIPv4]]
+            #Test Ipv6 CidrBlock
+            Ipv6CidrBlock: !Select [1, !Cidr [!Select [0, !GetAtt VPC.Ipv6CidrBlocks], !Ref count, !Ref maskSizeForIPv6]]
+        DependsOn: Ipv6VPCCidrBlock
+    VPC:
+        Type: AWS::EC2::VPC
+        Properties:
+          CidrBlock: !Ref cidrBlock
+    Ipv6VPCCidrBlock:
+        Type: AWS::EC2::VPCCidrBlock
+        Properties:
+            AmazonProvidedIpv6CidrBlock: true
+            VpcId: !Ref VPC</code></pre>
+                        </div><h2 id="w2ab2c21c28c16c13">Supported Functions</h2><p>You can use the following functions in a <code class="code">Fn::Cidr</code> function:
+                     </p><div class="itemizedlist">
+                        
+                        
+                        
+                        
+                        <ul class="itemizedlist" type="disc">
+                           <li class="listitem">
+                              
+                              <p><code class="code"><a href="intrinsic-function-reference-select.html"><code class="code">Fn::Select</code></a></code> 
+                              </p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p><code class="code"><a href="intrinsic-function-reference-ref.html"><code class="code">Ref</code></a></code> 
+                              </p>
+                              
+                           </li>
+                        </ul>
+                     </div></div>
+</body>
+</html>

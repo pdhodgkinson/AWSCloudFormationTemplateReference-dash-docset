@@ -13,20 +13,23 @@
                         collection of cache clusters, where one of the clusters is a primary read-write cluster
                         and
                         the others are read-only replicas. 
-                     </p><div class="highlights">
+                     </p><div class="highlights" id="inline-topiclist">
                         <p><strong>Topics</strong></p>
                         <ul>
                            <li><a href="#aws-resource-elasticache-replicationgroup-syntax">Syntax</a></li>
-                           <li><a href="#w2ab2c21c10d540b9">Properties</a></li>
-                           <li><a href="#w2ab2c21c10d540c11">Return Values</a></li>
-                           <li><a href="#w2ab2c21c10d540c13">Examples</a></li>
+                           <li><a href="#aws-resource-elasticache-replicationgroup-properties">Properties</a></li>
+                           <li><a href="#aws-resource-elasticache-replicationgroup-returnvalues">Return Values</a></li>
+                           <li><a href="#aws-resource-elasticache-replicationgroup-examples">Examples</a></li>
+                           <li><a href="#aws-resource-elasticache-replicationgroup-seealso">See Also</a></li>
                         </ul>
                      </div><h2 id="aws-resource-elasticache-replicationgroup-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
                         <h3 id="aws-resource-elasticache-replicationgroup-syntax.json">JSON</h3>
                         
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">{
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
   &quot;Type&quot; : &quot;AWS::ElastiCache::ReplicationGroup&quot;,
   &quot;Properties&quot; : {
+    &quot;<a href="aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-atrestencryptionenabled"><code class="code">AtRestEncryptionEnabled</code></a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
+    &quot;<a href="aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-authtoken"><code class="code">AuthToken</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
     &quot;<a href="aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-automaticfailoverenabled"><code class="code">AutomaticFailoverEnabled</code></a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
     &quot;<a href="aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-autominorversionupgrade"><code class="code">AutoMinorVersionUpgrade</code></a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
     &quot;<a href="aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-cachenodetype"><code class="code">CacheNodeType</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
@@ -52,14 +55,17 @@
     &quot;<a href="aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-snapshotrentionlimit"><code class="code">SnapshotRetentionLimit</code></a>&quot; : <em class="replaceable"><code>Integer</code></em>,
     &quot;<a href="aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-snapshottingclusterid"><code class="code">SnapshottingClusterId</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
     &quot;<a href="aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-snapshotwindow"><code class="code">SnapshotWindow</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-tags"><code class="code">Tags</code></a>&quot; : <em class="replaceable"><code>Resource Tag, ...</code></em>
+    &quot;<a href="aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-tags"><code class="code">Tags</code></a>&quot; : <em class="replaceable"><code>Resource Tag, ...</code></em>,
+    &quot;<a href="aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-transitencryptionenabled"><code class="code">TransitEncryptionEnabled</code></a>&quot; : <em class="replaceable"><code>Boolean</code></em>
   }
 }</code></pre>
                         </div><div id="YAML" name="YAML" class="section langfilter">
                         <h3 id="aws-resource-elasticache-replicationgroup-syntax.yaml">YAML</h3>
                         
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">Type: &quot;AWS::ElastiCache::ReplicationGroup&quot;
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">Type: &quot;AWS::ElastiCache::ReplicationGroup&quot;
 Properties: 
+  <a href="aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-atrestencryptionenabled"><code class="code">AtRestEncryptionEnabled</code></a>: <em class="replaceable"><code>Boolean</code></em>
+  <a href="aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-authtoken"><code class="code">AuthToken</code></a>: <em class="replaceable"><code>String</code></em>
   <a href="aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-automaticfailoverenabled"><code class="code">AutomaticFailoverEnabled</code></a>: <em class="replaceable"><code>Boolean</code></em>
   <a href="aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-autominorversionupgrade"><code class="code">AutoMinorVersionUpgrade</code></a>: <em class="replaceable"><code>Boolean</code></em>
   <a href="aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-cachenodetype"><code class="code">CacheNodeType</code></a>: <em class="replaceable"><code>String</code></em>
@@ -91,9 +97,10 @@ Properties:
   <a href="aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-snapshottingclusterid"><code class="code">SnapshottingClusterId</code></a>: <em class="replaceable"><code>String</code></em>
   <a href="aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-snapshotwindow"><code class="code">SnapshotWindow</code></a>: <em class="replaceable"><code>String</code></em>
   <a href="aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-tags"><code class="code">Tags</code></a>
-    - <em class="replaceable"><code>Resource Tag</code></em></code></pre>
-                        </div><h2 id="w2ab2c21c10d540b9">Properties</h2><p>For more information about each property and valid values, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateReplicationGroup.html" target="_blank">CreateReplicationGroup</a> in the <em>Amazon ElastiCache API Reference
-                           Guide</em>.
+    - <em class="replaceable"><code>Resource Tag</code></em>
+  <a href="aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-transitencryptionenabled"><code class="code">TransitEncryptionEnabled</code></a>: <em class="replaceable"><code>Boolean</code></em></code></pre>
+                        </div><h2 id="aws-resource-elasticache-replicationgroup-properties">Properties</h2><p>For more information about each property and valid values, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateReplicationGroup.html" target="_blank">CreateReplicationGroup</a> 
+                        in the <em>Amazon ElastiCache API Reference</em>.
                      </p><div class="variablelist">
                         
                         
@@ -122,7 +129,66 @@ Properties:
                         
                         
                         
+                        
+                        
+                        
                         <dl>
+                           
+                           <dt><a id="cfn-elasticache-replicationgroup-atrestencryptionenabled"></a><span class="term"><code class="code">AtRestEncryptionEnabled</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>Indicates whether to enable encryption at rest. The default value is <code class="code">false</code>. 
+                                 For more information about how you can use this property, 
+                                 see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateReplicationGroup.html" target="_blank">CreateReplicationGroup</a> 
+                                 in the <em>Amazon ElastiCache API Reference</em>.
+                              </p>
+                              
+                              <p><em>Required: </em>No
+                              </p>
+                              
+                              <p><em>Type</em>: Boolean
+                              </p>
+                              
+                              <p><em>Update requires</em>: 
+                                 <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-elasticache-replicationgroup-authtoken"></a><span class="term"><code class="code">AuthToken</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The password that&apos;s used to access a password-protected server. 
+                                 For constraints, 
+                                 see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateReplicationGroup.html" target="_blank">CreateReplicationGroup</a> 
+                                 in the <em>Amazon ElastiCache API Reference</em>.
+                              </p>
+                              
+                              
+                              
+                              <p><code class="code">AuthToken</code> can be specified only on replication groups where <code class="code">TransitEncryptionEnabled</code> is <code class="code">true</code>.
+                              </p>
+                              
+                              <div class="aws-note">
+                                 <p class="aws-note">Important</p>
+                                 <p>For HIPAA compliance, you must specify <code class="code">TransitEncryptionEnabled</code> as <code class="code">true</code>, an <code class="code">AuthToken</code>, and a <code class="code">CacheSubnetGroupName</code>.
+                                 </p>
+                              </div>
+                              
+                              
+                              <p><em>Required: </em>No
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: 
+                                 <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
                            
                            <dt><a id="cfn-elasticache-replicationgroup-automaticfailoverenabled"></a><span class="term"><code class="code">AutomaticFailoverEnabled</code></span></dt>
                            
@@ -198,7 +264,7 @@ Properties:
                                  </div>
                               </div>
                               
-                              <p><em>Required: </em>No
+                              <p><em>Required</em>: No
                               </p>
                               
                               <p><em>Type</em>: Boolean
@@ -215,7 +281,7 @@ Properties:
                               
                               <p>Currently, this property isn&apos;t used by ElastiCache.</p>
                               
-                              <p><em>Required: </em>No
+                              <p><em>Required</em>: No
                               </p>
                               
                               <p><em>Type</em>: Boolean
@@ -235,7 +301,7 @@ Properties:
                                     Reference Guide</em>.
                               </p>
                               
-                              <p><em>Required: </em>No
+                              <p><em>Required</em>: No
                               </p>
                               
                               <p><em>Type</em>: String
@@ -255,7 +321,7 @@ Properties:
                                     Reference Guide</em>.
                               </p>
                               
-                              <p><em>Required: </em>No
+                              <p><em>Required</em>: No
                               </p>
                               
                               <p><em>Type</em>: String
@@ -285,7 +351,7 @@ Properties:
                                  </p>
                               </div>
                               
-                              <p><em>Required: </em>No
+                              <p><em>Required</em>: No
                               </p>
                               
                               <p><em>Type</em>: List of String values
@@ -302,7 +368,7 @@ Properties:
                               
                               <p>The name of a cache subnet group to use for this replication group.</p>
                               
-                              <p><em>Required: </em>No
+                              <p><em>Required</em>: No
                               </p>
                               
                               <p><em>Type</em>: String
@@ -322,7 +388,7 @@ Properties:
                                  group. Currently, you can specify only <code class="code">redis</code>.
                               </p>
                               
-                              <p><em>Required: </em>Yes
+                              <p><em>Required</em>: Yes
                               </p>
                               
                               <p><em>Type</em>: String
@@ -341,7 +407,7 @@ Properties:
                                  replication group.
                               </p>
                               
-                              <p><em>Required: </em>No
+                              <p><em>Required</em>: No
                               </p>
                               
                               <p><em>Type</em>: String
@@ -406,7 +472,7 @@ Properties:
                                  </div>
                               </div>
                               
-                              <p><em>Required: </em>No
+                              <p><em>Required</em>: No
                               </p>
                               
                               <p><em>Type</em>: List of <a href="aws-properties-elasticache-replicationgroup-nodegroupconfiguration.html">Amazon ElastiCache
@@ -426,7 +492,7 @@ Properties:
                                  sent.
                               </p>
                               
-                              <p><em>Required: </em>No
+                              <p><em>Required</em>: No
                               </p>
                               
                               <p><em>Type</em>: String
@@ -499,7 +565,7 @@ Properties:
                                  </div>
                               </div>
                               
-                              <p><em>Required: </em>No
+                              <p><em>Required</em>: No
                               </p>
                               
                               <p><em>Type</em>: Integer
@@ -567,7 +633,7 @@ Properties:
                                  </div>
                               </div>
                               
-                              <p><em>Required: </em>No
+                              <p><em>Required</em>: No
                               </p>
                               
                               <p><em>Type</em>: Integer
@@ -586,7 +652,7 @@ Properties:
                                  connections.
                               </p>
                               
-                              <p><em>Required: </em>No
+                              <p><em>Required</em>: No
                               </p>
                               
                               <p><em>Type</em>: Integer
@@ -653,7 +719,7 @@ Properties:
                                  </div>
                               </div>
                               
-                              <p><em>Required: </em>No
+                              <p><em>Required</em>: No
                               </p>
                               
                               <p><em>Type</em>: List of String values
@@ -674,7 +740,7 @@ Properties:
                                  Sunday from 10 PM to 11:30 PM.
                               </p>
                               
-                              <p><em>Required: </em>No
+                              <p><em>Required</em>: No
                               </p>
                               
                               <p><em>Type</em>: String
@@ -741,7 +807,7 @@ Properties:
                                  </div>
                               </div>
                               
-                              <p><em>Required: </em>Conditional. This property is optional if you specify the
+                              <p><em>Required</em>: Conditional. This property is optional if you specify the
                                  <code class="code">NumCacheClusters</code>, <code class="code">NumNodeGroups</code>, or
                                  <code class="code">ReplicasPerNodeGroup</code> properties.
                               </p>
@@ -763,7 +829,7 @@ Properties:
                                     Reference Guide</em>.
                               </p>
                               
-                              <p><em>Required: </em>No
+                              <p><em>Required</em>: No
                               </p>
                               
                               <p><em>Type</em>: Integer
@@ -828,7 +894,7 @@ Properties:
                                  </div>
                               </div>
                               
-                              <p><em>Required: </em>Yes
+                              <p><em>Required</em>: Yes
                               </p>
                               
                               <p><em>Type</em>: String
@@ -848,7 +914,7 @@ Properties:
                                  unique physical ID. For more information, see <a href="aws-properties-name.html">Name Type</a>.
                               </p>
                               
-                              <p><em>Required: </em>No
+                              <p><em>Required</em>: No
                               </p>
                               
                               <p><em>Type</em>: String
@@ -879,7 +945,7 @@ Properties:
                                  </p>
                               </div>
                               
-                              <p><em>Required: </em>No
+                              <p><em>Required</em>: No
                               </p>
                               
                               <p><em>Type</em>: List of String values
@@ -901,7 +967,7 @@ Properties:
                                  <code class="code">arn:aws:s3:::my_bucket/snapshot1.rdb</code>.
                               </p>
                               
-                              <p><em>Required: </em>No
+                              <p><em>Required</em>: No
                               </p>
                               
                               <p><em>Type</em>: List of String values
@@ -920,7 +986,7 @@ Properties:
                                  group.
                               </p>
                               
-                              <p><em>Required: </em>No
+                              <p><em>Required</em>: No
                               </p>
                               
                               <p><em>Type</em>: String
@@ -939,7 +1005,7 @@ Properties:
                                  them.
                               </p>
                               
-                              <p><em>Required: </em>No
+                              <p><em>Required</em>: No
                               </p>
                               
                               <p><em>Type</em>: Integer
@@ -958,7 +1024,7 @@ Properties:
                                  the replication group.
                               </p>
                               
-                              <p><em>Required: </em>No
+                              <p><em>Required</em>: No
                               </p>
                               
                               <p><em>Type</em>: String
@@ -978,7 +1044,7 @@ Properties:
                                  example, you can specify <code class="code">05:00-09:00</code>.
                               </p>
                               
-                              <p><em>Required: </em>No
+                              <p><em>Required</em>: No
                               </p>
                               
                               <p><em>Type</em>: String
@@ -997,7 +1063,7 @@ Properties:
                                  group.
                               </p>
                               
-                              <p><em>Required: </em>No
+                              <p><em>Required</em>: No
                               </p>
                               
                               <p><em>Type</em>: <a href="aws-properties-resource-tags.html">AWS CloudFormation Resource Tags</a></p>
@@ -1006,14 +1072,39 @@ Properties:
                               
                            </dd>
                            
+                           
+                           <dt><a id="cfn-elasticache-replicationgroup-transitencryptionenabled"></a><span class="term"><code class="code">TransitEncryptionEnabled</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>Indicates whether to enable in-transit encryption. The default value is <code class="code">false</code>. 
+                                 For more information about how you can use this property, 
+                                 see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateReplicationGroup.html" target="_blank">CreateReplicationGroup</a> 
+                                 in the <em>Amazon ElastiCache API Reference</em>.
+                              </p>               
+                              
+                              <p>If you enable <code class="code">TransitEncryptionEnabled</code>, then you must also specify <code class="code">CacheSubnetGroupName</code>.
+                              </p>
+                              
+                              <p><em>Required: </em>No
+                              </p>
+                              
+                              <p><em>Type</em>: Boolean
+                              </p>
+                              
+                              <p><em>Update requires</em>: 
+                                 <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
                         </dl>
-                     </div><h2 id="w2ab2c21c10d540c11">Return Values</h2><h3 id="w2ab2c21c10d540c11b2">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code> intrinsic
+                     </div><h2 id="aws-resource-elasticache-replicationgroup-returnvalues">Return Values</h2><h3 id="aws-resource-elasticache-replicationgroup-ref">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code> intrinsic
                         function, <code class="code">Ref</code> returns the resource name.
                      </p><p>In the following example, the <code class="code">Ref</code> function returns the name of the
                         <code class="code">myReplicationGroup</code> replication group, such as
                         <code class="code">abc12xmy3d1w3hv6</code>.
-                     </p><pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">{ &quot;Ref&quot;: &quot;myReplicationGroup&quot; }</code></pre><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                     </p><h3 id="w2ab2c21c10d540c11b4">Fn::GetAtt</h3><p> <code class="code">Fn::GetAtt</code> returns a value for a specified attribute of this type.
+                     </p><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">{ &quot;Ref&quot;: &quot;myReplicationGroup&quot; }</code></pre><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
+                     </p><h3 id="aws-resource-elasticache-replicationgroup-getatt">Fn::GetAtt</h3><p> <code class="code">Fn::GetAtt</code> returns a value for a specified attribute of this type.
                         The following are the available attributes and sample return values. 
                      </p><div class="variablelist">
                         
@@ -1114,12 +1205,12 @@ Properties:
                            
                         </dl>
                      </div><p>For more information about using <code class="code">Fn::GetAtt</code>, see <a href="intrinsic-function-reference-getatt.html">Fn::GetAtt</a>.
-                     </p><h2 id="w2ab2c21c10d540c13">Examples</h2><h3 id="w2ab2c21c10d540c13b2">Declare a Replication Group with Two Nodes</h3><p>The following example declares a replication group with two nodes and automatic
+                     </p><h2 id="aws-resource-elasticache-replicationgroup-examples">Examples</h2><h3 id="aws-resource-elasticache-replicationgroup-example1">Declare a Replication Group with Two Nodes</h3><p>The following example declares a replication group with two nodes and automatic
                         failover enabled.
                      </p><div id="JSON" name="JSON" class="section langfilter">
-                        <h4 id="aws-resource-elasticache-replicationgroup-example.json">JSON</h4>
+                        <h4 id="aws-resource-elasticache-replicationgroup-example1.json">JSON</h4>
                         
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">&quot;myReplicationGroup&quot; : {
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">&quot;myReplicationGroup&quot; : {
   &quot;Type&quot;: &quot;AWS::ElastiCache::ReplicationGroup&quot;,
   &quot;Properties&quot;: {
     &quot;ReplicationGroupDescription&quot; : &quot;my description&quot;,
@@ -1135,10 +1226,10 @@ Properties:
     &quot;SnapshotWindow&quot; : &quot;03:30-05:30&quot;
   }
 }</code></pre>
-                        <div id="YAML" name="YAML" class="section langfilter">
-                           <h5 id="aws-resource-elasticache-replicationgroup-example.yaml">YAML</h5>
-                           
-                           <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">myReplicationGroup: 
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        <h4 id="aws-resource-elasticache-replicationgroup-example1.yaml">YAML</h4>
+                        
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">myReplicationGroup: 
   Type: &quot;AWS::ElastiCache::ReplicationGroup&quot;
   Properties: 
     ReplicationGroupDescription: &quot;my description&quot;
@@ -1152,14 +1243,12 @@ Properties:
     PreferredMaintenanceWindow: &quot;wed:09:25-wed:22:30&quot;
     SnapshotRetentionLimit: &quot;4&quot;
     SnapshotWindow: &quot;03:30-05:30&quot;</code></pre>
-                           </div>
-                        
-                     </div><h3 id="w2ab2c21c10d540c13b4">Declare a Replication Group with Two Node Groups</h3><p>The following example declares a replication group with two nodes groups (shards)
+                        </div><h3 id="aws-resource-elasticache-replicationgroup-example2">Declare a Replication Group with Two Node Groups</h3><p>The following example declares a replication group with two nodes groups (shards)
                         with three replicas in each group.
                      </p><div id="JSON" name="JSON" class="section langfilter">
-                        <h4 id="w2ab2c21c10d540c13b4b4">JSON</h4>
+                        <h4 id="aws-resource-elasticache-replicationgroup-example2.json">JSON</h4>
                         
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">&quot;BasicReplicationGroup&quot; : {
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">&quot;BasicReplicationGroup&quot; : {
   &quot;Type&quot; : &quot;AWS::ElastiCache::ReplicationGroup&quot;,
   &quot;Properties&quot; : {
     &quot;AutomaticFailoverEnabled&quot; : true,
@@ -1181,9 +1270,9 @@ Properties:
   }
 }</code></pre>
                         <div id="YAML" name="YAML" class="section langfilter">
-                           <h5 id="w2ab2c21c10d540c13b4b4b4">YAML</h5>
+                           <h5 id="aws-resource-elasticache-replicationgroup-example2.yaml">YAML</h5>
                            
-                           <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">BasicReplicationGroup:
+                           <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">BasicReplicationGroup:
   Type: AWS::ElastiCache::ReplicationGroup
   Properties:
     AutomaticFailoverEnabled: true
@@ -1199,11 +1288,19 @@ Properties:
     PreferredMaintenanceWindow: sun:05:00-sun:09:00
     ReplicationGroupDescription: A sample replication group
     SecurityGroupIds:
-    - Ref: ReplicationGroupSG
+      - Ref: ReplicationGroupSG
     SnapshotRetentionLimit: 5
     SnapshotWindow: 10:00-12:00</code></pre>
                            </div>
                         
+                     </div><h2 id="aws-resource-elasticache-replicationgroup-seealso">See Also</h2><div class="itemizedlist">
+                        
+                        <ul class="itemizedlist" type="disc">
+                           <li class="listitem">
+                              <p><a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateReplicationGroup.html" target="_blank">CreateReplicationGroup</a> 
+                                 in the <em>Amazon ElastiCache API Reference</em></p>
+                           </li>
+                        </ul>
                      </div></div>
 </body>
 </html>

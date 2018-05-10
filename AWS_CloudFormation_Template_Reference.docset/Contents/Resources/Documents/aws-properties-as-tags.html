@@ -8,11 +8,11 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-properties-as-tags">Auto Scaling AutoScalingGroup Tag</h1><p>The <code class="code">Tag</code> property type adds tags to all associated instances in an Auto Scaling group.
+    <h1 class="topictitle" id="aws-properties-as-tags">Auto Scaling AutoScalingGroup TagProperty</h1><p>The <code class="code">TagProperty</code> property type adds tags to all associated instances in an Auto Scaling group.
                      </p><p>The <code class="code">Tags</code> property of the <a href="aws-properties-as-group.html">AWS::AutoScaling::AutoScalingGroup</a> resource contains 
-                        a list of <code class="code">Tag</code> property types. 
+                        a list of <code class="code">TagProperty</code> property types. 
                         For more information about Auto Scaling tags, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/ASTagging.html" target="_blank">Tagging Auto Scaling
-                           Groups and Amazon EC2 Instances</a> in the <em>Auto Scaling User Guide</em>.
+                           Groups and Amazon EC2 Instances</a> in the <em>Amazon EC2 Auto Scaling User Guide</em>.
                      </p><p>AWS CloudFormation adds the following tags to all Auto Scaling groups and associated
                         instances:
                      </p><div class="itemizedlist">
@@ -37,10 +37,10 @@
                               
                            </li>
                         </ul>
-                     </div><h2 id="w2ab2c21c14c75c11">Syntax</h2><div id="JSON" name="JSON" class="section langfilter">
+                     </div><h2 id="w2ab2c21c14d114c11">Syntax</h2><div id="JSON" name="JSON" class="section langfilter">
                         <h3 id="aws-properties-as-tags-syntax.json">JSON</h3>
                         
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">{
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
    &quot;<a href="aws-properties-as-tags.html#cfn-as-tags-Key">Key</a>&quot; : <em class="replaceable"><code>String</code></em>,
    &quot;<a href="aws-properties-as-tags.html#cfn-as-tags-Value">Value</a>&quot; : <em class="replaceable"><code>String</code></em>,
    &quot;<a href="aws-properties-as-tags.html#cfn-as-tags-PropagateAtLaunch">PropagateAtLaunch</a>&quot; : <em class="replaceable"><code>Boolean</code></em>
@@ -48,11 +48,11 @@
                         </div><div id="YAML" name="YAML" class="section langfilter">
                         <h3 id="aws-properties-as-tags-syntax.yaml">YAML</h3>
                         
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight"><a href="aws-properties-as-tags.html#cfn-as-tags-Key">Key</a>: <em class="replaceable"><code>String</code></em>
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight"><a href="aws-properties-as-tags.html#cfn-as-tags-Key">Key</a>: <em class="replaceable"><code>String</code></em>
 <a href="aws-properties-as-tags.html#cfn-as-tags-Value">Value</a>: <em class="replaceable"><code>String</code></em>
 <a href="aws-properties-as-tags.html#cfn-as-tags-PropagateAtLaunch">PropagateAtLaunch</a>: <em class="replaceable"><code>Boolean</code></em>
 </code></pre>
-                        </div><h2 id="w2ab2c21c14c75c13">Properties</h2><div class="variablelist">
+                        </div><h2 id="w2ab2c21c14d114c13">Properties</h2><div class="variablelist">
                         
                         
                         
@@ -119,8 +119,10 @@
                         attached to an Auto Scaling group named <code class="code">WebServerGroup</code> and is copied to any EC2 instances launched as part
                         of the Auto Scaling group. The second tag, <code class="code">MyTag2</code>, is attached only to the Auto Scaling group named
                         <code class="code">WebServerGroup</code>.
-                     </p><pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">
-&quot;WebServerGroup&quot; : {
+                     </p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-properties-as-tags-example.json">JSON</h3>        
+                        
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">&quot;WebServerGroup&quot; : {
    &quot;Type&quot; : &quot;AWS::AutoScaling::AutoScalingGroup&quot;,
    &quot;Properties&quot; : {
       &quot;AvailabilityZones&quot; : { &quot;Fn::GetAZs&quot; : &quot;&quot; },
@@ -138,6 +140,25 @@
          &quot;PropagateAtLaunch&quot; : &quot;false&quot;
       } ]
    }
-}     </code></pre></div>
+}     </code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-properties-as-tags-example.yaml">YAML</h3>
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">WebServerGroup:
+  Type: &apos;AWS::AutoScaling::AutoScalingGroup&apos;
+  Properties:
+    AvailabilityZones: !GetAZs &apos;&apos;
+    LaunchConfigurationName: !Ref LaunchConfig
+    MinSize: &apos;1&apos;
+    MaxSize: &apos;2&apos;
+    LoadBalancerNames:
+      - !Ref ElasticLoadBalancer
+    Tags:
+      - Key: MyTag1
+        Value: Hello World 1
+        PropagateAtLaunch: &apos;true&apos;
+      - Key: MyTag2
+        Value: Hello World 2
+        PropagateAtLaunch: &apos;false&apos;</code></pre>
+                        </div></div>
 </body>
 </html>

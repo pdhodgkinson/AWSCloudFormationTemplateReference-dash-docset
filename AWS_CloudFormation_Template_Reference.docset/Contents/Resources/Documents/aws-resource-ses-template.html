@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="css/awsdocs.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/awsdocs.min.js"></script>
+    <meta charset="utf-8">
+</head>
+<body>
+    <div id="content" style="padding: 10px 30px;">
+    <h1 class="topictitle" id="aws-resource-ses-template">AWS::SES::Template</h1><p>The 
+                        <code class="code">AWS::SES::Template</code> resource specifies the content of an email (composed of a subject line, an HTML part,
+                        and a text-only part) for Amazon SES. For more information, see <a href="http://docs.aws.amazon.com/ses/latest/APIReference/API_Template.html" target="_blank">Template</a> in the <em>Amazon Simple Email Service API Reference</em>.
+                        
+                     </p><div class="highlights" id="inline-topiclist">
+                        <p><strong>Topics</strong></p>
+                        <ul>
+                           <li><a href="#aws-resource-ses-template-syntax">Syntax</a></li>
+                           <li><a href="#aws-resource-ses-template-properties">Properties</a></li>
+                           <li><a href="#aws-resource-ses-template-examples">Example</a></li>
+                           <li><a href="#aws-resource-ses-template-seealso">See Also</a></li>
+                        </ul>
+                     </div><h2 id="aws-resource-ses-template-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        
+                        <h3 id="aws-resource-ses-template-syntax.json">JSON</h3>
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
+  &quot;Type&quot; : &quot;AWS::SES::Template&quot;,
+  &quot;Properties&quot; : {
+    &quot;<a href="aws-resource-ses-template.html#cfn-ses-template-template"><code class="code">Template</code></a>&quot; : <a href="aws-properties-ses-template-template.html"><em class="replaceable"><code>Template</code></em></a>
+  }
+}</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        
+                        <h3 id="aws-resource-ses-template-syntax.yaml">YAML</h3>
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">Type: &quot;AWS::SES::Template&quot;
+Properties:
+  <a href="aws-resource-ses-template.html#cfn-ses-template-template"><code class="code">Template</code></a>: <a href="aws-properties-ses-template-template.html"><em class="replaceable"><code>Template</code></em></a></code></pre>
+                        </div><h2 id="aws-resource-ses-template-properties">Properties</h2><div class="variablelist">
+                        
+                        
+                        <dl>
+                           
+                           <dt><a id="cfn-ses-template-template"></a><span class="term"><code class="code">Template</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The content of the email, composed of a subject line, an HTML part, and a text-only
+                                 part.
+                              </p>
+                              
+                              <p>
+                                 <em>Required</em>: No
+                              </p>
+                              
+                              <p>
+                                 <em>Type</em>: <a href="aws-properties-ses-template-template.html">Amazon SES Template Template</a></p>
+                              
+                              <p>
+                                 <em>Update requires</em>: 
+                                 
+                                 <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
+                                 
+                              </p>
+                              
+                           </dd>
+                           
+                        </dl>
+                     </div><h2 id="aws-resource-ses-template-examples">Example</h2><div id="JSON" name="JSON" class="section langfilter">
+                        
+                        <h4 id="aws-resource-ses-template-example1.json">JSON</h4>
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">{
+    &quot;AWSTemplateFormatVersion&quot;: &quot;2010-09-09&quot;,
+    &quot;Description&quot;: &quot;AWS SES Template Sample Template&quot;,
+    &quot;Parameters&quot;: {
+        &quot;TemplateName&quot;: {
+            &quot;Type&quot;: &quot;String&quot;
+        },
+        &quot;SubjectPart&quot;: {
+            &quot;Type&quot;: &quot;String&quot;
+        },
+        &quot;TextPart&quot;: {
+            &quot;Type&quot;: &quot;String&quot;
+        },
+        &quot;HtmlPart&quot;: {
+            &quot;Type&quot;: &quot;String&quot;
+        }
+    },
+    &quot;Resources&quot;: {
+        &quot;Template&quot;: {
+            &quot;Type&quot;: &quot;AWS::SES::Template&quot;,
+            &quot;Properties&quot;: {
+                &quot;Template&quot;: {
+                    &quot;TemplateName&quot;: {
+                        &quot;Ref&quot;: &quot;TemplateName&quot;
+                    },
+                    &quot;SubjectPart&quot;: {
+                        &quot;Ref&quot;: &quot;SubjectPart&quot;
+                    },
+                    &quot;TextPart&quot;: {
+                        &quot;Ref&quot;: &quot;TextPart&quot;
+                    },
+                    &quot;HtmlPart&quot;: {
+                        &quot;Ref&quot;: &quot;HtmlPart&quot;
+                    }
+                }
+            }
+        }
+    }
+}</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        
+                        <h4 id="aws-resource-ses-template-example1.yaml">YAML</h4>
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">AWSTemplateFormatVersion: 2010-09-09
+Description: &apos;AWS SES Template Sample Template&apos;
+Parameters:
+  TemplateName:
+    Type: String
+  SubjectPart:
+    Type: String
+  TextPart:
+    Type: String
+  HtmlPart:
+    Type: String
+Resources:
+  Template:
+    Type: &apos;AWS::SES::Template&apos;
+    Properties:
+      Template:
+        TemplateName: !Ref TemplateName
+        SubjectPart: !Ref SubjectPart
+        TextPart: !Ref TextPart
+        HtmlPart: !Ref HtmlPart</code></pre>
+                        </div><h2 id="aws-resource-ses-template-seealso">See Also</h2><div class="itemizedlist">
+                        
+                        
+                        <ul class="itemizedlist" type="disc">
+                           <li class="listitem">
+                              <p><a href="http://docs.aws.amazon.com/ses/latest/APIReference/API_Template.html" target="_blank">Template</a> in the <em>Amazon Simple Email Service API Reference</em></p>
+                           </li>
+                        </ul>
+                     </div></div>
+</body>
+</html>

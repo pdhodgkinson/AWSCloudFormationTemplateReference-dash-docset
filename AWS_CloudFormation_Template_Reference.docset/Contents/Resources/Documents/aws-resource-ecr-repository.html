@@ -8,23 +8,24 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-resource-ecr-repository">AWS::ECR::Repository</h1><p>The <code class="code">AWS::ECR::Repository</code> resource creates an Amazon EC2 Container Registry (Amazon ECR) repository,
+    <h1 class="topictitle" id="aws-resource-ecr-repository">AWS::ECR::Repository</h1><p>The <code class="code">AWS::ECR::Repository</code> resource creates an Amazon Elastic Container Registry (Amazon ECR) repository,
                         where users can push and pull Docker images. For more information, see <a href="http://docs.aws.amazon.com/AmazonECR/latest/userguide/Repositories.html" target="_blank">Amazon ECR Repositories</a> in the
-                        <em>Amazon EC2 Container Registry User Guide</em>.
-                     </p><div class="highlights">
+                        <em>Amazon Elastic Container Registry User Guide</em>.
+                     </p><div class="highlights" id="inline-topiclist">
                         <p><strong>Topics</strong></p>
                         <ul>
                            <li><a href="#aws-resource-ecr-repository-syntax">Syntax</a></li>
-                           <li><a href="#w2ab2c21c10d506b9">Properties</a></li>
-                           <li><a href="#w2ab2c21c10d506c11">Return Values</a></li>
-                           <li><a href="#w2ab2c21c10d506c13">Example</a></li>
+                           <li><a href="#aws-resource-ecr-repository-properties">Properties</a></li>
+                           <li><a href="#aws-resource-ecr-repository-returnvalues">Return Values</a></li>
+                           <li><a href="#aws-resource-ecr-repository-examples">Examples</a></li>
                         </ul>
                      </div><h2 id="aws-resource-ecr-repository-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
                         <h3 id="aws-resource-ecr-repository-syntax.json">JSON</h3>
                         
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">{
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
   &quot;Type&quot; : &quot;AWS::ECR::Repository&quot;,
   &quot;Properties&quot; : {
+    &quot;<a href="aws-resource-ecr-repository.html#cfn-ecr-repository-lifecyclepolicy"><code class="code">LifecyclePolicy</code></a>&quot; : <a href="aws-properties-ecr-repository-lifecyclepolicy.html"><em class="replaceable"><code>LifecyclePolicy</code></em></a>,
     &quot;<a href="aws-resource-ecr-repository.html#cfn-ecr-repository-repositoryname"><code class="code">RepositoryName</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
     &quot;<a href="aws-resource-ecr-repository.html#cfn-ecr-repository-repositorypolicytext"><code class="code">RepositoryPolicyText</code></a>&quot; : <em class="replaceable"><code>JSON object</code></em>
   }
@@ -32,16 +33,36 @@
                         </div><div id="YAML" name="YAML" class="section langfilter">
                         <h3 id="aws-resource-ecr-repository-syntax.yaml">YAML</h3>
                         
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">Type: &quot;AWS::ECR::Repository&quot;
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">Type: &quot;AWS::ECR::Repository&quot;
 Properties: 
+  <a href="aws-resource-ecr-repository.html#cfn-ecr-repository-lifecyclepolicy"><code class="code">LifecyclePolicy</code></a>:
+    <a href="aws-properties-ecr-repository-lifecyclepolicy.html"><em class="replaceable"><code>LifecyclePolicy</code></em></a>
   <a href="aws-resource-ecr-repository.html#cfn-ecr-repository-repositoryname"><code class="code">RepositoryName</code></a>: <em class="replaceable"><code>String</code></em>
   <a href="aws-resource-ecr-repository.html#cfn-ecr-repository-repositorypolicytext"><code class="code">RepositoryPolicyText</code></a>: <em class="replaceable"><code>JSON object</code></em>
 </code></pre>
-                        </div><h2 id="w2ab2c21c10d506b9">Properties</h2><div class="variablelist">
+                        </div><h2 id="aws-resource-ecr-repository-properties">Properties</h2><div class="variablelist">
+                        
                         
                         
                         
                         <dl>
+                           
+                           <dt><a id="cfn-ecr-repository-lifecyclepolicy"></a><span class="term"><code class="code">LifecyclePolicy</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>A lifecycle policy for the repository.</p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: <a href="aws-properties-ecr-repository-lifecyclepolicy.html">Amazon ECR Repository LifecyclePolicy</a></p>
+                              
+                              <p><em>Update requires</em>: 
+                                 <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
                            
                            <dt><a id="cfn-ecr-repository-repositoryname"></a><span class="term"><code class="code">RepositoryName</code></span></dt>
                            
@@ -63,7 +84,7 @@ Properties:
                                  </p>
                               </div>
                               
-                              <p><em>Required: </em>No
+                              <p><em>Required</em>: No
                               </p>
                               
                               <p><em>Type</em>: String
@@ -80,10 +101,10 @@ Properties:
                               
                               <p>A policy that controls who has access to the repository and which actions they can
                                  perform on it. For more information, see <a href="http://docs.aws.amazon.com/AmazonECR/latest/userguide/RepositoryPolicies.html" target="_blank">Amazon ECR Repository Policies</a> in the
-                                 <em>Amazon EC2 Container Registry User Guide</em>.
+                                 <em>Amazon Elastic Container Registry User Guide</em>.
                               </p>
                               
-                              <p><em>Required: </em>No
+                              <p><em>Required</em>: No
                               </p>
                               
                               <p><em>Type</em>: JSON object
@@ -94,18 +115,18 @@ Properties:
                            </dd>
                            
                         </dl>
-                     </div><h2 id="w2ab2c21c10d506c11">Return Values</h2><h3 id="w2ab2c21c10d506c11b2">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code>
+                     </div><h2 id="aws-resource-ecr-repository-returnvalues">Return Values</h2><h3 id="w2ab2c21c10d546c11b2">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code>
                         intrinsic function, <code class="code">Ref</code> returns the resource name, such as
                         <code class="code">test-repository</code>.
                      </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                     </p><h2 id="w2ab2c21c10d506c13">Example</h2><p>The following example creates a repository named
+                     </p><h2 id="aws-resource-ecr-repository-examples">Examples</h2><h3 id="aws-resource-ecr-repository-example1"></h3><p>The following example creates a repository named
                         <code class="code">test-repository</code>. Its policy permits the users
                         <code class="code">Bob</code> and <code class="code">Alice</code> to push and pull images. Note
                         that the IAM users actually need to exist, or stack creation will fail.
                      </p><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-resource-ecr-repository-example.json">JSON</h3>
+                        <h4 id="aws-resource-ecr-repository-example1.json">JSON</h4>
                         
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">&quot;MyRepository&quot;: {
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">&quot;MyRepository&quot;: {
   &quot;Type&quot;: &quot;AWS::ECR::Repository&quot;,
   &quot;Properties&quot;: {
     &quot;RepositoryName&quot; : &quot;test-repository&quot;,
@@ -136,9 +157,9 @@ Properties:
   }
 }</code></pre>
                         </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-resource-ecr-repository-example.yaml">YAML</h3>
+                        <h4 id="aws-resource-ecr-repository-example1.yaml">YAML</h4>
                         
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">MyRepository: 
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">MyRepository: 
   Type: &quot;AWS::ECR::Repository&quot;
   Properties: 
     RepositoryName: &quot;test-repository&quot;
@@ -160,6 +181,71 @@ Properties:
             - &quot;ecr:InitiateLayerUpload&quot;
             - &quot;ecr:UploadLayerPart&quot;
             - &quot;ecr:CompleteLayerUpload&quot;</code></pre>
+                        </div><h3 id="aws-resource-ecr-repository-example2"></h3><p>The following example creates a repository with a lifecycle policy.</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h4 id="aws-resource-ecr-repository-example2.json">JSON</h4>
+                        
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">{
+  &quot;Parameters&quot;: {
+    &quot;lifecyclePolicyText&quot;: {
+      &quot;Type&quot;: &quot;String&quot;
+    },
+    &quot;repositoryName&quot;: {
+      &quot;Type&quot;: &quot;String&quot;
+    },
+    &quot;registryId&quot;: {
+      &quot;Type&quot;: &quot;String&quot;
+    }
+  },
+  &quot;Resources&quot;: {
+    &quot;MyRepository&quot;: {
+      &quot;Type&quot;: &quot;AWS::ECR::Repository&quot;,
+      &quot;Properties&quot;: {
+        &quot;LifecyclePolicy&quot;: {
+          &quot;LifecyclePolicyText&quot;: {
+            &quot;Ref&quot;: &quot;lifecyclePolicyText&quot;
+          },
+          &quot;RegistryId&quot;: {
+            &quot;Ref&quot;: &quot;registryId&quot;
+          }
+        },
+        &quot;RepositoryName&quot;: {
+          &quot;Ref&quot;: &quot;repositoryName&quot;
+        }
+      }
+    }
+  },
+  &quot;Outputs&quot;: {
+    &quot;Arn&quot;: {
+      &quot;Value&quot;: {
+        &quot;Fn::GetAtt&quot;: [
+          &quot;MyRepository&quot;,
+          &quot;Arn&quot;
+        ]
+      }
+    }
+  }
+}</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        <h4 id="aws-resource-ecr-repository-example2.yaml">YAML</h4>
+                        
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">Parameters:    
+  lifecyclePolicyText:
+    Type: String
+  repositoryName:
+    Type: String
+  registryId:
+    Type: String
+Resources:
+  MyRepository:
+    Type: AWS::ECR::Repository
+    Properties:
+      LifecyclePolicy:
+        LifecyclePolicyText: !Ref lifecyclePolicyText
+        RegistryId: !Ref registryId
+      RepositoryName: !Ref repositoryName
+Outputs:    
+  Arn:
+    Value: !GetAtt MyRepository.Arn</code></pre>
                         </div></div>
 </body>
 </html>

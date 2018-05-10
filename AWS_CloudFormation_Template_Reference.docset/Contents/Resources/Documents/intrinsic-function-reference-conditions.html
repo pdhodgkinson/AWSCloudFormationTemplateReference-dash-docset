@@ -47,7 +47,7 @@
                            <li><a href="#intrinsic-function-reference-conditions-if">Fn::If</a></li>
                            <li><a href="#intrinsic-function-reference-conditions-not">Fn::Not</a></li>
                            <li><a href="#intrinsic-function-reference-conditions-or">Fn::Or</a></li>
-                           <li><a href="#w2ab2c21c28c17c45">Supported Functions</a></li>
+                           <li><a href="#w2ab2c21c28c21c45">Supported Functions</a></li>
                            <li><a href="conditions-sample-templates.html">Sample Templates</a></li>
                         </ul>
                      </div><p>Associating a Condition</p><p>To conditionally create resources, resource properties, or outputs, you must associate
@@ -59,7 +59,7 @@
                         evaluates to true.
                      </p><div class="example">
                         <p class="title"><b>Example JSON</b></p>
-                        <div class="example-contents"><pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">&quot;NewVolume&quot; : {
+                        <div class="example-contents"><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">&quot;NewVolume&quot; : {
   &quot;Type&quot; : &quot;AWS::EC2::Volume&quot;,
   &quot;Condition&quot; : &quot;CreateProdResources&quot;,
   &quot;Properties&quot; : {
@@ -68,7 +68,7 @@
 }</code></pre></div>
                      </div><div class="example">
                         <p class="title"><b>Example YAML</b></p>
-                        <div class="example-contents"><pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">
+                        <div class="example-contents"><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">
 NewVolume:
   Type: &quot;AWS::EC2::Volume&quot;
   Condition: CreateProdResources
@@ -80,7 +80,7 @@ NewVolume:
                         how to use <code class="code">Fn::If</code> to conditionally specify a resource property. If the <code class="code">CreateLargeSize</code> condition is true, AWS CloudFormation sets the volume size to <code class="code">100</code>. If the condition is false, AWS CloudFormation sets the volume size to <code class="code">10</code>.
                      </p><div class="example">
                         <p class="title"><b>Example JSON</b></p>
-                        <div class="example-contents"><pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">&quot;NewVolume&quot; : {
+                        <div class="example-contents"><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">&quot;NewVolume&quot; : {
   &quot;Type&quot; : &quot;AWS::EC2::Volume&quot;,
   &quot;Properties&quot; : {
     &quot;Size&quot; : {
@@ -95,7 +95,7 @@ NewVolume:
 }</code></pre></div>
                      </div><div class="example">
                         <p class="title"><b>Example YAML</b></p>
-                        <div class="example-contents"><pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">
+                        <div class="example-contents"><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">
 NewVolume:
   Type: &quot;AWS::EC2::Volume&quot;
   Properties: 
@@ -110,7 +110,7 @@ NewVolume:
                         includes the <code class="code">SomeOtherCondition</code> condition:
                      </p><div class="example">
                         <p class="title"><b>Example JSON</b></p>
-                        <div class="example-contents"><pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">&quot;MyAndCondition&quot;: {
+                        <div class="example-contents"><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">&quot;MyAndCondition&quot;: {
    &quot;Fn::And&quot;: [
       {&quot;Fn::Equals&quot;: [&quot;sg-mysggroup&quot;, {&quot;Ref&quot;: &quot;ASecurityGroup&quot;}]},
       {&quot;Condition&quot;: &quot;SomeOtherCondition&quot;}
@@ -118,7 +118,7 @@ NewVolume:
 }</code></pre></div>
                      </div><div class="example">
                         <p class="title"><b>Example YAML</b></p>
-                        <div class="example-contents"><pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">
+                        <div class="example-contents"><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">
 MyAndCondition: !And
   - !Equals [&quot;sg-mysggroup&quot;, !Ref &quot;ASecurityGroup&quot;]
   - !Condition SomeOtherCondition
@@ -128,16 +128,16 @@ MyAndCondition: !And
                      </p><h3 id="intrinsic-function-reference-conditions-and-syntax">Declaration</h3><div id="JSON" name="JSON" class="section langfilter">
                         <h4 id="intrinsic-function-reference-conditions-and-syntax.json">JSON</h4>
                         
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">&quot;Fn::And&quot;: [{<em class="replaceable"><code>condition</code></em>}, {<em class="replaceable"><code>...</code></em>}]</code></pre>
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">&quot;Fn::And&quot;: [{<em class="replaceable"><code>condition</code></em>}, {<em class="replaceable"><code>...</code></em>}]</code></pre>
                         </div><div id="YAML" name="YAML" class="section langfilter">
                         <h4 id="intrinsic-function-reference-conditions-and-syntax.yaml">YAML</h4>
                         
                         
                         <p>Syntax for the full function name:</p>
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">Fn::And: [<em class="replaceable"><code>condition</code></em>]</code></pre>
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">Fn::And: [<em class="replaceable"><code>condition</code></em>]</code></pre>
                         <p>Syntax for the short form:</p>
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">!And [<em class="replaceable"><code>condition</code></em>]</code></pre>
-                        </div><h3 id="w2ab2c21c28c17c33b6">Parameters</h3><div class="variablelist">
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">!And [<em class="replaceable"><code>condition</code></em>]</code></pre>
+                        </div><h3 id="w2ab2c21c28c21c33b6">Parameters</h3><div class="variablelist">
                         
                         
                         <dl>
@@ -152,11 +152,11 @@ MyAndCondition: !And
                            </dd>
                            
                         </dl>
-                     </div><h3 id="w2ab2c21c28c17c33b8">Example</h3><p>The following <code class="code">MyAndCondition</code> evaluates to true if the referenced security group name is equal to <code class="code">sg-mysggroup</code> and if <code class="code">SomeOtherCondition</code> evaluates to true:
+                     </div><h3 id="w2ab2c21c28c21c33b8">Example</h3><p>The following <code class="code">MyAndCondition</code> evaluates to true if the referenced security group name is equal to <code class="code">sg-mysggroup</code> and if <code class="code">SomeOtherCondition</code> evaluates to true:
                      </p><div id="JSON" name="JSON" class="section langfilter">
                         <h4 id="intrinsic-function-reference-conditions-and-example.json">JSON</h4>
                         
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">&quot;MyAndCondition&quot;: {
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">&quot;MyAndCondition&quot;: {
    &quot;Fn::And&quot;: [
       {&quot;Fn::Equals&quot;: [&quot;sg-mysggroup&quot;, {&quot;Ref&quot;: &quot;ASecurityGroup&quot;}]},
       {&quot;Condition&quot;: &quot;SomeOtherCondition&quot;}
@@ -165,7 +165,7 @@ MyAndCondition: !And
                         </div><div id="YAML" name="YAML" class="section langfilter">
                         <h4 id="intrinsic-function-reference-conditions-and-example.yaml">YAML</h4>
                         
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">MyAndCondition: !And
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">MyAndCondition: !And
   - !Equals [&quot;sg-mysggroup&quot;, !Ref ASecurityGroup]
   - !Condition SomeOtherCondition
 </code></pre>
@@ -173,16 +173,16 @@ MyAndCondition: !And
                      </p><h3 id="intrinsic-function-reference-conditions-equals-syntax">Declaration</h3><div id="JSON" name="JSON" class="section langfilter">
                         <h4 id="intrinsic-function-reference-conditions-equals-syntax.json">JSON</h4>
                         
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">&quot;Fn::Equals&quot;&#xA0;: [&quot;<em class="replaceable"><code>value_1</code></em>&quot;, &quot;<em class="replaceable"><code>value_2</code></em>&quot;]</code></pre>
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">&quot;Fn::Equals&quot;&#xA0;: [&quot;<em class="replaceable"><code>value_1</code></em>&quot;, &quot;<em class="replaceable"><code>value_2</code></em>&quot;]</code></pre>
                         </div><div id="YAML" name="YAML" class="section langfilter">
                         <h4 id="intrinsic-function-reference-conditions-equals-syntax.yaml">YAML</h4>
                         
                         
                         <p>Syntax for the full function name:</p>
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">Fn::Equals: [<em class="replaceable"><code>value_1</code></em>, <em class="replaceable"><code>value_2</code></em>]</code></pre>
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">Fn::Equals: [<em class="replaceable"><code>value_1</code></em>, <em class="replaceable"><code>value_2</code></em>]</code></pre>
                         <p>Syntax for the short form:</p>
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">!Equals [<em class="replaceable"><code>value_1</code></em>, <em class="replaceable"><code>value_2</code></em>]</code></pre>
-                        </div><h3 id="w2ab2c21c28c17c35b6">Parameters</h3><div class="variablelist">
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">!Equals [<em class="replaceable"><code>value_1</code></em>, <em class="replaceable"><code>value_2</code></em>]</code></pre>
+                        </div><h3 id="w2ab2c21c28c21c35b6">Parameters</h3><div class="variablelist">
                         
                         
                         <dl>
@@ -196,11 +196,11 @@ MyAndCondition: !And
                            </dd>
                            
                         </dl>
-                     </div><h3 id="w2ab2c21c28c17c35b8">Example</h3><p>The following <code class="code">UseProdCondition</code> condition evaluates to true if the value for the <code class="code">EnvironmentType</code> parameter is equal to <code class="code">prod</code>:
+                     </div><h3 id="w2ab2c21c28c21c35b8">Example</h3><p>The following <code class="code">UseProdCondition</code> condition evaluates to true if the value for the <code class="code">EnvironmentType</code> parameter is equal to <code class="code">prod</code>:
                      </p><div id="JSON" name="JSON" class="section langfilter">
                         <h4 id="intrinsic-function-reference-conditions-equals-example.json">JSON</h4>
                         
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">&quot;UseProdCondition&quot; : {
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">&quot;UseProdCondition&quot; : {
    &quot;Fn::Equals&quot;: [
       {&quot;Ref&quot;: &quot;EnvironmentType&quot;},
       &quot;prod&quot;
@@ -209,7 +209,7 @@ MyAndCondition: !And
                         </div><div id="YAML" name="YAML" class="section langfilter">
                         <h4 id="intrinsic-function-reference-conditions-equals-example.yaml">YAML</h4>
                         
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">UseProdCondition:
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">UseProdCondition:
   !Equals [!Ref EnvironmentType, prod]
 </code></pre>
                         </div><h2 id="intrinsic-function-reference-conditions-if">Fn::If</h2><p>Returns one value if the specified condition evaluates to <code class="code">true</code> and another
@@ -222,16 +222,16 @@ MyAndCondition: !And
                      </p><h3 id="intrinsic-function-reference-conditions-if-syntax">Declaration</h3><div id="JSON" name="JSON" class="section langfilter">
                         <h4 id="intrinsic-function-reference-conditions-if-syntax.json">JSON</h4>
                         
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">&quot;Fn::If&quot;: [<em class="replaceable"><code>condition_name</code></em>, <em class="replaceable"><code>value_if_true</code></em>, <em class="replaceable"><code>value_if_false</code></em>]</code></pre>
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">&quot;Fn::If&quot;: [<em class="replaceable"><code>condition_name</code></em>, <em class="replaceable"><code>value_if_true</code></em>, <em class="replaceable"><code>value_if_false</code></em>]</code></pre>
                         </div><div id="YAML" name="YAML" class="section langfilter">
                         <h4 id="intrinsic-function-reference-conditions-if-syntax.yaml">YAML</h4>
                         
                         
                         <p>Syntax for the full function name:</p>
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">Fn::If: [<em class="replaceable"><code>condition_name</code></em>, <em class="replaceable"><code>value_if_true</code></em>, <em class="replaceable"><code>value_if_false</code></em>]</code></pre>
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">Fn::If: [<em class="replaceable"><code>condition_name</code></em>, <em class="replaceable"><code>value_if_true</code></em>, <em class="replaceable"><code>value_if_false</code></em>]</code></pre>
                         <p>Syntax for the short form:</p>
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">!If [<em class="replaceable"><code>condition_name</code></em>, <em class="replaceable"><code>value_if_true</code></em>, <em class="replaceable"><code>value_if_false</code></em>]</code></pre>
-                        </div><h3 id="w2ab2c21c28c17c39b6">Parameters</h3><div class="variablelist">
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">!If [<em class="replaceable"><code>condition_name</code></em>, <em class="replaceable"><code>value_if_true</code></em>, <em class="replaceable"><code>value_if_false</code></em>]</code></pre>
+                        </div><h3 id="w2ab2c21c28c21c39b6">Parameters</h3><div class="variablelist">
                         
                         
                         
@@ -271,12 +271,12 @@ MyAndCondition: !And
                            </dd>
                            
                         </dl>
-                     </div><h3 id="w2ab2c21c28c17c39b8">Examples</h3><p>To view additional samples, see <a href="conditions-sample-templates.html">Sample Templates</a>.
-                     </p><h4 id="w2ab2c21c28c17c39b8b4">Example 1</h4><p>The following snippet uses an <code class="code">Fn::If</code> function in the <code class="code">SecurityGroups</code> property for an Amazon EC2 resource. If the <code class="code">CreateNewSecurityGroup</code> condition evaluates to true, AWS CloudFormation uses the referenced value of <code class="code">NewSecurityGroup</code> to specify the <code class="code">SecurityGroups</code> property; otherwise, AWS CloudFormation uses the referenced value of <code class="code">ExistingSecurityGroup</code>.
+                     </div><h3 id="w2ab2c21c28c21c39b8">Examples</h3><p>To view additional samples, see <a href="conditions-sample-templates.html">Sample Templates</a>.
+                     </p><h4 id="w2ab2c21c28c21c39b8b4">Example 1</h4><p>The following snippet uses an <code class="code">Fn::If</code> function in the <code class="code">SecurityGroups</code> property for an Amazon EC2 resource. If the <code class="code">CreateNewSecurityGroup</code> condition evaluates to true, AWS CloudFormation uses the referenced value of <code class="code">NewSecurityGroup</code> to specify the <code class="code">SecurityGroups</code> property; otherwise, AWS CloudFormation uses the referenced value of <code class="code">ExistingSecurityGroup</code>.
                      </p><div id="JSON" name="JSON" class="section langfilter">
                         <h5 id="intrinsic-function-reference-conditions-if-example1.json">JSON</h5>
                         
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">&quot;SecurityGroups&quot; : [{
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">&quot;SecurityGroups&quot; : [{
   &quot;Fn::If&quot; : [
     &quot;CreateNewSecurityGroup&quot;,
     {&quot;Ref&quot; : &quot;NewSecurityGroup&quot;},
@@ -286,16 +286,16 @@ MyAndCondition: !And
                         </div><div id="YAML" name="YAML" class="section langfilter">
                         <h5 id="intrinsic-function-reference-conditions-if-example1.yaml">YAML</h5>
                         
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">SecurityGroups:
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">SecurityGroups:
   - !If [CreateNewSecurityGroup, !Ref NewSecurityGroup, !Ref ExistingSecurityGroup]
 </code></pre>
-                        </div><h4 id="w2ab2c21c28c17c39b8b6">Example 2</h4><p>In the Output section of a template, you can use the <code class="code">Fn::If</code> function to conditionally output information. In the following snippet, if the <code class="code">CreateNewSecurityGroup</code> condition evaluates to true, AWS CloudFormation outputs the security group ID of
+                        </div><h4 id="w2ab2c21c28c21c39b8b6">Example 2</h4><p>In the Output section of a template, you can use the <code class="code">Fn::If</code> function to conditionally output information. In the following snippet, if the <code class="code">CreateNewSecurityGroup</code> condition evaluates to true, AWS CloudFormation outputs the security group ID of
                         the <code class="code">NewSecurityGroup</code> resource. If the condition is false, AWS CloudFormation outputs the security group
                         ID of the <code class="code">ExistingSecurityGroup</code> resource.
                      </p><div id="JSON" name="JSON" class="section langfilter">
                         <h5 id="intrinsic-function-reference-conditions-if-example2.json">JSON</h5>
                         
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">&quot;Outputs&quot; : {
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">&quot;Outputs&quot; : {
   &quot;SecurityGroupId&quot; : {
     &quot;Description&quot; : &quot;Group ID of the security group used.&quot;,
     &quot;Value&quot; : {
@@ -310,17 +310,17 @@ MyAndCondition: !And
                         </div><div id="YAML" name="YAML" class="section langfilter">
                         <h5 id="intrinsic-function-reference-conditions-if-example2.yaml">YAML</h5>
                         
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">Outputs:
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">Outputs:
   SecurityGroupId: 
     Description: Group ID of the security group used.
     Value: !If [CreateNewSecurityGroup, !Ref NewSecurityGroup, !Ref ExistingSecurityGroup]
 </code></pre>
-                        </div><h4 id="w2ab2c21c28c17c39b8b8">Example 3</h4><p>The following snippet uses the <code class="code">AWS::NoValue</code> pseudo parameter in an <code class="code">Fn::If</code> function. The condition uses a snapshot for an Amazon RDS DB instance only if a snapshot
+                        </div><h4 id="w2ab2c21c28c21c39b8b8">Example 3</h4><p>The following snippet uses the <code class="code">AWS::NoValue</code> pseudo parameter in an <code class="code">Fn::If</code> function. The condition uses a snapshot for an Amazon RDS DB instance only if a snapshot
                         ID is provided. If the <code class="code">UseDBSnapshot</code> condition evaluates to true, AWS CloudFormation uses the <code class="code">DBSnapshotName</code> parameter value for the <code class="code">DBSnapshotIdentifier</code> property. If the condition evaluates to false, AWS CloudFormation removes the <code class="code">DBSnapshotIdentifier</code> property.
                      </p><div id="JSON" name="JSON" class="section langfilter">
                         <h5 id="intrinsic-function-reference-conditions-if-example3.json">JSON</h5>
                         
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">&quot;MyDB&quot; : {
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">&quot;MyDB&quot; : {
   &quot;Type&quot; : &quot;AWS::RDS::DBInstance&quot;,
   &quot;Properties&quot; : {
     &quot;AllocatedStorage&quot; : &quot;5&quot;,
@@ -342,7 +342,7 @@ MyAndCondition: !And
                         </div><div id="YAML" name="YAML" class="section langfilter">
                         <h5 id="intrinsic-function-reference-conditions-if-example3.yaml">YAML</h5>
                         
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">MyDB:
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">MyDB:
   Type: &quot;AWS::RDS::DBInstance&quot;
   Properties: 
     AllocatedStorage: 5
@@ -355,12 +355,12 @@ MyAndCondition: !And
     DBSnapshotIdentifier:
       !If [UseDBSnapshot, !Ref DBSnapshotName, !Ref &quot;AWS::NoValue&quot;]
 </code></pre>
-                        </div><h4 id="w2ab2c21c28c17c39b8c10">Example 4</h4><p>The following snippet provides an auto scaling update policy only if the <code class="code">RollingUpdates</code> condition evaluates to true. If the condition evaluates to false, AWS CloudFormation
+                        </div><h4 id="w2ab2c21c28c21c39b8c10">Example 4</h4><p>The following snippet provides an auto scaling update policy only if the <code class="code">RollingUpdates</code> condition evaluates to true. If the condition evaluates to false, AWS CloudFormation
                         removes the <code class="code">AutoScalingRollingUpdate</code> update policy.
                      </p><div id="JSON" name="JSON" class="section langfilter">
                         <h5 id="intrinsic-function-reference-conditions-if-example4.json">JSON</h5>
                         
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">&quot;UpdatePolicy&quot;: {
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">&quot;UpdatePolicy&quot;: {
   &quot;AutoScalingRollingUpdate&quot;: {
     &quot;Fn::If&quot;: [
       &quot;RollingUpdates&quot;,
@@ -378,7 +378,7 @@ MyAndCondition: !And
                         </div><div id="YAML" name="YAML" class="section langfilter">
                         <h5 id="intrinsic-function-reference-conditions-if-example4.yaml">YAML</h5>
                         
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">UpdatePolicy:
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">UpdatePolicy:
   AutoScalingRollingUpdate:
     !If 
       - RollingUpdates
@@ -394,16 +394,16 @@ MyAndCondition: !And
                      </p><h3 id="intrinsic-function-reference-conditions-not-syntax">Declaration</h3><div id="JSON" name="JSON" class="section langfilter">
                         <h4 id="intrinsic-function-reference-conditions-not-syntax.json">JSON</h4>
                         
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">&quot;Fn::Not&quot;: [{<em class="replaceable"><code>condition</code></em>}]</code></pre>
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">&quot;Fn::Not&quot;: [{<em class="replaceable"><code>condition</code></em>}]</code></pre>
                         </div><div id="YAML" name="YAML" class="section langfilter">
                         <h4 id="intrinsic-function-reference-conditions-not-syntax.yaml">YAML</h4>
                         
                         
                         <p>Syntax for the full function name:</p>
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">Fn::Not: [<em class="replaceable"><code>condition</code></em>]</code></pre>
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">Fn::Not: [<em class="replaceable"><code>condition</code></em>]</code></pre>
                         <p>Syntax for the short form:</p>
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">!Not [<em class="replaceable"><code>condition</code></em>]</code></pre>
-                        </div><h3 id="w2ab2c21c28c17c41b6">Parameters</h3><div class="variablelist">
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">!Not [<em class="replaceable"><code>condition</code></em>]</code></pre>
+                        </div><h3 id="w2ab2c21c28c21c41b6">Parameters</h3><div class="variablelist">
                         
                         
                         <dl>
@@ -419,12 +419,12 @@ MyAndCondition: !And
                            </dd>
                            
                         </dl>
-                     </div><h3 id="w2ab2c21c28c17c41b8">Example</h3><p>The following <code class="code">EnvCondition</code> condition evaluates to true if the value for
+                     </div><h3 id="w2ab2c21c28c21c41b8">Example</h3><p>The following <code class="code">EnvCondition</code> condition evaluates to true if the value for
                         the <code class="code">EnvironmentType</code> parameter is not equal to <code class="code">prod</code>:
                      </p><div id="JSON" name="JSON" class="section langfilter">
                         <h4 id="intrinsic-function-reference-conditions-not-example.json">JSON</h4>
                         
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">&quot;MyNotCondition&quot; : {
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">&quot;MyNotCondition&quot; : {
    &quot;Fn::Not&quot; : [{
       &quot;Fn::Equals&quot; : [
          {&quot;Ref&quot; : &quot;EnvironmentType&quot;},
@@ -435,7 +435,7 @@ MyAndCondition: !And
                         </div><div id="YAML" name="YAML" class="section langfilter">
                         <h4 id="intrinsic-function-reference-conditions-not-example.yaml">YAML</h4>
                         
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">MyNotCondition:
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">MyNotCondition:
   !Not [!Equals [!Ref EnvironmentType, prod]]
 </code></pre>
                         </div><h2 id="intrinsic-function-reference-conditions-or">Fn::Or</h2><p>Returns <code class="code">true</code> if any one of the specified conditions evaluate to true, or
@@ -446,16 +446,16 @@ MyAndCondition: !And
                      </p><h3 id="intrinsic-function-reference-conditions-or-syntax">Declaration</h3><div id="JSON" name="JSON" class="section langfilter">
                         <h4 id="intrinsic-function-reference-conditions-or-syntax.json">JSON</h4>
                         
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">&quot;Fn::Or&quot;: [{<em class="replaceable"><code>condition</code></em>}, {<em class="replaceable"><code>...</code></em>}]</code></pre>
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">&quot;Fn::Or&quot;: [{<em class="replaceable"><code>condition</code></em>}, {<em class="replaceable"><code>...</code></em>}]</code></pre>
                         </div><div id="YAML" name="YAML" class="section langfilter">
                         <h4 id="intrinsic-function-reference-conditions-or-syntax.yaml">YAML</h4>
                         
                         
                         <p>Syntax for the full function name:</p>
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">Fn::Or: [<em class="replaceable"><code>condition, ...</code></em>]</code></pre>
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">Fn::Or: [<em class="replaceable"><code>condition, ...</code></em>]</code></pre>
                         <p>Syntax for the short form:</p>
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">!Or [<em class="replaceable"><code>condition, ...</code></em>]</code></pre>
-                        </div><h3 id="w2ab2c21c28c17c43b6">Parameters</h3><div class="variablelist">
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">!Or [<em class="replaceable"><code>condition, ...</code></em>]</code></pre>
+                        </div><h3 id="w2ab2c21c28c21c43b6">Parameters</h3><div class="variablelist">
                         
                         
                         <dl>
@@ -471,13 +471,13 @@ MyAndCondition: !And
                            </dd>
                            
                         </dl>
-                     </div><h3 id="w2ab2c21c28c17c43b8">Example</h3><p>The following <code class="code">MyOrCondition</code> evaluates to true if the referenced security
+                     </div><h3 id="w2ab2c21c28c21c43b8">Example</h3><p>The following <code class="code">MyOrCondition</code> evaluates to true if the referenced security
                         group name is equal to <code class="code">sg-mysggroup</code> or if <code class="code">SomeOtherCondition</code>
                         evaluates to true:
                      </p><div id="JSON" name="JSON" class="section langfilter">
                         <h4 id="intrinsic-function-reference-conditions-or-example.json">JSON</h4>
                         
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">&quot;MyOrCondition&quot; : {
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">&quot;MyOrCondition&quot; : {
    &quot;Fn::Or&quot;&#xA0;: [
       {&quot;Fn::Equals&quot;&#xA0;: [&quot;sg-mysggroup&quot;, {&quot;Ref&quot;&#xA0;: &quot;ASecurityGroup&quot;}]},
       {&quot;Condition&quot;&#xA0;: &quot;SomeOtherCondition&quot;}
@@ -486,10 +486,10 @@ MyAndCondition: !And
                         </div><div id="YAML" name="YAML" class="section langfilter">
                         <h4 id="intrinsic-function-reference-conditions-or-example.yaml">YAML</h4>
                         
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">MyOrCondition:
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">MyOrCondition:
   !Or [!Equals [sg-mysggroup, !Ref ASecurityGroup], Condition: SomeOtherCondition]
 </code></pre>
-                        </div><h2 id="w2ab2c21c28c17c45">Supported Functions</h2><p>You can use the following functions in the <code class="code">Fn::If</code> condition:
+                        </div><h2 id="w2ab2c21c28c21c45">Supported Functions</h2><p>You can use the following functions in the <code class="code">Fn::If</code> condition:
                      </p><div class="itemizedlist">
                         
                         

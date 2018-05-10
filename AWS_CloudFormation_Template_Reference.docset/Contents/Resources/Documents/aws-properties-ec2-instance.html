@@ -12,27 +12,29 @@
                      </p><p>If an Elastic IP address is attached to your instance, AWS CloudFormation reattaches
                         the Elastic IP address after it updates
                         the instance. For more information about updating stacks, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks.html">AWS CloudFormation Stacks Updates</a>.
-                     </p><div class="highlights">
+                     </p><div class="highlights" id="inline-topiclist">
                         <p><strong>Topics</strong></p>
                         <ul>
                            <li><a href="#aws-resource-ec2-instance-syntax">Syntax</a></li>
                            <li><a href="#aws-properties-ec2-instance-prop">Properties</a></li>
                            <li><a href="#aws-properties-ec2-instance-returnvalues">Return Values</a></li>
                            <li><a href="#aws-properties-ec2-instance-examples">Examples</a></li>
-                           <li><a href="#w2ab2c21c10d365c17">See Also</a></li>
+                           <li><a href="#w2ab2c21c10d401c17">See Also</a></li>
                         </ul>
                      </div><h2 id="aws-resource-ec2-instance-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
                         <h3 id="aws-properties-ec2-instance-syntax.json">JSON</h3>
                         
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">
 {
    &quot;Type&quot; : &quot;AWS::EC2::Instance&quot;,
    &quot;Properties&quot; : {
       &quot;<a href="aws-properties-ec2-instance.html#cfn-ec2-instance-affinity"><code class="code">Affinity</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
       &quot;<a href="aws-properties-ec2-instance.html#cfn-ec2-instance-availabilityzone"><code class="code">AvailabilityZone</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
       &quot;<a href="aws-properties-ec2-instance.html#cfn-ec2-instance-blockdevicemappings"><code class="code">BlockDeviceMappings</code></a>&quot; : [ <em class="replaceable"><code>EC2 Block Device Mapping</code></em>, ... ],
+      &quot;<a href="aws-properties-ec2-instance.html#cfn-ec2-instance-creditspecification"><code class="code">CreditSpecification</code></a>&quot; : <em class="replaceable"><code>CreditSpecification</code></em>,     
       &quot;<a href="aws-properties-ec2-instance.html#cfn-ec2-instance-disableapitermination"><code class="code">DisableApiTermination</code></a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
       &quot;<a href="aws-properties-ec2-instance.html#cfn-ec2-instance-ebsoptimized"><code class="code">EbsOptimized</code></a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
+      &quot;<a href="aws-properties-ec2-instance.html#cfn-ec2-instance-elasticgpuspecifications"><code class="code">ElasticGpuSpecifications</code></a>&quot; : [ <em class="replaceable"><code>ElasticGpuSpecification, ...</code></em> ],
       &quot;<a href="aws-properties-ec2-instance.html#cfn-ec2-instance-hostid"><code class="code">HostId</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
       &quot;<a href="aws-properties-ec2-instance.html#cfn-ec2-instance-iaminstanceprofile"><code class="code">IamInstanceProfile</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
       &quot;<a href="aws-properties-ec2-instance.html#cfn-ec2-instance-imageid"><code class="code">ImageId</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
@@ -62,14 +64,16 @@
                         </div><div id="YAML" name="YAML" class="section langfilter">
                         <h3 id="aws-properties-ec2-instance-syntax.yaml">YAML</h3>
                         
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">Type: &quot;AWS::EC2::Instance&quot;
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">Type: &quot;AWS::EC2::Instance&quot;
 Properties: 
   <a href="aws-properties-ec2-instance.html#cfn-ec2-instance-affinity"><code class="code">Affinity</code></a>: <em class="replaceable"><code>String</code></em>
   <a href="aws-properties-ec2-instance.html#cfn-ec2-instance-availabilityzone"><code class="code">AvailabilityZone</code></a>: <em class="replaceable"><code>String</code></em>
   <a href="aws-properties-ec2-instance.html#cfn-ec2-instance-blockdevicemappings"><code class="code">BlockDeviceMappings</code></a>: 
     - <em class="replaceable"><code>EC2 Block Device Mapping</code></em>
+  <a href="aws-properties-ec2-instance.html#cfn-ec2-instance-creditspecification"><code class="code">CreditSpecification</code></a>: <em class="replaceable"><code>CreditSpecification</code></em>
   <a href="aws-properties-ec2-instance.html#cfn-ec2-instance-disableapitermination"><code class="code">DisableApiTermination</code></a>: <em class="replaceable"><code>Boolean</code></em>
   <a href="aws-properties-ec2-instance.html#cfn-ec2-instance-ebsoptimized"><code class="code">EbsOptimized</code></a>: <em class="replaceable"><code>Boolean</code></em>
+  <a href="aws-properties-ec2-instance.html#cfn-ec2-instance-elasticgpuspecifications"><code class="code">ElasticGpuSpecifications</code></a>: [ <em class="replaceable"><code>ElasticGpuSpecification, ...</code></em> ]
   <a href="aws-properties-ec2-instance.html#cfn-ec2-instance-hostid"><code class="code">HostId</code></a>: <em class="replaceable"><code>String</code></em>
   <a href="aws-properties-ec2-instance.html#cfn-ec2-instance-iaminstanceprofile"><code class="code">IamInstanceProfile</code></a>: <em class="replaceable"><code>String</code></em>
   <a href="aws-properties-ec2-instance.html#cfn-ec2-instance-imageid"><code class="code">ImageId</code></a>: <em class="replaceable"><code>String</code></em>
@@ -132,6 +136,8 @@ Properties:
                         
                         
                         
+                        
+                        
                         <dl>
                            
                            <dt><a id="cfn-ec2-instance-affinity"></a><span class="term"><code class="code">Affinity</code></span></dt>
@@ -145,7 +151,7 @@ Properties:
                                  <code class="code">default</code>.
                               </p>
                               
-                              <p><em>Required: </em>No
+                              <p><em>Required</em>: No
                               </p>
                               
                               <p><em>Type</em>: String
@@ -168,7 +174,7 @@ Properties:
                                     Guide</em>.
                               </p>
                               
-                              <p><em>Required: </em>No. If not specified, an Availability Zone will be automatically
+                              <p><em>Required</em>: No. If not specified, an Availability Zone will be automatically
                                  chosen for you based on the load balancing criteria for the region.
                               </p>
                               
@@ -190,7 +196,7 @@ Properties:
                                  <em>Amazon EC2 User Guide for Linux Instances</em>.
                               </p>
                               
-                              <p><em>Required: </em>No
+                              <p><em>Required</em>: No
                               </p>
                               
                               <p><em>Type</em>: A list of <a href="aws-properties-ec2-blockdev-mapping.html">Amazon EC2 Block Device Mapping Property</a>.
@@ -203,13 +209,30 @@ Properties:
                            </dd>
                            
                            
+                           <dt><a id="cfn-ec2-instance-creditspecification"></a><span class="term"><code class="code">CreditSpecification</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>Specifies the credit option for CPU usage of a T2 instance.</p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: <a href="aws-properties-ec2-instance-creditspecification.html">Amazon EC2 Instance CreditSpecification</a>.
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
                            <dt><a id="cfn-ec2-instance-disableapitermination"></a><span class="term"><code class="code">DisableApiTermination</code></span></dt>
                            
                            <dd>
                               
                               <p>Specifies whether the instance can be terminated through the API.</p>
                               
-                              <p><em>Required: </em>No
+                              <p><em>Required</em>: No
                               </p>
                               
                               <p><em>Type</em>: Boolean
@@ -236,7 +259,7 @@ Properties:
                                  instances.
                               </p>
                               
-                              <p><em>Required: </em>No. By default, AWS CloudFormation specifies <code class="code">false</code>.
+                              <p><em>Required</em>: No. By default, AWS CloudFormation specifies <code class="code">false</code>.
                               </p>
                               
                               <p><em>Type</em>: Boolean
@@ -269,6 +292,25 @@ Properties:
                            </dd>
                            
                            
+                           <dt><a id="cfn-ec2-instance-elasticgpuspecifications"></a><span class="term"><code class="code">ElasticGpuSpecifications</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>Specifies the Elastic GPUs. An Elastic GPU is a GPU resource that you can attach to
+                                 your instance to accelerate the graphics performance of your applications. For more
+                                 information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-gpus.html" target="_blank">Amazon EC2 Elastic GPUs</a> in the <em>Amazon EC2 User Guide for Windows Instances</em>. Duplicates are not allowed.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type:</em> List of <a href="aws-properties-ec2-instance-elasticgpuspecification.html">Amazon EC2 Instance ElasticGpuSpecification</a></p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                           
                            <dt><a id="cfn-ec2-instance-hostid"></a><span class="term"><code class="code">HostId</code></span></dt>
                            
                            <dd>
@@ -280,7 +322,7 @@ Properties:
                                  to successfully launch instances.
                               </p>
                               
-                              <p><em>Required: </em>No
+                              <p><em>Required</em>: No
                               </p>
                               
                               <p><em>Type</em>: String
@@ -302,7 +344,7 @@ Properties:
                                  <em>AWS Identity and Access Management User Guide</em>.
                               </p>
                               
-                              <p><em>Required: </em>No
+                              <p><em>Required</em>: No
                               </p>
                               
                               <p><em>Type</em>: String
@@ -321,7 +363,7 @@ Properties:
                                  during registration.
                               </p>
                               
-                              <p><em>Required: </em>Yes
+                              <p><em>Required</em>: Yes
                               </p>
                               
                               <p><em>Type</em>: String
@@ -343,7 +385,7 @@ Properties:
                                  <em>Amazon EC2 API Reference</em>.
                               </p>
                               
-                              <p><em>Required: </em>No
+                              <p><em>Required</em>: No
                               </p>
                               
                               <p><em>Type</em>: String
@@ -363,7 +405,7 @@ Properties:
                                     Types</a>.
                               </p>
                               
-                              <p><em>Required: </em>No
+                              <p><em>Required</em>: No
                               </p>
                               
                               <p><em>Type</em>: String
@@ -409,7 +451,7 @@ Properties:
                                  action in the <em>Amazon EC2 API Reference</em>.
                               </p>
                               
-                              <p><em>Required: </em>No
+                              <p><em>Required</em>: No
                               </p>
                               
                               <p><em>Type</em>: Integer
@@ -435,7 +477,7 @@ Properties:
                                  <em>Amazon EC2 API Reference</em>.
                               </p>
                               
-                              <p><em>Required: </em>No
+                              <p><em>Required</em>: No
                               </p>
                               
                               <p><em>Type</em>: List of <a href="aws-properties-ec2-networkinterface-ipv6addresses.html">EC2 NetworkInterface
@@ -452,7 +494,7 @@ Properties:
                               
                               <p>The kernel ID.</p>
                               
-                              <p><em>Required: </em>No
+                              <p><em>Required</em>: No
                               </p>
                               
                               <p><em>Type</em>: String
@@ -488,7 +530,7 @@ Properties:
                               
                               <p>Provides the name of the Amazon EC2 key pair.</p>
                               
-                              <p><em>Required: </em>No
+                              <p><em>Required</em>: No
                               </p>
                               
                               <p><em>Type</em>: String
@@ -505,7 +547,7 @@ Properties:
                               
                               <p>Specifies whether detailed monitoring is enabled for the instance.</p>
                               
-                              <p><em>Required: </em>No
+                              <p><em>Required</em>: No
                               </p>
                               
                               <p><em>Type</em>: Boolean
@@ -537,7 +579,7 @@ Properties:
                                  </p>
                               </div>
                               
-                              <p><em>Required: </em>No
+                              <p><em>Required</em>: No
                               </p>
                               
                               <p><em>Type</em>: A list of <a href="aws-properties-ec2-network-iface-embedded.html">EC2 NetworkInterface Embedded
@@ -556,7 +598,7 @@ Properties:
                                  into (for cluster instances).
                               </p>
                               
-                              <p><em>Required: </em>No
+                              <p><em>Required</em>: No
                               </p>
                               
                               <p><em>Type</em>: String
@@ -590,7 +632,7 @@ Properties:
                                  By default, Amazon VPC selects an IP address from the subnet for the instance.
                               </p>
                               
-                              <p><em>Required: </em>No
+                              <p><em>Required</em>: No
                               </p>
                               
                               <p><em>Type</em>: String
@@ -611,7 +653,7 @@ Properties:
                                  search for the kernel ID.
                               </p>
                               
-                              <p><em>Required: </em>No
+                              <p><em>Required</em>: No
                               </p>
                               
                               <p><em>Type</em>: String
@@ -693,7 +735,7 @@ Properties:
                                  created in the template.
                               </p>
                               
-                              <p><em>Required: </em>No
+                              <p><em>Required</em>: No
                               </p>
                               
                               <p><em>Type</em>: List of String values
@@ -722,7 +764,7 @@ Properties:
                                     Guide</em>.
                               </p>
                               
-                              <p><em>Required: </em>No
+                              <p><em>Required</em>: No
                               </p>
                               
                               <p><em>Type</em>: Boolean
@@ -749,7 +791,7 @@ Properties:
                                  <p>You can currently associate only one document with an instance.</p>
                               </div>
                               
-                              <p><em>Required: </em>No
+                              <p><em>Required</em>: No
                               </p>
                               
                               <p><em>Type</em>: List of <a href="aws-properties-ec2-instance-ssmassociations.html">Amazon EC2 Instance
@@ -770,7 +812,7 @@ Properties:
                                  <code class="code">NetworkInterfaces</code> property, do not specify this property.
                               </p>
                               
-                              <p><em>Required: </em>No
+                              <p><em>Required</em>: No
                               </p>
                               
                               <p><em>Type</em>: String
@@ -787,7 +829,7 @@ Properties:
                               
                               <p>An arbitrary set of tags (key&#x2013;value pairs) for this instance.</p>
                               
-                              <p><em>Required: </em>No
+                              <p><em>Required</em>: No
                               </p>
                               
                               <p><em>Type</em>: <a href="aws-properties-resource-tags.html">AWS CloudFormation Resource Tags</a></p>
@@ -805,7 +847,7 @@ Properties:
                               <p>The tenancy of the instance that you want to launch, such as <code class="code">default</code>, <code class="code">dedicated</code>, or <code class="code">host</code>. If you specify a tenancy value of <code class="code">dedicated</code> or <code class="code">host</code>, you must launch the instance in a VPC. For more information, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/dedicated-instance.html" target="_blank">Dedicated Instances</a> in the <em>Amazon VPC User Guide</em>.
                               </p>
                               
-                              <p><em>Required: </em>No
+                              <p><em>Required</em>: No
                               </p>
                               
                               <p><em>Type</em>: String
@@ -843,7 +885,7 @@ Properties:
                               
                               <p>Base64-encoded MIME user data that is made available to the instances.</p>
                               
-                              <p><em>Required: </em>No
+                              <p><em>Required</em>: No
                               </p>
                               
                               <p><em>Type</em>: String
@@ -898,7 +940,7 @@ Properties:
                                  </p>
                               </div>
                               
-                              <p><em>Required: </em>No
+                              <p><em>Required</em>: No
                               </p>
                               
                               <p><em>Type</em>: A list of <a href="aws-properties-ec2-mount-point.html">EC2 MountPoints</a>.
@@ -915,7 +957,7 @@ Properties:
                               
                               <p>Reserved.</p>
                               
-                              <p><em>Required: </em>No
+                              <p><em>Required</em>: No
                               </p>
                               
                               <p><em>Type</em>: String
@@ -949,7 +991,7 @@ Properties:
                         </dl>
                      </div><h2 id="aws-properties-ec2-instance-returnvalues">Return Values</h2><h3 id="aws-properties-ec2-instance-ref">Ref</h3><p>When you pass the logical ID of an AWS::EC2::Instance object to the intrinsic <code class="code">Ref</code> function, the object&apos;s InstanceId is returned. For example: <code class="code">i-636be302</code>.
                      </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                     </p><h3 id="w2ab2c21c10d365c13b4">Fn::GetAtt</h3><p><code class="code">Fn::GetAtt</code> returns a value for a specified attribute of this type.
+                     </p><h3 id="w2ab2c21c10d401c13b4">Fn::GetAtt</h3><p><code class="code">Fn::GetAtt</code> returns a value for a specified attribute of this type.
                         The following are the available attributes and sample return values.
                      </p><div class="variablelist">
                         
@@ -1014,10 +1056,10 @@ Properties:
                            
                         </dl>
                      </div><p>For more information about using <code class="code">Fn::GetAtt</code>, see <a href="intrinsic-function-reference-getatt.html">Fn::GetAtt</a>.
-                     </p><h2 id="aws-properties-ec2-instance-examples">Examples</h2><h3 id="w2ab2c21c10d365c15b2">EC2 Instance with an EBS Block Device Mapping</h3><div id="JSON" name="JSON" class="section langfilter">
+                     </p><h2 id="aws-properties-ec2-instance-examples">Examples</h2><h3 id="w2ab2c21c10d401c15b2">EC2 Instance with an EBS Block Device Mapping</h3><div id="JSON" name="JSON" class="section langfilter">
                         <h4 id="aws-properties-ec2-instance-examples-json1">JSON</h4>
                         
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">{
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">{
    &quot;AWSTemplateFormatVersion&quot; : &quot;2010-09-09&quot;,
    &quot;Description&quot; : &quot;Ec2 block device mapping&quot;,
    &quot;Resources&quot; : {
@@ -1048,7 +1090,7 @@ Properties:
                         </div><div id="YAML" name="YAML" class="section langfilter">
                         <h4 id="aws-properties-ec2-instance-examples-yaml1">YAML</h4>
                         
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">  AWSTemplateFormatVersion: &quot;2010-09-09&quot;
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">  AWSTemplateFormatVersion: &quot;2010-09-09&quot;
   Description: &quot;Ec2 block device mapping&quot;
   Resources: 
     MyEC2Instance: 
@@ -1066,12 +1108,12 @@ Properties:
           - DeviceName: &quot;/dev/sdk&quot;
             NoDevice: {}
 </code></pre>
-                        </div><h3 id="w2ab2c21c10d365c15b4">Automatically Assign a Public IP Address</h3><p>You can associate a public IP address with a network interface only if it has a device
+                        </div><h3 id="w2ab2c21c10d401c15b4">Automatically Assign a Public IP Address</h3><p>You can associate a public IP address with a network interface only if it has a device
                         index of <code class="code">0</code> and if it is a new network interface (not an existing one).
                      </p><div id="JSON" name="JSON" class="section langfilter">
                         <h4 id="aws-properties-ec2-instance-examples-json2">JSON</h4>
                         
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">&quot;Ec2Instance&quot; : {
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">&quot;Ec2Instance&quot; : {
   &quot;Type&quot; : &quot;AWS::EC2::Instance&quot;,
   &quot;Properties&quot; : {
     &quot;ImageId&quot; : { &quot;Fn::FindInMap&quot; : [ &quot;RegionMap&quot;, { &quot;Ref&quot; : &quot;AWS::Region&quot; }, &quot;AMI&quot; ]},
@@ -1087,7 +1129,7 @@ Properties:
                         </div><div id="YAML" name="YAML" class="section langfilter">
                         <h4 id="aws-properties-ec2-instance-examples-yaml2">YAML</h4>
                         
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">  Ec2Instance: 
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">  Ec2Instance: 
     Type: &quot;AWS::EC2::Instance&quot;
     Properties: 
       ImageId: 
@@ -1104,7 +1146,7 @@ Properties:
             - Ref: &quot;myVPCEC2SecurityGroup&quot;
           SubnetId: 
             Ref: &quot;PublicSubnet&quot;</code></pre>
-                        </div><h3 id="w2ab2c21c10d365c15b6">Other Examples</h3><p>You can download templates that show how to use <code class="code">AWS::EC2::Instance</code> to create a virtual private cloud (VPC):
+                        </div><h3 id="w2ab2c21c10d401c15b6">Other Examples</h3><p>You can download templates that show how to use <code class="code">AWS::EC2::Instance</code> to create a virtual private cloud (VPC):
                      </p><div class="itemizedlist">
                         
                         
@@ -1123,7 +1165,7 @@ Properties:
                         </ul>
                      </div><p>For more information about an <code class="code">AWS::EC2::Instance</code> that has an IAM instance profile, see: <a href="https://s3.amazonaws.com/cloudformation-templates-us-east-1/ec2_instance_with_instance_profile.template" target="_blank">Create an EC2 instance with an associated instance profile</a>.
                      </p><p>For more information about Amazon EC2 template examples, see: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-ec2.html">Amazon EC2 Template Snippets</a>.
-                     </p><h2 id="w2ab2c21c10d365c17">See Also</h2><div class="itemizedlist">
+                     </p><h2 id="w2ab2c21c10d401c17">See Also</h2><div class="itemizedlist">
                         
                         
                         

@@ -8,13 +8,15 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-properties-apitgateway-method-integration-integrationresponse">Amazon API Gateway Method Integration IntegrationResponse</h1><p><code class="code">IntegrationResponse</code> is a property of the <a href="aws-properties-apitgateway-method-integration-integrationresponse.html">Amazon API Gateway Method Integration IntegrationResponse</a> property 
+    <h1 class="topictitle" id="aws-properties-apitgateway-method-integration-integrationresponse">Amazon API Gateway Method Integration IntegrationResponse</h1><p><code class="code">IntegrationResponse</code> is a property of the <a href="aws-properties-apitgateway-method-integration.html">Amazon API Gateway Method Integration</a> property type
                         that specifies the response that Amazon API Gateway (API Gateway) sends after a method&apos;s
-                        back end finishes processing a request.
-                     </p><h2 id="w2ab2c21c14c24b5">Syntax</h2><div id="JSON" name="JSON" class="section langfilter">
+                        backend finishes
+                        processing a request.
+                     </p><h2 id="w2ab2c21c14c28b5">Syntax</h2><div id="JSON" name="JSON" class="section langfilter">
                         <h3 id="aws-properties-apitgateway-method-integration-integrationresponse-syntax.json">JSON</h3>
                         
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">{
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
+  &quot;<a href="aws-properties-apitgateway-method-integration-integrationresponse.html#cfn-apigateway-method-integrationresponse-contenthandling"><code class="code">ContentHandling</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
   &quot;<a href="aws-properties-apitgateway-method-integration-integrationresponse.html#cfn-apigateway-method-integration-integrationresponse-responseparameters"><code class="code">ResponseParameters</code></a>&quot; : { <em class="replaceable"><code>String</code></em>:<em class="replaceable"><code>String, ...</code></em> },
   &quot;<a href="aws-properties-apitgateway-method-integration-integrationresponse.html#cfn-apigateway-method-integration-integrationresponse-responsetemplates"><code class="code">ResponseTemplates</code></a>&quot; : { <em class="replaceable"><code>String</code></em>:<em class="replaceable"><code>String, ...</code></em> },
   &quot;<a href="aws-properties-apitgateway-method-integration-integrationresponse.html#cfn-apigateway-method-integration-integrationresponse-selectionpattern"><code class="code">SelectionPattern</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
@@ -23,14 +25,16 @@
                         </div><div id="YAML" name="YAML" class="section langfilter">
                         <h3 id="aws-properties-apitgateway-method-integration-integrationresponse-syntax.yaml">YAML</h3>
                         
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight"><a href="aws-properties-apitgateway-method-integration-integrationresponse.html#cfn-apigateway-method-integration-integrationresponse-responseparameters"><code class="code">ResponseParameters</code></a>:
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight"><a href="aws-properties-apitgateway-method-integration-integrationresponse.html#cfn-apigateway-method-integrationresponse-contenthandling"><code class="code">ContentHandling</code></a>: <em class="replaceable"><code>String</code></em>
+<a href="aws-properties-apitgateway-method-integration-integrationresponse.html#cfn-apigateway-method-integration-integrationresponse-responseparameters"><code class="code">ResponseParameters</code></a>:
   <em class="replaceable"><code>String</code></em>: <em class="replaceable"><code>String</code></em>
 <a href="aws-properties-apitgateway-method-integration-integrationresponse.html#cfn-apigateway-method-integration-integrationresponse-responsetemplates"><code class="code">ResponseTemplates</code></a>:
   <em class="replaceable"><code>String</code></em>: <em class="replaceable"><code>String</code></em>
 <a href="aws-properties-apitgateway-method-integration-integrationresponse.html#cfn-apigateway-method-integration-integrationresponse-selectionpattern"><code class="code">SelectionPattern</code></a>: <em class="replaceable"><code>String</code></em>
 <a href="aws-properties-apitgateway-method-integration-integrationresponse.html#cfn-apigateway-method-integration-integrationresponse-statuscode"><code class="code">StatusCode</code></a>: <em class="replaceable"><code>String</code></em>
 </code></pre>
-                        </div><h2 id="w2ab2c21c14c24b7">Properties</h2><div class="variablelist">
+                        </div><h2 id="w2ab2c21c14c28b7">Properties</h2><div class="variablelist">
+                        
                         
                         
                         
@@ -38,11 +42,52 @@
                         
                         <dl>
                            
+                           <dt><a id="cfn-apigateway-method-integrationresponse-contenthandling"></a><span class="term"><code class="code">ContentHandling</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>Specifies how to handle request payload content type conversions. Valid values are:</p>
+                              
+                              <div class="itemizedlist">
+                                          
+                                 
+                                 
+                                 <ul class="itemizedlist" type="disc">
+                                    <li class="listitem">
+                                       <p><code class="code">CONVERT_TO_BINARY</code>: Converts a request payload from a base64-encoded string to a
+                                          binary blob.
+                                       </p>
+                                    </li>
+                                    <li class="listitem">
+                                       <p><code class="code">CONVERT_TO_TEXT</code>: Converts a request payload from a binary blob to a
+                                          base64-encoded string.
+                                       </p>
+                                    </li>
+                                 </ul>
+                              </div>            
+                              
+                              <p>If this property isn&apos;t defined, the request payload is passed through from the method
+                                 request 
+                                 to the integration request without modification.
+                              </p>
+                              
+                              <p><em>Required: </em>No
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: 
+                                 <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
                            <dt><a id="cfn-apigateway-method-integration-integrationresponse-responseparameters"></a><span class="term"><code class="code">ResponseParameters</code></span></dt>
                            
                            <dd>
                               
-                              <p>The response parameters from the back-end response that API Gateway sends to the method
+                              <p>The response parameters from the backend response that API Gateway sends to the method
                                  response. Specify response parameters as key-value pairs (<a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/mappings-section-structure.html">string-to-string mappings</a>).
                               </p>
                               
@@ -75,7 +120,7 @@
                                  <em>API Gateway Developer Guide</em>.
                               </p>
                               
-                              <p><em>Required: </em>No
+                              <p><em>Required</em>: No
                               </p>
                               
                               <p><em>Type</em>: Mapping of key-value pairs
@@ -88,12 +133,15 @@
                            
                            <dd>
                               
-                              <p>The templates used to transform the integration response body. Specify templates as
-                                 key-value pairs (string-to-string maps), with a content type as the key and a template
-                                 as the value. For more information, see <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html" target="_blank">API Gateway API Request and Response Payload-Mapping Template Reference</a> in the <em>API Gateway Developer Guide</em>.
+                              <p>The templates that are used to transform the integration response body. Specify
+                                 templates as key-value pairs (string-to-string mappings), with a content type as the
+                                 key
+                                 and a template as the value. For more information, see <a href="http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html" target="_blank">API Gateway API Request and
+                                    Response Payload-Mapping Template Reference</a> in the
+                                 <em>API Gateway Developer Guide</em>.
                               </p>
                               
-                              <p><em>Required: </em>No
+                              <p><em>Required</em>: No
                               </p>
                               
                               <p><em>Type</em>: Mapping of key-value pairs
@@ -106,11 +154,11 @@
                            
                            <dd>
                               
-                              <p>A <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-regexes.html">regular expression</a> that specifies which error strings or status codes from the back end map to the integration
-                                 response.
+                              <p>A <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-regexes.html">regular expression</a> that specifies which error
+                                 strings or status codes from the backend map to the integration response.
                               </p>
                               
-                              <p><em>Required: </em>No
+                              <p><em>Required</em>: No
                               </p>
                               
                               <p><em>Type</em>: String
@@ -126,7 +174,7 @@
                               <p>The status code that API Gateway uses to map the integration response to a <code class="code"><a href="aws-properties-apitgateway-method-methodresponse.html">MethodResponse</a></code> status code.
                               </p>
                               
-                              <p><em>Required: </em>Yes
+                              <p><em>Required</em>: Yes
                               </p>
                               
                               <p><em>Type</em>: String

@@ -9,19 +9,44 @@
 <body>
     <div id="content" style="padding: 10px 30px;">
     <h1 class="topictitle" id="aws-resource-applicationautoscaling-scalabletarget">AWS::ApplicationAutoScaling::ScalableTarget</h1><p>The <code class="code">AWS::ApplicationAutoScaling::ScalableTarget</code> resource specifies a resource that Application Auto Scaling can scale up or down.
-                        For more information, see the <a href="http://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_RegisterScalableTarget.html" target="_blank">RegisterScalableTarget</a> action in the <em>Application Auto Scaling API Reference</em>.
-                     </p><div class="highlights">
+                        For more information, see the <a href="http://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html" target="_blank">RegisterScalableTarget</a> action in the <em>Application Auto Scaling API Reference</em>.
+                     </p><p>Updates to <code class="code">AWS::DynamoDB::Table</code> resources that are associated with <code class="code">AWS::ApplicationAutoScaling::ScalableTarget</code> 
+                        resources will always result in an update failure and then an update rollback failure.
+                        
+                        The following <code class="code">ScalableDimension</code> attributes cause this problem when associated with the table:
+                     </p><div class="itemizedlist">
+                        
+                        
+                        
+                        
+                        
+                        <ul class="itemizedlist" type="disc">
+                           <li class="listitem">
+                              <p>dynamodb:table:ReadCapacityUnits</p>
+                           </li>
+                           <li class="listitem">
+                              <p>dynamodb:table:WriteCapacityUnits</p>
+                           </li>
+                           <li class="listitem">
+                              <p>dynamodb:index:ReadCapacityUnits</p>
+                           </li>
+                           <li class="listitem">
+                              <p>dynamodb:index:WriteCapacityUnits</p>
+                           </li>
+                        </ul>
+                     </div><p>As a workaround, please deregister scalable targets before performing updates to <code class="code">AWS::DynamoDB::Table</code> resources.
+                     </p><div class="highlights" id="inline-topiclist">
                         <p><strong>Topics</strong></p>
                         <ul>
-                           <li><a href="#w2ab2c21c10c91b7">Syntax</a></li>
-                           <li><a href="#w2ab2c21c10c91b9">Properties</a></li>
+                           <li><a href="#w2ab2c21c10c97c13">Syntax</a></li>
+                           <li><a href="#w2ab2c21c10c97c15">Properties</a></li>
                            <li><a href="#aws-resource-applicationautoscaling-scalabletarget-returnvalues">Return Value</a></li>
                            <li><a href="#aws-resource-applicationautoscaling-scalabletarget-examples">Examples</a></li>
                         </ul>
-                     </div><h2 id="w2ab2c21c10c91b7">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                     </div><h2 id="w2ab2c21c10c97c13">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
                         <h3 id="aws-resource-applicationautoscaling-scalabletarget-syntax.json">JSON</h3>
                         
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">{
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
   &quot;Type&quot; : &quot;AWS::ApplicationAutoScaling::ScalableTarget&quot;,
   &quot;Properties&quot; : {
     &quot;<a href="aws-resource-applicationautoscaling-scalabletarget.html#cfn-applicationautoscaling-scalabletarget-maxcapacity"><code class="code">MaxCapacity</code></a>&quot; : <em class="replaceable"><code>Integer</code></em>,
@@ -29,22 +54,26 @@
     &quot;<a href="aws-resource-applicationautoscaling-scalabletarget.html#cfn-applicationautoscaling-scalabletarget-resourceid"><code class="code">ResourceId</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
     &quot;<a href="aws-resource-applicationautoscaling-scalabletarget.html#cfn-applicationautoscaling-scalabletarget-rolearn"><code class="code">RoleARN</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
     &quot;<a href="aws-resource-applicationautoscaling-scalabletarget.html#cfn-applicationautoscaling-scalabletarget-scalabledimension"><code class="code">ScalableDimension</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-resource-applicationautoscaling-scalabletarget.html#cfn-applicationautoscaling-scalabletarget-scheduledactions"><code class="code">ScheduledActions</code></a>&quot; : [ <a href="aws-properties-applicationautoscaling-scalabletarget-scheduledaction.html"><em class="replaceable"><code>ScheduledAction</code></em></a>, ... ],
     &quot;<a href="aws-resource-applicationautoscaling-scalabletarget.html#cfn-applicationautoscaling-scalabletarget-servicenamespace"><code class="code">ServiceNamespace</code></a>&quot; : <em class="replaceable"><code>String</code></em>
   }
 }</code></pre>
                         </div><div id="YAML" name="YAML" class="section langfilter">
                         <h3 id="aws-resource-applicationautoscaling-scalabletarget-syntax.yaml">YAML</h3>
                         
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight">Type: &quot;AWS::ApplicationAutoScaling::ScalableTarget&quot;
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">Type: &quot;AWS::ApplicationAutoScaling::ScalableTarget&quot;
 Properties:
   <a href="aws-resource-applicationautoscaling-scalabletarget.html#cfn-applicationautoscaling-scalabletarget-maxcapacity"><code class="code">MaxCapacity</code></a>: <em class="replaceable"><code>Integer</code></em>
   <a href="aws-resource-applicationautoscaling-scalabletarget.html#cfn-applicationautoscaling-scalabletarget-mincapacity"><code class="code">MinCapacity</code></a>: <em class="replaceable"><code>Integer</code></em>
   <a href="aws-resource-applicationautoscaling-scalabletarget.html#cfn-applicationautoscaling-scalabletarget-resourceid"><code class="code">ResourceId</code></a>: <em class="replaceable"><code>String</code></em>
   <a href="aws-resource-applicationautoscaling-scalabletarget.html#cfn-applicationautoscaling-scalabletarget-rolearn"><code class="code">RoleARN</code></a>: <em class="replaceable"><code>String</code></em>
   <a href="aws-resource-applicationautoscaling-scalabletarget.html#cfn-applicationautoscaling-scalabletarget-scalabledimension"><code class="code">ScalableDimension</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-resource-applicationautoscaling-scalabletarget.html#cfn-applicationautoscaling-scalabletarget-scheduledactions"><code class="code">ScheduledActions</code></a>: 
+    - <a href="aws-properties-applicationautoscaling-scalabletarget-scheduledaction.html"><em class="replaceable"><code>ScheduledAction</code></em></a><em class="replaceable"><code></code></em>
   <a href="aws-resource-applicationautoscaling-scalabletarget.html#cfn-applicationautoscaling-scalabletarget-servicenamespace"><code class="code">ServiceNamespace</code></a>: <em class="replaceable"><code>String</code></em>
 </code></pre>
-                        </div><h2 id="w2ab2c21c10c91b9">Properties</h2><div class="variablelist">
+                        </div><h2 id="w2ab2c21c10c97c15">Properties</h2><div class="variablelist">
+                        
                         
                         
                         
@@ -62,7 +91,7 @@ Properties:
                                  scaling activity.
                               </p>
                               
-                              <p><em>Required: </em>Yes
+                              <p><em>Required</em>: Yes
                               </p>
                               
                               <p><em>Type</em>: Integer
@@ -81,7 +110,7 @@ Properties:
                                  scaling activity.
                               </p>
                               
-                              <p><em>Required: </em>Yes
+                              <p><em>Required</em>: Yes
                               </p>
                               
                               <p><em>Type</em>: Integer
@@ -98,11 +127,11 @@ Properties:
                               
                               <p>The resource identifier to associate with this scalable target. This string consists
                                  of the resource type and unique identifier. 
-                                 For more information, see the <code class="code">ResourceId</code> parameter for the <a href="http://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_RegisterScalableTarget.html" target="_blank">RegisterScalableTarget</a> 
+                                 For more information, see the <code class="code">ResourceId</code> parameter for the <a href="http://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html" target="_blank">RegisterScalableTarget</a> 
                                  action in the <em>Application Auto Scaling API Reference</em>, or see the <a href="aws-resource-applicationautoscaling-scalabletarget.html#aws-resource-applicationautoscaling-scalabletarget-examples"><code class="code">ScalableTarget</code> examples</a>.
                               </p>
                               
-                              <p><em>Required: </em>Yes
+                              <p><em>Required</em>: Yes
                               </p>
                               
                               <p><em>Type</em>: String
@@ -121,7 +150,7 @@ Properties:
                                  that allows Application Auto Scaling to modify your scalable target.
                               </p>
                               
-                              <p><em>Required: </em>Yes
+                              <p><em>Required</em>: Yes
                               </p>
                               
                               <p><em>Type</em>: String
@@ -136,18 +165,43 @@ Properties:
                            
                            <dd>
                               
-                              <p>The scalable dimension associated with the scalable target. Specify the service namespace,
-                                 resource type, and scaling property, such as <code class="code">ecs:service:DesiredCount</code> for the desired task count of an Amazon EC2 Container Service service. For valid
-                                 values, see the <code class="code">ScalableDimension</code> content for the <a href="http://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_ScalingPolicy.html" target="_blank">ScalingPolicy</a> data type in the <em>Application Auto Scaling API Reference</em>.
+                              <p>The scalable dimension that&apos;s associated with the scalable target. Specify the
+                                 service namespace, resource type, and scaling property&#x2014;for example,
+                                 <code class="code">ecs:service:DesiredCount</code> for the desired task count of an Amazon Elastic Container Service
+                                 service. For valid values, see the <code class="code">ScalableDimension</code> content for the <a href="http://docs.aws.amazon.com/autoscaling/application/APIReference/API_ScalingPolicy.html" target="_blank">ScalingPolicy</a> data type in the
+                                 <em>Application Auto Scaling API Reference</em>.
                               </p>
                               
-                              <p><em>Required: </em>Yes
+                              <p><em>Required</em>: Yes
                               </p>
                               
                               <p><em>Type</em>: String
                               </p>
                               
                               <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-applicationautoscaling-scalabletarget-scheduledactions"></a><span class="term"><code class="code">ScheduledActions</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The scheduled actions for the scalable target. Duplicates aren&apos;t allowed.</p>
+                              
+                              <p>
+                                 <em>Required</em>: No
+                              </p>
+                              
+                              <p>
+                                 <em>Type</em>: List of <a href="aws-properties-applicationautoscaling-scalabletarget-scheduledaction.html">Application Auto Scaling ScalableTarget ScheduledAction</a> property types
+                              </p>
+                              
+                              <p>
+                                 <em>Update requires</em>:             
+                                 <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
+                                 
+                              </p>
                               
                            </dd>
                            
@@ -160,7 +214,7 @@ Properties:
                                  see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html" target="_blank">AWS Service Namespaces</a> in the <em>AWS General Reference</em>.
                               </p>
                               
-                              <p><em>Required: </em>Yes
+                              <p><em>Required</em>: Yes
                               </p>
                               
                               <p><em>Type</em>: String
@@ -171,19 +225,19 @@ Properties:
                            </dd>
                            
                         </dl>
-                     </div><h2 id="aws-resource-applicationautoscaling-scalabletarget-returnvalues">Return Value</h2><h3 id="w2ab2c21c10c91c11b2">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code>
+                     </div><h2 id="aws-resource-applicationautoscaling-scalabletarget-returnvalues">Return Value</h2><h3 id="w2ab2c21c10c97c17b2">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code>
                         intrinsic function, <code class="code">Ref</code> returns the AWS CloudFormation-generated ID of the resource,
                         such as
                         <code class="code">service/ecsStack-MyECSCluster-AB12CDE3F4GH/ecsStack-MyECSService-AB12CDE3F4GH|ecs:service:DesiredCount|ecs</code>.
                      </p><p>AWS CloudFormation uses the following format to generate the ID: <code class="code">service/<em class="replaceable"><code><a href="aws-resource-applicationautoscaling-scalabletarget.html#cfn-applicationautoscaling-scalabletarget-resourceid">resource_ID</a></code></em>|<em class="replaceable"><code>scalable_dimension</code></em>|<em class="replaceable"><code>service_namespace</code></em></code>.
                      </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                     </p><h2 id="aws-resource-applicationautoscaling-scalabletarget-examples">Examples</h2><h3 id="w2ab2c21c10c91c13b2">Number of Tasks</h3><p>The following example creates a scalable target for an Amazon EC2 Container Service
+                     </p><h2 id="aws-resource-applicationautoscaling-scalabletarget-examples">Examples</h2><h3 id="w2ab2c21c10c97c19b2">Number of Tasks</h3><p>The following example creates a scalable target for an Amazon Elastic Container Service
                         service. Application Auto Scaling scales the number of tasks at a minimum of 1 task
                         and a maximum of 2.
                      </p><div id="JSON" name="JSON" class="section langfilter">
                         <h4 id="aws-resource-applicationautoscaling-scalabletarget-example.json">JSON</h4>
                         
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">&quot;scalableTarget&quot; : {
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">&quot;scalableTarget&quot; : {
   &quot;Type&quot; : &quot;AWS::ApplicationAutoScaling::ScalableTarget&quot;,
   &quot;Properties&quot; : {
     &quot;MaxCapacity&quot; : 2,
@@ -197,7 +251,7 @@ Properties:
                         </div><div id="YAML" name="YAML" class="section langfilter">
                         <h4 id="aws-resource-applicationautoscaling-scalabletarget-example.yaml">YAML</h4>
                         
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">scalableTarget:
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">scalableTarget:
   Type: AWS::ApplicationAutoScaling::ScalableTarget
   Properties:
     MaxCapacity: 2
@@ -206,11 +260,11 @@ Properties:
     RoleARN: !GetAtt [ ApplicationAutoScalingRole, Arn ]
     ScalableDimension: ecs:service:DesiredCount
     ServiceNamespace: ecs</code></pre>
-                        </div><h3 id="w2ab2c21c10c91c13b4">Using <code class="code">Fn::Join</code> and <code class="code">Ref</code> to Construct the <code class="code">ResourceId</code></h3><p>The following example uses the <code class="code">Fn::Join</code> and <code class="code">Ref</code> intrinsic functions to construct the <code class="code">ResourceId</code> property of the scaling target.
+                        </div><h3 id="w2ab2c21c10c97c19b4">Using <code class="code">Fn::Join</code> and <code class="code">Ref</code> to Construct the <code class="code">ResourceId</code></h3><p>The following example uses the <code class="code">Fn::Join</code> and <code class="code">Ref</code> intrinsic functions to construct the <code class="code">ResourceId</code> property of the scaling target.
                      </p><div id="JSON" name="JSON" class="section langfilter">
                         
                         <h4 id="aws-resource-applicationautoscaling-scalabletarget-example2.json">JSON</h4>
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">&quot;SpotFleetScalingTarget&quot;: {
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">&quot;SpotFleetScalingTarget&quot;: {
   &quot;Type&quot;: &quot;AWS::ApplicationAutoScaling::ScalableTarget&quot;,
   &quot;Properties&quot;: {
     &quot;MaxCapacity&quot;: 2,
@@ -239,7 +293,7 @@ Properties:
                         </div><div id="YAML" name="YAML" class="section langfilter">
                         
                         <h4 id="aws-resource-applicationautoscaling-scalabletarget-example2.yaml">YAML</h4>
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">SpotFleetScalingTarget:
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">SpotFleetScalingTarget:
   Type: &apos;AWS::ApplicationAutoScaling::ScalableTarget&apos;
   Properties:
     MaxCapacity: 2
@@ -253,12 +307,13 @@ Properties:
       - Arn
     ScalableDimension: &apos;ec2:spot-fleet-request:TargetCapacity&apos;
     ServiceNamespace: ec2</code></pre>
-                        </div><h3 id="aws-resource-applicationautoscaling-scalabletarget-ddb-example">Application Auto Scaling Scalable Target with an Amazon DynamoDB Table</h3><p>This example sets up Application Auto Scaling for a <code class="code">AWS::DynamoDB::Table</code> resource.
-                        The template defines a <code class="code">TargetTrackingScaling</code> scaling policy that scales up the <code class="code">WriteCapacityUnits</code> throughput for the table.
+                        </div><h3 id="aws-resource-applicationautoscaling-scalabletarget-ddb-example">Application Auto Scaling Scalable Target with an Amazon DynamoDB Table</h3><p>This example sets up Application Auto Scaling for an <code class="code">AWS::DynamoDB::Table</code> resource. The
+                        template defines a <code class="code">TargetTrackingScaling</code> scaling policy that scales up the
+                        <code class="code">WriteCapacityUnits</code> throughput for the table.
                      </p><div id="JSON" name="JSON" class="section langfilter">
                         <h4 id="aws-resource-applicationautoscaling-scalabletarget-ddb-example.json">JSON</h4>
                         
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">{
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">{
   &quot;Resources&quot;: {
     &quot;DDBTable&quot;: {
       &quot;Type&quot;: &quot;AWS::DynamoDB::Table&quot;,
@@ -398,7 +453,7 @@ Properties:
                         </div><div id="YAML" name="YAML" class="section langfilter">
                         <h4 id="aws-resource-applicationautoscaling-scalabletarget-ddb-example.yaml">YAML</h4>
                         
-                        <pre class="programlisting"><div class="btn-copy-code-container"><div class="btn btn-copy-code">Copy</div></div><code class="nohighlight ">Resources:
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">Resources:
   DDBTable:
     Type: &quot;AWS::DynamoDB::Table&quot;
     Properties:
@@ -489,6 +544,314 @@ Properties:
         ScaleOutCooldown: 60
         PredefinedMetricSpecification:
           PredefinedMetricType: DynamoDBWriteCapacityUtilization</code></pre>
+                        </div><h3 id="aws-resource-applicationautoscaling-scalabletarget-scheduledactions-example">Scheduled Actions</h3><p>The following example creates a scheduled action for a target.</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h4 id=".json">JSON</h4>
+                        
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;AWSTemplateFormatVersion&quot; : &quot;2010-09-09&quot;,
+  &quot;Description&quot; : &quot;Creating ECS service&quot;,
+  &quot;Parameters&quot;: {
+    &quot;AppName&quot;: {
+      &quot;Type&quot;:&quot;String&quot;,
+      &quot;Description&quot;: &quot;Name of app requiring ELB exposure&quot;,
+      &quot;Default&quot;: &quot;simple-app&quot;
+    },
+    &quot;AppContainerPort&quot;: {
+      &quot;Type&quot;:&quot;Number&quot;,
+      &quot;Description&quot;: &quot;Container port of app requiring ELB exposure&quot;,
+      &quot;Default&quot;: &quot;80&quot;
+    },
+    &quot;AppHostPort&quot;: {
+      &quot;Type&quot;:&quot;Number&quot;,
+      &quot;Description&quot;: &quot;Host port of app requiring ELB exposure&quot;,
+      &quot;Default&quot;: &quot;80&quot;
+    }
+  },
+  &quot;Resources&quot;: {
+    &quot;scalableTarget&quot;: {
+      &quot;Type&quot;: &quot;AWS::ApplicationAutoScaling::ScalableTarget&quot;,
+      &quot;Properties&quot;: {
+        &quot;ResourceId&quot;: {
+          &quot;Fn::Join&quot;: [
+            &quot;/&quot;,
+            [
+              &quot;service&quot;,
+              {
+                &quot;Ref&quot;: &quot;cluster&quot;
+              },
+              {
+                &quot;Fn::GetAtt&quot;: [
+                  &quot;service&quot;,
+                  &quot;Name&quot;
+                ]
+              }
+            ]
+          ]
+        },
+        &quot;ServiceNamespace&quot;: &quot;ecs&quot;,
+        &quot;ScalableDimension&quot;: &quot;ecs:service:DesiredCount&quot;,
+        &quot;RoleARN&quot;: {
+          &quot;Fn::GetAtt&quot;: [
+            &quot;scalingRole&quot;,
+            &quot;Arn&quot;
+          ]
+        },
+        &quot;MaxCapacity&quot;: &quot;2&quot;,
+        &quot;MinCapacity&quot;: &quot;1&quot;,
+        &quot;ScheduledActions&quot;: [{
+          &quot;EndTime&quot;: &quot;2018-12-04T22:14:41.951Z&quot;,
+          &quot;ScalableTargetAction&quot;: {
+            &quot;MaxCapacity&quot;: &quot;2&quot;,
+            &quot;MinCapacity&quot;: &quot;1&quot;
+          },
+          &quot;ScheduledActionName&quot;: &quot;First&quot;,
+          &quot;StartTime&quot;: &quot;2018-11-28T22:14:41.951Z&quot;,
+          &quot;Schedule&quot;: &quot;cron(0 0 12 ? * MON *)&quot;
+          }
+        ]
+      }
+    },
+    &quot;scalingRole&quot;: {
+      &quot;Type&quot;: &quot;AWS::IAM::Role&quot;,
+      &quot;Properties&quot;: {
+        &quot;AssumeRolePolicyDocument&quot;: {
+          &quot;Version&quot;: &quot;2012-10-17&quot;,
+          &quot;Statement&quot;: [
+            {
+              &quot;Effect&quot;: &quot;Allow&quot;,
+              &quot;Principal&quot;: {
+                &quot;Service&quot;: [&quot;application-autoscaling.amazonaws.com&quot;]
+              },
+              &quot;Action&quot;: [
+                &quot;sts:AssumeRole&quot;
+              ]
+            }
+          ]
+        },
+        &quot;Path&quot;: &quot;/&quot;,
+        &quot;Policies&quot;: [
+          {
+            &quot;PolicyName&quot;: &quot;root&quot;,
+            &quot;PolicyDocument&quot;: {
+              &quot;Version&quot;: &quot;2012-10-17&quot;,
+              &quot;Statement&quot;: [
+                {
+                  &quot;Effect&quot;: &quot;Allow&quot;,
+                  &quot;Action&quot;: &quot;*&quot;,
+                  &quot;Resource&quot;: &quot;*&quot;
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    &quot;cluster&quot;: {
+      &quot;Type&quot;: &quot;AWS::ECS::Cluster&quot;
+    },
+    &quot;taskdefinition&quot;: {
+      &quot;Type&quot;: &quot;AWS::ECS::TaskDefinition&quot;,
+      &quot;Properties&quot;: {
+        &quot;ContainerDefinitions&quot;: [
+          {
+            &quot;Name&quot;: {
+              &quot;Ref&quot;: &quot;AppName&quot;
+            },
+            &quot;MountPoints&quot;: [
+              {
+                &quot;SourceVolume&quot;: &quot;my-vol&quot;,
+                &quot;ContainerPath&quot;: &quot;/var/www/my-vol&quot;
+              }
+            ],
+            &quot;Image&quot;: &quot;amazon/amazon-ecs-sample&quot;,
+            &quot;Cpu&quot;: &quot;10&quot;,
+            &quot;PortMappings&quot;: [
+              {
+                &quot;ContainerPort&quot;: {
+                  &quot;Ref&quot;: &quot;AppContainerPort&quot;
+                },
+                &quot;HostPort&quot;: {
+                  &quot;Ref&quot;: &quot;AppHostPort&quot;
+                }
+              }
+            ],
+            &quot;EntryPoint&quot;: [
+              &quot;/usr/sbin/apache2&quot;,
+              &quot;-D&quot;,
+              &quot;FOREGROUND&quot;
+            ],
+            &quot;Memory&quot;: &quot;500&quot;,
+            &quot;Essential&quot;: &quot;true&quot;
+          },
+          {
+            &quot;Name&quot;: &quot;busybox&quot;,
+            &quot;Image&quot;: &quot;busybox&quot;,
+            &quot;Cpu&quot;: &quot;10&quot;,
+            &quot;EntryPoint&quot;: [
+              &quot;sh&quot;,
+              &quot;-c&quot;
+            ],
+            &quot;Memory&quot;: &quot;500&quot;,
+            &quot;Command&quot;: [
+              &quot;/bin/sh -c \&quot;while true; do /bin/date &gt; /var/www/my-vol/date; sleep 1; done\&quot;&quot;
+            ],
+            &quot;Essential&quot;: &quot;false&quot;,
+            &quot;VolumesFrom&quot;: [
+              {
+                &quot;SourceContainer&quot;: {
+                  &quot;Ref&quot;: &quot;AppName&quot;
+                }
+              }
+            ]
+          }
+        ],
+        &quot;Volumes&quot;: [
+          {
+            &quot;Host&quot;: {
+              &quot;SourcePath&quot;: &quot;/var/lib/docker/vfs/dir/&quot;
+            },
+            &quot;Name&quot;: &quot;my-vol&quot;
+          }
+        ]
+      }
+    },
+    &quot;service&quot;: {
+      &quot;Type&quot;: &quot;AWS::ECS::Service&quot;,
+      &quot;Properties&quot;: {
+        &quot;Cluster&quot;: {
+          &quot;Ref&quot;: &quot;cluster&quot;
+        },
+        &quot;DesiredCount&quot;: 0,
+        &quot;TaskDefinition&quot;: {
+          &quot;Ref&quot;: &quot;taskdefinition&quot;
+        }
+      }
+    }
+  },
+  &quot;Outputs&quot; : {
+    &quot;resourceId&quot; : {
+      &quot;Description&quot; : &quot;ResourceId&quot;,
+      &quot;Value&quot; : {&quot;Fn::Join&quot; : [ &quot;/&quot; , [&quot;service&quot;, {&quot;Ref&quot; : &quot;cluster&quot;}, {&quot;Fn::GetAtt&quot; : [&quot;service&quot;, &quot;Name&quot;]}]]}
+    }
+  }
+}</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        <h4 id=".yaml">YAML</h4>
+                        
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">AWSTemplateFormatVersion: 2010-09-09
+Description: Creating ECS service
+Parameters:
+  AppName:
+    Type: String
+    Description: Name of app requiring ELB exposure
+    Default: simple-app
+  AppContainerPort:
+    Type: Number
+    Description: Container port of app requiring ELB exposure
+    Default: &apos;80&apos;
+  AppHostPort:
+    Type: Number
+    Description: Host port of app requiring ELB exposure
+    Default: &apos;80&apos;
+Resources:
+  scalableTarget:
+    Type: &apos;AWS::ApplicationAutoScaling::ScalableTarget&apos;
+    Properties:
+      ResourceId: !Join 
+        - /
+        - - service
+          - !Ref cluster
+          - !GetAtt service.Name
+      ServiceNamespace: ecs
+      ScalableDimension: &apos;ecs:service:DesiredCount&apos;
+      RoleARN: !GetAtt 
+        - scalingRole
+        - Arn
+      MaxCapacity: &apos;2&apos;
+      MinCapacity: &apos;1&apos;
+      ScheduledActions:
+        - EndTime: &apos;2018-12-04T22:14:41.951Z&apos;
+          ScalableTargetAction:
+            MaxCapacity: &apos;2&apos;
+            MinCapacity: &apos;1&apos;
+          ScheduledActionName: First
+          StartTime: &apos;2018-11-28T22:14:41.951Z&apos;
+          Schedule: cron(0 0 12 ? * MON *)
+  scalingRole:
+    Type: &apos;AWS::IAM::Role&apos;
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service:
+                - application-autoscaling.amazonaws.com
+            Action:
+              - &apos;sts:AssumeRole&apos;
+      Path: /
+      Policies:
+        - PolicyName: root
+          PolicyDocument:
+            Version: 2012-10-17
+            Statement:
+              - Effect: Allow
+                Action: &apos;*&apos;
+                Resource: &apos;*&apos;
+  cluster:
+    Type: &apos;AWS::ECS::Cluster&apos;
+  taskdefinition:
+    Type: &apos;AWS::ECS::TaskDefinition&apos;
+    Properties:
+      ContainerDefinitions:
+        - Name: !Ref AppName
+          MountPoints:
+            - SourceVolume: my-vol
+              ContainerPath: /var/www/my-vol
+          Image: amazon/amazon-ecs-sample
+          Cpu: &apos;10&apos;
+          PortMappings:
+            - ContainerPort: !Ref AppContainerPort
+              HostPort: !Ref AppHostPort
+          EntryPoint:
+            - /usr/sbin/apache2
+            - &apos;-D&apos;
+            - FOREGROUND
+          Memory: &apos;500&apos;
+          Essential: &apos;true&apos;
+        - Name: busybox
+          Image: busybox
+          Cpu: &apos;10&apos;
+          EntryPoint:
+            - sh
+            - &apos;-c&apos;
+          Memory: &apos;500&apos;
+          Command:
+            - &gt;-
+              /bin/sh -c &quot;while true; do /bin/date &gt; /var/www/my-vol/date; sleep
+              1; done&quot;
+          Essential: &apos;false&apos;
+          VolumesFrom:
+            - SourceContainer: !Ref AppName
+      Volumes:
+        - Host:
+            SourcePath: /var/lib/docker/vfs/dir/
+          Name: my-vol
+  service:
+    Type: &apos;AWS::ECS::Service&apos;
+    Properties:
+      Cluster: !Ref cluster
+      DesiredCount: 0
+      TaskDefinition: !Ref taskdefinition
+Outputs:
+  resourceId:
+    Description: ResourceId
+    Value: !Join 
+      - /
+      - - service
+        - !Ref cluster
+        - !GetAtt service.Name
+</code></pre>
                         </div></div>
 </body>
 </html>
