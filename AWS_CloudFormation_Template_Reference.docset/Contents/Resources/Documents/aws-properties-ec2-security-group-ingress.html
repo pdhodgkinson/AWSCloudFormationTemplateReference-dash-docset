@@ -23,7 +23,7 @@
                         <p><strong>Topics</strong></p>
                         <ul>
                            <li><a href="#aws-resource-ec2-securitygroupingress-syntax">Syntax</a></li>
-                           <li><a href="#w2ab2c21c10d466c11">Properties</a></li>
+                           <li><a href="#w2ab2c21c10d486c11">Properties</a></li>
                            <li><a href="#aws-properties-ec2-security-group-ingress-examples">Examples</a></li>
                         </ul>
                      </div><h2 id="aws-resource-ec2-securitygroupingress-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
@@ -63,7 +63,7 @@ Properties:
   <a href="aws-properties-ec2-security-group-ingress.html#cfn-ec2-security-group-ingress-sourcesecuritygroupownerid"><code class="literal">SourceSecurityGroupOwnerId</code></a>: <em class="replaceable"><code>String</code></em>
   <a href="aws-properties-ec2-security-group-ingress.html#cfn-ec2-security-group-ingress-toport"><code class="literal">ToPort</code></a>: <em class="replaceable"><code>Integer</code></em>
 </code></pre>
-                        </div><h2 id="w2ab2c21c10d466c11">Properties</h2><p>For more information about adding ingress rules to Amazon EC2 or VPC security groups,
+                        </div><h2 id="w2ab2c21c10d486c11">Properties</h2><p>For more information about adding ingress rules to Amazon EC2 or VPC security groups,
                         see
                         <a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AuthorizeSecurityGroupIngress.html" target="_blank">AuthorizeSecurityGroupIngress</a> in the <em>Amazon EC2 API Reference</em>.
                      </p><div class="aws-note">
@@ -320,7 +320,7 @@ Properties:
                            </dd>
                            
                         </dl>
-                     </div><h2 id="aws-properties-ec2-security-group-ingress-examples">Examples</h2><h3 id="w2ab2c21c10d466c13b2">EC2 Security Group and Ingress Rule</h3><p>To create an Amazon EC2 (non-VPC) security group and an ingress rule, use the <code class="code">SourceSecurityGroupName</code> property in the ingress rule.
+                     </div><h2 id="aws-properties-ec2-security-group-ingress-examples">Examples</h2><h3 id="w2ab2c21c10d486c13b2">EC2 Security Group and Ingress Rule</h3><p>To create an Amazon EC2 (non-VPC) security group and an ingress rule, use the <code class="code">SourceSecurityGroupName</code> property in the ingress rule.
                      </p><p>The following template snippet creates an EC2 security group with an ingress rule
                         that allows incoming traffic on port 80 from any other host in the security group.
                         The snippet uses the intrinsic function <a href="intrinsic-function-reference-ref.html"><code class="code">Ref</code></a> to specify the value for SourceSecurityGroupName.
@@ -382,7 +382,7 @@ Resources:
       FromPort: &apos;80&apos;
       ToPort: &apos;80&apos;
       SourceSecurityGroupName: !Ref SGBase</code></pre>
-                        </div><h3 id="w2ab2c21c10d466c13b4">VPC Security Groups with Egress and Ingress Rules</h3><p>In some cases, you might have an originating (source) security group to which you
+                        </div><h3 id="w2ab2c21c10d486c13b4">VPC Security Groups with Egress and Ingress Rules</h3><p>In some cases, you might have an originating (source) security group to which you
                         want to add an outbound rule that allows traffic to a destination (target) security
                         group. The target security group also needs an inbound rule that allows traffic from
                         the source security group. Note that you cannot use the <code class="code">Ref</code> function to specify the outbound and inbound rules for each security group. Doing
@@ -494,7 +494,7 @@ Resources:
         Fn::GetAtt:
         - TargetSG
         - GroupId</code></pre>
-                        </div><h3 id="w2ab2c21c10d466c13b6">Allow Ping Requests</h3><p>To allow ping requests, add the ICMP protocol type and specify <code class="code">8</code> (echo request) for the ICMP type and either <code class="code">0</code> or <code class="code">-1</code> (all) for the ICMP code.
+                        </div><h3 id="w2ab2c21c10d486c13b6">Allow Ping Requests</h3><p>To allow ping requests, add the ICMP protocol type and specify <code class="code">8</code> (echo request) for the ICMP type and either <code class="code">0</code> or <code class="code">-1</code> (all) for the ICMP code.
                      </p><div id="JSON" name="JSON" class="section langfilter">
                         <h4 id="aws-resource-ec2-securitygroupingress-example-3.json">JSON</h4>
                         

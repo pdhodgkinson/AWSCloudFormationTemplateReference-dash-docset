@@ -16,9 +16,9 @@
                         <p><strong>Topics</strong></p>
                         <ul>
                            <li><a href="#aws-resource-codedeploy-deploymentgroup-syntax">Syntax</a></li>
-                           <li><a href="#w2ab2c21c10d250b9">Properties</a></li>
-                           <li><a href="#w2ab2c21c10d250c11">Return Value</a></li>
-                           <li><a href="#w2ab2c21c10d250c13">Examples</a></li>
+                           <li><a href="#w2ab2c21c10d266b9">Properties</a></li>
+                           <li><a href="#w2ab2c21c10d266c11">Return Value</a></li>
+                           <li><a href="#w2ab2c21c10d266c13">Examples</a></li>
                         </ul>
                      </div><h2 id="aws-resource-codedeploy-deploymentgroup-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
                         <h3 id="aws-resource-codedeploy-deploymentgroup-syntax.json">JSON</h3>
@@ -69,7 +69,7 @@ Properties:
   <a href="aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-triggerconfigurations"><code class="code">TriggerConfigurations</code></a>:
     - <a href="aws-properties-codedeploy-deploymentgroup-triggerconfig.html"><em class="replaceable"><code>TriggerConfig</code></em></a>
 </code></pre>
-                        </div><h2 id="w2ab2c21c10d250b9">Properties</h2><div class="variablelist">
+                        </div><h2 id="w2ab2c21c10d266b9">Properties</h2><div class="variablelist">
                         
                         
                         
@@ -393,11 +393,11 @@ Properties:
                            </dd>
                            
                         </dl>
-                     </div><h2 id="w2ab2c21c10d250c11">Return Value</h2><h3 id="w2ab2c21c10d250c11b2">Ref</h3><p>When you pass the logical ID of an <code class="code">AWS::CodeDeploy::DeploymentGroup</code>
+                     </div><h2 id="w2ab2c21c10d266c11">Return Value</h2><h3 id="w2ab2c21c10d266c11b2">Ref</h3><p>When you pass the logical ID of an <code class="code">AWS::CodeDeploy::DeploymentGroup</code>
                         resource to the intrinsic <code class="code">Ref</code> function, the function returns the
                         deployment group name, such as <code class="code">mydeploymentgroup-a123d0d1</code>.
                      </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                     </p><h2 id="w2ab2c21c10d250c13">Examples</h2><h3 id="w2ab2c21c10d250c13b2">Revision in GitHub</h3><p>The following example creates a deployment group that is associated with Auto Scaling
+                     </p><h2 id="w2ab2c21c10d266c13">Examples</h2><h3 id="w2ab2c21c10d266c13b2">Revision in GitHub</h3><p>The following example creates a deployment group that is associated with Auto Scaling
                         groups and
                         uses an application revision that is stored in a GitHub repository. You specify the
                         repository information as input parameters.
@@ -420,7 +420,12 @@ Properties:
         }
       }
     },
-    &quot;ServiceRoleArn&quot; : {&quot;Ref&quot; : &quot;RoleArn&quot;}
+    &quot;ServiceRoleArn&quot; : {
+      &quot;Fn::GetAtt&quot; : [
+        &quot;RoleArn&quot;, 
+        &quot;Arn&quot;
+      ]
+    }
   }
 }</code></pre>
                         </div><div id="YAML" name="YAML" class="section langfilter">
@@ -444,8 +449,8 @@ Properties:
           Repository: 
             Ref: Repository
     ServiceRoleArn: 
-      Ref: RoleArn</code></pre>
-                        </div><h3 id="w2ab2c21c10d250c13b4">Associate EC2 Instances</h3><p>The following example creates a deployment group that uses instance tags to associate
+      Fn::GetAtt: [ RoleArn, Arn ]</code></pre>
+                        </div><h3 id="w2ab2c21c10d266c13b4">Associate EC2 Instances</h3><p>The following example creates a deployment group that uses instance tags to associate
                         EC2 instances with the deployment group. The deployment group uses an application
                         revision
                         that is stored in an S3 bucket.
@@ -475,7 +480,12 @@ Properties:
       &quot;Value&quot; : {&quot;Ref&quot; : &quot;TagValue&quot;},
       &quot;Type&quot; : &quot;KEY_AND_VALUE&quot;
     }],
-    &quot;ServiceRoleArn&quot; : {&quot;Ref&quot; : &quot;RoleArn&quot;}
+    &quot;ServiceRoleArn&quot; : { 
+      &quot;Fn::GetAtt&quot; : [ 
+        &quot;RoleArn&quot;, 
+        &quot;Arn&quot; 
+      ] 
+    } 
   }
 }</code></pre>
                         </div><div id="YAML" name="YAML" class="section langfilter">
@@ -509,8 +519,8 @@ Properties:
           Ref: TagValue
         Type: &quot;KEY_AND_VALUE&quot;
     ServiceRoleArn: 
-      Ref: RoleArn</code></pre>
-                        </div><h3 id="w2ab2c21c10d250c13b6">Alarm and Trigger</h3><p>The following example configures a billing alarm and a notification trigger for the
+      Fn::GetAtt: [ RoleArn, Arn ]</code></pre>
+                        </div><h3 id="w2ab2c21c10d266c13b6">Alarm and Trigger</h3><p>The following example configures a billing alarm and a notification trigger for the
                         deployment group.
                      </p><div id="JSON" name="JSON" class="section langfilter">
                         <h4 id="aws-resource-codedeploy-deploymentgroup-example3.json">JSON</h4>
@@ -615,7 +625,10 @@ Properties:
           }
         ],
         &quot;ServiceRoleArn&quot;: {
-          &quot;Ref&quot;: &quot;CodeDeployServiceRole&quot;
+          &quot;Fn::GetAtt&quot;: [
+            &quot;CodeDeployServiceRole&quot;, 
+            &quot;Arn&quot;
+          ]
         },
         &quot;TriggerConfigurations&quot;: [
           {
@@ -693,14 +706,14 @@ Resources:
           Type: KEY_ONLY
         - Value: !Ref EC2TagValue1
           Type: VALUE_ONLY
-      ServiceRoleArn: !Ref CodeDeployServiceRole
+      ServiceRoleArn: !GetAtt CodeDeployServiceRole.Arn
       TriggerConfigurations:
         - TriggerEvents:
             - DeploymentSuccess
             - DeploymentRollback
           TriggerName: MyTarget
           TriggerTargetArn: !Ref mySNSTopic</code></pre>
-                        </div><h3 id="w2ab2c21c10d250c13b8">Automatic Rollback Configuration</h3><p>The following example configures automatic rollback for the deployment group.</p><div id="JSON" name="JSON" class="section langfilter">
+                        </div><h3 id="w2ab2c21c10d266c13b8">Automatic Rollback Configuration</h3><p>The following example configures automatic rollback for the deployment group.</p><div id="JSON" name="JSON" class="section langfilter">
                         
                         <h4 id="aws-resource-codedeploy-deploymentgroup-example4.json">JSON</h4>
                         <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">{
@@ -804,7 +817,10 @@ Resources:
           }
         ],
         &quot;ServiceRoleArn&quot;: {
-          &quot;Ref&quot;: &quot;CodeDeployServiceRole&quot;
+          &quot;Fn::GetAtt&quot;: [
+            &quot;CodeDeployServiceRole&quot;,
+            &quot;Arn&quot;
+          ]
         },
         &quot;TriggerConfigurations&quot;: [
           {
@@ -880,7 +896,7 @@ Resources:
           Type: KEY_ONLY
         - Value: !Ref EC2TagValue1
           Type: VALUE_ONLY
-      ServiceRoleArn: !Ref CodeDeployServiceRole
+      ServiceRoleArn: !GetAtt CodeDeployServiceRole.Arn
       TriggerConfigurations:
         - TriggerEvents:
             - DeploymentSuccess
@@ -888,7 +904,7 @@ Resources:
           TriggerName: MyTarget
           TriggerTargetArn: !Ref mySNSTopic
 </code></pre>
-                        </div><h3 id="w2ab2c21c10d250c13c10">Load Balancer</h3><p>The following example configures an Elastic Load Balancing load balancer for the deployment
+                        </div><h3 id="w2ab2c21c10d266c13c10">Load Balancer</h3><p>The following example configures an Elastic Load Balancing load balancer for the deployment
                         group.
                      </p><div id="JSON" name="JSON" class="section langfilter">
                         
@@ -1013,7 +1029,10 @@ Resources:
           &quot;DeploymentOption&quot;: &quot;WITH_TRAFFIC_CONTROL&quot;
         },
         &quot;ServiceRoleArn&quot;: {
-          &quot;Ref&quot;: &quot;CodeDeployServiceRole&quot;
+          &quot;Fn::GetAtt&quot;: [
+            &quot;CodeDeployServiceRole&quot;, 
+            &quot;Arn&quot;
+          ]
         },
         &quot;TriggerConfigurations&quot;: [
           {
@@ -1110,7 +1129,7 @@ Resources:
           - Name: !Ref myELB
       DeploymentStyle:
         DeploymentOption: WITH_TRAFFIC_CONTROL
-      ServiceRoleArn: !Ref CodeDeployServiceRole
+      ServiceRoleArn: !GetAtt CodeDeployServiceRole.Arn
       TriggerConfigurations:
         - TriggerEvents:
             - DeploymentSuccess
@@ -1122,7 +1141,7 @@ Outputs:
     Description: ELB for DeploymentGroup
     Value: !Ref myELB
 </code></pre>
-                        </div><h3 id="w2ab2c21c10d250c13c12">Target Group Info</h3><p>The following example specifies the target group to use in a deployment. Instances
+                        </div><h3 id="w2ab2c21c10d266c13c12">Target Group Info</h3><p>The following example specifies the target group to use in a deployment. Instances
                         are registered as targets in a target group, and traffic is routed to the target group.
                      </p><div id="JSON" name="JSON" class="section langfilter">
                         

@@ -8,8 +8,7 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-properties-as-group">AWS::AutoScaling::AutoScalingGroup</h1><p>The <code class="code">AWS::AutoScaling::AutoScalingGroup</code> type creates an Auto Scaling group.
-                     </p><p>You can add an <a href="aws-attribute-updatepolicy.html">UpdatePolicy</a> attribute to your Auto Scaling group to control how
+    <h1 class="topictitle" id="aws-properties-as-group">AWS::AutoScaling::AutoScalingGroup</h1><p>Creates an Auto Scaling group.</p><p>You can add an <a href="aws-attribute-updatepolicy.html">UpdatePolicy</a> attribute to your Auto Scaling group to control how
                         rolling updates are performed when a change has been made to the Auto Scaling group&apos;s
                         <a href="aws-properties-as-launchconfig.html">launch configuration</a> or <a href="aws-properties-as-group.html#cfn-as-group-vpczoneidentifier">subnet group membership</a>.
                      </p><div class="highlights" id="inline-topiclist">
@@ -18,8 +17,8 @@
                            <li><a href="#aws-resource-autoscaling-autoscalinggroup-syntax">Syntax</a></li>
                            <li><a href="#aws-properties-as-group-prop">Properties</a></li>
                            <li><a href="#aws-properties-as-group-ref">Return Value</a></li>
-                           <li><a href="#w2ab2c21c10d130c15">Examples</a></li>
-                           <li><a href="#w2ab2c21c10d130c17">See Also</a></li>
+                           <li><a href="#w2ab2c21c10d138c15">Examples</a></li>
+                           <li><a href="#w2ab2c21c10d138c17">See Also</a></li>
                         </ul>
                      </div><h2 id="aws-resource-autoscaling-autoscalinggroup-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
                         <h3 id="aws-resource-autoscaling-autoscalinggroup-syntax.json">JSON</h3>
@@ -44,6 +43,7 @@
       &quot;<a href="aws-properties-as-group.html#cfn-as-group-minsize">MinSize</a>&quot; : <em class="replaceable"><code>String</code></em>,
       &quot;<a href="aws-properties-as-group.html#cfn-as-group-notificationconfigurations"><code class="literal">NotificationConfigurations</code></a>&quot; : [ <a href="aws-properties-as-notificationconfigurations.html"><em class="replaceable"><code>NotificationConfiguration</code></em></a>, ... ],
       &quot;<a href="aws-properties-as-group.html#cfn-as-group-placementgroup"><code class="literal">PlacementGroup</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="aws-properties-as-group.html#cfn-autoscaling-autoscalinggroup-servicelinkedrolearn"><code class="literal">ServiceLinkedRoleARN</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
       &quot;<a href="aws-properties-as-group.html#cfn-as-group-tags"><code class="code">Tags</code></a>&quot; : [ <a href="aws-properties-as-tags.html"><em class="replaceable"><code>TagProperty</code></em></a>, ... ],
       &quot;<a href="aws-properties-as-group.html#cfn-as-group-targetgrouparns"><code class="code">TargetGroupARNs</code></a>&quot; : [ <em class="replaceable"><code>String, ...</code></em> ],
       &quot;<a href="aws-properties-as-group.html#cfn-as-group-termpolicy"><code class="code">TerminationPolicies</code></a>&quot; : [ <em class="replaceable"><code>String</code></em>, ... ],
@@ -76,6 +76,7 @@ Properties:
   <a href="aws-properties-as-group.html#cfn-as-group-notificationconfigurations"><code class="literal">NotificationConfigurations</code></a>:
     - <a href="aws-properties-as-notificationconfigurations.html"><em class="replaceable"><code>NotificationConfiguration</code></em></a>
   <a href="aws-properties-as-group.html#cfn-as-group-placementgroup"><code class="literal">PlacementGroup</code></a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-properties-as-group.html#cfn-autoscaling-autoscalinggroup-servicelinkedrolearn"><code class="literal">ServiceLinkedRoleARN</code></a>: <em class="replaceable"><code>String</code></em>
   <a href="aws-properties-as-group.html#cfn-as-group-tags"><code class="code">Tags</code></a>:
     - <a href="aws-properties-as-tags.html"><em class="replaceable"><code>TagProperty</code></em></a>
   <a href="aws-properties-as-group.html#cfn-as-group-targetgrouparns"><code class="code">TargetGroupARNs</code></a>:
@@ -104,6 +105,9 @@ Properties:
                         
                         
                             
+                        
+                        
+                        
                         
                         
                         
@@ -274,7 +278,7 @@ Properties:
                                  <code class="code">AssociatePublicIpAddress</code>.
                               </p>
                               
-                              <p><em>Required</em>: Conditional. You must specify one of the following: <code class="code">InstanceId</code> or <code class="code">LaunchConfigurationName</code>.  
+                              <p><em>Required</em>: Conditional. You must specify one of the following: <code class="code">InstanceId</code>, <code class="code">LaunchConfigurationName</code>, or <code class="code">LaunchTemplate</code>. 
                               </p>
                               
                               <p><em>Type</em>: String
@@ -301,7 +305,7 @@ Properties:
                                  </p>
                               </div>
                               
-                              <p><em>Required</em>: Conditional. You must specify one of the following: <code class="code">InstanceId</code> or <code class="code">LaunchConfigurationName</code>.  
+                              <p><em>Required</em>: Conditional. You must specify one of the following: <code class="code">InstanceId</code>, <code class="code">LaunchConfigurationName</code> or <code class="code">LaunchTemplate</code>.
                               </p>
                               
                               <p><em>Type</em>: String
@@ -330,9 +334,18 @@ Properties:
                               <p><em>Required</em>: Conditional. You must specify one of the following: <code class="code">InstanceId</code>, <code class="code">LaunchConfigurationName</code>, or <code class="code">LaunchTemplate</code>.
                               </p>
                               
-                              <p><em>Type</em>: <a href="aws-properties-autoscaling-autoscalinggroup-launchtemplatespecification.html">Auto Scaling  AutoScalingGroup LaunchTemplateSpecification</a></p>
+                              <p><em>Type</em>: <a href="aws-properties-autoscaling-autoscalinggroup-launchtemplatespecification.html">Amazon EC2 Auto Scaling AutoScalingGroup LaunchTemplateSpecification</a></p>
                               
                               <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                              <div class="aws-note">
+                                 <p class="aws-note">Important</p>
+                                 <p>When you update the <code class="code">LaunchTemplate</code>, existing Amazon EC2
+                                    instances continue to run with the configuration that they were originally
+                                    launched with. To update existing instances, specify an update policy attribute
+                                    for this Auto Scaling group. For more information, see <a href="aws-attribute-updatepolicy.html">UpdatePolicy</a>.
+                                 </p>
+                              </div>
                               
                            </dd>
                            
@@ -343,14 +356,14 @@ Properties:
                               
                               <p>The lifecycle hooks for the group, which specify actions to perform when Auto Scaling
                                  launches or terminates instances. 
-                                 For more information, see <a href="http://docs.aws.amazon.com/autoscaling/latest/userguide/lifecycle-hooks.html" target="_blank">
-                                    Auto Scaling Lifecycle Hooks</a> in the <em>Auto Scaling User Guide</em>.
+                                 For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/lifecycle-hooks.html" target="_blank">
+                                    Amazon EC2 Auto Scaling Lifecycle Hooks</a> in the <em>Amazon EC2 Auto Scaling User Guide</em>.
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
                               
-                              <p><em>Type</em>: List of <a href="aws-properties-autoscaling-autoscalinggroup-lifecyclehookspecification.html">Auto Scaling AutoScalingGroup LifecycleHookSpecification</a></p>
+                              <p><em>Type</em>: List of <a href="aws-properties-autoscaling-autoscalinggroup-lifecyclehookspecification.html">Amazon EC2 Auto Scaling AutoScalingGroup LifecycleHookSpecification</a></p>
                               
                               <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                               
@@ -402,7 +415,7 @@ Properties:
                               <p><em>Required</em>: No
                               </p>
                               
-                              <p><em>Type</em>: A list of  <a href="aws-properties-as-metricscollection.html">Auto Scaling AutoScalingGroup MetricsCollection</a></p>
+                              <p><em>Type</em>: A list of  <a href="aws-properties-as-metricscollection.html">Amazon EC2 Auto Scaling AutoScalingGroup MetricsCollection</a></p>
                               
                               <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                               
@@ -466,20 +479,43 @@ Properties:
                            </dd>
                            
                            
+                           <dt><a id="cfn-autoscaling-autoscalinggroup-servicelinkedrolearn"></a><span class="term"><code class="literal">ServiceLinkedRoleARN</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The Amazon Resource Name (ARN) of the service-linked role that the Auto Scaling group
+                                 uses to call other AWS services on your behalf. By default, Auto Scaling uses a service-linked
+                                 role named AWSServiceRoleForAutoScaling, which it creates if it does not exist.
+                              </p>
+                              
+                              <p>Length Constraints: Minimum length of 1. Maximum length of 1600.</p>
+                              
+                              <p>Pattern: [\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*</p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
                            <dt><a id="cfn-as-group-tags"></a><span class="term"><code class="code">Tags</code></span></dt>
                            
                            <dd>
                               
                               <p>The Auto Scaling tags to attach to this resource. 
-                                 For more information about Auto Scaling tags, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/ASTagging.html" target="_blank">Tagging
-                                    Auto Scaling Groups and Amazon EC2 Instances</a> in the
-                                 <em>Amazon EC2 Auto Scaling User Guide</em>.
+                                 For more information about Auto Scaling tags, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-tagging.html" target="_blank">Tagging
+                                    Auto Scaling Groups and Instances</a> in the <em>Amazon EC2 Auto Scaling User Guide</em>.
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
                               
-                              <p><em>Type</em>: List of <a href="aws-properties-as-tags.html">Auto Scaling AutoScalingGroup TagProperty</a></p>
+                              <p><em>Type</em>: List of <a href="aws-properties-as-tags.html">Amazon EC2 Auto Scaling AutoScalingGroup TagProperty</a></p>
                               
                               <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                               
@@ -514,7 +550,7 @@ Properties:
                               </p>
                               
                               <p> For more information on configuring a termination policy for your Auto Scaling group,
-                                 see <a href="http://docs.aws.amazon.com/autoscaling/latest/userguide/as-instance-termination.html" target="_blank">Instance Termination Policy for Your Auto Scaling Group</a> in the <em>Amazon EC2 Auto Scaling User Guide</em>. 
+                                 see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html" target="_blank">Controlling Which Auto Scaling Instances Terminate During Scale In</a> in the <em>Amazon EC2 Auto Scaling User Guide</em>. 
                               </p>
                               
                               <p><em>Required</em>: No
@@ -539,7 +575,7 @@ Properties:
                                  Zones.
                               </p>
                               
-                              <p>For more information, go to <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/autoscalingsubnets.html" target="_blank">Using EC2 Dedicated Instances Within Your VPC</a> in the
+                              <p>For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html" target="_blank">Launching Auto Scaling Instances in a VPC</a> in the
                                  <em>Amazon EC2 Auto Scaling User Guide</em>.
                               </p>
                               
@@ -569,8 +605,8 @@ Properties:
                         <code class="code">MyASGroup</code> Auto Scaling group, such as
                         <code class="code">mystack-myasgroup-NT5EUXTNTXXD</code>.
                      </p><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">{ &quot;Ref&quot;: &quot;MyASGroup&quot; }</code></pre><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                     </p><h2 id="w2ab2c21c10d130c15">Examples</h2><p>To view more Auto Scaling examples, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-autoscaling.html">Auto Scaling Template Snippets</a>.
-                     </p><h3 id="w2ab2c21c10d130c15b4">Auto Scaling Group with an Elastic Load Balancing Load Balancer, Launch Configuration,
+                     </p><h2 id="w2ab2c21c10d138c15">Examples</h2><p>To view more Auto Scaling examples, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-autoscaling.html">Auto Scaling Template Snippets</a>.
+                     </p><h3 id="w2ab2c21c10d138c15b4">Auto Scaling Group with an Elastic Load Balancing Load Balancer, Launch Configuration,
                         and
                         Metric Collection
                      </h3><div id="JSON" name="JSON" class="section langfilter">
@@ -615,7 +651,7 @@ Properties:
         Metrics: 
           - &quot;GroupMinSize&quot;
           - &quot;GroupMaxSize&quot;</code></pre>
-                        </div><h3 id="w2ab2c21c10d130c15b6">Batch Update Instances in an Auto Scaling Group</h3><p>The following example shows how to configure updates by including an <a href="aws-attribute-updatepolicy.html">UpdatePolicy</a>
+                        </div><h3 id="w2ab2c21c10d138c15b6">Batch Update Instances in an Auto Scaling Group</h3><p>The following example shows how to configure updates by including an <a href="aws-attribute-updatepolicy.html">UpdatePolicy</a>
                         attribute. The attribute contains an <code class="code">AutoScalingRollingUpdate</code> embedded
                         object with three attributes that specify the update policy settings.
                      </p><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">
@@ -634,7 +670,7 @@ Properties:
       &quot;MaxSize&quot; : &quot;3&quot;,
       &quot;MinSize&quot; : &quot;1&quot;
    }
-}</code></pre><h3 id="w2ab2c21c10d130c15b8">Auto Scaling Group Wait on Signals From New Instances</h3><p>In the following example, the Auto Scaling group waits for new Amazon EC2 instances
+}</code></pre><h3 id="w2ab2c21c10d138c15b8">Auto Scaling Group Wait on Signals From New Instances</h3><p>In the following example, the Auto Scaling group waits for new Amazon EC2 instances
                         to signal the
                         group before Auto Scaling proceeds to update the next batch of instances. In the <a href="aws-attribute-updatepolicy.html">UpdatePolicy</a>
                         attribute, the <code class="code">WaitOnResourceSignals</code> flag is set to <code class="code">true</code>. You
@@ -679,7 +715,7 @@ Properties:
       Ref: &quot;ASLC&quot;
     MaxSize: &quot;3&quot;
     MinSize: &quot;1&quot;</code></pre>
-                        </div><h2 id="w2ab2c21c10d130c17">See Also</h2><div class="itemizedlist">
+                        </div><h2 id="w2ab2c21c10d138c17">See Also</h2><div class="itemizedlist">
                         
                         
                         
@@ -692,7 +728,7 @@ Properties:
                            </li>
                            <li class="listitem">
                               
-                              <p><a href="http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_UpdateAutoScalingGroup.html" target="_blank">UpdateAutoScalingGroup</a> in the <em>Auto Scaling API Reference</em></p>
+                              <p><a href="http://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_UpdateAutoScalingGroup.html" target="_blank">UpdateAutoScalingGroup</a> in the <em>Amazon EC2 Auto Scaling API Reference</em></p>
                               
                            </li>
                            <li class="listitem">

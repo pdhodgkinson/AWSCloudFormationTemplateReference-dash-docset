@@ -28,7 +28,7 @@
                            <li><a href="#aws-properties-bucket-prop">Properties</a></li>
                            <li><a href="#aws-properties-bucket-ref">Return Values</a></li>
                            <li><a href="#aws-resource-s3-bucket-examples">Examples</a></li>
-                           <li><a href="#w2ab2c21c10d997c19">More Info</a></li>
+                           <li><a href="#w2ab2c21c10e1046c19">More Info</a></li>
                         </ul>
                      </div><h2 id="aws-resource-s3-bucket-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
                         <h3 id="aws-resource-s3-bucket-syntax.json">JSON</h3>
@@ -181,8 +181,8 @@ Properties:
                            
                            <dd>
                               
-                              <p>Specifies default encryption for a bucket using server-side encryption with Amazon
-                                 S3-managed keys SSE-S3 or AWS KMS-managed Keys (SSE-KMS) bucket..
+                              <p>Specifies default encryption for a bucket using server-side encryption with either
+                                 Amazon S3-managed keys (SSE-S3) or AWS KMS-managed keys (SSE-KMS).
                               </p>
                               
                               <p><em>Required</em>: No
@@ -434,11 +434,11 @@ Properties:
                            </dd>
                            
                         </dl>
-                     </div><h2 id="aws-properties-bucket-ref">Return Values</h2><h3 id="w2ab2c21c10d997c15b2">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code> intrinsic
+                     </div><h2 id="aws-properties-bucket-ref">Return Values</h2><h3 id="w2ab2c21c10e1046c15b2">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code> intrinsic
                         function, <code class="code">Ref</code> returns the resource name.
                      </p><p>Example: <code class="code">mystack-mybucket-kdwwxmddtr2g</code>.
                      </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                     </p><h3 id="w2ab2c21c10d997c15b4">Fn::GetAtt</h3><p><code class="code">Fn::GetAtt</code> returns a value for a specified attribute of this type.
+                     </p><h3 id="w2ab2c21c10e1046c15b4">Fn::GetAtt</h3><p><code class="code">Fn::GetAtt</code> returns a value for a specified attribute of this type.
                         The following are the available attributes and sample return values.
                      </p><div class="variablelist">
                         
@@ -505,13 +505,13 @@ Properties:
                            
                         </dl>
                      </div><p>For more information about using <code class="code">Fn::GetAtt</code>, see <a href="intrinsic-function-reference-getatt.html">Fn::GetAtt</a>.
-                     </p><h2 id="aws-resource-s3-bucket-examples">Examples</h2><h3 id="w2ab2c21c10d997c17b2">Associate a Replication Configuration IAM Role with an S3 Bucket</h3><p>The following example creates an S3 bucket and grants it permission to write to a
+                     </p><h2 id="aws-resource-s3-bucket-examples">Examples</h2><h3 id="w2ab2c21c10e1046c17b2">Associate a Replication Configuration IAM Role with an S3 Bucket</h3><p>The following example creates an S3 bucket and grants it permission to write to a
                         replication bucket by using an AWS Identity and Access Management (IAM) role. To avoid
                         a circular dependency, the
                         role&apos;s policy is declared as a separate resource. The bucket depends on the
                         <code class="code">WorkItemBucketBackupRole</code> role. If the policy is included in the role, the
                         role also depends on the bucket.
-                     </p><h4 id="w2ab2c21c10d997c17b2b4">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">&quot;RecordServiceS3Bucket&quot;: {
+                     </p><h4 id="w2ab2c21c10e1046c17b2b4">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">&quot;RecordServiceS3Bucket&quot;: {
   &quot;Type&quot;: &quot;AWS::S3::Bucket&quot;,
   &quot;DeletionPolicy&quot;: &quot;Retain&quot;,
   &quot;Properties&quot;: {
@@ -619,7 +619,7 @@ Properties:
       &quot;Ref&quot;: &quot;WorkItemBucketBackupRole&quot;
     }]
   }
-}</code></pre><h4 id="w2ab2c21c10d997c17b2b6">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">RecordServiceS3Bucket:
+}</code></pre><h4 id="w2ab2c21c10e1046c17b2b6">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">RecordServiceS3Bucket:
   Type: AWS::S3::Bucket
   DeletionPolicy: Retain
   Properties:
@@ -664,7 +664,7 @@ BucketBackupPolicy:
                 replicationbucket]], /*]]
     PolicyName: BucketBackupPolicy
     Roles: [!Ref &apos;WorkItemBucketBackupRole&apos;]
-</code></pre><h3 id="w2ab2c21c10d997c17b4">Configure a Static Website with a Routing Rule</h3><p>In this example, <code class="code">AWS::S3::Bucket&apos;s Fn::GetAtt</code> values are used to provide
+</code></pre><h3 id="w2ab2c21c10e1046c17b4">Configure a Static Website with a Routing Rule</h3><p>In this example, <code class="code">AWS::S3::Bucket&apos;s Fn::GetAtt</code> values are used to provide
                         outputs. If an HTTP 404 error occurs, the routing rule redirects requests to an EC2
                         instance
                         and inserts the object key prefix <code class="code">report-404/</code> in the redirect. For example, if
@@ -741,7 +741,7 @@ Outputs:
     Value: !Join [&apos;&apos;, [&apos;https://&apos;, !GetAtt [S3Bucket, DomainName]]]
     Description: Name of S3 bucket to hold website content
 </code></pre>
-                        </div><h3 id="w2ab2c21c10d997c17b6">Enable Cross-Origin Resource Sharing</h3><p>The following example template shows an S3 bucket with two cross-origin resource
+                        </div><h3 id="w2ab2c21c10e1046c17b6">Enable Cross-Origin Resource Sharing</h3><p>The following example template shows an S3 bucket with two cross-origin resource
                         sharing rules.
                      </p><div id="JSON" name="JSON" class="section langfilter">
                         <h4 id="aws-resource-s3-bucket-example2.json">JSON</h4>
@@ -832,7 +832,7 @@ Outputs:
     Value: !Ref &apos;S3Bucket&apos;
     Description: Name of the sample Amazon S3 bucket with CORS enabled.
 </code></pre>
-                        </div><h3 id="w2ab2c21c10d997c17b8">Manage the Lifecycle for Amazon S3 Objects</h3><p>The following example template shows an S3 bucket with a lifecycle configuration
+                        </div><h3 id="w2ab2c21c10e1046c17b8">Manage the Lifecycle for Amazon S3 Objects</h3><p>The following example template shows an S3 bucket with a lifecycle configuration
                         rule. The rule applies to all objects with the <code class="code">glacier</code> key prefix. The objects
                         are transitioned to Amazon Glacier after one day, and deleted after one year.
                      </p><div id="JSON" name="JSON" class="section langfilter">
@@ -895,7 +895,7 @@ Outputs:
   BucketName:
     Value: !Ref &apos;S3Bucket&apos;
     Description: Name of the sample Amazon S3 bucket with a lifecycle configuration.</code></pre>
-                        </div><h3 id="w2ab2c21c10d997c17c10">Log Access Requests for a Specific S3 Bucket</h3><p>The following example template creates two S3 buckets. The
+                        </div><h3 id="w2ab2c21c10e1046c17c10">Log Access Requests for a Specific S3 Bucket</h3><p>The following example template creates two S3 buckets. The
                         <code class="code">LoggingBucket</code> bucket store the logs from the <code class="code">S3Bucket</code> bucket. To
                         receive logs from the <code class="code">S3Bucket</code> bucket, the logging bucket requires log delivery
                         write permissions.
@@ -951,7 +951,7 @@ Outputs:
   BucketName:
     Value: !Ref &apos;S3Bucket&apos;
     Description: Name of the sample Amazon S3 bucket with a logging configuration.</code></pre>
-                        </div><h3 id="w2ab2c21c10d997c17c12">Receive S3 Bucket Notifications to an SNS Topic</h3><p>The following example template shows an S3 bucket with a notification
+                        </div><h3 id="w2ab2c21c10e1046c17c12">Receive S3 Bucket Notifications to an SNS Topic</h3><p>The following example template shows an S3 bucket with a notification
                         configuration that sends an event to the specified SNS topic when Amazon S3 has lost
                         all replicas
                         of an object.
@@ -1002,7 +1002,7 @@ Outputs:
   BucketName:
     Value: !Ref &apos;S3Bucket&apos;
     Description: Name of the sample Amazon S3 bucket with a notification configuration.</code></pre>
-                        </div><h3 id="w2ab2c21c10d997c17c14">Replicate Objects and Store Them in Another S3 Bucket</h3><p>The following example includes two replication rules. Amazon S3 replicates objects
+                        </div><h3 id="w2ab2c21c10e1046c17c14">Replicate Objects and Store Them in Another S3 Bucket</h3><p>The following example includes two replication rules. Amazon S3 replicates objects
                         with
                         the <code class="code">MyPrefix</code> or <code class="code">MyOtherPrefix</code> prefixes and stores them in the
                         <code class="code">my-replication-bucket</code> bucket, which must be in a different AWS Region than
@@ -1169,7 +1169,7 @@ Resources:
           Prefix: InventoryConfigurationPrefix
           ScheduleFrequency: Weekly
 </code></pre>
-                        </div><h2 id="w2ab2c21c10d997c19">More Info</h2><div class="itemizedlist">
+                        </div><h2 id="w2ab2c21c10e1046c19">More Info</h2><div class="itemizedlist">
                         
                         
                         

@@ -26,6 +26,7 @@
   &quot;<a href="aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-environment"><code class="code">Environment</code></a>&quot; : [ <a href="aws-properties-ecs-taskdefinition-containerdefinitions-environment.html"><em class="replaceable"><code>KeyValuePair</code></em></a>, ... ],
   &quot;<a href="aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-essential"><code class="code">Essential</code></a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
   &quot;<a href="aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-extrahosts"><code class="code">ExtraHosts</code></a>&quot; : [ <a href="aws-properties-ecs-taskdefinition-containerdefinitions-hostentry.html"><em class="replaceable"><code>HostEntry</code></em></a>, ... ],
+  &quot;<a href="aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-healthcheck"><code class="code">HealthCheck</code></a>&quot; : <a href="aws-properties-ecs-taskdefinition-healthcheck.html"><em class="replaceable"><code>HealthCheck</code></em></a>,
   &quot;<a href="aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-hostname"><code class="code">Hostname</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
   &quot;<a href="aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-image"><code class="code">Image</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
   &quot;<a href="aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-links"><code class="code">Links</code></a>&quot; : [ <em class="replaceable"><code>String, ...</code></em> ],
@@ -65,6 +66,8 @@
 <a href="aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-essential"><code class="code">Essential</code></a>: <em class="replaceable"><code>Boolean</code></em>
 <a href="aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-extrahosts"><code class="code">ExtraHosts</code></a>:
   - <a href="aws-properties-ecs-taskdefinition-containerdefinitions-hostentry.html"><em class="replaceable"><code>HostEntry</code></em></a>
+<a href="aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-healthcheck"><code class="code">HealthCheck</code></a>:
+  <a href="aws-properties-ecs-taskdefinition-healthcheck.html"><em class="replaceable"><code>HealthCheck</code></em></a>
 <a href="aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-hostname"><code class="code">Hostname</code></a>: <em class="replaceable"><code>String</code></em>
 <a href="aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-image"><code class="code">Image</code></a>: <em class="replaceable"><code>String</code></em>
 <a href="aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-links"><code class="code">Links</code></a>:
@@ -92,6 +95,9 @@
                         </div><h2 id="aws-properties-ecs-taskdefinition-containerdefinitions-properties">Properties</h2><p>For more information about each property, see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide//task_definition_parameters.html" target="_blank">Task Definition Parameters</a>
                         in the <em>Amazon Elastic Container Service Developer Guide</em>.
                      </p><div class="variablelist">
+                        
+                        
+                        
                         
                         
                         
@@ -264,8 +270,7 @@
                               <p><em>Required</em>: No
                               </p>
                               
-                              <p><em>Type</em>: List of <a href="aws-properties-ecs-taskdefinition-containerdefinitions-environment.html">Amazon ECS TaskDefinition KeyValuePair</a>
-                                 property types
+                              <p><em>Type</em>: List of <a href="aws-properties-ecs-taskdefinition-containerdefinitions-environment.html">Amazon ECS TaskDefinition KeyValuePair</a> property types
                               </p>
                               
                            </dd>
@@ -300,9 +305,27 @@
                               <p><em>Required</em>: No
                               </p>
                               
-                              <p><em>Type</em>: List of <a href="aws-properties-ecs-taskdefinition-containerdefinitions-hostentry.html">Amazon ECS TaskDefinition HostEntry</a>
-                                 property types
+                              <p><em>Type</em>: List of <a href="aws-properties-ecs-taskdefinition-containerdefinitions-hostentry.html">Amazon ECS TaskDefinition HostEntry</a> property types
                               </p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-ecs-taskdefinition-containerdefinition-healthcheck"></a><span class="term"><code class="code">HealthCheck</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>A container health check. Health check parameters that are specified in a container
+                                 definition override any Docker health checks that exist in the container image (such
+                                 as those specified in a parent image or from the image&apos;s Dockerfile).
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: <a href="aws-properties-ecs-taskdefinition-healthcheck.html">Amazon ECS TaskDefinition HealthCheckAmazon SageMaker Endpoint
+                                    TagAmazon SageMaker
+                                    EndpointConfig ProductionVariantAmazon SageMaker NotebookInstanceLifecycleConfig NotebookInstanceLifecycleHook</a></p>
                               
                            </dd>
                            
@@ -311,12 +334,7 @@
                            
                            <dd>
                               
-                              <p>The name that Docker
-                                 uses
-                                 for the
-                                 container
-                                 hostname.
-                              </p>
+                              <p>The name that Docker uses for the container hostname.</p>
                               
                               <p><em>Required</em>: No
                               </p>
@@ -331,12 +349,9 @@
                            
                            <dd>
                               
-                              <p>The image to use for a
-                                 container.
-                                 The image
-                                 is
-                                 passed directly to the Docker daemon. You can use images in the Docker Hub
-                                 registry or specify other repositories
+                              <p>The image to use for a container. The image is passed directly to the
+                                 Docker daemon. You can use images in the Docker Hub registry or specify
+                                 other repositories
                                  (<em class="replaceable"><code>repository-url</code></em>/<em class="replaceable"><code>image</code></em>:<em class="replaceable"><code>tag</code></em>).
                               </p>
                               
@@ -427,9 +442,8 @@
                                  memory is under contention, Docker attempts to keep the container memory
                                  within the limit. If the container requires more memory, it can consume up
                                  to the value specified by the <code class="code">Memory</code> property or all of the
-                                 available memory on the container
-                                 instance&#x2014;whichever
-                                 comes first. This is called a soft limit.
+                                 available memory on the container instance&#x2014;whichever comes first.
+                                 This is called a soft limit.
                               </p>
                               
                               <p><em>Required</em>: Conditional. You must specify one or both of the
@@ -453,8 +467,7 @@
                               <p><em>Required</em>: No
                               </p>
                               
-                              <p><em>Type</em>: List of <a href="aws-properties-ecs-taskdefinition-containerdefinitions-mountpoints.html">Amazon ECS TaskDefinition MountPoint</a>
-                                 property types
+                              <p><em>Type</em>: List of <a href="aws-properties-ecs-taskdefinition-containerdefinitions-mountpoints.html">Amazon ECS TaskDefinition MountPoint</a> property types
                               </p>
                               
                            </dd>
@@ -487,8 +500,7 @@
                               <p><em>Required</em>: No
                               </p>
                               
-                              <p><em>Type</em>: List of <a href="aws-properties-ecs-taskdefinition-containerdefinitions-portmappings.html">Amazon ECS TaskDefinition ContainerDefinitions PortMapping</a>
-                                 property types
+                              <p><em>Type</em>: List of <a href="aws-properties-ecs-taskdefinition-containerdefinitions-portmappings.html">Amazon ECS TaskDefinition ContainerDefinitions PortMapping</a> property types
                               </p>
                               
                            </dd>
@@ -529,17 +541,14 @@
                            <dd>
                               
                               <p>A list of ulimits to set in the container. The ulimits set constraints on
-                                 how
-                                 many
-                                 resources a container can consume so that it doesn&apos;t deplete all available
-                                 resources on the host.
+                                 how many resources a container can consume so that it doesn&apos;t deplete all
+                                 available resources on the host.
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
                               
-                              <p><em>Type</em>: List of <a href="aws-properties-ecs-taskdefinition-containerdefinitions-ulimit.html">Amazon ECS TaskDefinition Ulimit</a>
-                                 property types
+                              <p><em>Type</em>: List of <a href="aws-properties-ecs-taskdefinition-containerdefinitions-ulimit.html">Amazon ECS TaskDefinition Ulimit</a> property types
                               </p>
                               
                            </dd>
@@ -569,8 +578,7 @@
                               <p><em>Required</em>: No
                               </p>
                               
-                              <p><em>Type</em>: List of <a href="aws-properties-ecs-taskdefinition-containerdefinitions-volumesfrom.html">Amazon ECS TaskDefinition VolumeFrom</a>
-                                 property types
+                              <p><em>Type</em>: List of <a href="aws-properties-ecs-taskdefinition-containerdefinitions-volumesfrom.html">Amazon ECS TaskDefinition VolumeFrom</a> property types
                               </p>
                               
                            </dd>
@@ -580,12 +588,7 @@
                            
                            <dd>
                               
-                              <p>The working directory in the container
-                                 to
-                                 run
-                                 commands
-                                 in.
-                              </p>
+                              <p>The working directory in the container to run commands in.</p>
                               
                               <p><em>Required</em>: No
                               </p>

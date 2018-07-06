@@ -8,18 +8,17 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-resource-authentication">AWS::CloudFormation::Authentication</h1><p>Use the AWS::CloudFormation::Authentication resource to specify authentication credentials
+    <h1 class="topictitle" id="aws-resource-authentication">AWS::CloudFormation::Authentication</h1><p>Use the <code class="code">AWS::CloudFormation::Authentication</code> resource to specify authentication credentials
                         for files or sources that you specify with the <a href="aws-resource-init.html">AWS::CloudFormation::Init</a> resource.
                      </p><p>To include authentication information for a file or source that you specify with
-                        AWS::CloudFormation::Init, use the <code class="code">uris</code> property if the source is a URI or the
+                        <code class="code">AWS::CloudFormation::Init</code>, use the <code class="code">uris</code> property if the source is a URI or the
                         <code class="code">buckets</code> property if the source is an Amazon S3 bucket. For more information about files,
                         see <a href="aws-resource-init.html#aws-resource-init-files">Files</a>. For more
                         information about sources, see <a href="aws-resource-init.html#aws-resource-init-sources">Sources</a>.
                      </p><p>You can also specify authentication information for files directly in the
-                        AWS::CloudFormation::Init resource. The files key of the resource contains a property
-                        named
+                        <code class="code">AWS::CloudFormation::Init</code> resource. The files key of the resource contains a property named
                         <code class="code">authentication</code>. You can use the <code class="code">authentication</code> property to
-                        associate authentication information defined in an AWS::CloudFormation::Authentication
+                        associate authentication information defined in an <code class="code">AWS::CloudFormation::Authentication</code>
                         resource directly with a file.
                      </p><p>For files, AWS CloudFormation looks for authentication information in the following
                         order:
@@ -30,7 +29,7 @@
                         <ol>
                            <li>
                               
-                              <p>The <code class="code">authentication</code> property of the AWS::CloudFormation::Init
+                              <p>The <code class="code">authentication</code> property of the <code class="code">AWS::CloudFormation::Init</code>
                                  <code class="code">files</code> key.
                               </p>
                               
@@ -38,22 +37,21 @@
                            <li>
                               
                               <p>The <code class="code">uris</code> or <code class="code">buckets</code> property of the
-                                 AWS::CloudFormation::Authentication resource.
+                                 <code class="code">AWS::CloudFormation::Authentication</code> resource.
                               </p>
                               
                            </li>
                         </ol>
                      </div><p>For sources, AWS CloudFormation looks for authentication information in the <code class="code">uris</code> or
-                        <code class="code">buckets</code> property of the AWS::CloudFormation::Authentication resource.
+                        <code class="code">buckets</code> property of the <code class="code">AWS::CloudFormation::Authentication</code> resource.
                      </p><div class="highlights" id="inline-topiclist">
                         <p><strong>Topics</strong></p>
                         <ul>
                            <li><a href="#aws-resource-cloudformation-authentication-syntax">Syntax</a></li>
-                           <li><a href="#w2ab2c21c10d173c19">Properties</a></li>
+                           <li><a href="#w2ab2c21c10d189c19">Properties</a></li>
                            <li><a href="#aws-resource-authentication-examples">Examples</a></li>
                         </ul>
-                     </div><h2 id="aws-resource-cloudformation-authentication-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><p>You should be aware of the following considerations when using the AWS::CloudFormation::Authentication
-                        type:
+                     </div><h2 id="aws-resource-cloudformation-authentication-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><p>You should be aware of the following considerations when using the <code class="code">AWS::CloudFormation::Authentication</code> type:
                      </p><div class="itemizedlist">
                         
                         
@@ -61,8 +59,7 @@
                         <ul class="itemizedlist" type="disc">
                            <li class="listitem">
                               
-                              <p>Unlike most AWS CloudFormation resources, the AWS::CloudFormation::Authentication
-                                 type does not
+                              <p>Unlike most AWS CloudFormation resources, the <code class="code">AWS::CloudFormation::Authentication</code> type does not
                                  contain a block called &quot;Properties&quot;, but instead contains a list of user-named blocks,
                                  each
                                  containing its own authentication properties.
@@ -112,7 +109,7 @@
   <a href="aws-resource-authentication.html#cfn-cloudformation-authentication-username">username</a>: <em class="replaceable"><code>String</code></em>
   <a href="aws-resource-authentication.html#cfn-cloudformation-authentication-rolename">roleName</a>: <em class="replaceable"><code>String</code></em>
 </code></pre>
-                        </div><h2 id="w2ab2c21c10d173c19">Properties</h2><div class="variablelist">
+                        </div><h2 id="w2ab2c21c10d189c19">Properties</h2><div class="variablelist">
                         
                         
                         
@@ -130,8 +127,8 @@
                               
                               <p>Specifies the access key ID for S3 authentication.</p>
                               
-                              <p><em>Required</em>: Conditional Can be specified only if the <code class="code">type</code>
-                                 property is set to <code class="code">&quot;S3&quot;</code>.
+                              <p><em>Required</em>: Conditional. Can be specified only if the <code class="code">type</code> property
+                                 is set to <code class="code">&quot;S3&quot;</code>.
                               </p>
                               
                               <p><em>Type</em>: String
@@ -148,8 +145,8 @@
                                  authentication credentials.
                               </p>
                               
-                              <p><em>Required</em>: Conditional Can be specified only if the <code class="code">type</code>
-                                 property is set to <code class="code">&quot;S3&quot;</code>.
+                              <p><em>Required</em>: Conditional. Can be specified only if the <code class="code">type</code> property
+                                 is set to <code class="code">&quot;S3&quot;</code>.
                               </p>
                               
                               <p><em>Type</em>: List of String values
@@ -164,7 +161,7 @@
                               
                               <p>Specifies the password for basic authentication.</p>
                               
-                              <p><em>Required</em>: Conditional Can be specified only if the type property is set to
+                              <p><em>Required</em>: Conditional. Can be specified only if the type property is set to
                                  <code class="code">&quot;basic&quot;</code>.
                               </p>
                               
@@ -180,8 +177,8 @@
                               
                               <p>Specifies the secret key for S3 authentication.</p>
                               
-                              <p><em>Required</em>: Conditional Can be specified only if the <code class="code">type</code>
-                                 property is set to <code class="code">&quot;S3&quot;</code>.
+                              <p><em>Required</em>: Conditional. Can be specified only if the <code class="code">type</code> property
+                                 is set to <code class="code">&quot;S3&quot;</code>.
                               </p>
                               
                               <p><em>Type</em>: String
@@ -223,8 +220,8 @@
                                  authorization will also apply to <code class="code">http://www.example.com/test</code>.
                               </p>
                               
-                              <p><em>Required</em>: Conditional Can be specified only if the <code class="code">type</code>
-                                 property is set to <code class="code">&quot;basic&quot;</code>.
+                              <p><em>Required</em>: Conditional. Can be specified only if the <code class="code">type</code> property
+                                 is set to <code class="code">&quot;basic&quot;</code>.
                               </p>
                               
                               <p><em>Type</em>: List of String values
@@ -239,7 +236,7 @@
                               
                               <p>Specifies the user name for basic authentication.</p>
                               
-                              <p><em>Required</em>: Conditional Can be specified only if the type property is set to
+                              <p><em>Required</em>: Conditional. Can be specified only if the type property is set to
                                  <code class="code">&quot;basic&quot;</code>.
                               </p>
                               
@@ -258,13 +255,13 @@
                               </p>
                               <div class="aws-note">
                                  <p class="aws-note">Important</p>
-                                 <p>The EC2 instance must be able to access this role using an instance
-                                    profile.
+                                 <p>This role must be contained within the instance profile that is attached
+                                    to the EC2 instance. An instance profile can only contain one IAM role.
                                  </p>
                               </div>
                               
-                              <p><em>Required</em>: Conditional Can be specified only if the <code class="code">type</code>
-                                 property is set to <code class="code">&quot;S3&quot;</code>.
+                              <p><em>Required</em>: Conditional. Can be specified only if the <code class="code">type</code> property
+                                 is set to <code class="code">&quot;S3&quot;</code>.
                               </p>
                               
                               <p><em>Type</em>: String.
@@ -275,14 +272,13 @@
                         </dl>
                      </div><h2 id="aws-resource-authentication-examples">Examples</h2><div class="aws-note">
                         <p class="aws-note">Note</p>
-                        <p>Unlike most resources, the AWS::CloudFormation::Authentication type defines a list
-                           of user-named blocks, each 
+                        <p>Unlike most resources, the <code class="code">AWS::CloudFormation::Authentication</code> type defines a list of user-named blocks, each 
                            of which contains authentication properties that use lower camel case naming.
                         </p>
-                     </div><h3 id="w2ab2c21c10d173c21b4">EC2 Web Server Authentication</h3><p>This template snippet shows how to get a file from a private S3 bucket within an EC2
+                     </div><h3 id="w2ab2c21c10d189c21b4">EC2 Web Server Authentication</h3><p>This template snippet shows how to get a file from a private S3 bucket within an EC2
                         instance. The credentials used for authentication are defined in the
-                        AWS::CloudFormation::Authentication resource, and referenced by the
-                        AWS::CloudFormation::Init resource in the <em>files</em> section.
+                        <code class="code">AWS::CloudFormation::Authentication</code> resource, and referenced by the
+                        <code class="code">AWS::CloudFormation::Init</code> resource in the <em>files</em> section.
                      </p><div id="JSON" name="JSON" class="section langfilter">
                         <h4 id="aws-resource-cloudformation-authentication-example1.json">JSON</h4>
                         
@@ -367,7 +363,7 @@
             - &quot;SecretAccessKey&quot;
 Properties: 
   <em class="replaceable"><code>EC2 Resource Properties ...</code></em></code></pre>
-                        </div><h3 id="w2ab2c21c10d173c21b6">Specifying Both Basic and S3 Authentication</h3><p>The following example template snippet includes both <em>basic</em> and
+                        </div><h3 id="w2ab2c21c10d189c21b6">Specifying Both Basic and S3 Authentication</h3><p>The following example template snippet includes both <em>basic</em> and
                         <em>S3</em> authentication types.
                      </p><div id="JSON" name="JSON" class="section langfilter">
                         <h4 id="aws-resource-cloudformation-authentication-example2.json">JSON</h4>
@@ -407,7 +403,7 @@ Properties:
       Ref: &quot;SecretAccessKeyID&quot;
     buckets: 
       - &quot;myawsbucket&quot;</code></pre>
-                        </div><h3 id="w2ab2c21c10d173c21b8">IAM Roles</h3><p>The following example shows how to use IAM roles:</p><div class="itemizedlist">
+                        </div><h3 id="w2ab2c21c10d189c21b8">IAM Roles</h3><p>The following example shows how to use IAM roles:</p><div class="itemizedlist">
                         
                         
                         
