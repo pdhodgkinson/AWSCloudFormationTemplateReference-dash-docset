@@ -210,7 +210,7 @@ Properties:
                               <p>If you update the <code class="code">EngineVersion</code> property to a version that&apos;s
                                  different from the DB instance&apos;s current major version, set this property to
                                  <code class="code">true</code>. For more information, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyDBInstance.html" target="_blank">ModifyDBInstance</a> in the
-                                 <em>Amazon Relational Database Service API Reference</em>.
+                                 <em>Amazon RDS API Reference</em>.
                               </p>
                               
                               <p><em>Required</em>: No
@@ -241,7 +241,7 @@ Properties:
                               
                               <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a> or <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt">some
                                     interruptions</a>. For more information, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyDBInstance.html" target="_blank">ModifyDBInstance</a> in the
-                                 <em>Amazon Relational Database Service API Reference</em>.
+                                 <em>Amazon RDS API Reference</em>.
                               </p>
                               
                            </dd>
@@ -291,7 +291,7 @@ Properties:
                               
                               <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a> or <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt">some
                                     interruptions</a>. For more information, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyDBInstance.html" target="_blank">ModifyDBInstance</a> in the
-                                 <em>Amazon Relational Database Service API Reference</em>.
+                                 <em>Amazon RDS API Reference</em>.
                               </p>
                               
                            </dd>
@@ -304,7 +304,7 @@ Properties:
                               <p>For supported engines, specifies the character set to associate with the DB
                                  instance. For more information, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html" target="_blank">Appendix: Oracle
                                     Character Sets Supported in Amazon RDS</a> in the
-                                 <em>Amazon Relational Database Service User Guide</em>.
+                                 <em>Amazon RDS User Guide</em>.
                               </p>
                               
                               <p>If you specify the <code class="code">DBSnapshotIdentifier</code> or
@@ -688,7 +688,7 @@ Properties:
                                  valid when you restore from a snapshot, such as the <code class="code">MasterUsername</code>
                                  and <code class="code">MasterUserPassword</code> properties. For information about the
                                  properties that you can specify, see the <a href="http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_RestoreDBInstanceFromDBSnapshot.html" target="_blank">RestoreDBInstanceFromDBSnapshot</a> action in the
-                                 <em>Amazon Relational Database Service API Reference</em>.
+                                 <em>Amazon RDS API Reference</em>.
                               </p>
                               
                               <div class="aws-note">
@@ -749,7 +749,7 @@ Properties:
                                  instance in. Amazon RDS uses Windows Authentication to authenticate users that connect
                                  to the DB instance. For more information, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/DeveloperGuide/USER_SQLServerWinAuth.html" target="_blank">Using Windows Authentication with
                                     an Amazon RDS DB Instance Running Microsoft SQL Server</a> in the
-                                 <em>Amazon Relational Database Service User Guide</em>.
+                                 <em>Amazon RDS User Guide</em>.
                               </p>
                               
                               <p>If you specify this property, you must specify a SQL Server engine for the
@@ -797,7 +797,7 @@ Properties:
                               </p>
                               
                               <p>For valid values, see the <code class="code">Engine</code> parameter of the <a href="http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html" target="_blank">CreateDBInstance</a> action in the
-                                 <em>Amazon Relational Database Service API Reference</em>.
+                                 <em>Amazon RDS API Reference</em>.
                               </p>
                               
                               <p>If you specify <code class="code">aurora</code> as the database engine, you must also specify the 
@@ -829,7 +829,18 @@ Properties:
                            
                            <dd>
                               
-                              <p>The version number of the database engine that the DB instance uses.</p>
+                              <p>The version number of the database engine that the DB instance
+                                 uses.
+                              </p>
+                              
+                              <div class="aws-note">
+                                 <p class="aws-note">Note</p>
+                                 <p>To prevent automatic upgrades, be sure to specify the full version number
+                                    (for example, 5.6.13). If the default version for the database engine changes
+                                    and you specify only the major version (for example, 5.6), your DB instance
+                                    will be upgraded to use the latest default version.
+                                 </p>
+                              </div>
                               
                               <p><em>Required</em>: No
                               </p>
@@ -858,7 +869,7 @@ Properties:
                                  or specify 2000 IOPS with 200 GB of storage (a ratio of 10:1). For more
                                  information, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/DeveloperGuide/CHAP_Storage.html#USER_PIOPS" target="_blank">Amazon RDS
                                     Provisioned IOPS Storage to Improve Performance</a> in the
-                                 <em>Amazon Relational Database Service User Guide</em>.
+                                 <em>Amazon RDS User Guide</em>.
                               </p>
                               
                               <p><em>Required</em>: Conditional. If you specify <code class="code">io1</code> for the
@@ -907,7 +918,7 @@ Properties:
                               <p>If you specify <code class="code">DBSecurityGroups</code>, AWS CloudFormation ignores this property.
                                  To specify both a security group and this property, you must use a VPC security
                                  group. For more information about Amazon RDS and VPC, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html" target="_blank">Using Amazon RDS with Amazon VPC</a> in the
-                                 <em>Amazon Relational Database Service User Guide</em>.
+                                 <em>Amazon RDS User Guide</em>.
                               </p>
                               
                               <p><em>Required</em>: No
@@ -1012,7 +1023,7 @@ Properties:
                               
                               <p>For default and valid values, see the <code class="code">MonitoringInterval</code> parameter
                                  for the <a href="http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html" target="_blank">CreateDBInstance</a> action in the
-                                 <em>Amazon Relational Database Service API Reference</em>.
+                                 <em>Amazon RDS API Reference</em>.
                               </p>
                               
                               <p><em>Required</em>: Conditional. If you specify the <code class="code">MonitoringRoleArn</code>
@@ -1025,7 +1036,7 @@ Properties:
                               
                               <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a> or <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt">some
                                     interruptions</a>. For more information, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyDBInstance.html" target="_blank">ModifyDBInstance</a> in the
-                                 <em>Amazon Relational Database Service API Reference</em>.
+                                 <em>Amazon RDS API Reference</em>.
                               </p>
                               
                            </dd>
@@ -1041,7 +1052,7 @@ Properties:
                                  <code class="code">arn:aws:iam::123456789012:role/emaccess</code>. For information on creating a
                                  monitoring role, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole" target="_blank">To create an IAM
                                     role for Amazon RDS Enhanced Monitoring</a> in the
-                                 <em>Amazon Relational Database Service User Guide</em>.
+                                 <em>Amazon RDS User Guide</em>.
                               </p>
                               
                               <p><em>Required</em>: Conditional. If you specify a value other than <code class="code">0</code> for
@@ -1123,7 +1134,7 @@ Properties:
                                  backups are enabled, as determined by the <code class="code">BackupRetentionPeriod</code>
                                  property. For valid values, see the <code class="code">PreferredBackupWindow</code> parameter
                                  for the <a href="http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html" target="_blank">CreateDBInstance</a> action in the
-                                 <em>Amazon Relational Database Service API Reference</em>.
+                                 <em>Amazon RDS API Reference</em>.
                               </p>
                               
                               <p><em>Required</em>: No
@@ -1142,7 +1153,7 @@ Properties:
                            <dd>
                               
                               <p>The weekly time range (in UTC) during which system maintenance can occur. For valid
-                                 values, see the <code class="code">PreferredMaintenanceWindow</code> parameter for the <a href="http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html" target="_blank">CreateDBInstance</a> action in the <em>Amazon Relational Database Service API Reference</em>.
+                                 values, see the <code class="code">PreferredMaintenanceWindow</code> parameter for the <a href="http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html" target="_blank">CreateDBInstance</a> action in the <em>Amazon RDS API Reference</em>.
                               </p>
                               <div class="aws-note">
                                  <p class="aws-note">Note</p>
@@ -1160,7 +1171,7 @@ Properties:
                               
                               <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a> or <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt">some
                                     interruptions</a>. For more information, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyDBInstance.html" target="_blank">ModifyDBInstance</a> in the
-                                 <em>Amazon Relational Database Service API Reference</em>.
+                                 <em>Amazon RDS API Reference</em>.
                               </p>
                               
                            </dd>
@@ -1180,7 +1191,7 @@ Properties:
                               
                               <p>The default behavior value depends on your VPC setup and the database subnet
                                  group. For more information, see the <code class="code">PubliclyAccessible</code> parameter in
-                                 <a href="http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html" target="_blank">CreateDBInstance</a> in the <em>Amazon Relational Database Service API Reference</em>.
+                                 <a href="http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html" target="_blank">CreateDBInstance</a> in the <em>Amazon RDS API Reference</em>.
                               </p>
                               
                               <p>If this resource has a public IP address and is also in a VPC that is defined in the
@@ -1194,7 +1205,7 @@ Properties:
                                  <p>If you specify <code class="code">DBSecurityGroups</code>, AWS CloudFormation ignores this property.
                                     To specify a security group and this property, you must use a VPC security
                                     group. For more information about Amazon RDS and VPC, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html" target="_blank">Using Amazon RDS with Amazon VPC</a> in the
-                                    <em>Amazon Relational Database Service User Guide</em>.
+                                    <em>Amazon RDS User Guide</em>.
                                  </p>
                               </div>
                               
@@ -1292,7 +1303,7 @@ Properties:
                                           <p>If the source DB instance is in a different region than the read
                                              replica, specify an ARN for a valid DB instance. For more information,
                                              see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html#USER_Tagging.ARN" target="_blank">Constructing a Amazon RDS Amazon Resource Name (ARN)</a> in the
-                                             <em>Amazon Relational Database Service User Guide</em>.
+                                             <em>Amazon RDS User Guide</em>.
                                           </p>
                                           
                                        </li>
@@ -1372,7 +1383,7 @@ Properties:
                               
                               <p>For the default and valid values, see the <code class="code">StorageType</code> parameter of
                                  the <a href="http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html" target="_blank">CreateDBInstance</a> action in the
-                                 <em>Amazon Relational Database Service API Reference</em>.
+                                 <em>Amazon RDS API Reference</em>.
                               </p>
                               
                               <p><em>Required</em>: No
@@ -1410,7 +1421,7 @@ Properties:
                                  of your applications. To see which engines
                                  support
                                  time zones, see the <code class="code">Timezone</code> parameter for the <a href="http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html" target="_blank">CreateDBInstance</a> action in the
-                                 <em>Amazon Relational Database Service API Reference</em>.
+                                 <em>Amazon RDS API Reference</em>.
                               </p>
                               
                               <p><em>Required</em>: No
@@ -1502,7 +1513,7 @@ Properties:
                            </dd>
                            
                         </dl>
-                     </div><h2 id="updating-and-deleting-dbinstance-resources">Updating and Deleting AWS::RDS::DBInstance Resources</h2><h3 id="w2ab2c21c10d921c13b2">Updating DB Instances</h3><p>When properties labeled &quot;<em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a>&quot; are updated, AWS CloudFormation first creates a
+                     </div><h2 id="updating-and-deleting-dbinstance-resources">Updating and Deleting AWS::RDS::DBInstance Resources</h2><h3 id="w2ab2c21c10d971c13b2">Updating DB Instances</h3><p>When properties labeled &quot;<em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a>&quot; are updated, AWS CloudFormation first creates a
                         replacement DB instance, then changes references from other dependent resources to
                         point to
                         the replacement DB instance, and finally deletes the old DB instance.
@@ -1554,7 +1565,7 @@ Properties:
                            </ol>
                         </div>
                      </div><p>For more information about updating other properties of this resource, see <a href="http://docs.aws.amazon.com//AmazonRDS/latest/APIReference/API_ModifyDBInstance.html" target="_blank">ModifyDBInstance</a>. For more information about updating stacks, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks.html">AWS CloudFormation Stacks Updates</a>.
-                     </p><h3 id="w2ab2c21c10d921c13b4">Deleting DB Instances</h3><p>You can set a deletion policy for your DB instance to control how AWS CloudFormation
+                     </p><h3 id="w2ab2c21c10d971c13b4">Deleting DB Instances</h3><p>You can set a deletion policy for your DB instance to control how AWS CloudFormation
                         handles the
                         instance when the stack is deleted. For Amazon RDS DB instances, you can choose to
                         <em>retain</em> the instance, to <em>delete</em> the instance,
@@ -1625,7 +1636,7 @@ Properties:
       &quot;AllocatedStorage&quot; : { &quot;Ref&quot; : &quot;DBAllocatedStorage&quot; },
       &quot;DBInstanceClass&quot; : { &quot;Ref&quot; : &quot;DBInstanceClass&quot; },
       &quot;Engine&quot; : &quot;MySQL&quot;,
-      &quot;EngineVersion&quot; : &quot;5.5&quot;,
+      &quot;EngineVersion&quot; : &quot;5.6.13&quot;,
       &quot;MasterUsername&quot; : { &quot;Ref&quot; : &quot;DBUser&quot; },
       &quot;MasterUserPassword&quot; : { &quot;Ref&quot; : &quot;DBPassword&quot; },
       &quot;Tags&quot; : [ { &quot;Key&quot; : &quot;Name&quot;, &quot;Value&quot; : &quot;My SQL Database&quot; } ]
@@ -1645,7 +1656,7 @@ Properties:
     DBInstanceClass: 
       Ref: &quot;DBInstanceClass&quot;
     Engine: &quot;MySQL&quot;
-    EngineVersion: &quot;5.5&quot;
+    EngineVersion: &quot;5.6.13&quot;
     MasterUsername: 
       Ref: &quot;DBUser&quot;
     MasterUserPassword: 
@@ -1670,7 +1681,7 @@ Properties:
       &quot;AllocatedStorage&quot; : &quot;100&quot;,
       &quot;DBInstanceClass&quot; : &quot;db.m1.small&quot;,
       &quot;Engine&quot; : &quot;MySQL&quot;,
-      &quot;EngineVersion&quot; : &quot;5.5&quot;,
+      &quot;EngineVersion&quot; : &quot;5.6.13&quot;,
       &quot;Iops&quot; : &quot;1000&quot;,
       &quot;MasterUsername&quot; : { &quot;Ref&quot; : &quot;DBUser&quot; },
       &quot;MasterUserPassword&quot; : { &quot;Ref&quot; : &quot;DBPassword&quot; }
@@ -1685,7 +1696,7 @@ Properties:
     AllocatedStorage: &quot;100&quot;
     DBInstanceClass: &quot;db.m1.small&quot;
     Engine: &quot;MySQL&quot;
-    EngineVersion: &quot;5.5&quot;
+    EngineVersion: &quot;5.6.13&quot;
     Iops: &quot;1000&quot;
     MasterUsername: 
       Ref: &quot;DBUser&quot;

@@ -13,7 +13,6 @@
                         available for your application in response to predictable load changes.
                      </p><div class="aws-note">
                         <p class="aws-note">Important</p>
-                        <p>Note the following:</p>
                         <div class="itemizedlist">
                            
                            
@@ -24,8 +23,9 @@
                                  <p>If you have rolling updates enabled, you must suspend scheduled actions before you
                                     can update the Auto Scaling group. You can suspend processes by using the <a href="aws-attribute-updatepolicy.html">UpdatePolicy attribute</a> 
                                     for the <code class="code">AWS::AutoScaling::AutoScalingGroup</code> resource (recommended), 
-                                    the AWS CLI, or the Auto Scaling API. For more information about suspending scheduled
-                                    actions, see <a href="http://docs.aws.amazon.com/autoscaling/latest/userguide/as-suspend-resume-processes.html" target="_blank">Suspending and Resuming Auto Scaling Processes</a> in the
+                                    the AWS CLI, or the Amazon EC2 Auto Scaling API. For more information about suspending
+                                    scheduled actions, see 
+                                    <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/as-suspend-resume-processes.html" target="_blank">Suspending and Resuming Scaling Processes</a> in the
                                     <em>Amazon EC2 Auto Scaling User Guide</em>.
                                  </p>
                                  
@@ -54,11 +54,12 @@
                         <p><strong>Topics</strong></p>
                         <ul>
                            <li><a href="#aws-resource-autoscaling-scheduledaction-syntax">Syntax</a></li>
-                           <li><a href="#w2ab2c21c10d148c11">Properties</a></li>
-                           <li><a href="#w2ab2c21c10d148c13">Return Value</a></li>
-                           <li><a href="#w2ab2c21c10d148c15">Auto Scaling Scheduled Action Snippet</a></li>
+                           <li><a href="#w2ab2c21c10d156c11">Properties</a></li>
+                           <li><a href="#w2ab2c21c10d156c13">Return Value</a></li>
+                           <li><a href="#w2ab2c21c10d156c15">Auto Scaling Scheduled Action Snippet</a></li>
                         </ul>
                      </div><h2 id="aws-resource-autoscaling-scheduledaction-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        
                         <h3 id="aws-resource-autoscaling-scheduledaction-syntax.json">JSON</h3>
                         
                         <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
@@ -86,7 +87,7 @@ Properties:
   <a href="aws-resource-as-scheduledaction.html#cfn-as-scheduledaction-recurrence"><code class="literal">Recurrence</code></a>: <em class="replaceable"><code>String</code></em>
   <a href="aws-resource-as-scheduledaction.html#cfn-as-scheduledaction-starttime"><code class="literal">StartTime</code></a>: <em class="replaceable"><code>Time stamp</code></em>
 </code></pre>
-                        </div><h2 id="w2ab2c21c10d148c11">Properties</h2><div class="variablelist">
+                        </div><h2 id="w2ab2c21c10d156c11">Properties</h2><div class="variablelist">
                         
                         
                         
@@ -237,12 +238,12 @@ Properties:
                            </dd>
                            
                         </dl>
-                     </div><h2 id="w2ab2c21c10d148c13">Return Value</h2><p>When the logical ID of this resource is provided to the <code class="code">Ref</code> intrinsic
+                     </div><h2 id="w2ab2c21c10d156c13">Return Value</h2><p>When the logical ID of this resource is provided to the <code class="code">Ref</code> intrinsic
                         function, <code class="code">Ref</code> returns the resource name. For example:
                      </p><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{ &quot;Ref&quot;: &quot;<em class="replaceable"><code>MyScheduledAction</code></em>&quot; }</code></pre><p>For a scheduled Auto Scaling action with the logical ID <code class="code">MyScheduledAction</code>,
                         <code class="code">Ref</code> returns the scheduled action name. For example:
                      </p><p><code class="code">mystack-myscheduledaction-NT5EUXTNTXXD</code></p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                     </p><h2 id="w2ab2c21c10d148c15">Auto Scaling Scheduled Action Snippet</h2><p>The following template snippet includes two scheduled actions that scale the number
+                     </p><h2 id="w2ab2c21c10d156c15">Auto Scaling Scheduled Action Snippet</h2><p>The following template snippet includes two scheduled actions that scale the number
                         of
                         instances in an Auto Scaling group. The <code class="code">ScheduledActionUp</code> action starts at 7 AM every
                         day and sets the Auto Scaling group to a minimum of five Amazon EC2 instances with

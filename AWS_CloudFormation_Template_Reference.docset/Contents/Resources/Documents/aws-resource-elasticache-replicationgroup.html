@@ -388,7 +388,7 @@ Properties:
                                  group. Currently, you can specify only <code class="code">redis</code>.
                               </p>
                               
-                              <p><em>Required</em>: Yes
+                              <p><em>Required</em>: No
                               </p>
                               
                               <p><em>Type</em>: String
@@ -582,7 +582,7 @@ Properties:
                               
                               <p>The number of node groups (shards) for this Redis (clustered mode enabled) replication
                                  group.
-                                 For Redis (clustered mode disabled), omit this property.
+                                 For Redis (clustered mode disabled), either omit this property or set it to 1.
                               </p>
                               
                               <div class="aws-note">
@@ -1123,6 +1123,14 @@ Properties:
                            <dd>
                               
                               <p>The DNS hostname of the cache node.</p>
+                              
+                              <div class="aws-note">
+                                 <p class="aws-note">Note</p>
+                                 <p>Redis (cluster mode disabled) replication groups don&apos;t have this attribute.
+                                    Therefore, <code class="code">Fn::GetAtt</code> returns a value for this attribute only if the replication group is clustered.
+                                    Otherwise, <code class="code">Fn::GetAtt</code> fails.
+                                 </p>
+                              </div>
                               
                            </dd>
                            

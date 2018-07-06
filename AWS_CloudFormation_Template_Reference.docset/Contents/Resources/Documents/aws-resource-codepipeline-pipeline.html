@@ -16,9 +16,9 @@
                         <p><strong>Topics</strong></p>
                         <ul>
                            <li><a href="#aws-resource-codepipeline-pipeline-syntax">Syntax</a></li>
-                           <li><a href="#w2ab2c21c10d259b9">Properties</a></li>
-                           <li><a href="#w2ab2c21c10d259c11">Return Value</a></li>
-                           <li><a href="#w2ab2c21c10d259c13">Example</a></li>
+                           <li><a href="#w2ab2c21c10d274b9">Properties</a></li>
+                           <li><a href="#w2ab2c21c10d274c11">Return Value</a></li>
+                           <li><a href="#w2ab2c21c10d274c13">Example</a></li>
                         </ul>
                      </div><h2 id="aws-resource-codepipeline-pipeline-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
                         <h3 id="aws-resource-codepipeline-pipeline-syntax.json">JSON</h3>
@@ -49,7 +49,7 @@ Properties:
   <a href="aws-resource-codepipeline-pipeline.html#cfn-codepipeline-pipeline-stages"><code class="code">Stages</code></a>:
     - <em class="replaceable"><code>Stages</code></em>
 </code></pre>
-                        </div><h2 id="w2ab2c21c10d259b9">Properties</h2><div class="variablelist">
+                        </div><h2 id="w2ab2c21c10d274b9">Properties</h2><div class="variablelist">
                         
                         
                         
@@ -170,11 +170,40 @@ Properties:
                            </dd>
                            
                         </dl>
-                     </div><h2 id="w2ab2c21c10d259c11">Return Value</h2><h3 id="w2ab2c21c10d259c11b2">Ref</h3><p>When you pass the logical ID of an <code class="code">AWS::CodePipeline::Pipeline</code> resource to
+                     </div><h2 id="w2ab2c21c10d274c11">Return Value</h2><h3 id="w2ab2c21c10d274c11b2">Ref</h3><p>When you pass the logical ID of an <code class="code">AWS::CodePipeline::Pipeline</code> resource to
                         the intrinsic <code class="code">Ref</code> function, the function returns the pipeline name,
                         such as <code class="code">mysta-MyPipeline-A1BCDEFGHIJ2</code>.
                      </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                     </p><h2 id="w2ab2c21c10d259c13">Example</h2><p>The following example creates a pipeline with a source, beta, and release stage. For
+                     </p><h3 id="aws-resource-codepipeline-pipeline-getatt">Fn::GetAtt</h3><p>
+                        <code class="code">Fn::GetAtt</code> returns a value for a specified attribute of this type.
+                        The following are the available attributes and sample return values.
+                        
+                     </p><div class="variablelist">
+                        
+                        
+                        <dl>
+                           
+                           <dt><span class="term"><code class="code">Version</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The version of the pipeline.</p>
+                              
+                              <div class="aws-note">
+                                 <p class="aws-note">Note</p>
+                                 <p>A new pipeline is always assigned a version number of 1. This number increments
+                                    when a pipeline is updated.
+                                 </p>
+                              </div>
+                              
+                           </dd>
+                           
+                        </dl>
+                     </div><p>For more information about using 
+                        <code class="code">Fn::GetAtt</code>, see 
+                        <a href="intrinsic-function-reference-getatt.html">Fn::GetAtt</a>.
+                        
+                     </p><h2 id="w2ab2c21c10d274c13">Example</h2><p>The following example creates a pipeline with a source, beta, and release stage. For
                         the
                         source stage, AWS CodePipeline detects changes to the application that is stored in
                         the S3 bucket and
@@ -349,8 +378,7 @@ Properties:
     DisableInboundStageTransitions: 
       - 
         StageName: Release
-        Reason: &quot;Disabling the transition until integration tests are completed&quot;
-</code></pre>
+        Reason: &quot;Disabling the transition until integration tests are completed&quot;</code></pre>
                         </div></div>
 </body>
 </html>

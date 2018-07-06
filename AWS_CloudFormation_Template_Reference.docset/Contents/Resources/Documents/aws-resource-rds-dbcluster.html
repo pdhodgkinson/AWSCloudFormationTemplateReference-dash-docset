@@ -11,7 +11,7 @@
     <h1 class="topictitle" id="aws-resource-rds-dbcluster">AWS::RDS::DBCluster</h1><p>The <code class="code">AWS::RDS::DBCluster</code> resource creates a cluster, such as an Aurora for
                         Amazon RDS (Amazon Aurora) DB cluster. Amazon Aurora is a fully managed, MySQL-compatible,
                         relational database engine. For more information, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html" target="_blank">Aurora on Amazon RDS</a> in the
-                        <em>Amazon Relational Database Service User Guide</em>.
+                        <em>Amazon RDS User Guide</em>.
                      </p><div class="aws-note">
                         <p class="aws-note">Note</p>
                         <p>Currently, you can create this resource only in regions in which Amazon Aurora is
@@ -23,9 +23,9 @@
                         <p><strong>Topics</strong></p>
                         <ul>
                            <li><a href="#aws-resource-rds-dbcluster-syntax">Syntax</a></li>
-                           <li><a href="#w2ab2c21c10d912c15">Properties</a></li>
+                           <li><a href="#w2ab2c21c10d962c15">Properties</a></li>
                            <li><a href="#aws-resource-rds-dbcluster-ref">Return Values</a></li>
-                           <li><a href="#w2ab2c21c10d912c19">Example</a></li>
+                           <li><a href="#w2ab2c21c10d962c19">Example</a></li>
                         </ul>
                      </div><h2 id="aws-resource-rds-dbcluster-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
                         <h3 id="aws-resource-rds-dbcluster-syntax.json">JSON</h3>
@@ -83,7 +83,7 @@ Properties:
   <a href="aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-vpcsecuritygroupids"><code class="code">VpcSecurityGroupIds</code></a>:
     - <em class="replaceable"><code>String</code></em>
 </code></pre>
-                        </div><h2 id="w2ab2c21c10d912c15">Properties</h2><div class="variablelist">
+                        </div><h2 id="w2ab2c21c10d962c15">Properties</h2><div class="variablelist">
                         
                         
                         
@@ -132,7 +132,7 @@ Properties:
                            <dd>
                               
                               <p>The number of days for which automatic backups are retained. For more
-                                 information, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBCluster.html" target="_blank">CreateDBCluster</a> in the <em>Amazon Relational Database Service API Reference</em>.
+                                 information, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBCluster.html" target="_blank">CreateDBCluster</a> in the <em>Amazon RDS API Reference</em>.
                               </p>
                               
                               <p><em>Required</em>: No
@@ -143,7 +143,7 @@ Properties:
                               
                               <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a> or <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt">some
                                     interruptions</a>. For more information, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyDBInstance.html" target="_blank">ModifyDBInstance</a> in the
-                                 <em>Amazon Relational Database Service API Reference</em>.
+                                 <em>Amazon RDS API Reference</em>.
                               </p>
                               
                            </dd>
@@ -156,7 +156,7 @@ Properties:
                               <p>The name of your database. If you don&apos;t provide a name, Amazon Relational Database
                                  Service (Amazon RDS) won&apos;t create a
                                  database in this DB cluster. For naming constraints, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints" target="_blank"> 
-                                    Naming Constraints in Amazon RDS</a> in the <em>Amazon Relational Database Service User Guide</em>.
+                                    Naming Constraints in Amazon RDS</a> in the <em>Amazon RDS User Guide</em>.
                               </p>
                               
                               <p><em>Required</em>: No
@@ -198,7 +198,7 @@ Properties:
                               
                               <p>For additional information, see the <code class="code">DBClusterIdentifier</code> parameter of
                                  the <a href="http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBCluster.html" target="_blank">CreateDBCluster</a> action in
-                                 the <em>Amazon Relational Database Service API Reference</em>.
+                                 the <em>Amazon RDS API Reference</em>.
                               </p>
                               
                               <p><em>Required</em>: No
@@ -216,11 +216,16 @@ Properties:
                            
                            <dd>
                               
-                              <p>The name of the DB cluster parameter group to associate with this DB cluster.
-                                 For the default value, see the <code class="code">DBClusterParameterGroupName</code> parameter
-                                 of the <a href="http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBCluster.html" target="_blank">CreateDBCluster</a>
-                                 action in the <em>Amazon Relational Database Service API Reference</em>.
-                              </p>
+                              <p>The name of the DB cluster parameter group to associate with this DB cluster. </p>
+                              
+                              <div class="aws-note">
+                                 <p class="aws-note">Note</p>
+                                 <p>If this argument is omitted, <code class="code">default.aurora5.6</code> is used. If
+                                    <code class="code">default.aurora5.6</code> is used, specifying <code class="code">aurora-mysql</code> or
+                                    <code class="code">aurora-postgresql</code> for the <code class="code">Engine</code> property might result in
+                                    an error.
+                                 </p>
+                              </div>
                               
                               <p><em>Required</em>: No
                               </p>
@@ -259,8 +264,17 @@ Properties:
                               </p>
                               
                               <p>For valid values, see the <code class="code">Engine</code> parameter of the <a href="http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBCluster.html" target="_blank">CreateDBCluster</a> action in the
-                                 <em>Amazon Relational Database Service API Reference</em>.
+                                 <em>Amazon RDS API Reference</em>.
                               </p>
+                              
+                              <div class="aws-note">
+                                 <p class="aws-note">Note</p>
+                                 <p>If you don&apos;t specify a value for the <code class="code">DBClusterParameterGroupName</code>
+                                    property and <code class="code">default.aurora5.6</code> is used, specifying
+                                    <code class="code">aurora.mysql</code> or <code class="code">aurora-postgresql</code> for this property might
+                                    result in an error. 
+                                 </p>
+                              </div>
                               
                               <p><em>Required</em>: Yes
                               </p>
@@ -363,7 +377,7 @@ Properties:
                            <dd>
                               
                               <p>The port number on which the DB instances in the cluster can accept
-                                 connections.
+                                 connections. If this argument is omitted, <code class="code">3306</code> is used.
                               </p>
                               
                               <p><em>Required</em>: No
@@ -388,7 +402,7 @@ Properties:
                               
                               <p>For valid values, see the <code class="code">PreferredBackupWindow</code> parameter of the
                                  <a href="http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html" target="_blank">CreateDBInstance</a> action in the
-                                 <em>Amazon Relational Database Service API Reference</em>.
+                                 <em>Amazon RDS API Reference</em>.
                               </p>
                               
                               <p><em>Required</em>: No
@@ -412,7 +426,7 @@ Properties:
                               
                               <p>For valid values, see the <code class="code">PreferredMaintenanceWindow</code> parameter of
                                  the <a href="http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html" target="_blank">CreateDBInstance</a> action in the
-                                 <em>Amazon Relational Database Service API Reference</em>.
+                                 <em>Amazon RDS API Reference</em>.
                               </p>
                               
                               <p><em>Required</em>: No
@@ -423,7 +437,7 @@ Properties:
                               
                               <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a> or <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt">some
                                     interruptions</a>. For more information, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyDBInstance.html" target="_blank">ModifyDBInstance</a> in the
-                                 <em>Amazon Relational Database Service API Reference</em>.
+                                 <em>Amazon RDS API Reference</em>.
                               </p>
                               
                            </dd>
@@ -524,10 +538,10 @@ Properties:
                            </dd>
                            
                         </dl>
-                     </div><h2 id="aws-resource-rds-dbcluster-ref">Return Values</h2><h3 id="w2ab2c21c10d912c17b2">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code> intrinsic
+                     </div><h2 id="aws-resource-rds-dbcluster-ref">Return Values</h2><h3 id="w2ab2c21c10d962c17b2">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code> intrinsic
                         function, <code class="code">Ref</code> returns the resource name.
                      </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                     </p><h3 id="w2ab2c21c10d912c17b4">Fn::GetAtt</h3><p><code class="code">Fn::GetAtt</code> returns a value for a specified attribute of this type.
+                     </p><h3 id="w2ab2c21c10d962c17b4">Fn::GetAtt</h3><p><code class="code">Fn::GetAtt</code> returns a value for a specified attribute of this type.
                         The following are the available attributes and sample return values.
                      </p><div class="variablelist">
                         
@@ -570,7 +584,7 @@ Properties:
                            
                         </dl>
                      </div><p>For more information about using <code class="code">Fn::GetAtt</code>, see <a href="intrinsic-function-reference-getatt.html">Fn::GetAtt</a>.
-                     </p><h2 id="w2ab2c21c10d912c19">Example</h2><p>The following snippet creates an Amazon Aurora DB cluster and adds two DB instances
+                     </p><h2 id="w2ab2c21c10d962c19">Example</h2><p>The following snippet creates an Amazon Aurora DB cluster and adds two DB instances
                         to
                         it. Because Amazon RDS automatically assigns a writer and reader DB instances in the
                         cluster,

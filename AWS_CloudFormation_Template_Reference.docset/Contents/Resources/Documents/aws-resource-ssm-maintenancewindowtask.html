@@ -9,8 +9,7 @@
 <body>
     <div id="content" style="padding: 10px 30px;">
     <h1 class="topictitle" id="aws-resource-ssm-maintenancewindowtask">AWS::SSM::MaintenanceWindowTask</h1><p>The <code class="code">AWS::SSM::MaintenanceWindowTask</code> resource defines information about a task
-                        for a Maintenance Window for Amazon EC2 Systems Manager. For more information, see
-                        <a href="http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_RegisterTaskWithMaintenanceWindow.html" target="_blank"> RegisterTaskWithMaintenanceWindow</a> in the <em>Amazon EC2 Systems Manager API
+                        for a Maintenance Window for AWS Systems Manager. For more information, see <a href="http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_RegisterTaskWithMaintenanceWindow.html" target="_blank"> RegisterTaskWithMaintenanceWindow</a> in the <em>AWS Systems Manager API
                            Reference</em>.
                      </p><h2 id="aws-resource-ssm-maintenancewindowtask-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
                         
@@ -222,7 +221,8 @@ Properties:
                               </p>
                               
                               <p>
-                                 <em>Type</em>: List of <a href="aws-properties-ssm-maintenancewindowtask-target.html">SSM MaintenanceWindowTask Target</a></p>
+                                 <em>Type</em>: List of <a href="aws-properties-ssm-maintenancewindowtask-target.html">Systems Manager
+                                    MaintenanceWindowTask Target</a></p>
                               
                               <p>
                                  <em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No
@@ -302,7 +302,7 @@ Properties:
                               </p>
                               
                               <p>
-                                 <em>Type</em>: <a href="aws-properties-ssm-maintenancewindowtask-taskinvocationparameters.html">SSM MaintenanceWindowTask TaskInvocationParameters</a></p>
+                                 <em>Type</em>: <a href="aws-properties-ssm-maintenancewindowtask-taskinvocationparameters.html">Systems Manager MaintenanceWindowTask TaskInvocationParameters</a></p>
                               
                               <p>
                                  <em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No
@@ -340,6 +340,17 @@ Properties:
                            <dd>
                               
                               <p>The parameters to pass to the task when it&apos;s executed.</p>
+                              
+                              <div class="aws-note">
+                                 <p class="aws-note">Note</p>
+                                 <p><code class="code">TaskParameters</code> has been deprecated. To specify parameters to pass to
+                                    a task when it runs, instead use the <code class="code">Parameters</code> option in the
+                                    <code class="code">TaskInvocationParameters</code> structure. For information about how Systems
+                                    Manager handles these options for the supported Maintenance Window task types, see
+                                    <a href="aws-properties-ssm-maintenancewindowtask-taskinvocationparameters.html">AWS Systems Manager
+                                       MaintenanceWindowTask TaskInvocationParameters</a>.
+                                 </p>
+                              </div>
                               
                               <p>
                                  <em>Required</em>: No
@@ -389,12 +400,25 @@ Properties:
                               
                               <p>Information about an Amazon S3 bucket to write task-level logs to.</p>
                               
+                              <div class="aws-note">
+                                 <p class="aws-note">Note</p>
+                                 <p><code class="code">LoggingInfo</code> has been deprecated. To specify an S3 bucket to contain
+                                    logs, instead use the <code class="code">OutputS3BucketName</code> and
+                                    <code class="code">OutputS3KeyPrefix</code> options in the <code class="code">TaskInvocationParameters</code>
+                                    structure. For information about how Systems Manager handles these options for the
+                                    supported
+                                    Maintenance Window task types, see <a href="aws-properties-ssm-maintenancewindowtask-taskinvocationparameters.html">AWS Systems Manager
+                                       MaintenanceWindowTask TaskInvocationParameters</a>.
+                                 </p>
+                              </div>
+                              
                               <p>
                                  <em>Required</em>: No
                               </p>
                               
                               <p>
-                                 <em>Type</em>: <a href="aws-properties-ssm-maintenancewindowtask-logginginfo.html">SSM MaintenanceWindowTask LoggingInfo</a></p>
+                                 <em>Type</em>: <a href="aws-properties-ssm-maintenancewindowtask-logginginfo.html">Systems Manager
+                                    MaintenanceWindowTask LoggingInfo</a></p>
                               
                               <p>
                                  <em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No
@@ -405,17 +429,10 @@ Properties:
                            </dd>
                            
                         </dl>
-                     </div><h2 id="aws-resource-ssm-maintenancewindowtask-returnvalues">Return Values</h2><h3 id="w2ab2c21c10e1084b9b3">Ref</h3><p>When you pass the logical ID of an 
-                        <code class="code">AWS::SSM::MaintenanceWindowTask</code>
-                        resource to the intrinsic 
-                        <code class="code">Ref</code> function, the function returns the
-                        physical ID of the resource, such as 
-                        <code class="code">12a345b6-bbb7-4bb6-90b0-8c9577a2d2b9</code>.
-                        
-                     </p><p>For more information about using the 
-                        <code class="code">Ref</code> function, see 
-                        <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                        
+                     </div><h2 id="aws-resource-ssm-maintenancewindowtask-returnvalues">Return Values</h2><h3 id="w2ab2c21c10e1176b9b3">Ref</h3><p>When you pass the logical ID of an <code class="code">AWS::SSM::MaintenanceWindowTask</code> resource
+                        to the intrinsic <code class="code">Ref</code> function, the function returns the physical ID of the
+                        resource, such as <code class="code">12a345b6-bbb7-4bb6-90b0-8c9577a2d2b9</code>. 
+                     </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>. 
                      </p><h2 id="aws-resource-ssm-maintenancewindowtask-seealso">See Also</h2><div class="itemizedlist">
                         
                         
@@ -434,7 +451,7 @@ Properties:
                            </li>
                            <li class="listitem">
                               
-                              <p><a href="http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_RegisterTaskWithMaintenanceWindow.html" target="_blank"> RegisterTaskWithMaintenanceWindow</a> in the <em>Amazon EC2 Systems Manager API
+                              <p><a href="http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_RegisterTaskWithMaintenanceWindow.html" target="_blank"> RegisterTaskWithMaintenanceWindow</a> in the <em>AWS Systems Manager API
                                     Reference</em></p>
                               
                            </li>

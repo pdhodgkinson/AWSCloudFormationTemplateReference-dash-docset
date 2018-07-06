@@ -87,10 +87,11 @@ Properties:
                         intrinsic function, <code class="code">Ref</code> returns the security configuration name, such as
                         <code class="code">mySecurityConfiguration</code>.
                      </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                     </p><h2 id="aws-resource-emr-securityconfiguration-examples">Example</h2><h3 id="aws-resource-emr-securityconfiguration-example1"></h3><p>The following example enables both in-transit data encryption and local disk encryption.
-                        For additional encryption configuration examples, see 
-                        <a href="http://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-encryption-enable-security-configuration.html#emr-encryption-cli" target="_blank">
-                           Creating a Security Configuration Using the AWS CLI</a> in the <em>Amazon EMR Release Guide</em>.
+                     </p><h2 id="aws-resource-emr-securityconfiguration-examples">Example</h2><h3 id="aws-resource-emr-securityconfiguration-example1"></h3><p>The following example enables both in-transit data encryption and local disk encryption,
+                        as well as specifying Kerberos attributes. For additional encryption configuration
+                        examples,
+                        see <a href="http://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-encryption-enable-security-configuration.html#emr-encryption-cli" target="_blank"> Creating a Security Configuration Using the AWS CLI</a> in the <em>Amazon EMR
+                           Release Guide</em>.
                      </p><div id="JSON" name="JSON" class="section langfilter">
                         <h4 id="aws-resource-emr-securityconfiguration-example1.json">JSON</h4>
                         
@@ -118,6 +119,20 @@ Properties:
                             &quot;LocalDiskEncryptionConfiguration&quot;: {
                                 &quot;EncryptionKeyProviderType&quot;: &quot;AwsKms&quot;,
                                 &quot;AwsKmsKey&quot;: &quot;arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012&quot;
+                            }
+                        }
+                    },
+                    &quot;AuthenticationConfiguration&quot;: {
+                        &quot;KerberosConfiguration&quot;: {
+                            &quot;Provider&quot;: &quot;ClusterDedicatedKdc&quot;,
+                            &quot;ClusterDedicatedKdcConfiguration&quot;: {
+                                &quot;TicketLifetimeInHours&quot;: 24,
+                                &quot;CrossRealmTrustConfiguration&quot;: {
+                                    &quot;Realm&quot;: &quot;AD.DOMAIN.COM&quot;,
+                                    &quot;Domain&quot;: &quot;ad.domain.com&quot;,
+                                    &quot;AdminServer&quot;: &quot;ad.domain.com&quot;,
+                                    &quot;KdcServer&quot;: &quot;ad.domain.com&quot;
+                                }
                             }
                         }
                     }
@@ -150,7 +165,17 @@ Resources:
             LocalDiskEncryptionConfiguration:
               EncryptionKeyProviderType: AwsKms
               AwsKmsKey: &gt;-
-                arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012</code></pre>
+                arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012
+        AuthenticationConfiguration:
+          KerberosConfiguration:
+            Provider: ClusterDedicatedKdc
+            ClusterDedicatedKdcConfiguration:
+              TicketLifetimeInHours: 24
+              CrossRealmTrustConfiguration:
+                Realm: AD.DOMAIN.COM
+                Domain: ad.domain.com
+                AdminServer: ad.domain.com
+                KdcServer: ad.domain.com</code></pre>
                         </div></div>
 </body>
 </html>
