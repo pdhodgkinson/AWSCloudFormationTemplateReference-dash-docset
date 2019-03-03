@@ -13,48 +13,45 @@
                         For
                         example, you can deploy an ACM certificate to an Elastic Load Balancing load balancer
                         to enable HTTPS
-                        support. For more information, see the <code class="code"><a href="http://docs.aws.amazon.com/acm/latest/APIReference/API_RequestCertificate.html" target="_blank">RequestCertificate</a></code> action
+                        support. For more information, see the <code class="code"><a href="https://docs.aws.amazon.com/acm/latest/APIReference/API_RequestCertificate.html">RequestCertificate</a></code> action
                         in the <em>AWS Certificate Manager API Reference</em>.
                      </p><div class="aws-note">
                         <p class="aws-note">Important</p>
                         <p>When you use the <code class="code">AWS::CertificateManager::Certificate</code> resource in an AWS CloudFormation
                            stack, the stack will remain in the <code class="code">CREATE_IN_PROGRESS</code> state and any further
-                           stack operations will be delayed until you act upon the instructions in the certificate
-                           validation email.
+                           stack operations will be delayed until you validate the certificate request, either
+                           by
+                           acting upon the instructions in the certificate validation email, or by adding a CNAME
+                           record to your DNS configuration.
                         </p>
-                     </div><div class="highlights" id="inline-topiclist">
-                        <p><strong>Topics</strong></p>
-                        <ul>
-                           <li><a href="#aws-resource-certificatemanager-certificate-syntax">Syntax</a></li>
-                           <li><a href="#w2ab2c21c10d180c13">Properties</a></li>
-                           <li><a href="#w2ab2c21c10d180c15">Return Value</a></li>
-                           <li><a href="#w2ab2c21c10d180c17">Example</a></li>
-                        </ul>
                      </div><h2 id="aws-resource-certificatemanager-certificate-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
                         <h3 id="aws-resource-certificatemanager-certificate-syntax.json">JSON</h3>
                         
                         <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
   &quot;Type&quot; : &quot;AWS::CertificateManager::Certificate&quot;,
   &quot;Properties&quot; : {
-    &quot;<a href="aws-resource-certificatemanager-certificate.html#cfn-certificatemanager-certificate-domainname"><code class="code">DomainName</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-certificatemanager-certificate.html#cfn-certificatemanager-certificate-domainvalidationoptions"><code class="code">DomainValidationOptions</code></a>&quot; : [ <em class="replaceable"><code><a href="aws-properties-certificatemanager-certificate-domainvalidationoption.html">DomainValidationOptions</a>, ...</code></em> ],
-    &quot;<a href="aws-resource-certificatemanager-certificate.html#cfn-certificatemanager-certificate-subjectalternativenames"><code class="code">SubjectAlternativeNames</code></a>&quot; : [ <em class="replaceable"><code>String, ...</code></em> ],
-    &quot;<a href="aws-resource-certificatemanager-certificate.html#cfn-certificatemanager-certificate-tags"><code class="code">Tags</code></a>&quot; : [ <em class="replaceable"><code>Resource Tag, ...</code></em> ]
+    &quot;<a href="aws-resource-certificatemanager-certificate.html#cfn-certificatemanager-certificate-domainname">DomainName</a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-resource-certificatemanager-certificate.html#cfn-certificatemanager-certificate-domainvalidationoptions">DomainValidationOptions</a>&quot; : [ <em class="replaceable"><code><a href="aws-properties-certificatemanager-certificate-domainvalidationoption.html">DomainValidationOptions</a>, ...</code></em> ],
+    &quot;<a href="aws-resource-certificatemanager-certificate.html#cfn-certificatemanager-certificate-subjectalternativenames">SubjectAlternativeNames</a>&quot; : [ <em class="replaceable"><code>String, ...</code></em> ],
+    &quot;<a href="aws-resource-certificatemanager-certificate.html#cfn-certificatemanager-certificate-tags">Tags</a>&quot; : [ <em class="replaceable"><code>Resource Tag, ...</code></em> ],
+    &quot;<a href="aws-resource-certificatemanager-certificate.html#cfn-certificatemanager-certificate-validationmethod">ValidationMethod</a>&quot; : <em class="replaceable"><code>String</code></em>
   }
 }</code></pre>
                         </div><div id="YAML" name="YAML" class="section langfilter">
                         <h3 id="aws-resource-certificatemanager-certificate-syntax.yaml">YAML</h3>
                         
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">Type: &quot;AWS::CertificateManager::Certificate&quot;
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">Type: AWS::CertificateManager::Certificate
 Properties: 
-  <a href="aws-resource-certificatemanager-certificate.html#cfn-certificatemanager-certificate-domainname"><code class="code">DomainName</code></a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-certificatemanager-certificate.html#cfn-certificatemanager-certificate-domainvalidationoptions"><code class="code">DomainValidationOptions</code></a>:
+  <a href="aws-resource-certificatemanager-certificate.html#cfn-certificatemanager-certificate-domainname">DomainName</a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-resource-certificatemanager-certificate.html#cfn-certificatemanager-certificate-domainvalidationoptions">DomainValidationOptions</a>:
     - <em class="replaceable"><code><a href="aws-properties-certificatemanager-certificate-domainvalidationoption.html">DomainValidationOptions</a></code></em>
-  <a href="aws-resource-certificatemanager-certificate.html#cfn-certificatemanager-certificate-subjectalternativenames"><code class="code">SubjectAlternativeNames</code></a>:
+  <a href="aws-resource-certificatemanager-certificate.html#cfn-certificatemanager-certificate-subjectalternativenames">SubjectAlternativeNames</a>:
     - <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-certificatemanager-certificate.html#cfn-certificatemanager-certificate-tags"><code class="code">Tags</code></a>:
-    - <em class="replaceable"><code>Resource Tag</code></em></code></pre>
-                        </div><h2 id="w2ab2c21c10d180c13">Properties</h2><div class="variablelist">
+  <a href="aws-resource-certificatemanager-certificate.html#cfn-certificatemanager-certificate-tags">Tags</a>:
+    - <em class="replaceable"><code>Resource Tag</code></em>
+  <a href="aws-resource-certificatemanager-certificate.html#cfn-certificatemanager-certificate-validationmethod">ValidationMethod</a>: <em class="replaceable"><code>String</code></em></code></pre>
+                        </div><h2 id="aws-resource-certificatemanager-certificate-properties">Properties</h2><div class="variablelist">
+                        
                         
                         
                         
@@ -76,7 +73,7 @@ Properties:
                                  <code class="code">site.example.com</code>, and <code class="code">images.example.com</code>.
                               </p>
                               
-                              <p>For constraints, see the <code class="code">DomainName</code> parameter for the <a href="http://docs.aws.amazon.com/acm/latest/APIReference/API_RequestCertificate.html" target="_blank">RequestCertificate</a> action in the <em>AWS Certificate Manager API Reference</em>.
+                              <p>For constraints, see the <code class="code">DomainName</code> parameter for the <a href="https://docs.aws.amazon.com/acm/latest/APIReference/API_RequestCertificate.html">RequestCertificate</a> action in the <em>AWS Certificate Manager API Reference</em>.
                               </p>
                               
                               <p><em>Required</em>: Yes
@@ -85,7 +82,7 @@ Properties:
                               <p><em>Type</em>: String
                               </p>
                               
-                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
                               
                            </dd>
                            
@@ -95,7 +92,7 @@ Properties:
                            <dd>
                               
                               <p>Domain information that domain name registrars use to verify your identity. For more
-                                 information and the default values, see <a href="http://docs.aws.amazon.com/acm/latest/userguide/setup-email.html" target="_blank">Configure Email for Your Domain</a> and <a href="http://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-email.html" target="_blank">Validate Domain Ownership</a> in the <em>AWS Certificate Manager User Guide</em>.
+                                 information and the default values, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/setup-email.html">Configure Email for Your Domain</a> and <a href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-email.html">Validate Domain Ownership</a> in the <em>AWS Certificate Manager User Guide</em>.
                               </p>
                               
                               <p><em>Required</em>: No
@@ -103,7 +100,7 @@ Properties:
                               
                               <p><em>Type</em>: List of <a href="aws-properties-certificatemanager-certificate-domainvalidationoption.html">AWS Certificate Manager Certificate DomainValidationOption</a></p>
                               
-                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
                               
                            </dd>
                            
@@ -122,7 +119,7 @@ Properties:
                               <p><em>Type</em>: List of String values
                               </p>
                               
-                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
                               
                            </dd>
                            
@@ -136,17 +133,50 @@ Properties:
                               <p><em>Required</em>: No
                               </p>
                               
-                              <p><em>Type</em>: <a href="aws-properties-resource-tags.html">AWS CloudFormation Resource Tags</a></p>
+                              <p><em>Type</em>: <a href="aws-properties-resource-tags.html">Resource Tag</a></p>
                               
-                              <p><em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>.
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>.
                               </p>
                               
                            </dd>
                            
+                           
+                           <dt><a id="cfn-certificatemanager-certificate-validationmethod"></a><span class="term"><code class="code">ValidationMethod</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The method you want to use if you are requesting a public certificate to validate
+                                 that you own or control a domain. Valid values include <code class="code">EMAIL</code> or <code class="code">DNS</code>. We recommend that you use DNS validation. The default is <code class="code">EMAIL</code>.
+                              </p>
+                              
+                              <p>ACM uses CNAME (Canonical Name) records to validate that you own or control a
+                                 domain. When you choose DNS validation, ACM provides you one or more CNAME
+                                 records to insert into your DNS database. During stack creation, CloudFormation
+                                 emits a <b>CREATE_IN_PROGRESS</b> event which lists these CNAME
+                                 records. They are displayed in the <b>Status reason</b> column on
+                                 the <b>Events</b> page for the stack. In order for CloudFormation to
+                                 complete stack creation, you must add the CNAME records to your DNS database. For
+                                 more information, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-dns.html">Use DNS to
+                                    Validate Domain Ownership</a> in the <em><a href="https://docs.aws.amazon.com/acm/latest/userguide/">AWS Certificate Manager User Guide</a></em>.
+                              </p>
+                              
+                              <p>For more information on email validation, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-email.html">Use Email to Validate Domain Ownership</a> in the <em><a href="https://docs.aws.amazon.com/acm/latest/userguide/">AWS Certificate Manager User Guide</a></em>.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                              
+                           </dd>
+                           
                         </dl>
-                     </div><h2 id="w2ab2c21c10d180c15">Return Value</h2><h3 id="w2ab2c21c10d180c15b2">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code> intrinsic function, <code class="code">Ref</code> returns the certificate Amazon Resource Name (ARN), such as <code class="code">arn:aws:acm:us-east-1:123456789012:certificate/12ab3c4d-56789-0ef1-2345-3dab6fa3ee50</code>.
+                     </div><h2 id="aws-resource-certificatemanager-certificate-return-values">Return Value</h2><h3 id="aws-resource-certificatemanager-certificate-ref">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code> intrinsic function, <code class="code">Ref</code> returns the certificate Amazon Resource Name (ARN), such as <code class="code">arn:aws:acm:us-east-1:123456789012:certificate/12ab3c4d-56789-0ef1-2345-3dab6fa3ee50</code>.
                      </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                     </p><h2 id="w2ab2c21c10d180c17">Example</h2><p>The following example creates an ACM certificate for the <code class="code">example.com</code> domain name. ACM sends validation emails to the email address that is registered
+                     </p><h2 id="aws-resource-certificatemanager-certificate-examples">Example</h2><p>The following example creates an ACM certificate for the <code class="code">example.com</code> domain name. ACM sends validation emails to the email address that is registered
                         to the <code class="code">example.com</code> domain.
                      </p><div id="JSON" name="JSON" class="section langfilter">
                         <h3 id="aws-resource-certificatemanager-certificate-example.json">JSON</h3>

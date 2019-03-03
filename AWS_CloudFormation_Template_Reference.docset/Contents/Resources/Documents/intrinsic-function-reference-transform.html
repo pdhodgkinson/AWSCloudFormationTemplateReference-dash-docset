@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="css/awsdocs.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/awsdocs.min.js"></script>
+    <meta charset="utf-8">
+</head>
+<body>
+    <div id="content" style="padding: 10px 30px;">
+    <h1 class="topictitle" id="intrinsic-function-reference-transform"><code class="code">Fn::Transform</code></h1><p>The intrinsic function <code class="code">Fn::Transform</code> specifies a macro to perform custom
+                        processing on part of a stack template. Macros enable you to perform custom processing
+                        on
+                        templates, from simple actions like find-and-replace operations to extensive transformations
+                        of entire templates. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html">Using AWS CloudFormation Macros to Perform Custom Processing on
+                           Templates</a>.
+                     </p><p>You can also use <code class="code">Fn::Transform</code> to call the <code class="code"><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/create-reusable-transform-function-snippets-and-add-to-your-template-with-aws-include-transform.html">AWS::Include Transform</a></code> transform, which is a macro hosted by AWS CloudFormation.
+                     </p><h2 id="intrinsic-function-reference-transform-declaration">Declaration</h2><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="intrinsic-function-reference-transform-syntax.json">JSON</h3>
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{ &quot;Fn::Transform&quot; : { &quot;Name&quot; : <em class="replaceable"><code>macro name</code></em>, &quot;Parameters&quot; : {<em class="replaceable"><code>key</code></em> : <em class="replaceable"><code>value</code></em>, ... } } }</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="intrinsic-function-reference-transform-syntax.yaml">YAML</h3> 
+                        
+                        <p>Syntax for the full function name:</p>
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">Fn::Transform:
+  Name : macro name
+  Parameters :
+          Key : value</code></pre>
+                        <p>Syntax for the short form:</p>
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">!Transform { &quot;Name&quot; : <em class="replaceable"><code>macro name</code></em>, &quot;Parameters&quot; : {<em class="replaceable"><code>key</code></em> : <em class="replaceable"><code>value</code></em>, ... } }</code></pre>
+                        </div><h2 id="intrinsic-function-reference-transform-parameters">Parameters</h2><div class="variablelist">
+                        
+                        
+                        
+                        <dl>
+                           
+                           <dt><span class="term">Name</span></dt>
+                           
+                           <dd>
+                              
+                              <p>The name of the macro you want to perform the processing.</p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><span class="term">Parameters</span></dt>
+                           
+                           <dd>
+                              
+                              <p>The list parameters, specified as key-value pairs, to pass to the macro.</p>               
+                              
+                           </dd>
+                           
+                        </dl>
+                     </div><h2 id="intrinsic-function-reference-transform-returnvalue">Return Value</h2><p>The processed template snippet to be included in the processed stack template.</p><h2 id="intrinsic-function-reference-transform-examples">Examples</h2><p>The
+                        following example calls the <code class="code">AWS::Include</code> transform,
+                        specifying that the location to retrieve a template snippet from is passed in the
+                        <code class="code">InputValue</code> parameter.
+                     </p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="intrinsic-function-reference-transform-example-1.json">JSON</h3>
+                        
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">{
+   &quot;Fn::Transform&quot; : {
+       &quot;Name&quot; : &quot;AWS::Include&quot;,
+       &quot;Parameters&quot; : {
+           &quot;Location&quot; : { &quot;Ref&quot; : &quot;InputValue&quot; }
+        }
+    }
+}</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="intrinsic-function-reference-transform-example-1.yaml">YAML</h3>
+                        
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">&apos;Fn::Transform&apos;:
+    Name: &apos;AWS::Include&apos;
+    Parameters: {Location: {Ref: InputValue}}</code></pre>
+                        </div><p>The
+                        following example calls the <code class="code">AWS::Include</code> transform,
+                        specifying that the location to retrieve a template snippet from is located in the
+                        <code class="code">RegionMap</code> mapping, under the key <code class="code">us-east-1</code> and nested key
+                        <code class="code">s3Location</code>.
+                     </p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="intrinsic-function-reference-transform-example-2.json">JSON</h3>
+                        
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">{
+   &quot;Fn::Transform&quot; : {
+       &quot;Name&quot; : &quot;AWS::Include&quot;,
+       &quot;Parameters&quot; : {
+           &quot;Location&quot; : {&quot;Fn::FindInMap&quot; : [&quot;RegionMap&quot;, &quot;us-east-1&quot;, &quot;s3Location&quot;] }
+        }
+    }
+}</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="intrinsic-function-reference-transform-example-2.yaml">YAML</h3>
+                        
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">&apos;Fn::Transform&apos;:
+    Name: &apos;AWS::Include&apos;
+    Parameters: {Location: {&apos;Fn::FindInMap&apos;: [RegionMap, us-east-1, s3Location]}}</code></pre>
+                        </div><h2 id="intrinsic-function-reference-transform-supported-functions">Supported Functions</h2><p>None. AWS CloudFormation passes any intrinsic function calls included in <code class="code">Fn::Transform</code>
+                        to the specified macro as literal strings. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html#template-macros-lambda-interface">AWS CloudFormation Macro Function Interface</a>.
+                     </p></div>
+</body>
+</html>

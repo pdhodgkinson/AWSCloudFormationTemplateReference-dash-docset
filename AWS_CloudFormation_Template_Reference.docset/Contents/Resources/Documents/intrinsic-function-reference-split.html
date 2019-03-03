@@ -8,16 +8,16 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="intrinsic-function-reference-split">Fn::Split</h1><p>To split a string into a list of string values so that you can select an element from
+    <h1 class="topictitle" id="intrinsic-function-reference-split"><code class="code">Fn::Split</code></h1><p>To split a string into a list of string values so that you can select an element from
                         the
                         resulting string list, use the <code class="code">Fn::Split</code> intrinsic function. Specify the location
                         of splits with a delimiter, such as <code class="code">,</code> (a comma). After you split a string, use
-                        the <a href="intrinsic-function-reference-select.html"><code class="code">Fn::Select</code></a>
+                        the <a href="intrinsic-function-reference-select.html">Fn::Select</a>
                         function to pick a specific element.
                      </p><p>For example, if a comma-delimited string of subnet IDs is imported to your stack template,
                         you can split the string at each comma. From the list of subnet IDs, use the
                         <code class="code">Fn::Select</code> intrinsic function to specify a subnet ID for a resource.
-                     </p><h2 id="w2ab2c21c28c55b7">Declaration</h2><div id="JSON" name="JSON" class="section langfilter">
+                     </p><h2 id="w2ab1c21c24c55b7">Declaration</h2><div id="JSON" name="JSON" class="section langfilter">
                         <h3 id="intrinsic-function-reference-split-syntax.json">JSON</h3>
                         
                         <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{ &quot;Fn::Split&quot; : [ &quot;<code class="code" copy="true"><em class="replaceable"><code>delimiter</code></em></code>&quot;, &quot;<em class="replaceable"><code>source string</code></em>&quot; ] }</code></pre>
@@ -29,7 +29,7 @@
                         <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">Fn::Split: [ <code class="code" copy="true"><em class="replaceable"><code>delimiter</code></em></code>, <em class="replaceable"><code>source string</code></em> ]</code></pre>
                         <p>Syntax for the short form:</p>
                         <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">!Split [ <code class="code" copy="true"><em class="replaceable"><code>delimiter</code></em></code>, <em class="replaceable"><code>source string</code></em> ]</code></pre>
-                        </div><h2 id="w2ab2c21c28c55b9">Parameters</h2><p>You must specify both parameters.</p><div class="variablelist">
+                        </div><h2 id="w2ab1c21c24c55b9">Parameters</h2><p>You must specify both parameters.</p><div class="variablelist">
                         
                         
                         
@@ -53,9 +53,9 @@
                            </dd>
                            
                         </dl>
-                     </div><h2 id="w2ab2c21c28c55c11">Return Value</h2><p>A list of string values.</p><h2 id="w2ab2c21c28c55c13">Examples</h2><p>The following examples demonstrate the behavior of the <code class="code">Fn::Split</code>
+                     </div><h2 id="w2ab1c21c24c55c11">Return Value</h2><p>A list of string values.</p><h2 id="w2ab1c21c24c55c13">Examples</h2><p>The following examples demonstrate the behavior of the <code class="code">Fn::Split</code>
                         function.
-                     </p><h3 id="w2ab2c21c28c55c13b4">Simple List</h3><p>The following example splits a string at each vertical bar (<code class="code">|</code>).  The
+                     </p><h3 id="w2ab1c21c24c55c13b4">Simple List</h3><p>The following example splits a string at each vertical bar (<code class="code">|</code>).  The
                         function returns <code class="code">[&quot;a&quot;, &quot;b&quot;, &quot;c&quot;]</code>.
                      </p><div id="JSON" name="JSON" class="section langfilter">
                         <h4 id="intrinsic-function-reference-split-example.json">JSON</h4>
@@ -65,34 +65,36 @@
                         <h4 id="intrinsic-function-reference-split-example.yaml">YAML</h4>
                         
                         <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">!Split [ &quot;|&quot; , &quot;a|b|c&quot; ]</code></pre>
-                        </div><p>&#xA0;</p><h3 id="w2ab2c21c28c55c13b6">List with Empty String Values</h3><p>If you split a string with consecutive delimiters, the resulting list will include
+                        </div><p>&#xA0;</p><h3 id="w2ab1c21c24c55c13b6">List with Empty String Values</h3><p>If you split a string with consecutive delimiters, the resulting list will include
                         an
                         empty string. The following example shows how a string with two consecutive delimiters
                         and an appended delimiter is split. The function returns <code class="code">[&quot;a&quot;, &quot;&quot;, &quot;c&quot;,
                            &quot;&quot;]</code>.
                      </p><div id="JSON" name="JSON" class="section langfilter">
-                        <h4 id="w2ab2c21c28c55c13b6b4">JSON</h4>
+                        <h4 id="w2ab1c21c24c55c13b6b4">JSON</h4>
                         
                         <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">{ &quot;Fn::Split&quot; : [ &quot;|&quot; , &quot;a||c|&quot; ] }</code></pre>
                         </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h4 id="w2ab2c21c28c55c13b6b6">YAML</h4>
+                        <h4 id="w2ab1c21c24c55c13b6b6">YAML</h4>
                         
                         <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">!Split [ &quot;|&quot; , &quot;a||c|&quot; ]</code></pre>
-                        </div><p>&#xA0;</p><h3 id="w2ab2c21c28c55c13b8">Split an Imported Output Value</h3><p>The following example splits an imported output value, and then selects the third
+                        </div><p>&#xA0;</p><h3 id="w2ab1c21c24c55c13b8">Split an Imported Output Value</h3><p>The following example splits an imported output value, and then selects the third
                         element from the resulting list of subnet IDs, as specified by the
                         <code class="code">Fn::Select</code> function.
                      </p><div id="JSON" name="JSON" class="section langfilter">
-                        <h4 id="w2ab2c21c28c55c13b8b4">JSON</h4>
+                        <h4 id="w2ab1c21c24c55c13b8b4">JSON</h4>
                         
                         <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">{ &quot;Fn::Select&quot; : [ &quot;2&quot;, { &quot;Fn::Split&quot;: [&quot;,&quot;, {&quot;Fn::ImportValue&quot;: &quot;AccountSubnetIDs&quot;}]}] }</code></pre>
                         </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h4 id="w2ab2c21c28c55c13b8b6">YAML</h4>
+                        <h4 id="w2ab1c21c24c55c13b8b6">YAML</h4>
                         
                         <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">!Select [2, !Split [&quot;,&quot;, !ImportValue AccountSubnetIDs]]</code></pre>
-                        </div><h2 id="w2ab2c21c28c55c15">Supported Functions</h2><p>For the <code class="code">Fn::Split</code> delimiter, you cannot use any functions. You must specify
+                        </div><h2 id="w2ab1c21c24c55c15">Supported Functions</h2><p>For the <code class="code">Fn::Split</code> delimiter, you cannot use any functions. You must specify
                         a string value.
                      </p><p>For the <code class="code">Fn::Split</code> list of values, you can use the following functions:
                      </p><div class="itemizedlist">
+                        
+                        
                         
                         
                         
@@ -130,12 +132,22 @@
                            </li>
                            <li class="listitem">
                               
+                              <p><code class="code">Fn::ImportValue</code></p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
                               <p><code class="code">Fn::Join</code></p>
                               
                            </li>
                            <li class="listitem">
                               
                               <p><code class="code">Fn::Select</code></p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p><code class="code">Fn::Sub</code></p>
                               
                            </li>
                            <li class="listitem">

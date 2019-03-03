@@ -10,7 +10,7 @@
     <div id="content" style="padding: 10px 30px;">
     <h1 class="topictitle" id="intrinsic-function-reference-findinmap"><code class="code">Fn::FindInMap</code></h1><p>The intrinsic function <code class="code">Fn::FindInMap</code> returns the value corresponding
                         to keys in a two-level map that is declared in the <code class="code">Mappings</code> section.
-                     </p><h2 id="w2ab2c21c28c26b5">Declaration</h2><div id="JSON" name="JSON" class="section langfilter">
+                     </p><h2 id="w2ab1c21c24c26b5">Declaration</h2><div id="JSON" name="JSON" class="section langfilter">
                         <h3 id="intrinsic-function-reference-findinmap-syntax.json">JSON</h3>
                         
                         <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{ &quot;Fn::FindInMap&quot; : [ &quot;<em class="replaceable"><code>MapName</code></em>&quot;, &quot;<em class="replaceable"><code>TopLevelKey</code></em>&quot;, &quot;<em class="replaceable"><code>SecondLevelKey</code></em>&quot;] }</code></pre>
@@ -27,7 +27,7 @@
                            <p>You can&apos;t nest two instances of two functions in short form.</p>
                         </div>
                         
-                     </div><h2 id="w2ab2c21c28c26b7">Parameters</h2><div class="variablelist">
+                     </div><h2 id="w2ab1c21c24c26b7">Parameters</h2><div class="variablelist">
                         
                         
                         
@@ -65,8 +65,8 @@
                            </dd>
                            
                         </dl>
-                     </div><h2 id="w2ab2c21c28c26b9">Return Value:</h2><p>The value that is assigned to <code class="code">SecondLevelKey</code>. 
-                     </p><h2 id="w2ab2c21c28c26c11">Example</h2><p>The following example shows how to use <code class="code">Fn::FindInMap</code> for a template
+                     </div><h2 id="w2ab1c21c24c26b9">Return Value:</h2><p>The value that is assigned to <code class="code">SecondLevelKey</code>. 
+                     </p><h2 id="w2ab1c21c24c26c11">Example</h2><p>The following example shows how to use <code class="code">Fn::FindInMap</code> for a template
                         with a <code class="code">Mappings</code> section that contains a single map, <code class="code">RegionMap</code>,
                         that associates AMIs with AWS regions. 
                      </p><div class="itemizedlist">
@@ -83,7 +83,7 @@
                            <li class="listitem">
                               
                               <p>Each top-level key is assigned a list with two second level keys,
-                                 <code class="code">&quot;32&quot;</code> and <code class="code">&quot;64&quot;</code>, that correspond to the AMI&apos;s
+                                 <code class="code">&quot;HVM64&quot;</code> and <code class="code">&quot;HVMG2&quot;</code>, that correspond to the AMI&apos;s
                                  architecture.
                               </p>
                               
@@ -96,11 +96,14 @@
                         </ul>
                      </div><p>The example template contains an <code class="code">AWS::EC2::Instance</code> resource whose
                         <code class="code">ImageId</code> property is set by the <code class="code">FindInMap</code> function. 
-                     </p><p><code class="code">MapName</code> is set to the map of interest, <code class="code">&quot;RegionMap&quot;</code> in this example. <code class="code">TopLevelKey</code> is set to the region where the stack is created, which is determined by using the
-                        <code class="code">&quot;AWS::Region&quot;</code> pseudo parameter. <code class="code">SecondLevelKey</code> is set to the desired architecture, <code class="code">&quot;32&quot;</code> for this example.
-                     </p><p><code class="code">FindInMap</code> returns the AMI assigned to
-                        <code class="code">FindInMap</code>. For a 32-bit instance in us-east-1,
-                        <code class="code">FindInMap</code> would return <code class="code">&quot;ami-6411e20d&quot;</code>.
+                     </p><p><code class="code">MapName</code> is set to the map of interest, <code class="code">&quot;RegionMap&quot;</code> in this
+                        example. <code class="code">TopLevelKey</code> is set to the region where the stack is created, which is
+                        determined by using the <code class="code">&quot;AWS::Region&quot;</code> pseudo parameter.
+                        <code class="code">SecondLevelKey</code> is set to the desired architecture, <code class="code">&quot;HVM64&quot;</code> for
+                        this example.
+                     </p><p><code class="code">FindInMap</code> returns the AMI assigned to <code class="code">FindInMap</code>. For a HVM64
+                        instance in us-east-1, <code class="code">FindInMap</code> would return
+                        <code class="code">&quot;ami-0ff8a91507f77f867&quot;</code>.
                      </p><div id="JSON" name="JSON" class="section langfilter">
                         <h3 id="intrinsic-function-reference-findinmap-example.json">JSON</h3>
                         
@@ -108,23 +111,41 @@
   ...
   &quot;Mappings&quot; : {
     &quot;RegionMap&quot; : {
-      &quot;us-east-1&quot; : { &quot;32&quot; : &quot;ami-6411e20d&quot;, &quot;64&quot; : &quot;ami-7a11e213&quot; },
-      &quot;us-west-1&quot; : { &quot;32&quot; : &quot;ami-c9c7978c&quot;, &quot;64&quot; : &quot;ami-cfc7978a&quot; },
-      &quot;eu-west-1&quot; : { &quot;32&quot; : &quot;ami-37c2f643&quot;, &quot;64&quot; : &quot;ami-31c2f645&quot; },
-      &quot;ap-southeast-1&quot; : { &quot;32&quot; : &quot;ami-66f28c34&quot;, &quot;64&quot; : &quot;ami-60f28c32&quot; },
-      &quot;ap-northeast-1&quot; : { &quot;32&quot; : &quot;ami-9c03a89d&quot;, &quot;64&quot; : &quot;ami-a003a8a1&quot; }
+      &quot;us-east-1&quot; : { 
+        &quot;HVM64&quot; : &quot;ami-0ff8a91507f77f867&quot;, &quot;HVMG2&quot; : &quot;ami-0a584ac55a7631c0c&quot; 
+      },
+      &quot;us-west-1&quot; : { 
+        &quot;HVM64&quot; : &quot;ami-0bdb828fd58c52235&quot;, &quot;HVMG2&quot; : &quot;ami-066ee5fd4a9ef77f1&quot; 
+      },
+      &quot;eu-west-1&quot; : { 
+        &quot;HVM64&quot; : &quot;ami-047bb4163c506cd98&quot;, &quot;HVMG2&quot; : &quot;ami-0a7c483d527806435&quot; 
+      },
+      &quot;ap-southeast-1&quot; : { 
+        &quot;HVM64&quot; : &quot;ami-08569b978cc4dfa10&quot;, &quot;HVMG2&quot; : &quot;ami-0be9df32ae9f92309&quot; 
+      },
+      &quot;ap-northeast-1&quot; : { 
+        &quot;HVM64&quot; : &quot;ami-06cd52961ce9f0d85&quot;, &quot;HVMG2&quot; : &quot;ami-053cdd503598e4a9d&quot; 
+      }
     }
   },
 
   &quot;Resources&quot; : {
-     &quot;myEC2Instance&quot; : {
-        &quot;Type&quot; : &quot;AWS::EC2::Instance&quot;,
-        &quot;Properties&quot; : {
-           &quot;ImageId&quot; : { &quot;Fn::FindInMap&quot; : [ &quot;RegionMap&quot;, { &quot;Ref&quot; : &quot;AWS::Region&quot; }, &quot;32&quot;]},
-           &quot;InstanceType&quot; : &quot;m1.small&quot;
-        }
-     }
- }
+    &quot;myEC2Instance&quot; : {
+      &quot;Type&quot; : &quot;AWS::EC2::Instance&quot;,
+      &quot;Properties&quot; : {
+        &quot;ImageId&quot; : { 
+          &quot;Fn::FindInMap&quot; : [ 
+            &quot;RegionMap&quot;, 
+            { 
+              &quot;Ref&quot; : &quot;AWS::Region&quot; 
+            }, 
+            &quot;HVM64&quot;
+          ]
+        },
+        &quot;InstanceType&quot; : &quot;m1.small&quot;
+      }   
+    }
+  }
 }</code></pre>
                         </div><div id="YAML" name="YAML" class="section langfilter">
                         <h3 id="intrinsic-function-reference-findinmap-example.yaml">YAML</h3>
@@ -132,27 +153,30 @@
                         <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">Mappings: 
   RegionMap: 
     us-east-1: 
-      32: &quot;ami-6411e20d&quot;
-      64: &quot;ami-7a11e213&quot;
+      HVM64: &quot;ami-0ff8a91507f77f867&quot;
+      HVMG2: &quot;ami-0a584ac55a7631c0c&quot;
     us-west-1: 
-      32: &quot;ami-c9c7978c&quot;
-      64: &quot;ami-cfc7978a&quot;
+      HVM64: &quot;ami-0bdb828fd58c52235&quot;
+      HVMG2: &quot;ami-066ee5fd4a9ef77f1&quot;
     eu-west-1: 
-      32: &quot;ami-37c2f643&quot;
-      64: &quot;ami-31c2f645&quot;
+      HVM64: &quot;ami-047bb4163c506cd98&quot;
+      HVMG2: &quot;ami-31c2f645&quot;
     ap-southeast-1: 
-      32: &quot;ami-66f28c34&quot;
-      64: &quot;ami-60f28c32&quot;
+      HVM64: &quot;ami-08569b978cc4dfa10&quot;
+      HVMG2: &quot;ami-0be9df32ae9f92309&quot;
     ap-northeast-1: 
-      32: &quot;ami-9c03a89d&quot;
-      64: &quot;ami-a003a8a1&quot;
+      HVM64: &quot;ami-06cd52961ce9f0d85&quot;
+      HVMG2: &quot;ami-053cdd503598e4a9d&quot;
 Resources: 
   myEC2Instance: 
     Type: &quot;AWS::EC2::Instance&quot;
     Properties: 
-      ImageId: !FindInMap [ RegionMap, !Ref &quot;AWS::Region&quot;, 32 ]
+      ImageId: !FindInMap
+        - RegionMap
+        - !Ref &apos;AWS::Region&apos;
+        - HVM64
       InstanceType: m1.small</code></pre>
-                        </div><h2 id="w2ab2c21c28c26c13">Supported Functions</h2><p>You can use the following functions in a <code class="code">Fn::FindInMap</code> function:
+                        </div><h2 id="w2ab1c21c24c26c13">Supported Functions</h2><p>You can use the following functions in a <code class="code">Fn::FindInMap</code> function:
                      </p><div class="itemizedlist">
                         
                         

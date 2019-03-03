@@ -45,7 +45,7 @@
                         <ul class="itemizedlist" type="disc">
                            <li class="listitem">
                               
-                              <p>Determine when a wait condition goes into effect. For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-waitcondition.html">Creating Wait Conditions in a Template</a>.
+                              <p>Determine when a wait condition goes into effect. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-waitcondition.html">Creating Wait Conditions in a Template</a>.
                               </p>
                               
                            </li>
@@ -78,9 +78,9 @@
                            stack policy is associated with these resources, your account must have the
                            permissions to update them.
                         </p>
-                     </div><h2 id="w2ab2c21c23c15c13">Syntax</h2><p>The <code class="code">DependsOn</code> attribute can take a single string or list of
+                     </div><h2 id="w2ab1c21c19c15c13">Syntax</h2><p>The <code class="code">DependsOn</code> attribute can take a single string or list of
                         strings.
-                     </p><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">&quot;DependsOn&quot; : [ <em class="replaceable"><code>String, ...</code></em> ]</code></pre><h2 id="w2ab2c21c23c15c15">Example</h2><p>The following template contains an <a href="aws-properties-ec2-instance.html">AWS::EC2::Instance</a> resource with a <code class="code">DependsOn</code>
+                     </p><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">&quot;DependsOn&quot; : [ <em class="replaceable"><code>String, ...</code></em> ]</code></pre><h2 id="w2ab1c21c19c15c15">Example</h2><p>The following template contains an <a href="aws-properties-ec2-instance.html">AWS::EC2::Instance</a> resource with a <code class="code">DependsOn</code>
                         attribute that specifies myDB, an <a href="aws-properties-rds-database-instance.html">AWS::RDS::DBInstance</a>. When AWS CloudFormation creates this
                         stack, it first creates myDB, then creates Ec2Instance.
                      </p><div id="JSON" name="JSON" class="section langfilter">
@@ -91,19 +91,35 @@
     &quot;AWSTemplateFormatVersion&quot; : &quot;2010-09-09&quot;,
     &quot;Mappings&quot; : {
         &quot;RegionMap&quot; : {
-            &quot;us-east-1&quot; : { &quot;AMI&quot; : &quot;ami-76f0061f&quot; },
-            &quot;us-west-1&quot; : { &quot;AMI&quot; : &quot;ami-655a0a20&quot; },
-            &quot;eu-west-1&quot; : { &quot;AMI&quot; : &quot;ami-7fd4e10b&quot; },
-            &quot;ap-northeast-1&quot; : { &quot;AMI&quot; : &quot;ami-8e08a38f&quot; },
-            &quot;ap-southeast-1&quot; : { &quot;AMI&quot; : &quot;ami-72621c20&quot; }
+            &quot;us-east-1&quot; : { 
+                &quot;AMI&quot; : &quot;ami-0ff8a91507f77f867&quot; 
+            },
+            &quot;us-west-1&quot; : { 
+                &quot;AMI&quot; : &quot;ami-0bdb828fd58c52235&quot; 
+            },
+            &quot;eu-west-1&quot; : { 
+                &quot;AMI&quot; : &quot;ami-047bb4163c506cd98&quot; 
+            },
+            &quot;ap-northeast-1&quot; : { 
+                &quot;AMI&quot; : &quot;ami-06cd52961ce9f0d85&quot; 
+            },
+            &quot;ap-southeast-1&quot; : { 
+                &quot;AMI&quot; : &quot;ami-08569b978cc4dfa10&quot; 
+            }
         }
     },
     &quot;Resources&quot; : {
         &quot;Ec2Instance&quot; : {
             &quot;Type&quot; : &quot;AWS::EC2::Instance&quot;,
             &quot;Properties&quot; : {
-                &quot;ImageId&quot; : {
-                   &quot;Fn::FindInMap&quot; : [ &quot;RegionMap&quot;, { &quot;Ref&quot; : &quot;AWS::Region&quot; }, &quot;AMI&quot; ]
+                &quot;ImageId&quot;: {
+                    &quot;Fn::FindInMap&quot;: [
+                        &quot;RegionMap&quot;,
+                        {
+                            &quot;Ref&quot;: &quot;AWS::Region&quot;
+                        },
+                        &quot;AMI&quot;
+                    ]
                 }
             },
             &quot;DependsOn&quot; : &quot;myDB&quot;
@@ -128,15 +144,15 @@
 Mappings:
   RegionMap:
     us-east-1:
-      AMI: ami-76f0061f
+      AMI: ami-0ff8a91507f77f867
     us-west-1:
-      AMI: ami-655a0a20
+      AMI: ami-0bdb828fd58c52235
     eu-west-1:
-      AMI: ami-7fd4e10b
+      AMI: ami-047bb4163c506cd98
     ap-northeast-1:
-      AMI: ami-8e08a38f
+      AMI: ami-06cd52961ce9f0d85
     ap-southeast-1:
-      AMI: ami-72621c20
+      AMI: ami-08569b978cc4dfa10
 Resources:
   Ec2Instance:
     Type: AWS::EC2::Instance
@@ -215,27 +231,58 @@ Resources:
                         <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">&quot;GatewayToInternet&quot; : {
   &quot;Type&quot; : &quot;AWS::EC2::VPCGatewayAttachment&quot;,
   &quot;Properties&quot; : {
-    &quot;VpcId&quot; : { &quot;Ref&quot; : &quot;VPC&quot; },
-    &quot;InternetGatewayId&quot; : { &quot;Ref&quot; : &quot;InternetGateway&quot; }
+    &quot;VpcId&quot; : { 
+      &quot;Ref&quot; : &quot;VPC&quot; 
+    },
+    &quot;InternetGatewayId&quot; : { 
+      &quot;Ref&quot; : &quot;InternetGateway&quot; 
+    }
   }
 },
 
 &quot;EC2Host&quot; : {
   &quot;Type&quot; : &quot;AWS::EC2::Instance&quot;,
   &quot;DependsOn&quot; : &quot;GatewayToInternet&quot;,
-    &quot;Properties&quot; : {
-      &quot;InstanceType&quot; : { &quot;Ref&quot; : &quot;EC2InstanceType&quot; },
-      &quot;KeyName&quot;  : { &quot;Ref&quot; : &quot;KeyName&quot; },
-      &quot;ImageId&quot;  : { &quot;Fn::FindInMap&quot; : [ &quot;AWSRegionArch2AMI&quot;, { &quot;Ref&quot; : &quot;AWS::Region&quot; },
-        { &quot;Fn::FindInMap&quot; : [ &quot;AWSInstanceType2Arch&quot;, { &quot;Ref&quot; : &quot;EC2InstanceType&quot; }, &quot;Arch&quot; ] } ] },
-      &quot;NetworkInterfaces&quot; : [{
-        &quot;GroupSet&quot;                 : [{ &quot;Ref&quot; : &quot;EC2SecurityGroup&quot; }],
+  &quot;Properties&quot; : {
+    &quot;InstanceType&quot; : { 
+      &quot;Ref&quot; : &quot;EC2InstanceType&quot; 
+    },
+    &quot;KeyName&quot;  : { 
+      &quot;Ref&quot; : &quot;KeyName&quot; 
+    },
+    &quot;ImageId&quot;: {
+      &quot;Fn::FindInMap&quot;: [
+        &quot;AWSRegionArch2AMI&quot;,
+        {
+          &quot;Ref&quot;: &quot;AWS::Region&quot;
+        },
+        {
+          &quot;Fn::FindInMap&quot;: [
+            &quot;AWSInstanceType2Arch&quot;,
+            {
+              &quot;Ref&quot;: &quot;EC2InstanceType&quot;
+            },
+            &quot;Arch&quot;
+          ]
+        }
+      ]
+    },
+    &quot;NetworkInterfaces&quot; : [
+      {
+        &quot;GroupSet&quot; : [
+          { 
+            &quot;Ref&quot; : &quot;EC2SecurityGroup&quot; 
+          }
+        ],
         &quot;AssociatePublicIpAddress&quot; : &quot;true&quot;,
-        &quot;DeviceIndex&quot;              : &quot;0&quot;,
-        &quot;DeleteOnTermination&quot;      : &quot;true&quot;,
-        &quot;SubnetId&quot;                 : { &quot;Ref&quot; : &quot;PublicSubnet&quot; }
-      }]
-    }
+        &quot;DeviceIndex&quot; : &quot;0&quot;,
+        &quot;DeleteOnTermination&quot; : &quot;true&quot;,
+        &quot;SubnetId&quot; : { 
+          &quot;Ref&quot; : &quot;PublicSubnet&quot; 
+        }
+      }
+    ]
+  }
 }</code></pre>
                         </div><div id="YAML" name="YAML" class="section langfilter">
                         <h3 id="aws-attribute-dependson-example-2.yaml">YAML</h3>
@@ -271,7 +318,7 @@ EC2Host:
       DeleteOnTermination: &apos;true&apos;
       SubnetId:
         Ref: PublicSubnet</code></pre>
-                        </div><h3 id="w2ab2c21c23c15c17c18">Amazon ECS Service and Auto Scaling Group</h3><p>When you use Auto Scaling or Amazon Elastic Compute Cloud (Amazon EC2) to create container
+                        </div><h3 id="w2ab1c21c19c15c17c18">Amazon ECS Service and Auto Scaling Group</h3><p>When you use Auto Scaling or Amazon Elastic Compute Cloud (Amazon EC2) to create container
                         instances for an Amazon ECS cluster, the Amazon ECS service resource must have a dependency
                         on the Auto Scaling group or Amazon EC2 instances, as shown in the following snippet.
                         That way the container instances are available and associated with the Amazon ECS
@@ -281,19 +328,29 @@ EC2Host:
                         
                         <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">&quot;service&quot;: {
   &quot;Type&quot;: &quot;AWS::ECS::Service&quot;,
-  &quot;DependsOn&quot;: [&quot;ECSAutoScalingGroup&quot;],
+  &quot;DependsOn&quot;: [
+    &quot;ECSAutoScalingGroup&quot;
+  ],
   &quot;Properties&quot; : {
-    &quot;Cluster&quot;: {&quot;Ref&quot;: &quot;ECSCluster&quot;},
+    &quot;Cluster&quot;: {
+      &quot;Ref&quot;: &quot;ECSCluster&quot;
+    },
     &quot;DesiredCount&quot;: &quot;1&quot;,
     &quot;LoadBalancers&quot;: [
       {
         &quot;ContainerName&quot;: &quot;simple-app&quot;,
         &quot;ContainerPort&quot;: &quot;80&quot;,
-        &quot;LoadBalancerName&quot; : { &quot;Ref&quot; : &quot;EcsElasticLoadBalancer&quot; }
+        &quot;LoadBalancerName&quot; : { 
+          &quot;Ref&quot; : &quot;EcsElasticLoadBalancer&quot; 
+        }
       }
     ],
-    &quot;Role&quot; : {&quot;Ref&quot;:&quot;ECSServiceRole&quot;},
-    &quot;TaskDefinition&quot; : {&quot;Ref&quot;:&quot;taskdefinition&quot;}
+    &quot;Role&quot; : {
+      &quot;Ref&quot;:&quot;ECSServiceRole&quot;
+    },
+    &quot;TaskDefinition&quot; : {
+      &quot;Ref&quot;:&quot;taskdefinition&quot;
+    }
   }
 }</code></pre>
                         </div><div id="YAML" name="YAML" class="section langfilter">
@@ -316,10 +373,10 @@ EC2Host:
       Ref: ECSServiceRole
     TaskDefinition:
       Ref: taskdefinition</code></pre>
-                        </div><h3 id="w2ab2c21c23c15c17c20">IAM Role Policy</h3><p>Resources that make additional calls to AWS require a service role, which permits
-                        a service to make calls to AWS on your behalf. For example, the <code class="code">AWS::CodeDeploy::DeploymentGroup</code> resource requires a service role so that AWS CodeDeploy has permissions to deploy
-                        applications to your instances. When you have a single template that defines a service
-                        role, the role&apos;s policy (by using the <code class="code">AWS::IAM::Policy</code> or <code class="code">AWS::IAM::ManagedPolicy</code> resource), and a resource
+                        </div><h3 id="w2ab1c21c19c15c17c20">IAM Role Policy</h3><p>Resources that make additional calls to AWS require a service role, which permits
+                        a service to make calls to AWS on your behalf. For example, the <code class="code">AWS::CodeDeploy::DeploymentGroup</code> resource requires a service role so that CodeDeploy has permissions to deploy applications
+                        to your instances. When you have a single template that defines a service role, the
+                        role&apos;s policy (by using the <code class="code">AWS::IAM::Policy</code> or <code class="code">AWS::IAM::ManagedPolicy</code> resource), and a resource
                         that uses the role, add a dependency so that the resource depends on the role&apos;s policy.
                         This dependency ensures that the policy is available throughout the resource&apos;s lifecycle.
                      </p><p>For example, imagine that you have a template with a deployment group resource, a

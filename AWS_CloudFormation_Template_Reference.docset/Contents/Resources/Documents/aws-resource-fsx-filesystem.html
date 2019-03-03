@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="css/awsdocs.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/awsdocs.min.js"></script>
+    <meta charset="utf-8">
+</head>
+<body>
+    <div id="content" style="padding: 10px 30px;">
+    <h1 class="topictitle" id="aws-resource-fsx-filesystem">AWS::FSx::FileSystem</h1><p>The 
+                        <code class="code">AWS::FSx::FileSystem</code> resource creates a new Amazon FSx file system. You must specify the type Amazon FSx
+                        
+                        file system to create, Microsoft Windows (<a href="aws-resource-fsx-filesystem.html#cfn-fsx-filesystem-windowsconfiguration">WindowsConfiguration</a>) 
+                        or Lustre (<a href="aws-resource-fsx-filesystem.html#cfn-fsx-filesystem-lustreconfiguration">LustreConfiguration</a>). For more information, see 
+                        <a href="https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystem.html">CreateFileSystem</a> in the <em>Amazon FSx API Reference</em>.
+                        
+                     </p><h2 id="aws-resource-fsx-filesystem-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax.</p><div id="JSON" name="JSON" class="section langfilter">
+                        
+                        <h3 id="aws-resource-fsx-filesystem-syntax.json">JSON</h3>
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
+  &quot;Type&quot; : &quot;AWS::FSx::FileSystem&quot;,
+  &quot;Properties&quot; : {
+    &quot;<a href="aws-resource-fsx-filesystem.html#cfn-fsx-filesystem-backupid">BackupId</a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-resource-fsx-filesystem.html#cfn-fsx-filesystem-filesystemtype">FileSystemType</a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-resource-fsx-filesystem.html#cfn-fsx-filesystem-kmskeyid">KmsKeyId</a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-resource-fsx-filesystem.html#cfn-fsx-filesystem-lustreconfiguration">LustreConfiguration</a>&quot; : <a href="aws-properties-fsx-filesystem-lustreconfiguration.html">LustreConfiguration</a>,
+    &quot;<a href="aws-resource-fsx-filesystem.html#cfn-fsx-filesystem-securitygroupids">SecurityGroupIds</a>&quot; : [ <em class="replaceable"><code>String</code></em>, ... ],
+    &quot;<a href="aws-resource-fsx-filesystem.html#cfn-fsx-filesystem-storagecapacity">StorageCapacity</a>&quot; : <em class="replaceable"><code>Integer</code></em>,
+    &quot;<a href="aws-resource-fsx-filesystem.html#cfn-fsx-filesystem-subnetids">SubnetIds</a>&quot; : [ <em class="replaceable"><code>String</code></em>, ... ],
+    &quot;<a href="aws-resource-fsx-filesystem.html#cfn-fsx-filesystem-tags">Tags</a>&quot; : [ <a href="aws-properties-resource-tags.html">Resource Tag</a>, ... ],
+    &quot;<a href="aws-resource-fsx-filesystem.html#cfn-fsx-filesystem-windowsconfiguration">WindowsConfiguration</a>&quot; : <a href="aws-properties-fsx-filesystem-windowsconfiguration.html">WindowsConfiguration</a>
+  }
+}</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        
+                        <h3 id="aws-resource-fsx-filesystem-syntax.yaml">YAML</h3>
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">Type: &quot;AWS::FSx::FileSystem&quot;
+Properties:
+  <a href="aws-resource-fsx-filesystem.html#cfn-fsx-filesystem-backupid">BackupId</a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-resource-fsx-filesystem.html#cfn-fsx-filesystem-filesystemtype">FileSystemType</a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-resource-fsx-filesystem.html#cfn-fsx-filesystem-kmskeyid">KmsKeyId</a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-resource-fsx-filesystem.html#cfn-fsx-filesystem-lustreconfiguration">LustreConfiguration</a>: 
+    <a href="aws-properties-fsx-filesystem-lustreconfiguration.html">LustreConfiguration</a>
+  <a href="aws-resource-fsx-filesystem.html#cfn-fsx-filesystem-securitygroupids">SecurityGroupIds</a>: 
+    - <em class="replaceable"><code>String</code></em>
+  <a href="aws-resource-fsx-filesystem.html#cfn-fsx-filesystem-storagecapacity">StorageCapacity</a>: <em class="replaceable"><code>Integer</code></em>
+  <a href="aws-resource-fsx-filesystem.html#cfn-fsx-filesystem-subnetids">SubnetIds</a>: 
+    - <em class="replaceable"><code>String</code></em>
+  <a href="aws-resource-fsx-filesystem.html#cfn-fsx-filesystem-tags">Tags</a>: 
+    - <a href="aws-properties-resource-tags.html">Resource Tag</a>
+  <a href="aws-resource-fsx-filesystem.html#cfn-fsx-filesystem-windowsconfiguration">WindowsConfiguration</a>: 
+    <a href="aws-properties-fsx-filesystem-windowsconfiguration.html">WindowsConfiguration</a></code></pre>
+                        </div><h2 id="aws-resource-fsx-filesystem-properties">Properties</h2><div class="variablelist">
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <dl>
+                           
+                           <dt><a id="cfn-fsx-filesystem-backupid"></a><span class="term"><code class="code">BackupId</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The ID of the backup of an Amazon FSx for Windows File Server file system. For more
+                                 information, see
+                                 <a href="https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateBackup.html">CreateBackup</a> in the
+                                 <em>Amazon FSx API Reference</em>.
+                              </p>
+                              
+                              <p>
+                                 <em>Required</em>: No
+                              </p>
+                              
+                              <p>
+                                 <em>Type</em>: String
+                              </p>
+                              
+                              <p>
+                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a>
+                                 
+                              </p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-fsx-filesystem-filesystemtype"></a><span class="term"><code class="code">FileSystemType</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The type of file system. For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/APIReference/API_FileSystem.html">FileSystem</a> in the
+                                 <em>Amazon FSx API Reference</em>.
+                              </p>
+                              
+                              <p>
+                                 <em>Required</em>: No
+                              </p>
+                              
+                              <p>
+                                 <em>Type</em>: String
+                              </p>
+                              
+                              <p>
+                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a>
+                                 
+                              </p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-fsx-filesystem-kmskeyid"></a><span class="term"><code class="code">KmsKeyId</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The ID of the AWS Key Management Service (AWS KMS) key used to encrypt the file 
+                                 system&apos;s data for an Amazon FSx for Windows File Server file system. For more information,
+                                 see 
+                                 <a href="https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystem.html">CreateFileSystem</a> in the <em>Amazon FSx API Reference</em>.
+                              </p>
+                              
+                              <p>
+                                 <em>Required</em>: No
+                              </p>
+                              
+                              <p>
+                                 <em>Type</em>: String
+                              </p>
+                              
+                              <p>
+                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a>
+                                 
+                              </p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-fsx-filesystem-lustreconfiguration"></a><span class="term"><code class="code">LustreConfiguration</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The configuration for the Amazon FSx for Lustre file system. For more information,
+                                 see 
+                                 <a href="https://docs.aws.amazon.com/fsx/latest/APIReference/API_LustreFileSystemConfiguration.html">LustreFileSystemConfiguration</a>
+                                 in the <em>Amazon FSx API Reference</em>.
+                              </p>
+                              
+                              <p>
+                                 <em>Required</em>: No
+                              </p>
+                              
+                              <p>
+                                 <em>Type</em>: <a href="aws-properties-fsx-filesystem-lustreconfiguration.html">LustreConfiguration</a></p>
+                              
+                              <p>
+                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
+                                 
+                              </p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-fsx-filesystem-securitygroupids"></a><span class="term"><code class="code">SecurityGroupIds</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>A list of IDs for the security groups that apply to the specified network
+                                 interfaces created for file system access. These security groups apply to all network
+                                 interfaces. This list isn&apos;t returned in later describe requests.
+                              </p>
+                              
+                              <p>
+                                 <em>Required</em>: No
+                              </p>
+                              
+                              <p>
+                                 <em>Type</em>: List of String values
+                              </p>
+                              
+                              <p>
+                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a>
+                                 
+                              </p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-fsx-filesystem-storagecapacity"></a><span class="term"><code class="code">StorageCapacity</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The storage capacity of the file system. For Windows file systems, 
+                                 the storage capacity has a minimum of 300 GiB, and a maximum of 65,536 GiB. 
+                                 For Lustre file systems, the storage capacity has a minimum of 3,600 GiB, 
+                                 and is provisioned in increments of 3,600 GiB. For more information, see 
+                                 <a href="https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystem.html#FSx-CreateFileSystem-request-StorageCapacity">StorageCapacity</a>
+                                 in the <em>Amazon FSx API Reference</em>.
+                              </p>
+                              
+                              <p>
+                                 <em>Required</em>: No
+                              </p>
+                              
+                              <p>
+                                 <em>Type</em>: Integer
+                              </p>
+                              
+                              <p>
+                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a>
+                                 
+                              </p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-fsx-filesystem-subnetids"></a><span class="term"><code class="code">SubnetIds</code></span></dt>
+                           
+                           <dd>
+                              
+                              
+                              <p>A list of IDs for the subnets that the file system will be accessible from. File
+                                 systems support only one subnet. The file server is also launched in that subnet&apos;s
+                                 Availability Zone. For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystem.html#FSx-CreateFileSystem-request-SubnetIds">SubnetIds</a>
+                                 in the <em>Amazon FSx API Reference</em>.
+                              </p>
+                              
+                              
+                              <p>
+                                 <em>Required</em>: No
+                              </p>
+                              
+                              <p>
+                                 <em>Type</em>: List of String values
+                              </p>
+                              
+                              <p>
+                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a>
+                                 
+                              </p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-fsx-filesystem-tags"></a><span class="term"><code class="code">Tags</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The tags to be applied to the file system at file system creation. The key
+                                 value of the <code class="code">Name</code> tag appears in the console as the file system name. For
+                                 more information, see <a href="https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystem.html#FSx-CreateFileSystem-request-Tags">Tags</a> in the <em>Amazon FSx API Reference</em>.
+                              </p>
+                              
+                              <p>
+                                 <em>Required</em>: No
+                              </p>
+                              
+                              <p>
+                                 <em>Type</em>: List of <a href="aws-properties-resource-tags.html">Resource Tag</a> property types
+                              </p>
+                              
+                              <p>
+                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
+                                 
+                              </p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-fsx-filesystem-windowsconfiguration"></a><span class="term"><code class="code">WindowsConfiguration</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The configuration for a Microsoft Windows file system. For more information, see 
+                                 <a href="https://docs.aws.amazon.com/fsx/latest/APIReference/API_WindowsFileSystemConfiguration.html">WindowsFileSystemConfiguration</a>
+                                 in the <em>Amazon FSx API Reference</em>.
+                              </p>
+                              
+                              <p>
+                                 <em>Required</em>: No
+                              </p>
+                              
+                              <p>
+                                 <em>Type</em>: <a href="aws-properties-fsx-filesystem-windowsconfiguration.html">WindowsConfiguration</a></p>
+                              
+                              <p>
+                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
+                                 
+                              </p>
+                              
+                           </dd>
+                           
+                        </dl>
+                     </div><h2 id="aws-resource-fsx-filesystem-returnvalues">Return Values</h2><h3 id="aws-resource-fsx-filesystem-ref">Ref</h3><p>When you pass the logical ID of an 
+                        <code class="code">AWS::FSx::FileSystem</code> resource to the intrinsic 
+                        <code class="code">Ref</code> function, the function returns the file system resource ID, such as 
+                        <code class="code">fs-0d33333e999a7c66g</code>.
+                        
+                     </p><p>For more information about using the 
+                        <code class="code">Ref</code> function, see 
+                        <a href="intrinsic-function-reference-ref.html">Ref</a>.
+                        
+                     </p><h2 id="aws-resource-fsx-filesystem-examples">Examples</h2><h3 id="aws-resource-fsx-filesystem-example1">Create an Amazon FSx for Lustre File System</h3><p>The following examples create an Amazon FSx for Lustre file system.</p><div id="JSON" name="JSON" class="section langfilter">
+                        
+                        <h4 id="aws-resource-fsx-filesystem-example1.json">JSON</h4>
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">{
+   &quot;Resources&quot;: {
+	  &quot;BasicS3LinkedLustreFileSystem&quot;: {
+		 &quot;Type&quot;: &quot;AWS::FSx::FileSystem&quot;,
+		  &quot;Properties&quot;: {
+			 &quot;FileSystemType&quot;: &quot;LUSTRE&quot;,
+			 &quot;StorageCapacity&quot;: 3600,
+			 &quot;SubnetIds&quot;: [
+				null
+			],
+			&quot;SecurityGroupIds&quot;: [
+				null
+			],
+			&quot;Tags&quot;: [
+			   {
+				  &quot;Key&quot;: &quot;Name&quot;,
+				  &quot;Value&quot;: &quot;s3linkedLustre&quot;
+			   },
+			   {
+				  &quot;Key&quot;: &quot;StorageCapacity&quot;,
+				  &quot;Value&quot;: &quot;3600GB&quot;
+			   }
+			],
+			&quot;LustreConfiguration&quot;: {
+			   &quot;ImportPath&quot;: null,
+			   &quot;ExportPath&quot;: null,
+			   &quot;WeeklyMaintenanceStartTime&quot;: &quot;2:20:30&quot;
+			  }
+	    }
+	  }
+	},
+	&quot;Outputs&quot;: {
+	   &quot;FileSystemId&quot;: {
+		  &quot;Value&quot;: null
+		}
+	}
+}</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        
+                        <h4 id="aws-resource-fsx-filesystem-example1.yaml">YAML</h4>
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">Resources:
+  BasicS3LinkedLustreFileSystem:
+    Type: AWS::FSx::FileSystem
+    Properties:
+      FileSystemType: &quot;LUSTRE&quot;
+      StorageCapacity: 3600
+      SubnetIds: [!ImportValue CustomerPublicSubnet01]
+      SecurityGroupIds: [!ImportValue LustreIngressSecurityGroupId]
+      Tags:
+        - Key: &quot;Name&quot;
+          Value: &quot;s3linkedLustre&quot;
+        - Key: &quot;StorageCapacity&quot;
+          Value: &quot;3600GB&quot;
+      LustreConfiguration:
+        ImportPath: !Join [&quot;&quot;, [&quot;s3://&quot;, !ImportValue LustreCFNTestS3ImportBucketName]]
+        ExportPath: !Join [&quot;&quot;, [&quot;s3://&quot;, !ImportValue LustreCFNTestS3ImportBucketName]]
+        WeeklyMaintenanceStartTime: &quot;2:20:30&quot;
+Outputs:
+  FileSystemId:
+    Value: !Ref BasicS3LinkedLustreFileSystemOutputs:
+  FileSystemId:
+    Value: !Ref BasicS3LinkedLustreFileSystem</code></pre>
+                        </div><h3 id="aws-resource-fsx-filesystem-example2">Create an Amazon FSx for Windows File Server File System</h3><p>The following examples create an Amazon FSx for Windows File Server file system.</p><div id="JSON" name="JSON" class="section langfilter">
+                        
+                        <h4 id="aws-resource-fsx-filesystem-example2.json">JSON</h4>
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">{
+   &quot;Resources&quot;: {
+      &quot;WindowsFileSystemWithAllConfigs&quot;: {
+         &quot;Type&quot;: &quot;AWS::FSx::FileSystem&quot;,
+         &quot;Properties&quot;: {
+            &quot;FileSystemType&quot;: &quot;WINDOWS&quot;,
+            &quot;StorageCapacity&quot;: 300,
+            &quot;SubnetIds&quot;: [
+               null
+            ],
+            &quot;SecurityGroupIds&quot;: [
+               null
+            ],
+            &quot;Tags&quot;: [
+               {
+                  &quot;Key&quot;: &quot;Name&quot;,
+                  &quot;Value&quot;: &quot;windows&quot;
+               },
+               {
+                  &quot;Key&quot;: &quot;ThroughputCapacity&quot;,
+                  &quot;Value&quot;: &quot;16&quot;
+               }
+            ],
+            &quot;WindowsConfiguration&quot;: {
+               &quot;ActiveDirectoryId&quot;: null,
+               &quot;ThroughputCapacity&quot;: 8,
+               &quot;WeeklyMaintenanceStartTime&quot;: &quot;4:16:30&quot;,
+               &quot;DailyAutomaticBackupStartTime&quot;: &quot;01:00&quot;,
+               &quot;AutomaticBackupRetentionDays&quot;: 2,
+               &quot;CopyTagsToBackups&quot;: false
+            }
+         }
+      }
+   },
+   &quot;Outputs&quot;: {
+      &quot;FileSystemId&quot;: {
+         &quot;Value&quot;: null
+      }
+   }
+}</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        
+                        <h4 id="aws-resource-fsx-filesystem-example2.yaml">YAML</h4>
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">Resources:
+  WindowsFileSystemWithAllConfigs:
+    Type: &quot;AWS::FSx::FileSystem&quot;
+    Properties:
+      FileSystemType: &quot;WINDOWS&quot;
+      StorageCapacity: 300
+      SubnetIds: [!ImportValue CustomerPublicSubnet01]
+      SecurityGroupIds: [!ImportValue LustreIngressSecurityGroupId]
+      Tags:
+        - Key: &quot;Name&quot;
+          Value: &quot;windows&quot;
+        - Key: &quot;ThroughputCapacity&quot;
+          Value: &quot;16&quot;
+      WindowsConfiguration:
+        ActiveDirectoryId: !ImportValue CustomerDirectoryServiceId
+        ThroughputCapacity: 8
+        WeeklyMaintenanceStartTime: &quot;4:16:30&quot;
+        DailyAutomaticBackupStartTime: &quot;01:00&quot;
+        AutomaticBackupRetentionDays: 2
+        CopyTagsToBackups: false
+Outputs:
+  FileSystemId:
+    Value: !Ref WindowsFileSystemWithAllConfigs</code></pre>
+                        </div></div>
+</body>
+</html>
