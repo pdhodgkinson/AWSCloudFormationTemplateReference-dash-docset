@@ -8,11 +8,11 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-properties-ec2-elb-policy">ElasticLoadBalancing Policy Type</h1><p>The ElasticLoadBalancing policy type is an embedded property of the <a href="aws-properties-ec2-elb.html">AWS::ElasticLoadBalancing::LoadBalancer</a> resource. You
+    <h1 class="topictitle" id="aws-properties-ec2-elb-policy">Elastic Load Balancing V1 Policy</h1><p>The ElasticLoadBalancing policy type is an embedded property of the <a href="aws-properties-ec2-elb.html">AWS::ElasticLoadBalancing::LoadBalancer</a> resource. You
                         associate policies with a <a href="aws-properties-ec2-elb-listener.html">listener</a> by
                         referencing a policy&apos;s name in the listener&apos;s <code class="code">PolicyNames</code>
                         property.
-                     </p><h2 id="w2ab2c21c14e1012b5">Syntax</h2><div id="JSON" name="JSON" class="section langfilter">
+                     </p><h2 id="w2ab1c21c10d135c16c47b5">Syntax</h2><div id="JSON" name="JSON" class="section langfilter">
                         <h3 id="aws-properties-ec2-elb-policy-syntax.json">JSON</h3>
                         
                         <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
@@ -36,7 +36,7 @@
 <a href="aws-properties-ec2-elb-policy.html#cfn-ec2-elb-policy-policyname">PolicyName</a>: <em class="replaceable"><code>String</code></em>
 <a href="aws-properties-ec2-elb-policy.html#cfn-ec2-elb-policy-policytype">PolicyType</a>: <em class="replaceable"><code>String</code></em>
 </code></pre>
-                        </div><h2 id="w2ab2c21c14e1012b7">Properties</h2><div class="variablelist">
+                        </div><h2 id="w2ab1c21c10d135c16c47b7">Properties</h2><div class="variablelist">
                         
                         
                         
@@ -53,7 +53,7 @@
                            
                            <dd>
                               
-                              <p>A list of arbitrary attributes for this policy. If you don&apos;t need to specify
+                              <p>The attributes for this policy. If you don&apos;t need to specify
                                  any policy attributes, specify an empty list (<code class="code">[]</code>).
                               </p>
                               
@@ -70,7 +70,7 @@
                            
                            <dd>
                               
-                              <p>A list of instance ports for the policy. These are the ports associated with the back-end
+                              <p>The instance ports for the policy. These are the ports associated with the back-end
                                  server.
                               </p>
                               
@@ -87,11 +87,9 @@
                            
                            <dd>
                               
-                              <p>A list of external load balancer ports for the policy.</p>
+                              <p>The load balancer ports for the policy.</p>
                               
-                              <p><em>Required</em>: Only for some policies. For more information,
-                                 see the <em><a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/Welcome.html" target="_blank">Elastic Load Balancing
-                                       Developer Guide</a></em>.
+                              <p><em>Required</em>: Only for some policies.
                               </p>
                               
                               <p><em>Type</em>: List of String values
@@ -121,7 +119,7 @@
                               
                               <p>The name of the policy type for this policy. This must be one of the types reported
                                  by the Elastic Load Balancing
-                                 <a href="http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DescribeLoadBalancerPolicyTypes.html" target="_blank">DescribeLoadBalancerPolicyTypes</a> action.
+                                 <a href="https://docs.aws.amazon.com/elasticloadbalancing/2012-06-01/APIReference/API_DescribeLoadBalancerPolicyTypes.html">DescribeLoadBalancerPolicyTypes</a> action.
                               </p>
                               
                               <p><em>Required</em>: Yes
@@ -133,9 +131,7 @@
                            </dd>
                            
                         </dl>
-                     </div><h2 id="w2ab2c21c14e1012b9">Examples</h2><p>This example shows a snippet of the policies section of an elastic load balancer
-                        listener.
-                     </p><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">
+                     </div><h2 id="w2ab1c21c10d135c16c47b9">Examples</h2><p>This example shows a snippet of the policies section of a load balancer listener.</p><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">
 &quot;Policies&quot; : [
    {
       &quot;PolicyName&quot; : &quot;MySSLNegotiationPolicy&quot;,
@@ -169,7 +165,7 @@
          { &quot;Name&quot; : &quot;PublicKeyPolicyName&quot;, &quot;Value&quot; : &quot;MyPublicKeyPolicy&quot; } ],
       &quot;InstancePorts&quot; : [ &quot;8443&quot; ]
    }
-]</code></pre><p>This example shows a snippet of the policies section of an elastic load balancer using
+]</code></pre><p>This example shows a snippet of the policies section of a Classic Load Balancer using
                         proxy protocol.
                      </p><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">&quot;Policies&quot; : [{
    &quot;PolicyName&quot; : &quot;EnableProxyProtocol&quot;,
@@ -181,8 +177,8 @@
    &quot;InstancePorts&quot; : [{&quot;Ref&quot; : &quot;WebServerPort&quot;}]
 }]</code></pre><p>In the following snippet, the load balancer uses a predefined security policy. These
                         predefined policies are provided by Elastic Load Balancing. For more information,
-                        see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/elb-security-policy-options.html" target="_blank">SSL Security Policies</a> in the
-                        <em>Elastic Load Balancing User Guide</em>.
+                        see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-security-policy-table.html">SSL Security Policies</a> in the
+                        <em>User Guide for Classic Load Balancers</em>.
                      </p><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">&quot;Policies&quot; : [{
    &quot;PolicyName&quot; : &quot;ELBSecurityPolicyName&quot;,
    &quot;PolicyType&quot; : &quot;SSLNegotiationPolicyType&quot;,
@@ -190,7 +186,7 @@
       &quot;Name&quot;  : &quot;Reference-Security-Policy&quot;,
       &quot;Value&quot; : &quot;ELBSecurityPolicy-2014-10&quot;
    }]
-}]</code></pre><h2 id="w2ab2c21c14e1012c11">See Also</h2><div class="itemizedlist">
+}]</code></pre><h2 id="w2ab1c21c10d135c16c47c11">See Also</h2><div class="itemizedlist">
                         
                         
                         
@@ -203,12 +199,12 @@
                            </li>
                            <li class="listitem">
                               
-                              <p><a href="aws-properties-ec2-elb-AppCookieStickinessPolicy.html">ElasticLoadBalancing AppCookieStickinessPolicy Type</a></p>
+                              <p><a href="aws-properties-ec2-elb-AppCookieStickinessPolicy.html">Elastic Load Balancing V1 AppCookieStickinessPolicy</a></p>
                               
                            </li>
                            <li class="listitem">
                               
-                              <p><a href="aws-properties-ec2-elb-LBCookieStickinessPolicy.html">ElasticLoadBalancing LBCookieStickinessPolicy Type</a></p>
+                              <p><a href="aws-properties-ec2-elb-LBCookieStickinessPolicy.html">Elastic Load Balancing V1 LBCookieStickinessPolicy</a></p>
                               
                            </li>
                         </ul>

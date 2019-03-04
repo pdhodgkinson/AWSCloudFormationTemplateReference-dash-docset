@@ -9,28 +9,21 @@
 <body>
     <div id="content" style="padding: 10px 30px;">
     <h1 class="topictitle" id="aws-resource-sagemaker-model">AWS::SageMaker::Model</h1><p>The <code class="code">AWS::SageMaker::Model</code> resource to create a model to host at an Amazon
-                        SageMaker endpoint. For more information, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works-hosting.html" target="_blank">Deploying a Model on
+                        SageMaker endpoint. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works-hosting.html">Deploying a Model on
                            Amazon SageMaker Hosting Services</a> in the <em>Amazon SageMaker Developer
                            Guide</em>. 
-                     </p><div class="highlights" id="inline-topiclist">
-                        <p><strong>Topics</strong></p>
-                        <ul>
-                           <li><a href="#aws-resource-sagemaker-model-syntax">Syntax</a></li>
-                           <li><a href="#aws-resource-sagemaker-model-properties">Properties</a></li>
-                           <li><a href="#aws-resource-sagemaker-model-returnvalues">Return Values</a></li>
-                           <li><a href="#aws-resource-sagemaker-model-examples">Examples</a></li>
-                        </ul>
-                     </div><h2 id="aws-resource-sagemaker-model-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                     </p><h2 id="aws-resource-sagemaker-model-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
                         
                         <h3 id="aws-resource-sagemaker-model-syntax.json">JSON</h3>
                         <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
   &quot;Type&quot; : &quot;AWS::SageMaker::Model&quot;,
   &quot;Properties&quot; : {
-    &quot;<a href="aws-resource-sagemaker-model.html#cfn-sagemaker-model-executionrolearn"><code class="code">ExecutionRoleArn</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-sagemaker-model.html#cfn-sagemaker-model-primarycontainer"><code class="code">PrimaryContainer</code></a>&quot; : <a href="aws-properties-sagemaker-model-containerdefinition.html"><em class="replaceable"><code>Tag</code></em></a>,
-    &quot;<a href="aws-resource-sagemaker-model.html#cfn-sagemaker-model-modelname"><code class="code">ModelName</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-sagemaker-model.html#cfn-sagemaker-model-vpcconfig"><code class="code">VpcConfig</code></a>&quot; : <a href="aws-properties-sagemaker-notebookinstance-tag.html"><em class="replaceable"><code>Tag</code></em></a>,
-    &quot;<a href="aws-resource-sagemaker-model.html#cfn-sagemaker-model-tags"><code class="code">Tags</code></a>&quot; : [ <a href="aws-properties-sagemaker-model-tag.html"><em class="replaceable"><code>Tag</code></em></a>, ... ]
+    &quot;<a href="aws-resource-sagemaker-model.html#cfn-sagemaker-model-executionrolearn">ExecutionRoleArn</a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-resource-sagemaker-model.html#cfn-sagemaker-model-primarycontainer">PrimaryContainer</a>&quot; : <a href="aws-properties-sagemaker-model-containerdefinition.html">ContainerDefinition</a>,
+    &quot;<a href="aws-resource-sagemaker-model.html#cfn-sagemaker-model-containers">Containers</a>&quot; : [ <a href="aws-properties-sagemaker-model-containerdefinition.html">ContainerDefinition</a>,...],
+    &quot;<a href="aws-resource-sagemaker-model.html#cfn-sagemaker-model-modelname">ModelName</a>&quot; : <em class="replaceable"><code>String</code></em>,
+    &quot;<a href="aws-resource-sagemaker-model.html#cfn-sagemaker-model-vpcconfig">VpcConfig</a>&quot; : <a href="aws-properties-sagemaker-model-vpcconfig.html">VpcConfig</a>,
+    &quot;<a href="aws-resource-sagemaker-model.html#cfn-sagemaker-model-tags">Tags</a>&quot; : [ <a href="aws-properties-resource-tags.html">Tag</a>, ... ]
   }
 }</code></pre>
                         </div><div id="YAML" name="YAML" class="section langfilter">
@@ -38,13 +31,16 @@
                         <h3 id="aws-resource-sagemaker-model-syntax.yaml">YAML</h3>
                         <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">Type: &quot;AWS::SageMaker::Model&quot;
 Properties:
-  <a href="aws-resource-sagemaker-model.html#cfn-sagemaker-model-executionrolearn"><code class="code">ExecutionRoleArn</code></a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-sagemaker-model.html#cfn-sagemaker-model-primarycontainer"><code class="code">PrimaryContainer</code></a>: <a href="aws-properties-sagemaker-model-containerdefinition.html"><em class="replaceable"><code>Tag</code></em></a>
-  <a href="aws-resource-sagemaker-model.html#cfn-sagemaker-model-modelname"><code class="code">ModelName</code></a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-sagemaker-model.html#cfn-sagemaker-model-vpcconfig"><code class="code">VpcConfig</code></a>: <a href="aws-properties-sagemaker-notebookinstance-tag.html"><em class="replaceable"><code>Tag</code></em></a>
-  <a href="aws-resource-sagemaker-model.html#cfn-sagemaker-model-tags"><code class="code">Tags</code></a>: 
-    - <a href="aws-properties-sagemaker-model-tag.html"><em class="replaceable"><code>Tag</code></em></a> </code></pre>
+  <a href="aws-resource-sagemaker-model.html#cfn-sagemaker-model-executionrolearn">ExecutionRoleArn</a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-resource-sagemaker-model.html#cfn-sagemaker-model-primarycontainer">PrimaryContainer</a>: <a href="aws-properties-sagemaker-model-containerdefinition.html">ContainerDefinition</a>
+  <a href="aws-resource-sagemaker-model.html#cfn-sagemaker-model-containers">Containers</a>: - <a href="aws-properties-sagemaker-model-containerdefinition.html">ContainerDefinition</a>
+  <a href="aws-resource-sagemaker-model.html#cfn-sagemaker-model-modelname">ModelName</a>: <em class="replaceable"><code>String</code></em>
+  <a href="aws-resource-sagemaker-model.html#cfn-sagemaker-model-vpcconfig">VpcConfig</a>: <a href="aws-properties-sagemaker-model-vpcconfig.html">VpcConfig</a>
+  <a href="aws-resource-sagemaker-model.html#cfn-sagemaker-model-tags">Tags</a>: 
+    - <a href="aws-properties-resource-tags.html">Tag</a> </code></pre>
                         </div><h2 id="aws-resource-sagemaker-model-properties">Properties</h2><div class="variablelist">
+                        
+                        
                         
                         
                         
@@ -67,7 +63,7 @@ Properties:
                               <p>The Amazon Resource Name (ARN) of the IAM role that Amazon SageMaker can
                                  assume to access model artifacts and docker image for deployment on ML
                                  compute instances. Deploying on ML compute instances is part of model
-                                 hosting. For more information, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html" target="_blank">Amazon
+                                 hosting. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">Amazon
                                     SageMaker Roles</a>.
                               </p>
                               
@@ -80,7 +76,7 @@ Properties:
                               </p>
                               
                               <p>
-                                 <em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a>
+                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a>
                                  
                               </p>
                               
@@ -105,7 +101,29 @@ Properties:
                                     ContainerDefinition</a></p>
                               
                               <p>
-                                 <em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a>
+                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a>
+                                 
+                              </p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-sagemaker-model-containers"></a><span class="term"><code class="code">Containers</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>Specifies the containers in the inference pipeline.</p>
+                              
+                              <p>
+                                 <em>Required</em>: No
+                              </p>
+                              
+                              <p>
+                                 <em>Type</em>: List of <a href="aws-properties-sagemaker-model-containerdefinition.html">Amazon SageMaker Model
+                                    ContainerDefinition</a></p>
+                              
+                              <p>
+                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a>
                                  
                               </p>
                               
@@ -127,7 +145,7 @@ Properties:
                               </p>
                               
                               <p>
-                                 <em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a>
+                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a>
                                  
                               </p>
                               
@@ -140,7 +158,7 @@ Properties:
                               
                               <p>A VpcConfig object that specifies the VPC that you want your model to
                                  connect to. Control access to and from your model container by configuring
-                                 the VPC. For more information, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html" target="_blank">Protect Models
+                                 the VPC. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html">Protect Models
                                     by Using an Amazon Virtual Private Cloud</a>.
                               </p>
                               
@@ -152,7 +170,7 @@ Properties:
                                  <em>Type</em>: <a href="aws-properties-sagemaker-model-vpcconfig.html">Amazon SageMaker Model VpcConfig</a></p>
                               
                               <p>
-                                 <em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a>
+                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a>
                                  
                               </p>
                               
@@ -163,7 +181,7 @@ Properties:
                            
                            <dd>
                               
-                              <p>An array of key-value pairs. For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what" target="_blank">Using
+                              <p>An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using
                                     Cost Allocation Tags</a> in the <em>AWS Billing and Cost Management User
                                     Guide</em>.
                               </p>
@@ -173,11 +191,10 @@ Properties:
                               </p>
                               
                               <p>
-                                 <em>Type</em>: List of <a href="aws-properties-sagemaker-model-tag.html">Amazon SageMaker Model
-                                    Tag</a></p>
+                                 <em>Type</em>: List of <a href="aws-properties-resource-tags.html">Resource Tag</a></p>
                               
                               <p>
-                                 <em>Update requires</em>: <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No
+                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No
                                     interruption</a>
                                  
                               </p>
@@ -321,7 +338,7 @@ Properties:
       &quot;Value&quot;: { &quot;Fn::GetAtt&quot; : [ &quot;Endpoint&quot;, &quot;EndpointName&quot; ] }
     }
     
-  },
+  }
   
 }</code></pre>
                         </div><div id="YAML" name="YAML" class="section langfilter">
@@ -393,11 +410,11 @@ Resources:
                 Effect: &quot;Allow&quot;
                 Action: &quot;*&quot;
                 Resource: &quot;*&quot;
-  Outputs:
-    EndpointId:
-      Value: !Ref Endpoint
-    EndpointName:
-      Value: !GetAtt Endpoint.EndpointName</code></pre>
+Outputs:
+  EndpointId:
+    Value: !Ref Endpoint
+  EndpointName:
+    Value: !GetAtt Endpoint.EndpointName</code></pre>
                         </div></div>
 </body>
 </html>

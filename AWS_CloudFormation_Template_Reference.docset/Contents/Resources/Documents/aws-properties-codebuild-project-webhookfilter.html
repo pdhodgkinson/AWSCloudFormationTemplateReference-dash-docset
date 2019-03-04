@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="css/awsdocs.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/awsdocs.min.js"></script>
+    <meta charset="utf-8">
+</head>
+<body>
+    <div id="content" style="padding: 10px 30px;">
+    <h1 class="topictitle" id="aws-properties-codebuild-project-webhookfilter">AWS CodeBuild Project WebhookFilter</h1><p><code class="code">WebhookFilter</code> is a property of the <a href="aws-resource-codebuild-project.html">AWS::CodeBuild::Project</a> resource that specifies which 
+                        webhooks trigger an AWS CodeBuild build.
+                     </p><h2 id="aws-properties-codebuild-project-webhookfilter-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="
+                    JSON
+                " name="
+                    JSON
+                " class="section langfilter">
+                        
+                        <h3 id="aws-properties-codebuild-project-webhookfilter-syntax.json">
+                           JSON
+                           
+                        </h3>
+                        
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
+  &quot;<a href="aws-properties-codebuild-project-webhookfilter.html#cfn-codebuild-project-webhookfilter-exclude-matched-pattern">ExcludeMatchedPattern</a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
+  &quot;<a href="aws-properties-codebuild-project-webhookfilter.html#cfn-codebuild-project-webhookfilter-pattern">Pattern</a>&quot; : <em class="replaceable"><code>String</code></em>,
+  &quot;<a href="aws-properties-codebuild-project-webhookfilter.html#cfn-codebuild-project-webhookfilter-type">Type</a>&quot; : <em class="replaceable"><code>String</code></em>
+}</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-properties-codebuild-project-webhookfilter-syntax.yaml">YAML</h3>
+                        
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight"><a href="aws-properties-codebuild-project-webhookfilter.html#cfn-codebuild-project-webhookfilter-exclude-matched-pattern">ExcludeMatchedPattern</a>: <em class="replaceable"><code>Boolean</code></em>
+<a href="aws-properties-codebuild-project-webhookfilter.html#cfn-codebuild-project-webhookfilter-pattern">Pattern</a>: <em class="replaceable"><code>String</code></em>
+<a href="aws-properties-codebuild-project-webhookfilter.html#cfn-codebuild-project-webhookfilter-type">Type</a>: <em class="replaceable"><code>String</code></em></code></pre>
+                        </div><h2 id="w2ab1c21c10c72c13c43b7">Properties</h2><div class="variablelist">
+                        
+                        
+                        
+                        
+                        
+                        
+                        <dl>
+                           
+                           <dt><a id="cfn-codebuild-project-webhookfilter-exclude-matched-pattern"></a><span class="term"><code class="code">ExcludeMatchedPattern</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>
+                                 Used to indicate that the <code class="code">pattern</code> determines which webhook events do not trigger a build. If 
+                                 true, then a webhook event that does not match the <code class="code">pattern</code> triggers a build. If false, then 
+                                 a webhook event that matches the <code class="code">pattern</code> triggers a build.
+                                 
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              
+                              <p><em>Type</em>: Boolean
+                              </p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-codebuild-project-webhookfilter-pattern"></a><span class="term"><code class="code">Pattern</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>
+                                 For a <code class="code">WebHookFilter</code> that uses <code class="code">EVENT</code> type, a comma-separated string that specifies one or more events. For example, 
+                                 the webhook filter <code class="code">PUSH, PULL_REQUEST_CREATED, PULL_REQUEST_UPDATED</code> allows all 
+                                 push, pull request created, and pull request updated events to trigger a build.
+                                 
+                              </p>
+                              
+                              <p>
+                                 For a <code class="code">WebHookFilter</code> that uses any of the other filter types, a regular expression 
+                                 pattern. For example, a <code class="code">WebHookFilter</code> that uses <code class="code">HEAD_REF</code> for its <code class="code">type</code> and 
+                                 the pattern <code class="code">^refs/heads/</code> triggers a build when the head reference is a branch with a reference name 
+                                 <code class="code">refs/heads/branch-name</code>.
+                                 
+                              </p>        
+                              
+                              <p><em>Required</em>: Yes
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-codebuild-project-webhookfilter-type"></a><span class="term"><code class="code">Type</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>
+                                 The type of webhook filter. There are five webhook filter types: <code class="code">EVENT</code>, <code class="code">ACTOR_ACCOUNT_ID</code>, <code class="code">HEAD_REF</code>, 
+                                 <code class="code">BASE_REF</code>, and <code class="code">FILE_PATH</code>. 
+                                 
+                              </p>
+                              
+                              
+                              <div class="variablelist">
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 <dl>
+                                    
+                                    <dt><a id="cfn-codebuild-project-webhookfilter-type"></a><span class="term">
+                                          EVENT
+                                          </span></dt>
+                                    
+                                    <dd>
+                                       
+                                       <p>
+                                          A webhook event triggers a build when the provided <code class="code">pattern</code> matches one of four event types: <code class="code">PUSH</code>, 
+                                          <code class="code">PULL_REQUEST_CREATED</code>, <code class="code">PULL_REQUEST_UPDATED</code>, and <code class="code">PULL_REQUEST_REOPENED</code>. The <code class="code">EVENT</code> 
+                                          patterns are specified as a comma-separated string. For example, 
+                                          <code class="code">PUSH, PULL_REQUEST_CREATED, PULL_REQUEST_UPDATED</code> filters all push, pull request created, and pull 
+                                          request updated events.
+                                          
+                                       </p>
+                                       
+                                       
+                                       <div class="aws-note">
+                                          <p class="aws-note">Note</p>
+                                          <p>
+                                             The <code class="code">PULL_REQUEST_REOPENED</code> works with GitHub and GitHub Enterprise only.
+                                             
+                                          </p>
+                                       </div>
+                                       
+                                    </dd>
+                                    
+                                    
+                                    <dt><a id="cfn-codebuild-project-webhookfilter-type"></a><span class="term">
+                                          ACTOR_ACCOUNT_ID
+                                          </span></dt>
+                                    
+                                    <dd>
+                                       
+                                       <p>
+                                          A webhook event triggers a build when a GitHub, GitHub Enterprise, or Bitbucket account
+                                          ID matches the regular expression <code class="code">pattern</code>.
+                                          
+                                       </p>
+                                       
+                                    </dd>
+                                    
+                                    
+                                    <dt><a id="cfn-codebuild-project-webhookfilter-type"></a><span class="term">
+                                          HEAD_REF
+                                          </span></dt>
+                                    
+                                    <dd>
+                                       
+                                       <p>
+                                          A webhook event triggers a build when the head reference matches the regular expression
+                                          <code class="code">pattern</code>. For example, 
+                                          <code class="code">refs/heads/branch-name</code> and <code class="code">refs/tags/tag-name</code>.
+                                          
+                                       </p>
+                                       
+                                       <p>
+                                          Works with GitHub and GitHub Enterprise push, GitHub and GitHub Enterprise pull request,
+                                          Bitbucket push, and Bitbucket pull request events.
+                                          
+                                       </p>
+                                       
+                                    </dd>
+                                    
+                                    
+                                    <dt><a id="cfn-codebuild-project-webhookfilter-type"></a><span class="term">
+                                          BASE_REF
+                                          </span></dt>
+                                    
+                                    <dd>
+                                       
+                                       <p>
+                                          A webhook event triggers a build when the base reference matches the regular expression
+                                          <code class="code">pattern</code>. For example, 
+                                          <code class="code">refs/heads/branch-name</code>.
+                                          
+                                       </p>
+                                       
+                                       <div class="aws-note">
+                                          <p class="aws-note">Note</p>
+                                          <p>
+                                             Works with pull request events only.
+                                             
+                                          </p>
+                                       </div>
+                                       
+                                    </dd>
+                                    
+                                    
+                                    <dt><a id="cfn-codebuild-project-webhookfilter-type"></a><span class="term">
+                                          FILE_PATH
+                                          </span></dt>
+                                    
+                                    <dd>
+                                       
+                                       <p>
+                                          A webhook triggers a build when the path of a changed file matches the regular expression
+                                          <code class="code">pattern</code>.
+                                          
+                                       </p>
+                                       
+                                       <div class="aws-note">
+                                          <p class="aws-note">Note</p>
+                                          <p>
+                                             Works with GitHub and GitHub Enterprise push events only.
+                                             
+                                          </p>
+                                       </div>
+                                       
+                                    </dd>
+                                    
+                                 </dl>
+                              </div>       
+                              
+                              <p><em>Required</em>: Yes
+                              </p>
+                              
+                              <p><em>Type</em>: String
+                              </p>
+                              
+                           </dd>
+                           
+                        </dl>
+                     </div></div>
+</body>
+</html>

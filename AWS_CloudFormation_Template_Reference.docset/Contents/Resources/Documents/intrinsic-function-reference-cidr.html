@@ -8,20 +8,24 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="intrinsic-function-reference-cidr"><code class="code">Fn::Cidr</code></h1><p>The intrinsic function <code class="code">Fn::Cidr</code> returns the specified Cidr address block.
-                     </p><h2 id="w2ab2c21c28c16b5">Declaration</h2><div id="JSON" name="JSON" class="section langfilter">
+    <h1 class="topictitle" id="intrinsic-function-reference-cidr"><code class="code">Fn::Cidr</code></h1><p>The intrinsic function <code class="code">Fn::Cidr</code> returns an array of CIDR address blocks. The
+                        number of CIDR blocks returned is dependent on the <code class="code">count</code> parameter.
+                     </p><h2 id="intrinsic-function-reference-cidr-declaration">Declaration</h2><div id="JSON" name="JSON" class="section langfilter">
                         <h3 id="intrinsic-function-reference-cidr-syntax.json">JSON</h3>
                         
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{ &quot;Fn::Cidr&quot; : [<em class="replaceable"><code>ipBlock</code></em>, <em class="replaceable"><code>count</code></em>, <em class="replaceable"><code>sizeMask</code></em>]}</code></pre>
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{ &quot;Fn::Cidr&quot; : [<em class="replaceable"><code>ipBlock</code></em>, <em class="replaceable"><code>count</code></em>, <em class="replaceable"><code>cidrBits</code></em>]}</code></pre>
                         </div><div id="YAML" name="YAML" class="section langfilter">
                         <h3 id="intrinsic-function-reference-cidr-syntax.yaml">YAML</h3>
                         
                         
                         <p>Syntax for the full function name:</p>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">Fn::Cidr: [ <em class="replaceable"><code>ipBlock</code></em>, <em class="replaceable"><code>count</code></em>, <em class="replaceable"><code>sizeMask</code></em> ] </code></pre>
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">Fn::Cidr: 
+  - <em class="replaceable"><code>ipBlock</code></em> 
+  - <em class="replaceable"><code>count</code></em>
+  - <em class="replaceable"><code>cidrBits</code></em></code></pre>
                         <p>Syntax for the short form:</p>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">!Cidr [ <em class="replaceable"><code>ipBlock</code></em>, <em class="replaceable"><code>count</code></em>, <em class="replaceable"><code>sizeMask</code></em> ]</code></pre>
-                        </div><h2 id="w2ab2c21c28c16b7">Parameters</h2><div class="variablelist">
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">!Cidr [ <em class="replaceable"><code>ipBlock</code></em>, <em class="replaceable"><code>count</code></em>, <em class="replaceable"><code>cidrBits</code></em> ]</code></pre>
+                        </div><h2 id="intrinsic-function-reference-cidr-parameters">Parameters</h2><div class="variablelist">
                         
                         
                         
@@ -32,7 +36,9 @@
                            
                            <dd>
                               
-                              <p>The user-specified default Cidr address block.</p>
+                              <p>The user-specified CIDR address block to be split into smaller CIDR
+                                 blocks.
+                              </p>
                               
                            </dd>
                            
@@ -41,79 +47,105 @@
                            
                            <dd>
                               
-                              <p>The number of subnets&apos; Cidr block wanted. Count can be 1 to 256.</p>
+                              <p>The number of CIDRs to generate. Valid range is between 1 and 256.</p>
                               
                            </dd>
                            
                            
-                           <dt><span class="term">sizeMask</span></dt>
+                           <dt><span class="term">cidrBits</span></dt>
                            
                            <dd>
                               
-                              <p>Optional. The digit covered in the subnet.</p>
+                              <p>The number of subnet bits for the CIDR. For example, specifying a value
+                                 &quot;8&quot; for this parameter will create a CIDR with a mask of &quot;/24&quot;.
+                              </p>
+                              
+                              <div class="aws-note">
+                                 <p class="aws-note">Note</p>
+                                 <p>Subnet bits is the inverse of subnet mask. To calculate the required host bits for
+                                    a given subnet bits, subtract the subnet bits from 32 for IPv4 or 128 for IPv6.
+                                 </p>
+                              </div>
                               
                            </dd>
                            
                         </dl>
-                     </div><h2 id="w2ab2c21c28c16b9">Return Value</h2><p>The specified Cidr block.</p><h2 id="intrinsic-function-reference-cidr-examples">Example</h2><div id="YAML" name="YAML" class="section langfilter">
+                     </div><h2 id="intrinsic-function-reference-cidr-return-values">Return Value</h2><p>An array of CIDR address blocks.</p><h2 id="intrinsic-function-reference-cidr-examples">Example</h2><h3 id="intrinsic-function-reference-cidr-example1">Basic Usage</h3><p>This example create 6 CIDRs with a subnet mask &quot;/27&quot; inside from a CIDR with a mask
+                        of &quot;/24&quot;.
+                     </p><div id="JSON" name="JSON" class="section langfilter">
+                        
+                        <h4 id="intrinsic-function-reference-cidr-example1.json">JSON</h4>
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">{ &quot;Fn::Cidr&quot; : [ &quot;192.168.0.0/24&quot;, &quot;6&quot;, &quot;5&quot;] }</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
                         
                         <h4 id="intrinsic-function-reference-cidr-example1.yaml">YAML</h4>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">AWSTemplateFormatVersion: 2010-09-09
-Parameters:
-    cidrBlock :
-        Type : String
-    count:
-        Type : String
-    maskSizeForIPv4:
-        Type: String
-    maskSizeForIPv6:
-        Type: String
-Resources:
-    Subnet1:
-        Type: AWS::EC2::Subnet
-        Properties:
-            AssignIPv6AddressOnCreation: true
-            VpcId: !Ref VPC
-            #Test Ipv4 CidrBlock
-            CidrBlock: !Select [0, !Cidr [!Ref cidrBlock, !Ref count, !Ref maskSizeForIPv4]]
-            #Test Ipv6 CidrBlock
-            Ipv6CidrBlock: !Select [0, !Cidr [!Select [0, !GetAtt VPC.Ipv6CidrBlocks], !Ref count, !Ref maskSizeForIPv6]]
-        DependsOn: Ipv6VPCCidrBlock
-    Subnet2:
-        Type: AWS::EC2::Subnet
-        Properties:
-            AssignIPv6AddressOnCreation: true
-            VpcId: !Ref VPC
-            #Test Ipv4 CidrBlock
-            CidrBlock: !Select [1, !Cidr [!Ref cidrBlock, !Ref count, !Ref maskSizeForIPv4]]
-            #Test Ipv6 CidrBlock
-            Ipv6CidrBlock: !Select [1, !Cidr [!Select [0, !GetAtt VPC.Ipv6CidrBlocks], !Ref count, !Ref maskSizeForIPv6]]
-        DependsOn: Ipv6VPCCidrBlock
-    VPC:
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">!Cidr [ &quot;192.168.0.0/24&quot;, 6, 5 ]</code></pre>
+                        </div><h3 id="intrinsic-function-reference-cidr-example2">Creating an IPv6 enabled VPC</h3><p>This example template creates an IPv6 enabled subnet.</p><div id="JSON" name="JSON" class="section langfilter">
+                        
+                        <h4 id="intrinsic-function-reference-cidr-example2.json">JSON</h4>
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">{
+  &quot;Resources&quot; : {
+    &quot;ExampleVpc&quot; : {
+      &quot;Type&quot; : &quot;AWS::EC2::VPC&quot;,
+      &quot;Properties&quot; : {
+        &quot;CidrBlock&quot; : &quot;10.0.0.0/16&quot;
+      }
+    },
+    &quot;IPv6CidrBlock&quot; : {
+      &quot;Type&quot; : &quot;AWS::EC2::VPCCidrBlock&quot;,
+      &quot;Properties&quot; : {
+        &quot;AmazonProvidedIpv6CidrBlock&quot; : true,
+        &quot;VpcId&quot; : { &quot;Ref&quot; : &quot;ExampleVpc&quot; }
+      }
+    },
+    &quot;ExampleSubnet&quot; : {
+      &quot;Type&quot; : &quot;AWS::EC2::Subnet&quot;,
+      &quot;DependsOn&quot; : &quot;IPv6CidrBlock&quot;,
+      &quot;Properties&quot; : {
+        &quot;AssignIpv6AddressOnCreation&quot; : true,
+        &quot;CidrBlock&quot; : { &quot;Fn::Select&quot; : [ 0, { &quot;Fn::Cidr&quot; : [{ &quot;Fn::GetAtt&quot; : [ &quot;ExampleVpc&quot;, &quot;CidrBlock&quot; ]}, 1, 8 ]}]},
+        &quot;Ipv6CidrBlock&quot; : { &quot;Fn::Select&quot; : [ 0, { &quot;Fn::Cidr&quot; : [{ &quot;Fn::Select&quot; : [ 0, { &quot;Fn::GetAtt&quot; : [ &quot;ExampleVpc&quot;, &quot;Ipv6CidrBlocks&quot; ]}]}, 1, 64 ]}]},
+        &quot;VpcId&quot; : { &quot;Ref&quot; : &quot;ExampleVpc&quot; }
+      }
+    }
+  }
+}</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        
+                        <h4 id="intrinsic-function-reference-cidr-example2.yaml">YAML</h4>
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">Resources:
+    ExampleVpc:
         Type: AWS::EC2::VPC
         Properties:
-          CidrBlock: !Ref cidrBlock
-    Ipv6VPCCidrBlock:
+            CidrBlock: &quot;10.0.0.0/16&quot;
+     IPv6CidrBlock:
         Type: AWS::EC2::VPCCidrBlock
         Properties:
             AmazonProvidedIpv6CidrBlock: true
-            VpcId: !Ref VPC</code></pre>
-                        </div><h2 id="w2ab2c21c28c16c13">Supported Functions</h2><p>You can use the following functions in a <code class="code">Fn::Cidr</code> function:
+            VpcId: !Ref ExampleVpc
+     ExampleSubnet:
+        Type: AWS::EC2::Subnet
+        DependsOn: IPv6CidrBlock
+        Properties:
+            AssignIpv6AddressOnCreation: true
+            CidrBlock: !Select [ 0, !Cidr [ !GetAtt ExampleVpc.CidrBlock, 1, 8 ]]
+            Ipv6CidrBlock: !Select [ 0, !Cidr [ !Select [ 0, !GetAtt ExampleVpc.Ipv6CidrBlocks], 1, 64 ]]
+            VpcId: !Ref ExampleVpc</code></pre>
+                        </div><h2 id="intrinsic-function-reference-cidr-functions">Supported Functions</h2><p>You can use the following functions in a <code class="code">Fn::Cidr</code> function:
                      </p><div class="itemizedlist">
-                        
                         
                         
                         
                         <ul class="itemizedlist" type="disc">
                            <li class="listitem">
                               
-                              <p><code class="code"><a href="intrinsic-function-reference-select.html"><code class="code">Fn::Select</code></a></code> 
+                              <p><code class="code"><a href="intrinsic-function-reference-select.html">Fn::Select</a></code> 
                               </p>
                               
                            </li>
                            <li class="listitem">
                               
-                              <p><code class="code"><a href="intrinsic-function-reference-ref.html"><code class="code">Ref</code></a></code> 
+                              <p><code class="code"><a href="intrinsic-function-reference-ref.html">Ref</a></code> 
                               </p>
                               
                            </li>

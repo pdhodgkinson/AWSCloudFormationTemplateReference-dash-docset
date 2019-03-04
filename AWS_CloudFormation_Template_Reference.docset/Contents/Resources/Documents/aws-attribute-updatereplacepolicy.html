@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="css/awsdocs.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/awsdocs.min.js"></script>
+    <meta charset="utf-8">
+</head>
+<body>
+    <div id="content" style="padding: 10px 30px;">
+    <h1 class="topictitle" id="aws-attribute-updatereplacepolicy">UpdateReplacePolicy Attribute</h1><p>Use the UpdateReplacePolicy attribute to retain or (in some cases) backup the existing
+                        physical instance of a resource when it is replaced during a stack update operation.
+                        
+                     </p><p>When you initiate a stack update, AWS CloudFormation updates resources based on
+                        differences between what you submit and the stack&apos;s current template and parameters.
+                        If you
+                        update a resource property that requires that the resource be <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">replaced</a>, AWS CloudFormation recreates the resource
+                        during the update. Recreating the resource generates a new physical ID. AWS CloudFormation
+                        creates the replacement resource first, and then changes references from other dependent
+                        resources to point to the replacement resource. By default, AWS CloudFormation then
+                        deletes the old
+                        resource. Using the UpdateReplacePolicy, you can specify that AWS CloudFormation retain
+                        or (in some
+                        cases) create a snapshot of the old resource.
+                     </p><p>For resources that support snapshots, such as <code class="code">AWS::EC2::Volume</code>, specify 
+                        <code class="code">Snapshot</code> to have AWS CloudFormation create a snapshot before deleting the old resource instance.
+                     </p><p>You can apply the UpdateReplacePolicy attribute to any resource. UpdateReplacePolicy
+                        is
+                        only executed if you update a resource property whose update behavior is specified
+                        as
+                        <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a>, thereby causing AWS CloudFormation to replace the old resource with
+                        a new one with a new physical ID. For example, if you update the <code class="code">Engine</code>
+                        property of an <a href="aws-properties-rds-database-instance.html">AWS::RDS::DBInstance</a> resource type, AWS CloudFormation
+                        creates a new resource and replaces the current DB instance resource with the new
+                        one. The
+                        UpdateReplacePolicy attribute would then dictate whether AWS CloudFormation deleted,
+                        retained, or created
+                        a snapshot of the old DB instance. The update behavior for each property of a resource
+                        is
+                        specified in the reference topic for that resource in the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">AWS Resource and Property Types Reference</a>. For more information on resource update behavior, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html">Update Behaviors of Stack
+                           Resources</a>.
+                     </p><p>The UpdateReplacePolicy attribute applies to <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-direct.html">stack updates you perform directly</a>, as well
+                        as stack updates performed using <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-changesets.html">change sets</a>.
+                     </p><div class="aws-note">
+                        <p class="aws-note">Note</p>
+                        <p>Resources that are retained continue to exist and continue to incur applicable charges
+                           until
+                           you delete those resources. Snapshots that are created with this policy continue to
+                           exist and continue to incur applicable charges until you delete those snapshots.
+                           UpdateReplacePolicy retains the old physical resource or snapshot, but removes it
+                           from
+                           AWS CloudFormation&apos;s scope. 
+                        </p>
+                     </div><p>UpdateReplacePolicy differs from the <a href="aws-attribute-deletionpolicy.html">DeletionPolicy</a> attribute in that it only applies to resources replaced during stack updates. Use
+                        DeletionPolicy for resources deleted when a stack is deleted, or when the resource
+                        definition itself is deleted from the template as part of a stack update. 
+                     </p><p>The following snippet contains an Amazon RDS database instance resource with a <code class="code">Retain</code> policy for replacement. When this resource is replaced with a new resource with a
+                        new physical ID, AWS CloudFormation leaves the old database instance without deleting
+                        it.
+                     </p><div id="JSON" name="JSON" class="section langfilter">
+                        <h2 id="aws-attribute-updatereplacepolicy-example.json">JSON</h2>
+                        
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">{
+  &quot;AWSTemplateFormatVersion&quot; : &quot;2010-09-09&quot;,
+  &quot;Resources&quot; : {
+    &quot;myDB&quot; : {
+      &quot;Type&quot; : &quot;AWS::RDS::DBInstance&quot;,
+      &quot;DeletionPolicy&quot; : &quot;Retain&quot;,
+      &quot;UpdateReplacePolicy&quot; : &quot;Retain&quot;,
+      &quot;Properties&quot; : {}
+    }
+  }
+}</code></pre>
+                        </div><div id="YAML" name="YAML" class="section langfilter">
+                        <h2 id="aws-attribute-updatereplacepolicy-example.yaml">YAML</h2>
+                        
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">AWSTemplateFormatVersion: 2010-09-09
+Resources:
+  myDB:
+    Type: &apos;AWS::RDS::DBInstance&apos;
+    DeletionPolicy: Retain
+    UpdateReplacePolicy: Retain
+    Properties: {} </code></pre>
+                        </div><h2 id="aws-attribute-updatereplacepolicy-options">UpdateReplacePolicy Options</h2><div class="variablelist">
+                        
+                        
+                        
+                        
+                        <dl>
+                           
+                           <dt><span class="term">Delete</span></dt>
+                           
+                           <dd>
+                              
+                              <p>AWS CloudFormation deletes the resource and all its content if applicable during
+                                 resource replacement. You can add this policy to any resource type. By
+                                 default, if you don&apos;t specify an UpdateReplacePolicy, AWS CloudFormation deletes your
+                                 resources. However, be aware of the following consideration:
+                              </p>
+                              
+                              <p>For Amazon S3 buckets, you must delete all objects in the bucket for deletion to succeed.</p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><span class="term">Retain</span></dt>
+                           
+                           <dd>
+                              
+                              <p>AWS CloudFormation keeps the resource without deleting the resource or its contents
+                                 when the resource is replaced. You can add this policy to any resource type.
+                                 Note that resources that are retained continue to exist and continue to
+                                 incur applicable charges until you delete those resources.
+                              </p>
+                              
+                              <p>If a resource is replaced, the UpdateReplacePolicy retains the old physical resource
+                                 but 
+                                 removes it from AWS CloudFormation&apos;s scope.
+                              </p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><span class="term">Snapshot</span></dt>
+                           
+                           <dd>
+                              
+                              <p>For resources that support snapshots, AWS CloudFormation creates a snapshot for the
+                                 resource before deleting it. Note that snapshots that are created with this
+                                 policy continue to exist and continue to incur applicable charges until you
+                                 delete those snapshots.
+                              </p>
+                              
+                              <div class="aws-note">
+                                 <p class="aws-note">Note</p>
+                                 <p>If you specify the <code class="code">snapshot</code> option in the UpdateReplacePolicy for a resource that
+                                    does not support snapshots, CloudFormation reverts to the default option, which is
+                                    <code class="code">Delete</code>.
+                                 </p>
+                              </div>
+                              
+                              <p>Resources that support snapshots include:</p>
+                              
+                              <div class="itemizedlist">
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 <ul class="itemizedlist" type="disc">
+                                    <li class="listitem">
+                                       <p><code class="code"><a href="aws-properties-ec2-ebs-volume.html">AWS::EC2::Volume</a></code></p>
+                                    </li>
+                                    <li class="listitem">
+                                       <p><code class="code"><a href="aws-properties-elasticache-cache-cluster.html">AWS::ElastiCache::CacheCluster</a></code></p>
+                                    </li>
+                                    <li class="listitem">
+                                       <p><code class="code"><a href="aws-resource-elasticache-replicationgroup.html">AWS::ElastiCache::ReplicationGroup</a></code></p>
+                                    </li>
+                                    <li class="listitem">
+                                       <p><code class="code"><a href="aws-resource-neptune-dbcluster.html">AWS::Neptune::DBCluster</a></code></p>
+                                    </li>
+                                    <li class="listitem">
+                                       <p><code class="code"><a href="aws-resource-rds-dbcluster.html">AWS::RDS::DBCluster</a></code></p>
+                                    </li>
+                                    <li class="listitem">
+                                       <p><code class="code"><a href="aws-properties-rds-database-instance.html">AWS::RDS::DBInstance</a></code></p>
+                                    </li>
+                                    <li class="listitem">
+                                       <p><code class="code"><a href="aws-resource-redshift-cluster.html">AWS::Redshift::Cluster</a></code></p>
+                                    </li>
+                                 </ul>
+                              </div>
+                              
+                           </dd>
+                           
+                        </dl>
+                     </div></div>
+</body>
+</html>

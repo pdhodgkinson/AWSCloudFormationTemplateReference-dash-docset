@@ -17,15 +17,19 @@
                         
                         <h3 id="aws-properties-codebuild-project-projectcache-syntax.json">JSON</h3>
                         <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
-  &quot;<a href="aws-properties-codebuild-project-projectcache.html#cfn-codebuild-project-projectcache-location"><code class="code">Location</code></a>&quot; : <em class="replaceable"><code>String</code></em>,
-  &quot;<a href="aws-properties-codebuild-project-projectcache.html#cfn-codebuild-project-projectcache-type"><code class="code">Type</code></a>&quot; : <em class="replaceable"><code>String</code></em>
+  &quot;<a href="aws-properties-codebuild-project-projectcache.html#cfn-codebuild-project-projectcache-location">Location</a>&quot; : <em class="replaceable"><code>String</code></em>,
+  &quot;<a href="aws-properties-codebuild-project-projectcache.html#cfn-codebuild-project-projectcache-modes">Modes</a>&quot; : [<em class="replaceable"><code>String, ...</code></em>],                
+  &quot;<a href="aws-properties-codebuild-project-projectcache.html#cfn-codebuild-project-projectcache-type">Type</a>&quot; : <em class="replaceable"><code>String</code></em>
 }</code></pre>
                         </div><div id="YAML" name="YAML" class="section langfilter">
                         
                         <h3 id="aws-properties-codebuild-project-projectcache-syntax.yaml">YAML</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight"><a href="aws-properties-codebuild-project-projectcache.html#cfn-codebuild-project-projectcache-location"><code class="code">Location</code></a>: <em class="replaceable"><code>String</code></em>
-<a href="aws-properties-codebuild-project-projectcache.html#cfn-codebuild-project-projectcache-type"><code class="code">Type</code></a>: <em class="replaceable"><code>String</code></em></code></pre>
+                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight"><a href="aws-properties-codebuild-project-projectcache.html#cfn-codebuild-project-projectcache-location">Location</a>: <em class="replaceable"><code>String</code></em>
+<a href="aws-properties-codebuild-project-projectcache.html#cfn-codebuild-project-projectcache-modes">Modes</a>: 
+ - <em class="replaceable"><code>String</code></em>
+<a href="aws-properties-codebuild-project-projectcache.html#cfn-codebuild-project-projectcache-type">Type</a>: <em class="replaceable"><code>String</code></em></code></pre>
                         </div><h2 id="aws-properties-codebuild-project-projectcache-properties">Properties</h2><div class="variablelist">
+                        
                         
                         
                         
@@ -35,9 +39,27 @@
                            
                            <dd>
                               
-                              <p>The Amazon S3 bucket name and prefix&#x2014;for example, <code class="code">mybucket/prefix</code>. 
-                                 This value is ignored when <code class="code">Type</code> is set to <code class="code">NO_CACHE</code>.
-                              </p>
+                              <p>Information about the cache location: </p>
+                              
+                              <div class="itemizedlist">
+                                 
+                                 
+                                 
+                                 <ul class="itemizedlist" type="disc">
+                                    <li class="listitem">
+                                       
+                                       <p><code class="code">NO_CACHE</code> or <code class="code">LOCAL</code>: This value is ignored.
+                                       </p>
+                                       
+                                    </li>
+                                    <li class="listitem">
+                                       
+                                       <p><code class="code">S3</code>: This is the S3 bucket name/prefix.
+                                       </p>
+                                       
+                                    </li>
+                                 </ul>
+                              </div>
                               
                               <p>
                                  <em>Required</em>: No
@@ -49,18 +71,23 @@
                               
                               <p>
                                  <em>Update requires</em>:                                 
-                                 <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
+                                 <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
                                  
                               </p>
                               
                            </dd>
                            
                            
-                           <dt><a id="cfn-codebuild-project-projectcache-type"></a><span class="term"><code class="code">Type</code></span></dt>
+                           <dt><a id="cfn-codebuild-project-projectcache-modes"></a><span class="term"><code class="code">Modes</code></span></dt>
                            
                            <dd>
                               
-                              <p>The type of cache for the build project to use. Valid values are:</p>
+                              <p>
+                                 If you use a <code class="code">LOCAL</code> cache, the local cache mode. You can use one or more local 
+                                 cache modes at the same time.
+                                 
+                              </p>
+                              
                               
                               <div class="itemizedlist">
                                  
@@ -69,28 +96,183 @@
                                  <ul class="itemizedlist" type="disc">
                                     <li class="listitem">
                                        
-                                       <p><code class="code">NO_CACHE</code>: The build project doesn&apos;t use any cache.
+                                       <p>
+                                          <code class="code">LOCAL_SOURCE_CACHE</code> mode caches Git metadata for primary and secondary 
+                                          sources. After the cache is created, subsequent builds pull only the change between
+                                          commits. This 
+                                          mode is a good choice for projects with a clean working directory and a source that
+                                          is a large Git 
+                                          repository. If you choose this option and your project does not use a Git repository
+                                          (GitHub, GitHub Enterprise, or Bitbucket), 
+                                          the option is ignored. 
+                                          
                                        </p>
+                                       
                                     </li>
                                     <li class="listitem">
                                        
-                                       <p><code class="code">S3</code>: The build project reads from and writes to Amazon S3.
+                                       <p>
+                                          <code class="code">LOCAL_DOCKER_LAYER_CACHE</code> mode caches existing Docker layers. This mode is a good choice for 
+                                          projects that build or pull large Docker images. It can prevent the performance issues
+                                          caused by pulling large Docker 
+                                          images down from the network.
+                                          
                                        </p>
+                                       
+                                       <div class="aws-note">
+                                          <p class="aws-note">Note</p>
+                                          <div class="itemizedlist">
+                                             
+                                             
+                                             
+                                             
+                                             
+                                             <ul class="itemizedlist" type="disc">
+                                                <li class="listitem">
+                                                   
+                                                   <p>
+                                                      You can use a Docker layer cache in the Linux enviornment only.
+                                                      
+                                                   </p>
+                                                   
+                                                </li>
+                                                <li class="listitem">
+                                                   
+                                                   <p>
+                                                      The <code class="code">privileged</code> flag must be set so that your project has 
+                                                      the required Docker permissions.
+                                                      
+                                                   </p>
+                                                   
+                                                </li>
+                                                <li class="listitem">
+                                                   
+                                                   <p>
+                                                      You should consider the security implications before you use a Docker layer cache.
+                                                      
+                                                   </p>
+                                                   
+                                                </li>
+                                             </ul>
+                                          </div>
+                                       </div>
+                                       
                                     </li>
                                  </ul>
                               </div>
                               
-                              <p>
-                                 <em>Required</em>: Yes
+                              <div class="itemizedlist">
+                                 
+                                 
+                                 <ul class="itemizedlist" type="disc">
+                                    <li class="listitem">
+                                       
+                                       <p>
+                                          <code class="code">LOCAL_CUSTOM_CACHE</code> mode caches directories
+                                          you specify in the buildspec file. This mode is a good choice if your
+                                          build scenario is not suited to one of the other
+                                          three local cache modes. If you use a custom cache: 
+                                       </p>
+                                       
+                                       <div class="itemizedlist">
+                                          
+                                          
+                                          
+                                          
+                                          <ul class="itemizedlist" type="disc">
+                                             <li class="listitem">
+                                                
+                                                <p>
+                                                   Only directories can be specified for caching. You cannot specify individual files.
+                                                   
+                                                </p>
+                                                
+                                             </li>
+                                             <li class="listitem">
+                                                
+                                                <p>
+                                                   Symlinks are used to reference cached directories.
+                                                   
+                                                </p>
+                                                
+                                             </li>
+                                             <li class="listitem">
+                                                
+                                                <p>
+                                                   Cached directories are linked to your build before it downloads its project sources.
+                                                   
+                                                   Cached items are overriden if a source item has the same name. Directories are specified
+                                                   
+                                                   using cache paths in the buildspec file.
+                                                   
+                                                </p>
+                                                
+                                             </li>
+                                          </ul>
+                                       </div>
+                                       
+                                       
+                                    </li>
+                                 </ul>
+                              </div>
+                              
+                              <p><em>Required</em>: No
                               </p>
                               
                               <p>
-                                 <em>Type</em>: String
+                                 <em>Type</em>: An array of strings.
+                                 
+                              </p>                
+                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              
+                           </dd>
+                           
+                           
+                           <dt><a id="cfn-codebuild-project-projectcache-type"></a><span class="term"><code class="code">Type</code></span></dt>
+                           
+                           <dd>
+                              
+                              <p>The type of cache used by the build project. Valid values include:</p>
+                              
+                              <div class="itemizedlist">
+                                 
+                                 
+                                 
+                                 
+                                 <ul class="itemizedlist" type="disc">
+                                    <li class="listitem">
+                                       
+                                       <p><code class="code">NO_CACHE</code>: The build project does not use any cache.
+                                       </p>
+                                       
+                                    </li>
+                                    <li class="listitem">
+                                       
+                                       <p><code class="code">S3</code>: The build project reads and writes from and to S3.
+                                       </p>
+                                       
+                                    </li>
+                                    <li class="listitem">
+                                       
+                                       <p><code class="code">LOCAL</code>: The build project stores a cache locally on a build host that is only available
+                                          to 
+                                          that build host.
+                                       </p>
+                                       
+                                    </li>
+                                 </ul>
+                              </div>
+                              
+                              <p><em>Required</em>: Yes
                               </p>
+                              
+                              <p>
+                                 <em>Type</em>: <em class="replaceable"><code>String</code></em></p>
                               
                               <p>
                                  <em>Update requires</em>:                                 
-                                 <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
+                                 <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
                                  
                               </p>
                               
@@ -101,7 +283,7 @@
                         
                         <ul class="itemizedlist" type="disc">
                            <li class="listitem">
-                              <p><a href="http://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectCache.html" target="_blank">
+                              <p><a href="https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectCache.html">
                                     ProjectCache</a> in the <em>AWS CodeBuild API Reference</em></p>
                            </li>
                         </ul>
