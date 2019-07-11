@@ -8,118 +8,63 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-properties-elasticmapreduce-cluster-stepconfig">Amazon EMR Cluster StepConfig</h1><p>The
-                        <code class="code">StepConfig</code> property type specifies a cluster (job flow) step.
-                     </p><p>
-                        <code class="code">StepConfig</code> is a property of the <a href="aws-resource-emr-cluster.html">AWS::EMR::Cluster</a> resource.
+    <h1 class="topictitle" id="aws-properties-elasticmapreduce-cluster-stepconfig">AWS::EMR::Cluster StepConfig</h1><p><code class="code">StepConfig</code> is a property of the <code class="code">AWS::EMR::Cluster</code> resource. The <code class="code">StepConfig</code> property type specifies a cluster (job flow) step, which runs only on the master
+                        node. Steps are used to submit data processing jobs to the cluster.
                      </p><h2 id="aws-properties-elasticmapreduce-cluster-stepconfig-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
-                        
-                        <h3 id="aws-properties-elasticmapreduce-cluster-stepconfig-syntax.json">JSON</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
-  &quot;<a href="aws-properties-elasticmapreduce-cluster-stepconfig.html#cfn-elasticmapreduce-cluster-stepconfig-actiononfailure">ActionOnFailure</a>&quot; : <em class="replaceable"><code>String</code></em>,
-  &quot;<a href="aws-properties-elasticmapreduce-cluster-stepconfig.html#cfn-elasticmapreduce-cluster-stepconfig-hadoopjarstep">HadoopJarStep</a>&quot; : <em class="replaceable"><code><a href="aws-properties-elasticmapreduce-cluster-hadoopjarstepconfig.html">HadoopJarStepConfig</a></code></em>,
-  &quot;<a href="aws-properties-elasticmapreduce-cluster-stepconfig.html#cfn-elasticmapreduce-cluster-stepconfig-name">Name</a>&quot; : <em class="replaceable"><code>String</code></em>
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        
-                        <h3 id="aws-properties-elasticmapreduce-cluster-stepconfig-syntax.yaml">YAML</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">
-<a href="aws-properties-elasticmapreduce-cluster-stepconfig.html#cfn-elasticmapreduce-cluster-stepconfig-actiononfailure">ActionOnFailure</a>: <em class="replaceable"><code>String</code></em>
-<a href="aws-properties-elasticmapreduce-cluster-stepconfig.html#cfn-elasticmapreduce-cluster-stepconfig-hadoopjarstep">HadoopJarStep</a>: <em class="replaceable"><code><a href="aws-properties-elasticmapreduce-cluster-hadoopjarstepconfig.html">HadoopJarStepConfig</a></code></em>
-<a href="aws-properties-elasticmapreduce-cluster-stepconfig.html#cfn-elasticmapreduce-cluster-stepconfig-name">Name</a>: <em class="replaceable"><code>String</code></em>
-</code></pre>
-                        </div><h2 id="aws-properties-elasticmapreduce-cluster-stepconfig-properties">Properties</h2><div class="variablelist">
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
+                        <h3 id="aws-properties-elasticmapreduce-cluster-stepconfig-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;<a href="#cfn-elasticmapreduce-cluster-stepconfig-actiononfailure">ActionOnFailure</a>&quot; : <em class="replaceable"><code>String</code></em>,
+  &quot;<a href="#cfn-elasticmapreduce-cluster-stepconfig-hadoopjarstep">HadoopJarStep</a>&quot; : <em class="replaceable"><code><a href="aws-properties-elasticmapreduce-cluster-hadoopjarstepconfig.html">HadoopJarStepConfig</a></code></em>,
+  &quot;<a href="#cfn-elasticmapreduce-cluster-stepconfig-name">Name</a>&quot; : <em class="replaceable"><code>String</code></em>
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-properties-elasticmapreduce-cluster-stepconfig-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">  <a href="#cfn-elasticmapreduce-cluster-stepconfig-actiononfailure">ActionOnFailure</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-elasticmapreduce-cluster-stepconfig-hadoopjarstep">HadoopJarStep</a>: <em class="replaceable"><code>
+    <a href="aws-properties-elasticmapreduce-cluster-hadoopjarstepconfig.html">HadoopJarStepConfig</a></code></em>
+  <a href="#cfn-elasticmapreduce-cluster-stepconfig-name">Name</a>: <em class="replaceable"><code>String</code></em>
+</code></pre></div><h2 id="aws-properties-elasticmapreduce-cluster-stepconfig-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
                            <dt><a id="cfn-elasticmapreduce-cluster-stepconfig-actiononfailure"></a><span class="term"><code class="code">ActionOnFailure</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The action to take when the cluster step fails. </p>
-                              
-                              <p>Possible values are <code class="code">TERMINATE_CLUSTER</code>, <code class="code">CANCEL_AND_WAIT</code>, and <code class="code">CONTINUE</code>. <code class="code">TERMINATE_JOB_FLOW</code> is provided for backward compatibility. We recommend using <code class="code">TERMINATE_CLUSTER</code> instead.
+                              <p>The action to take when the cluster step fails. Possible values are TERMINATE_CLUSTER,
+                                 CANCEL_AND_WAIT, and CONTINUE. TERMINATE_JOB_FLOW is provided for backward compatibility.
+                                 We recommend using TERMINATE_CLUSTER instead.
                               </p>
                               
-                              <p>
-                                 <em>Required</em>: No
+                              <p><em>Required</em>: No
                               </p>
-                              
-                              <p>
-                                 <em>Type</em>: String
+                              <p><em>Type</em>: String
                               </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
-                                 
-                              </p>
-                              
+                              <p><em>Allowed Values</em>: <code class="code">CANCEL_AND_WAIT | CONTINUE | TERMINATE_CLUSTER | TERMINATE_JOB_FLOW</code></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-elasticmapreduce-cluster-stepconfig-hadoopjarstep"></a><span class="term"><code class="code">HadoopJarStep</code></span></dt>
-                           
                            <dd>
                               
                               <p>The JAR file used for the step.</p>
                               
-                              <p>
-                                 <em>Required</em>: Yes
+                              <p><em>Required</em>: Yes
                               </p>
-                              
-                              <p>
-                                 <em>Type</em>: <a href="aws-properties-elasticmapreduce-cluster-hadoopjarstepconfig.html">HadoopJarStepConfig</a>
-                                 
-                              </p>
-                              
+                              <p><em>Type</em>: <a href="aws-properties-elasticmapreduce-cluster-hadoopjarstepconfig.html">HadoopJarStepConfig</a></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-elasticmapreduce-cluster-stepconfig-name"></a><span class="term"><code class="code">Name</code></span></dt>
-                           
                            <dd>
                               
                               <p>The name of the step.</p>
                               
-                              <p>Length Constraints: Minimum length of 0. Maximum length of 256.</p>
-                              
-                              <p>Pattern: <code class="code">[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*</code></p>
-                              
-                              <p>
-                                 <em>Required</em>: Yes
+                              <p><em>Required</em>: Yes
                               </p>
-                              
-                              <p>
-                                 <em>Type</em>: String
+                              <p><em>Type</em>: String
                               </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
-                                 
-                              </p>
-                              
+                              <p><em>Minimum</em>: <code class="code">0</code></p>
+                              <p><em>Maximum</em>: <code class="code">256</code></p>
+                              <p><em>Pattern</em>: <code class="code">[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*</code></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
                         </dl>
-                     </div><h2 id="aws-properties-elasticmapreduce-cluster-stepconfig-seealso">See Also</h2><div class="itemizedlist">
-                        
-                        
-                        <ul class="itemizedlist" type="disc">
-                           <li class="listitem">
-                              
-                              <p><a href="https://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_StepConfig.html">StepConfig</a> in the <em>Amazon EMR API Reference</em></p>
-                           </li>
-                        </ul>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
                      </div></div>
 </body>
 </html>

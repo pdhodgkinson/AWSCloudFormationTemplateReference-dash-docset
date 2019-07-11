@@ -8,289 +8,226 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-resource-opsworks-app">AWS::OpsWorks::App</h1><p>Defines an AWS OpsWorks app for an AWS OpsWorks stack. The app specifies the code
-                        that you want to run on
-                        an application server.
+    <h1 class="topictitle" id="aws-resource-opsworks-app">AWS::OpsWorks::App</h1><p>Creates an app for a specified stack. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html">Creating
+                           Apps</a>.
+                     </p><p>
+                        <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
+                        level for the stack, or an attached policy that explicitly grants permissions. For
+                        more
+                        information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
+                           Permissions</a>.
                      </p><h2 id="aws-resource-opsworks-app-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-resource-opsworks-app-syntax.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
-  &quot;Type&quot;: &quot;AWS::OpsWorks::App&quot;,
-  &quot;Properties&quot;: {
-    &quot;<a href="aws-resource-opsworks-app.html#cfn-opsworks-app-appsource">AppSource</a>&quot; : <em class="replaceable"><code>Source</code></em>,
-    &quot;<a href="aws-resource-opsworks-app.html#cfn-opsworks-app-attributes">Attributes</a>&quot; : { <em class="replaceable"><code>String</code></em>:<em class="replaceable"><code>String, ...</code></em> },
-    &quot;<a href="aws-resource-opsworks-app.html#cfn-opsworks-app-datasources">DataSources</a>&quot; : [ <em class="replaceable"><code><a href="aws-properties-opsworks-app-datasource.html">DataSource</a>, ...</code></em> ],
-    &quot;<a href="aws-resource-opsworks-app.html#cfn-opsworks-app-description">Description</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-opsworks-app.html#cfn-opsworks-app-domains">Domains</a>&quot; :  [ <em class="replaceable"><code>String, ...</code></em> ],
-    &quot;<a href="aws-resource-opsworks-app.html#cfn-opsworks-app-enablessl">EnableSsl</a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
-    &quot;<a href="aws-resource-opsworks-app.html#cfn-opsworks-app-environment">Environment</a>&quot; : [ <em class="replaceable"><code>Environment, ...</code></em> ],
-    &quot;<a href="aws-resource-opsworks-app.html#cfn-opsworks-app-name">Name</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-opsworks-app.html#cfn-opsworks-app-shortname">Shortname</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-opsworks-app.html#cfn-opsworks-app-sslconfig">SslConfiguration</a>&quot; : { <em class="replaceable"><code>SslConfiguration</code></em> },
-    &quot;<a href="aws-resource-opsworks-app.html#cfn-opsworks-app-stackid">StackId</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-opsworks-app.html#cfn-opsworks-app-type">Type</a>&quot; : <em class="replaceable"><code>String</code></em>
-  }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-resource-opsworks-app-syntax.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">Type: &quot;AWS::OpsWorks::App&quot;
+                        <h3 id="aws-resource-opsworks-app-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;Type&quot; : &quot;AWS::OpsWorks::App&quot;,
+  &quot;Properties&quot; : {
+      &quot;<a href="#cfn-opsworks-app-appsource">AppSource</a>&quot; : <em class="replaceable"><code><a href="aws-properties-opsworks-stack-source-1.html">Source</a></code></em>,
+      &quot;<a href="#cfn-opsworks-app-attributes">Attributes</a>&quot; : <em class="replaceable"><code>{<em class="replaceable"><code>Key</code></em> : <em class="replaceable"><code>Value</code></em>, ...}</code></em>,
+      &quot;<a href="#cfn-opsworks-app-datasources">DataSources</a>&quot; : <em class="replaceable"><code>[ <a href="aws-properties-opsworks-app-datasource.html">DataSource</a>, ... ]</code></em>,
+      &quot;<a href="#cfn-opsworks-app-description">Description</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-opsworks-app-domains">Domains</a>&quot; : <em class="replaceable"><code>[ String, ... ]</code></em>,
+      &quot;<a href="#cfn-opsworks-app-enablessl">EnableSsl</a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
+      &quot;<a href="#cfn-opsworks-app-environment">Environment</a>&quot; : <em class="replaceable"><code>[ <a href="aws-properties-opsworks-app-environment.html">EnvironmentVariable</a>, ... ]</code></em>,
+      &quot;<a href="#cfn-opsworks-app-name">Name</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-opsworks-app-shortname">Shortname</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-opsworks-app-sslconfiguration">SslConfiguration</a>&quot; : <em class="replaceable"><code><a href="aws-properties-opsworks-app-sslconfiguration.html">SslConfiguration</a></code></em>,
+      &quot;<a href="#cfn-opsworks-app-stackid">StackId</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-opsworks-app-type">Type</a>&quot; : <em class="replaceable"><code>String</code></em>
+    }
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-opsworks-app-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Type: AWS::OpsWorks::App
 Properties: 
-  <a href="aws-resource-opsworks-app.html#cfn-opsworks-app-appsource">AppSource</a>:
-    <em class="replaceable"><code>Source</code></em>
-  <a href="aws-resource-opsworks-app.html#cfn-opsworks-app-attributes">Attributes</a>:
-    <em class="replaceable"><code>String</code></em>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-opsworks-app.html#cfn-opsworks-app-description">Description</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-opsworks-app.html#cfn-opsworks-app-datasources">DataSources</a>: 
-    - <em class="replaceable"><code><a href="aws-properties-opsworks-app-datasource.html">DataSource</a></code></em>
-  <a href="aws-resource-opsworks-app.html#cfn-opsworks-app-domains">Domains</a>:
-    - <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-opsworks-app.html#cfn-opsworks-app-enablessl">EnableSsl</a>: <em class="replaceable"><code>Boolean</code></em>
-  <a href="aws-resource-opsworks-app.html#cfn-opsworks-app-environment">Environment</a>:
-    - <em class="replaceable"><code>Environment</code></em>
-  <a href="aws-resource-opsworks-app.html#cfn-opsworks-app-name">Name</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-opsworks-app.html#cfn-opsworks-app-shortname">Shortname</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-opsworks-app.html#cfn-opsworks-app-sslconfig">SslConfiguration</a>:
-    <em class="replaceable"><code>SslConfiguration</code></em>
-  <a href="aws-resource-opsworks-app.html#cfn-opsworks-app-stackid">StackId</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-opsworks-app.html#cfn-opsworks-app-type">Type</a>: <em class="replaceable"><code>String</code></em>
-</code></pre>
-                        </div><h2 id="w2ab1c21c10d183c14b7">Properties</h2><div class="variablelist">
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
+  <a href="#cfn-opsworks-app-appsource">AppSource</a>: <em class="replaceable"><code>
+    <a href="aws-properties-opsworks-stack-source-1.html">Source</a></code></em>
+  <a href="#cfn-opsworks-app-attributes">Attributes</a>: <em class="replaceable"><code>
+    <em class="replaceable"><code>Key</code></em> : <em class="replaceable"><code>Value</code></em></code></em>
+  <a href="#cfn-opsworks-app-datasources">DataSources</a>: <em class="replaceable"><code>
+    - <a href="aws-properties-opsworks-app-datasource.html">DataSource</a></code></em>
+  <a href="#cfn-opsworks-app-description">Description</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-opsworks-app-domains">Domains</a>: <em class="replaceable"><code>
+    - String</code></em>
+  <a href="#cfn-opsworks-app-enablessl">EnableSsl</a>: <em class="replaceable"><code>Boolean</code></em>
+  <a href="#cfn-opsworks-app-environment">Environment</a>: <em class="replaceable"><code>
+    - <a href="aws-properties-opsworks-app-environment.html">EnvironmentVariable</a></code></em>
+  <a href="#cfn-opsworks-app-name">Name</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-opsworks-app-shortname">Shortname</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-opsworks-app-sslconfiguration">SslConfiguration</a>: <em class="replaceable"><code>
+    <a href="aws-properties-opsworks-app-sslconfiguration.html">SslConfiguration</a></code></em>
+  <a href="#cfn-opsworks-app-stackid">StackId</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-opsworks-app-type">Type</a>: <em class="replaceable"><code>String</code></em>
+</code></pre></div><h2 id="aws-resource-opsworks-app-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
                            <dt><a id="cfn-opsworks-app-appsource"></a><span class="term"><code class="code">AppSource</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The information required to retrieve an app from a repository.</p>
+                              <p>A <code class="code">Source</code> object that specifies the app repository.
+                              </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: <a href="aws-properties-opsworks-stack-source.html">AWS OpsWorks Source Type</a></p>
-                              
+                              <p><em>Type</em>: <a href="aws-properties-opsworks-stack-source-1.html">Source</a></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-opsworks-app-attributes"></a><span class="term"><code class="code">Attributes</code></span></dt>
-                           
                            <dd>
                               
-                              <p>One or more user-defined key-value pairs to be added to the app attributes
-                                 bag.
-                              </p>
+                              <p>One or more user-defined key/value pairs to be added to the stack attributes.</p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: A list of key-value pairs
+                              <p><em>Type</em>: Map of String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
+                           <dt><a id="cfn-opsworks-app-datasources"></a><span class="term"><code class="code">DataSources</code></span></dt>
+                           <dd>
+                              
+                              <p>The app&apos;s data source.</p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              <p><em>Type</em>: List of <a href="aws-properties-opsworks-app-datasource.html">DataSource</a></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                           </dd>
                            <dt><a id="cfn-opsworks-app-description"></a><span class="term"><code class="code">Description</code></span></dt>
-                           
                            <dd>
                               
                               <p>A description of the app.</p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-opsworks-app-datasources"></a><span class="term"><code class="code">DataSources</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>A list of databases to associate with the AWS OpsWorks app.</p>
-                              
-                              <p><em>Required</em>: No
-                              </p>
-                              
-                              <p><em>Type</em>: List of <a href="aws-properties-opsworks-app-datasource.html">AWS OpsWorks App DataSource</a></p>
-                              
-                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
-                           </dd>
-                           
-                           
                            <dt><a id="cfn-opsworks-app-domains"></a><span class="term"><code class="code">Domains</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The app virtual host settings, with multiple domains separated by commas. For
-                                 example, <code class="code">&apos;www.example.com</code>, <code class="code">example.com&apos;</code>.
+                              <p>The app virtual host settings, with multiple domains separated by commas. For example:
+                                 <code class="code">&apos;www.example.com, example.com&apos;</code>
+                                 
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: List of String values
+                              <p><em>Type</em>: List of String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-opsworks-app-enablessl"></a><span class="term"><code class="code">EnableSsl</code></span></dt>
-                           
                            <dd>
                               
-                              <p>Whether to enable SSL for this app.</p>
+                              <p>Whether to enable SSL for the app.</p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: Boolean
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-opsworks-app-environment"></a><span class="term"><code class="code">Environment</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The environment variables to associate with the AWS OpsWorks app.</p>
+                              <p>An array of <code class="code">EnvironmentVariable</code> objects that specify environment variables to be
+                                 associated with the app. After you deploy the app, these variables are defined on
+                                 the
+                                 associated app server instance. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html#workingapps-creating-environment"> Environment Variables</a>.
+                              </p>
+                              
+                              <p>There is no specific limit on the number of environment variables. However, the size
+                                 of the associated data structure - which includes the variables&apos; names, values, and
+                                 protected flag values - cannot exceed 20 KB. This limit should accommodate most if
+                                 not all use cases. Exceeding it will cause an exception with the message, &quot;Environment:
+                                 is too large (maximum is 20KB).&quot;
+                              </p>
+                              
+                              <div class="aws-note">
+                                 <p class="aws-note">Note</p>
+                                 <p>If you have specified one or more environment variables, you cannot modify the stack&apos;s
+                                    Chef version.
+                                 </p>
+                              </div>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: List of <a href="aws-properties-opsworks-app-environment.html">AWS OpsWorks App Environment</a></p>
-                              
+                              <p><em>Type</em>: List of <a href="aws-properties-opsworks-app-environment.html">EnvironmentVariable</a></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-opsworks-app-name"></a><span class="term"><code class="code">Name</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The name of the AWS OpsWorks app.</p>
+                              <p>The app name.</p>
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-opsworks-app-shortname"></a><span class="term"><code class="code">Shortname</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The app short name, which is used internally by AWS OpsWorks and by Chef
-                                 recipes.
-                              </p>
+                              <p>The app&apos;s short name.</p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-opsworks-app-sslconfig"></a><span class="term"><code class="code">SslConfiguration</code></span></dt>
-                           
+                           <dt><a id="cfn-opsworks-app-sslconfiguration"></a><span class="term"><code class="code">SslConfiguration</code></span></dt>
                            <dd>
                               
-                              <p>The SSL configuration</p>
+                              <p>An <code class="code">SslConfiguration</code> object with the SSL configuration.
+                              </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: <a href="aws-properties-opsworks-app-sslconfiguration.html">AWS OpsWorks SslConfiguration Type</a></p>
-                              
+                              <p><em>Type</em>: <a href="aws-properties-opsworks-app-sslconfiguration.html">SslConfiguration</a></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-opsworks-app-stackid"></a><span class="term"><code class="code">StackId</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The ID of the AWS OpsWorks stack to associate this app with.</p>
+                              <p>The stack ID.</p>
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-opsworks-app-type"></a><span class="term"><code class="code">Type</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The app type. Each supported type is associated with a particular layer. For
-                                 more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/APIReference/API_CreateApp.html">CreateApp</a> in the <em>AWS OpsWorks Stacks API Reference</em>.
+                              <p>The app type. Each supported type is associated with a particular layer. For example,
+                                 PHP
+                                 applications are associated with a PHP layer. AWS OpsWorks Stacks deploys an application
+                                 to those instances
+                                 that are members of the corresponding layer. If your app isn&apos;t one of the standard
+                                 types, or
+                                 you prefer to implement your own Deploy recipes, specify <code class="code">other</code>.
                               </p>
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Allowed Values</em>: <code class="code">aws-flow-ruby | java | nodejs | other | php | rails | static</code></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
                         </dl>
-                     </div><h2 id="w2ab1c21c10d183c14b9">Return Values</h2><h3 id="w2ab1c21c10d183c14b9b2">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code> intrinsic
-                        function, <code class="code">Ref</code> returns the resource name. For example:
-                     </p><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{ &quot;Ref&quot;: &quot;<em class="replaceable"><code>myApp</code></em>&quot; }</code></pre><p>For the AWS OpsWorks stack <code class="code">myApp</code>, <code class="code">Ref</code> returns the ID of
-                        the AWS OpsWorks app.
-                     </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                     </p><h2 id="w2ab1c21c10d183c14c11">Template Snippet</h2><p>The following snippet creates an AWS OpsWorks app that uses a PHP application in a
-                        Git
-                        repository:
-                     </p><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-resource-opsworks-app-example.json">JSON</h3>
+                     </div><h2 id="aws-resource-opsworks-app-return-values">Return Values</h2><h3 id="aws-resource-opsworks-app-return-values-ref">Ref</h3><p>
+                        When you pass the logical ID of this resource to the intrinsic <code class="code">Ref</code> function, <code class="code">Ref</code> returns the resource name. For example: 
+                     </p><p>
+                        <code class="code">{ &quot;Ref&quot;: &quot;myApp&quot; }</code>
                         
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">&quot;myApp&quot; : {
+                     </p><p>For the AWS OpsWorks stack <code class="code">myApp</code>, <code class="code">Ref</code> returns the ID of the
+                        AWS OpsWorks app.
+                     </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
+                     </p><h2 id="aws-resource-opsworks-app--examples">Examples</h2><h3 id="aws-resource-opsworks-app--examples--Template_Snippet">Template Snippet</h3><p>The following snippet creates an AWS OpsWorks app that uses a PHP application in a
+                        Git repository:
+                     </p><h4 id="aws-resource-opsworks-app--examples--Template_Snippet--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">&quot;myApp&quot; : {
   &quot;Type&quot; : &quot;AWS::OpsWorks::App&quot;,
   &quot;Properties&quot; : {
     &quot;StackId&quot; : {&quot;Ref&quot;:&quot;myStack&quot;},
@@ -302,11 +239,7 @@ Properties:
       &quot;Revision&quot; : &quot;version1&quot;
     }
   }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-resource-opsworks-app-example.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">myApp: 
+}</code></pre><h4 id="aws-resource-opsworks-app--examples--Template_Snippet--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">myApp: 
   Type: &quot;AWS::OpsWorks::App&quot;
   Properties: 
     StackId: 
@@ -316,29 +249,28 @@ Properties:
     AppSource: 
       Type: &quot;git&quot;
       Url: &quot;git://github.com/amazonwebservices/opsworks-demo-php-simple-app.git&quot;
-      Revision: &quot;version1&quot;</code></pre>
-                        </div><h2 id="w2ab1c21c10d183c14c13">More Info</h2><div class="itemizedlist">
-                        
+      Revision: &quot;version1&quot;</code></pre><h2 id="aws-resource-opsworks-app--seealso">See Also</h2><div class="itemizedlist">
                         
                         
                         
                         <ul class="itemizedlist" type="disc">
                            <li class="listitem">
                               
-                              <p><a href="aws-resource-opsworks-stack.html">AWS::OpsWorks::Stack</a></p>
+                              <p>
+                                 <a href="https://docs.aws.amazon.com/opsworks/latest/APIReference/API_CreateApp.html">CreateApp</a> in the <em>AWS OpsWorks API Reference</em>.
+                              </p>
                               
                            </li>
                            <li class="listitem">
                               
-                              <p><a href="aws-resource-opsworks-layer.html">AWS::OpsWorks::Layer</a></p>
-                              
-                           </li>
-                           <li class="listitem">
-                              
-                              <p><a href="aws-resource-opsworks-instance.html">AWS::OpsWorks::Instance</a></p>
+                              <p>
+                                 <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html">Adding Apps</a> in the <em>AWS OpsWorks User Guide</em>.
+                              </p>
                               
                            </li>
                         </ul>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
                      </div></div>
 </body>
 </html>

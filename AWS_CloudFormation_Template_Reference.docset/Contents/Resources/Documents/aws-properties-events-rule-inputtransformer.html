@@ -8,85 +8,66 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-properties-events-rule-inputtransformer">Amazon CloudWatch Events Rule InputTransformer</h1><p>The 
-                        <code class="code">InputTransformer</code> property type specifies settings that provide custom input to an Amazon CloudWatch
-                        Events rule target based on certain event data.
+    <h1 class="topictitle" id="aws-properties-events-rule-inputtransformer">AWS::Events::Rule InputTransformer</h1><p>The <code class="code">InputTransformer</code> property type specifies settings that provide custom 
+                        input to an Amazon CloudWatch Events target based on certain event data.
                      </p><p>
                         <code class="code">InputTransformer</code> is a property of the <a href="aws-properties-events-rule-target.html">Target</a> property type.
-                        
                      </p><h2 id="aws-properties-events-rule-inputtransformer-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
-                        
-                        <h3 id="aws-properties-events-rule-inputtransformer-syntax.json">JSON</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
-  &quot;<a href="aws-properties-events-rule-inputtransformer.html#cfn-events-rule-inputtransformer-inputpathsmap">InputPathsMap</a>&quot; : { <em class="replaceable"><code>String</code></em>:<em class="replaceable"><code>String, ...</code></em> },
-  &quot;<a href="aws-properties-events-rule-inputtransformer.html#cfn-events-rule-inputtransformer-inputtemplate">InputTemplate</a>&quot; : <em class="replaceable"><code>String</code></em>
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        
-                        <h3 id="aws-properties-events-rule-inputtransformer-syntax.yaml">YAML</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight"><a href="aws-properties-events-rule-inputtransformer.html#cfn-events-rule-inputtransformer-inputpathsmap">InputPathsMap</a>: 
-  <em class="replaceable"><code>String</code></em>: <em class="replaceable"><code>String</code></em>
-<a href="aws-properties-events-rule-inputtransformer.html#cfn-events-rule-inputtransformer-inputtemplate">InputTemplate</a>: <em class="replaceable"><code>String</code></em></code></pre>
-                        </div><h2 id="aws-properties-events-rule-inputtransformer-properties">Properties</h2><p>For more information, including constraints, see 
-                        <a href="https://docs.aws.amazon.com/AmazonCloudWatchEvents/latest/APIReference/API_InputTransformer.html">InputTransformer</a> 
-                        in the <em>Amazon CloudWatch Events API Reference</em>.
-                     </p><div class="variablelist">
-                        
-                        
-                        
+                        <h3 id="aws-properties-events-rule-inputtransformer-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;<a href="#cfn-events-rule-inputtransformer-inputpathsmap">InputPathsMap</a>&quot; : <em class="replaceable"><code>{<em class="replaceable"><code>Key</code></em> : <em class="replaceable"><code>Value</code></em>, ...}</code></em>,
+  &quot;<a href="#cfn-events-rule-inputtransformer-inputtemplate">InputTemplate</a>&quot; : <em class="replaceable"><code>String</code></em>
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-properties-events-rule-inputtransformer-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">  <a href="#cfn-events-rule-inputtransformer-inputpathsmap">InputPathsMap</a>: <em class="replaceable"><code>
+    <em class="replaceable"><code>Key</code></em> : <em class="replaceable"><code>Value</code></em></code></em>
+  <a href="#cfn-events-rule-inputtransformer-inputtemplate">InputTemplate</a>: <em class="replaceable"><code>String</code></em>
+</code></pre></div><h2 id="aws-properties-events-rule-inputtransformer-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
                            <dt><a id="cfn-events-rule-inputtransformer-inputpathsmap"></a><span class="term"><code class="code">InputPathsMap</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The map of JSON paths to extract from the event, as key-value pairs where
-                                 each value is a JSON path. You must use JSON dot notation, not bracket notation.
-                                 Duplicates aren&apos;t allowed.
+                              <p>Map of JSON paths to be extracted from the event. You can then insert these in the
+                                 template in <code class="code">InputTemplate</code> to produce the 
+                                 output you want to be sent to the target.
                               </p>
                               
                               <p>
-                                 <em>Required</em>: No
+                                 <code class="code">InputPathsMap</code> is an array key-value pairs, where each value is a valid JSON path. You can have
+                                 as many as 10 key-value pairs.
+                                 You must use JSON dot notation, not bracket notation.
                               </p>
                               
-                              <p>
-                                 <em>Type</em>: String-to-string map
-                              </p>
+                              <p>The keys cannot start with &quot;AWS.&quot; </p>
                               
-                              <p>
-                                 <em>Update requires</em>:                                 
-                                 <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
-                                 
+                              <p><em>Required</em>: No
                               </p>
-                              
+                              <p><em>Type</em>: Map of String
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-events-rule-inputtransformer-inputtemplate"></a><span class="term"><code class="code">InputTemplate</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The input template where you can use the values of the keys from
-                                 <code class="code">InputPathsMap</code> to customize the data that&apos;s sent to the target.
+                              
+                              <p>Input template where you specify placeholders that will be filled with the values
+                                 of the keys from <code class="code">InputPathsMap</code> 
+                                 to customize the data sent to the target. Enclose
+                                 each <code class="code">InputPathsMaps</code> value in brackets: &lt;<em>value</em>&gt; The <code class="code">InputTemplate</code>
+                                 must be valid JSON.
                               </p>
                               
-                              <p>
-                                 <em>Required</em>: Yes
-                              </p>
                               
-                              <p>
-                                 <em>Type</em>: String
+                              <p><em>Required</em>: Yes
                               </p>
-                              
-                              <p>
-                                 <em>Update requires</em>:                                 
-                                 <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
-                                 
+                              <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Minimum</em>: <code class="code">1</code></p>
+                              <p><em>Maximum</em>: <code class="code">8192</code></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
                         </dl>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
                      </div></div>
 </body>
 </html>

@@ -8,171 +8,138 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-resource-iotanalytics-dataset">AWS::IoTAnalytics::Dataset</h1><p>The 
-                        <code class="code">AWS::IoTAnalytics::Dataset</code> resource retrieves data from a data store. For more information, 
-                        see <a href="https://docs.aws.amazon.com/iotanalytics/latest/userguide/welcome.html#aws-iot-analytics-how">
+    <h1 class="topictitle" id="aws-resource-iotanalytics-dataset">AWS::IoTAnalytics::Dataset</h1><p>The AWS::IoTAnalytics::Dataset resource stores data retrieved from a data store by
+                        applying a
+                        &quot;queryAction&quot; (an SQL query) or a &quot;containerAction&quot; (executing a containerized application).
+                        The data set can be populated manually by calling &quot;CreateDatasetContent&quot; or automatically
+                        according 
+                        to a &quot;trigger&quot; you specify. For more information, see
+                        <a href="https://docs.aws.amazon.com/iotanalytics/latest/userguide/welcome.html#aws-iot-analytics-how">
                            How to Use AWS IoT Analytics</a> in the <em>AWS IoT Analytics User Guide</em>.
                         
                      </p><h2 id="aws-resource-iotanalytics-dataset-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
-                        
-                        <h3 id="aws-resource-iotanalytics-dataset-syntax.json">JSON</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
+                        <h3 id="aws-resource-iotanalytics-dataset-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
   &quot;Type&quot; : &quot;AWS::IoTAnalytics::Dataset&quot;,
   &quot;Properties&quot; : {
-    &quot;<a href="aws-resource-iotanalytics-dataset.html#cfn-iotanalytics-dataset-actions">Actions</a>&quot; : [ <a href="aws-properties-iotanalytics-dataset-action.html">Action</a>, ... ],
-    &quot;<a href="aws-resource-iotanalytics-dataset.html#cfn-iotanalytics-dataset-datasetname">DatasetName</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-iotanalytics-dataset.html#cfn-iotanalytics-dataset-retentionperiod">RetentionPeriod</a>&quot; : <a href="aws-properties-iotanalytics-dataset-retentionperiod.html">RetentionPeriod</a>,
-    &quot;<a href="aws-resource-iotanalytics-dataset.html#cfn-iotanalytics-dataset-tags">Tags</a>&quot; : [ <a href="aws-properties-resource-tags.html">Tag</a>, ... ],
-    &quot;<a href="aws-resource-iotanalytics-dataset.html#cfn-iotanalytics-dataset-triggers">Triggers</a>&quot; : [ <a href="aws-properties-iotanalytics-dataset-trigger.html">Trigger</a>, ... ]
-  }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        
-                        <h3 id="aws-resource-iotanalytics-dataset-syntax.yaml">YAML</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">Type: &quot;AWS::IoTAnalytics::Dataset&quot;
-Properties:
-  <a href="aws-resource-iotanalytics-dataset.html#cfn-iotanalytics-dataset-actions">Actions</a>: 
-    - <a href="aws-properties-iotanalytics-dataset-action.html">Action</a>
-  <a href="aws-resource-iotanalytics-dataset.html#cfn-iotanalytics-dataset-datasetname">DatasetName</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-iotanalytics-dataset.html#cfn-iotanalytics-dataset-retentionperiod">RetentionPeriod</a>: 
-    <a href="aws-properties-iotanalytics-dataset-retentionperiod.html">RetentionPeriod</a>
-  <a href="aws-resource-iotanalytics-dataset.html#cfn-iotanalytics-dataset-tags">Tags</a>: 
-    - <a href="aws-properties-resource-tags.html">Tag</a>
-  <a href="aws-resource-iotanalytics-dataset.html#cfn-iotanalytics-dataset-triggers">Triggers</a>: 
-    - <a href="aws-properties-iotanalytics-dataset-trigger.html">Trigger</a></code></pre>
-                        </div><h2 id="aws-resource-iotanalytics-dataset-properties">Properties</h2><div class="variablelist">
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                          
-                        
-                        
-                        
-                        
+      &quot;<a href="#cfn-iotanalytics-dataset-actions">Actions</a>&quot; : <em class="replaceable"><code>[ <a href="aws-properties-iotanalytics-dataset-action.html">Action</a>, ... ]</code></em>,
+      &quot;<a href="#cfn-iotanalytics-dataset-contentdeliveryrules">ContentDeliveryRules</a>&quot; : <em class="replaceable"><code>[ <a href="aws-properties-iotanalytics-dataset-datasetcontentdeliveryrule.html">DatasetContentDeliveryRule</a>, ... ]</code></em>,
+      &quot;<a href="#cfn-iotanalytics-dataset-datasetname">DatasetName</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-iotanalytics-dataset-retentionperiod">RetentionPeriod</a>&quot; : <em class="replaceable"><code><a href="aws-properties-iotanalytics-dataset-retentionperiod.html">RetentionPeriod</a></code></em>,
+      &quot;<a href="#cfn-iotanalytics-dataset-tags">Tags</a>&quot; : <em class="replaceable"><code>[ <a href="aws-properties-resource-tags.html">Tag</a>, ... ]</code></em>,
+      &quot;<a href="#cfn-iotanalytics-dataset-triggers">Triggers</a>&quot; : <em class="replaceable"><code>[ <a href="aws-properties-iotanalytics-dataset-trigger.html">Trigger</a>, ... ]</code></em>,
+      &quot;<a href="#cfn-iotanalytics-dataset-versioningconfiguration">VersioningConfiguration</a>&quot; : <em class="replaceable"><code><a href="aws-properties-iotanalytics-dataset-versioningconfiguration.html">VersioningConfiguration</a></code></em>
+    }
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-iotanalytics-dataset-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Type: AWS::IoTAnalytics::Dataset
+Properties: 
+  <a href="#cfn-iotanalytics-dataset-actions">Actions</a>: <em class="replaceable"><code>
+    - <a href="aws-properties-iotanalytics-dataset-action.html">Action</a></code></em>
+  <a href="#cfn-iotanalytics-dataset-contentdeliveryrules">ContentDeliveryRules</a>: <em class="replaceable"><code>
+    - <a href="aws-properties-iotanalytics-dataset-datasetcontentdeliveryrule.html">DatasetContentDeliveryRule</a></code></em>
+  <a href="#cfn-iotanalytics-dataset-datasetname">DatasetName</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-iotanalytics-dataset-retentionperiod">RetentionPeriod</a>: <em class="replaceable"><code>
+    <a href="aws-properties-iotanalytics-dataset-retentionperiod.html">RetentionPeriod</a></code></em>
+  <a href="#cfn-iotanalytics-dataset-tags">Tags</a>: <em class="replaceable"><code>
+    - <a href="aws-properties-resource-tags.html">Tag</a></code></em>
+  <a href="#cfn-iotanalytics-dataset-triggers">Triggers</a>: <em class="replaceable"><code>
+    - <a href="aws-properties-iotanalytics-dataset-trigger.html">Trigger</a></code></em>
+  <a href="#cfn-iotanalytics-dataset-versioningconfiguration">VersioningConfiguration</a>: <em class="replaceable"><code>
+    <a href="aws-properties-iotanalytics-dataset-versioningconfiguration.html">VersioningConfiguration</a></code></em>
+</code></pre></div><h2 id="aws-resource-iotanalytics-dataset-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
                            <dt><a id="cfn-iotanalytics-dataset-actions"></a><span class="term"><code class="code">Actions</code></span></dt>
-                           
                            <dd>
                               
-                              <p>A list of actions that create the data set contents.</p>
+                              <p>The &quot;DatasetAction&quot; objects that automatically create the data set contents.</p>
                               
-                              <p>
-                                 <em>Required</em>: Yes
+                              <p><em>Required</em>: Yes
                               </p>
-                              
-                              <p>
-                                 <em>Type</em>: List of <a href="aws-properties-iotanalytics-dataset-action.html">Action</a> property types
-                              </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
-                                 
-                              </p>
-                              
+                              <p><em>Type</em>: List of <a href="aws-properties-iotanalytics-dataset-action.html">Action</a></p>
+                              <p><em>Maximum</em>: <code class="code">1</code></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
+                           <dt><a id="cfn-iotanalytics-dataset-contentdeliveryrules"></a><span class="term"><code class="code">ContentDeliveryRules</code></span></dt>
+                           <dd>
+                              
+                              <p>When data set contents are created they are delivered to destinations specified here.</p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              <p><em>Type</em>: List of <a href="aws-properties-iotanalytics-dataset-datasetcontentdeliveryrule.html">DatasetContentDeliveryRule</a></p>
+                              <p><em>Maximum</em>: <code class="code">20</code></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                           </dd>
                            <dt><a id="cfn-iotanalytics-dataset-datasetname"></a><span class="term"><code class="code">DatasetName</code></span></dt>
-                           
                            <dd>
                               
                               <p>The name of the data set.</p>
                               
-                              <p>
-                                 <em>Required</em>: No
+                              <p><em>Required</em>: No
                               </p>
-                              
-                              <p>
-                                 <em>Type</em>: String
+                              <p><em>Type</em>: String
                               </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a>
-                                 
-                              </p>
-                              
+                              <p><em>Minimum</em>: <code class="code">1</code></p>
+                              <p><em>Maximum</em>: <code class="code">128</code></p>
+                              <p><em>Pattern</em>: <code class="code">^[a-zA-Z0-9_]+$</code></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-iotanalytics-dataset-retentionperiod"></a><span class="term"><code class="code">RetentionPeriod</code></span></dt>
-                           
                            <dd>
                               
-                              <p>How long, in days, message data is kept for the data set.</p>
+                              <p>[Optional] How long, in days, message data is kept for the data set.</p>
                               
-                              <p>
-                                 <em>Required</em>: No
+                              <p><em>Required</em>: No
                               </p>
-                              
-                              <p>
-                                 <em>Type</em>: <a href="aws-properties-iotanalytics-dataset-retentionperiod.html">RetentionPeriod</a></p>
-                              
-                              <p>
-                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
-                                 
-                              </p>
-                              
+                              <p><em>Type</em>: <a href="aws-properties-iotanalytics-dataset-retentionperiod.html">RetentionPeriod</a></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-iotanalytics-dataset-tags"></a><span class="term"><code class="code">Tags</code></span></dt>
-                           
                            <dd>
                               
                               <p>Metadata which can be used to manage the data set.</p>
                               
-                              <p>
-                                 <em>Required</em>: No
+                              <p>For more information, see <a href="aws-properties-resource-tags.html">Tag</a>.
                               </p>
                               
-                              <p>
-                                 <em>Type</em>: List of <a href="aws-properties-resource-tags.html">Resource Tag</a> property types
+                              <p><em>Required</em>: No
                               </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
-                                 
-                              </p>
-                              
+                              <p><em>Type</em>: List of <a href="aws-properties-resource-tags.html">Tag</a></p>
+                              <p><em>Maximum</em>: <code class="code">50</code></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-iotanalytics-dataset-triggers"></a><span class="term"><code class="code">Triggers</code></span></dt>
-                           
                            <dd>
                               
-                              <p>A list of triggers. A trigger causes data set contents to be populated at a specified
-                                 time
-                                 interval or when another data set&apos;s contents are created. The list of triggers can
-                                 be empty or
-                                 contain up to five objects.
+                              <p>The &quot;DatasetTrigger&quot; objects
+                                 that specify when the data set is automatically updated.
                               </p>
                               
-                              <p>
-                                 <em>Required</em>: No
+                              <p><em>Required</em>: No
                               </p>
-                              
-                              <p>
-                                 <em>Type</em>: List of <a href="aws-properties-iotanalytics-dataset-trigger.html">Trigger</a> property types
-                              </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
-                                 
-                              </p>
-                              
+                              <p><em>Type</em>: List of <a href="aws-properties-iotanalytics-dataset-trigger.html">Trigger</a></p>
+                              <p><em>Maximum</em>: <code class="code">5</code></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
+                           <dt><a id="cfn-iotanalytics-dataset-versioningconfiguration"></a><span class="term"><code class="code">VersioningConfiguration</code></span></dt>
+                           <dd>
+                              
+                              <p>[Optional] How many versions of data set contents are kept. If not specified or set
+                                 to null, only the 
+                                 latest version plus the latest succeeded version (if they are different) are kept
+                                 for 
+                                 the time period specified by the &quot;retentionPeriod&quot; parameter. (For more information,
+                                 see
+                                 https://docs.aws.amazon.com/iotanalytics/latest/userguide/getting-started.html#aws-iot-analytics-dataset-versions)
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              <p><em>Type</em>: <a href="aws-properties-iotanalytics-dataset-versioningconfiguration.html">VersioningConfiguration</a></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                           </dd>
                         </dl>
-                     </div><h2 id="aws-resource-iotanalytics-dataset-examples">Examples</h2><h3 id="aws-resource-iotanalytics-dataset-example1">Simple SQL Dataset</h3><p>The following example creates a simple SQL dataset.</p><div id="JSON" name="JSON" class="section langfilter">
-                        
-                        <h4 id="aws-resource-iotanalytics-dataset-example1.json">JSON</h4>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">{
+                     </div><h2 id="aws-resource-iotanalytics-dataset--examples">Examples</h2><h3 id="aws-resource-iotanalytics-dataset--examples--Simple_SQL_Dataset">Simple SQL Dataset</h3><p>The following example creates a simple SQL dataset.</p><h4 id="aws-resource-iotanalytics-dataset--examples--Simple_SQL_Dataset--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
     &quot;Description&quot;: &quot;Create a simple SQL Dataset&quot;,
     &quot;Resources&quot;: {
         &quot;Dataset&quot;: {
@@ -197,11 +164,7 @@ Properties:
             }
         }
     }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        
-                        <h4 id="aws-resource-iotanalytics-dataset-example1.yaml">YAML</h4>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">---
+}</code></pre><h4 id="aws-resource-iotanalytics-dataset--examples--Simple_SQL_Dataset--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">---
 Description: &quot;Create a simple SQL Dataset&quot;
 Resources:
   Dataset:
@@ -216,11 +179,7 @@ Resources:
       Triggers:
         -
           Schedule:
-            ScheduleExpression: &quot;cron(0 12 * * ? *)&quot;</code></pre>
-                        </div><h3 id="aws-resource-iotanalytics-dataset-example2">Complex SQL Dataset</h3><p>The following example creates a complex SQL dataset.</p><div id="JSON" name="JSON" class="section langfilter">
-                        
-                        <h4 id="aws-resource-iotanalytics-dataset-example2.json">JSON</h4>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">{
+            ScheduleExpression: &quot;cron(0 12 * * ? *)&quot;</code></pre><h3 id="aws-resource-iotanalytics-dataset--examples--Complex_SQL_Dataset">Complex SQL Dataset</h3><p>The following example creates a complex SQL dataset.</p><h4 id="aws-resource-iotanalytics-dataset--examples--Complex_SQL_Dataset--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
     &quot;Description&quot;: &quot;Create a complex SQL Dataset&quot;,
     &quot;Resources&quot;: {
         &quot;Dataset&quot;: {
@@ -267,11 +226,7 @@ Resources:
             }
         }
     }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        
-                        <h4 id="aws-resource-iotanalytics-dataset-example2.yaml">YAML</h4>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">---
+}</code></pre><h4 id="aws-resource-iotanalytics-dataset--examples--Complex_SQL_Dataset--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">---
 Description: &quot;Create a complex SQL Dataset&quot;
 Resources:
   Dataset:
@@ -301,11 +256,7 @@ Resources:
           Value: &quot;value1&quot;
         -
           Key: &quot;keyname2&quot;
-          Value: &quot;value2&quot;</code></pre>
-                        </div><h3 id="aws-resource-iotanalytics-dataset-example3">Simple Container Dataset</h3><p>The following example creates a simple container dataset.</p><div id="JSON" name="JSON" class="section langfilter">
-                        
-                        <h4 id="aws-resource-iotanalytics-dataset-example3.json">JSON</h4>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">{
+          Value: &quot;value2&quot;</code></pre><h3 id="aws-resource-iotanalytics-dataset--examples--Simple_Container_Dataset">Simple Container Dataset</h3><p>The following example creates a simple Container dataset.</p><h4 id="aws-resource-iotanalytics-dataset--examples--Simple_Container_Dataset--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
     &quot;Description&quot;: &quot;Create a simple container Dataset&quot;,
     &quot;Resources&quot;: {
         &quot;ContainerDataset&quot;: {
@@ -341,11 +292,7 @@ Resources:
             }
         }
     }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        
-                        <h4 id="aws-resource-iotanalytics-dataset-example3.yaml">YAML</h4>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">---
+}</code></pre><h4 id="aws-resource-iotanalytics-dataset--examples--Simple_Container_Dataset--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">---
 Description: &quot;Create a simple container Dataset&quot;
 Resources:
   ContainerDataset:
@@ -366,11 +313,7 @@ Resources:
       Triggers:
         -
           Schedule:
-            ScheduleExpression: &quot;cron(0 12 * * ? *)&quot;</code></pre>
-                        </div><h3 id="aws-resource-iotanalytics-dataset-example4">Complex Container Dataset</h3><p>The following example creates a complex container dataset.</p><div id="JSON" name="JSON" class="section langfilter">
-                        
-                        <h4 id="aws-resource-iotanalytics-dataset-example4.json">JSON</h4>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">{
+            ScheduleExpression: &quot;cron(0 12 * * ? *)&quot;</code></pre><h3 id="aws-resource-iotanalytics-dataset--examples--Complex_Container_Dataset">Complex Container Dataset</h3><p>The following example creates a complex Container dataset.</p><h4 id="aws-resource-iotanalytics-dataset--examples--Complex_Container_Dataset--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
     &quot;Description&quot;: &quot;Create a complex container Dataset&quot;,
     &quot;Resources&quot;: {
         &quot;TriggeringDataset&quot;: {
@@ -437,11 +380,7 @@ Resources:
             }
         }
     }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        
-                        <h4 id="aws-resource-iotanalytics-dataset-example4.yaml">YAML</h4>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">---
+}</code></pre><h4 id="aws-resource-iotanalytics-dataset--examples--Complex_Container_Dataset--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">---
 Description: &quot;Create a complex container Dataset&quot;
 Resources:
   TriggeringDataset:
@@ -486,15 +425,32 @@ Resources:
       Triggers:
         -
           TriggeringDataset:
-            DatasetName: &quot;TriggeringDataset&quot;</code></pre>
-                        </div><h2 id="aws-resource-iotanalytics-dataset-seealso">See Also</h2><div class="itemizedlist">
+            DatasetName: &quot;TriggeringDataset&quot;</code></pre><h2 id="aws-resource-iotanalytics-dataset--seealso">See Also</h2><div class="itemizedlist">
+                        
+                        
                         
                         <ul class="itemizedlist" type="disc">
                            <li class="listitem">
-                              <p><a href="https://docs.aws.amazon.com/iotanalytics/latest/userguide/welcome.html#aws-iot-analytics-how">
-                                    How to Use AWS IoT Analytics</a> in the <em>AWS IoT Analytics User Guide</em></p>
+                              
+                              <p>
+                                 <a href="https://docs.aws.amazon.com/iotanalytics/latest/userguide/welcome.html#aws-iot-analytics-how">How to Use AWS IoT 
+                                    Analytics</a> in the <em>AWS IoT Analytics User Guide</em>
+                                 
+                              </p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p>
+                                 <a href="https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_CreateDataset.html">CreateDataset</a> in the 
+                                 <em>AWS IoT Analytics API Reference</em>
+                                 
+                              </p>
+                              
                            </li>
                         </ul>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
                      </div></div>
 </body>
 </html>

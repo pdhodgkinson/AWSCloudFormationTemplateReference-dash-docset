@@ -9,79 +9,56 @@
 <body>
     <div id="content" style="padding: 10px 30px;">
     <h1 class="topictitle" id="aws-properties-sns-policy">AWS::SNS::TopicPolicy</h1><p>The <code class="code">AWS::SNS::TopicPolicy</code> resource associates Amazon SNS topics with a
-                        policy.
-                     </p><div class="highlights" id="inline-topiclist">
-                        <p><strong>Topics</strong></p>
-                        <ul>
-                           <li><a href="#aws-resource-sns-policy-syntax">Syntax</a></li>
-                           <li><a href="#w2ab1c21c10d222c22b9">Properties</a></li>
-                        </ul>
-                     </div><h2 id="aws-resource-sns-policy-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-resource-sns-policy-syntax.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
+                        policy. For an example snippet, see 
+                        <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-iam.html#scenario-sns-policy">Declaring an Amazon SNS Policy</a> in the <em>AWS CloudFormation User Guide</em>.
+                     </p><h2 id="aws-properties-sns-policy-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-properties-sns-policy-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
   &quot;Type&quot; : &quot;AWS::SNS::TopicPolicy&quot;,
-  &quot;Properties&quot; :
-    {
-      &quot;<a href="aws-properties-sns-policy.html#cfn-sns-topicpolicy-policydocument">PolicyDocument</a>&quot; : <em class="replaceable"><code>PolicyDocument</code></em>,
-      &quot;<a href="aws-properties-sns-policy.html#cfn-sns-topicpolicy-topics">Topics</a>&quot; : [ <em class="replaceable"><code>List of SNS topic ARNs, ...</code></em> ]
+  &quot;Properties&quot; : {
+      &quot;<a href="#cfn-sns-topicpolicy-policydocument">PolicyDocument</a>&quot; : <em class="replaceable"><code>Json</code></em>,
+      &quot;<a href="#cfn-sns-topicpolicy-topics">Topics</a>&quot; : <em class="replaceable"><code>[ String, ... ]</code></em>
     }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-resource-sns-policy-syntax.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">Type: AWS::SNS::TopicPolicy
-Properties:
-  <a href="aws-properties-sns-policy.html#cfn-sns-topicpolicy-policydocument">PolicyDocument</a>: <em class="replaceable"><code>PolicyDocument</code></em>
-  <a href="aws-properties-sns-policy.html#cfn-sns-topicpolicy-topics">Topics</a>:
-    - <em class="replaceable"><code>List of SNS topic ARNs</code></em> 
-</code></pre>
-                        </div><h2 id="w2ab1c21c10d222c22b9">Properties</h2><div class="variablelist">
-                        
-                        
-                        
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-properties-sns-policy-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Type: AWS::SNS::TopicPolicy
+Properties: 
+  <a href="#cfn-sns-topicpolicy-policydocument">PolicyDocument</a>: <em class="replaceable"><code>Json</code></em>
+  <a href="#cfn-sns-topicpolicy-topics">Topics</a>: <em class="replaceable"><code>
+    - String</code></em>
+</code></pre></div><h2 id="aws-properties-sns-policy-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
-                           <dt><a id="cfn-sns-topicpolicy-policydocument"></a><span class="term"><code class="literal">PolicyDocument</code></span></dt>
-                           
+                           <dt><a id="cfn-sns-topicpolicy-policydocument"></a><span class="term"><code class="code">PolicyDocument</code></span></dt>
                            <dd>
                               
-                              <p>A policy document that contains permissions to add to the specified SNS
-                                 topics.
-                              </p>
+                              <p>A policy document that contains permissions to add to the specified SNS topics.</p>
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
-                              <p>JSON or YAML</p>
-                              
+                              <p><em>Type</em>: Json
+                              </p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-sns-topicpolicy-topics"></a><span class="term"><code class="literal">Topics</code></span></dt>
-                           
+                           <dt><a id="cfn-sns-topicpolicy-topics"></a><span class="term"><code class="code">Topics</code></span></dt>
                            <dd>
                               
                               <p>The Amazon Resource Names (ARN) of the topics to which you want to add the policy.
-                                 You can use the <a href="intrinsic-function-reference-ref.html">Ref function</a> to
-                                 specify an <a href="aws-properties-sns-topic.html">AWS::SNS::Topic</a>
-                                 resource.
+                                 You
+                                 can use the <code class="code">
+                                    <a href="intrinsic-function-reference-ref.html">Ref</a>
+                                    </code> function to specify an <code class="code">
+                                    <a href="aws-properties-sns-topic.html">AWS::SNS::Topic</a>
+                                    </code> resource.
                               </p>
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
-                              <p><em>Type</em>: A list of Amazon SNS topics ARNs
+                              <p><em>Type</em>: List of String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
                         </dl>
-                     </div><p>For sample <code class="code">AWS::SNS::TopicPolicy</code> snippets, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-iam.html#scenario-sns-policy">Declaring an Amazon SNS Topic Policy</a>.
-                     </p></div>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
+                     </div></div>
 </body>
 </html>

@@ -8,148 +8,115 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-resource-redshift-clustersecuritygroupingress">AWS::Redshift::ClusterSecurityGroupIngress</h1><p>Specifies inbound (ingress) rules for an Amazon Redshift security group.</p><div class="highlights" id="inline-topiclist">
-                        <p><strong>Topics</strong></p>
-                        <ul>
-                           <li><a href="#aws-resource-redshift-clustersecuritygroupingress-syntax">Syntax</a></li>
-                           <li><a href="#w2ab1c21c10d195c30b9">Properties</a></li>
-                           <li><a href="#w2ab1c21c10d195c30c11">Template Snippet</a></li>
-                           <li><a href="#w2ab1c21c10d195c30c13">See Also</a></li>
-                        </ul>
-                     </div><h2 id="aws-resource-redshift-clustersecuritygroupingress-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-resource-redshift-clustersecuritygroupingress-syntax.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
+    <h1 class="topictitle" id="aws-resource-redshift-clustersecuritygroupingress">AWS::Redshift::ClusterSecurityGroupIngress</h1><p>Adds an inbound (ingress) rule to an Amazon Redshift security group. Depending on
+                        whether
+                        the application accessing your cluster is running on the Internet or an Amazon EC2
+                        instance, you can authorize inbound access to either a Classless Interdomain Routing
+                        (CIDR)/Internet Protocol (IP) range or to an Amazon EC2 security group. You can add
+                        as
+                        many as 20 ingress rules to an Amazon Redshift security group.
+                     </p><p>If you authorize access to an Amazon EC2 security group, specify
+                        <em>EC2SecurityGroupName</em> and
+                        <em>EC2SecurityGroupOwnerId</em>. The Amazon EC2 security group and
+                        Amazon Redshift cluster must be in the same AWS Region. 
+                     </p><p>If you authorize access to a CIDR/IP address range, specify
+                        <em>CIDRIP</em>. For an overview of CIDR blocks, see the Wikipedia
+                        article on <a href="http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing" target="_blank">Classless Inter-Domain Routing</a>. 
+                     </p><p>You must also associate the security group with a cluster so that clients running
+                        on these IP addresses or the EC2 instance are authorized to connect to the cluster.
+                        For
+                        information about managing security groups, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html">Working with Security
+                           Groups</a> in the <em>Amazon Redshift Cluster Management Guide</em>.
+                     </p><h2 id="aws-resource-redshift-clustersecuritygroupingress-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-resource-redshift-clustersecuritygroupingress-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
   &quot;Type&quot; : &quot;AWS::Redshift::ClusterSecurityGroupIngress&quot;,
   &quot;Properties&quot; : {
-    &quot;<a href="aws-resource-redshift-clustersecuritygroupingress.html#cfn-redshift-clustersecuritygroupingress-clustersecuritygroupname">ClusterSecurityGroupName</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-redshift-clustersecuritygroupingress.html#cfn-redshift-clustersecuritygroupingress-cidrip">CIDRIP</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-redshift-clustersecuritygroupingress.html#cfn-redshift-clustersecuritygroupingress-ec2securitygroupname">EC2SecurityGroupName</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-redshift-clustersecuritygroupingress.html#cfn-redshift-clustersecuritygroupingress-ec2securitygroupownerid">EC2SecurityGroupOwnerId</a>&quot; : <em class="replaceable"><code>String</code></em>
-  }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-resource-redshift-clustersecuritygroupingress-syntax.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">Type: &quot;AWS::Redshift::ClusterSecurityGroupIngress&quot;
+      &quot;<a href="#cfn-redshift-clustersecuritygroupingress-cidrip">CIDRIP</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-redshift-clustersecuritygroupingress-clustersecuritygroupname">ClusterSecurityGroupName</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-redshift-clustersecuritygroupingress-ec2securitygroupname">EC2SecurityGroupName</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-redshift-clustersecuritygroupingress-ec2securitygroupownerid">EC2SecurityGroupOwnerId</a>&quot; : <em class="replaceable"><code>String</code></em>
+    }
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-redshift-clustersecuritygroupingress-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Type: AWS::Redshift::ClusterSecurityGroupIngress
 Properties: 
-  <a href="aws-resource-redshift-clustersecuritygroupingress.html#cfn-redshift-clustersecuritygroupingress-clustersecuritygroupname">ClusterSecurityGroupName</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-redshift-clustersecuritygroupingress.html#cfn-redshift-clustersecuritygroupingress-cidrip">CIDRIP</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-redshift-clustersecuritygroupingress.html#cfn-redshift-clustersecuritygroupingress-ec2securitygroupname">EC2SecurityGroupName</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-redshift-clustersecuritygroupingress.html#cfn-redshift-clustersecuritygroupingress-ec2securitygroupownerid">EC2SecurityGroupOwnerId</a>: <em class="replaceable"><code>String</code></em>
-</code></pre>
-                        </div><h2 id="w2ab1c21c10d195c30b9">Properties</h2><div class="variablelist">
-                        
-                        
-                        
-                        
-                        
+  <a href="#cfn-redshift-clustersecuritygroupingress-cidrip">CIDRIP</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-redshift-clustersecuritygroupingress-clustersecuritygroupname">ClusterSecurityGroupName</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-redshift-clustersecuritygroupingress-ec2securitygroupname">EC2SecurityGroupName</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-redshift-clustersecuritygroupingress-ec2securitygroupownerid">EC2SecurityGroupOwnerId</a>: <em class="replaceable"><code>String</code></em>
+</code></pre></div><h2 id="aws-resource-redshift-clustersecuritygroupingress-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
-                           <dt><a id="cfn-redshift-clustersecuritygroupingress-clustersecuritygroupname"></a><span class="term"><code class="literal">ClusterSecurityGroupName</code></span></dt>
-                           
+                           <dt><a id="cfn-redshift-clustersecuritygroupingress-cidrip"></a><span class="term"><code class="code">CIDRIP</code></span></dt>
                            <dd>
                               
-                              <p>The name of the Amazon Redshift security group that will be associated with the ingress
-                                 rule.
+                              <p>The IP range to be added the Amazon Redshift security group.</p>
+                              
+                              <p><em>Required</em>: No
                               </p>
+                              <p><em>Type</em>: String
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                           </dd>
+                           <dt><a id="cfn-redshift-clustersecuritygroupingress-clustersecuritygroupname"></a><span class="term"><code class="code">ClusterSecurityGroupName</code></span></dt>
+                           <dd>
+                              
+                              <p>The name of the security group to which the ingress rule is added.</p>
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-redshift-clustersecuritygroupingress-cidrip"></a><span class="term"><code class="literal">CIDRIP</code></span></dt>
-                           
+                           <dt><a id="cfn-redshift-clustersecuritygroupingress-ec2securitygroupname"></a><span class="term"><code class="code">EC2SecurityGroupName</code></span></dt>
                            <dd>
                               
-                              <p>The IP address range that has inbound access to the Amazon Redshift security group.</p>
+                              <p>The EC2 security group to be added the Amazon Redshift security group.</p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-redshift-clustersecuritygroupingress-ec2securitygroupname"></a><span class="term"><code class="literal">EC2SecurityGroupName</code></span></dt>
-                           
+                           <dt><a id="cfn-redshift-clustersecuritygroupingress-ec2securitygroupownerid"></a><span class="term"><code class="code">EC2SecurityGroupOwnerId</code></span></dt>
                            <dd>
                               
-                              <p>The Amazon EC2 security group that will be added the Amazon Redshift security group.</p>
+                              
+                              <p>The AWS account number of the owner of the security group specified by the
+                                 <em>EC2SecurityGroupName</em> parameter. The AWS Access Key ID is not an
+                                 acceptable value. 
+                              </p>
+                              
+                              <p>Example: <code class="code">111122223333</code>
+                                 
+                              </p>
+                              
+                              <p>Conditional. If you specify the <code class="code">EC2SecurityGroupName</code> property, you must specify this property.
+                              </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-redshift-clustersecuritygroupingress-ec2securitygroupownerid"></a><span class="term"><code class="literal">EC2SecurityGroupOwnerId</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>The 12-digit AWS account number of the owner of the Amazon EC2 security group that
-                                 is specified by the <code class="code">EC2SecurityGroupName</code> parameter.
-                              </p>
-                              
-                              <p><em>Required</em>: Conditional. If you specify the <code class="code">EC2SecurityGroupName</code>
-                                 property, you must specify this property.
-                              </p>
-                              
-                              <p><em>Type</em>: String
-                              </p>
-                              
-                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
-                           </dd>
-                           
                         </dl>
-                     </div><h2 id="w2ab1c21c10d195c30c11">Template Snippet</h2><p>The following snippet describes a ingress rules for an Amazon Redshift cluster security
-                        group:
-                     </p><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-resource-redshift-clustersecuritygroupingress-example.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">&quot;myClusterSecurityGroupIngressIP&quot; : {
+                     </div><h2 id="aws-resource-redshift-clustersecuritygroupingress--examples">Examples</h2><h3 id="aws-resource-redshift-clustersecuritygroupingress--examples--Ingress_Rules">Ingress Rules</h3><p>The following snippet describes a ingress rules for an Amazon Redshift cluster security
+                        group.
+                     </p><h4 id="aws-resource-redshift-clustersecuritygroupingress--examples--Ingress_Rules--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">&quot;myClusterSecurityGroupIngressIP&quot; : {
   &quot;Type&quot;: &quot;AWS::Redshift::ClusterSecurityGroupIngress&quot;,
   &quot;Properties&quot;: {
     &quot;ClusterSecurityGroupName&quot; : {&quot;Ref&quot;:&quot;myClusterSecurityGroup&quot;},
     &quot;CIDRIP&quot; : &quot;10.0.0.0/16&quot;
   }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-resource-redshift-clustersecuritygroupingress-example.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">myClusterSecurityGroupIngressIP: 
+}</code></pre><h4 id="aws-resource-redshift-clustersecuritygroupingress--examples--Ingress_Rules--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">myClusterSecurityGroupIngressIP: 
   Type: &quot;AWS::Redshift::ClusterSecurityGroupIngress&quot;
   Properties: 
     ClusterSecurityGroupName: 
-      Ref: &quot;myClusterSecurityGroup&quot;
-    CIDRIP: &quot;10.0.0.0/16&quot;</code></pre>
-                        </div><h2 id="w2ab1c21c10d195c30c13">See Also</h2><div class="itemizedlist">
-                        
-                        
-                        <ul class="itemizedlist" type="disc">
-                           <li class="listitem">
-                              
-                              <p><a href="aws-resource-redshift-clustersecuritygroup.html">AWS::Redshift::ClusterSecurityGroup</a></p>
-                              
-                           </li>
-                        </ul>
+    Ref: &quot;myClusterSecurityGroup&quot;
+    CIDRIP: &quot;10.0.0.0/16&quot;</code></pre><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
                      </div></div>
 </body>
 </html>

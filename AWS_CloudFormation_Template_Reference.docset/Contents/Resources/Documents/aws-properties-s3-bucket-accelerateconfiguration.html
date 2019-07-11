@@ -8,89 +8,32 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-properties-s3-bucket-accelerateconfiguration">Amazon S3 Bucket AccelerateConfiguration</h1><p>The 
-                        <code class="code">AccelerateConfiguration</code> property type configures the transfer acceleration state for an Amazon S3 bucket.
-                        
+    <h1 class="topictitle" id="aws-properties-s3-bucket-accelerateconfiguration">AWS::S3::Bucket AccelerateConfiguration</h1><p>Configures the transfer acceleration state for an Amazon S3 bucket. 
                         For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html">Amazon S3 Transfer Acceleration</a> in the
                         <em>Amazon Simple Storage Service Developer Guide</em>.
-                     </p><p>
-                        <code class="code">AccelerateConfiguration</code> is a property of the <a href="aws-properties-s3-bucket.html">AWS::S3::Bucket</a> resource.
                      </p><h2 id="aws-properties-s3-bucket-accelerateconfiguration-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
-                        
-                        <h3 id="aws-properties-s3-bucket-accelerateconfiguration-syntax.json">JSON</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
-  &quot;<a href="aws-properties-s3-bucket-accelerateconfiguration.html#cfn-s3-bucket-accelerateconfiguration-accelerationstatus">AccelerationStatus</a>&quot; : <em class="replaceable"><code>String</code></em>
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        
-                        <h3 id="aws-properties-s3-bucket-accelerateconfiguration-syntax.yaml">YAML</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight"><a href="aws-properties-s3-bucket-accelerateconfiguration.html#cfn-s3-bucket-accelerateconfiguration-accelerationstatus">AccelerationStatus</a>: <em class="replaceable"><code>String</code></em></code></pre>
-                        </div><h2 id="aws-properties-s3-bucket-accelerateconfiguration-properties">Properties</h2><div class="variablelist">
-                        
-                        
+                        <h3 id="aws-properties-s3-bucket-accelerateconfiguration-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;<a href="#cfn-s3-bucket-accelerateconfiguration-accelerationstatus">AccelerationStatus</a>&quot; : <em class="replaceable"><code>String</code></em>
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-properties-s3-bucket-accelerateconfiguration-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">  <a href="#cfn-s3-bucket-accelerateconfiguration-accelerationstatus">AccelerationStatus</a>: <em class="replaceable"><code>String</code></em>
+</code></pre></div><h2 id="aws-properties-s3-bucket-accelerateconfiguration-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
                            <dt><a id="cfn-s3-bucket-accelerateconfiguration-accelerationstatus"></a><span class="term"><code class="code">AccelerationStatus</code></span></dt>
-                           
                            <dd>
                               
-                              <p>Sets the transfer acceleration state of the bucket.</p>
+                              <p>Specifies the transfer acceleration status of the bucket.</p>
                               
-                              <p>
-                                 <em>Required</em>: Yes
+                              <p><em>Required</em>: Yes
                               </p>
-                              
-                              <p>
-                                 <em>Type</em>: String
+                              <p><em>Type</em>: String
                               </p>
-                              
-                              <p><em>Valid values</em>: <code class="code">Enabled</code>, <code class="code">Suspended</code></p>
-                              
-                              <p>
-                                 <em>Update requires</em>:                                 
-                                 <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
-                                 
-                              </p>
-                              
+                              <p><em>Allowed Values</em>: <code class="code">Enabled | Suspended</code></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
                         </dl>
-                     </div><h2 id="aws-properties-s3-bucket-accelerateconfiguration-examples">Example</h2><h3 id="aws-properties-s3-bucket-accelerateconfiguration-example1"></h3><p>The following example sets the transfer acceleration state of a bucket based on the
-                        <code class="code">AccelerateStatus</code> parameter.
-                     </p><div id="JSON" name="JSON" class="section langfilter">
-                        
-                        <h4 id="aws-properties-s3-bucket-accelerateconfiguration-example1.json">JSON</h4>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">{
-	&quot;AWSTemplateFormatVersion&quot;:&quot;2010-09-09&quot;,
-	&quot;Parameters&quot; : {
-		&quot;AccelerateStatus&quot; : {
-			&quot;Type&quot; : &quot;String&quot;
-		}
-	},
-	&quot;Resources&quot;:{
-		&quot;MyBucket&quot;:{
-			&quot;Type&quot;:&quot;AWS::S3::Bucket&quot;,
-			&quot;Properties&quot; : {
-				&quot;AccelerateConfiguration&quot; : {
-					&quot;AccelerationStatus&quot; : {&quot;Ref&quot; : &quot;AccelerateStatus&quot;}
-				}
-			}
-		}
-	}
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        
-                        <h4 id="aws-properties-s3-bucket-accelerateconfiguration-example1.yaml">YAML</h4>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">AWSTemplateFormatVersion: 2010-09-09
-Parameters:
-  AccelerateStatus:
-    Type: String
-Resources:
-  MyBucket:
-    Type: AWS::S3::Bucket
-    Properties:
-      AccelerateConfiguration:
-        AccelerationStatus: !Ref AccelerateStatus</code></pre>
-                        </div></div>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
+                     </div></div>
 </body>
 </html>

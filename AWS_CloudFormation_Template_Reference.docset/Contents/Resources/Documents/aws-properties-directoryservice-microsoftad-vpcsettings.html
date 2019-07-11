@@ -8,63 +8,47 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-properties-directoryservice-microsoftad-vpcsettings">AWS Directory Service MicrosoftAD
-                        VpcSettings
-                     </h1><p><code class="code">VpcSettings</code> is a property of the <a href="aws-resource-directoryservice-microsoftad.html">AWS::DirectoryService::MicrosoftAD</a> resource that specifies the VPC
-                        settings for a Microsoft directory server.
-                     </p><h2 id="w2ab1c21c10c96c13c17b5">Syntax</h2><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-properties-directoryservice-microsoftad-vpcsettings-syntax.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
-  &quot;<a href="aws-properties-directoryservice-microsoftad-vpcsettings.html#cfn-directoryservice-microsoftad-vpcsettings-subnetids">SubnetIds</a>&quot; : [ <em class="replaceable"><code>String, ...</code></em> ],
-  &quot;<a href="aws-properties-directoryservice-microsoftad-vpcsettings.html#cfn-directoryservice-microsoftad-vpcsettings-vpcid">VpcId</a>&quot; : <em class="replaceable"><code>String</code></em>
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-properties-directoryservice-microsoftad-vpcsettings-syntax.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight"><a href="aws-properties-directoryservice-microsoftad-vpcsettings.html#cfn-directoryservice-microsoftad-vpcsettings-subnetids">SubnetIds</a>:
-  - <em class="replaceable"><code>String</code></em>
-<a href="aws-properties-directoryservice-microsoftad-vpcsettings.html#cfn-directoryservice-microsoftad-vpcsettings-vpcid">VpcId</a>: <em class="replaceable"><code>String</code></em>
-</code></pre>
-                        </div><h2 id="w2ab1c21c10c96c13c17b7">Properties</h2><div class="variablelist">
-                        
-                        
-                        
+    <h1 class="topictitle" id="aws-properties-directoryservice-microsoftad-vpcsettings">AWS::DirectoryService::MicrosoftAD VpcSettings</h1><p>Contains VPC information for the <a href="https://docs.aws.amazon.com/directoryservice/latest/devguide/API_CreateDirectory.html">CreateDirectory</a> or <a href="https://docs.aws.amazon.com/directoryservice/latest/devguide/API_CreateMicrosoftAD.html">CreateMicrosoftAD</a> operation.
+                     </p><h2 id="aws-properties-directoryservice-microsoftad-vpcsettings-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-properties-directoryservice-microsoftad-vpcsettings-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;<a href="#cfn-directoryservice-microsoftad-vpcsettings-subnetids">SubnetIds</a>&quot; : <em class="replaceable"><code>[ String, ... ]</code></em>,
+  &quot;<a href="#cfn-directoryservice-microsoftad-vpcsettings-vpcid">VpcId</a>&quot; : <em class="replaceable"><code>String</code></em>
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-properties-directoryservice-microsoftad-vpcsettings-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">  <a href="#cfn-directoryservice-microsoftad-vpcsettings-subnetids">SubnetIds</a>: <em class="replaceable"><code>
+    - String</code></em>
+  <a href="#cfn-directoryservice-microsoftad-vpcsettings-vpcid">VpcId</a>: <em class="replaceable"><code>String</code></em>
+</code></pre></div><h2 id="aws-properties-directoryservice-microsoftad-vpcsettings-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
                            <dt><a id="cfn-directoryservice-microsoftad-vpcsettings-subnetids"></a><span class="term"><code class="code">SubnetIds</code></span></dt>
-                           
                            <dd>
                               
-                              <p>A list of two subnet IDs for the directory servers. Each subnet must be in different
-                                 Availability Zones (AZs). AWS Directory Service creates a directory server and a DNS
-                                 server in each subnet.
+                              <p>The identifiers of the subnets for the directory servers. The two subnets must be
+                                 in different Availability Zones. AWS Directory Service specifies a directory server
+                                 and a DNS server in each of these subnets.
                               </p>
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
-                              <p><em>Type</em>: List of String values
+                              <p><em>Type</em>: List of String
                               </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-directoryservice-microsoftad-vpcsettings-vpcid"></a><span class="term"><code class="code">VpcId</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The VPC ID in which to create the Microsoft Active Directory server.</p>
+                              <p>The identifier of the VPC in which to create the directory.</p>
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Pattern</em>: <code class="code">^(vpc-[0-9a-f]{8}|vpc-[0-9a-f]{17})$</code></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
                         </dl>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
                      </div></div>
 </body>
 </html>

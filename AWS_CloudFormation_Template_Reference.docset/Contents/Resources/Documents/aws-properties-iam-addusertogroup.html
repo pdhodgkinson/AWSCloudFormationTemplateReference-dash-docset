@@ -8,82 +8,84 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-properties-iam-addusertogroup">AWS::IAM::UserToGroupAddition</h1><p>The <code class="code">AWS::IAM::UserToGroupAddition</code> type adds AWS Identity and Access Management (IAM) users to a
-                        group.
-                     </p><p>This type supports updates. For more information about updating stacks, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks.html">AWS CloudFormation Stacks Updates</a>.
-                     </p><div class="highlights" id="inline-topiclist">
-                        <p><strong>Topics</strong></p>
-                        <ul>
-                           <li><a href="#aws-resource-iam-addusertogroup-syntax">Syntax</a></li>
-                           <li><a href="#w2ab1c21c10d156c50c11">Properties</a></li>
-                           <li><a href="#w2ab1c21c10d156c50c13">Return Value</a></li>
-                           <li><a href="#w2ab1c21c10d156c50c15">Template Examples</a></li>
-                        </ul>
-                     </div><h2 id="aws-resource-iam-addusertogroup-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-resource-iam-addusertogroup-syntax.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">
-{
-   &quot;Type&quot;: &quot;AWS::IAM::UserToGroupAddition&quot;,
-   &quot;Properties&quot;: {
-      &quot;<a href="aws-properties-iam-addusertogroup.html#cfn-iam-addusertogroup-groupname">GroupName</a>&quot;: <em class="replaceable"><code>String</code></em>,
-      &quot;<a href="aws-properties-iam-addusertogroup.html#cfn-iam-addusertogroup-users">Users</a>&quot;: [ <em class="replaceable"><code>User1, ...</code></em> ]
-   }
-}     </code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-resource-iam-addusertogroup-syntax.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">Type: AWS::IAM::UserToGroupAddition
+    <h1 class="topictitle" id="aws-properties-iam-addusertogroup">AWS::IAM::UserToGroupAddition</h1><p>Adds the specified user to the specified group.</p><h2 id="aws-properties-iam-addusertogroup-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-properties-iam-addusertogroup-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;Type&quot; : &quot;AWS::IAM::UserToGroupAddition&quot;,
+  &quot;Properties&quot; : {
+      &quot;<a href="#cfn-iam-addusertogroup-groupname">GroupName</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-iam-addusertogroup-users">Users</a>&quot; : <em class="replaceable"><code>[ String, ... ]</code></em>
+    }
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-properties-iam-addusertogroup-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Type: AWS::IAM::UserToGroupAddition
 Properties: 
-  <a href="aws-properties-iam-addusertogroup.html#cfn-iam-addusertogroup-groupname">GroupName</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-properties-iam-addusertogroup.html#cfn-iam-addusertogroup-users">Users</a>:
-    - <em class="replaceable"><code>User1</code></em> 
-</code></pre>
-                        </div><h2 id="w2ab1c21c10d156c50c11">Properties</h2><div class="variablelist">
-                        
-                        
-                        
-                        
+  <a href="#cfn-iam-addusertogroup-groupname">GroupName</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-iam-addusertogroup-users">Users</a>: <em class="replaceable"><code>
+    - String</code></em>
+</code></pre></div><h2 id="aws-properties-iam-addusertogroup-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
-                           <dt><a id="cfn-iam-addusertogroup-groupname"></a><span class="term"><code class="literal">GroupName</code></span></dt>
-                           
+                           <dt><a id="cfn-iam-addusertogroup-groupname"></a><span class="term"><code class="code">GroupName</code></span></dt>
                            <dd>
                               
-                              <p>The name of group to add users to.</p>
+                              <p>The name of the group to update.</p>
+                              
+                              <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex" target="_blank">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric 
+                                 characters with no spaces. You can also include any of the following characters: _+=,.@-
+                              </p>
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Minimum</em>: <code class="code">1</code></p>
+                              <p><em>Maximum</em>: <code class="code">128</code></p>
+                              <p><em>Pattern</em>: <code class="code">[\w+=,.@-]+</code></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-iam-addusertogroup-users"></a><span class="term"><code class="literal">Users</code></span></dt>
-                           
+                           <dt><a id="cfn-iam-addusertogroup-users"></a><span class="term"><code class="code">Users</code></span></dt>
                            <dd>
+                              
+                              <p>A list of the names of the users that you want to add to the group.</p>
                               
                               <p><em>Required</em>: Yes
                               </p>
+                              <p><em>Type</em>: List of String
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                           </dd>
+                        </dl>
+                     </div><h2 id="aws-properties-iam-addusertogroup-return-values">Return Values</h2><h3 id="aws-properties-iam-addusertogroup-return-values-ref">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code> intrinsic function, <code class="code">Ref</code> returns the resource name.
+                     </p><p>For example:</p><p>
+                        <code class="code">{ &quot;Ref&quot;: &quot;MyUserToGroupAddition&quot; }</code>
+                        
+                     </p><p>For the <code class="code">AWS::IAM::UserToGroupAddition</code> resource with the logical ID
+                        <code class="code">MyUserToGroupAddition</code>, <code class="code">Ref</code> will return the AWS resource
+                        name.
+                     </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
+                     </p><h2 id="aws-properties-iam-addusertogroup--seealso">See Also</h2><div class="itemizedlist">
+                        
+                        
+                        
+                        <ul class="itemizedlist" type="disc">
+                           <li class="listitem">
                               
-                              <p><em>Type</em>: List of users
+                              <p>To view <code class="code">AWS::IAM::UserToGroupAddition</code> template example snippets,
+                                 see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-iam.html#scenario-iam-addusertogroup">Add Users to a Group</a>. 
                               </p>
                               
-                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                           </li>
+                           <li class="listitem">
                               
-                           </dd>
-                           
-                        </dl>
-                     </div><h2 id="w2ab1c21c10d156c50c13">Return Value</h2><p>When the logical ID of this resource is provided to the <code class="code">Ref</code> intrinsic
-                        function, <code class="code">Ref</code> returns the resource name. For example:
-                     </p><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{ &quot;Ref&quot;: &quot;<em class="replaceable"><code>MyUserToGroupAddition</code></em>&quot; }</code></pre><p>For the <code class="code">AWS::IAM::UserToGroupAddition</code> with the logical ID &quot;MyUserToGroupAddition&quot;,
-                        <code class="code">Ref</code> will return the AWS resource name.
-                     </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                     </p><h2 id="w2ab1c21c10d156c50c15">Template Examples</h2><p>To view <code class="code">AWS::IAM::UserToGroupAddition</code> snippets, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-iam.html#scenario-iam-addusertogroup">Adding Users to a Group</a>.
-                     </p></div>
+                              <p>
+                                 <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_AddUserToGroup.html">AddUserToGroup</a> in the <em>AWS Identity and Access Management API
+                                    Reference</em>
+                                 
+                              </p>
+                              
+                           </li>
+                        </ul>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
+                     </div></div>
 </body>
 </html>

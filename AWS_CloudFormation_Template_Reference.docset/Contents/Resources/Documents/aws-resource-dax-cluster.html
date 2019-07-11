@@ -8,126 +8,92 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-resource-dax-cluster">AWS::DAX::Cluster</h1><p>Use the <code class="code">AWS::DAX::Cluster</code> resource to create a DAX cluster for use
-                        with Amazon DynamoDB.
-                     </p><p>For information about creating a DAX cluster, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.create-cluster.html">Creating a DAX Cluster</a> in the <em>Amazon DynamoDB Developer Guide</em> and   
-                        <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_dax_CreateCluster.html"><code class="code">CreateCluster</code></a> in the <em>Amazon DynamoDB Developer Guide</em>.
-                     </p><h2 id="w2ab1c21c10c93c14b7">Syntax</h2><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-resource-dax-cluster-syntax.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
-   &quot;Type&quot;: &quot;AWS::DAX::Cluster&quot;,
-   &quot;Properties&quot;: {
-      &quot;<a href="aws-resource-dax-cluster.html#cfn-dax-cluster-availability-zones">AvailabilityZones</a>&quot;: [ <em class="replaceable"><code>String, ...</code></em> ],
-      &quot;<a href="aws-resource-dax-cluster.html#cfn-dax-cluster-cluster-name">ClusterName</a>&quot;: <em class="replaceable"><code>String</code></em>,
-      &quot;<a href="aws-resource-dax-cluster.html#cfn-dax-cluster-description">Description</a>&quot;: <em class="replaceable"><code>String</code></em>,
-      &quot;<a href="aws-resource-dax-cluster.html#cfn-dax-cluster-iam-role-arn">IAMRoleARN</a>&quot;: <em class="replaceable"><code>String</code></em>,
-      &quot;<a href="aws-resource-dax-cluster.html#cfn-dax-cluster-node-type">NodeType</a>&quot;: <em class="replaceable"><code>String</code></em>,
-      &quot;<a href="aws-resource-dax-cluster.html#cfn-dax-cluster-notification-topic-arn">NotificationTopicARN</a>&quot;: <em class="replaceable"><code>String</code></em>,
-      &quot;<a href="aws-resource-dax-cluster.html#cfn-dax-cluster-parameter-group-name">ParameterGroupName</a>&quot;: <em class="replaceable"><code>String</code></em>,
-      &quot;<a href="aws-resource-dax-cluster.html#cfn-dax-cluster-preferred-maintenance-window">PreferredMaintenanceWindow</a>&quot;: <em class="replaceable"><code>String</code></em>,
-      &quot;<a href="aws-resource-dax-cluster.html#cfn-dax-cluster-replication-factor">ReplicationFactor</a>&quot;: <em class="replaceable"><code>Integer</code></em>,
-      &quot;<a href="aws-resource-dax-cluster.html#cfn-dax-cluster-security-group-ids">SecurityGroupIds</a>&quot;: [ <em class="replaceable"><code>String, ...</code></em> ],
-      &quot;<a href="aws-resource-dax-cluster.html#cfn-dax-cluster-ssespecification">SSESpecification</a>&quot; : <a href="aws-properties-daxservice-cluster-ssespecification.html">SSESpecification</a>,
-      &quot;<a href="aws-resource-dax-cluster.html#cfn-dax-cluster-subnet-group-name">SubnetGroupName</a>&quot;: <em class="replaceable"><code>String</code></em>,
-      &quot;<a href="aws-resource-dax-cluster.html#cfn-dax-cluster-tags">Tags</a>&quot;: { <em class="replaceable"><code>String</code></em>:<em class="replaceable"><code>String, ...</code></em> }
+    <h1 class="topictitle" id="aws-resource-dax-cluster">AWS::DAX::Cluster</h1><p>Creates a DAX cluster. All nodes in the cluster run the same DAX caching software.</p><h2 id="aws-resource-dax-cluster-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-resource-dax-cluster-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;Type&quot; : &quot;AWS::DAX::Cluster&quot;,
+  &quot;Properties&quot; : {
+      &quot;<a href="#cfn-dax-cluster-availabilityzones">AvailabilityZones</a>&quot; : <em class="replaceable"><code>[ String, ... ]</code></em>,
+      &quot;<a href="#cfn-dax-cluster-clustername">ClusterName</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-dax-cluster-description">Description</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-dax-cluster-iamrolearn">IAMRoleARN</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-dax-cluster-nodetype">NodeType</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-dax-cluster-notificationtopicarn">NotificationTopicARN</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-dax-cluster-parametergroupname">ParameterGroupName</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-dax-cluster-preferredmaintenancewindow">PreferredMaintenanceWindow</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-dax-cluster-replicationfactor">ReplicationFactor</a>&quot; : <em class="replaceable"><code>Integer</code></em>,
+      &quot;<a href="#cfn-dax-cluster-securitygroupids">SecurityGroupIds</a>&quot; : <em class="replaceable"><code>[ String, ... ]</code></em>,
+      &quot;<a href="#cfn-dax-cluster-ssespecification">SSESpecification</a>&quot; : <em class="replaceable"><code><a href="aws-properties-dax-cluster-ssespecification.html">SSESpecification</a></code></em>,
+      &quot;<a href="#cfn-dax-cluster-subnetgroupname">SubnetGroupName</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-dax-cluster-tags">Tags</a>&quot; : <em class="replaceable"><code>Json</code></em>
     }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-resource-dax-cluster-syntax.yaml">YAML</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">Type: AWS::DAX::Cluster
-Properties:
-      <a href="aws-resource-dax-cluster.html#cfn-dax-cluster-availability-zones">AvailabilityZones</a>: [ <em class="replaceable"><code>String, ...</code></em> ]
-      <a href="aws-resource-dax-cluster.html#cfn-dax-cluster-cluster-name">ClusterName</a>: <em class="replaceable"><code>String</code></em>
-      <a href="aws-resource-dax-cluster.html#cfn-dax-cluster-description">Description</a>: <em class="replaceable"><code>String</code></em>
-      <a href="aws-resource-dax-cluster.html#cfn-dax-cluster-iam-role-arn">IAMRoleARN</a>: <em class="replaceable"><code>String</code></em>
-      <a href="aws-resource-dax-cluster.html#cfn-dax-cluster-node-type">NodeType</a>: <em class="replaceable"><code>String</code></em>
-      <a href="aws-resource-dax-cluster.html#cfn-dax-cluster-notification-topic-arn">NotificationTopicARN</a>: <em class="replaceable"><code>String</code></em>
-      <a href="aws-resource-dax-cluster.html#cfn-dax-cluster-parameter-group-name">ParameterGroupName</a>: <em class="replaceable"><code>String</code></em>
-      <a href="aws-resource-dax-cluster.html#cfn-dax-cluster-preferred-maintenance-window">PreferredMaintenanceWindow</a>: <em class="replaceable"><code>String</code></em>
-      <a href="aws-resource-dax-cluster.html#cfn-dax-cluster-replication-factor">ReplicationFactor</a>: <em class="replaceable"><code>Integer</code></em>
-      <a href="aws-resource-dax-cluster.html#cfn-dax-cluster-security-group-ids">SecurityGroupIds</a>: [ <em class="replaceable"><code>String, ...</code></em> ]
-      <a href="aws-resource-dax-cluster.html#cfn-dax-cluster-ssespecification">SSESpecification</a>: 
-        <a href="aws-properties-daxservice-cluster-ssespecification.html">SSESpecification</a>
-      <a href="aws-resource-dax-cluster.html#cfn-dax-cluster-subnet-group-name">SubnetGroupName</a>: <em class="replaceable"><code>String</code></em>
-      <a href="aws-resource-dax-cluster.html#cfn-dax-cluster-tags">Tags</a>: { <em class="replaceable"><code>String</code></em>:<em class="replaceable"><code>String, ...</code></em> }
-         </code></pre>
-                        </div><h2 id="aws-resource-dax-cluster-properties">Properties</h2><div class="variablelist">
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-dax-cluster-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Type: AWS::DAX::Cluster
+Properties: 
+  <a href="#cfn-dax-cluster-availabilityzones">AvailabilityZones</a>: <em class="replaceable"><code>
+    - String</code></em>
+  <a href="#cfn-dax-cluster-clustername">ClusterName</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-dax-cluster-description">Description</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-dax-cluster-iamrolearn">IAMRoleARN</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-dax-cluster-nodetype">NodeType</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-dax-cluster-notificationtopicarn">NotificationTopicARN</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-dax-cluster-parametergroupname">ParameterGroupName</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-dax-cluster-preferredmaintenancewindow">PreferredMaintenanceWindow</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-dax-cluster-replicationfactor">ReplicationFactor</a>: <em class="replaceable"><code>Integer</code></em>
+  <a href="#cfn-dax-cluster-securitygroupids">SecurityGroupIds</a>: <em class="replaceable"><code>
+    - String</code></em>
+  <a href="#cfn-dax-cluster-ssespecification">SSESpecification</a>: <em class="replaceable"><code>
+    <a href="aws-properties-dax-cluster-ssespecification.html">SSESpecification</a></code></em>
+  <a href="#cfn-dax-cluster-subnetgroupname">SubnetGroupName</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-dax-cluster-tags">Tags</a>: <em class="replaceable"><code>Json</code></em>
+</code></pre></div><h2 id="aws-resource-dax-cluster-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
-                           <dt><a id="cfn-dax-cluster-availability-zones"></a><span class="term"><code class="literal">AvailabilityZones</code></span></dt>
-                           
+                           <dt><a id="cfn-dax-cluster-availabilityzones"></a><span class="term"><code class="code">AvailabilityZones</code></span></dt>
                            <dd>
                               
-                              <p>The Availability Zones (AZs) in which the cluster nodes will be created. All
-                                 nodes belonging to the cluster are placed in these Availability Zones. Use this
-                                 parameter if you want to distribute the nodes across multiple AZs.
+                              <p>The Availability Zones (AZs) in which the cluster nodes will be created. All nodes
+                                 belonging to the cluster are placed in these Availability Zones. Use this parameter
+                                 if you want
+                                 to distribute the nodes across multiple AZs.
                               </p>
-                              
-                              <p>You must specify one AZ per DAX node in the cluster.</p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: List of String values
+                              <p><em>Type</em>: List of String
                               </p>
-                              
-                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt">Some interruptions</a></p>
-                              
-                           </dd>
-                           
-                           
-                           <dt><a id="cfn-dax-cluster-cluster-name"></a><span class="term"><code class="literal">ClusterName</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>The cluster identifier. This parameter is stored as a lowercase string.</p>
-                              
-                              <p><em>Required</em>: No
-                              </p>
-                              
-                              <p><em>Type</em>: String
-                              </p>
-                              
-                              <p><em>Update requires</em>: Updates are not supported.
-                              </p>
-                              
-                           </dd>
-                           
-                           
-                           <dt><a id="cfn-dax-cluster-description"></a><span class="term"><code class="literal">Description</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>A description of the cluster.</p>
-                              
-                              <p><em>Required</em>: No
-                              </p>
-                              
-                              <p><em>Type</em>: String
-                              </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-dax-cluster-iam-role-arn"></a><span class="term"><code class="literal">IAMRoleARN</code></span></dt>
-                           
+                           <dt><a id="cfn-dax-cluster-clustername"></a><span class="term"><code class="code">ClusterName</code></span></dt>
+                           <dd>
+                              
+                              <p>The name of the DAX cluster.</p>
+                              
+                              <div class="aws-note">
+                                 <p class="aws-note">Note</p>
+                                 <p>
+                                    Updates are not supported for this property. 
+                                    
+                                 </p>
+                              </div>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              <p><em>Type</em>: String
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                           </dd>
+                           <dt><a id="cfn-dax-cluster-description"></a><span class="term"><code class="code">Description</code></span></dt>
+                           <dd>
+                              
+                              <p>The description of the cluster.</p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              <p><em>Type</em>: String
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                           </dd>
+                           <dt><a id="cfn-dax-cluster-iamrolearn"></a><span class="term"><code class="code">IAMRoleARN</code></span></dt>
                            <dd>
                               
                               <p>A valid Amazon Resource Name (ARN) that identifies an IAM role. At runtime, DAX
@@ -135,42 +101,46 @@ Properties:
                                  behalf.
                               </p>
                               
-                              <p><em>Required</em>: Yes
-                              </p>
-                              
-                              <p><em>Type</em>: String
-                              </p>
-                              
-                              <p><em>Update requires</em>: Updates are not supported.
-                              </p>
-                              
-                           </dd>
-                           
-                           
-                           <dt><a id="cfn-dax-cluster-node-type"></a><span class="term"><code class="literal">NodeType</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>The compute and memory capacity of the nodes in the cluster.</p>
+                              <div class="aws-note">
+                                 <p class="aws-note">Note</p>
+                                 <p>
+                                    Updates are not supported for this property. 
+                                    
+                                 </p>
+                              </div>
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
-                              <p><em>Update requires</em>: Updates are not supported.
-                              </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-dax-cluster-notification-topic-arn"></a><span class="term"><code class="literal">NotificationTopicARN</code></span></dt>
-                           
+                           <dt><a id="cfn-dax-cluster-nodetype"></a><span class="term"><code class="code">NodeType</code></span></dt>
                            <dd>
                               
-                              <p>The Amazon Resource Name (ARN) of the Amazon SNS topic to which notifications
-                                 will be sent.
+                              <p>The node type for the nodes in the cluster. (All nodes in a DAX cluster are of
+                                 the same type.)
+                              </p>
+                              
+                              <div class="aws-note">
+                                 <p class="aws-note">Note</p>
+                                 <p>
+                                    Updates are not supported for this property. 
+                                    
+                                 </p>
+                              </div>
+                              
+                              <p><em>Required</em>: Yes
+                              </p>
+                              <p><em>Type</em>: String
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                           </dd>
+                           <dt><a id="cfn-dax-cluster-notificationtopicarn"></a><span class="term"><code class="code">NotificationTopicARN</code></span></dt>
+                           <dd>
+                              
+                              <p>The Amazon Resource Name (ARN) of the Amazon SNS topic to which notifications will
+                                 be sent.
                               </p>
                               
                               <div class="aws-note">
@@ -180,140 +150,43 @@ Properties:
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-dax-cluster-parameter-group-name"></a><span class="term"><code class="literal">ParameterGroupName</code></span></dt>
-                           
+                           <dt><a id="cfn-dax-cluster-parametergroupname"></a><span class="term"><code class="code">ParameterGroupName</code></span></dt>
                            <dd>
                               
                               <p>The parameter group to be associated with the DAX cluster.</p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
-                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt">Some interruptions</a></p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-dax-cluster-preferred-maintenance-window"></a><span class="term"><code class="literal">PreferredMaintenanceWindow</code></span></dt>
-                           
+                           <dt><a id="cfn-dax-cluster-preferredmaintenancewindow"></a><span class="term"><code class="code">PreferredMaintenanceWindow</code></span></dt>
                            <dd>
                               
-                              <p>Specifies the weekly time range during which maintenance on the DAX cluster is
-                                 performed. It is specified as a range in the format <code class="code">ddd:hh24:mi-ddd:hh24:mi</code> (24H
-                                 Clock UTC). The minimum maintenance window is a 60 minute period. Valid values for
-                                 <code class="code">ddd</code> are:
+                              <p>A range of time when maintenance of DAX cluster software will be performed. For
+                                 example: <code class="code">sun:01:00-sun:09:00</code>. Cluster maintenance normally takes less than
+                                 30 minutes, and is performed automatically within the maintenance window.
                               </p>
-                              
-                              <div class="itemizedlist">
-                                 
-                                 
-                                 
-                                 
-                                 
-                                 
-                                 
-                                 
-                                 <ul class="itemizedlist" type="disc">
-                                    <li class="listitem">
-                                       
-                                       <p>
-                                          <code class="code">sun</code>
-                                          
-                                       </p>
-                                       
-                                    </li>
-                                    <li class="listitem">
-                                       
-                                       <p>
-                                          <code class="code">mon</code>
-                                          
-                                       </p>
-                                       
-                                    </li>
-                                    <li class="listitem">
-                                       
-                                       <p>
-                                          <code class="code">tue</code>
-                                          
-                                       </p>
-                                       
-                                    </li>
-                                    <li class="listitem">
-                                       
-                                       <p>
-                                          <code class="code">wed</code>
-                                          
-                                       </p>
-                                       
-                                    </li>
-                                    <li class="listitem">
-                                       
-                                       <p>
-                                          <code class="code">thu</code>
-                                          
-                                       </p>
-                                       
-                                    </li>
-                                    <li class="listitem">
-                                       
-                                       <p>
-                                          <code class="code">fri</code>
-                                          
-                                       </p>
-                                       
-                                    </li>
-                                    <li class="listitem">
-                                       
-                                       <p>
-                                          <code class="code">sat</code>
-                                          
-                                       </p>
-                                       
-                                    </li>
-                                 </ul>
-                              </div>
-                              
-                              <p>Example: <code class="code">sun:05:00-sun:09:00</code></p>
-                              
-                              <div class="aws-note">
-                                 <p class="aws-note">Note</p>
-                                 <p>If you don&apos;t specify a preferred maintenance window when you create or modify a
-                                    cache cluster, DAX assigns a 60-minute maintenance window on a randomly selected
-                                    day of the week.
-                                 </p>
-                              </div>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-dax-cluster-replication-factor"></a><span class="term"><code class="literal">ReplicationFactor</code></span></dt>
-                           
+                           <dt><a id="cfn-dax-cluster-replicationfactor"></a><span class="term"><code class="code">ReplicationFactor</code></span></dt>
                            <dd>
                               
-                              <p>The number of nodes in the DAX cluster. A replication factor of 1 will create a
-                                 single-node cluster, without any read replicas. For additional fault tolerance,
+                              <p>The number of nodes in the DAX cluster. A replication factor of 1 will
+                                 create a single-node cluster, without any read replicas. For additional fault tolerance,
                                  you can create a multiple node cluster with one or more read replicas. To do this,
-                                 set <em>ReplicationFactor</em> to 2 or more.
+                                 set
+                                 <em>ReplicationFactor</em> to 2 or more.
                               </p>
                               
                               <div class="aws-note">
@@ -323,58 +196,39 @@ Properties:
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: Integer
                               </p>
-                              
-                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt">Some interruptions</a></p>
-                              
-                           </dd>
-                           
-                           
-                           <dt><a id="cfn-dax-cluster-security-group-ids"></a><span class="term"><code class="literal">SecurityGroupIds</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>A list of security group IDs to be assigned to each node in the DAX cluster.
-                                 (Each of the security group ID is system-generated.)
-                              </p>
-                              
-                              <p>If this parameter is not specified, DAX assigns the default VPC security group
-                                 to each node.
-                              </p>
-                              
-                              <p><em>Required</em>: No
-                              </p>
-                              
-                              <p><em>Type</em>: List of String values
-                              </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-dax-cluster-ssespecification"></a><span class="term"><code class="literal">SSESpecification</code></span></dt>
-                           
+                           <dt><a id="cfn-dax-cluster-securitygroupids"></a><span class="term"><code class="code">SecurityGroupIds</code></span></dt>
                            <dd>
                               
-                              <p>Whether server-side encryption is enabled or not.</p>
+                              <p>A list of security group IDs to be assigned to each node in the DAX cluster. (Each
+                                 of the 
+                                 security group ID is system-generated.)
+                              </p>
+                              
+                              <p>If this parameter is not specified, DAX assigns the default VPC security group to
+                                 each node.
+                              </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: <a href="aws-properties-daxservice-cluster-ssespecification.html">SSESpecification</a>
-                                 
+                              <p><em>Type</em>: List of String
                               </p>
-                              
-                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-dax-cluster-subnet-group-name"></a><span class="term"><code class="literal">SubnetGroupName</code></span></dt>
-                           
+                           <dt><a id="cfn-dax-cluster-ssespecification"></a><span class="term"><code class="code">SSESpecification</code></span></dt>
+                           <dd>
+                              
+                              <p>Represents the settings used to enable server-side encryption on the cluster.</p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              <p><em>Type</em>: <a href="aws-properties-dax-cluster-ssespecification.html">SSESpecification</a></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                           </dd>
+                           <dt><a id="cfn-dax-cluster-subnetgroupname"></a><span class="term"><code class="code">SubnetGroupName</code></span></dt>
                            <dd>
                               
                               <p>The name of the subnet group to be used for the replication group.</p>
@@ -384,51 +238,49 @@ Properties:
                                  <p>DAX clusters can only run in an Amazon VPC environment. All of the subnets
                                     that you specify in a subnet group must exist in the same VPC.
                                  </p>
+                                 <div class="aws-note">
+                                    <p class="aws-note">Note</p>
+                                    <p>
+                                       Updates are not supported for this property.
+                                       
+                                    </p>
+                                 </div>
                               </div>
-                              
-                              <p><em>Required</em>: Yes
-                              </p>
-                              
-                              <p><em>Type</em>: String
-                              </p>
-                              
-                              <p><em>Update requires</em>: Updates are not supported.
-                              </p>
-                              
-                           </dd>
-                           
-                           
-                           <dt><a id="cfn-dax-cluster-tags"></a><span class="term"><code class="literal">Tags</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>A map of tags to associate with the DAX cluster.</p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: String to String map
+                              <p><em>Type</em>: String
                               </p>
-                              
-                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
                            </dd>
-                           
+                           <dt><a id="cfn-dax-cluster-tags"></a><span class="term"><code class="code">Tags</code></span></dt>
+                           <dd>
+                              
+                              <p>A set of tags to associate with the DAX cluster.  </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              <p><em>Type</em>: Json
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                           </dd>
                         </dl>
-                     </div><h2 id="aws-resource-dax-cluster-returnvalues">Return Values</h2><h3 id="aws-resource-dax-cluster-ref">Ref</h3><p>When you provide the logical ID of this resource to the <code class="code">Ref</code> intrinsic
-                        function, <code class="code">Ref</code> returns the name of the created DAX cluster. For
-                        example:
-                     </p><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{ &quot;Ref&quot;: &quot;<em class="replaceable"><code>MyDAXCluster</code></em>&quot; }</code></pre><p>Returns a value similar to the following:</p><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">MyDAXCluster</code></pre><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                     </p><h3 id="aws-resource-dax-cluster-getatt">Fn::GetAtt</h3><p><code class="code">Fn::GetAtt</code> returns a value for a specified attribute of this type.
-                        The following are the available attributes and sample return values.
-                     </p><div class="variablelist">
+                     </div><h2 id="aws-resource-dax-cluster-return-values">Return Values</h2><h3 id="aws-resource-dax-cluster-return-values-ref">Ref</h3><p>
+                        When you pass the logical ID of this resource to the intrinsic <code class="code">Ref</code> function, <code class="code">Ref</code> returns the name of the created DAX cluster. For example:
+                     </p><p>
                         
+                     </p><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{ &quot;Ref&quot;: &quot;<em class="replaceable"><code>MyResource</code></em>&quot; }</code></pre><p>
+                        Returns a value similar to the following:
                         
+                     </p><p>
                         
+                     </p><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">MyDAXCluster</code></pre><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
+                     </p><h3 id="aws-resource-dax-cluster-return-values-fn--getatt">Fn::GetAtt</h3><p>
+                        <code class="code">Fn::GetAtt</code> returns a value for a specified attribute of this type. The following are the available
+                        attributes and sample return values. 
+                     </p><h4 id="aws-resource-dax-cluster-return-values-fn--getatt-fn--getatt"></h4><div class="variablelist">
                         <dl>
-                           
-                           <dt><span class="term"><code class="literal">Arn</code></span></dt>
-                           
+                           <dt><a id="Arn-fn::getatt"></a><span class="term"><code class="code">Arn</code></span></dt>
                            <dd>
                               
                               <p>Returns the ARN of the DAX cluster. For example:</p>
@@ -436,25 +288,18 @@ Properties:
                               <p>Returns a value similar to the following:</p>
                               <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">arn:aws:dax:us-east-1:111122223333:cache/MyDAXCluster</code></pre>
                               </dd>
-                           
-                           
-                           <dt><span class="term"><code class="literal">ClusterDiscoveryEndpoint</code></span></dt>
-                           
+                           <dt><a id="ClusterDiscoveryEndpoint-fn::getatt"></a><span class="term"><code class="code">ClusterDiscoveryEndpoint</code></span></dt>
                            <dd>
                               
-                              <p>Returns the configuation endpoint of the DAX cluster. For example:</p>
+                              <p>Returns the configuration endpoint of the DAX cluster. For example:</p>
                               <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{ &quot;Fn::GetAtt&quot;: [&quot;<em class="replaceable"><code>MyDAXCluster</code></em>&quot;, &quot;ClusterDiscoveryEndpoint&quot;] }</code></pre>
-                              <p>Returns a value similar to the
-                                 following:
-                              </p><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">mydaxcluster.0h3d6x.clustercfg.dax.use1.cache.amazonaws.com:8111</code></pre>
+                              <p>Returns a value similar to the following:</p>
+                              <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">mydaxcluster.0h3d6x.clustercfg.dax.use1.cache.amazonaws.com:8111</code></pre>
+                              
                               </dd>
-                           
                         </dl>
-                     </div><p>For more information about using <code class="code">Fn::GetAtt</code>, see <a href="intrinsic-function-reference-getatt.html">Fn::GetAtt</a>.
-                     </p><h2 id="aws-resource-dax-cluster-example">Example</h2><p>The following example creates a DAX cluster.</p><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-resource-dax-cluster-example.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+                     </div><h2 id="aws-resource-dax-cluster--examples">Examples</h2><h3 id="aws-resource-dax-cluster--examples--Create_Cluster">Create Cluster</h3><p>The following example creates a DAX cluster.</p><h4 id="aws-resource-dax-cluster--examples--Create_Cluster--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">
+{
   &quot;AWSTemplateFormatVersion&quot;: &quot;2010-09-09&quot;,
   &quot;Description&quot;: &quot;Create a DAX cluster&quot;,
   &quot;Resources&quot;: {
@@ -522,11 +367,9 @@ Properties:
       &quot;Value&quot;: {&quot;Ref&quot;:&quot;daxCluster&quot;}
     }
   }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-resource-dax-cluster-example.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">AWSTemplateFormatVersion: &quot;2010-09-09&quot;
+}
+          </code></pre><h4 id="aws-resource-dax-cluster--examples--Create_Cluster--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">
+AWSTemplateFormatVersion: &quot;2010-09-09&quot;
 Description: &quot;Create a DAX cluster&quot;
 Resources:
   daxCluster:
@@ -573,7 +416,8 @@ Resources:
 Outputs:
   Cluster:
     Value: !Ref daxCluster
-</code></pre>
-                        </div></div>
+          </code></pre><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
+                     </div></div>
 </body>
 </html>

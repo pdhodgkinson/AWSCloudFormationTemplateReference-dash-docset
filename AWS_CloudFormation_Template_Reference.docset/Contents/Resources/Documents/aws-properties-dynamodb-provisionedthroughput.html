@@ -8,71 +8,57 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-properties-dynamodb-provisionedthroughput">Amazon DynamoDB Table ProvisionedThroughput</h1><p>Describes a set of provisioned throughput values for an <a href="aws-resource-dynamodb-table.html">AWS::DynamoDB::Table</a> resource. DynamoDB uses these capacity units to allocate
-                        sufficient resources to provide the requested throughput.
-                     </p><p>For a complete discussion of DynamoDB provisioned throughput values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput">Specifying Read and Write Requirements</a> in the <em>DynamoDB Developer
-                           Guide</em>.
-                     </p><h2 id="w2ab1c21c10d108c14c50b7">Syntax</h2><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-properties-dynamodb-provisionedthroughput-syntax.json">JSON</h3>
+    <h1 class="topictitle" id="aws-properties-dynamodb-provisionedthroughput">AWS::DynamoDB::Table ProvisionedThroughput</h1><p>Throughput for the specified table, which consists of values for <code class="code">ReadCapacityUnits</code> and <code class="code">WriteCapacityUnits</code>. For more information about the contents of a provisioned throughput structure, see
+                        <a href="aws-properties-dynamodb-provisionedthroughput.html">Amazon DynamoDB Table ProvisionedThroughput</a>.
                         
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
-   &quot;<a href="aws-properties-dynamodb-provisionedthroughput.html#cfn-dynamodb-provisionedthroughput-readcapacityunits">ReadCapacityUnits</a>&quot; : <em class="replaceable"><code>Number</code></em>,
-   &quot;<a href="aws-properties-dynamodb-provisionedthroughput.html#cfn-dynamodb-provisionedthroughput-writecapacityunits">WriteCapacityUnits</a>&quot; : <em class="replaceable"><code>Number</code></em>
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-properties-dynamodb-provisionedthroughput-syntax.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight"><a href="aws-properties-dynamodb-provisionedthroughput.html#cfn-dynamodb-provisionedthroughput-readcapacityunits">ReadCapacityUnits</a>: <em class="replaceable"><code>Number</code></em>
-<a href="aws-properties-dynamodb-provisionedthroughput.html#cfn-dynamodb-provisionedthroughput-writecapacityunits">WriteCapacityUnits</a>: <em class="replaceable"><code>Number</code></em></code></pre>
-                        </div><h2 id="w2ab1c21c10d108c14c50b9">Parameters</h2><div class="variablelist">
-                        
-                        
-                        
+                     </p><h2 id="aws-properties-dynamodb-provisionedthroughput-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-properties-dynamodb-provisionedthroughput-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;<a href="#cfn-dynamodb-provisionedthroughput-readcapacityunits">ReadCapacityUnits</a>&quot; : <em class="replaceable"><code>Long</code></em>,
+  &quot;<a href="#cfn-dynamodb-provisionedthroughput-writecapacityunits">WriteCapacityUnits</a>&quot; : <em class="replaceable"><code>Long</code></em>
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-properties-dynamodb-provisionedthroughput-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">  <a href="#cfn-dynamodb-provisionedthroughput-readcapacityunits">ReadCapacityUnits</a>: <em class="replaceable"><code>Long</code></em>
+  <a href="#cfn-dynamodb-provisionedthroughput-writecapacityunits">WriteCapacityUnits</a>: <em class="replaceable"><code>Long</code></em>
+</code></pre></div><h2 id="aws-properties-dynamodb-provisionedthroughput-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
-                           <dt><a id="cfn-dynamodb-provisionedthroughput-readcapacityunits"></a><span class="term"><code class="literal">ReadCapacityUnits</code></span></dt>
-                           
+                           <dt><a id="cfn-dynamodb-provisionedthroughput-readcapacityunits"></a><span class="term"><code class="code">ReadCapacityUnits</code></span></dt>
                            <dd>
                               
-                              <p>Sets the desired minimum number of consistent reads of items (up to 4KB in
-                                 size) per second for the specified table before Amazon DynamoDB balances the
-                                 load.
+                              <p>The maximum number of strongly consistent reads consumed per second before DynamoDB
+                                 returns a
+                                 <code class="code">ThrottlingException</code>. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput">Specifying Read and Write
+                                    Requirements</a> in the <em>Amazon DynamoDB Developer Guide</em>.
+                              </p>
+                              
+                              <p>If read/write capacity mode is <code class="code">PAY_PER_REQUEST</code> the value is set to 0.
                               </p>
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
-                              <p><em>Type</em>: Number
+                              <p><em>Type</em>: Long
                               </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-dynamodb-provisionedthroughput-writecapacityunits"></a><span class="term"><code class="literal">WriteCapacityUnits</code></span></dt>
-                           
+                           <dt><a id="cfn-dynamodb-provisionedthroughput-writecapacityunits"></a><span class="term"><code class="code">WriteCapacityUnits</code></span></dt>
                            <dd>
                               
-                              <p>Sets the desired minimum number of consistent writes of items (up to 1KB in
-                                 size) per second for the specified table before Amazon DynamoDB balances the
-                                 load.
+                              <p>The maximum number of writes consumed per second before DynamoDB returns a
+                                 <code class="code">ThrottlingException</code>. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput">Specifying Read and Write
+                                    Requirements</a> in the <em>Amazon DynamoDB Developer Guide</em>.
+                              </p>
+                              
+                              <p>If read/write capacity mode is <code class="code">PAY_PER_REQUEST</code> the value is set to 0.
                               </p>
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
-                              <p><em>Type</em>: Number
+                              <p><em>Type</em>: Long
                               </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
                         </dl>
-                     </div><div class="aws-note">
-                        <p class="aws-note">Note</p>
-                        <p>For detailed information about the limits of provisioned throughput values in DynamoDB,
-                           see <a href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Limits
-                              in Amazon DynamoDB</a> in the <em>DynamoDB Developer
-                              Guide</em>.
-                        </p>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
                      </div></div>
 </body>
 </html>

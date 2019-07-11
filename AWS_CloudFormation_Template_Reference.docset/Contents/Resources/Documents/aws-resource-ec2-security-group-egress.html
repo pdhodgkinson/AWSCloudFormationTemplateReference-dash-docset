@@ -8,255 +8,204 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-resource-ec2-security-group-egress">AWS::EC2::SecurityGroupEgress</h1><p>The <code class="code">AWS::EC2::SecurityGroupEgress</code> resource adds an egress rule to an Amazon VPC
-                        security group. When you use the <code class="code">AWS::EC2::SecurityGroupEgress</code> resource, the default rule is removed from the
-                        security group.
-                     </p><div class="aws-note">
-                        <p class="aws-note">Important</p>
-                        <p>Use <code class="code">AWS::EC2::SecurityGroupIngress</code> and
-                           <code class="code">AWS::EC2::SecurityGroupEgress</code> only when necessary, typically to allow
-                           security groups to reference each other in ingress and egress rules. Otherwise, use
-                           the
-                           embedded ingress and egress rules of <a href="aws-properties-ec2-security-group.html">AWS::EC2::SecurityGroup</a>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html">Amazon EC2 Security
-                              Groups</a>.
-                        </p>
-                     </div><div class="highlights" id="inline-topiclist">
-                        <p><strong>Topics</strong></p>
-                        <ul>
-                           <li><a href="#aws-resource-ec2-securitygroupegress-syntax">Syntax</a></li>
-                           <li><a href="#w2ab1c21c10d111d109c11">Properties</a></li>
-                           <li><a href="#w2ab1c21c10d111d109c13">Return Values</a></li>
-                           <li><a href="#w2ab1c21c10d111d109c15">VPC Security Groups Example</a></li>
-                        </ul>
-                     </div><h2 id="aws-resource-ec2-securitygroupegress-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-resource-ec2-securitygroupegress-syntax.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
+    <h1 class="topictitle" id="aws-resource-ec2-security-group-egress">AWS::EC2::SecurityGroupEgress</h1><p>[EC2-VPC only] Adds the specified egress rules to a security group for use with a
+                        VPC.
+                     </p><p>An outbound rule permits instances to send traffic to the specified destination IPv4
+                        or
+                        IPv6 CIDR address ranges, or to the specified destination security groups for the
+                        same VPC.
+                     </p><p>You specify a protocol for each rule (for example, TCP). 
+                        For the TCP and UDP protocols, you must also specify the destination port or port
+                        range. 
+                        For the ICMP protocol, you must also specify the ICMP type and code. 
+                        You can use -1 for the type or code to mean all types or all codes.
+                     </p><p>Rule changes are propagated to affected instances as quickly as possible. However,
+                        a small delay might occur.
+                     </p><p>For more information about VPC security group limits, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html">Amazon VPC Limits</a>.
+                     </p><p>Use <code class="code">AWS::EC2::SecurityGroupIngress</code> and
+                        <code class="code">AWS::EC2::SecurityGroupEgress</code> only when necessary, typically to allow
+                        security groups to reference each other in ingress and egress rules. Otherwise, use
+                        the
+                        embedded ingress and egress rules of the security group. For more information, see
+                        <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html">Amazon EC2 Security
+                           Groups</a>.
+                     </p><h2 id="aws-resource-ec2-security-group-egress-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-resource-ec2-security-group-egress-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
   &quot;Type&quot; : &quot;AWS::EC2::SecurityGroupEgress&quot;,
   &quot;Properties&quot; : {
-    &quot;<a href="aws-resource-ec2-security-group-egress.html#cfn-ec2-securitygroupegress-cidrip">CidrIp</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-ec2-security-group-egress.html#cfn-ec2-securitygroupegress-cidripv6">CidrIpv6</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-ec2-security-group-egress.html#cfn-ec2-securitygroupegress-description">Description</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-ec2-security-group-egress.html#cfn-ec2-securitygroupegress-destinationprefixlistid">DestinationPrefixListId</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-ec2-security-group-egress.html#cfn-ec2-securitygroupegress-destinationsecuritygroupid">DestinationSecurityGroupId</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-ec2-security-group-egress.html#cfn-ec2-securitygroupegress-fromport">FromPort</a>&quot; : <em class="replaceable"><code>Integer</code></em>,
-    &quot;<a href="aws-resource-ec2-security-group-egress.html#cfn-ec2-securitygroupegress-groupid">GroupId</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-ec2-security-group-egress.html#cfn-ec2-securitygroupegress-ipprotocol">IpProtocol</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-ec2-security-group-egress.html#cfn-ec2-securitygroupegress-toport">ToPort</a>&quot; : <em class="replaceable"><code>Integer</code></em>
-  }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-resource-ec2-securitygroupegress-syntax.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">
-Type: AWS::EC2::SecurityGroupEgress
-Properties:
-  <a href="aws-resource-ec2-security-group-egress.html#cfn-ec2-securitygroupegress-cidrip">CidrIp</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-ec2-security-group-egress.html#cfn-ec2-securitygroupegress-cidripv6">CidrIpv6</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-ec2-security-group-egress.html#cfn-ec2-securitygroupegress-description">Description</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-ec2-security-group-egress.html#cfn-ec2-securitygroupegress-destinationprefixlistid">DestinationPrefixListId</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-ec2-security-group-egress.html#cfn-ec2-securitygroupegress-destinationsecuritygroupid">DestinationSecurityGroupId</a>:  <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-ec2-security-group-egress.html#cfn-ec2-securitygroupegress-fromport">FromPort</a>: <em class="replaceable"><code>Integer</code></em>
-  <a href="aws-resource-ec2-security-group-egress.html#cfn-ec2-securitygroupegress-groupid">GroupId</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-ec2-security-group-egress.html#cfn-ec2-securitygroupegress-ipprotocol">IpProtocol</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-ec2-security-group-egress.html#cfn-ec2-securitygroupegress-toport">ToPort</a>: <em class="replaceable"><code>Integer</code></em>
-</code></pre>
-                        </div><h2 id="w2ab1c21c10d111d109c11">Properties</h2><p>For more information about adding egress rules to VPC security groups, go to <a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AuthorizeSecurityGroupEgress.html">AuthorizeSecurityGroupEgress</a> in the <em>Amazon EC2 API Reference</em>.
-                     </p><div class="aws-note">
-                        <p class="aws-note">Note</p>
-                        <p>If you change this resource&apos;s logical ID, you must also update a property value in
-                           order to trigger an update for this resource.
-                        </p>
-                     </div><div class="variablelist">
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
+      &quot;<a href="#cfn-ec2-securitygroupegress-cidrip">CidrIp</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-ec2-securitygroupegress-cidripv6">CidrIpv6</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-ec2-securitygroupegress-description">Description</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-ec2-securitygroupegress-destinationprefixlistid">DestinationPrefixListId</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-ec2-securitygroupegress-destinationsecuritygroupid">DestinationSecurityGroupId</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-ec2-securitygroupegress-fromport">FromPort</a>&quot; : <em class="replaceable"><code>Integer</code></em>,
+      &quot;<a href="#cfn-ec2-securitygroupegress-groupid">GroupId</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-ec2-securitygroupegress-ipprotocol">IpProtocol</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-ec2-securitygroupegress-toport">ToPort</a>&quot; : <em class="replaceable"><code>Integer</code></em>
+    }
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-ec2-security-group-egress-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Type: AWS::EC2::SecurityGroupEgress
+Properties: 
+  <a href="#cfn-ec2-securitygroupegress-cidrip">CidrIp</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-ec2-securitygroupegress-cidripv6">CidrIpv6</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-ec2-securitygroupegress-description">Description</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-ec2-securitygroupegress-destinationprefixlistid">DestinationPrefixListId</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-ec2-securitygroupegress-destinationsecuritygroupid">DestinationSecurityGroupId</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-ec2-securitygroupegress-fromport">FromPort</a>: <em class="replaceable"><code>Integer</code></em>
+  <a href="#cfn-ec2-securitygroupegress-groupid">GroupId</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-ec2-securitygroupegress-ipprotocol">IpProtocol</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-ec2-securitygroupegress-toport">ToPort</a>: <em class="replaceable"><code>Integer</code></em>
+</code></pre></div><h2 id="aws-resource-ec2-security-group-egress-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
-                           <dt><a id="cfn-ec2-securitygroupegress-cidrip"></a><span class="term"><code class="literal">CidrIp</code></span></dt>
-                           
+                           <dt><a id="cfn-ec2-securitygroupegress-cidrip"></a><span class="term"><code class="code">CidrIp</code></span></dt>
                            <dd>
                               
-                              <p>An IPv4 CIDR range.</p>
+                              <p>The IPv4 ranges.</p>
                               
-                              <p><em>Required</em>: Conditional. You must specify a destination security group
+                              <p>You must specify a destination security group
                                  (<code class="code">DestinationPrefixListId</code> or <code class="code">DestinationSecurityGroupId</code>) or a
                                  CIDR range (<code class="code">CidrIp</code> or <code class="code">CidrIpv6</code>).
                               </p>
-                              
-                              <p><em>Type</em>: String
-                              </p>
-                              
-                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
-                           </dd>
-                           
-                           
-                           <dt><a id="cfn-ec2-securitygroupegress-cidripv6"></a><span class="term"><code class="code">CidrIpv6</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>An IPv6 CIDR range.</p>
-                              
-                              <p><em>Type</em>: String
-                              </p>
-                              
-                              <p><em>Required</em>: Conditional. You must specify a destination security group
-                                 (<code class="code">DestinationPrefixListId</code> or <code class="code">DestinationSecurityGroupId</code>) or a
-                                 CIDR range (<code class="code">CidrIp</code> or <code class="code">CidrIpv6</code>).
-                              </p>
-                              
-                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
-                           </dd>
-                           
-                           
-                           <dt><a id="cfn-ec2-securitygroupegress-description"></a><span class="term"><code class="literal">Description</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>Description of the egress rule.</p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
-                              <p><em>Update requires</em>: 
-                                 <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
                            </dd>
-                           
-                           
+                           <dt><a id="cfn-ec2-securitygroupegress-cidripv6"></a><span class="term"><code class="code">CidrIpv6</code></span></dt>
+                           <dd>
+                              
+                              <p>The IPv6 ranges.</p>
+                              
+                              <p>You must specify a destination security group
+                                 (<code class="code">DestinationPrefixListId</code> or <code class="code">DestinationSecurityGroupId</code>) or a
+                                 CIDR range (<code class="code">CidrIp</code> or <code class="code">CidrIpv6</code>).
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              <p><em>Type</em>: String
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                           </dd>
+                           <dt><a id="cfn-ec2-securitygroupegress-description"></a><span class="term"><code class="code">Description</code></span></dt>
+                           <dd>
+                              		
+                              <p>The description of an egress (outbound) security group rule.</p>
+                              	
+                              <p><em>Required</em>: No
+                              </p>
+                              <p><em>Type</em>: String
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                           </dd>
                            <dt><a id="cfn-ec2-securitygroupegress-destinationprefixlistid"></a><span class="term"><code class="code">DestinationPrefixListId</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The AWS service prefix of an Amazon VPC endpoint. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints.html">VPC Endpoints</a> in the
-                                 <em>Amazon VPC User Guide</em>.
+                              <p>[EC2-VPC only] The prefix list IDs for an AWS service. This is the AWS service that
+                                 you
+                                 want to access through a VPC endpoint from instances associated with the security
+                                 group.
                               </p>
                               
-                              <p><em>Required</em>: Conditional. You must specify a destination security group
+                              <p>You must specify a destination security group
                                  (<code class="code">DestinationPrefixListId</code> or <code class="code">DestinationSecurityGroupId</code>) or a
                                  CIDR range (<code class="code">CidrIp</code> or <code class="code">CidrIpv6</code>).
                               </p>
                               
+                              <p><em>Required</em>: No
+                              </p>
                               <p><em>Type</em>: String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-ec2-securitygroupegress-destinationsecuritygroupid"></a><span class="term"><code class="literal">DestinationSecurityGroupId</code></span></dt>
-                           
+                           <dt><a id="cfn-ec2-securitygroupegress-destinationsecuritygroupid"></a><span class="term"><code class="code">DestinationSecurityGroupId</code></span></dt>
                            <dd>
                               
-                              <p>Specifies the group ID of the destination Amazon VPC security group.</p>
+                              <p>The ID of the security group.</p>
                               
-                              <p><em>Required</em>: Conditional. You must specify a destination security group
+                              <p>You must specify a destination security group
                                  (<code class="code">DestinationPrefixListId</code> or <code class="code">DestinationSecurityGroupId</code>) or a
                                  CIDR range (<code class="code">CidrIp</code> or <code class="code">CidrIpv6</code>).
                               </p>
                               
+                              <p><em>Required</em>: No
+                              </p>
                               <p><em>Type</em>: String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-ec2-securitygroupegress-fromport"></a><span class="term"><code class="literal">FromPort</code></span></dt>
-                           
+                           <dt><a id="cfn-ec2-securitygroupegress-fromport"></a><span class="term"><code class="code">FromPort</code></span></dt>
                            <dd>
                               
-                              <p>Start of port range for the TCP and UDP protocols, or an ICMP type number. If
-                                 you specify <code class="code">icmp</code> for the <code class="code">IpProtocol</code> property, you can
-                                 specify -1 as a wildcard (i.e., any ICMP type number).
+                              <p>The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type number.
+                                 A value of <code class="code">-1</code> indicates all ICMP/ICMPv6 types. If you specify all
+                                 		ICMP/ICMPv6 types, you must specify all codes.
                               </p>
                               
-                              <p><em>Required</em>: Yes
+                              <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: Integer
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-ec2-securitygroupegress-groupid"></a><span class="term"><code class="literal">GroupId</code></span></dt>
-                           
+                           <dt><a id="cfn-ec2-securitygroupegress-groupid"></a><span class="term"><code class="code">GroupId</code></span></dt>
                            <dd>
-                              
-                              <p>ID of the Amazon VPC security group to modify. This value can be a reference to an
-                                 <a href="aws-properties-ec2-security-group.html">AWS::EC2::SecurityGroup</a> resource that has a
-                                 valid <code class="code">VpcId</code> property or the ID of an existing Amazon VPC security group.
+                              		       
+                              <p>The ID of the security group. You must specify either the security group ID or the
+                                 			security group name in the request. For security groups in a nondefault VPC, you
+                                 must
+                                 			specify the security group ID.
                               </p>
-                              
+                              	     
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-ec2-securitygroupegress-ipprotocol"></a><span class="term"><code class="literal">IpProtocol</code></span></dt>
-                           
+                           <dt><a id="cfn-ec2-securitygroupegress-ipprotocol"></a><span class="term"><code class="code">IpProtocol</code></span></dt>
                            <dd>
                               
-                              <p>IP protocol name or number. For valid values, see the IpProtocol parameter in <a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AuthorizeSecurityGroupIngress.html">AuthorizeSecurityGroupIngress</a></p>
+                              <p>The IP protocol name (<code class="code">tcp</code>, <code class="code">udp</code>, <code class="code">icmp</code>, <code class="code">icmpv6</code>) 
+                                 or number (see <a href="http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml" target="_blank">Protocol Numbers</a>).
+                              </p>
+                              
+                              <p>[VPC only] Use <code class="code">-1</code> to specify all protocols. When authorizing
+                                 security group rules, specifying <code class="code">-1</code> or a protocol number other than
+                                 <code class="code">tcp</code>, <code class="code">udp</code>, <code class="code">icmp</code>, or <code class="code">icmpv6</code> allows
+                                 traffic on all ports, regardless of any port range you specify. For <code class="code">tcp</code>,
+                                 <code class="code">udp</code>, and <code class="code">icmp</code>, you must specify a port range. For <code class="code">icmpv6</code>,
+                                 the port range is optional; if you omit the port range, traffic for all types and
+                                 codes is allowed.
+                              </p>
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-ec2-securitygroupegress-toport"></a><span class="term"><code class="literal">ToPort</code></span></dt>
-                           
+                           <dt><a id="cfn-ec2-securitygroupegress-toport"></a><span class="term"><code class="code">ToPort</code></span></dt>
                            <dd>
                               
-                              <p>End of port range for the TCP and UDP protocols, or an ICMP code. If you
-                                 specify <code class="code">icmp</code> for the <code class="code">IpProtocol</code> property, you can
-                                 specify -1 as a wildcard (i.e., any ICMP code).
+                              <p>The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value
+                                 		of <code class="code">-1</code> indicates all ICMP/ICMPv6 codes. If you specify all ICMP/ICMPv6 types, 
+                                 you must specify all codes.
                               </p>
                               
-                              <p><em>Required</em>: Yes
+                              <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: Integer
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
                         </dl>
-                     </div><h2 id="w2ab1c21c10d111d109c13">Return Values</h2><h3 id="w2ab1c21c10d111d109c13b2">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code> intrinsic
-                        function, <code class="code">Ref</code> returns the resource name.
+                     </div><h2 id="aws-resource-ec2-security-group-egress-return-values">Return Values</h2><h3 id="aws-resource-ec2-security-group-egress-return-values-ref">Ref</h3><p>When you pass the logical ID of this resource to the intrinsic <code class="code">Ref</code> function, <code class="code">Ref</code> returns the name of the security egress rule.
                      </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                     </p><h2 id="w2ab1c21c10d111d109c15">VPC Security Groups Example</h2><p>In some cases, you might have an originating (source) security group to which you
+                     </p><h2 id="aws-resource-ec2-security-group-egress--examples">Examples</h2><h3 id="aws-resource-ec2-security-group-egress--examples--VPC_Security_Groups_Example">VPC Security Groups Example</h3><p>In some cases, you might have an originating (source) security group to which you
                         want
                         to add an outbound rule that allows traffic to a destination (target) security group.
                         The
@@ -267,85 +216,71 @@ Properties:
                         cannot have
                         two resources that depend on each other. Instead, use the egress and ingress resources
                         to
-                        declare these outbound and inbound rules, as shown in the following template snippet.
-                     </p><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-resource-ec2-securitygroupegress-example-1.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">{
-  &quot;AWSTemplateFormatVersion&quot;: &quot;2010-09-09&quot;,
-  &quot;Resources&quot;: {
-    &quot;SourceSG&quot;: {
-      &quot;Type&quot;: &quot;AWS::EC2::SecurityGroup&quot;,
-      &quot;Properties&quot;: {
-        &quot;VpcId&quot; : &quot;vpc-1a2b3c4d&quot;,
-        &quot;GroupDescription&quot;: &quot;Sample source security group&quot;
-      }
-    },
-    &quot;TargetSG&quot;: {
-      &quot;Type&quot;: &quot;AWS::EC2::SecurityGroup&quot;,
-      &quot;Properties&quot;: {
-        &quot;VpcId&quot; : &quot;vpc-1a2b3c4d&quot;,
-        &quot;GroupDescription&quot;: &quot;Sample target security group&quot;
-      }
-    },
-    &quot;OutboundRule&quot;: {
-      &quot;Type&quot;: &quot;AWS::EC2::SecurityGroupEgress&quot;,
-      &quot;Properties&quot;:{
-        &quot;IpProtocol&quot;: &quot;tcp&quot;,
-        &quot;FromPort&quot;: 0,
-        &quot;ToPort&quot;: 65535,
-        &quot;DestinationSecurityGroupId&quot;: {
-          &quot;Fn::GetAtt&quot;: [
+                        declare these outbound and inbound rules, as shown in the following template example.
+                     </p><h4 id="aws-resource-ec2-security-group-egress--examples--VPC_Security_Groups_Example--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">&quot;SourceSG&quot;: {
+   &quot;Type&quot;: &quot;AWS::EC2::SecurityGroup&quot;,
+   &quot;Properties&quot;: {
+      &quot;VpcId&quot; : &quot;vpc-1a2b3c4d&quot;,
+      &quot;GroupDescription&quot;: &quot;Sample source security group&quot;
+   }
+},
+&quot;TargetSG&quot;: {
+   &quot;Type&quot;: &quot;AWS::EC2::SecurityGroup&quot;,
+   &quot;Properties&quot;: {
+      &quot;VpcId&quot; : &quot;vpc-1a2b3c4d&quot;,
+      &quot;GroupDescription&quot;: &quot;Sample target security group&quot;
+   }
+},
+&quot;OutboundRule&quot;: {
+   &quot;Type&quot;: &quot;AWS::EC2::SecurityGroupEgress&quot;,
+   &quot;Properties&quot;:{
+      &quot;IpProtocol&quot;: &quot;tcp&quot;,
+      &quot;FromPort&quot;: 0,
+      &quot;ToPort&quot;: 65535,
+      &quot;DestinationSecurityGroupId&quot;: {
+         &quot;Fn::GetAtt&quot;: [
             &quot;TargetSG&quot;,
             &quot;GroupId&quot;
-          ]
-        },
-        &quot;GroupId&quot;: {
-          &quot;Fn::GetAtt&quot;: [
+         ]
+      },
+      &quot;GroupId&quot;: {
+         &quot;Fn::GetAtt&quot;: [
             &quot;SourceSG&quot;,
             &quot;GroupId&quot;
-          ]
-        }
+         ]
       }
-    },
-    &quot;InboundRule&quot;: {
-      &quot;Type&quot;: &quot;AWS::EC2::SecurityGroupIngress&quot;,
-      &quot;Properties&quot;:{
-        &quot;IpProtocol&quot;: &quot;tcp&quot;,
-        &quot;FromPort&quot;: 0,
-        &quot;ToPort&quot;: 65535,
-        &quot;SourceSecurityGroupId&quot;: {
-          &quot;Fn::GetAtt&quot;: [
+   }
+},
+&quot;InboundRule&quot;: {
+   &quot;Type&quot;: &quot;AWS::EC2::SecurityGroupIngress&quot;,
+   &quot;Properties&quot;:{
+      &quot;IpProtocol&quot;: &quot;tcp&quot;,
+      &quot;FromPort&quot;: 0,
+      &quot;ToPort&quot;: 65535,
+      &quot;SourceSecurityGroupId&quot;: {
+         &quot;Fn::GetAtt&quot;: [
             &quot;SourceSG&quot;,
             &quot;GroupId&quot;
-          ]
-        },
-        &quot;GroupId&quot;: {
-          &quot;Fn::GetAtt&quot;: [
+         ]
+      },
+      &quot;GroupId&quot;: {
+         &quot;Fn::GetAtt&quot;: [
             &quot;TargetSG&quot;,
             &quot;GroupId&quot;
-          ]
-        }
+         ]
       }
-    }
-  }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-resource-ec2-securitygroupegress-example-1.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">AWSTemplateFormatVersion: &apos;2010-09-09&apos;
-Resources:
-  SourceSG:
+   }
+}</code></pre><h4 id="aws-resource-ec2-security-group-egress--examples--VPC_Security_Groups_Example--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">SourceSG:
     Type: AWS::EC2::SecurityGroup
     Properties:
       VpcId: vpc-1a2b3c4d
       GroupDescription: Sample source security group
-  TargetSG:
+TargetSG:
     Type: AWS::EC2::SecurityGroup
     Properties:
       VpcId: vpc-1a2b3c4d
       GroupDescription: Sample target security group
-  OutboundRule:
+OutboundRule:
     Type: AWS::EC2::SecurityGroupEgress
     Properties:
       IpProtocol: tcp
@@ -359,7 +294,7 @@ Resources:
         Fn::GetAtt:
         - SourceSG
         - GroupId
-  InboundRule:
+InboundRule:
     Type: AWS::EC2::SecurityGroupIngress
     Properties:
       IpProtocol: tcp
@@ -372,7 +307,8 @@ Resources:
       GroupId:
         Fn::GetAtt:
         - TargetSG
-        - GroupId</code></pre>
-                        </div></div>
+        - GroupId</code></pre><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
+                     </div></div>
 </body>
 </html>

@@ -8,119 +8,70 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-properties-batch-jobdefinition-nodeproperties">AWS Batch JobDefinition
-                        NodeProperties
-                     </h1><p>The
-                        <code class="code">NodeProperties</code> property type specifies various properties specific to multi-node
-                        parallel jobs in a job definition.
-                     </p><p>
-                        <code class="code">NodeProperties</code> is a property of the <a href="aws-resource-batch-jobdefinition.html">AWS::Batch::JobDefinition</a> resource type.
-                     </p><h2 id="aws-properties-batch-jobdefinition-nodeproperties-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
-                        
-                        <h3 id="aws-properties-batch-jobdefinition-nodeproperties-syntax.json">JSON</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
-  &quot;<a href="aws-properties-batch-jobdefinition-nodeproperties.html#cfn-batch-jobdefinition-nodeproperties-mainnode">MainNode</a>&quot; : <em class="replaceable"><code>Integer</code></em>,
-  &quot;<a href="aws-properties-batch-jobdefinition-nodeproperties.html#cfn-batch-jobdefinition-nodeproperties-noderangeproperties">NodeRangeProperties</a>&quot; : [ <a href="aws-properties-batch-jobdefinition-noderangeproperty.html">NodeRangeProperty</a>, ... ],
-  &quot;<a href="aws-properties-batch-jobdefinition-nodeproperties.html#cfn-batch-jobdefinition-nodeproperties-numnodes">NumNodes</a>&quot; : <em class="replaceable"><code>Integer</code></em>
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        
-                        <h3 id="aws-properties-batch-jobdefinition-nodeproperties-syntax.yaml">YAML</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight"><a href="aws-properties-batch-jobdefinition-nodeproperties.html#cfn-batch-jobdefinition-nodeproperties-mainnode">MainNode</a>: <em class="replaceable"><code>Integer</code></em>
-<a href="aws-properties-batch-jobdefinition-nodeproperties.html#cfn-batch-jobdefinition-nodeproperties-noderangeproperties">NodeRangeProperties</a>: 
-  - <a href="aws-properties-batch-jobdefinition-noderangeproperty.html">NodeRangeProperty</a>
-<a href="aws-properties-batch-jobdefinition-nodeproperties.html#cfn-batch-jobdefinition-nodeproperties-numnodes">NumNodes</a>: <em class="replaceable"><code>Integer</code></em></code></pre>
-                        </div><h2 id="aws-properties-batch-jobdefinition-nodeproperties-properties">Properties</h2><div class="variablelist">
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
+    <h1 class="topictitle" id="aws-properties-batch-jobdefinition-nodeproperties">AWS::Batch::JobDefinition NodeProperties</h1><p>An object representing the node properties of a multi-node parallel job.</p><h2 id="aws-properties-batch-jobdefinition-nodeproperties-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-properties-batch-jobdefinition-nodeproperties-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;<a href="#cfn-batch-jobdefinition-nodeproperties-mainnode">MainNode</a>&quot; : <em class="replaceable"><code>Integer</code></em>,
+  &quot;<a href="#cfn-batch-jobdefinition-nodeproperties-noderangeproperties">NodeRangeProperties</a>&quot; : <em class="replaceable"><code>[ <a href="aws-properties-batch-jobdefinition-noderangeproperty.html">NodeRangeProperty</a>, ... ]</code></em>,
+  &quot;<a href="#cfn-batch-jobdefinition-nodeproperties-numnodes">NumNodes</a>&quot; : <em class="replaceable"><code>Integer</code></em>
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-properties-batch-jobdefinition-nodeproperties-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">  <a href="#cfn-batch-jobdefinition-nodeproperties-mainnode">MainNode</a>: <em class="replaceable"><code>Integer</code></em>
+  <a href="#cfn-batch-jobdefinition-nodeproperties-noderangeproperties">NodeRangeProperties</a>: <em class="replaceable"><code>
+    - <a href="aws-properties-batch-jobdefinition-noderangeproperty.html">NodeRangeProperty</a></code></em>
+  <a href="#cfn-batch-jobdefinition-nodeproperties-numnodes">NumNodes</a>: <em class="replaceable"><code>Integer</code></em>
+</code></pre></div><h2 id="aws-properties-batch-jobdefinition-nodeproperties-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
                            <dt><a id="cfn-batch-jobdefinition-nodeproperties-mainnode"></a><span class="term"><code class="code">MainNode</code></span></dt>
-                           
                            <dd>
                               
-                              <p>Specifies the node index for the main node of a multi-node parallel
-                                 job.
+                              <p>Specifies the node index for the main node of a multi-node parallel job. This node
+                                 index value must be fewer
+                                 than the number of nodes.
                               </p>
                               
-                              <p>
-                                 <em>Required</em>: Yes
+                              <p><em>Required</em>: Yes
                               </p>
-                              
-                              <p>
-                                 <em>Type</em>: Integer
+                              <p><em>Type</em>: Integer
                               </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
-                                 
-                              </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-batch-jobdefinition-nodeproperties-noderangeproperties"></a><span class="term"><code class="code">NodeRangeProperties</code></span></dt>
-                           
                            <dd>
                               
-                              <p>A list of node ranges and their properties associated with a multi-node
-                                 parallel job.
-                              </p>
+                              <p>A list of node ranges and their properties associated with a multi-node parallel job.</p>
                               
-                              <p>
-                                 <em>Required</em>: Yes
+                              <p><em>Required</em>: Yes
                               </p>
-                              
-                              <p>
-                                 <em>Type</em>: List of <a href="aws-properties-batch-jobdefinition-noderangeproperty.html">NodeRangeProperty</a> property types
-                              </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
-                                 
-                              </p>
-                              
+                              <p><em>Type</em>: List of <a href="aws-properties-batch-jobdefinition-noderangeproperty.html">NodeRangeProperty</a></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-batch-jobdefinition-nodeproperties-numnodes"></a><span class="term"><code class="code">NumNodes</code></span></dt>
-                           
                            <dd>
                               
                               <p>The number of nodes associated with a multi-node parallel job.</p>
                               
-                              <p>
-                                 <em>Required</em>: Yes
+                              <p><em>Required</em>: Yes
                               </p>
-                              
-                              <p>
-                                 <em>Type</em>: Integer
+                              <p><em>Type</em>: Integer
                               </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
-                                 
-                              </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
                         </dl>
-                     </div><h2 id="aws-properties-batch-jobdefinition-nodeproperties-seealso">See Also</h2><div class="itemizedlist">
+                     </div><h2 id="aws-properties-batch-jobdefinition-nodeproperties--seealso">See Also</h2><div class="itemizedlist">
                         
                         
                         <ul class="itemizedlist" type="disc">
                            <li class="listitem">
                               
-                              <p><a href="https://docs.aws.amazon.com/batch/latest/userguide/multi-node-parallel-jobs.html">Multi-node Parallel Jobs</a> in the <em>AWS Batch User Guide</em></p>
+                              <p>
+                                 <a href="https://docs.aws.amazon.com/batch/latest/userguide/multi-node-parallel-jobs.html">Multi-node Parallel
+                                    Jobs</a> in the <em>AWS Batch User Guide</em>.
+                              </p>
                               
                            </li>
                         </ul>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
                      </div></div>
 </body>
 </html>

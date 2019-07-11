@@ -8,169 +8,480 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-resource-route53-hostedzone">AWS::Route53::HostedZone</h1><p>The <code class="code">AWS::Route53::HostedZone</code> resource creates a hosted zone, which can contain
-                        a collection of record sets for a domain. You cannot create a hosted zone for a top-level
-                        domain (TLD). For more information, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateHostedZone.html">POST CreateHostedZone</a> or <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API-create-hosted-zone-private.html">POST CreateHostedZone
-                           (Private)</a> in the <em>Amazon Route&#xA0;53 API Reference</em>.
+    <h1 class="topictitle" id="aws-resource-route53-hostedzone">AWS::Route53::HostedZone</h1><p>The <code class="code">AWS::Route53::HostedZone</code> resource is a Route 53 resource type that contains information about 
+                        			how you want to route traffic for a domain (example.com) and its subdomains (acme.example.com,
+                        zenith.example.com):
+                     </p><div class="itemizedlist">
+                        			
+                        			
+                        		
+                        <ul class="itemizedlist" type="disc">
+                           <li class="listitem">
+                              <p>Records in a public hosted zone define how you want to route traffic on the internet.</p>
+                           </li>
+                           <li class="listitem">
+                              <p>Records in a private hosted zone define how you want to route traffic within one or
+                                 more 
+                                 				Amazon Virtual Private Clouds (Amazon VPCs). 
+                              </p>
+                           </li>
+                        </ul>
+                     </div><div class="aws-note">
+                        <p class="aws-note">Important</p>
+                        <p>You can&apos;t convert a public hosted zone to a private hosted zone or vice versa. Instead,
+                           you must create a new hosted zone 
+                           				with the same name and create new resource record sets.
+                        </p>
+                     </div><p>For more information about charges for hosted zones, see <a href="http://aws.amazon.com/route53/pricing/" target="_blank">Amazon Route 53 Pricing</a>.
+                     </p><p>Note the following:</p><div class="itemizedlist">
+                        			
+                        			
+                        			
+                        		
+                        <ul class="itemizedlist" type="disc">
+                           <li class="listitem">
+                              				
+                              <p>You can&apos;t create a hosted zone for a top-level domain (TLD) such as .com.</p>
+                              			
+                           </li>
+                           <li class="listitem">
+                              				
+                              <p>For public hosted zones, Amazon Route 53 automatically creates a default SOA record
+                                 and four NS records for the zone. 
+                                 					For more information about SOA and NS records, see 
+                                 					<a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/SOA-NSrecords.html">NS and SOA Records that Route 53 Creates for a Hosted Zone</a> in the 
+                                 					<em>Amazon Route 53 Developer Guide</em>.
+                              </p>
+                              				
+                              <p>If you want to use the same name servers for multiple public hosted zones, you can
+                                 optionally associate a reusable delegation set 
+                                 					with the hosted zone. See the <code class="code">DelegationSetId</code> element.
+                              </p>
+                              			
+                           </li>
+                           <li class="listitem">
+                              				
+                              <p>If your domain is registered with a registrar other than Route 53, you must update
+                                 the name servers with your registrar to make 
+                                 					Route 53 the DNS service for the domain. For more information, see 
+                                 					<a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/MigratingDNS.html">Making Amazon Route 53 the DNS Service for an Existing Domain</a> in the 
+                                 					<em>Amazon Route 53 Developer Guide</em>. 
+                              </p>
+                              			
+                           </li>
+                        </ul>
+                     </div><p>When you submit a <code class="code">CreateHostedZone</code> request, the initial status of the hosted zone is <code class="code">PENDING</code>. 
+                        			For public hosted zones, this means that the NS and SOA records are not yet available
+                        on all Route 53 DNS servers. When the 
+                        			NS and SOA records are available, the status of the zone changes to <code class="code">INSYNC</code>.
                      </p><h2 id="aws-resource-route53-hostedzone-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-resource-route53-hostedzone-syntax.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
+                        <h3 id="aws-resource-route53-hostedzone-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
   &quot;Type&quot; : &quot;AWS::Route53::HostedZone&quot;,
   &quot;Properties&quot; : {
-    &quot;<a href="aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-hostedzoneconfig">HostedZoneConfig</a>&quot; : <a href="aws-properties-route53-hostedzone-hostedzoneconfig.html">HostedZoneConfig</a>,
-    &quot;<a href="aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-hostedzonetags">HostedZoneTags</a>&quot; : [ <a href="aws-properties-route53-hostedzone-hostedzonetags.html">HostedZoneTags</a>, ... ],
-    &quot;<a href="aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-name">Name</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-queryloggingconfig">QueryLoggingConfig</a>&quot; : <a href="aws-properties-route53-hostedzone-queryloggingconfig.html">QueryLoggingConfig</a>,
-    &quot;<a href="aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-vpcs">VPCs</a>&quot; : [ <a href="aws-resource-route53-hostedzone-hostedzonevpcs.html">HostedZoneVPCs</a>, ... ]
-  }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-resource-route53-hostedzone-syntax.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">Type: &quot;AWS::Route53::HostedZone&quot;
+      &quot;<a href="#cfn-route53-hostedzone-hostedzoneconfig">HostedZoneConfig</a>&quot; : <em class="replaceable"><code><a href="aws-properties-route53-hostedzone-hostedzoneconfig.html">HostedZoneConfig</a></code></em>,
+      &quot;<a href="#cfn-route53-hostedzone-hostedzonetags">HostedZoneTags</a>&quot; : <em class="replaceable"><code>[ <a href="aws-properties-route53-hostedzone-hostedzonetags.html">HostedZoneTag</a>, ... ]</code></em>,
+      &quot;<a href="#cfn-route53-hostedzone-name">Name</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-route53-hostedzone-queryloggingconfig">QueryLoggingConfig</a>&quot; : <em class="replaceable"><code><a href="aws-properties-route53-hostedzone-queryloggingconfig.html">QueryLoggingConfig</a></code></em>,
+      &quot;<a href="#cfn-route53-hostedzone-vpcs">VPCs</a>&quot; : <em class="replaceable"><code>[ <a href="aws-resource-route53-hostedzone-hostedzonevpcs.html">VPC</a>, ... ]</code></em>
+    }
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-route53-hostedzone-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Type: AWS::Route53::HostedZone
 Properties: 
-  <a href="aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-hostedzoneconfig">HostedZoneConfig</a>:
-    <a href="aws-properties-route53-hostedzone-hostedzoneconfig.html">HostedZoneConfig</a>
-  <a href="aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-hostedzonetags">HostedZoneTags</a>:
-    - <a href="aws-properties-route53-hostedzone-hostedzonetags.html">HostedZoneTags</a>
-  <a href="aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-name">Name</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-queryloggingconfig">QueryLoggingConfig</a>: 
-    <a href="aws-properties-route53-hostedzone-queryloggingconfig.html">QueryLoggingConfig</a>
-  <a href="aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-vpcs">VPCs</a>:
-    - <a href="aws-resource-route53-hostedzone-hostedzonevpcs.html">HostedZoneVPCs</a> 
-</code></pre>
-                        </div><h2 id="w2ab1c21c10d201c18b7">Properties</h2><div class="variablelist">
-                        
-                        
-                        
-                        
-                        
-                        
+  <a href="#cfn-route53-hostedzone-hostedzoneconfig">HostedZoneConfig</a>: <em class="replaceable"><code>
+    <a href="aws-properties-route53-hostedzone-hostedzoneconfig.html">HostedZoneConfig</a></code></em>
+  <a href="#cfn-route53-hostedzone-hostedzonetags">HostedZoneTags</a>: <em class="replaceable"><code>
+    - <a href="aws-properties-route53-hostedzone-hostedzonetags.html">HostedZoneTag</a></code></em>
+  <a href="#cfn-route53-hostedzone-name">Name</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-route53-hostedzone-queryloggingconfig">QueryLoggingConfig</a>: <em class="replaceable"><code>
+    <a href="aws-properties-route53-hostedzone-queryloggingconfig.html">QueryLoggingConfig</a></code></em>
+  <a href="#cfn-route53-hostedzone-vpcs">VPCs</a>: <em class="replaceable"><code>
+    - <a href="aws-resource-route53-hostedzone-hostedzonevpcs.html">VPC</a></code></em>
+</code></pre></div><h2 id="aws-resource-route53-hostedzone-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
                            <dt><a id="cfn-route53-hostedzone-hostedzoneconfig"></a><span class="term"><code class="code">HostedZoneConfig</code></span></dt>
-                           
                            <dd>
-                              
-                              <p>A complex type that contains an optional comment about your hosted zone.</p>
-                              
+                              		       
+                              <p>(Optional) A complex type that contains the following optional values:</p>
+                              		       
+                              <div class="itemizedlist">
+                                 			         
+                                 			         
+                                 		       
+                                 <ul class="itemizedlist" type="disc">
+                                    <li class="listitem">
+                                       
+                                       <p>For public and private hosted zones, an optional comment</p>
+                                       
+                                    </li>
+                                    <li class="listitem">
+                                       
+                                       <p>For private hosted zones, an optional <code class="code">PrivateZone</code> element
+                                       </p>
+                                       
+                                    </li>
+                                 </ul>
+                              </div>
+                              		       
+                              <p>If you don&apos;t specify a comment or the <code class="code">PrivateZone</code> element, omit <code class="code">HostedZoneConfig</code> and 
+                                 			the other elements.
+                              </p>
+                              	     
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: <a href="aws-properties-route53-hostedzone-hostedzoneconfig.html">Route&#xA0;53 HostedZoneConfig Property</a></p>
-                              
+                              <p><em>Type</em>: <a href="aws-properties-route53-hostedzone-hostedzoneconfig.html">HostedZoneConfig</a></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-route53-hostedzone-hostedzonetags"></a><span class="term"><code class="code">HostedZoneTags</code></span></dt>
-                           
                            <dd>
-                              
-                              <p>An arbitrary set of tags (key&#x2013;value pairs) for this hosted zone.</p>
-                              
+                              		       
+                              <p>Adds, edits, or deletes tags for a health check or a hosted zone.</p>
+                              		       
+                              <p>For information about using tags for cost allocation, see 
+                                 			<a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using Cost Allocation Tags</a> 
+                                 			in the <em>AWS Billing and Cost Management User Guide</em>.
+                              </p>
+                              		
+                              		       
+                              	     
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: List of <a href="aws-properties-route53-hostedzone-hostedzonetags.html">Amazon Route&#xA0;53 HostedZoneTags</a></p>
-                              
+                              <p><em>Type</em>: List of <a href="aws-properties-route53-hostedzone-hostedzonetags.html">HostedZoneTag</a></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-route53-hostedzone-name"></a><span class="term"><code class="code">Name</code></span></dt>
-                           
                            <dd>
-                              
-                              <p>The name of the domain. For resource record types that include a domain name,
-                                 specify a fully qualified domain name.
+                              		       
+                              <p>The name of the domain. Specify a fully qualified domain name, for example, <em>www.example.com</em>. 
+                                 			The trailing dot is optional; Amazon Route 53 assumes that the domain name is fully
+                                 qualified. This means that Route 53 treats 
+                                 			<em>www.example.com</em> (without a trailing dot) and <em>www.example.com.</em> (with a trailing dot) as identical.
                               </p>
-                              
+                              		       
+                              <p>If you&apos;re creating a public hosted zone, this is the name you have registered with
+                                 your DNS registrar. If your domain name 
+                                 			is registered with a registrar other than Route 53, change the name servers for
+                                 your domain to the set of <code class="code">NameServers</code> that 
+                                 			<code class="code">CreateHostedZone</code> returns in <code class="code">DelegationSet</code>.
+                              </p>
+                              	     
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Maximum</em>: <code class="code">1024</code></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-route53-hostedzone-queryloggingconfig"></a><span class="term"><code class="code">QueryLoggingConfig</code></span></dt>
-                           
                            <dd>
+                              		       
+                              <p>Creates a configuration for DNS query logging. After you create a query logging configuration,
+                                 Amazon Route 53 begins to publish 
+                                 			log data to an Amazon CloudWatch Logs log group.
+                              </p>
+                              		       
+                              <p>DNS query logs contain information about the queries that Route 53 receives for a
+                                 specified public hosted zone, such as the following:
+                              </p>
+                              		       
+                              <div class="itemizedlist">
+                                 			         
+                                 			         
+                                 			         
+                                 			         
+                                 		       
+                                 <ul class="itemizedlist" type="disc">
+                                    <li class="listitem">
+                                       
+                                       <p>Route 53 edge location that responded to the DNS query</p>
+                                       
+                                    </li>
+                                    <li class="listitem">
+                                       
+                                       <p>Domain or subdomain that was requested</p>
+                                       
+                                    </li>
+                                    <li class="listitem">
+                                       
+                                       <p>DNS record type, such as A or AAAA</p>
+                                       
+                                    </li>
+                                    <li class="listitem">
+                                       
+                                       <p>DNS response code, such as <code class="code">NoError</code> or <code class="code">ServFail</code>
+                                          
+                                       </p>
+                                       
+                                    </li>
+                                 </ul>
+                              </div>
+                              		
+                              		       
+                              <div class="variablelist">
+                                 			         
+                                 			
+                                 			         
+                                 			
+                                 			         
+                                 			
+                                 			         
+                                 
+                                 			         
+                                 			
+                                 			         
+                                 			
+                                 		       
+                                 <dl>
+                                    				           
+                                    <dt><a id="cfn-route53-hostedzone-queryloggingconfig"></a><span class="term">Log Group and Resource Policy</span></dt>
+                                    				           
+                                    <dd>
+                                       
+                                       <p>Before you create a query logging configuration, perform the following operations.</p>
+                                       					             
+                                       <div class="aws-note">
+                                          <p class="aws-note">Note</p>
+                                          <p>If you create a query logging configuration using the Route 53 console, Route 53 performs
+                                             these operations automatically.
+                                          </p>
+                                       </div>
+                                       					             
+                                       <div class="orderedlist">
+                                          						               
+                                          						               
+                                          					             
+                                          <ol>
+                                             <li>
+                                                
+                                                <p>Create a CloudWatch Logs log group, and make note of the ARN, which you specify when
+                                                   you create a 
+                                                   							query logging configuration. Note the following:
+                                                </p>
+                                                							                 
+                                                <div class="itemizedlist">
+                                                   								                   
+                                                   								                   
+                                                   								                   
+                                                   							                 
+                                                   <ul class="itemizedlist" type="disc">
+                                                      <li class="listitem">
+                                                         
+                                                         <p>You must create the log group in the us-east-1 region.</p>
+                                                         
+                                                      </li>
+                                                      <li class="listitem">
+                                                         
+                                                         <p>You must use the same AWS account to create the log group and the hosted zone that
+                                                            you want to 
+                                                            									configure query logging for.
+                                                         </p>
+                                                         
+                                                      </li>
+                                                      <li class="listitem">
+                                                         
+                                                         <p>When you create log groups for query logging, we recommend that you use a consistent
+                                                            prefix, for example:
+                                                         </p>
+                                                         									                     
+                                                         <p>
+                                                            <code class="code">/aws/route53/<em>hosted zone name</em>
+                                                               </code>
+                                                            
+                                                         </p>
+                                                         									                     
+                                                         <p>In the next step, you&apos;ll create a resource policy, which controls access to one or
+                                                            more log groups and the associated 
+                                                            										AWS resources, such as Route 53 hosted zones. There&apos;s a limit on the number
+                                                            of resource policies that you can create, so 
+                                                            										we recommend that you use a consistent prefix so you can use the same resource
+                                                            policy for all the log groups that you create 
+                                                            										for query logging.
+                                                         </p>
+                                                         								                   
+                                                      </li>
+                                                   </ul>
+                                                </div>
+                                                						               
+                                             </li>
+                                             <li>
+                                                
+                                                <p>Create a CloudWatch Logs resource policy, and give it the permissions that Route 53
+                                                   needs to create log streams and to 
+                                                   							send query logs to log streams. For the value of <code class="code">Resource</code>, specify the ARN for the log group that you created 
+                                                   							in the previous step. To use the same resource policy for all the CloudWatch
+                                                   Logs log groups that you created for query logging configurations, 
+                                                   							replace the hosted zone name with <code class="code">*</code>, for example:
+                                                </p>
+                                                							                 
+                                                <p>
+                                                   <code class="code">arn:aws:logs:us-east-1:123412341234:log-group:/aws/route53/*</code>
+                                                   
+                                                </p>
+                                                							                 
+                                                <div class="aws-note">
+                                                   <p class="aws-note">Note</p>
+                                                   <p>You can&apos;t use the CloudWatch console to create or edit a resource policy. You must
+                                                      use the CloudWatch API, one of the AWS SDKs, 
+                                                      								or the AWS CLI.
+                                                   </p>
+                                                </div>
+                                                						               
+                                             </li>
+                                          </ol>
+                                       </div>
+                                       				           
+                                    </dd>
+                                    			         
+                                    				           
+                                    <dt><a id="cfn-route53-hostedzone-queryloggingconfig"></a><span class="term">Log Streams and Edge Locations</span></dt>
+                                    				           
+                                    <dd>
+                                       
+                                       <p>When Route 53 finishes creating the configuration for DNS query logging, it does the
+                                          following:
+                                       </p>
+                                       					             
+                                       <div class="itemizedlist">
+                                          						               
+                                          						               
+                                          					             
+                                          <ul class="itemizedlist" type="disc">
+                                             <li class="listitem">
+                                                
+                                                <p>Creates a log stream for an edge location the first time that the edge location responds
+                                                   to DNS queries for the 
+                                                   							specified hosted zone. That log stream is used to log all queries that Route
+                                                   53 responds to for that edge location.
+                                                </p>
+                                                
+                                             </li>
+                                             <li class="listitem">
+                                                
+                                                <p>Begins to send query logs to the applicable log stream.</p>
+                                                
+                                             </li>
+                                          </ul>
+                                       </div>
+                                       					             
+                                       <p>The name of each log stream is in the following format:</p>
+                                       					             
+                                       <p>
+                                          <code class="code">
+                                             <em>hosted zone ID</em>/<em>edge location code</em>
+                                             </code>
+                                          
+                                       </p>
+                                       					             
+                                       <p>The edge location code is a three-letter code and an arbitrarily assigned number,
+                                          for example, DFW3. The three-letter code 
+                                          						typically corresponds with the International Air Transport Association airport
+                                          code for an airport near the edge location. 
+                                          						(These abbreviations might change in the future.) For a list of edge locations,
+                                          see &quot;The Route 53 Global Network&quot; on the 
+                                          						<a href="http://aws.amazon.com/route53/details/" target="_blank">Route 53 Product Details</a> page.
+                                       </p>
+                                       				           
+                                    </dd>
+                                    			         
+                                    				           
+                                    <dt><a id="cfn-route53-hostedzone-queryloggingconfig"></a><span class="term">Queries That Are Logged</span></dt>
+                                    				           
+                                    <dd>
+                                       
+                                       <p>Query logs contain only the queries that DNS resolvers forward to Route 53. If a DNS
+                                          resolver has already cached 
+                                          					the response to a query (such as the IP address for a load balancer for example.com),
+                                          the resolver will continue to return 
+                                          					the cached response. It doesn&apos;t forward another query to Route 53 until the TTL
+                                          for the corresponding resource record set expires. 
+                                          					Depending on how many DNS queries are submitted for a resource record set, and
+                                          depending on the TTL for that resource record set, 
+                                          					query logs might contain information about only one query out of every several
+                                          thousand queries that are submitted to DNS. 
+                                          					For more information about how DNS works, see 
+                                          					<a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/welcome-dns-service.html">Routing Internet Traffic to Your Website or Web Application</a>
+                                          					in the <em>Amazon Route 53 Developer Guide</em>.
+                                       </p>
+                                       				           
+                                    </dd>
+                                    			         
+                                    				           
+                                    <dt><a id="cfn-route53-hostedzone-queryloggingconfig"></a><span class="term">Log File Format</span></dt>
+                                    				           
+                                    <dd>
+                                       
+                                       <p>For a list of the values in each query log and the format of each value, see 
+                                          					<a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/query-logs.html">Logging DNS Queries</a> in the 
+                                          					<em>Amazon Route 53 Developer Guide</em>.
+                                       </p>
+                                       				           
+                                    </dd>
+                                    			         
+                                    				           
+                                    <dt><a id="cfn-route53-hostedzone-queryloggingconfig"></a><span class="term">Pricing</span></dt>
+                                    				           
+                                    <dd>
+                                       
+                                       <p>For information about charges for query logs, see 
+                                          					<a href="http://aws.amazon.com/cloudwatch/pricing/" target="_blank">Amazon CloudWatch Pricing</a>.
+                                       </p>
+                                       
+                                    </dd>
+                                    			         
+                                    				           
+                                    <dt><a id="cfn-route53-hostedzone-queryloggingconfig"></a><span class="term">How to Stop Logging</span></dt>
+                                    				           
+                                    <dd>
+                                       
+                                       <p>If you want Route 53 to stop sending query logs to CloudWatch Logs, delete the query
+                                          logging configuration. For more information, see 
+                                          					<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteQueryLoggingConfig.html">DeleteQueryLoggingConfig</a>.
+                                       </p>
+                                       				           
+                                    </dd>
+                                    			         
+                                 </dl>
+                              </div>
                               
-                              <p>The configuration for DNS query logging.</p>
+                              		       
                               
+                              	     
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: <a href="aws-properties-route53-hostedzone-queryloggingconfig.html">Route&#xA0;53 QueryLoggingConfig</a></p>
-                              
+                              <p><em>Type</em>: <a href="aws-properties-route53-hostedzone-queryloggingconfig.html">QueryLoggingConfig</a></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-route53-hostedzone-vpcs"></a><span class="term"><code class="code">VPCs</code></span></dt>
-                           
                            <dd>
-                              
-                              <p>One or more VPCs that you want to associate with this hosted zone. When you
-                                 specify this property, AWS CloudFormation creates a private hosted zone.
+                              		       
+                              <p>A complex type that contains information about the VPCs that are associated with the
+                                 specified hosted zone.
                               </p>
-                              
+                              	     
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: List of <a href="aws-resource-route53-hostedzone-hostedzonevpcs.html">Route&#xA0;53 HostedZoneVPCs</a></p>
-                              
-                              <p>If this property was specified previously and you&apos;re modifying values, updates
-                                 require <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">no interruption</a>. If this
-                                 property wasn&apos;t specified and you add values, updates require <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">replacement</a>. Also, if this property was
-                                 specified and you remove all values, updates require <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">replacement</a>.
-                              </p>
-                              
+                              <p><em>Type</em>: List of <a href="aws-resource-route53-hostedzone-hostedzonevpcs.html">VPC</a></p>
                            </dd>
-                           
                         </dl>
-                     </div><h2 id="w2ab1c21c10d201c18b9">Return Values</h2><h3 id="w2ab1c21c10d201c18b9b2">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code> intrinsic function, <code class="code">Ref</code> returns the hosted zone ID, such as
-                        <code class="code">Z23ABC4XYZL05B</code>.
+                     </div><h2 id="aws-resource-route53-hostedzone-return-values">Return Values</h2><h3 id="aws-resource-route53-hostedzone-return-values-ref">Ref</h3><p>
+                        			When you pass the logical ID of this resource to the intrinsic <code class="code">Ref</code> function, <code class="code">Ref</code> returns the hosted zone ID, such as <code class="code">Z23ABC4XYZL05B</code>.
                      </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                     </p><h3 id="w2ab1c21c10d201c18b9b4">Fn::GetAtt</h3><p><code class="code">Fn::GetAtt</code> returns a value for a specified attribute of this type.
-                        The following are the available attributes and sample return values.
-                     </p><div class="variablelist">
-                        
-                        
+                     </p><h3 id="aws-resource-route53-hostedzone-return-values-fn--getatt">Fn::GetAtt</h3><p>The <code class="code">Fn::GetAtt</code> intrinsic function returns a value for a specified attribute of this type. The following
+                        are the available attributes and sample return values.
+                     </p><p>For more information about using the <code class="code">Fn::GetAtt</code> intrinsic function, see <a href="intrinsic-function-reference-getatt.html">Fn::GetAtt</a>.
+                     </p><h4 id="aws-resource-route53-hostedzone-return-values-fn--getatt-fn--getatt"></h4><div class="variablelist">
                         <dl>
-                           
-                           <dt><span class="term"><code class="literal">NameServers</code></span></dt>
-                           
+                           <dt><a id="NameServers-fn::getatt"></a><span class="term"><code class="code">NameServers</code></span></dt>
                            <dd>
-                              
-                              <p>Returns the set of name servers for the specific hosted zone. For example:
-                                 <code class="code">ns1.example.com</code>.
+                              		
+                              <p>Returns the set of name servers for the specific hosted zone. For example: <code class="code">ns1.example.com</code>.
                               </p>
-                              
+                              		
                               <p>This attribute is not supported for private hosted zones.</p>
-                              
+                              	
                            </dd>
-                           
                         </dl>
-                     </div><p>For more information about using 
-                        <code class="code">Fn::GetAtt</code>, see 
-                        <a href="intrinsic-function-reference-getatt.html">Fn::GetAtt</a>.
-                        
-                     </p><h2 id="w2ab1c21c10d201c18c11">Example</h2><p>The following template snippet creates a private hosted zone for the
-                        <code class="code">example.com</code> domain.
-                     </p><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-resource-route53-hostedzone-example.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">&quot;DNS&quot;: {
+                     </div><h2 id="aws-resource-route53-hostedzone--examples">Examples</h2><h3 id="aws-resource-route53-hostedzone--examples--Create_private_hosted_zone">Create private hosted zone</h3><p>The following template snippet creates a private hosted zone for the example.com domain.</p><h4 id="aws-resource-route53-hostedzone--examples--Create_private_hosted_zone--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">&quot;DNS&quot;: {
   &quot;Type&quot;: &quot;AWS::Route53::HostedZone&quot;,
   &quot;Properties&quot;: {
     &quot;HostedZoneConfig&quot;: {
@@ -194,11 +505,7 @@ Properties:
       &quot;Value&quot;: &quot;SampleValue2&quot;
     }]
   }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-resource-route53-hostedzone-example.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">DNS: 
+}</code></pre><h4 id="aws-resource-route53-hostedzone--examples--Create_private_hosted_zone--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">DNS: 
   Type: &quot;AWS::Route53::HostedZone&quot;
   Properties: 
     HostedZoneConfig: 
@@ -217,7 +524,18 @@ Properties:
         Value: &quot;SampleValue1&quot;
       - 
         Key: &quot;SampleKey2&quot;
-        Value: &quot;SampleValue2&quot;</code></pre>
-                        </div></div>
+        Value: &quot;SampleValue2&quot;</code></pre><h2 id="aws-resource-route53-hostedzone--seealso">See Also</h2><div class="itemizedlist">
+                        
+                        
+                        <ul class="itemizedlist" type="disc">
+                           <li class="listitem">
+                              <p>
+                                 <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateHostedZone.html">CreateHostedZone</a> in the <em>Amazon Route 53 API Reference</em></p>
+                              
+                           </li>
+                        </ul>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
+                     </div></div>
 </body>
 </html>

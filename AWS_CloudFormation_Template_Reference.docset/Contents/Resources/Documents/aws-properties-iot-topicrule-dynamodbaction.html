@@ -8,215 +8,149 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-properties-iot-topicrule-dynamodbaction">AWS IoT TopicRule DynamoDBAction</h1><p><code class="code">DynamoDB</code> is a property of the <code class="code">Actions</code> property that describes an
-                        AWS IoT action that writes data to a DynamoDB table.
-                     </p><p>The <code class="code">HashKeyField</code>, <code class="code">RangeKeyField</code>, and <code class="code">TableName</code> values
-                        must match the values you used when you initially created the table.
-                     </p><p>The <code class="code">HashKeyValue</code> and <code class="code">RangeKeyValue</code> fields use the
-                        <code class="code">${<code class="code">sql-expression</code>}</code> substitution template syntax. You can
-                        specify any valid expression in a <code class="code">WHERE</code> or <code class="code">SELECT</code> clause. This
-                        expression can include JSON properties, comparisons, calculations, and functions,
-                        for example:
-                     </p><div class="itemizedlist">
+    <h1 class="topictitle" id="aws-properties-iot-topicrule-dynamodbaction">AWS::IoT::TopicRule DynamoDBAction</h1><p>Describes an action to write to a DynamoDB table.</p><p>The <code class="code">tableName</code>, <code class="code">hashKeyField</code>, and <code class="code">rangeKeyField</code> values must match
+                        the values used when you created the table.
+                     </p><p>The <code class="code">hashKeyValue</code> and <code class="code">rangeKeyvalue</code> fields use a substitution template syntax.
+                        These templates provide data at runtime. The syntax is as follows:
+                        ${<em>sql-expression</em>}.
+                     </p><p>You can specify any valid expression in a WHERE or SELECT clause, including JSON properties,
+                        comparisons,
+                        calculations, and functions. For example, the following field uses the third level
+                        of the topic:
+                     </p><p>
+                        <code class="code">&quot;hashKeyValue&quot;: &quot;${topic(3)}&quot;</code>
                         
+                     </p><p>The following field uses the timestamp:</p><p>
+                        <code class="code">&quot;rangeKeyValue&quot;: &quot;${timestamp()}&quot;</code>
                         
-                        
-                        <ul class="itemizedlist" type="disc">
-                           <li class="listitem">
-                              
-                              <p>The <code class="code">&quot;HashKeyValue&quot; : &quot;${topic(3)}</code> field uses the third level of the
-                                 topic.
-                              </p>
-                              
-                           </li>
-                           <li class="listitem">
-                              
-                              <p>The <code class="code">&quot;RangeKeyValue&quot; : &quot;${timestamp()}</code> field uses the timestamp.
-                              </p>
-                              
-                           </li>
-                        </ul>
-                     </div><h2 id="w2ab1c21c10d162c39c33c10">Syntax</h2><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-properties-iot-topicrule-dynamodbaction-syntax.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
-  &quot;<a href="aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-hashkeyfield">HashKeyField</a>&quot;: <em class="replaceable"><code>String</code></em>,
-  &quot;<a href="aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-hashkeytype">HashKeyType</a>&quot;: <em class="replaceable"><code>String</code></em>,
-  &quot;<a href="aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-hashkeyvalue">HashKeyValue</a>&quot;: <em class="replaceable"><code>String</code></em>,
-  &quot;<a href="aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-payloadfield">PayloadField</a>&quot;: <em class="replaceable"><code>String</code></em>,
-  &quot;<a href="aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-rangekeyfield">RangeKeyField</a>&quot;: <em class="replaceable"><code>String</code></em>,
-  &quot;<a href="aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-rangekeytype">RangeKeyType</a>&quot;: <em class="replaceable"><code>String</code></em>,
-  &quot;<a href="aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-rangekeyvalue">RangeKeyValue</a>&quot;: <em class="replaceable"><code>String</code></em>,
-  &quot;<a href="aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-rolearn">RoleArn</a>&quot;: <em class="replaceable"><code>String</code></em>,
-  &quot;<a href="aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-tablename">TableName</a>&quot;: <em class="replaceable"><code>String</code></em>
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-properties-iot-topicrule-dynamodbaction-syntax.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight"><a href="aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-hashkeyfield">HashKeyField</a>: <em class="replaceable"><code>String</code></em>
-<a href="aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-hashkeytype">HashKeyType</a>: <em class="replaceable"><code>String</code></em>
-<a href="aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-hashkeyvalue">HashKeyValue</a>: <em class="replaceable"><code>String</code></em>
-<a href="aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-payloadfield">PayloadField</a>: <em class="replaceable"><code>String</code></em>
-<a href="aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-rangekeyfield">RangeKeyField</a>: <em class="replaceable"><code>String</code></em>
-<a href="aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-rangekeytype">RangeKeyType</a>: <em class="replaceable"><code>String</code></em>
-<a href="aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-rangekeyvalue">RangeKeyValue</a>: <em class="replaceable"><code>String</code></em>
-<a href="aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-rolearn">RoleArn</a>: <em class="replaceable"><code>String</code></em>
-<a href="aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-tablename">TableName</a>: <em class="replaceable"><code>String</code></em>
-</code></pre>
-                        </div><h2 id="w2ab1c21c10d162c39c33c12">Properties</h2><p>For more information and valid values, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/dynamodb-rule.html">DynamoDB Action</a> in the  <em>AWS IoT Developer Guide</em>.
-                     </p><div class="variablelist">
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
+                     </p><p>For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-rule-actions.html">DynamoDBv2
+                           Action</a> in the <em>AWS IoT Developer Guide</em>.
+                     </p><h2 id="aws-properties-iot-topicrule-dynamodbaction-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-properties-iot-topicrule-dynamodbaction-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;<a href="#cfn-iot-topicrule-dynamodbaction-hashkeyfield">HashKeyField</a>&quot; : <em class="replaceable"><code>String</code></em>,
+  &quot;<a href="#cfn-iot-topicrule-dynamodbaction-hashkeytype">HashKeyType</a>&quot; : <em class="replaceable"><code>String</code></em>,
+  &quot;<a href="#cfn-iot-topicrule-dynamodbaction-hashkeyvalue">HashKeyValue</a>&quot; : <em class="replaceable"><code>String</code></em>,
+  &quot;<a href="#cfn-iot-topicrule-dynamodbaction-payloadfield">PayloadField</a>&quot; : <em class="replaceable"><code>String</code></em>,
+  &quot;<a href="#cfn-iot-topicrule-dynamodbaction-rangekeyfield">RangeKeyField</a>&quot; : <em class="replaceable"><code>String</code></em>,
+  &quot;<a href="#cfn-iot-topicrule-dynamodbaction-rangekeytype">RangeKeyType</a>&quot; : <em class="replaceable"><code>String</code></em>,
+  &quot;<a href="#cfn-iot-topicrule-dynamodbaction-rangekeyvalue">RangeKeyValue</a>&quot; : <em class="replaceable"><code>String</code></em>,
+  &quot;<a href="#cfn-iot-topicrule-dynamodbaction-rolearn">RoleArn</a>&quot; : <em class="replaceable"><code>String</code></em>,
+  &quot;<a href="#cfn-iot-topicrule-dynamodbaction-tablename">TableName</a>&quot; : <em class="replaceable"><code>String</code></em>
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-properties-iot-topicrule-dynamodbaction-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">  <a href="#cfn-iot-topicrule-dynamodbaction-hashkeyfield">HashKeyField</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-iot-topicrule-dynamodbaction-hashkeytype">HashKeyType</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-iot-topicrule-dynamodbaction-hashkeyvalue">HashKeyValue</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-iot-topicrule-dynamodbaction-payloadfield">PayloadField</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-iot-topicrule-dynamodbaction-rangekeyfield">RangeKeyField</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-iot-topicrule-dynamodbaction-rangekeytype">RangeKeyType</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-iot-topicrule-dynamodbaction-rangekeyvalue">RangeKeyValue</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-iot-topicrule-dynamodbaction-rolearn">RoleArn</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-iot-topicrule-dynamodbaction-tablename">TableName</a>: <em class="replaceable"><code>String</code></em>
+</code></pre></div><h2 id="aws-properties-iot-topicrule-dynamodbaction-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
-                           <dt><a id="cfn-iot-topicrule-dynamodbaction-hashkeyfield"></a><span class="term"><code class="literal">HashKeyField</code></span></dt>
-                           
+                           <dt><a id="cfn-iot-topicrule-dynamodbaction-hashkeyfield"></a><span class="term"><code class="code">HashKeyField</code></span></dt>
                            <dd>
                               
-                              <p>The name of the hash key.</p>
+                              <p>The hash key name.</p>
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-iot-topicrule-dynamodbaction-hashkeytype"></a><span class="term"><code class="literal">HashKeyType</code></span></dt>
-                           
+                           <dt><a id="cfn-iot-topicrule-dynamodbaction-hashkeytype"></a><span class="term"><code class="code">HashKeyType</code></span></dt>
                            <dd>
                               
-                              <p>The data type of the hash key (also called the partition key). Valid values are: <code class="code">&quot;STRING&quot;</code> or <code class="code">&quot;NUMBER&quot;</code>.
-                              </p>
+                              <p>The hash key type. Valid values are &quot;STRING&quot; or &quot;NUMBER&quot;</p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-iot-topicrule-dynamodbaction-hashkeyvalue"></a><span class="term"><code class="literal">HashKeyValue</code></span></dt>
-                           
+                           <dt><a id="cfn-iot-topicrule-dynamodbaction-hashkeyvalue"></a><span class="term"><code class="code">HashKeyValue</code></span></dt>
                            <dd>
                               
-                              <p>The value of the hash key.</p>
+                              <p>The hash key value.</p>
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-iot-topicrule-dynamodbaction-payloadfield"></a><span class="term"><code class="literal">PayloadField</code></span></dt>
-                           
+                           <dt><a id="cfn-iot-topicrule-dynamodbaction-payloadfield"></a><span class="term"><code class="code">PayloadField</code></span></dt>
                            <dd>
                               
-                              <p>The name of the column in the DynamoDB table that contains the result of the query.
-                                 You
-                                 can customize this name.
-                              </p>
+                              <p>The action payload. This name can be customized.</p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-iot-topicrule-dynamodbaction-rangekeyfield"></a><span class="term"><code class="literal">RangeKeyField</code></span></dt>
-                           
+                           <dt><a id="cfn-iot-topicrule-dynamodbaction-rangekeyfield"></a><span class="term"><code class="code">RangeKeyField</code></span></dt>
                            <dd>
                               
-                              <p>The name of the range key.</p>
+                              <p>The range key name.</p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-iot-topicrule-dynamodbaction-rangekeytype"></a><span class="term"><code class="literal">RangeKeyType</code></span></dt>
-                           
+                           <dt><a id="cfn-iot-topicrule-dynamodbaction-rangekeytype"></a><span class="term"><code class="code">RangeKeyType</code></span></dt>
                            <dd>
                               
-                              <p>The data type of the range key (also called the sort key). Valid values are: <code class="code">&quot;STRING&quot;</code> or <code class="code">&quot;NUMBER&quot;</code>.
-                              </p>
+                              <p>The range key type. Valid values are &quot;STRING&quot; or &quot;NUMBER&quot;</p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-iot-topicrule-dynamodbaction-rangekeyvalue"></a><span class="term"><code class="literal">RangeKeyValue</code></span></dt>
-                           
+                           <dt><a id="cfn-iot-topicrule-dynamodbaction-rangekeyvalue"></a><span class="term"><code class="code">RangeKeyValue</code></span></dt>
                            <dd>
                               
-                              <p>The value of the range key.</p>
+                              <p>The range key value.</p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-iot-topicrule-dynamodbaction-rolearn"></a><span class="term"><code class="literal">RoleArn</code></span></dt>
-                           
+                           <dt><a id="cfn-iot-topicrule-dynamodbaction-rolearn"></a><span class="term"><code class="code">RoleArn</code></span></dt>
                            <dd>
                               
                               <p>The ARN of the IAM role that grants access to the DynamoDB table.</p>
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-iot-topicrule-dynamodbaction-tablename"></a><span class="term"><code class="literal">TableName</code></span></dt>
-                           
+                           <dt><a id="cfn-iot-topicrule-dynamodbaction-tablename"></a><span class="term"><code class="code">TableName</code></span></dt>
                            <dd>
                               
                               <p>The name of the DynamoDB table.</p>
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
                         </dl>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
                      </div></div>
 </body>
 </html>

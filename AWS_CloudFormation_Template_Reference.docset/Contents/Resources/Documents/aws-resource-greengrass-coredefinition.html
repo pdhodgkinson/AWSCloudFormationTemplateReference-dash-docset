@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="css/awsdocs.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/awsdocs.min.js"></script>
+    <meta charset="utf-8">
+</head>
+<body>
+    <div id="content" style="padding: 10px 30px;">
+    <h1 class="topictitle" id="aws-resource-greengrass-coredefinition">AWS::Greengrass::CoreDefinition</h1><p>The 
+                        <code class="code">AWS::Greengrass::CoreDefinition</code> resource represents a core definition for AWS IoT Greengrass.  
+                        Core definitions are used to organize your core definition versions.
+                     </p><p>Core definitions can reference multiple core definition versions. All core definition
+                        versions  
+                        must be associated with a core definition. Each core definition version can contain
+                        one Greengrass core.
+                     </p><div class="aws-note">
+                        <p class="aws-note">Note</p>
+                        <p>When you create a core definition, you can optionally include an initial core definition
+                           version. 
+                           To associate a core definition version later, create an <a href="aws-resource-greengrass-coredefinitionversion.html"><code class="code">AWS::Greengrass::CoreDefinitionVersion</code></a> 
+                           		  resource and specify the ID of this core definition.
+                        </p>
+                        <p>After you create the core definition version that contains the core you want to deploy,
+                           
+                           you must add it to your group version. 
+                           	    For more information, see <a href="aws-resource-greengrass-group.html"><code class="code">AWS::Greengrass::Group</code></a>.
+                        </p>
+                     </div><h2 id="aws-resource-greengrass-coredefinition-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-resource-greengrass-coredefinition-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;Type&quot; : &quot;AWS::Greengrass::CoreDefinition&quot;,
+  &quot;Properties&quot; : {
+      &quot;<a href="#cfn-greengrass-coredefinition-initialversion">InitialVersion</a>&quot; : <em class="replaceable"><code><a href="aws-properties-greengrass-coredefinition-coredefinitionversion.html">CoreDefinitionVersion</a></code></em>,
+      &quot;<a href="#cfn-greengrass-coredefinition-name">Name</a>&quot; : <em class="replaceable"><code>String</code></em>
+    }
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-greengrass-coredefinition-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Type: AWS::Greengrass::CoreDefinition
+Properties: 
+  <a href="#cfn-greengrass-coredefinition-initialversion">InitialVersion</a>: <em class="replaceable"><code>
+    <a href="aws-properties-greengrass-coredefinition-coredefinitionversion.html">CoreDefinitionVersion</a></code></em>
+  <a href="#cfn-greengrass-coredefinition-name">Name</a>: <em class="replaceable"><code>String</code></em>
+</code></pre></div><h2 id="aws-resource-greengrass-coredefinition-properties">Properties</h2><div class="variablelist">
+                        <dl>
+                           <dt><a id="cfn-greengrass-coredefinition-initialversion"></a><span class="term"><code class="code">InitialVersion</code></span></dt>
+                           <dd>
+                              
+                              <p>The core definition version to include when the core definition is created. 
+                                 Currently, a core definition version can contain only one
+                                 <a href="aws-properties-greengrass-coredefinition-core.html"><code class="code">core</code></a>.
+                              </p>
+                              				  
+                              <div class="aws-note">
+                                 <p class="aws-note">Note</p>
+                                 <p>To associate a core definition version after the core definition is created, 
+                                    				      create an <a href="aws-resource-greengrass-coredefinitionversion.html"><code class="code">AWS::Greengrass::CoreDefinitionVersion</code></a> 
+                                    				      resource and specify the ID of this core definition.
+                                 </p>
+                              </div>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              <p><em>Type</em>: <a href="aws-properties-greengrass-coredefinition-coredefinitionversion.html">CoreDefinitionVersion</a></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                           </dd>
+                           <dt><a id="cfn-greengrass-coredefinition-name"></a><span class="term"><code class="code">Name</code></span></dt>
+                           <dd>
+                              
+                              <p>The name of the core definition.</p>
+                              
+                              <p><em>Required</em>: Yes
+                              </p>
+                              <p><em>Type</em>: String
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                           </dd>
+                        </dl>
+                     </div><h2 id="aws-resource-greengrass-coredefinition-return-values">Return Values</h2><h3 id="aws-resource-greengrass-coredefinition-return-values-ref">Ref</h3><p>
+                        When you pass the logical ID of this resource to the intrinsic <code class="code">Ref</code> function, <code class="code">Ref</code> returns the 
+                        		 ID of the core definition, such as 
+                        <code class="code">1234a5b6-78cd-901e-2fgh-3i45j6k178l9</code>.
+                        
+                     </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
+                     </p><h3 id="aws-resource-greengrass-coredefinition-return-values-fn--getatt">Fn::GetAtt</h3><p>The <code class="code">Fn::GetAtt</code> intrinsic function returns a value for a specified attribute of this type. The following
+                        are the available attributes and sample return values.
+                     </p><p>For more information about using the <code class="code">Fn::GetAtt</code> intrinsic function, see <a href="intrinsic-function-reference-getatt.html">Fn::GetAtt</a>.
+                     </p><h4 id="aws-resource-greengrass-coredefinition-return-values-fn--getatt-fn--getatt"></h4><div class="variablelist">
+                        <dl>
+                           <dt><a id="Arn-fn::getatt"></a><span class="term"><code class="code">Arn</code></span></dt>
+                           <dd>
+                              
+                              <p>The Amazon Resource Name (ARN) of the <code class="code">CoreDefinition</code>, such as                                 
+                                 <code class="code">arn:aws:greengrass:us-east-1:123456789012:/greengrass/definition/cores/1234a5b6-78cd-901e-2fgh-3i45j6k178l9</code>.
+                                 
+                              </p>
+                              
+                           </dd>
+                           <dt><a id="Id-fn::getatt"></a><span class="term"><code class="code">Id</code></span></dt>
+                           <dd>
+                              
+                              <p>The ID of the <code class="code">CoreDefinition</code>, such as <code class="code">1234a5b6-78cd-901e-2fgh-3i45j6k178l9</code>. 
+                                 
+                              </p>
+                              
+                           </dd>
+                           <dt><a id="LatestVersionArn-fn::getatt"></a><span class="term"><code class="code">LatestVersionArn</code></span></dt>
+                           <dd>
+                              
+                              <p>The ARN of the last <code class="code">CoreDefinitionVersion</code> that was added to the 
+                                 <code class="code">CoreDefinition</code>, such as 
+                                 <code class="code">arn:aws:greengrass:us-east-1:123456789012:/greengrass/definition/cores/1234a5b6-78cd-901e-2fgh-3i45j6k178l9/versions/9876ac30-4bdb-4f9d-95af-b5fdb66be1a2</code>.
+                                 
+                              </p>
+                              
+                           </dd>
+                           <dt><a id="Name-fn::getatt"></a><span class="term"><code class="code">Name</code></span></dt>
+                           <dd>
+                              
+                              <p>The name of the <code class="code">CoreDefinition</code>, such as <code class="code">MyCoreDefinition</code>.                            
+                                 
+                              </p>
+                              
+                           </dd>
+                        </dl>
+                     </div><h2 id="aws-resource-greengrass-coredefinition--examples">Examples</h2><h3 id="aws-resource-greengrass-coredefinition--examples--Create_a_Core_Definition">Create a Core Definition</h3><p>The following example creates a core definition that specifies an initial version
+                        that contains a core.
+                     </p><p>The template uses the <code class="code">Ref</code> function to return the ID of the core definition for the 
+                        		  <code class="code">CoreDefinitionId</code> property, which associates the version with the core definition. The 
+                        		  template uses parameters to represent the core definition name and the ID, thing
+                        ARN, and certificate ARN 
+                        		  to use for the core. It also outputs the ID of the new core definition.
+                     </p><p>For another template example, see the <a href="aws-resource-greengrass-group.html"><code class="code">AWS::Greengrass::Group</code></a> resource.
+                     </p><h4 id="aws-resource-greengrass-coredefinition--examples--Create_a_Core_Definition--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+    &quot;Description&quot;: &quot;Create CoreDefinition with InitialVersion&quot;,
+    &quot;Parameters&quot;: {
+        &quot;CoreDefinitionName&quot;: {
+            &quot;Type&quot;: &quot;String&quot;,
+            &quot;Default&quot;: &quot;TestCoreDefinition&quot;
+        },
+        &quot;CoreId&quot;: {
+            &quot;Type&quot;: &quot;String&quot;,
+            &quot;Default&quot;: &quot;TestCoreId&quot;
+        },
+        &quot;CoreThingArn&quot;: {
+            &quot;Type&quot;: &quot;String&quot;,
+            &quot;Default&quot;: &quot;TestCoreThingArn&quot;
+        },
+        &quot;CoreCertificateArn&quot;: {
+            &quot;Type&quot;: &quot;String&quot;,
+            &quot;Default&quot;: &quot;TestCoreCertArn&quot;
+        }
+    },
+    &quot;Resources&quot;: {
+        &quot;CoreDefinition&quot;: {
+            &quot;Type&quot;: &quot;AWS::Greengrass::CoreDefinition&quot;,
+            &quot;Properties&quot;: {
+                &quot;Name&quot;: {
+                    &quot;Ref&quot;: &quot;CoreDefinitionName&quot;
+                },
+                &quot;InitialVersion&quot;: {
+                    &quot;Cores&quot;: [
+                        {
+                            &quot;Id&quot;: {
+                                &quot;Ref&quot;: &quot;CoreId&quot;
+                            },
+                            &quot;ThingArn&quot;: {
+                                &quot;Ref&quot;: &quot;CoreThingArn&quot;
+                            },
+                            &quot;CertificateArn&quot;: {
+                                &quot;Ref&quot;: &quot;CoreCertificateArn&quot;
+                            },
+                            &quot;SyncShadow&quot;: &quot;true&quot;
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    &quot;Outputs&quot;: {
+        &quot;CoreDefinitionId&quot;: {
+            &quot;Value&quot;: {
+                &quot;Ref&quot;: &quot;CoreDefinition&quot;
+            }
+        }
+    }
+}</code></pre><h4 id="aws-resource-greengrass-coredefinition--examples--Create_a_Core_Definition--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Description: Create CoreDefinition with InitialVersion
+Parameters:
+  CoreDefinitionName:
+    Type: String
+    Default: TestCoreDefinition
+  CoreId:
+    Type: String
+    Default: TestCoreId
+  CoreThingArn:
+    Type: String
+    Default: TestCoreThingArn
+  CoreCertificateArn:
+    Type: String
+    Default: TestCoreCertArn
+Resources:
+  CoreDefinition:
+    Type: &apos;AWS::Greengrass::CoreDefinition&apos;
+    Properties:
+      Name: !Ref CoreDefinitionName
+      InitialVersion:
+        Cores:
+          - Id: !Ref CoreId
+            ThingArn: !Ref CoreThingArn
+            CertificateArn: !Ref CoreCertificateArn
+            SyncShadow: &apos;true&apos;
+Outputs:
+  CoreDefinitionId:
+    Value: !Ref CoreDefinition</code></pre><h2 id="aws-resource-greengrass-coredefinition--seealso">See Also</h2><div class="itemizedlist">          
+                                  
+                        
+                        
+                        <ul class="itemizedlist" type="disc">
+                           <li class="listitem">
+                              
+                              <p>
+                                 <a href="https://docs.aws.amazon.com/greengrass/latest/apireference/createcoredefinition-post.html">CreateCoreDefinition</a> in the <em>
+                                    AWS IoT Greengrass API Reference
+                                    </em>
+                                 
+                              </p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p>
+                                 <a href="https://docs.aws.amazon.com/greengrass/latest/developerguide/">AWS IoT Greengrass Developer Guide</a>
+                                 
+                              </p>
+                              
+                           </li>
+                        </ul>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
+                     </div></div>
+</body>
+</html>

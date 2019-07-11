@@ -8,94 +8,155 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-properties-config-configrule-source-sourcedetails">AWS Config ConfigRule
-                        SourceDetails
-                     </h1><p><code class="code">SourceDetails</code> is a property of the <a href="aws-properties-config-configrule-source.html">AWS Config ConfigRule Source</a> property that specifies the source
-                        and type of event that triggers AWS Config to evaluate your AWS resources.
-                     </p><h2 id="w2ab1c21c10c87c17c25b5">Syntax</h2><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-properties-config-configrule-source-sourcedetails-syntax.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
-  &quot;<a href="aws-properties-config-configrule-source-sourcedetails.html#cfn-config-configrule-source-sourcedetail-eventsource">EventSource</a>&quot; : <em class="replaceable"><code>String</code></em>,
-  &quot;<a href="aws-properties-config-configrule-source-sourcedetails.html#cfn-config-configrule-source-sourcedetail-maximumexecutionfrequency">MaximumExecutionFrequency</a>&quot; : <em class="replaceable"><code>String</code></em>,
-  &quot;<a href="aws-properties-config-configrule-source-sourcedetails.html#cfn-config-configrule-source-sourcedetail-messagetype">MessageType</a>&quot; : <em class="replaceable"><code>String</code></em>
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-properties-config-configrule-source-sourcedetails-syntax.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight"><a href="aws-properties-config-configrule-source-sourcedetails.html#cfn-config-configrule-source-sourcedetail-eventsource">EventSource</a>: <em class="replaceable"><code>String</code></em>
-<a href="aws-properties-config-configrule-source-sourcedetails.html#cfn-config-configrule-source-sourcedetail-maximumexecutionfrequency">MaximumExecutionFrequency</a>: <em class="replaceable"><code>String</code></em>
-<a href="aws-properties-config-configrule-source-sourcedetails.html#cfn-config-configrule-source-sourcedetail-messagetype">MessageType</a>: <em class="replaceable"><code>String</code></em>
-</code></pre>
-                        </div><h2 id="w2ab1c21c10c87c17c25b7">Properties</h2><div class="variablelist">
-                        
-                        
-                        
-                        
+    <h1 class="topictitle" id="aws-properties-config-configrule-source-sourcedetails">AWS::Config::ConfigRule SourceDetail</h1><p>Provides the source and the message types that trigger AWS
+                        			Config to evaluate your AWS resources against a rule. It also
+                        			provides the frequency with which you want AWS Config to run
+                        			evaluations for the rule if the trigger type is periodic. You can
+                        			specify the parameter values for <code class="code">SourceDetail</code> only for
+                        			custom rules. 
+                     </p><h2 id="aws-properties-config-configrule-source-sourcedetails-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-properties-config-configrule-source-sourcedetails-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;<a href="#cfn-config-configrule-source-sourcedetail-eventsource">EventSource</a>&quot; : <em class="replaceable"><code>String</code></em>,
+  &quot;<a href="#cfn-config-configrule-sourcedetail-maximumexecutionfrequency">MaximumExecutionFrequency</a>&quot; : <em class="replaceable"><code>String</code></em>,
+  &quot;<a href="#cfn-config-configrule-source-sourcedetail-messagetype">MessageType</a>&quot; : <em class="replaceable"><code>String</code></em>
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-properties-config-configrule-source-sourcedetails-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">  <a href="#cfn-config-configrule-source-sourcedetail-eventsource">EventSource</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-config-configrule-sourcedetail-maximumexecutionfrequency">MaximumExecutionFrequency</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-config-configrule-source-sourcedetail-messagetype">MessageType</a>: <em class="replaceable"><code>String</code></em>
+</code></pre></div><h2 id="aws-properties-config-configrule-source-sourcedetails-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
                            <dt><a id="cfn-config-configrule-source-sourcedetail-eventsource"></a><span class="term"><code class="code">EventSource</code></span></dt>
-                           
                            <dd>
-                              
-                              <p>The source, such as an AWS service, that generate events, triggering AWS Config to
-                                 evaluate your AWS resources.
+                              		       
+                              <p>The source of the event, such as an AWS service, that triggers
+                                 			AWS Config to evaluate your AWS resources.
                               </p>
-                              
-                              <p><em>Valid Values</em>: <code class="code">aws.config</code></p>
-                              
+                              	     
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Allowed Values</em>: <code class="code">aws.config</code></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-config-configrule-source-sourcedetail-maximumexecutionfrequency"></a><span class="term"><code class="code">MaximumExecutionFrequency</code></span></dt>
-                           
+                           <dt><a id="cfn-config-configrule-sourcedetail-maximumexecutionfrequency"></a><span class="term"><code class="code">MaximumExecutionFrequency</code></span></dt>
                            <dd>
-                              
-                              <p>The frequency that you want AWS Config to run evaluations for a custom rule with a
-                                 periodic trigger. By default, rules with a periodic trigger are evaluated every 24
-                                 hours. 
-                                 If you specify a value for <code class="code">MaximumExecutionFrequency</code>, then <code class="code">MessageType</code> must use the <code class="code">ScheduledNotification</code> value.
+                              		       
+                              <p>The frequency at which you want AWS Config to run evaluations
+                                 			for a custom rule with a periodic trigger. If you specify a value
+                                 			for <code class="code">MaximumExecutionFrequency</code>, then
+                                 				<code class="code">MessageType</code> must use the
+                                 				<code class="code">ScheduledNotification</code> value.
                               </p>
                               
-                              <p><em>Valid values</em>: <code class="code">One_Hour</code>,  <code class="code">Three_Hours</code>,  <code class="code">Six_Hours</code>,  <code class="code">Twelve_Hours</code>, or <code class="code">TwentyFour_Hours</code>.
-                              </p>
                               
+                              		
+                              
+                              
+                              		       
+                              <div class="aws-note">
+                                 <p class="aws-note">Note</p>
+                                 <p>By default, rules with a periodic trigger are evaluated
+                                    				every 24 hours. To change the frequency, specify a valid value
+                                    				for the <code class="code">MaximumExecutionFrequency</code>
+                                    				parameter.
+                                 </p>
+                                 <p>Based on the valid value you choose, AWS Config runs
+                                    				evaluations once for each valid value. For example, if you
+                                    				choose <code class="code">Three_Hours</code>, AWS Config runs evaluations
+                                    				once every three hours. In this case, <code class="code">Three_Hours</code>
+                                    				is the frequency of this rule. 
+                                 </p>
+                              </div>
+                              
+                              
+                              	     
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Allowed Values</em>: <code class="code">One_Hour | Six_Hours | Three_Hours | Twelve_Hours | TwentyFour_Hours</code></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-config-configrule-source-sourcedetail-messagetype"></a><span class="term"><code class="code">MessageType</code></span></dt>
-                           
                            <dd>
-                              
-                              <p>The type of Amazon Simple Notification Service (Amazon SNS) message that triggers
-                                 AWS Config to run an
-                                 evaluation. For more information, see the <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_SourceDetail.html">SourceDetail</a> data type in the
-                                 <em>AWS Config API Reference</em>.
+                              		       
+                              <p>The type of notification that triggers AWS Config to run an
+                                 			evaluation for a rule. You can specify the following notification
+                                 			types:
                               </p>
                               
-                              <p><em>Valid Values</em>: <code class="code">ConfigurationItemChangeNotification</code>, <code class="code">ConfigurationSnapshotDeliveryCompleted</code>, <code class="code">ScheduledNotification</code>, <code class="code">OversizedConfigurationItemChangeNotification</code></p>
                               
+                              		       
+                              <div class="itemizedlist">
+                                 			         
+                                 			         
+                                 			         
+                                 			         
+                                 		       
+                                 <ul class="itemizedlist" type="disc">
+                                    <li class="listitem">
+                                       				           
+                                       <p>
+                                          					             <code class="code">ConfigurationItemChangeNotification</code> - Triggers
+                                          					an evaluation when AWS Config delivers a configuration item
+                                          					as a result of a resource change.
+                                       </p>
+                                       			         
+                                    </li>
+                                    <li class="listitem">
+                                       				           
+                                       <p>
+                                          <code class="code">OversizedConfigurationItemChangeNotification</code>
+                                          					- Triggers an evaluation when AWS Config delivers an
+                                          					oversized configuration item. AWS Config may generate this
+                                          					notification type when a resource changes and the
+                                          					notification exceeds the maximum size allowed by Amazon
+                                          					SNS.
+                                       </p>
+                                       			         
+                                    </li>
+                                    <li class="listitem">
+                                       				           
+                                       <p>
+                                          <code class="code">ScheduledNotification</code> - Triggers a
+                                          					periodic evaluation at the frequency specified for
+                                          						<code class="code">MaximumExecutionFrequency</code>.
+                                       </p>
+                                       			         
+                                    </li>
+                                    <li class="listitem">
+                                       				           
+                                       <p>
+                                          <code class="code">ConfigurationSnapshotDeliveryCompleted</code> -
+                                          					Triggers a periodic evaluation when AWS Config delivers a
+                                          					configuration snapshot.
+                                       </p>
+                                       			         
+                                    </li>
+                                 </ul>
+                              </div>
+                              
+                              		       
+                              <p>If you want your custom rule to be triggered by configuration
+                                 			changes, specify two SourceDetail objects, one for
+                                 				<code class="code">ConfigurationItemChangeNotification</code> and one for
+                                 				<code class="code">OversizedConfigurationItemChangeNotification</code>.
+                              </p>
+                              
+                              	     
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Allowed Values</em>: <code class="code">ConfigurationItemChangeNotification | ConfigurationSnapshotDeliveryCompleted | OversizedConfigurationItemChangeNotification
+                                    | ScheduledNotification</code></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
                         </dl>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
                      </div></div>
 </body>
 </html>

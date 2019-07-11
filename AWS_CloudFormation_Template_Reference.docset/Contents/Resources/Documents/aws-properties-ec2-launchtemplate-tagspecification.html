@@ -8,87 +8,67 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-properties-ec2-launchtemplate-tagspecification">Amazon EC2 LaunchTemplate TagSpecification</h1><p>The 
-                        <code class="code">TagSpecification</code> property type specifies the tags specification for an Amazon EC2 launch template.
-                     </p><p>
-                        <code class="code">TagSpecification</code> is a property of the <a href="aws-properties-ec2-launchtemplate-launchtemplatedata.html">Amazon EC2 LaunchTemplate LaunchTemplateData</a> property type.
+    <h1 class="topictitle" id="aws-properties-ec2-launchtemplate-tagspecification">AWS::EC2::LaunchTemplate TagSpecification</h1><p>Specifies tags to apply to a resource when the resource is created.</p><p>
+                        			<code class="code">TagSpecification</code> is a property of the <a href="aws-properties-ec2-launchtemplate-launchtemplatedata.html">Amazon EC2 LaunchTemplate LaunchTemplateData</a> property type.
                      </p><h2 id="aws-properties-ec2-launchtemplate-tagspecification-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
-                        
-                        <h3 id="aws-properties-ec2-launchtemplate-tagspecification-syntax.json">JSON</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
-  &quot;<a href="aws-properties-ec2-launchtemplate-tagspecification.html#cfn-ec2-launchtemplate-tagspecification-resourcetype">ResourceType</a>&quot; : <em class="replaceable"><code>String</code></em>,
-  &quot;<a href="aws-properties-ec2-launchtemplate-tagspecification.html#cfn-ec2-launchtemplate-tagspecification-tags">Tags</a>&quot; : [ <a href="aws-properties-resource-tags.html">Tag</a>, ... ]
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        
-                        <h3 id="aws-properties-ec2-launchtemplate-tagspecification-syntax.yaml">YAML</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight"><a href="aws-properties-ec2-launchtemplate-tagspecification.html#cfn-ec2-launchtemplate-tagspecification-resourcetype">ResourceType</a>: <em class="replaceable"><code>String</code></em>
-<a href="aws-properties-ec2-launchtemplate-tagspecification.html#cfn-ec2-launchtemplate-tagspecification-tags">Tags</a>: 
-  - <a href="aws-properties-resource-tags.html">Tag</a></code></pre>
-                        </div><h2 id="aws-properties-ec2-launchtemplate-tagspecification-properties">Properties</h2><div class="variablelist">
-                        
-                        
-                        
+                        <h3 id="aws-properties-ec2-launchtemplate-tagspecification-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;<a href="#cfn-ec2-launchtemplate-tagspecification-resourcetype">ResourceType</a>&quot; : <em class="replaceable"><code>String</code></em>,
+  &quot;<a href="#cfn-ec2-launchtemplate-tagspecification-tags">Tags</a>&quot; : <em class="replaceable"><code>[ <a href="aws-properties-resource-tags.html">Tag</a>, ... ]</code></em>
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-properties-ec2-launchtemplate-tagspecification-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">  <a href="#cfn-ec2-launchtemplate-tagspecification-resourcetype">ResourceType</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-ec2-launchtemplate-tagspecification-tags">Tags</a>: <em class="replaceable"><code>
+    - <a href="aws-properties-resource-tags.html">Tag</a></code></em>
+</code></pre></div><h2 id="aws-properties-ec2-launchtemplate-tagspecification-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
                            <dt><a id="cfn-ec2-launchtemplate-tagspecification-resourcetype"></a><span class="term"><code class="code">ResourceType</code></span></dt>
-                           
                            <dd>
                               
                               <p>The type of resource to tag. Currently, the resource types that support tagging on
-                                 creation are <code class="code">instance</code> and <code class="code">volume</code>.
+                                 creation are <code class="code">instance</code> and <code class="code">volume</code>. To tag a resource after it
+                                 	has been created, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.
                               </p>
                               
-                              <p>For a list of valid values, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_LaunchTemplateTagSpecificationRequest.html">LaunchTemplateTagSpecificationRequest</a> in the <em>Amazon EC2 API Reference</em></p>
-                              
-                              <p>
-                                 <em>Required</em>: No
+                              <p><em>Required</em>: No
                               </p>
-                              
-                              <p>
-                                 <em>Type</em>: String
+                              <p><em>Type</em>: String
                               </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: 
-                                 <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
-                                 
-                              </p>
-                              
+                              <p><em>Allowed Values</em>: <code class="code">client-vpn-endpoint | customer-gateway | dedicated-host | dhcp-options | elastic-ip
+                                    | fleet | fpga-image | host-reservation | image | instance | internet-gateway | launch-template
+                                    | natgateway | network-acl | network-interface | reserved-instances | route-table
+                                    | security-group | snapshot | spot-instances-request | subnet | traffic-mirror-filter
+                                    | traffic-mirror-session | traffic-mirror-target | transit-gateway | transit-gateway-attachment
+                                    | transit-gateway-route-table | volume | vpc | vpc-peering-connection | vpn-connection
+                                    | vpn-gateway</code></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-ec2-launchtemplate-tagspecification-tags"></a><span class="term"><code class="code">Tags</code></span></dt>
-                           
                            <dd>
                               
                               <p>The tags to apply to the resource.</p>
                               
-                              <p>
-                                 <em>Required</em>: No
+                              <p><em>Required</em>: No
                               </p>
-                              
-                              <p>
-                                 <em>Type</em>: List of <a href="aws-properties-resource-tags.html">Resource Tag</a></p>
-                              
-                              <p>
-                                 <em>Update requires</em>: 
-                                 <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
-                                 
-                              </p>
-                              
+                              <p><em>Type</em>: List of <a href="aws-properties-resource-tags.html">Tag</a></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
                         </dl>
-                     </div><h2 id="aws-properties-ec2-launchtemplate-tagspecification-seealso">See Also</h2><div class="itemizedlist">
-                        
-                        
+                     </div><h2 id="aws-properties-ec2-launchtemplate-tagspecification--seealso">See Also</h2><div class="itemizedlist">
+                        				
+                        			
                         <ul class="itemizedlist" type="disc">
                            <li class="listitem">
-                              
-                              <p><a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_LaunchTemplateTagSpecificationRequest.html">LaunchTemplateTagSpecificationRequest</a> in the <em>Amazon EC2 API Reference</em></p>
+                              					
+                              <p>
+                                 						<a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_LaunchTemplateTagSpecificationRequest.html">
+                                    							LaunchTemplateTagSpecificationRequest</a> in the <em>Amazon Elastic Compute Cloud API Reference</em>
+                                 					
+                              </p>
+                              				
                            </li>
                         </ul>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
                      </div></div>
 </body>
 </html>

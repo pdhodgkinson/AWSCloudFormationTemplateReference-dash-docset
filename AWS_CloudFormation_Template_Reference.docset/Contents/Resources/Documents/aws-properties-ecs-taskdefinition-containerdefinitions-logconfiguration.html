@@ -8,63 +8,84 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-properties-ecs-taskdefinition-containerdefinitions-logconfiguration">Amazon Elastic Container Service TaskDefinition LogConfiguration</h1><p><code class="code">LogConfiguration</code> is a property of the <a href="aws-properties-ecs-taskdefinition-containerdefinitions.html">Amazon Elastic Container Service TaskDefinition ContainerDefinition</a> property that configures a custom log driver for an Amazon Elastic Container Service
-                        (Amazon ECS) container.
-                     </p><h2 id="w2ab1c21c10d117c21c53b5">Syntax</h2><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-properties-ecs-taskdefinition-containerdefinitions-logconfiguration-syntax.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
-  &quot;<a href="aws-properties-ecs-taskdefinition-containerdefinitions-logconfiguration.html#cfn-ecs-taskdefinition-containerdefinition-logconfiguration-logdriver">LogDriver</a>&quot; : <em class="replaceable"><code>String</code></em>,
-  &quot;<a href="aws-properties-ecs-taskdefinition-containerdefinitions-logconfiguration.html#cfn-ecs-taskdefinition-containerdefinition-logconfiguration-options">Options</a>&quot; : { <em class="replaceable"><code>String</code></em>:<em class="replaceable"><code>String, ...</code></em> }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-properties-ecs-taskdefinition-containerdefinitions-logconfiguration-syntax.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight"><a href="aws-properties-ecs-taskdefinition-containerdefinitions-logconfiguration.html#cfn-ecs-taskdefinition-containerdefinition-logconfiguration-logdriver">LogDriver</a>: <em class="replaceable"><code>String</code></em>
-<a href="aws-properties-ecs-taskdefinition-containerdefinitions-logconfiguration.html#cfn-ecs-taskdefinition-containerdefinition-logconfiguration-options">Options</a>:
-  <em class="replaceable"><code>String</code></em>: <em class="replaceable"><code>String</code></em>
-</code></pre>
-                        </div><h2 id="w2ab1c21c10d117c21c53b7">Properties</h2><div class="variablelist">
-                        
-                        
-                        
+    <h1 class="topictitle" id="aws-properties-ecs-taskdefinition-containerdefinitions-logconfiguration">AWS::ECS::TaskDefinition LogConfiguration</h1><p>The <code class="code">LogConfiguration</code> property specifies log configuration options to send
+                        to a custom log driver for the container.
+                     </p><h2 id="aws-properties-ecs-taskdefinition-containerdefinitions-logconfiguration-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-properties-ecs-taskdefinition-containerdefinitions-logconfiguration-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;<a href="#cfn-ecs-taskdefinition-containerdefinition-logconfiguration-logdriver">LogDriver</a>&quot; : <em class="replaceable"><code>String</code></em>,
+  &quot;<a href="#cfn-ecs-taskdefinition-containerdefinition-logconfiguration-options">Options</a>&quot; : <em class="replaceable"><code>{<em class="replaceable"><code>Key</code></em> : <em class="replaceable"><code>Value</code></em>, ...}</code></em>
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-properties-ecs-taskdefinition-containerdefinitions-logconfiguration-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">  <a href="#cfn-ecs-taskdefinition-containerdefinition-logconfiguration-logdriver">LogDriver</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-ecs-taskdefinition-containerdefinition-logconfiguration-options">Options</a>: <em class="replaceable"><code>
+    <em class="replaceable"><code>Key</code></em> : <em class="replaceable"><code>Value</code></em></code></em>
+</code></pre></div><h2 id="aws-properties-ecs-taskdefinition-containerdefinitions-logconfiguration-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
                            <dt><a id="cfn-ecs-taskdefinition-containerdefinition-logconfiguration-logdriver"></a><span class="term"><code class="code">LogDriver</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The log driver to use for the container. This parameter requires that your container
-                                 instance uses Docker Remote API Version 1.18 or greater. For more information, see
-                                 the <code class="code">logDriver</code> content for the <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_LogConfiguration.html">LogConfiguration</a> data type in the <em>Amazon Elastic Container Service API Reference</em>.
+                              <p>The log driver to use for the container. The valid values listed for this parameter
+                                 are log drivers that the Amazon ECS container agent can communicate with by default.
+                              </p>
+                              
+                              <p>For tasks using the Fargate launch type, the supported log drivers are
+                                 <code class="code">awslogs</code> and <code class="code">splunk</code>.
+                              </p>
+                              
+                              <p>For tasks using the EC2 launch type, the supported log drivers are
+                                 <code class="code">awslogs</code>, <code class="code">syslog</code>, <code class="code">gelf</code>, <code class="code">fluentd</code>,
+                                 <code class="code">splunk</code>, <code class="code">journald</code>, and <code class="code">json-file</code>.
+                              </p>
+                              
+                              <p>For more information about using the <code class="code">awslogs</code> log driver, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_awslogs.html">Using
+                                    the awslogs Log Driver</a> in the <em>Amazon Elastic Container Service Developer Guide</em>.
+                              </p>
+                              
+                              <div class="aws-note">
+                                 <p class="aws-note">Note</p>
+                                 <p>If you have a custom driver that is not listed above that you would like to work
+                                    with the Amazon ECS container agent, you can fork the Amazon ECS container agent project
+                                    that
+                                    is <a href="https://github.com/aws/amazon-ecs-agent" target="_blank">available on GitHub</a>
+                                    and customize it to work with that driver. We encourage you to submit pull requests
+                                    for changes that you would like to have included. However, Amazon Web Services does
+                                    not
+                                    currently support running modified copies of this software.
+                                 </p>
+                              </div>
+                              
+                              <p>This parameter requires version 1.18 of the Docker Remote API or greater on your container
+                                 instance. To check the Docker Remote API version on your container instance, log in
+                                 to your container instance and run the following command: <code class="code">sudo docker version --format &apos;{{.Server.APIVersion}}&apos;</code> 
+                                 
                               </p>
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Allowed Values</em>: <code class="code">awslogs | fluentd | gelf | journald | json-file | splunk | syslog</code></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-ecs-taskdefinition-containerdefinition-logconfiguration-options"></a><span class="term"><code class="code">Options</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The configuration options to send to the log driver. This parameter requires that
-                                 your container instance uses Docker Remote API Version 1.18 or greater. 
+                              <p>The configuration options to send to the log driver. This parameter requires version
+                                 1.19 of the Docker Remote API or greater on your container instance. To check the
+                                 Docker Remote API version on your container instance, log in to your container instance
+                                 and run the following command: <code class="code">sudo docker version --format &apos;{{.Server.APIVersion}}&apos;</code> 
+                                 
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: Key-value pairs, with the option name as the key and the option value as the value.
+                              <p><em>Type</em>: Map of String
                               </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
                            </dd>
-                           
                         </dl>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
                      </div></div>
 </body>
 </html>

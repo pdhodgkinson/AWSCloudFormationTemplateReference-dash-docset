@@ -8,91 +8,67 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-properties-emr-cluster-configuration">Amazon EMR Cluster
-                        Configurations
-                     </h1><p><code class="code">Configurations</code> is a property of the <a href="aws-resource-emr-cluster.html">AWS::EMR::Cluster</a> resource that specifies the software configuration
-                        of an Amazon EMR (Amazon EMR) cluster. For example configurations, see <a href="https://docs.aws.amazon.com//ElasticMapReduce/latest/ReleaseGuide/emr-configure-apps.html">Configuring Applications</a> in the <em>Amazon EMR Release
-                           Guide</em>.
-                     </p><h2 id="w2ab1c21c10d141c13c33b5">Syntax</h2><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-properties-emr-cluster-configuration-syntax.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
-  &quot;<a href="aws-properties-emr-cluster-configuration.html#cfn-emr-cluster-configuration-classification">Classification</a>&quot; : <em class="replaceable"><code>String</code></em>,
-  &quot;<a href="aws-properties-emr-cluster-configuration.html#cfn-emr-cluster-configuration-configurationproperties">ConfigurationProperties</a>&quot; : { <em class="replaceable"><code>String</code></em>:<em class="replaceable"><code>String, ...</code></em> },
-  &quot;<a href="aws-properties-emr-cluster-configuration.html#cfn-emr-cluster-configuration-configurations">Configurations</a>&quot; : [ <em class="replaceable"><code>Configuration, ...</code></em> ]
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-properties-emr-cluster-configuration-syntax.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight"><a href="aws-properties-emr-cluster-configuration.html#cfn-emr-cluster-configuration-classification">Classification</a>: <em class="replaceable"><code>String</code></em>
-<a href="aws-properties-emr-cluster-configuration.html#cfn-emr-cluster-configuration-configurationproperties">ConfigurationProperties</a>:
-  <em class="replaceable"><code>String</code></em>: <em class="replaceable"><code>String</code></em>
-<a href="aws-properties-emr-cluster-configuration.html#cfn-emr-cluster-configuration-configurations">Configurations</a>:
-  - <em class="replaceable"><code>Configuration</code></em>
-</code></pre>
-                        </div><h2 id="w2ab1c21c10d141c13c33b7">Properties</h2><div class="variablelist">
-                        
-                        
-                        
-                        
+    <h1 class="topictitle" id="aws-properties-emr-cluster-configuration">AWS::EMR::InstanceGroupConfig Configuration</h1><p><code class="code">Configurations</code> is a property of the <code class="code">AWS::EMR::Cluster</code> resource that specifies the configuration of applications on an Amazon EMR cluster.
+                     </p><p>Configurations are optional. You can use them to have EMR customize applications and
+                        software bundled with Amazon EMR when a cluster is created. A configuration consists
+                        of a classification, properties, and optional nested configurations. A classification
+                        refers to an application-specific configuration file. Properties are the settings
+                        you want to change in that file. For more information, see <a href="https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html">Configuring Applications</a>.
+                     </p><div class="aws-note">
+                        <p class="aws-note">Note</p>
+                        <p>Applies only to Amazon EMR releases 4.0 and later.</p>
+                     </div><h2 id="aws-properties-emr-cluster-configuration-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-properties-emr-cluster-configuration-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;<a href="#cfn-emr-cluster-configuration-classification">Classification</a>&quot; : <em class="replaceable"><code>String</code></em>,
+  &quot;<a href="#cfn-emr-cluster-configuration-configurationproperties">ConfigurationProperties</a>&quot; : <em class="replaceable"><code>{<em class="replaceable"><code>Key</code></em> : <em class="replaceable"><code>Value</code></em>, ...}</code></em>,
+  &quot;<a href="#cfn-emr-cluster-configuration-configurations">Configurations</a>&quot; : <em class="replaceable"><code>[ <a href="aws-properties-emr-cluster-configuration.html">Configuration</a>, ... ]</code></em>
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-properties-emr-cluster-configuration-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">  <a href="#cfn-emr-cluster-configuration-classification">Classification</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-emr-cluster-configuration-configurationproperties">ConfigurationProperties</a>: <em class="replaceable"><code>
+    <em class="replaceable"><code>Key</code></em> : <em class="replaceable"><code>Value</code></em></code></em>
+  <a href="#cfn-emr-cluster-configuration-configurations">Configurations</a>: <em class="replaceable"><code>
+    - <a href="aws-properties-emr-cluster-configuration.html">Configuration</a></code></em>
+</code></pre></div><h2 id="aws-properties-emr-cluster-configuration-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
                            <dt><a id="cfn-emr-cluster-configuration-classification"></a><span class="term"><code class="code">Classification</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The name of an application-specific configuration file. For more information see,
-                                 <a href="https://docs.aws.amazon.com//ElasticMapReduce/latest/ReleaseGuide/emr-configure-apps.html">Configuring Applications</a> in the <em>Amazon EMR Release
-                                    Guide</em>.
-                              </p>
+                              <p>The classification within a configuration.</p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-emr-cluster-configuration-configurationproperties"></a><span class="term"><code class="code">ConfigurationProperties</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The settings that you want to change in the application-specific configuration file.
-                                 For more information see, <a href="https://docs.aws.amazon.com//ElasticMapReduce/latest/ReleaseGuide/emr-configure-apps.html">Configuring Applications</a> in the <em>Amazon EMR Release
-                                    Guide</em>.
+                              <p>Within a configuration classification, a set of properties that represent the settings
+                                 that you want to change in the configuration file. Duplicates not allowed.
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: String-to-string map
+                              <p><em>Type</em>: Map of String
                               </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-emr-cluster-configuration-configurations"></a><span class="term"><code class="code">Configurations</code></span></dt>
-                           
                            <dd>
                               
-                              <p>A list of configurations to apply to this configuration. You can nest configurations
-                                 so that a single configuration can have its own configurations. In other words, you
-                                 can
-                                 configure a configuration. For more information see, <a href="https://docs.aws.amazon.com//ElasticMapReduce/latest/ReleaseGuide/emr-configure-apps.html">Configuring Applications</a> in the <em>Amazon EMR Release
-                                    Guide</em>.
-                              </p>
+                              
+                              <p>A list of additional configurations to apply within a configuration object.</p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: List of <a href="aws-properties-emr-cluster-configuration.html">Amazon EMR Cluster
-                                    Configurations</a></p>
-                              
+                              <p><em>Type</em>: List of <a href="aws-properties-emr-cluster-configuration.html">Configuration</a></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
                            </dd>
-                           
                         </dl>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
                      </div></div>
 </body>
 </html>

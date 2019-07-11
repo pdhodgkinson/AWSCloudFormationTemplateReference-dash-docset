@@ -8,81 +8,103 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-resource-route53-healthcheck">AWS::Route53::HealthCheck</h1><p>Use the <code class="code">AWS::Route53::HealthCheck</code> resource to check the health of your
-                        resources before Amazon Route&#xA0;53 responds to a DNS query. For more information, see
-                        <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-simple-configs.html">How Health Checks Work in Simple Amazon
-                           Route&#xA0;53 Configurations</a> in the <em>Amazon Route&#xA0;53 Developer Guide</em>.
-                     </p><h2 id="aws-resource-route53-healthcheck-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-resource-route53-healthcheck-syntax.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
+    <h1 class="topictitle" id="aws-resource-route53-healthcheck">AWS::Route53::HealthCheck</h1><p>The <code class="code">AWS::Route53::HealthCheck</code> resource is a Route 53 resource type that contains settings for 
+                        			a Route 53 health check.
+                     </p><p>For information about associating health checks with resource record sets, see 
+                        			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_ResourceRecordSet.html#Route53-Type-ResourceRecordSet-HealthCheckId">HealthCheckId</a> 
+                        			in 
+                        			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_ChangeResourceRecordSets.html">ChangeResourceRecordSets</a>. 
+                     </p><p><b>ELB Load Balancers</b></p><p>If you&apos;re registering EC2 instances with an Elastic Load Balancing (ELB) load balancer,
+                        do not create Amazon Route 53 health checks for the 
+                        			EC2 instances. When you register an EC2 instance with a load balancer, you configure
+                        settings for an ELB health check, which performs a 
+                        			similar function to a Route 53 health check.
+                     </p><p><b>Private Hosted Zones</b></p><p>You can associate health checks with failover resource record sets in a private hosted
+                        zone. Note the following:
+                     </p><div class="itemizedlist">
+                        			
+                        			
+                        			
+                        		
+                        <ul class="itemizedlist" type="disc">
+                           <li class="listitem">
+                              				
+                              <p>Route 53 health checkers are outside the VPC. To check the health of an endpoint within
+                                 a VPC by IP address, you must 
+                                 					assign a public IP address to the instance in the VPC.
+                              </p>
+                              			
+                           </li>
+                           <li class="listitem">
+                              				
+                              <p>You can configure a health checker to check the health of an external resource that
+                                 the instance relies on, such as a 
+                                 					database server.
+                              </p>
+                              			
+                           </li>
+                           <li class="listitem">
+                              				
+                              <p>You can create a CloudWatch metric, associate an alarm with the metric, and then create
+                                 a health check that is based on the 
+                                 					state of the alarm. For example, you might create a CloudWatch metric that checks
+                                 the status of the Amazon EC2 <code class="code">StatusCheckFailed</code> metric, 
+                                 					add an alarm to the metric, and then create a health check that is based on the
+                                 state of the alarm. For information about creating 
+                                 					CloudWatch metrics and alarms by using the CloudWatch console, see the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/WhatIsCloudWatch.html">Amazon CloudWatch User Guide</a>.
+                              </p>
+                              			
+                           </li>
+                        </ul>
+                     </div><h2 id="aws-resource-route53-healthcheck-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-resource-route53-healthcheck-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
   &quot;Type&quot; : &quot;AWS::Route53::HealthCheck&quot;,
   &quot;Properties&quot; : {
-    &quot;<a href="aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthcheckconfig">HealthCheckConfig</a>&quot; : <em class="replaceable"><code>HealthCheckConfig</code></em>,
-    &quot;<a href="aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthchecktags">HealthCheckTags</a>&quot; : [ <em class="replaceable"><code>HealthCheckTags, ...</code></em> ]
-  }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-resource-route53-healthcheck-syntax.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">Type: &quot;AWS::Route53::HealthCheck&quot;
+      &quot;<a href="#cfn-route53-healthcheck-healthcheckconfig">HealthCheckConfig</a>&quot; : <em class="replaceable"><code><a href="aws-properties-route53-healthcheck-healthcheckconfig.html">HealthCheckConfig</a></code></em>,
+      &quot;<a href="#cfn-route53-healthcheck-healthchecktags">HealthCheckTags</a>&quot; : <em class="replaceable"><code>[ <a href="aws-properties-route53-healthcheck-healthchecktag.html">HealthCheckTag</a>, ... ]</code></em>
+    }
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-route53-healthcheck-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Type: AWS::Route53::HealthCheck
 Properties: 
-  <a href="aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthcheckconfig">HealthCheckConfig</a>:
-    <em class="replaceable"><code>HealthCheckConfig</code></em>
-  <a href="aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthchecktags">HealthCheckTags</a>:
-    - <em class="replaceable"><code>HealthCheckTags</code></em> 
-</code></pre>
-                        </div><h2 id="w2ab1c21c10d201c13b7">Properties</h2><div class="variablelist">
-                        
-                        
-                        
+  <a href="#cfn-route53-healthcheck-healthcheckconfig">HealthCheckConfig</a>: <em class="replaceable"><code>
+    <a href="aws-properties-route53-healthcheck-healthcheckconfig.html">HealthCheckConfig</a></code></em>
+  <a href="#cfn-route53-healthcheck-healthchecktags">HealthCheckTags</a>: <em class="replaceable"><code>
+    - <a href="aws-properties-route53-healthcheck-healthchecktag.html">HealthCheckTag</a></code></em>
+</code></pre></div><h2 id="aws-resource-route53-healthcheck-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
                            <dt><a id="cfn-route53-healthcheck-healthcheckconfig"></a><span class="term"><code class="code">HealthCheckConfig</code></span></dt>
-                           
                            <dd>
-                              
-                              <p>An Amazon Route&#xA0;53 health check.</p>
-                              
+                              		       
+                              <p>A complex type that contains detailed information about one health check.</p>
+                              	     
                               <p><em>Required</em>: Yes
                               </p>
-                              
-                              <p><em>Type</em>: <a href="aws-properties-route53-healthcheck-healthcheckconfig.html">Route&#xA0;53 HealthCheck HealthCheckConfig</a></p>
-                              
+                              <p><em>Type</em>: <a href="aws-properties-route53-healthcheck-healthcheckconfig.html">HealthCheckConfig</a></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-route53-healthcheck-healthchecktags"></a><span class="term"><code class="code">HealthCheckTags</code></span></dt>
-                           
                            <dd>
-                              
-                              <p>An arbitrary set of tags (key&#x2013;value pairs) for this health check.</p>
-                              
+                              		
+                              <p>The <code class="code">HealthCheckTags</code> property describes key-value pairs that are associated with an <code class="code">AWS::Route53::HealthCheck</code> resource. 
+                              </p>
+                              	
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: A list of <a href="aws-properties-route53-healthcheck-healthchecktags.html">Amazon Route&#xA0;53 HealthCheck HealthCheckTags</a></p>
-                              
+                              <p><em>Type</em>: List of <a href="aws-properties-route53-healthcheck-healthchecktag.html">HealthCheckTag</a></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
                         </dl>
-                     </div><h2 id="w2ab1c21c10d201c13b9">Return Value</h2><h3 id="w2ab1c21c10d201c13b9b2">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code> intrinsic function, <code class="code">Ref</code> returns the health check ID, such as <code class="code">e0a123b4-4dba-4650-935e-example</code>.
+                     </div><h2 id="aws-resource-route53-healthcheck-return-values">Return Values</h2><h3 id="aws-resource-route53-healthcheck-return-values-ref">Ref</h3><p>
+                        			When you pass the logical ID of this resource to the intrinsic <code class="code">Ref</code> function, <code class="code">Ref</code> returns the health check ID, such as <code class="code">e0a123b4-4dba-4650-935e-example</code>.
                      </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                     </p><h2 id="w2ab1c21c10d201c13c11">Example</h2><p>The following example creates an Amazon Route&#xA0;53 health check that sends request to
-                        the
-                        specified endpoint.
-                     </p><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-resource-route53-healthcheck-example.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">&quot;myHealthCheck&quot;: {
+                     </p><h2 id="aws-resource-route53-healthcheck--examples">Examples</h2><h3 id="aws-resource-route53-healthcheck--examples--Create_health_check">Create health check</h3><p>The following example creates an Amazon Route 53 health check that sends HTTP requests
+                        to the specified endpoint.
+                     </p><h4 id="aws-resource-route53-healthcheck--examples--Create_health_check--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">&quot;myHealthCheck&quot;: {
   &quot;Type&quot;: &quot;AWS::Route53::HealthCheck&quot;,
   &quot;Properties&quot;: {
     &quot;HealthCheckConfig&quot;: {
-      &quot;IPAddress&quot;: &quot;000.000.000.000&quot;,
+      &quot;IPAddress&quot;: &quot;192.0.2.44&quot;,
       &quot;Port&quot;: &quot;80&quot;,
       &quot;Type&quot;: &quot;HTTP&quot;,
       &quot;ResourcePath&quot;: &quot;/example/index.html&quot;,
@@ -99,15 +121,11 @@ Properties:
       &quot;Value&quot;: &quot;SampleValue2&quot;
     }]
   }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-resource-route53-healthcheck-example.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">myHealthCheck: 
+}</code></pre><h4 id="aws-resource-route53-healthcheck--examples--Create_health_check--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">myHealthCheck: 
   Type: &quot;AWS::Route53::HealthCheck&quot;
   Properties: 
     HealthCheckConfig: 
-      IPAddress: &quot;000.000.000.000&quot;
+      IPAddress: &quot;192.0.2.44&quot;
       Port: &quot;80&quot;
       Type: &quot;HTTP&quot;
       ResourcePath: &quot;/example/index.html&quot;
@@ -120,7 +138,18 @@ Properties:
         Value: &quot;SampleValue1&quot;
       - 
         Key: &quot;SampleKey2&quot;
-        Value: &quot;SampleValue2&quot;</code></pre>
-                        </div></div>
+        Value: &quot;SampleValue2&quot;</code></pre><h2 id="aws-resource-route53-healthcheck--seealso">See Also</h2><div class="itemizedlist">
+                        
+                        
+                        <ul class="itemizedlist" type="disc">
+                           <li class="listitem">
+                              <p>
+                                 <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateHealthCheck.html">CreateHealthCheck</a> in the <em>Amazon Route 53 API Reference</em></p>
+                              
+                           </li>
+                        </ul>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
+                     </div></div>
 </body>
 </html>

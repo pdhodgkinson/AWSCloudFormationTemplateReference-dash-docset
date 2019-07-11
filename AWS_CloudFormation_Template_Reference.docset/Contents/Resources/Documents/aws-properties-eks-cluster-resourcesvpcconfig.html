@@ -8,109 +8,53 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-properties-eks-cluster-resourcesvpcconfig">EKS Cluster ResourcesVpcConfig</h1><p>The
-                        <code class="code">ResourcesVpcConfig</code> property type specifies the VPC subnets and security
-                        groups used by the Amazon EKS cluster control plane. Amazon EKS VPC resources have
-                        specific
-                        requirements to work properly with Kubernetes. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html">Cluster VPC
-                           Considerations</a> and <a href="https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html">Cluster Security Group Considerations</a> in the
-                        <em>Amazon EKS User Guide</em>.
-                     </p><p>
-                        <code class="code">ResourcesVpcConfig</code> is a property of the <a href="aws-resource-eks-cluster.html">AWS::EKS::Cluster</a> resource type.
-                     </p><h2 id="aws-properties-eks-cluster-resourcesvpcconfig-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
-                        
-                        <h3 id="aws-properties-eks-cluster-resourcesvpcconfig-syntax.json">JSON</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
-  &quot;<a href="aws-properties-eks-cluster-resourcesvpcconfig.html#cfn-eks-cluster-resourcesvpcconfig-securitygroupids">SecurityGroupIds</a>&quot; : [ <em class="replaceable"><code>String</code></em>, ... ] ,
-  &quot;<a href="aws-properties-eks-cluster-resourcesvpcconfig.html#cfn-eks-cluster-resourcesvpcconfig-subnetids">SubnetIds</a>&quot; : [ <em class="replaceable"><code>String</code></em>, ... ]
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        
-                        <h3 id="aws-properties-eks-cluster-resourcesvpcconfig-syntax.yaml">YAML</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">
-<a href="aws-properties-eks-cluster-resourcesvpcconfig.html#cfn-eks-cluster-resourcesvpcconfig-securitygroupids">SecurityGroupIds</a>:
-  - <em class="replaceable"><code>String</code></em>
-<a href="aws-properties-eks-cluster-resourcesvpcconfig.html#cfn-eks-cluster-resourcesvpcconfig-subnetids">SubnetIds</a>:
-  - <em class="replaceable"><code>String</code></em></code></pre>
-                        </div><h2 id="aws-properties-eks-cluster-resourcesvpcconfig-properties">Properties</h2><div class="variablelist">
-                        
-                        
-                        
-                        
-                        
-                        
-                        
+    <h1 class="topictitle" id="aws-properties-eks-cluster-resourcesvpcconfig">AWS::EKS::Cluster ResourcesVpcConfig</h1><p>An object representing the VPC configuration to use for an Amazon EKS cluster.</p><h2 id="aws-properties-eks-cluster-resourcesvpcconfig-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-properties-eks-cluster-resourcesvpcconfig-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;<a href="#cfn-eks-cluster-resourcesvpcconfig-securitygroupids">SecurityGroupIds</a>&quot; : <em class="replaceable"><code>[ String, ... ]</code></em>,
+  &quot;<a href="#cfn-eks-cluster-resourcesvpcconfig-subnetids">SubnetIds</a>&quot; : <em class="replaceable"><code>[ String, ... ]</code></em>
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-properties-eks-cluster-resourcesvpcconfig-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">  <a href="#cfn-eks-cluster-resourcesvpcconfig-securitygroupids">SecurityGroupIds</a>: <em class="replaceable"><code>
+    - String</code></em>
+  <a href="#cfn-eks-cluster-resourcesvpcconfig-subnetids">SubnetIds</a>: <em class="replaceable"><code>
+    - String</code></em>
+</code></pre></div><h2 id="aws-properties-eks-cluster-resourcesvpcconfig-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
                            <dt><a id="cfn-eks-cluster-resourcesvpcconfig-securitygroupids"></a><span class="term"><code class="code">SecurityGroupIds</code></span></dt>
-                           
                            <dd>
                               
-                              <p>Specify one or more security groups for the cross-account elastic network
-                                 interfaces that Amazon EKS creates to use to allow communication between your
-                                 worker nodes and the Kubernetes control plane.
+                              <p>Specify one or more security groups for the cross-account elastic network interfaces
+                                 that Amazon EKS creates to use to allow communication between your worker nodes and
+                                 the
+                                 Kubernetes control plane. If you don&apos;t specify a security group, the default security
+                                 group for your VPC is used.
                               </p>
                               
-                              <p>
-                                 <em>Required</em>: No
+                              <p><em>Required</em>: No
                               </p>
-                              
-                              <p>
-                                 <em>Type</em>: List of String values
+                              <p><em>Type</em>: List of String
                               </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
-                                 
-                              </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-eks-cluster-resourcesvpcconfig-subnetids"></a><span class="term"><code class="code">SubnetIds</code></span></dt>
-                           
                            <dd>
                               
-                              <p>Specify at least 2 subnets for your Amazon EKS worker nodes. Amazon EKS creates
-                                 cross-account elastic network interfaces in these subnets to allow
-                                 communication between your worker nodes and the Kubernetes control
-                                 plane.
+                              <p>Specify subnets for your Amazon EKS worker nodes. Amazon EKS creates cross-account
+                                 elastic
+                                 network interfaces in these subnets to allow communication between your worker nodes
+                                 and
+                                 the Kubernetes control plane.
                               </p>
                               
-                              <p>
-                                 <em>Required</em>: Yes
+                              <p><em>Required</em>: Yes
                               </p>
-                              
-                              <p>
-                                 <em>Type</em>: List of String values
+                              <p><em>Type</em>: List of String
                               </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
-                                 
-                              </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
                         </dl>
-                     </div><h2 id="aws-properties-eks-cluster-resourcesvpcconfig-seealso">See Also</h2><div class="itemizedlist">
-                        
-                        
-                        
-                        <ul class="itemizedlist" type="disc">
-                           <li class="listitem">
-                              
-                              <p><a href="https://docs.aws.amazon.com/eks/latest/userguide/clusters.html">Clusters</a> in the <em>Amazon EKS User Guide</em>.
-                              </p>
-                              
-                           </li>
-                           <li class="listitem">
-                              
-                              <p><a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_CreateCluster.html">CreateCluster</a> in the <em>Amazon EKS API
-                                    Reference</em>.
-                              </p>
-                           </li>
-                        </ul>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
                      </div></div>
 </body>
 </html>

@@ -8,316 +8,232 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-resource-route53resolver-resolverrule">AWS::Route53Resolver::ResolverRule</h1><p>The 
-                        	<code class="code">AWS::Route53Resolver::ResolverRule</code> resource provides detailed information about a resolver rule, which specifies 
-                        	how to route DNS queries out of a VPC for Amazon Route&#xA0;53 Resolver. For more information,
-                        see 
-                        	<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ResolverRule.html">ResolverRule</a> in the <em>Amazon Route&#xA0;53 API Reference</em>.
-                        
+    <h1 class="topictitle" id="aws-resource-route53resolver-resolverrule">AWS::Route53Resolver::ResolverRule</h1><p>For DNS queries that originate in your VPCs, specifies which resolver endpoint the
+                        queries pass through, 
+                        			one domain name that you want to forward to your network, and the IP addresses
+                        of the DNS resolvers in your network.
                      </p><h2 id="aws-resource-route53resolver-resolverrule-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
-                        
-                        <h3 id="aws-resource-route53resolver-resolverrule-syntax.json">JSON</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
+                        <h3 id="aws-resource-route53resolver-resolverrule-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
   &quot;Type&quot; : &quot;AWS::Route53Resolver::ResolverRule&quot;,
   &quot;Properties&quot; : {
-    &quot;<a href="aws-resource-route53resolver-resolverrule.html#cfn-route53resolver-resolverrule-domainname">DomainName</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-route53resolver-resolverrule.html#cfn-route53resolver-resolverrule-name">Name</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-route53resolver-resolverrule.html#cfn-route53resolver-resolverrule-resolverendpointid">ResolverEndpointId</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-route53resolver-resolverrule.html#cfn-route53resolver-resolverrule-ruletype">RuleType</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-route53resolver-resolverrule.html#cfn-route53resolver-resolverrule-tags">Tags</a>&quot; : [ <a href="aws-properties-resource-tags.html">Resource Tag</a>, ... ],
-    &quot;<a href="aws-resource-route53resolver-resolverrule.html#cfn-route53resolver-resolverrule-targetips">TargetIps</a>&quot; : [ <a href="aws-properties-route53resolver-resolverrule-targetaddress.html">TargetAddress</a>, ... ]
-  }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        
-                        <h3 id="aws-resource-route53resolver-resolverrule-syntax.yaml">YAML</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">Type: &quot;AWS::Route53Resolver::ResolverRule&quot;
-Properties:
-  <a href="aws-resource-route53resolver-resolverrule.html#cfn-route53resolver-resolverrule-domainname">DomainName</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-route53resolver-resolverrule.html#cfn-route53resolver-resolverrule-name">Name</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-route53resolver-resolverrule.html#cfn-route53resolver-resolverrule-resolverendpointid">ResolverEndpointId</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-route53resolver-resolverrule.html#cfn-route53resolver-resolverrule-ruletype">RuleType</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-route53resolver-resolverrule.html#cfn-route53resolver-resolverrule-tags">Tags</a>: 
-    - <a href="aws-properties-resource-tags.html">Resource Tag</a>
-  <a href="aws-resource-route53resolver-resolverrule.html#cfn-route53resolver-resolverrule-targetips">TargetIps</a>: 
-    - <a href="aws-properties-route53resolver-resolverrule-targetaddress.html">TargetAddress</a></code></pre>
-                        </div><h2 id="aws-resource-route53resolver-resolverrule-properties">Properties</h2><div class="variablelist">
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
+      &quot;<a href="#cfn-route53resolver-resolverrule-domainname">DomainName</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-route53resolver-resolverrule-name">Name</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-route53resolver-resolverrule-resolverendpointid">ResolverEndpointId</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-route53resolver-resolverrule-ruletype">RuleType</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-route53resolver-resolverrule-tags">Tags</a>&quot; : <em class="replaceable"><code>[ <a href="aws-properties-resource-tags.html">Tag</a>, ... ]</code></em>,
+      &quot;<a href="#cfn-route53resolver-resolverrule-targetips">TargetIps</a>&quot; : <em class="replaceable"><code>[ <a href="aws-properties-route53resolver-resolverrule-targetaddress.html">TargetAddress</a>, ... ]</code></em>
+    }
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-route53resolver-resolverrule-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Type: AWS::Route53Resolver::ResolverRule
+Properties: 
+  <a href="#cfn-route53resolver-resolverrule-domainname">DomainName</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-route53resolver-resolverrule-name">Name</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-route53resolver-resolverrule-resolverendpointid">ResolverEndpointId</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-route53resolver-resolverrule-ruletype">RuleType</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-route53resolver-resolverrule-tags">Tags</a>: <em class="replaceable"><code>
+    - <a href="aws-properties-resource-tags.html">Tag</a></code></em>
+  <a href="#cfn-route53resolver-resolverrule-targetips">TargetIps</a>: <em class="replaceable"><code>
+    - <a href="aws-properties-route53resolver-resolverrule-targetaddress.html">TargetAddress</a></code></em>
+</code></pre></div><h2 id="aws-resource-route53resolver-resolverrule-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
                            <dt><a id="cfn-route53resolver-resolverrule-domainname"></a><span class="term"><code class="code">DomainName</code></span></dt>
-                           
                            <dd>
-                              	
+                              		       
                               <p>DNS queries for this domain name are forwarded to the IP addresses that are specified
-                                 in TargetIps. 
-                                 		If a query matches multiple resolver rules (example.com and www.example.com), the
-                                 query is routed 
-                                 		using the resolver rule that contains the most specific domain name (www.example.com).
-                                 
+                                 in <code class="code">TargetIps</code>. If a query matches 
+                                 			multiple resolver rules (example.com and www.example.com), the query is routed
+                                 using the resolver rule that contains the most specific domain name 
+                                 			(www.example.com).
                               </p>
-                              
-                              <p>
-                                 <em>Required</em>: Yes
+                              	     
+                              <p><em>Required</em>: Yes
                               </p>
-                              
-                              <p>
-                                 <em>Type</em>: String
+                              <p><em>Type</em>: String
                               </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a>
-                                 
-                              </p>
-                              
+                              <p><em>Minimum</em>: <code class="code">1</code></p>
+                              <p><em>Maximum</em>: <code class="code">256</code></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-route53resolver-resolverrule-name"></a><span class="term"><code class="code">Name</code></span></dt>
-                           
                            <dd>
-                              	
-                              <p>A friendly name that lets you easily find a rule in the Resolver dashboard in the
-                                 Route&#xA0;53 console.
+                              		       
+                              <p>The name for the resolver rule, which you specified when you created the resolver
+                                 rule.
                               </p>
-                              
-                              <p>
-                                 <em>Required</em>: No
+                              	     
+                              <p><em>Required</em>: No
                               </p>
-                              
-                              <p>
-                                 <em>Type</em>: String
+                              <p><em>Type</em>: String
                               </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
-                                 
-                              </p>
-                              
+                              <p><em>Maximum</em>: <code class="code">64</code></p>
+                              <p><em>Pattern</em>: <code class="code">(?!^[0-9]+$)([a-zA-Z0-9-_&apos; &apos;]+)</code></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-route53resolver-resolverrule-resolverendpointid"></a><span class="term"><code class="code">ResolverEndpointId</code></span></dt>
-                           
                            <dd>
-                              	
-                              <p>The ID of the outbound endpoint that the rule is associated with.</p>
-                              
-                              <p>
-                                 <em>Required</em>: No
+                              		       
+                              <p>The ID of the endpoint that the rule is associated with.</p>
+                              	     
+                              <p><em>Required</em>: No
                               </p>
-                              
-                              <p>
-                                 <em>Type</em>: String
+                              <p><em>Type</em>: String
                               </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
-                                 
-                              </p>
-                              
+                              <p><em>Minimum</em>: <code class="code">1</code></p>
+                              <p><em>Maximum</em>: <code class="code">64</code></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-route53resolver-resolverrule-ruletype"></a><span class="term"><code class="code">RuleType</code></span></dt>
-                           
                            <dd>
-                              	
-                              <p>When you want to forward DNS queries for specified domain name to resolvers on your
-                                 network, specify <code class="code">FORWARD</code>.
+                              		       
+                              <p>This value is always <code class="code">FORWARD</code>. Other resolver rule types aren&apos;t supported.
                               </p>
-                              	
-                              <p>When you have a forwarding rule to forward DNS queries for a domain to your network
-                                 and you want Resolver to process queries for 
-                                 		a subdomain of that domain, choose <code class="code">SYSTEM</code>.
+                              	     
+                              <p><em>Required</em>: Yes
                               </p>
-                              	
-                              <p>For example, to forward DNS queries for example.com to resolvers on your network,
-                                 you create a rule and specify <code class="code">FORWARD</code> 
-                                 		for <code class="code">RuleType</code>. To then have Resolver process queries for apex.example.com, you create a rule and
-                                 specify 
-                                 		<code class="code">SYSTEM</code> for <code class="code">RuleType</code>.
+                              <p><em>Type</em>: String
                               </p>
-                              
-                              <p>
-                                 <em>Required</em>: Yes
-                              </p>
-                              
-                              <p>
-                                 <em>Type</em>: String
-                              </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a>
-                                 
-                              </p>
-                              
+                              <p><em>Allowed Values</em>: <code class="code">FORWARD | RECURSIVE | SYSTEM</code></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-route53resolver-resolverrule-tags"></a><span class="term"><code class="code">Tags</code></span></dt>
-                           
                            <dd>
-                              	
-                              <p>A list of the tag keys and values that you want to associate with the rule.</p>
-                              
-                              <p>
-                                 <em>Required</em>: No
+                              		       
+                              <p>A list of the tag keys and values that you want to associate with the endpoint.</p>
+                              	     
+                              <p><em>Required</em>: No
                               </p>
-                              
-                              <p>
-                                 <em>Type</em>: List of <a href="aws-properties-resource-tags.html">Resource Tag</a> property types
-                              </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
-                                 
-                              </p>
-                              
+                              <p><em>Type</em>: List of <a href="aws-properties-resource-tags.html">Tag</a></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-route53resolver-resolverrule-targetips"></a><span class="term"><code class="code">TargetIps</code></span></dt>
-                           
                            <dd>
-                              	
-                              <p>When a DNS query matches the name that you specify in <code class="code">DomainName</code>, the outbound endpoint forwards the query 
-                                 		to the IP addresses that you specify here, typically the IP addresses for DNS resolvers
-                                 on your network. 
-                                 		Specify IPv4 addresses. IPv6 is not supported. 
+                              		       
+                              <p>An array that contains the IP addresses and ports that an outbound endpoint forwards
+                                 DNS queries to. Typically, 
+                                 			these are the IP addresses of DNS resolvers on your network. Specify IPv4 addresses.
+                                 IPv6 is not supported.
                               </p>
-                              
-                              <p>
-                                 <em>Required</em>: No
+                              	     
+                              <p><em>Required</em>: No
                               </p>
-                              
-                              <p>
-                                 <em>Type</em>: List of <a href="aws-properties-route53resolver-resolverrule-targetaddress.html">TargetAddress</a> property types
-                              </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
-                                 
-                              </p>
-                              
+                              <p><em>Type</em>: List of <a href="aws-properties-route53resolver-resolverrule-targetaddress.html">TargetAddress</a></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
                         </dl>
-                     </div><h2 id="aws-resource-route53resolver-resolverrule-returnvalues">Return Values</h2><h3 id="aws-resource-route53resolver-resolverrule-ref">Ref</h3><p>When you pass the logical ID of an <code class="code">AWS::Route53Resolver::ResolverRule</code> resource to the intrinsic 
-                        <code class="code">Ref</code> function, the function returns the <code class="code">ResolverRule</code> object, which contains detailed information 
-                        	about the rule.
-                        
-                     </p><p>For more information about using the 
-                        <code class="code">Ref</code> function, see 
-                        <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                        
-                     </p><h3 id="aws-resource-route53resolver-resolverrule-getatt">Fn::GetAtt</h3><p>
-                        <code class="code">Fn::GetAtt</code> returns a value for a specified attribute of this type.
-                        The following are the available attributes and sample return values.
-                        
-                     </p><div class="variablelist">
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
+                     </div><h2 id="aws-resource-route53resolver-resolverrule-return-values">Return Values</h2><h3 id="aws-resource-route53resolver-resolverrule-return-values-ref">Ref</h3><p>
+                        			When you pass the logical ID of this resource to the intrinsic <code class="code">Ref</code> function, <code class="code">Ref</code> returns the <code class="code">ResolverRule</code> object, which contains detailed information 
+                        			about the rule.
+                     </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
+                     </p><h3 id="aws-resource-route53resolver-resolverrule-return-values-fn--getatt">Fn::GetAtt</h3><p>The <code class="code">Fn::GetAtt</code> intrinsic function returns a value for a specified attribute of this type. The following
+                        are the available attributes and sample return values.
+                     </p><p>For more information about using the <code class="code">Fn::GetAtt</code> intrinsic function, see <a href="intrinsic-function-reference-getatt.html">Fn::GetAtt</a>.
+                     </p><h4 id="aws-resource-route53resolver-resolverrule-return-values-fn--getatt-fn--getatt"></h4><div class="variablelist">
                         <dl>
-                           
-                           <dt><span class="term"><code class="code">Arn</code></span></dt>
-                           
+                           <dt><a id="Arn-fn::getatt"></a><span class="term"><code class="code">Arn</code></span></dt>
                            <dd>
-                              
+                              		
                               <p>The Amazon Resource Name (ARN) of the resolver rule, such as <code class="code">arn:aws:route53Resolver:us-east-1:123456789012:resolver-rule/resolver-rule-a1bzhi</code>.
                               </p>
-                              
-                           </dd>
-                           
-                           
-                           <dt><span class="term"><code class="code">DomainName</code></span></dt>
-                           
-                           <dd>
                               	
+                           </dd>
+                           <dt><a id="DomainName-fn::getatt"></a><span class="term"><code class="code">DomainName</code></span></dt>
+                           <dd>
+                              		
                               <p>DNS queries for this domain name are forwarded to the IP addresses that are specified
                                  in TargetIps. 
-                                 		If a query matches multiple resolver rules (example.com and www.example.com), the
+                                 			If a query matches multiple resolver rules (example.com and www.example.com), the
                                  query is routed 
-                                 		using the resolver rule that contains the most specific domain name (www.example.com).
-                                 
+                                 			using the resolver rule that contains the most specific domain name (www.example.com).
                               </p>
-                              
-                           </dd>
-                           
-                           
-                           <dt><span class="term"><code class="code">ResolverEndpointId</code></span></dt>
-                           
-                           <dd>
                               	
+                           </dd>
+                           <dt><a id="Name-fn::getatt"></a><span class="term"><code class="code">Name</code></span></dt>
+                           <dd>
+                              		
+                              <p>A friendly name that lets you easily find a rule in the Resolver dashboard in the
+                                 Route 53 console. 
+                              </p>
+                              	
+                           </dd>
+                           <dt><a id="ResolverEndpointId-fn::getatt"></a><span class="term"><code class="code">ResolverEndpointId</code></span></dt>
+                           <dd>
+                              		
                               <p>The ID of the outbound endpoint that the rule is associated with, such as <code class="code">rslvr-out-fdc049932dexample</code>.
                               </p>
-                              
-                           </dd>
-                           
-                           
-                           <dt><span class="term"><code class="code">ResolverRuleId</code></span></dt>
-                           
-                           <dd>
                               	
+                           </dd>
+                           <dt><a id="ResolverRuleId-fn::getatt"></a><span class="term"><code class="code">ResolverRuleId</code></span></dt>
+                           <dd>
+                              		
                               <p>When the value of <code class="code">RuleType</code> is <code class="code">FORWARD</code>, the ID that Resolver assigned to the resolver rule 
-                                 		when you created it, such as <code class="code">rslvr-rr-5328a0899aexample</code>. This value isn&apos;t applicable when <code class="code">RuleType</code> 
-                                 		is <code class="code">SYSTEM</code>.
+                                 			when you created it, such as <code class="code">rslvr-rr-5328a0899aexample</code>. This value isn&apos;t applicable when <code class="code">RuleType</code> 
+                                 			is <code class="code">SYSTEM</code>.
                               </p>
-                              
-                           </dd>
-                           
-                           
-                           <dt><span class="term"><code class="code">TargetIps</code></span></dt>
-                           
-                           <dd>
                               	
-                              <p>When the value of <code class="code">RuleType</code> is <code class="code">FORWARD</code>, the IP addresses that the outbound endpoint forwards 
-                                 		DNS queries to, typically the IP addresses for DNS resolvers on your network. This
-                                 value isn&apos;t applicable when 
-                                 		<code class="code">RuleType</code> is <code class="code">SYSTEM</code>.
-                              </p>
-                              
                            </dd>
-                           
+                           <dt><a id="TargetIps-fn::getatt"></a><span class="term"><code class="code">TargetIps</code></span></dt>
+                           <dd>
+                              		
+                              <p>When the value of <code class="code">RuleType</code> is <code class="code">FORWARD</code>, the IP addresses that the outbound endpoint forwards 
+                                 			DNS queries to, typically the IP addresses for DNS resolvers on your network. This
+                                 value isn&apos;t applicable when 
+                                 			<code class="code">RuleType</code> is <code class="code">SYSTEM</code>.
+                              </p>
+                              	
+                           </dd>
                         </dl>
-                     </div><p>For more information about using 
-                        <code class="code">Fn::GetAtt</code>, see 
-                        <a href="intrinsic-function-reference-getatt.html">Fn::GetAtt</a>.
-                        
-                     </p><h2 id="aws-resource-route53resolver-resolverrule-seealso">See Also</h2><div class="itemizedlist">
-                        	
-                        
+                     </div><h2 id="aws-resource-route53resolver-resolverrule--examples">Examples</h2><h3 id="aws-resource-route53resolver-resolverrule--examples--Create_Resolver_rule">Create Resolver rule</h3><p>The following example creates an Amazon Route 53 outbound resolver rule.</p><h4 id="aws-resource-route53resolver-resolverrule--examples--Create_Resolver_rule--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;Type&quot; : &quot;AWS::Route53Resolver::ResolverRule&quot;,
+  &quot;Properties&quot; : {
+    &quot;DomainName&quot; : &quot;example.com&quot;,
+    &quot;Name&quot; : &quot;MyRule&quot;,
+    &quot;ResolverEndpointId&quot; : &quot;rslvr-out-fdc049932dexample&quot;,
+    &quot;RuleType&quot; : &quot;FORWARD&quot;, 
+    &quot;Tags&quot; : [
+      {
+        &quot;Key&quot;: &quot;LineOfBusiness&quot;,
+        &quot;Value&quot;: &quot;Engineering&quot;
+      }
+    ],
+    &quot;TargetIps&quot; : [
+      {
+        &quot;IP&quot; : &quot;192.0.2.6&quot;
+      },
+      {
+        &quot;IP&quot; : &quot;192.0.2.99&quot;
+      }
+    ]
+  }
+}</code></pre><h4 id="aws-resource-route53resolver-resolverrule--examples--Create_Resolver_rule--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Type : AWS::Route53Resolver::ResolverRule
+Properties : 
+  DomainName : example.com
+  Name : MyRule
+  ResolverEndpointId : rslvr-out-fdc049932dexample
+  RuleType : FORWARD 
+  Tags : 
+    - 
+      Key : LineOfBusiness
+      Value : Engineering
+  TargetIps :
+    - 
+      IP : 192.0.2.6
+      IP : 192.0.2.99</code></pre><h2 id="aws-resource-route53resolver-resolverrule--seealso">See Also</h2><div class="itemizedlist">
+                        				
+                        			
                         <ul class="itemizedlist" type="disc">
                            <li class="listitem">
-                              <p><a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ResolverRule.html">ResolverRule</a> in the 
-                                 		<em>Amazon Route&#xA0;53 API Reference</em>.
+                              					
+                              <p>
+                                 						<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ResolverRule.html">ResolverRule</a> 
+                                 						in the <em>Amazon Route 53 API Reference</em>
+                                 					
                               </p>
-                              
+                              				
                            </li>
                         </ul>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
                      </div></div>
 </body>
 </html>

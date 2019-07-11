@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="css/awsdocs.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/awsdocs.min.js"></script>
+    <meta charset="utf-8">
+</head>
+<body>
+    <div id="content" style="padding: 10px 30px;">
+    <h1 class="topictitle" id="aws-resource-appmesh-virtualnode">AWS::AppMesh::VirtualNode</h1><p>Creates a virtual node within a service mesh.</p><p>A virtual node acts as a logical pointer to a particular task group, such as an Amazon
+                        ECS
+                        service or a Kubernetes deployment. When you create a virtual node, you can specify
+                        the
+                        service discovery information for your task group.
+                     </p><p>Any inbound traffic that your virtual node expects should be specified as a
+                        <code class="code">listener</code>. Any outbound traffic that your virtual node expects to reach
+                        should be specified as a <code class="code">backend</code>.
+                     </p><p>The response metadata for your new virtual node contains the <code class="code">arn</code> that is
+                        associated with the virtual node. Set this value (either the full ARN or the truncated
+                        resource name: for example, <code class="code">mesh/default/virtualNode/simpleapp</code>) as the
+                        <code class="code">APPMESH_VIRTUAL_NODE_NAME</code> environment variable for your task group&apos;s Envoy
+                        proxy container in your task definition or pod spec. This is then mapped to the
+                        <code class="code">node.id</code> and <code class="code">node.cluster</code> Envoy parameters.
+                     </p><div class="aws-note">
+                        <p class="aws-note">Note</p>
+                        <p>If you require your Envoy stats or tracing to use a different name, you can override
+                           the <code class="code">node.cluster</code> value that is set by
+                           <code class="code">APPMESH_VIRTUAL_NODE_NAME</code> with the
+                           <code class="code">APPMESH_VIRTUAL_NODE_CLUSTER</code> environment variable.
+                        </p>
+                     </div><h2 id="aws-resource-appmesh-virtualnode-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-resource-appmesh-virtualnode-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;Type&quot; : &quot;AWS::AppMesh::VirtualNode&quot;,
+  &quot;Properties&quot; : {
+      &quot;<a href="#cfn-appmesh-virtualnode-meshname">MeshName</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-appmesh-virtualnode-spec">Spec</a>&quot; : <em class="replaceable"><code><a href="aws-properties-appmesh-virtualnode-virtualnodespec.html">VirtualNodeSpec</a></code></em>,
+      &quot;<a href="#cfn-appmesh-virtualnode-tags">Tags</a>&quot; : <em class="replaceable"><code>[ <a href="aws-properties-resource-tags.html">Tag</a>, ... ]</code></em>,
+      &quot;<a href="#cfn-appmesh-virtualnode-virtualnodename">VirtualNodeName</a>&quot; : <em class="replaceable"><code>String</code></em>
+    }
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-appmesh-virtualnode-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Type: AWS::AppMesh::VirtualNode
+Properties: 
+  <a href="#cfn-appmesh-virtualnode-meshname">MeshName</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-appmesh-virtualnode-spec">Spec</a>: <em class="replaceable"><code>
+    <a href="aws-properties-appmesh-virtualnode-virtualnodespec.html">VirtualNodeSpec</a></code></em>
+  <a href="#cfn-appmesh-virtualnode-tags">Tags</a>: <em class="replaceable"><code>
+    - <a href="aws-properties-resource-tags.html">Tag</a></code></em>
+  <a href="#cfn-appmesh-virtualnode-virtualnodename">VirtualNodeName</a>: <em class="replaceable"><code>String</code></em>
+</code></pre></div><h2 id="aws-resource-appmesh-virtualnode-properties">Properties</h2><div class="variablelist">
+                        <dl>
+                           <dt><a id="cfn-appmesh-virtualnode-meshname"></a><span class="term"><code class="code">MeshName</code></span></dt>
+                           <dd>
+                              
+                              <p>The name of the service mesh to create the virtual node in.</p>
+                              
+                              <p><em>Required</em>: Yes
+                              </p>
+                              <p><em>Type</em>: String
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                           </dd>
+                           <dt><a id="cfn-appmesh-virtualnode-spec"></a><span class="term"><code class="code">Spec</code></span></dt>
+                           <dd>
+                              
+                              <p>The virtual node specification to apply.</p>
+                              
+                              <p><em>Required</em>: Yes
+                              </p>
+                              <p><em>Type</em>: <a href="aws-properties-appmesh-virtualnode-virtualnodespec.html">VirtualNodeSpec</a></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                           </dd>
+                           <dt><a id="cfn-appmesh-virtualnode-tags"></a><span class="term"><code class="code">Tags</code></span></dt>
+                           <dd>
+                              
+                              <p>Optional metadata that you can apply to the virtual node to assist with categorization
+                                 and organization. Each tag consists of a key and an optional value, both of which
+                                 you
+                                 define. Tag keys can have a maximum character length of 128 characters, and tag values
+                                 can have
+                                 a maximum length of 256 characters.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              <p><em>Type</em>: List of <a href="aws-properties-resource-tags.html">Tag</a></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                           </dd>
+                           <dt><a id="cfn-appmesh-virtualnode-virtualnodename"></a><span class="term"><code class="code">VirtualNodeName</code></span></dt>
+                           <dd>
+                              
+                              <p>The name to use for the virtual node.</p>
+                              
+                              <p><em>Required</em>: Yes
+                              </p>
+                              <p><em>Type</em>: String
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                           </dd>
+                        </dl>
+                     </div><h2 id="aws-resource-appmesh-virtualnode-return-values">Return Values</h2><h3 id="aws-resource-appmesh-virtualnode-return-values-ref">Ref</h3><p>
+                        When you pass the logical ID of this resource to the intrinsic <code class="code">Ref</code> function, <code class="code">Ref</code> returns the resource ARN. For example:
+                     </p><p>
+                        <code class="code">{ &quot;Ref&quot;: &quot;myVirtualNode&quot; }</code>
+                        
+                     </p><p>When you pass the logical ID of an <code class="code">AWS::AppMesh::VirtualNode</code> resource to
+                        the intrinsic Ref function, the function returns the virtual node ARN, such as
+                        <code class="code">arn:aws:appmesh:<em>us-east-1</em>:<em>555555555555</em>:virtualNode/<em>myVirtualNode</em>
+                           </code>.
+                     </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
+                     </p><h3 id="aws-resource-appmesh-virtualnode-return-values-fn--getatt">Fn::GetAtt</h3><p>The <code class="code">Fn::GetAtt</code> intrinsic function returns a value for a specified attribute of this type. The following
+                        are the available attributes and sample return values.
+                     </p><p>For more information about using the <code class="code">Fn::GetAtt</code> intrinsic function, see <a href="intrinsic-function-reference-getatt.html">Fn::GetAtt</a>.
+                     </p><h4 id="aws-resource-appmesh-virtualnode-return-values-fn--getatt-fn--getatt"></h4><div class="variablelist">
+                        <dl>
+                           <dt><a id="Arn-fn::getatt"></a><span class="term"><code class="code">Arn</code></span></dt>
+                           <dd>
+                              
+                              <p>The full Amazon Resource Name (ARN) for the virtual node.</p>
+                              
+                           </dd>
+                           <dt><a id="MeshName-fn::getatt"></a><span class="term"><code class="code">MeshName</code></span></dt>
+                           <dd>
+                              
+                              <p>The name of the service mesh that the virtual node resides in.</p>
+                              
+                           </dd>
+                           <dt><a id="Uid-fn::getatt"></a><span class="term"><code class="code">Uid</code></span></dt>
+                           <dd>
+                              
+                              <p>The unique identifier for the virtual node.</p>
+                              
+                           </dd>
+                           <dt><a id="VirtualNodeName-fn::getatt"></a><span class="term"><code class="code">VirtualNodeName</code></span></dt>
+                           <dd>
+                              
+                              <p>The name of the virtual node.</p>
+                              
+                           </dd>
+                        </dl>
+                     </div><h2 id="aws-resource-appmesh-virtualnode--examples">Examples</h2><h3 id="aws-resource-appmesh-virtualnode--examples--Create_a_Virtual_Node">Create a Virtual Node</h3><p>This example creates a virtual node with two backends and a listener with a health
+                        check policy. It also sends access logs to a file path and uses DNS service
+                        discovery.
+                     </p><h4 id="aws-resource-appmesh-virtualnode--examples--Create_a_Virtual_Node--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+   &quot;Description&quot;: &quot;Basic Test Virtual Node&quot;,
+   &quot;Resources&quot;: {
+      &quot;BasicVirtualNode&quot;: {
+         &quot;Type&quot;: &quot;AWS::AppMesh::VirtualNode&quot;,
+         &quot;Properties&quot;: {
+            &quot;VirtualNodeName&quot;: &quot;TestVirtualNode&quot;,
+            &quot;MeshName&quot;: null,
+            &quot;Spec&quot;: {
+               &quot;Backends&quot;: [
+                  {
+                     &quot;VirtualService&quot;: {
+                        &quot;VirtualServiceName&quot;: &quot;Backend_1&quot;
+                     }
+                  },
+                  {
+                     &quot;VirtualService&quot;: {
+                        &quot;VirtualServiceName&quot;: &quot;Backend_2&quot;
+                     }
+                  }
+               ],
+               &quot;Listeners&quot;: [
+                  {
+                     &quot;HealthCheck&quot;: {
+                        &quot;HealthyThreshold&quot;: 2,
+                        &quot;IntervalMillis&quot;: 5000,
+                        &quot;Path&quot;: &quot;Path&quot;,
+                        &quot;Port&quot;: 8080,
+                        &quot;Protocol&quot;: &quot;http&quot;,
+                        &quot;TimeoutMillis&quot;: 2000,
+                        &quot;UnhealthyThreshold&quot;: 2
+                     },
+                     &quot;PortMapping&quot;: {
+                        &quot;Port&quot;: 8080,
+                        &quot;Protocol&quot;: &quot;http&quot;
+                     }
+                  }
+               ],
+               &quot;ServiceDiscovery&quot;: {
+                  &quot;DNS&quot;: {
+                     &quot;Hostname&quot;: &quot;Hostname&quot;
+                  }
+               },
+               &quot;Logging&quot;: {
+                  &quot;AccessLog&quot;: {
+                     &quot;File&quot;: {
+                        &quot;Path&quot;: &quot;Path&quot;
+                     }
+                  }
+               }
+            },
+            &quot;Tags&quot;: [
+               {
+                  &quot;Key&quot;: &quot;Key1&quot;,
+                  &quot;Value&quot;: &quot;Value1&quot;
+               },
+               {
+                  &quot;Key&quot;: &quot;Key2&quot;,
+                  &quot;Value&quot;: &quot;Value2&quot;
+               }
+            ]
+         }
+      }
+   },
+   &quot;Outputs&quot;: {
+      &quot;VirtualNodeName&quot;: {
+         &quot;Description&quot;: &quot;Name of the VirtualNode&quot;,
+         &quot;Value&quot;: {
+            &quot;Fn::GetAtt&quot;: [
+               &quot;BasicVirtualNode&quot;,
+               &quot;VirtualNodeName&quot;
+            ]
+         }
+      },
+      &quot;MeshName&quot;: {
+         &quot;Description&quot;: &quot;Name of the Mesh&quot;,
+         &quot;Value&quot;: {
+            &quot;Fn::GetAtt&quot;: [
+               &quot;BasicVirtualNode&quot;,
+               &quot;MeshName&quot;
+            ]
+         }
+      },
+      &quot;Arn&quot;: {
+         &quot;Description&quot;: &quot;Arn of the VirtualNode created&quot;,
+         &quot;Value&quot;: {
+            &quot;Fn::GetAtt&quot;: [
+               &quot;BasicVirtualNode&quot;,
+               &quot;Arn&quot;
+            ]
+         }
+      },
+      &quot;Uid&quot;: {
+         &quot;Description&quot;: &quot;Uid of the VirtualNode created&quot;,
+         &quot;Value&quot;: {
+            &quot;Fn::GetAtt&quot;: [
+               &quot;BasicVirtualNode&quot;,
+               &quot;Uid&quot;
+            ]
+         }
+      }
+   }
+}</code></pre><h4 id="aws-resource-appmesh-virtualnode--examples--Create_a_Virtual_Node--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Description: &quot;Basic Test Virtual Node&quot;
+Resources:
+  BasicVirtualNode:
+    Type: &quot;AWS::AppMesh::VirtualNode&quot;
+    Properties:
+      VirtualNodeName: &quot;TestVirtualNode&quot;
+      MeshName: !ImportValue TestMeshName
+      Spec:
+        Backends:
+        - VirtualService:
+            VirtualServiceName: &quot;Backend_1&quot;
+        - VirtualService:
+            VirtualServiceName: &quot;Backend_2&quot;
+        Listeners:
+        - HealthCheck:
+            HealthyThreshold: 2
+            IntervalMillis: 5000
+            Path: &quot;Path&quot;
+            Port: 8080
+            Protocol: &quot;http&quot;
+            TimeoutMillis: 2000
+            UnhealthyThreshold: 2
+          PortMapping:
+            Port: 8080
+            Protocol: &quot;http&quot;
+        ServiceDiscovery:
+          DNS:
+            Hostname: &quot;Hostname&quot;
+        Logging:
+          AccessLog:
+            File:
+              Path: &quot;Path&quot;
+      Tags:
+      - Key: &quot;Key1&quot;
+        Value: &quot;Value1&quot;
+      - Key: &quot;Key2&quot;
+        Value: &quot;Value2&quot;
+
+Outputs:
+  VirtualNodeName:
+    Description: Name of the VirtualNode
+    Value:
+      Fn::GetAtt:
+      - BasicVirtualNode
+      - VirtualNodeName
+  MeshName:
+    Description: Name of the Mesh
+    Value:
+      Fn::GetAtt:
+      - BasicVirtualNode
+      - MeshName
+  Arn:
+    Description: Arn of the VirtualNode created
+    Value:
+      Fn::GetAtt:
+      - BasicVirtualNode
+      - Arn
+  Uid:
+    Description: Uid of the VirtualNode created
+    Value:
+      Fn::GetAtt:
+      - BasicVirtualNode
+      - Uid</code></pre><h2 id="aws-resource-appmesh-virtualnode--seealso">See Also</h2><div class="itemizedlist">
+                        
+                        
+                        
+                        <ul class="itemizedlist" type="disc">
+                           <li class="listitem">
+                              
+                              <p>
+                                 <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/virtual_nodes.html">Virtual Nodes</a> in the <em>
+                                    AWS App Mesh User Guide
+                                    </em>.
+                              </p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p>
+                                 <a href="https://docs.aws.amazon.com/app-mesh/latest/APIReference/API_CreateVirtualNode.html">CreateVirtualNode</a> in the <em>
+                                    AWS App Mesh API Reference
+                                    </em>.
+                              </p>
+                              
+                           </li>
+                        </ul>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
+                     </div></div>
+</body>
+</html>

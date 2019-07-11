@@ -8,118 +8,90 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-resource-ec2-vpc-dhcp-options-assoc">AWS::EC2::VPCDHCPOptionsAssociation</h1><p>Associates a set of DHCP options (that you&apos;ve previously created) with the specified
+    <h1 class="topictitle" id="aws-resource-ec2-vpc-dhcp-options-assoc">AWS::EC2::VPCDHCPOptionsAssociation</h1><p>Associates a set of DHCP options with a VPC, or associates no DHCP options with the
                         VPC.
-                     </p><div class="highlights" id="inline-topiclist">
-                        <p><strong>Topics</strong></p>
-                        <ul>
-                           <li><a href="#aws-resource-ec2-vpcdhcpoptionsassociation-syntax">Syntax</a></li>
-                           <li><a href="#w2ab1c21c10d111d182b9">Properties</a></li>
-                           <li><a href="#w2ab1c21c10d111d182c11">Return Values</a></li>
-                           <li><a href="#w2ab1c21c10d111d182c13">Example</a></li>
-                           <li><a href="#w2ab1c21c10d111d182c15">See Also</a></li>
-                        </ul>
-                     </div><h2 id="aws-resource-ec2-vpcdhcpoptionsassociation-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-resource-ec2-vpcdhcpoptionsassociation-syntax.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">
-{ 
-   &quot;Type&quot; : &quot;AWS::EC2::VPCDHCPOptionsAssociation&quot;,
-   &quot;Properties&quot; : {
-      &quot;<a href="aws-resource-ec2-vpc-dhcp-options-assoc.html#cfn-ec2-vpcdhcpoptionsassociation-dhcpoptionsid">DhcpOptionsId</a>&quot; : <em class="replaceable"><code>String</code></em>,
-      &quot;<a href="aws-resource-ec2-vpc-dhcp-options-assoc.html#cfn-ec2-vpcdhcpoptionsassociation-vpcid">VpcId</a>&quot; : <em class="replaceable"><code>String</code></em>
-   }
-}     </code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-resource-ec2-vpcdhcpoptionsassociation-syntax.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">
-Type: AWS::EC2::VPCDHCPOptionsAssociation
-Properties: 
-  <a href="aws-resource-ec2-vpc-dhcp-options-assoc.html#cfn-ec2-vpcdhcpoptionsassociation-dhcpoptionsid">DhcpOptionsId</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-ec2-vpc-dhcp-options-assoc.html#cfn-ec2-vpcdhcpoptionsassociation-vpcid">VpcId</a>: <em class="replaceable"><code>String</code></em>
-</code></pre>
-                        </div><h2 id="w2ab1c21c10d111d182b9">Properties</h2><div class="variablelist">
-                        
-                        
-                        
-                        <dl>
-                           
-                           <dt><a id="cfn-ec2-vpcdhcpoptionsassociation-dhcpoptionsid"></a><span class="term"><code class="literal">DhcpOptionsId</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>The ID of the DHCP options you want to associate with the VPC. Specify
-                                 <code class="code">default</code> if you want the VPC to use no DHCP options.
-                              </p>
-                              
-                              <p><em>Required</em>: Yes
-                              </p>
-                              
-                              <p><em>Type</em>: String
-                              </p>
-                              
-                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
-                           </dd>
-                           
-                           
-                           <dt><a id="cfn-ec2-vpcdhcpoptionsassociation-vpcid"></a><span class="term"><code class="literal">VpcId</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>The ID of the VPC to associate with this DHCP options set.</p>
-                              
-                              <p><em>Required</em>: Yes
-                              </p>
-                              
-                              <p><em>Type</em>: String
-                              </p>
-                              
-                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
-                           </dd>
-                           
-                        </dl>
-                     </div><h2 id="w2ab1c21c10d111d182c11">Return Values</h2><h3 id="w2ab1c21c10d111d182c11b2">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code> intrinsic
-                        function, <code class="code">Ref</code> returns the resource name.
-                     </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                     </p><h2 id="w2ab1c21c10d111d182c13">Example</h2><p>The following snippet uses the <code class="code">Ref</code> intrinsic function to associate the
-                        <code class="code">myDHCPOptions</code> DHCP options with the <code class="code">myVPC</code> VPC. The VPC and
-                        DHCP options can be declared in the same template or added as input parameters. For
-                        more
-                        information about the VPC or the DHCP options resources, see <a href="aws-resource-ec2-vpc.html">AWS::EC2::VPC</a> or <a href="aws-resource-ec2-dhcp-options.html">AWS::EC2::DHCPOptions</a>.
-                     </p><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-resource-ec2-vpcdhcpoptionsassociation-example-1.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">&quot;myVPCDHCPOptionsAssociation&quot; : {
+                     </p><p>After you associate the options with the VPC, any existing instances and all new instances
+                        that you launch in that VPC use the options. You don&apos;t need to restart or relaunch
+                        the instances. They automatically pick up the changes within a few hours, depending
+                        on how frequently the instance renews its DHCP lease. You can explicitly renew the
+                        lease using the operating system on the instance.
+                     </p><h2 id="aws-resource-ec2-vpc-dhcp-options-assoc-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-resource-ec2-vpc-dhcp-options-assoc-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
   &quot;Type&quot; : &quot;AWS::EC2::VPCDHCPOptionsAssociation&quot;,
   &quot;Properties&quot; : {
-    &quot;VpcId&quot; : {&quot;Ref&quot; : &quot;myVPC&quot;},
-    &quot;DhcpOptionsId&quot; : {&quot;Ref&quot; : &quot;myDHCPOptions&quot;}
-  }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-resource-ec2-vpcdhcpoptionsassociation-example-1.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">myVPCDHCPOptionsAssociation:
+      &quot;<a href="#cfn-ec2-vpcdhcpoptionsassociation-dhcpoptionsid">DhcpOptionsId</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-ec2-vpcdhcpoptionsassociation-vpcid">VpcId</a>&quot; : <em class="replaceable"><code>String</code></em>
+    }
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-ec2-vpc-dhcp-options-assoc-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Type: AWS::EC2::VPCDHCPOptionsAssociation
+Properties: 
+  <a href="#cfn-ec2-vpcdhcpoptionsassociation-dhcpoptionsid">DhcpOptionsId</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-ec2-vpcdhcpoptionsassociation-vpcid">VpcId</a>: <em class="replaceable"><code>String</code></em>
+</code></pre></div><h2 id="aws-resource-ec2-vpc-dhcp-options-assoc-properties">Properties</h2><div class="variablelist">
+                        <dl>
+                           <dt><a id="cfn-ec2-vpcdhcpoptionsassociation-dhcpoptionsid"></a><span class="term"><code class="code">DhcpOptionsId</code></span></dt>
+                           <dd>
+                              
+                              <p>The ID of the DHCP options set, or <code class="code">default</code> to associate 
+                                 no DHCP options with the VPC.
+                              </p>
+                              
+                              <p><em>Required</em>: Yes
+                              </p>
+                              <p><em>Type</em>: String
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                           </dd>
+                           <dt><a id="cfn-ec2-vpcdhcpoptionsassociation-vpcid"></a><span class="term"><code class="code">VpcId</code></span></dt>
+                           <dd>
+                              
+                              <p>The ID of the VPC.</p>
+                              
+                              <p><em>Required</em>: Yes
+                              </p>
+                              <p><em>Type</em>: String
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                           </dd>
+                        </dl>
+                     </div><h2 id="aws-resource-ec2-vpc-dhcp-options-assoc-return-values">Return Values</h2><h3 id="aws-resource-ec2-vpc-dhcp-options-assoc-return-values-ref">Ref</h3><p>When you pass the logical ID of this resource to the intrinsic <code class="code">Ref</code> function, <code class="code">Ref</code> returns the ID of the DHCP options association.
+                     </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
+                     </p><h2 id="aws-resource-ec2-vpc-dhcp-options-assoc--examples">Examples</h2><h3 id="aws-resource-ec2-vpc-dhcp-options-assoc--examples--VPC_DHCP_Options_Association">VPC DHCP Options Association</h3><p>The following example uses the <code class="code">Ref</code> intrinsic function to associate the myDHCPOptions DHCP options with the myVPC VPC.
+                        The VPC and DHCP options can be declared in the same template or added as input parameters.
+                        For more information about the VPC or the DHCP options resources, see AWS::EC2::VPC
+                        or AWS::EC2::DHCPOptions. 
+                     </p><h4 id="aws-resource-ec2-vpc-dhcp-options-assoc--examples--VPC_DHCP_Options_Association--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">&quot;myVPCDHCPOptionsAssociation&quot; : {
+     &quot;Type&quot; : &quot;AWS::EC2::VPCDHCPOptionsAssociation&quot;,
+      &quot;Properties&quot; : {
+         &quot;VpcId&quot; : {&quot;Ref&quot; : &quot;myVPC&quot;},
+         &quot;DhcpOptionsId&quot; : {&quot;Ref&quot; : &quot;myDHCPOptions&quot;}
+         }
+}</code></pre><h4 id="aws-resource-ec2-vpc-dhcp-options-assoc--examples--VPC_DHCP_Options_Association--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">myVPCDHCPOptionsAssociation:
   Type: AWS::EC2::VPCDHCPOptionsAssociation
   Properties:
     VpcId:
-      Ref: myVPC
+       Ref: myVPC
     DhcpOptionsId:
-      Ref: myDHCPOptions</code></pre>
-                        </div><h2 id="w2ab1c21c10d111d182c15">See Also</h2><div class="itemizedlist">
+       Ref: myDHCPOptions</code></pre><h2 id="aws-resource-ec2-vpc-dhcp-options-assoc--seealso">See Also</h2><div class="itemizedlist">
+                        
                         
                         
                         <ul class="itemizedlist" type="disc">
                            <li class="listitem">
                               
-                              <p><a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AssociateDhcpOptions.html">AssociateDhcpOptions</a> in the <em>Amazon EC2 API Reference</em>.
-                              </p>
+                              <p>
+                                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AssociateDhcpOptions.html">AssociateDhcpOptions</a> in the <em>Amazon EC2 API Reference</em></p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p><a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html">DHCP Options Sets</a> in the <em>Amazon Virtual Private Cloud User Guide</em></p>
                               
                            </li>
                         </ul>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
                      </div></div>
 </body>
 </html>

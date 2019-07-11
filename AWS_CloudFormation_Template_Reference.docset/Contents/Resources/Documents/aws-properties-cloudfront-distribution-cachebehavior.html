@@ -8,358 +8,467 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-properties-cloudfront-distribution-cachebehavior">CloudFront Distribution
-                        CacheBehavior
-                     </h1><p><code class="code">CacheBehavior</code> is a property of the <a href="aws-properties-cloudfront-distribution-distributionconfig.html">DistributionConfig</a> property
-                        that describes the Amazon CloudFront (CloudFront) cache behavior when the requested
-                        URL matches a
-                        pattern.
-                     </p><h2 id="w2ab1c21c10c60c14c20b5">Syntax</h2><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-properties-cloudfront-distribution-cachebehavior-syntax.json">JSON</h3>
+    <h1 class="topictitle" id="aws-properties-cloudfront-distribution-cachebehavior">AWS::CloudFront::Distribution CacheBehavior</h1><p>A complex type that describes how CloudFront processes requests.</p><p>You must create at least as many cache behaviors (including the default cache behavior)
                         
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
-  &quot;<a href="aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-allowedmethods">AllowedMethods</a>&quot; : [ <em class="replaceable"><code>String, ...</code></em> ],
-  &quot;<a href="aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-cachedmethods">CachedMethods</a>&quot; : [ <em class="replaceable"><code>String, ...</code></em> ],
-  &quot;<a href="aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-compress">Compress</a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
-  &quot;<a href="aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-defaultttl">DefaultTTL</a>&quot; : <em class="replaceable"><code>Number</code></em>,
-  &quot;<a href="aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-fieldlevelencryptionid">FieldLevelEncryptionId</a>&quot; : <em class="replaceable"><code>String</code></em>,
-  &quot;<a href="aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-forwardedvalues">ForwardedValues</a>&quot; : <em class="replaceable"><code>ForwardedValues</code></em>,
-  &quot;<a href="aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-lambdafunctionassociations">LambdaFunctionAssociations</a>&quot; : [ <a href="aws-properties-cloudfront-distribution-lambdafunctionassociation.html">LambdaFunctionAssociation</a>, ... ]
-  &quot;<a href="aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-maxttl">MaxTTL</a>&quot; : <em class="replaceable"><code>Number</code></em>,
-  &quot;<a href="aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-minttl">MinTTL</a>&quot; : <em class="replaceable"><code>Number</code></em>,
-  &quot;<a href="aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-pathpattern">PathPattern</a>&quot; : <em class="replaceable"><code>String</code></em>,
-  &quot;<a href="aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-smoothstreaming">SmoothStreaming</a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
-  &quot;<a href="aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-targetoriginid">TargetOriginId</a>&quot; : <em class="replaceable"><code>String</code></em>,
-  &quot;<a href="aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-trustedsigners">TrustedSigners</a>&quot; : [ <em class="replaceable"><code>String, ...</code></em> ],
-  &quot;<a href="aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-viewerprotocolpolicy">ViewerProtocolPolicy</a>&quot; : <em class="replaceable"><code>String</code></em>
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-properties-cloudfront-distribution-cachebehavior-syntax.yaml">YAML</h3>
+                        			as you have origins if you want CloudFront to distribute objects from all of the
+                        origins. Each cache 
+                        			behavior specifies the one origin from which you want CloudFront to get objects.
+                        If you have two 
+                        			origins and only the default cache behavior, the default cache behavior will cause
+                        CloudFront to get 
+                        			objects from one of the origins, but the other origin is never used.
+                     </p><p>For the current limit on the number of cache behaviors that you can add to a 
+                        			distribution, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_cloudfront">Amazon CloudFront 
+                           				Limits</a> in the <em>AWS General Reference</em>.
+                     </p><p>If you don&apos;t want to specify any cache behaviors, include only an empty 
+                        				<code class="code">CacheBehaviors</code> element. Don&apos;t include an empty <code class="code">CacheBehavior</code> 
+                        			element, or CloudFront returns a <code class="code">MalformedXML</code> error.
+                     </p><p>To delete all cache behaviors in an existing distribution, update the distribution
                         
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight"><a href="aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-allowedmethods">AllowedMethods</a>:
-  - <em class="replaceable"><code>String</code></em>
-<a href="aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-cachedmethods">CachedMethods</a>:
-  - <em class="replaceable"><code>String</code></em>
-<a href="aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-compress">Compress</a>: <em class="replaceable"><code>Boolean</code></em>
-<a href="aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-defaultttl">DefaultTTL</a>: <em class="replaceable"><code>Number</code></em>
-<a href="aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-fieldlevelencryptionid">FieldLevelEncryptionId</a> : <em class="replaceable"><code>String</code></em>,
-<a href="aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-forwardedvalues">ForwardedValues</a>:
-  <em class="replaceable"><code>ForwardedValues</code></em>
-<a href="aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-lambdafunctionassociations">LambdaFunctionAssociations</a>: 
-  - <a href="aws-properties-cloudfront-distribution-lambdafunctionassociation.html">LambdaFunctionAssociation</a><em class="replaceable"><code></code></em>
-<a href="aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-maxttl">MaxTTL</a>: <em class="replaceable"><code>Number</code></em>
-<a href="aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-minttl">MinTTL</a>: <em class="replaceable"><code>Number</code></em>
-<a href="aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-pathpattern">PathPattern</a>: <em class="replaceable"><code>String</code></em>
-<a href="aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-smoothstreaming">SmoothStreaming</a>: <em class="replaceable"><code>Boolean</code></em>
-<a href="aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-targetoriginid">TargetOriginId</a>: <em class="replaceable"><code>String</code></em>
-<a href="aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-trustedsigners">TrustedSigners</a>:
-  - <em class="replaceable"><code>String</code></em>
-<a href="aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-viewerprotocolpolicy">ViewerProtocolPolicy</a>: <em class="replaceable"><code>String</code></em>
-</code></pre>
-                        </div><h2 id="w2ab1c21c10c60c14c20b7">Properties</h2><div class="aws-note">
-                        <p class="aws-note">Note</p>
-                        <p>For more information about the constraints and valid values of each property, see
-                           the
-                           <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_CacheBehavior.html">CacheBehavior</a> data type in
-                           the <em>Amazon CloudFront API Reference</em>.
-                        </p>
-                     </div><div class="variablelist">
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
+                        			configuration and include only an empty <code class="code">CacheBehaviors</code> element.
+                     </p><p>To add, change, or remove one or more cache behaviors, update the distribution 
+                        			configuration and specify all of the cache behaviors that you want to include in
+                        the updated 
+                        			distribution.
+                     </p><p>For more information about cache behaviors, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesCacheBehavior">Cache 
+                           				Behaviors</a> in the <em>Amazon CloudFront Developer Guide</em>.
+                     </p><h2 id="aws-properties-cloudfront-distribution-cachebehavior-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-properties-cloudfront-distribution-cachebehavior-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;<a href="#cfn-cloudfront-distribution-cachebehavior-allowedmethods">AllowedMethods</a>&quot; : <em class="replaceable"><code>[ String, ... ]</code></em>,
+  &quot;<a href="#cfn-cloudfront-distribution-cachebehavior-cachedmethods">CachedMethods</a>&quot; : <em class="replaceable"><code>[ String, ... ]</code></em>,
+  &quot;<a href="#cfn-cloudfront-distribution-cachebehavior-compress">Compress</a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
+  &quot;<a href="#cfn-cloudfront-distribution-cachebehavior-defaultttl">DefaultTTL</a>&quot; : <em class="replaceable"><code>Double</code></em>,
+  &quot;<a href="#cfn-cloudfront-distribution-cachebehavior-fieldlevelencryptionid">FieldLevelEncryptionId</a>&quot; : <em class="replaceable"><code>String</code></em>,
+  &quot;<a href="#cfn-cloudfront-distribution-cachebehavior-forwardedvalues">ForwardedValues</a>&quot; : <em class="replaceable"><code><a href="aws-properties-cloudfront-distribution-forwardedvalues.html">ForwardedValues</a></code></em>,
+  &quot;<a href="#cfn-cloudfront-distribution-cachebehavior-lambdafunctionassociations">LambdaFunctionAssociations</a>&quot; : <em class="replaceable"><code>[ <a href="aws-properties-cloudfront-distribution-lambdafunctionassociation.html">LambdaFunctionAssociation</a>, ... ]</code></em>,
+  &quot;<a href="#cfn-cloudfront-distribution-cachebehavior-maxttl">MaxTTL</a>&quot; : <em class="replaceable"><code>Double</code></em>,
+  &quot;<a href="#cfn-cloudfront-distribution-cachebehavior-minttl">MinTTL</a>&quot; : <em class="replaceable"><code>Double</code></em>,
+  &quot;<a href="#cfn-cloudfront-distribution-cachebehavior-pathpattern">PathPattern</a>&quot; : <em class="replaceable"><code>String</code></em>,
+  &quot;<a href="#cfn-cloudfront-distribution-cachebehavior-smoothstreaming">SmoothStreaming</a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
+  &quot;<a href="#cfn-cloudfront-distribution-cachebehavior-targetoriginid">TargetOriginId</a>&quot; : <em class="replaceable"><code>String</code></em>,
+  &quot;<a href="#cfn-cloudfront-distribution-cachebehavior-trustedsigners">TrustedSigners</a>&quot; : <em class="replaceable"><code>[ String, ... ]</code></em>,
+  &quot;<a href="#cfn-cloudfront-distribution-cachebehavior-viewerprotocolpolicy">ViewerProtocolPolicy</a>&quot; : <em class="replaceable"><code>String</code></em>
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-properties-cloudfront-distribution-cachebehavior-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">  <a href="#cfn-cloudfront-distribution-cachebehavior-allowedmethods">AllowedMethods</a>: <em class="replaceable"><code>
+    - String</code></em>
+  <a href="#cfn-cloudfront-distribution-cachebehavior-cachedmethods">CachedMethods</a>: <em class="replaceable"><code>
+    - String</code></em>
+  <a href="#cfn-cloudfront-distribution-cachebehavior-compress">Compress</a>: <em class="replaceable"><code>Boolean</code></em>
+  <a href="#cfn-cloudfront-distribution-cachebehavior-defaultttl">DefaultTTL</a>: <em class="replaceable"><code>Double</code></em>
+  <a href="#cfn-cloudfront-distribution-cachebehavior-fieldlevelencryptionid">FieldLevelEncryptionId</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-cloudfront-distribution-cachebehavior-forwardedvalues">ForwardedValues</a>: <em class="replaceable"><code>
+    <a href="aws-properties-cloudfront-distribution-forwardedvalues.html">ForwardedValues</a></code></em>
+  <a href="#cfn-cloudfront-distribution-cachebehavior-lambdafunctionassociations">LambdaFunctionAssociations</a>: <em class="replaceable"><code>
+    - <a href="aws-properties-cloudfront-distribution-lambdafunctionassociation.html">LambdaFunctionAssociation</a></code></em>
+  <a href="#cfn-cloudfront-distribution-cachebehavior-maxttl">MaxTTL</a>: <em class="replaceable"><code>Double</code></em>
+  <a href="#cfn-cloudfront-distribution-cachebehavior-minttl">MinTTL</a>: <em class="replaceable"><code>Double</code></em>
+  <a href="#cfn-cloudfront-distribution-cachebehavior-pathpattern">PathPattern</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-cloudfront-distribution-cachebehavior-smoothstreaming">SmoothStreaming</a>: <em class="replaceable"><code>Boolean</code></em>
+  <a href="#cfn-cloudfront-distribution-cachebehavior-targetoriginid">TargetOriginId</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-cloudfront-distribution-cachebehavior-trustedsigners">TrustedSigners</a>: <em class="replaceable"><code>
+    - String</code></em>
+  <a href="#cfn-cloudfront-distribution-cachebehavior-viewerprotocolpolicy">ViewerProtocolPolicy</a>: <em class="replaceable"><code>String</code></em>
+</code></pre></div><h2 id="aws-properties-cloudfront-distribution-cachebehavior-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
-                           <dt><a id="cfn-cloudfront-distribution-cachebehavior-allowedmethods"></a><span class="term"><code class="literal">AllowedMethods</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>HTTP methods that CloudFront processes and forwards to your Amazon S3 bucket or your
-                                 custom origin. You can specify <code class="code">[&quot;HEAD&quot;, &quot;GET&quot;]</code>, <code class="code">[&quot;GET&quot;, &quot;HEAD&quot;,
-                                    &quot;OPTIONS&quot;]</code>, or <code class="code">[&quot;DELETE&quot;, &quot;GET&quot;, &quot;HEAD&quot;, &quot;OPTIONS&quot;, &quot;PATCH&quot;,
-                                    &quot;POST&quot;, &quot;PUT&quot;]</code>. If you don&apos;t specify a value, AWS CloudFormation specifies
-                                 <code class="code">[&quot;HEAD&quot;, &quot;GET&quot;]</code>.
+                           <dt><a id="cfn-cloudfront-distribution-cachebehavior-allowedmethods"></a><span class="term"><code class="code">AllowedMethods</code></span></dt>
+                           <dd> 
+                              		       
+                              <p>A complex type that controls which HTTP methods CloudFront processes and forwards
+                                 to your 
+                                 			Amazon S3 bucket or your custom origin. There are three choices:
+                              </p> 
+                              		       
+                              <div class="itemizedlist"> 
+                                 			          
+                                 			          
+                                 			          
+                                 		       
+                                 <ul class="itemizedlist" type="disc">
+                                    <li class="listitem"> 
+                                       				           
+                                       <p>CloudFront forwards only <code class="code">GET</code> and <code class="code">HEAD</code> requests.
+                                       </p> 
+                                       			         
+                                    </li>
+                                    <li class="listitem"> 
+                                       				           
+                                       <p>CloudFront forwards only <code class="code">GET</code>, <code class="code">HEAD</code>, and <code class="code">OPTIONS</code> 
+                                          					requests.
+                                       </p> 
+                                       			         
+                                    </li>
+                                    <li class="listitem"> 
+                                       				           
+                                       <p>CloudFront forwards <code class="code">GET, HEAD, OPTIONS, PUT, PATCH, POST</code>, and 
+                                          						<code class="code">DELETE</code> requests.
+                                       </p> 
+                                       			         
+                                    </li>
+                                 </ul>
+                              </div> 
+                              		       
+                              <p>If you pick the third choice, you may need to restrict access to your Amazon S3 bucket
+                                 or 
+                                 			to your custom origin so users can&apos;t perform operations that you don&apos;t want them
+                                 to. For 
+                                 			example, you might not want users to have permissions to delete objects from your
+                                 
+                                 			origin.
                               </p>
-                              
+                              	     
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: List of String values
+                              <p><em>Type</em>: List of String
                               </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-cloudfront-distribution-cachebehavior-cachedmethods"></a><span class="term"><code class="literal">CachedMethods</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>HTTP methods for which CloudFront caches responses. You can specify <code class="code">[&quot;HEAD&quot;,
-                                    &quot;GET&quot;]</code> or <code class="code">[&quot;GET&quot;, &quot;HEAD&quot;, &quot;OPTIONS&quot;]</code>. If you don&apos;t specify
-                                 a value, AWS CloudFormation specifies <code class="code">[&quot;HEAD&quot;, &quot;GET&quot;]</code>.
+                           <dt><a id="cfn-cloudfront-distribution-cachebehavior-cachedmethods"></a><span class="term"><code class="code">CachedMethods</code></span></dt>
+                           <dd> 
+                              		       
+                              <p>A complex type that controls whether CloudFront caches the response to requests using
+                                 the 
+                                 			specified HTTP methods. There are two choices:
+                              </p> 
+                              		       
+                              <div class="itemizedlist"> 
+                                 			          
+                                 			          
+                                 		       
+                                 <ul class="itemizedlist" type="disc">
+                                    <li class="listitem"> 
+                                       				           
+                                       <p>CloudFront caches responses to <code class="code">GET</code> and <code class="code">HEAD</code> requests.
+                                       </p> 
+                                       			         
+                                    </li>
+                                    <li class="listitem"> 
+                                       				           
+                                       <p>CloudFront caches responses to <code class="code">GET</code>, <code class="code">HEAD</code>, and 
+                                          						<code class="code">OPTIONS</code> requests.
+                                       </p> 
+                                       			         
+                                    </li>
+                                 </ul>
+                              </div> 
+                              		       
+                              <p>If you pick the second choice for your Amazon S3 Origin, you may need to forward 
+                                 			Access-Control-Request-Method, Access-Control-Request-Headers, and Origin headers
+                                 for the 
+                                 			responses to be cached correctly. 
                               </p>
-                              
+                              	     
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: List of String values
+                              <p><em>Type</em>: List of String
                               </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-cloudfront-distribution-cachebehavior-compress"></a><span class="term"><code class="code">Compress</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>Indicates whether CloudFront automatically compresses certain files for this cache
-                                 behavior. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/ServingCompressedFiles.html">Serving Compressed Files</a>
-                                 in the <em>Amazon CloudFront Developer Guide</em>.
+                           <dd> 
+                              		       
+                              <p>Whether you want CloudFront to automatically compress certain files for this cache
+                                 behavior. 
+                                 			If so, specify true; if not, specify false. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/ServingCompressedFiles.html">Serving Compressed Files</a> in the 
+                                 				<em>Amazon CloudFront Developer Guide</em>.
                               </p>
-                              
+                              	     
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: Boolean
                               </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-cloudfront-distribution-cachebehavior-defaultttl"></a><span class="term"><code class="code">DefaultTTL</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>The default time in seconds that objects stay in CloudFront caches before CloudFront
-                                 forwards another request to your custom origin to determine whether the object has
-                                 been updated. This value applies only when your custom origin does not add HTTP
-                                 headers, such as <code class="code">Cache-Control max-age</code>, <code class="code">Cache-Control
-                                    s-maxage</code>, and <code class="code">Expires</code> to objects.
+                           <dd> 
+                              		       
+                              <p>The default amount of time that you want objects to stay in CloudFront caches before
+                                 CloudFront 
+                                 			forwards another request to your origin to determine whether the object has been
+                                 updated. The 
+                                 			value that you specify applies only when your origin does not add HTTP headers
+                                 such as 
+                                 				<code class="code">Cache-Control max-age</code>, <code class="code">Cache-Control s-maxage</code>, and 
+                                 				<code class="code">Expires</code> to objects. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html">Managing How Long Content Stays 
+                                    				in an Edge Cache (Expiration)</a> in the <em>Amazon CloudFront Developer Guide</em>.
                               </p>
-                              
-                              <p>By default, AWS CloudFormation specifies <code class="code">86400</code> seconds (one day). If the value
-                                 of the <code class="code">MinTTL</code> property is greater than the default value, CloudFront uses
-                                 the minimum Time to Live (TTL) value.
-                              </p>
-                              
+                              	     
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: Number
+                              <p><em>Type</em>: Double
                               </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-cloudfront-distribution-cachebehavior-fieldlevelencryptionid"></a><span class="term"><code class="code">FieldLevelEncryptionId</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>The value of ID for the field-level encryption configuration that you want CloudFront
-                                 to use for encrypting specific fields of data for a cache behavior in your distribution.
-                                 The default is an empty string.
+                           <dd> 
+                              		       
+                              <p>The value of <code class="code">ID</code> for the field-level encryption configuration that you 
+                                 			want CloudFront to use for encrypting specific fields of data for a cache behavior
+                                 or for the
+                                 			default cache behavior in your distribution.
                               </p>
-                              
+                              	     
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-cloudfront-distribution-cachebehavior-forwardedvalues"></a><span class="term"><code class="literal">ForwardedValues</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>Specifies how CloudFront handles query strings or cookies.</p>
-                              
+                           <dt><a id="cfn-cloudfront-distribution-cachebehavior-forwardedvalues"></a><span class="term"><code class="code">ForwardedValues</code></span></dt>
+                           <dd> 
+                              		       
+                              <p>A complex type that specifies how CloudFront handles query strings and cookies.</p>
+                              	     
                               <p><em>Required</em>: Yes
                               </p>
-                              
-                              <p><em>Type</em>: <a href="aws-properties-cloudfront-distribution-forwardedvalues.html">ForwardedValues</a>
-                                 type
-                              </p>
-                              
+                              <p><em>Type</em>: <a href="aws-properties-cloudfront-distribution-forwardedvalues.html">ForwardedValues</a></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-cloudfront-distribution-cachebehavior-lambdafunctionassociations"></a><span class="term"><code class="code">LambdaFunctionAssociations</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>Lambda function associations for the Amazon CloudFront distribution.</p>
-                              
-                              <p>
-                                 <em>Required</em>: No
-                              </p>
-                              
-                              <p>
-                                 <em>Type</em>: List of <a href="aws-properties-cloudfront-distribution-lambdafunctionassociation.html">LambdaFunctionAssociation</a></p>
-                              
-                              <p>
-                                 <em>Update requires</em>: 
+                           <dd> 
+                              		       
+                              <p>A complex type that contains zero or more Lambda function associations for a cache
                                  
-                                 <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
-                                 
+                                 			behavior.
                               </p>
-                              
+                              	     
+                              <p><em>Required</em>: No
+                              </p>
+                              <p><em>Type</em>: List of <a href="aws-properties-cloudfront-distribution-lambdafunctionassociation.html">LambdaFunctionAssociation</a></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-cloudfront-distribution-cachebehavior-maxttl"></a><span class="term"><code class="code">MaxTTL</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>The maximum time in seconds that objects stay in CloudFront caches before CloudFront
-                                 forwards
-                                 another request to your custom origin to determine whether the object has been
-                                 updated. This value applies only when your custom origin does not add HTTP
-                                 headers, such as <code class="code">Cache-Control max-age</code>, <code class="code">Cache-Control
-                                    s-maxage</code>, and <code class="code">Expires</code> to objects.
+                           <dd> 
+                              		       
+                              <p>The maximum amount of time that you want objects to stay in CloudFront caches before
+                                 CloudFront 
+                                 			forwards another request to your origin to determine whether the object has been
+                                 updated. The 
+                                 			value that you specify applies only when your origin adds HTTP headers such as
+                                 
+                                 				<code class="code">Cache-Control max-age</code>, <code class="code">Cache-Control s-maxage</code>, and 
+                                 				<code class="code">Expires</code> to objects. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html">Managing How Long Content Stays 
+                                    				in an Edge Cache (Expiration)</a> in the <em>Amazon CloudFront Developer Guide</em>.
                               </p>
-                              
-                              <p>By default, AWS CloudFormation specifies <code class="code">31536000</code> seconds (one year). If the value
-                                 of the <code class="code">MinTTL</code> or <code class="code">DefaultTTL</code> property is greater than the
-                                 maximum value, CloudFront uses the default TTL value.
-                              </p>
-                              
+                              	     
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: Number
+                              <p><em>Type</em>: Double
                               </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-cloudfront-distribution-cachebehavior-minttl"></a><span class="term"><code class="literal">MinTTL</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>The minimum amount of time that you want objects to stay in the cache before
-                                 CloudFront queries your origin to see whether the object has been updated.
+                           <dt><a id="cfn-cloudfront-distribution-cachebehavior-minttl"></a><span class="term"><code class="code">MinTTL</code></span></dt>
+                           <dd> 
+                              		       
+                              <p>The minimum amount of time that you want objects to stay in CloudFront caches before
+                                 CloudFront 
+                                 			forwards another request to your origin to determine whether the object has been
+                                 updated. For 
+                                 			more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html">
+                                    				Managing How Long Content Stays in an Edge Cache (Expiration)</a> in the <em>
+                                    				Amazon CloudFront Developer Guide</em>.
+                              </p> 
+                              		       
+                              <p>You must specify <code class="code">0</code> for <code class="code">MinTTL</code> if you configure CloudFront to 
+                                 			forward all headers to your origin (under <code class="code">Headers</code>, if you specify <code class="code">1</code> 
+                                 			for <code class="code">Quantity</code> and <code class="code">*</code> for <code class="code">Name</code>).
                               </p>
-                              
+                              	     
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: Number
+                              <p><em>Type</em>: Double
                               </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-cloudfront-distribution-cachebehavior-pathpattern"></a><span class="term"><code class="literal">PathPattern</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>The pattern to which this cache behavior applies. For example, you can specify
-                                 <code>images/*.jpg</code>.
+                           <dt><a id="cfn-cloudfront-distribution-cachebehavior-pathpattern"></a><span class="term"><code class="code">PathPattern</code></span></dt>
+                           <dd> 
+                              		       
+                              <p>The pattern (for example, <code class="code">images/*.jpg</code>) that specifies which requests to 
+                                 			apply the behavior to. When CloudFront receives a viewer request, the requested
+                                 path is compared 
+                                 			with path patterns in the order in which cache behaviors are listed in the 
+                                 			distribution.
+                              </p> 
+                              		       
+                              <div class="aws-note">
+                                 <p class="aws-note">Note</p>
+                                 <p>You can optionally include a slash (<code class="code">/</code>) at the beginning of the path 
+                                    				pattern. For example, <code class="code">/images/*.jpg</code>. CloudFront behavior is the same with or without 
+                                    				the leading <code class="code">/</code>.
+                                 </p>
+                              </div> 
+                              		       
+                              <p>The path pattern for the default cache behavior is <code class="code">*</code> and cannot be 
+                                 			changed. If the request for an object does not match the path pattern for any cache
+                                 behaviors, 
+                                 			CloudFront applies the behavior in the default cache behavior.
+                              </p> 
+                              		       
+                              <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesPathPattern">Path 
+                                    				Pattern</a> in the <em> Amazon CloudFront Developer Guide</em>.
                               </p>
-                              
-                              <p>When CloudFront receives an end-user request, CloudFront compares the requested path
-                                 with
-                                 path patterns in the order in which cache behaviors are listed in the
-                                 template.
-                              </p>
-                              
+                              	     
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-cloudfront-distribution-cachebehavior-smoothstreaming"></a><span class="term"><code class="literal">SmoothStreaming</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>Indicates whether to use the origin that is associated with this cache behavior
-                                 to distribute media files in the Microsoft Smooth Streaming format. If you specify
-                                 <code class="code">true</code>, you can still use this cache behavior to distribute other
-                                 content if the content matches the <code class="code">PathPattern</code> value.
+                           <dt><a id="cfn-cloudfront-distribution-cachebehavior-smoothstreaming"></a><span class="term"><code class="code">SmoothStreaming</code></span></dt>
+                           <dd> 
+                              		       
+                              <p>Indicates whether you want to distribute media files in the Microsoft Smooth Streaming
+                                 
+                                 			format using the origin that is associated with this cache behavior. If so, specify
+                                 
+                                 				<code class="code">true</code>; if not, specify <code class="code">false</code>. If you specify <code class="code">true</code> for 
+                                 				<code class="code">SmoothStreaming</code>, you can still distribute other content using this cache 
+                                 			behavior if the content matches the value of <code class="code">PathPattern</code>. 
                               </p>
-                              
+                              	     
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: Boolean
                               </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-cloudfront-distribution-cachebehavior-targetoriginid"></a><span class="term"><code class="literal">TargetOriginId</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>The ID value of the origin to which you want CloudFront to route requests when a
-                                 request matches the value of the <code class="code">PathPattern</code> property.
+                           <dt><a id="cfn-cloudfront-distribution-cachebehavior-targetoriginid"></a><span class="term"><code class="code">TargetOriginId</code></span></dt>
+                           <dd> 
+                              		       
+                              <p>The value of <code class="code">ID</code> for the origin that you want CloudFront to route requests to 
+                                 			when a request matches the path pattern either for a cache behavior or for the
+                                 default cache 
+                                 			behavior in your distribution.
                               </p>
-                              
+                              	     
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-cloudfront-distribution-cachebehavior-trustedsigners"></a><span class="term"><code class="literal">TrustedSigners</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>A list of AWS accounts that can create signed URLs in order to access private
-                                 content.
+                           <dt><a id="cfn-cloudfront-distribution-cachebehavior-trustedsigners"></a><span class="term"><code class="code">TrustedSigners</code></span></dt>
+                           <dd> 
+                              		       
+                              <p>A complex type that specifies the AWS accounts, if any, that you want to allow to
+                                 
+                                 			create signed URLs for private content.
+                              </p> 
+                              		       
+                              <p>If you want to require signed URLs in requests for objects in the target origin that
+                                 
+                                 			match the <code class="code">PathPattern</code> for this cache behavior, specify <code class="code">true</code> for 
+                                 				<code class="code">Enabled</code>, and specify the applicable values for <code class="code">Quantity</code> and 
+                                 				<code class="code">Items</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">Serving Private Content through CloudFront</a> in the <em>Amazon CloudFront Developer Guide</em>.
+                                 		
+                              </p> 
+                              		       
+                              <p>If you don&apos;t want to require signed URLs in requests for objects that match 
+                                 				<code class="code">PathPattern</code>, specify <code class="code">false</code> for <code class="code">Enabled</code> and 
+                                 				<code class="code">0</code> for <code class="code">Quantity</code>. Omit <code class="code">Items</code>.
+                              </p> 
+                              		       
+                              <p>To add, change, or remove one or more trusted signers, change <code class="code">Enabled</code> to 
+                                 				<code class="code">true</code> (if it&apos;s currently <code class="code">false</code>), change <code class="code">Quantity</code> as 
+                                 			applicable, and specify all of the trusted signers that you want to include in
+                                 the updated 
+                                 			distribution.
                               </p>
-                              
+                              	     
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: List of String values
+                              <p><em>Type</em>: List of String
                               </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-cloudfront-distribution-cachebehavior-viewerprotocolpolicy"></a><span class="term"><code class="literal">ViewerProtocolPolicy</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>The protocol that users can use to access the files in the origin that you
-                                 specified in the <code class="code">TargetOriginId</code> property when a request matches the
-                                 value of the <code class="code">PathPattern</code> property. For more information about the
-                                 valid values, see the <code class="code">ViewerProtocolPolicy</code> content for the <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_CacheBehavior.html">CacheBehavior</a> data type in the
-                                 <em>Amazon CloudFront API Reference</em>.
-                              </p>
-                              
+                           <dt><a id="cfn-cloudfront-distribution-cachebehavior-viewerprotocolpolicy"></a><span class="term"><code class="code">ViewerProtocolPolicy</code></span></dt>
+                           <dd> 
+                              		       
+                              <p>The protocol that viewers can use to access the files in the origin specified by 
+                                 				<code class="code">TargetOriginId</code> when a request matches the path pattern in 
+                                 				<code class="code">PathPattern</code>. You can specify the following options:
+                              </p> 
+                              		       
+                              <div class="itemizedlist"> 
+                                 			          
+                                 			          
+                                 			          
+                                 		       
+                                 <ul class="itemizedlist" type="disc">
+                                    <li class="listitem"> 
+                                       				           
+                                       <p>
+                                          <code class="code">allow-all</code>: Viewers can use HTTP or HTTPS.
+                                       </p> 
+                                       			         
+                                    </li>
+                                    <li class="listitem"> 
+                                       				           
+                                       <p>
+                                          <code class="code">redirect-to-https</code>: If a viewer submits an HTTP request, CloudFront returns 
+                                          					an HTTP status code of 301 (Moved Permanently) to the viewer along with the HTTPS
+                                          URL. The 
+                                          					viewer then resubmits the request using the new URL. 
+                                       </p> 
+                                       			         
+                                    </li>
+                                    <li class="listitem"> 
+                                       				           
+                                       <p>
+                                          <code class="code">https-only</code>: If a viewer sends an HTTP request, CloudFront returns an HTTP 
+                                          					status code of 403 (Forbidden). 
+                                       </p> 
+                                       			         
+                                    </li>
+                                 </ul>
+                              </div> 
+                              		       
+                              <p>For more information about requiring the HTTPS protocol, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/SecureConnections.html">Using an HTTPS Connection to Access Your 
+                                    				Objects</a> in the <em>Amazon CloudFront Developer Guide</em>.
+                              </p> 
+                              		       
+                              <div class="aws-note">
+                                 <p class="aws-note">Note</p>
+                                 <p>The only way to guarantee that viewers retrieve an object that was fetched from the
+                                    
+                                    				origin using HTTPS is never to use any other protocol to fetch the object. If
+                                    you have 
+                                    				recently changed from HTTP to HTTPS, we recommend that you clear your objects&apos;
+                                    cache because 
+                                    				cached objects are protocol agnostic. That means that an edge location will return
+                                    an object 
+                                    				from the cache regardless of whether the current request protocol matches the
+                                    protocol used 
+                                    				previously. For more information, see 
+                                    				<a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html">Managing How Long Content Stays 
+                                       				in an Edge Cache (Expiration)</a> in the 
+                                    				<em>Amazon CloudFront Developer Guide</em>.
+                                 </p>
+                              </div>
+                              	     
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Allowed Values</em>: <code class="code">allow-all | https-only | redirect-to-https</code></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
                         </dl>
+                     </div><h2 id="aws-properties-cloudfront-distribution-cachebehavior--seealso">See Also</h2><div class="itemizedlist">
+                        				        
+                        			      
+                        <ul class="itemizedlist" type="disc">
+                           <li class="listitem">
+                              					          
+                              <p>
+                                 						            <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_CacheBehavior.html">CacheBehavior</a> in the <em>Amazon CloudFront API Reference</em>
+                                 					          
+                              </p>
+                              				        
+                           </li>
+                        </ul>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
                      </div></div>
 </body>
 </html>

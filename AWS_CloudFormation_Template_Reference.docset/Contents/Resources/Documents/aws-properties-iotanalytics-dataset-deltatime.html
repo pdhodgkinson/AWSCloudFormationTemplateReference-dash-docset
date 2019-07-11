@@ -8,103 +8,58 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-properties-iotanalytics-dataset-deltatime">AWS IoT Analytics Dataset DeltaTime</h1><p>The 
-                        <code class="code">DeltaTime</code> property type specifies a limit of data to that which has arrived since the
-                        last execution of an action for an AWS IoT Analytics dataset.
-                     </p><p>
-                        <code class="code">DeltaTime</code> is a property of the <a href="aws-properties-iotanalytics-dataset-filter.html">Filter</a> property type.
-                     </p><h2 id="aws-properties-iotanalytics-dataset-deltatime-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
-                        
-                        <h3 id="aws-properties-iotanalytics-dataset-deltatime-syntax.json">JSON</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
-  &quot;<a href="aws-properties-iotanalytics-dataset-deltatime.html#cfn-iotanalytics-dataset-deltatime-timeexpression">TimeExpression</a>&quot; : <em class="replaceable"><code>String</code></em>,
-  &quot;<a href="aws-properties-iotanalytics-dataset-deltatime.html#cfn-iotanalytics-dataset-deltatime-offsetseconds">OffsetSeconds</a>&quot; : <em class="replaceable"><code>Integer</code></em>
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        
-                        <h3 id="aws-properties-iotanalytics-dataset-deltatime-syntax.yaml">YAML</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight"><a href="aws-properties-iotanalytics-dataset-deltatime.html#cfn-iotanalytics-dataset-deltatime-timeexpression">TimeExpression</a>: <em class="replaceable"><code>String</code></em>
-<a href="aws-properties-iotanalytics-dataset-deltatime.html#cfn-iotanalytics-dataset-deltatime-offsetseconds">OffsetSeconds</a>: <em class="replaceable"><code>Integer</code></em></code></pre>
-                        </div><h2 id="aws-properties-iotanalytics-dataset-deltatime-properties">Properties</h2><div class="variablelist">
-                        
-                        
-                        
-                        
-                        
-                        
+    <h1 class="topictitle" id="aws-properties-iotanalytics-dataset-deltatime">AWS::IoTAnalytics::Dataset DeltaTime</h1><p>Used to limit data to that which has arrived since the last execution of the action.</p><h2 id="aws-properties-iotanalytics-dataset-deltatime-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-properties-iotanalytics-dataset-deltatime-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;<a href="#cfn-iotanalytics-dataset-deltatime-offsetseconds">OffsetSeconds</a>&quot; : <em class="replaceable"><code>Integer</code></em>,
+  &quot;<a href="#cfn-iotanalytics-dataset-deltatime-timeexpression">TimeExpression</a>&quot; : <em class="replaceable"><code>String</code></em>
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-properties-iotanalytics-dataset-deltatime-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">  <a href="#cfn-iotanalytics-dataset-deltatime-offsetseconds">OffsetSeconds</a>: <em class="replaceable"><code>Integer</code></em>
+  <a href="#cfn-iotanalytics-dataset-deltatime-timeexpression">TimeExpression</a>: <em class="replaceable"><code>String</code></em>
+</code></pre></div><h2 id="aws-properties-iotanalytics-dataset-deltatime-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
+                           <dt><a id="cfn-iotanalytics-dataset-deltatime-offsetseconds"></a><span class="term"><code class="code">OffsetSeconds</code></span></dt>
+                           <dd>
+                              
+                              <p>The number of seconds of estimated &quot;in flight&quot; lag time of message data.  When you
+                                 create 
+                                 data set contents using message data from a specified time frame, some message data
+                                 may still be 
+                                 &quot;in flight&quot; when processing begins, and so will not arrive in time to be processed.
+                                 Use this 
+                                 field to make allowances for the &quot;in flight&quot; time of your message data, so that data
+                                 not processed 
+                                 from a previous time frame will be included with the next time frame. Without this,
+                                 missed message 
+                                 data would be excluded from processing during the next time frame as well, because
+                                 its timestamp 
+                                 places it within the previous time frame.
+                              </p>
+                              
+                              <p><em>Required</em>: Yes
+                              </p>
+                              <p><em>Type</em>: Integer
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                           </dd>
                            <dt><a id="cfn-iotanalytics-dataset-deltatime-timeexpression"></a><span class="term"><code class="code">TimeExpression</code></span></dt>
-                           
                            <dd>
                               
                               <p>An expression by which the time of the message data may be determined. This may be
-                                 the
-                                 name of a timestamp field, or a SQL expression which is used to derive the time the
-                                 message
+                                 the name
+                                 of a timestamp field, or a SQL expression which is used to derive the time the message
                                  data was generated.
                               </p>
                               
-                              <p>
-                                 <em>Required</em>: Yes
+                              <p><em>Required</em>: Yes
                               </p>
-                              
-                              <p>
-                                 <em>Type</em>: String
+                              <p><em>Type</em>: String
                               </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
-                                 
-                              </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-iotanalytics-dataset-deltatime-offsetseconds"></a><span class="term"><code class="code">OffsetSeconds</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>The number of seconds of estimated &quot;in flight&quot; lag time of message data. When you
-                                 create
-                                 data set contents using message data from a specified time frame, some message data
-                                 may still
-                                 be &quot;in flight&quot; when processing begins, and so will not arrive in time to be processed.
-                                 Use
-                                 this field to make allowances for the &quot;in flight&quot; time of your message data, so that
-                                 data
-                                 not processed from a previous time frame will be included with the next time frame.
-                                 Without
-                                 this, missed message data would be excluded from processing during the next time frame
-                                 as
-                                 well, because its timestamp places it within the previous time frame.
-                              </p>
-                              
-                              <p>
-                                 <em>Required</em>: Yes
-                              </p>
-                              
-                              <p>
-                                 <em>Type</em>: Integer
-                              </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
-                                 
-                              </p>
-                              
-                           </dd>
-                           
                         </dl>
-                     </div><h2 id="aws-properties-iotanalytics-dataset-deltatime-seealso">See Also</h2><div class="itemizedlist">
-                        
-                        
-                        <ul class="itemizedlist" type="disc">
-                           <li class="listitem">
-                              <p><a href="https://docs.aws.amazon.com/iotanalytics/latest/userguide/api.html#cli-iotanalytics-createdataset">
-                                    CreateDataset</a> in the <em>AWS IoT Analytics User Guide</em></p>
-                           </li>
-                        </ul>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
                      </div></div>
 </body>
 </html>

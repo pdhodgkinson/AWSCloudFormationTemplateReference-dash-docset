@@ -8,14 +8,17 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-properties-ec2-ebs-volume">AWS::EC2::Volume</h1><p>The <code class="code">AWS::EC2::Volume</code> type creates a new Amazon Elastic Block Store (Amazon EBS) volume.
-                     </p><div class="aws-note">
-                        <p class="aws-note">Important</p>
-                        <p>When you use AWS CloudFormation to update an Amazon EBS volume that modifies <code class="code">Iops</code>, <code class="code">Size</code>, or <code class="code">VolumeType</code>, there is a cooldown period before another operation can occur. This can cause your
-                           stack to report being in <code class="code">UPDATE_IN_PROGRESS</code> 
-                           or <code class="code">UPDATE_ROLLBACK_IN_PROGRESS</code> for long periods of time.
-                        </p>
-                     </div><p>Some common scenarios when you might encounter a cooldown period for Amazon EBS include:</p><div class="itemizedlist">
+    <h1 class="topictitle" id="aws-properties-ec2-ebs-volume">AWS::EC2::Volume</h1><p>Specifies an Amazon Elastic Block Store (Amazon EBS) volume.</p><p>When you use AWS CloudFormation to update an Amazon EBS volume that modifies <code class="code">Iops</code>, <code class="code">Size</code>, 
+                        or <code class="code">VolumeType</code>, there is a cooldown period before another operation can occur. This can cause your
+                        stack to report being in 
+                        <code class="code">UPDATE_IN_PROGRESS</code> or <code class="code">UPDATE_ROLLBACK_IN_PROGRESS</code> for long periods of time.
+                     </p><p>Amazon EBS does not support modifying a Magnetic volume. For more
+                        information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/modify-volume-requirements.html">Requirements for Modifying EBS
+                           Volumes</a>.
+                     </p><p>Amazon EBS does not support sizing down an Amazon EBS volume. AWS CloudFormation will
+                        not attempt to modify an Amazon 
+                        EBS volume to a smaller size on rollback.
+                     </p><p>Some common scenarios when you might encounter a cooldown period for Amazon EBS include:</p><div class="itemizedlist">
                         
                         
                         
@@ -23,301 +26,270 @@
                            <li class="listitem">
                               
                               <p>You successfully update an Amazon EBS volume and the update succeeds. When you attempt
-                                 another update within the cooldown window, that update will be subject to a cooldown
-                                 period.
+                                 another update 
+                                 within the cooldown window, that update will be subject to a cooldown period.
                               </p>
                               
                            </li>
                            <li class="listitem">
                               
                               <p>You successfully update an Amazon EBS volume and the update succeeds but another change
-                                 in your <code class="code">update-stack</code> call fails. The rollback will be subject to a cooldown period.
+                                 in your <code class="code">update-stack</code> call fails. 
+                                 The rollback will be subject to a cooldown period.
                               </p>
                               
                            </li>
                         </ul>
-                     </div><p>For more information on the cooldown period, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html">Considerations for Modifying EBS Volumes</a> in the <em>Amazon EBS Developer Guide</em>.
+                     </div><p>For more information on the cooldown period, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/modify-volume-requirements.html">Requirements for 
+                           Modifying EBS Volumes</a>.
                      </p><p>To control how AWS CloudFormation handles the volume when the stack is deleted, set
-                        a deletion policy
-                        for your volume. You can choose to <em>retain</em> the volume, to
-                        <em>delete</em> the volume, or to <em>create a snapshot</em> of the
-                        volume. For more information, see <a href="aws-attribute-deletionpolicy.html">DeletionPolicy Attribute</a>.
+                        a deletion policy for your volume. You can choose to retain 
+                        the volume, to delete the volume, or to create a snapshot of the volume. For more
+                        information, see 
+                        <a href="aws-attribute-deletionpolicy.html">DeletionPolicy Attribute</a>.
                      </p><div class="aws-note">
                         <p class="aws-note">Note</p>
                         <p>If you set a deletion policy that creates a snapshot, all tags on the volume are included
-                           in the
-                           snapshot.
+                           in the snapshot.
                         </p>
-                     </div><div class="aws-note">
-                        <p class="aws-note">Important</p>
-                        <p>Amazon EBS does not support sizing down an Amazon EBS volume. AWS CloudFormation will
-                           not attempt to modify an Amazon EBS volume to a smaller size on rollback.
-                        </p>
-                     </div><div class="aws-note">
-                        <p class="aws-note">Note</p>
-                        <p>Amazon EBS does not support modifying a Magnetic volume. For more
-                           information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html">Considerations for Modifying EBS
-                              Volumes</a>.
-                        </p>
-                     </div><div class="highlights" id="inline-topiclist">
-                        <p><strong>Topics</strong></p>
-                        <ul>
-                           <li><a href="#aws-resource-ec2-volume-syntax">Syntax</a></li>
-                           <li><a href="#w2ab1c21c10d111d165c25">Properties</a></li>
-                           <li><a href="#w2ab1c21c10d111d165c27">Return Values</a></li>
-                           <li><a href="#w2ab1c21c10d111d165c29">Examples</a></li>
-                           <li><a href="#w2ab1c21c10d111d165c31">More Info</a></li>
-                        </ul>
-                     </div><h2 id="aws-resource-ec2-volume-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-resource-ec2-volume-syntax.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">
-{
-   &quot;Type&quot;:&quot;AWS::EC2::Volume&quot;,
-   &quot;Properties&quot; : {
-      &quot;<a href="aws-properties-ec2-ebs-volume.html#cfn-ec2-ebs-volume-autoenableio">AutoEnableIO</a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
-      &quot;<a href="aws-properties-ec2-ebs-volume.html#cfn-ec2-ebs-volume-availabilityzone">AvailabilityZone</a>&quot; : <em class="replaceable"><code>String</code></em>,
-      &quot;<a href="aws-properties-ec2-ebs-volume.html#cfn-ec2-ebs-volume-encrypted">Encrypted</a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
-      &quot;<a href="aws-properties-ec2-ebs-volume.html#cfn-ec2-ebs-volume-iops">Iops</a>&quot; : <em class="replaceable"><code>Number</code></em>,
-      &quot;<a href="aws-properties-ec2-ebs-volume.html#cfn-ec2-ebs-volume-kmskeyid">KmsKeyId</a>&quot; : <em class="replaceable"><code>String</code></em>,
-      &quot;<a href="aws-properties-ec2-ebs-volume.html#cfn-ec2-ebs-volume-size">Size</a>&quot; : <em class="replaceable"><code>Integer</code></em>,
-      &quot;<a href="aws-properties-ec2-ebs-volume.html#cfn-ec2-ebs-volume-snapshotid">SnapshotId</a>&quot; : <em class="replaceable"><code>String</code></em>,
-      &quot;<a href="aws-properties-ec2-ebs-volume.html#cfn-ec2-ebs-volume-tags">Tags</a>&quot; : [ <em class="replaceable"><code>Resource Tag, ...</code></em> ],
-      &quot;<a href="aws-properties-ec2-ebs-volume.html#cfn-ec2-ebs-volume-volumetype">VolumeType</a>&quot; : <em class="replaceable"><code>String</code></em>
-   }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-resource-ec2-volume-syntax.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">
-Type: AWS::EC2::Volume
-Properties:
-  <a href="aws-properties-ec2-ebs-volume.html#cfn-ec2-ebs-volume-autoenableio">AutoEnableIO</a>: <em class="replaceable"><code>Boolean</code></em>
-  <a href="aws-properties-ec2-ebs-volume.html#cfn-ec2-ebs-volume-availabilityzone">AvailabilityZone</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-properties-ec2-ebs-volume.html#cfn-ec2-ebs-volume-encrypted">Encrypted</a>: <em class="replaceable"><code>Boolean</code></em>
-  <a href="aws-properties-ec2-ebs-volume.html#cfn-ec2-ebs-volume-iops">Iops</a>: <em class="replaceable"><code>Number</code></em>
-  <a href="aws-properties-ec2-ebs-volume.html#cfn-ec2-ebs-volume-kmskeyid">KmsKeyId</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-properties-ec2-ebs-volume.html#cfn-ec2-ebs-volume-size">Size</a>: <em class="replaceable"><code>Integer</code></em>
-  <a href="aws-properties-ec2-ebs-volume.html#cfn-ec2-ebs-volume-snapshotid">SnapshotId</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-properties-ec2-ebs-volume.html#cfn-ec2-ebs-volume-tags">Tags</a>:
-    - <em class="replaceable"><code>Resource Tag</code></em>
-  <a href="aws-properties-ec2-ebs-volume.html#cfn-ec2-ebs-volume-volumetype">VolumeType</a>: <em class="replaceable"><code>String</code></em>
-</code></pre>
-                        </div><h2 id="w2ab1c21c10d111d165c25">Properties</h2><div class="variablelist">
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
+                     </div><h2 id="aws-properties-ec2-ebs-volume-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-properties-ec2-ebs-volume-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;Type&quot; : &quot;AWS::EC2::Volume&quot;,
+  &quot;Properties&quot; : {
+      &quot;<a href="#cfn-ec2-ebs-volume-autoenableio">AutoEnableIO</a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
+      &quot;<a href="#cfn-ec2-ebs-volume-availabilityzone">AvailabilityZone</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-ec2-ebs-volume-encrypted">Encrypted</a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
+      &quot;<a href="#cfn-ec2-ebs-volume-iops">Iops</a>&quot; : <em class="replaceable"><code>Integer</code></em>,
+      &quot;<a href="#cfn-ec2-ebs-volume-kmskeyid">KmsKeyId</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-ec2-ebs-volume-size">Size</a>&quot; : <em class="replaceable"><code>Integer</code></em>,
+      &quot;<a href="#cfn-ec2-ebs-volume-snapshotid">SnapshotId</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-ec2-ebs-volume-tags">Tags</a>&quot; : <em class="replaceable"><code>[ <a href="aws-properties-resource-tags.html">Tag</a>, ... ]</code></em>,
+      &quot;<a href="#cfn-ec2-ebs-volume-volumetype">VolumeType</a>&quot; : <em class="replaceable"><code>String</code></em>
+    }
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-properties-ec2-ebs-volume-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Type: AWS::EC2::Volume
+Properties: 
+  <a href="#cfn-ec2-ebs-volume-autoenableio">AutoEnableIO</a>: <em class="replaceable"><code>Boolean</code></em>
+  <a href="#cfn-ec2-ebs-volume-availabilityzone">AvailabilityZone</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-ec2-ebs-volume-encrypted">Encrypted</a>: <em class="replaceable"><code>Boolean</code></em>
+  <a href="#cfn-ec2-ebs-volume-iops">Iops</a>: <em class="replaceable"><code>Integer</code></em>
+  <a href="#cfn-ec2-ebs-volume-kmskeyid">KmsKeyId</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-ec2-ebs-volume-size">Size</a>: <em class="replaceable"><code>Integer</code></em>
+  <a href="#cfn-ec2-ebs-volume-snapshotid">SnapshotId</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-ec2-ebs-volume-tags">Tags</a>: <em class="replaceable"><code>
+    - <a href="aws-properties-resource-tags.html">Tag</a></code></em>
+  <a href="#cfn-ec2-ebs-volume-volumetype">VolumeType</a>: <em class="replaceable"><code>String</code></em>
+</code></pre></div><h2 id="aws-properties-ec2-ebs-volume-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
                            <dt><a id="cfn-ec2-ebs-volume-autoenableio"></a><span class="term"><code class="code">AutoEnableIO</code></span></dt>
-                           
                            <dd>
                               
-                              <p>Indicates whether the volume is auto-enabled for I/O operations. By default,
+                              <p>Indicates whether the volume is auto-enabled for I/O operations. By default, 
                                  Amazon EBS disables I/O to the volume from attached EC2 instances when it determines
+                                 
                                  that a volume&apos;s data is potentially inconsistent. If the consistency of the volume
-                                 is not a concern, and you prefer that the volume be made available immediately if
-                                 it&apos;s impaired, you can configure the volume to automatically enable I/O. For more
-                                 information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-volume-status.html#volumeIO">Working with the AutoEnableIO Volume Attribute</a> in the
-                                 <em>Amazon EC2 User Guide for Linux Instances</em>.
+                                 is 
+                                 not a concern, and you prefer that the volume be made available immediately if it&apos;s
+                                 
+                                 impaired, you can configure the volume to automatically enable I/O. 
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: Boolean
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-ec2-ebs-volume-availabilityzone"></a><span class="term"><code class="literal">AvailabilityZone</code></span></dt>
-                           
+                           <dt><a id="cfn-ec2-ebs-volume-availabilityzone"></a><span class="term"><code class="code">AvailabilityZone</code></span></dt>
                            <dd>
                               
-                              <p>The Availability Zone in which to create the new volume.</p>
+                              <p>The Availability Zone in which to create the volume.</p>
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
-                              <p><em>Update requires</em>: Updates are not supported.
-                              </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-ec2-ebs-volume-encrypted"></a><span class="term"><code class="literal">Encrypted</code></span></dt>
-                           
+                           <dt><a id="cfn-ec2-ebs-volume-encrypted"></a><span class="term"><code class="code">Encrypted</code></span></dt>
                            <dd>
                               
-                              <p>Indicates whether the volume is encrypted. You can attach encrypted Amazon EBS
-                                 volumes only to instance types that support Amazon EBS encryption. Volumes that are
-                                 created from encrypted snapshots are automatically encrypted. You can&apos;t create an
-                                 encrypted volume from an unencrypted snapshot, or vice versa. If your AMI uses
-                                 encrypted volumes, you can launch the AMI only on supported instance types. For
-                                 more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS
-                                    encryption</a> in the <em>Amazon EC2 User Guide for Linux Instances</em>.
+                              <p>Specifies whether the volume should be encrypted. 
+                                 The effect of setting the encryption state to <code class="code">true</code> depends on 
+                                 the volume origin (new or from a snapshot), starting encryption state, ownership,
+                                 and whether encryption by default is enabled. 
+                                 For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#encryption-by-default">Encryption by Default</a>
+                                 in the <em>Amazon Elastic Compute Cloud User Guide</em>.
                               </p>
                               
-                              <p><em>Required</em>: Conditional. If you specify the <code class="code">KmsKeyId</code> property, you
-                                 must enable encryption.
+                              <p>Encrypted Amazon EBS volumes must be attached to instances that support Amazon EBS
+                                 encryption. 
+                                 For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances">Supported
+                                    Instance Types</a>.
                               </p>
                               
+                              <p><em>Required</em>: No
+                              </p>
                               <p><em>Type</em>: Boolean
                               </p>
-                              
-                              <p><em>Update requires</em>: Updates are not supported.
-                              </p>
-                              
-                           </dd>
-                           
-                           
-                           <dt><a id="cfn-ec2-ebs-volume-iops"></a><span class="term"><code class="literal">Iops</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>The number of I/O operations per second (IOPS) that the volume supports. For more
-                                 information about the valid sizes for each volume type, see the <code class="code">Iops</code> parameter for the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVolume.html"><code class="code">CreateVolume</code></a> action in the <em>Amazon EC2 API Reference</em>.
-                              </p>
-                              
-                              <p><em>Required</em>: Conditional. <em>Required</em> when the volume type is
-                                 <code class="code">io1</code>; not used with other volume types.
-                              </p>
-                              
-                              <p><em>Type</em>: Number
-                              </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-ec2-ebs-volume-kmskeyid"></a><span class="term"><code class="literal">KmsKeyId</code></span></dt>
-                           
+                           <dt><a id="cfn-ec2-ebs-volume-iops"></a><span class="term"><code class="code">Iops</code></span></dt>
                            <dd>
                               
-                              <p>The Amazon Resource Name (ARN) of the AWS Key Management Service master key that is
-                                 used to
-                                 create the encrypted volume, such as
-                                 <code class="code">arn:aws:kms:</code><span><code class="code">us-east-2</code></span><code class="code">:012345678910:key/abcd1234-a123-456a-a12b-a123b4cd56ef</code>.
-                                 If you create an encrypted volume and don&apos;t specify this property, AWS CloudFormation
-                                 uses the
-                                 default master key.
+                              <p>The number of I/O operations per second (IOPS) to provision for the volume, with a
+                                 maximum
+                                 ratio of 50 IOPS/GiB. Range is 100 to 64,000 IOPS for
+                                 volumes in most Regions. Maximum IOPS of 64,000 is guaranteed only on
+                                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Nitro-based instances</a>. Other instance families guarantee performance up to
+                                 32,000 IOPS. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS Volume Types</a> in the
+                                 <em>Amazon Elastic Compute Cloud User Guide</em>.
                               </p>
+                              
+                              <p>This parameter is valid only for Provisioned IOPS SSD (io1) volumes.</p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: String
-                              </p>
-                              
-                              <p><em>Update requires</em>: Updates are not supported.
-                              </p>
-                              
-                           </dd>
-                           
-                           
-                           <dt><a id="cfn-ec2-ebs-volume-size"></a><span class="term"><code class="literal">Size</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>The size of the volume, in gibibytes (GiBs). For more information about the valid
-                                 sizes for each volume type, see the <code class="code">Size</code> parameter for the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVolume.html"><code class="code">CreateVolume</code></a> action in the <em>Amazon EC2 API Reference</em>.
-                              </p>
-                              
-                              <p>If you specify the <code class="code">SnapshotId</code> property, specify a size that is
-                                 equal to or greater than the size of the snapshot. If you don&apos;t specify a size,
-                                 EC2 uses the size of the snapshot as the volume size.
-                              </p>
-                              
-                              <p><em>Required</em>: Conditional. If you don&apos;t specify a value for the
-                                 <code class="code">SnapshotId</code> property, you must specify this property.
-                              </p>
-                              
                               <p><em>Type</em>: Integer
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-ec2-ebs-volume-snapshotid"></a><span class="term"><code class="literal">SnapshotId</code></span></dt>
-                           
+                           <dt><a id="cfn-ec2-ebs-volume-kmskeyid"></a><span class="term"><code class="code">KmsKeyId</code></span></dt>
                            <dd>
                               
-                              <p>The snapshot from which to create the new volume.</p>
+                              <p>The identifier of the AWS Key Management Service (AWS KMS) customer master key (CMK)
+                                 to use for Amazon EBS encryption.
+                                 If this parameter is not specified, your AWS managed CMK for EBS is used. If <code class="code">KmsKeyId</code> is
+                                 specified, the encrypted state must be <code class="code">true</code>.
+                              </p>
+                              
+                              <p>You can specify the CMK using any of the following:</p>
+                              
+                              <div class="itemizedlist">
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 <ul class="itemizedlist" type="disc">
+                                    <li class="listitem">
+                                       
+                                       <p>Key ID. For example, key/1234abcd-12ab-34cd-56ef-1234567890ab.</p>
+                                       
+                                    </li>
+                                    <li class="listitem">
+                                       
+                                       <p>Key alias. For example, alias/ExampleAlias.</p>
+                                       
+                                    </li>
+                                    <li class="listitem">
+                                       
+                                       <p>Key ARN. For example, arn:aws:kms:<em>us-east-1</em>:<em>012345678910</em>:key/<em>abcd1234-a123-456a-a12b-a123b4cd56ef</em>.
+                                       </p>
+                                       
+                                    </li>
+                                    <li class="listitem">
+                                       
+                                       <p>Alias ARN. For example, arn:aws:kms:<em>us-east-1</em>:<em>012345678910</em>:alias/<em>ExampleAlias</em>.
+                                       </p>
+                                       
+                                    </li>
+                                 </ul>
+                              </div>
+                              
+                              <p>AWS authenticates the CMK asynchronously. Therefore, if you specify an ID, alias,
+                                 or ARN that is not valid, 
+                                 the action can appear to complete, but eventually fails.
+                              </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
-                              <p><em>Update requires</em>: Updates are not supported.
-                              </p>
-                              
-                           </dd>
-                           
-                           
-                           <dt><a id="cfn-ec2-ebs-volume-tags"></a><span class="term"><code class="literal">Tags</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>An arbitrary set of tags (key&#x2013;value pairs) for this volume.</p>
-                              
-                              <p><em>Required</em>: No
-                              </p>
-                              
-                              <p><em>Type</em>: <a href="aws-properties-resource-tags.html">Resource Tag</a></p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-ec2-ebs-volume-volumetype"></a><span class="term"><code class="literal">VolumeType</code></span></dt>
-                           
+                           <dt><a id="cfn-ec2-ebs-volume-size"></a><span class="term"><code class="code">Size</code></span></dt>
                            <dd>
                               
-                              <p>The volume type. If you set the type to <code class="code">io1</code>, you must also set the <code class="code">Iops</code> property. For valid values, see the <code class="code">VolumeType</code> parameter for the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVolume.html">CreateVolume</a> action in the <em>Amazon EC2 API Reference</em>.
+                              <p>The size of the volume, in GiBs.</p>
+                              
+                              <p>Constraints: 1-16,384 for <code class="code">gp2</code>,
+                                 4-16,384 for <code class="code">io1</code>, 500-16,384 for
+                                 <code class="code">st1</code>, 500-16,384 for <code class="code">sc1</code>, and
+                                 1-1,024 for <code class="code">standard</code>. If you specify a
+                                 snapshot, the volume size must be equal to or larger than the snapshot size.
                               </p>
+                              
+                              <p>Default: If you&apos;re creating the volume from a snapshot and don&apos;t specify a volume
+                                 size,
+                                 the default is the snapshot size.
+                              </p>
+                              
+                              <div class="aws-note">
+                                 <p class="aws-note">Note</p>
+                                 <p>At least one of Size or SnapshotId is required.</p>
+                              </div>
                               
                               <p><em>Required</em>: No
                               </p>
+                              <p><em>Type</em>: Integer
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                           </dd>
+                           <dt><a id="cfn-ec2-ebs-volume-snapshotid"></a><span class="term"><code class="code">SnapshotId</code></span></dt>
+                           <dd>
                               
+                              <p>The snapshot from which to create the volume.</p>
+                              
+                              <div class="aws-note">
+                                 <p class="aws-note">Note</p>
+                                 <p>At least one of Size or SnapshotId are required.</p>
+                              </div>
+                              
+                              <p><em>Required</em>: No
+                              </p>
                               <p><em>Type</em>: String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
+                           <dt><a id="cfn-ec2-ebs-volume-tags"></a><span class="term"><code class="code">Tags</code></span></dt>
+                           <dd>
+                              
+                              <p>The tags to apply to the volume during creation.</p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              <p><em>Type</em>: List of <a href="aws-properties-resource-tags.html">Tag</a></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                           </dd>
+                           <dt><a id="cfn-ec2-ebs-volume-volumetype"></a><span class="term"><code class="code">VolumeType</code></span></dt>
+                           <dd>
+                              
+                              <p>The volume type. This can be <code class="code">gp2</code> for General Purpose SSD, <code class="code">io1</code> for Provisioned IOPS SSD,
+                                 <code class="code">st1</code> for Throughput Optimized HDD, <code class="code">sc1</code> for Cold HDD, or
+                                 <code class="code">standard</code> for Magnetic volumes.
+                              </p>
+                              
+                              <p>Defaults: If no volume type is specified, the default is <code class="code">standard</code> in
+                                 us-east-1, eu-west-1, eu-central-1, us-west-2, us-west-1, sa-east-1, ap-northeast-1,
+                                 ap-northeast-2, ap-southeast-1, ap-southeast-2, ap-south-1, us-gov-west-1, and cn-north-1.
+                                 In
+                                 all other Regions, EBS defaults to <code class="code">gp2</code>.
+                              </p>
+                              
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              <p><em>Type</em>: String
+                              </p>
+                              <p><em>Allowed Values</em>: <code class="code">gp2 | io1 | sc1 | st1 | standard</code></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                           </dd>
                         </dl>
-                     </div><h2 id="w2ab1c21c10d111d165c27">Return Values</h2><h3 id="w2ab1c21c10d111d165c27b2">Ref</h3><p>When you specify an <code class="code">AWS::EC2::Volume</code> type as an argument to the <code class="code">Ref</code>
-                        function, AWS CloudFormation returns the volume&apos;s physical ID. For example: <code class="code">vol-5cb85026</code>.
+                     </div><h2 id="aws-properties-ec2-ebs-volume-return-values">Return Values</h2><h3 id="aws-properties-ec2-ebs-volume-return-values-ref">Ref</h3><p>When you pass the logical ID of this resource to the intrinsic <code class="code">Ref</code> function, <code class="code">Ref</code> returns the resource name. For example:  <code class="code">vol-5cb85026</code>.
                      </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                     </p><h2 id="w2ab1c21c10d111d165c29">Examples</h2><div class="example">
-                        <p class="title"><b>Example Encrypted Amazon EBS Volume with DeletionPolicy to Make a Snapshot on Delete</b></p>
-                        <div class="example-contents"><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">
-&quot;NewVolume&quot; : {
+                     </p><h2 id="aws-properties-ec2-ebs-volume--examples">Examples</h2><h3 id="aws-properties-ec2-ebs-volume--examples--Encrypted_Amazon_EBS_Volume_with_DeletionPolicy_to_Make_a_Snapshot_on_Delete">Encrypted Amazon EBS Volume with DeletionPolicy to Make a Snapshot on Delete</h3><h4 id="aws-properties-ec2-ebs-volume--examples--Encrypted_Amazon_EBS_Volume_with_DeletionPolicy_to_Make_a_Snapshot_on_Delete--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">&quot;NewVolume&quot; : {
    &quot;Type&quot; : &quot;AWS::EC2::Volume&quot;,
    &quot;Properties&quot; : {
       &quot;Size&quot; : &quot;100&quot;,
@@ -329,36 +301,43 @@ Properties:
       } ]
    },
    &quot;DeletionPolicy&quot; : &quot;Snapshot&quot;
-}
-         </code></pre></div>
-                     </div><div class="example">
-                        <p class="title"><b>Example Amazon EBS Volume with 100 Provisioned IOPS</b></p>
-                        <div class="example-contents"><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">
-&quot;NewVolume&quot; : {
+}</code></pre><h4 id="aws-properties-ec2-ebs-volume--examples--Encrypted_Amazon_EBS_Volume_with_DeletionPolicy_to_Make_a_Snapshot_on_Delete--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">NewVolume:
+  Type: AWS::EC2::Volume
+  Properties: 
+    Size: 100
+    Encrypted: true
+    AvailabilityZone: !GetAtt Ec2Instance.AvailabilityZone
+    Tags:
+      - Key: MyTag
+        Value: TagValue
+  DeletionPolicy: Snapshot</code></pre><h3 id="aws-properties-ec2-ebs-volume--examples--Amazon_EBS_Volume_with_100_Provisioned_IOPS">Amazon EBS Volume with 100 Provisioned IOPS</h3><h4 id="aws-properties-ec2-ebs-volume--examples--Amazon_EBS_Volume_with_100_Provisioned_IOPS--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">&quot;NewVolume&quot; : {
    &quot;Type&quot; : &quot;AWS::EC2::Volume&quot;,
    &quot;Properties&quot; : {
-     &quot;Size&quot; : &quot;100&quot;,
-     &quot;VolumeType&quot; : &quot;io1&quot;,
-     &quot;Iops&quot; : &quot;100&quot;,
-     &quot;AvailabilityZone&quot; : { &quot;Fn::GetAtt&quot; : [ &quot;EC2Instance&quot;, &quot;AvailabilityZone&quot; ] }
+      &quot;Size&quot; : &quot;100&quot;,
+      &quot;VolumeType&quot; : &quot;io1&quot;,
+      &quot;Iops&quot; : &quot;100&quot;,
+      &quot;AvailabilityZone&quot; : { &quot;Fn::GetAtt&quot; : [ &quot;EC2Instance&quot;, &quot;AvailabilityZone&quot; ] }
    }
-}        </code></pre></div>
-                     </div><h2 id="w2ab1c21c10d111d165c31">More Info</h2><div class="itemizedlist">
-                        
-                        
-                        
+}</code></pre><h4 id="aws-properties-ec2-ebs-volume--examples--Amazon_EBS_Volume_with_100_Provisioned_IOPS--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">NewVolume:
+  Type: AWS::EC2::Volume
+  Properties: 
+    Size: 100
+    VolumeType: io1
+    Iops: 100
+    AvailabilityZone: !GetAtt Ec2Instance.AvailabilityZone</code></pre><h2 id="aws-properties-ec2-ebs-volume--seealso">See Also</h2><div class="itemizedlist">
+                        				        
+                        			      
                         <ul class="itemizedlist" type="disc">
                            <li class="listitem">
-                              
-                              <p><a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVolume.html">CreateVolume</a> in the <em>Amazon Elastic Compute Cloud API Reference</em></p>
-                              
-                           </li>
-                           <li class="listitem">
-                              
-                              <p><a href="aws-attribute-deletionpolicy.html">DeletionPolicy Attribute</a></p>
-                              
+                              					          
+                              <p>
+                                 						            <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html">
+                                    							CreateVolume</a> in the <em>Amazon Elastic Compute Cloud API Reference</em></p>
+                              				        
                            </li>
                         </ul>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
                      </div></div>
 </body>
 </html>

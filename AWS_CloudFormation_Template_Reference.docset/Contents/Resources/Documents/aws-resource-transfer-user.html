@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="css/awsdocs.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/awsdocs.min.js"></script>
+    <meta charset="utf-8">
+</head>
+<body>
+    <div id="content" style="padding: 10px 30px;">
+    <h1 class="topictitle" id="aws-resource-transfer-user">AWS::Transfer::User</h1><p>Creates a user and associates them with an existing Secure File Transfer Protocol
+                        (SFTP)
+                        server. You can only create and associate users with SFTP servers that have the <code class="code">IdentityProviderType</code>
+                        set to <code class="code">SERVICE_MANAGED</code>. Using parameters for <code class="code">CreateUser</code>, you can specify the user name, set the
+                        home directory, store the user&apos;s public key, and assign the user&apos;s AWS Identity and
+                        Access
+                        Management (IAM) role. You can also optionally add a scope-down policy, and assign
+                        metadata
+                        with tags that can be used to group and search for users.
+                     </p><h2 id="aws-resource-transfer-user-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-resource-transfer-user-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;Type&quot; : &quot;AWS::Transfer::User&quot;,
+  &quot;Properties&quot; : {
+      &quot;<a href="#cfn-transfer-user-homedirectory">HomeDirectory</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-transfer-user-policy">Policy</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-transfer-user-role">Role</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-transfer-user-serverid">ServerId</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-transfer-user-sshpublickeys">SshPublicKeys</a>&quot; : <em class="replaceable"><code>[ <a href="aws-properties-transfer-user-sshpublickey.html">SshPublicKey</a>, ... ]</code></em>,
+      &quot;<a href="#cfn-transfer-user-tags">Tags</a>&quot; : <em class="replaceable"><code>[ <a href="aws-properties-resource-tags.html">Tag</a>, ... ]</code></em>,
+      &quot;<a href="#cfn-transfer-user-username">UserName</a>&quot; : <em class="replaceable"><code>String</code></em>
+    }
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-transfer-user-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Type: AWS::Transfer::User
+Properties: 
+  <a href="#cfn-transfer-user-homedirectory">HomeDirectory</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-transfer-user-policy">Policy</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-transfer-user-role">Role</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-transfer-user-serverid">ServerId</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-transfer-user-sshpublickeys">SshPublicKeys</a>: <em class="replaceable"><code>
+    - <a href="aws-properties-transfer-user-sshpublickey.html">SshPublicKey</a></code></em>
+  <a href="#cfn-transfer-user-tags">Tags</a>: <em class="replaceable"><code>
+    - <a href="aws-properties-resource-tags.html">Tag</a></code></em>
+  <a href="#cfn-transfer-user-username">UserName</a>: <em class="replaceable"><code>String</code></em>
+</code></pre></div><h2 id="aws-resource-transfer-user-properties">Properties</h2><div class="variablelist">
+                        <dl>
+                           <dt><a id="cfn-transfer-user-homedirectory"></a><span class="term"><code class="code">HomeDirectory</code></span></dt>
+                           <dd>
+                              
+                              <p>The landing directory (folder) for a user when they log in to the server using their
+                                 SFTP
+                                 client. An example is <code class="code">/home/<em>username</em>
+                                    </code>.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              <p><em>Type</em>: String
+                              </p>
+                              <p><em>Maximum</em>: <code class="code">1024</code></p>
+                              <p><em>Pattern</em>: <code class="code">^$|/.*</code></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                           </dd>
+                           <dt><a id="cfn-transfer-user-policy"></a><span class="term"><code class="code">Policy</code></span></dt>
+                           <dd>
+                              
+                              <p>A scope-down policy for your user so you can use the same IAM role across multiple
+                                 users.
+                                 This policy scopes down user access to portions of their Amazon S3 bucket. Variables
+                                 that you
+                                 can use inside this policy include <code class="code">${Transfer:UserName}</code>,
+                                 <code class="code">${Transfer:HomeDirectory}</code>, and <code class="code">${Transfer:HomeBucket}</code>.
+                              </p>
+                              
+                              <div class="aws-note">
+                                 <p class="aws-note">Note</p>
+                                 <p>For scope-down policies, AWS Transfer for SFTP stores the policy as a JSON blob, instead
+                                    of the Amazon Resource Name (ARN) of the policy. You save the policy as a JSON blob
+                                    and pass
+                                    it in the <code class="code">Policy</code> argument.
+                                 </p>
+                                 <p>For an example of a scope-down policy, see 
+                                    <a href="https://docs.aws.amazon.com/transfer/latest/userguide/users.html#users-policies-scope-down">Creating a Scope-Down Policy</a>.
+                                 </p>
+                                 <p>For more information, see <a href="https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html">AssumeRole</a> 
+                                    in the <em>AWS Security Token Service API Reference</em>.
+                                 </p>
+                              </div>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              <p><em>Type</em>: String
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                           </dd>
+                           <dt><a id="cfn-transfer-user-role"></a><span class="term"><code class="code">Role</code></span></dt>
+                           <dd>
+                              
+                              <p>The IAM role that controls your user&apos;s access to your Amazon S3 bucket. The policies
+                                 attached to this role will determine the level of access you want to provide your
+                                 users when
+                                 transferring files into and out of your Amazon S3 bucket or buckets. The IAM role
+                                 should also
+                                 contain a trust relationship that allows the SFTP server to access your resources
+                                 when
+                                 servicing your SFTP user&apos;s transfer requests.
+                              </p>
+                              
+                              <p><em>Required</em>: Yes
+                              </p>
+                              <p><em>Type</em>: String
+                              </p>
+                              <p><em>Pattern</em>: <code class="code">arn:.*role/.*</code></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                           </dd>
+                           <dt><a id="cfn-transfer-user-serverid"></a><span class="term"><code class="code">ServerId</code></span></dt>
+                           <dd>
+                              
+                              <p>A system-assigned unique identifier for an SFTP server instance. This is the specific
+                                 SFTP
+                                 server that you added your user to.
+                              </p>
+                              
+                              <p><em>Required</em>: Yes
+                              </p>
+                              <p><em>Type</em>: String
+                              </p>
+                              <p><em>Pattern</em>: <code class="code">^s-([0-9a-f]{17})$</code></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                           </dd>
+                           <dt><a id="cfn-transfer-user-sshpublickeys"></a><span class="term"><code class="code">SshPublicKeys</code></span></dt>
+                           <dd>
+                              
+                              <p>This property contains the public key portion of the Secure Shell (SSH) keys stored
+                                 for
+                                 the described user.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              <p><em>Type</em>: List of <a href="aws-properties-transfer-user-sshpublickey.html">SshPublicKey</a></p>
+                              <p><em>Maximum</em>: <code class="code">5</code></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                           </dd>
+                           <dt><a id="cfn-transfer-user-tags"></a><span class="term"><code class="code">Tags</code></span></dt>
+                           <dd>
+                              
+                              <p>Key-value pairs that can be used to group and search for users. Tags are metadata
+                                 attached
+                                 to users for any purpose.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              <p><em>Type</em>: List of <a href="aws-properties-resource-tags.html">Tag</a></p>
+                              <p><em>Maximum</em>: <code class="code">50</code></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                           </dd>
+                           <dt><a id="cfn-transfer-user-username"></a><span class="term"><code class="code">UserName</code></span></dt>
+                           <dd>
+                              
+                              <p>A unique string that identifies a user and is associated with a server as specified
+                                 by the
+                                 <code class="code">ServerId</code>. This user name must be a minimum of 3 and a maximum of 32 characters
+                                 long. The following are valid characters: a-z, A-Z, 0-9, underscore, and hyphen. The
+                                 user name
+                                 can&apos;t start with a hyphen.
+                              </p>
+                              
+                              <p><em>Required</em>: Yes
+                              </p>
+                              <p><em>Type</em>: String
+                              </p>
+                              <p><em>Pattern</em>: <code class="code">^[a-zA-Z0-9_][a-zA-Z0-9_-]{2,31}$</code></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                           </dd>
+                        </dl>
+                     </div><h2 id="aws-resource-transfer-user-return-values">Return Values</h2><h3 id="aws-resource-transfer-user-return-values-ref">Ref</h3><p> When you pass the logical ID of this resource to the intrinsic <code class="code">Ref</code> function, <code class="code">Ref</code> returns the username, such as <code class="code">sftp_user</code>.
+                        
+                     </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
+                     </p><h3 id="aws-resource-transfer-user-return-values-fn--getatt">Fn::GetAtt</h3><p>The <code class="code">Fn::GetAtt</code> intrinsic function returns a value for a specified attribute of this type. The following
+                        are the available attributes and sample return values.
+                     </p><p>For more information about using the <code class="code">Fn::GetAtt</code> intrinsic function, see <a href="intrinsic-function-reference-getatt.html">Fn::GetAtt</a>.
+                     </p><h4 id="aws-resource-transfer-user-return-values-fn--getatt-fn--getatt"></h4><div class="variablelist">
+                        <dl>
+                           <dt><a id="Arn-fn::getatt"></a><span class="term"><code class="code">Arn</code></span></dt>
+                           <dd>
+                              
+                              <p>The Amazon Resource Name associated with the AWS Transfer SFTP user, in 
+                                 the form <code class="code">arn:aws:transfer:region:<em>account-id</em>:user/<em>server-id</em>/<em>username</em></code>.
+                              </p>
+                              
+                              <p>An example of a user ARN is: <code class="code">arn:aws:transfer:us-east-1:123456789012:user/user1</code>.
+                              </p>
+                              
+                           </dd>
+                           <dt><a id="ServerId-fn::getatt"></a><span class="term"><code class="code">ServerId</code></span></dt>
+                           <dd>
+                              
+                              <p>The ID of the SFTP server to which the user is attached.</p>
+                              
+                              <p>An example <code class="code">ServerId</code> is <code class="code">s-01234567890abcdef</code>.
+                              </p>
+                              
+                           </dd>
+                           <dt><a id="UserName-fn::getatt"></a><span class="term"><code class="code">UserName</code></span></dt>
+                           <dd>
+                              
+                              <p>A unique string that identifies a user account associated with an SFTP server.</p>
+                              
+                              <p>An example <code class="code">UserName</code> is <code class="code">sftp-user-1</code>.
+                              </p>
+                              
+                           </dd>
+                        </dl>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
+                     </div></div>
+</body>
+</html>

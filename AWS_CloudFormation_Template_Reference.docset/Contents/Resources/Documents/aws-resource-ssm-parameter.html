@@ -8,166 +8,189 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-resource-ssm-parameter">AWS::SSM::Parameter</h1><p>The <code class="code">AWS::SSM::Parameter</code> resource creates an SSM parameter in AWS Systems Manager
-                        Parameter Store.
-                     </p><p>For information about valid values for parameters, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html">Requirements and Constraints for
-                           Parameter Names</a> in the <em>AWS Systems Manager User Guide</em> and <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PutParameter.html">PutParameter</a> in the
-                        <em>AWS Systems Manager API Reference</em>.
-                     </p><div class="highlights" id="inline-topiclist">
-                        <p><strong>Topics</strong></p>
-                        <ul>
-                           <li><a href="#aws-resource-ssm-parameter-syntax">Syntax</a></li>
-                           <li><a href="#aws-resource-ssm-parameter-properties">Properties</a></li>
-                           <li><a href="#aws-resource-ssm-parameter-returnvalues">Return Value</a></li>
-                           <li><a href="#aws-resource-ssm-parameter-examples">Examples</a></li>
-                        </ul>
-                     </div><h2 id="aws-resource-ssm-parameter-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
-                        
-                        <h3 id="aws-resource-ssm-parameter-syntax.json">JSON</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
+    <h1 class="topictitle" id="aws-resource-ssm-parameter">AWS::SSM::Parameter</h1><p>The <code class="code">AWS::SSM::Parameter</code> resource creates an SSM parameter in AWS Systems
+                        Manager Parameter Store.
+                     </p><div class="aws-note">
+                        <p class="aws-note">Important</p>
+                        <p>To create an SSM parameter, you must have the AWS Identity and Access Management
+                           (IAM) permissions <code class="code">ssm:PutParameter</code> and <code class="code">ssm:AddTagsToResource</code>.
+                           On stack creation, AWS CloudFormation adds the following three tags to the parameter:
+                           <code class="code">aws:cloudformation:stack-name</code>,
+                           <code class="code">aws:cloudformation:logical-id</code>, and
+                           <code class="code">aws:cloudformation:stack-id</code>, in addition to any custom tags you
+                           specify.
+                        </p>
+                        <p>To add, update, or remove tags during stack update, you must have IAM permissions
+                           for
+                           both <code class="code">ssm:AddTagsToResource</code> and <code class="code">ssm:RemoveTagsFromResource</code>. For
+                           more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/auth-and-access-control-permissions-reference.html">AWS Systems Manager Permissions Reference</a> in the <em>AWS Systems
+                              Manager User Guide</em>.
+                        </p>
+                     </div><p>For information about valid values for parameters, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html">Requirements and Constraints for Parameter Names</a> in the <em>AWS Systems
+                           Manager User Guide</em> and <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PutParameter.html">PutParameter</a> in
+                        the <em>AWS Systems Manager API Reference</em>.
+                     </p><h2 id="aws-resource-ssm-parameter-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-resource-ssm-parameter-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
   &quot;Type&quot; : &quot;AWS::SSM::Parameter&quot;,
   &quot;Properties&quot; : {
-    &quot;<a href="aws-resource-ssm-parameter.html#cfn-ssm-parameter-allowedpattern">AllowedPattern</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-ssm-parameter.html#cfn-ssm-parameter-description">Description</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-ssm-parameter.html#cfn-ssm-parameter-name">Name</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-ssm-parameter.html#cfn-ssm-parameter-type">Type</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-ssm-parameter.html#cfn-ssm-parameter-value">Value</a>&quot; : <em class="replaceable"><code>String</code></em>
-  }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        
-                        <h3 id="aws-resource-ssm-parameter-syntax.yaml">YAML</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">Type: &quot;AWS::SSM::Parameter&quot;
+      &quot;<a href="#cfn-ssm-parameter-allowedpattern">AllowedPattern</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-ssm-parameter-description">Description</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-ssm-parameter-name">Name</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-ssm-parameter-policies">Policies</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-ssm-parameter-tags">Tags</a>&quot; : <em class="replaceable"><code>Json</code></em>,
+      &quot;<a href="#cfn-ssm-parameter-tier">Tier</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-ssm-parameter-type">Type</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-ssm-parameter-value">Value</a>&quot; : <em class="replaceable"><code>String</code></em>
+    }
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-ssm-parameter-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Type: AWS::SSM::Parameter
 Properties: 
-  <a href="aws-resource-ssm-parameter.html#cfn-ssm-parameter-allowedpattern">AllowedPattern</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-ssm-parameter.html#cfn-ssm-parameter-description">Description</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-ssm-parameter.html#cfn-ssm-parameter-name">Name</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-ssm-parameter.html#cfn-ssm-parameter-type">Type</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-ssm-parameter.html#cfn-ssm-parameter-value">Value</a>: <em class="replaceable"><code>String</code></em>
-</code></pre>
-                        </div><h2 id="aws-resource-ssm-parameter-properties">Properties</h2><div class="variablelist">
-                        
-                        
-                        
-                        
-                        
-                        
+  <a href="#cfn-ssm-parameter-allowedpattern">AllowedPattern</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-ssm-parameter-description">Description</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-ssm-parameter-name">Name</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-ssm-parameter-policies">Policies</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-ssm-parameter-tags">Tags</a>: <em class="replaceable"><code>Json</code></em>
+  <a href="#cfn-ssm-parameter-tier">Tier</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-ssm-parameter-type">Type</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-ssm-parameter-value">Value</a>: <em class="replaceable"><code>String</code></em>
+</code></pre></div><h2 id="aws-resource-ssm-parameter-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
                            <dt><a id="cfn-ssm-parameter-allowedpattern"></a><span class="term"><code class="code">AllowedPattern</code></span></dt>
-                           
                            <dd>
                               
                               <p>A regular expression used to validate the parameter value. For example, for String
-                                 types with values restricted to numbers, you can specify the following: <code class="literal">AllowedPattern=^\d+$</code></p>
+                                 types
+                                 with values restricted to numbers, you can specify the following:
+                                 <code class="code">AllowedPattern=^\d+$</code>
+                                 
+                              </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Minimum</em>: <code class="code">0</code></p>
+                              <p><em>Maximum</em>: <code class="code">1024</code></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-ssm-parameter-description"></a><span class="term"><code class="code">Description</code></span></dt>
-                           
                            <dd>
                               
-                              <p>Information about the parameter that you want to add to the system.</p>
+                              
+                              <p>Information about the parameter.</p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Minimum</em>: <code class="code">0</code></p>
+                              <p><em>Maximum</em>: <code class="code">1024</code></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-ssm-parameter-name"></a><span class="term"><code class="code">Name</code></span></dt>
-                           
                            <dd>
+                              
                               
                               <p>The name of the parameter.</p>
                               
-                              <p>For information about valid values for parameter names, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html">Requirements and
-                                    Constraints for Parameter Names</a> in the
-                                 <em>AWS Systems Manager User Guide</em>.
+                              <p><em>Required</em>: No
+                              </p>
+                              <p><em>Type</em>: String
+                              </p>
+                              <p><em>Minimum</em>: <code class="code">1</code></p>
+                              <p><em>Maximum</em>: <code class="code">2048</code></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                           </dd>
+                           <dt><a id="cfn-ssm-parameter-policies"></a><span class="term"><code class="code">Policies</code></span></dt>
+                           <dd>
+                              
+                              
+                              <p>Information about the policies assigned to a parameter.</p>
+                              
+                              <p>
+                                 <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-policies.html">Working with Parameter
+                                    Policies</a> in the <em>AWS Systems Manager User Guide</em>.
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
-                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-ssm-parameter-type"></a><span class="term"><code class="code">Type</code></span></dt>
-                           
+                           <dt><a id="cfn-ssm-parameter-tags"></a><span class="term"><code class="code">Tags</code></span></dt>
                            <dd>
                               
-                              <p>The type of parameter. Valid values include the following: <code class="literal">String</code> or <code class="literal">StringList</code>.
+                              
+                              <p>An array of key-value pairs to apply to this resource.</p>
+                              
+                              <p>For more information, see <a href="aws-properties-resource-tags.html">Tag</a>.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              <p><em>Type</em>: Json
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                           </dd>
+                           <dt><a id="cfn-ssm-parameter-tier"></a><span class="term"><code class="code">Tier</code></span></dt>
+                           <dd>
+                              
+                              
+                              <p>The parameter tier.</p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              <p><em>Type</em>: String
+                              </p>
+                              <p><em>Allowed Values</em>: <code class="code">Advanced | Standard</code></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                           </dd>
+                           <dt><a id="cfn-ssm-parameter-type"></a><span class="term"><code class="code">Type</code></span></dt>
+                           <dd>
+                              
+                              <p>The type of parameter. Valid values include the following: <code class="code">String</code> or
+                                 <code class="code">StringList</code>.
                               </p>
                               
                               <div class="aws-note">
                                  <p class="aws-note">Note</p>
-                                 <p>AWS CloudFormation doesn&apos;t support the <code class="code">SecureString</code> parameter type.
+                                 <p>AWS CloudFormation doesn&apos;t support the <code class="code">SecureString</code> parameter
+                                    type. Disregard <code class="code">SecureString</code> in the list of <code class="code">Allowed Values</code>.
                                  </p>
                               </div>
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Allowed Values</em>: <code class="code">SecureString | String | StringList</code></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-ssm-parameter-value"></a><span class="term"><code class="code">Value</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The parameter value. Value must not nest another parameter. Do not use
-                                 <code class="code">{{}}</code> in the value.
-                              </p>
+                              
+                              <p>The parameter value.</p>
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
                         </dl>
-                     </div><h2 id="aws-resource-ssm-parameter-returnvalues">Return Value</h2><h3 id="w2ab1c21c10d231c27c13b3">Ref</h3><p>When you pass the logical ID of an <code class="code">AWS::SSM::Parameter</code> resource to the
-                        intrinsic <code class="code">Ref</code> function, the function returns the Name of the SSM parameter. For
-                        example, <code class="code">ssm-myparameter-ABCNPH3XCAO6</code>.
+                     </div><h2 id="aws-resource-ssm-parameter-return-values">Return Values</h2><h3 id="aws-resource-ssm-parameter-return-values-ref">Ref</h3><p>
+                        When you pass the logical ID of this resource to the intrinsic <code class="code">Ref</code> function, <code class="code">Ref</code> returns the Name of the SSM parameter. For example,
+                        <code class="code">ssm-myparameter-ABCNPH3XCAO6</code>.
                      </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                     </p><h3 id="w2ab1c21c10d231c27c13b5">Fn::GetAtt</h3><p><code class="code">Fn::GetAtt</code> returns a value for a specified attribute of this type.
-                        The following are the available attributes and sample return values.
-                     </p><div class="variablelist">
-                        
-                        
-                        
+                     </p><h3 id="aws-resource-ssm-parameter-return-values-fn--getatt">Fn::GetAtt</h3><p>The <code class="code">Fn::GetAtt</code> intrinsic function returns a value for a specified attribute of this type. The following
+                        are the available attributes and sample return values.
+                     </p><p>For more information about using the <code class="code">Fn::GetAtt</code> intrinsic function, see <a href="intrinsic-function-reference-getatt.html">Fn::GetAtt</a>.
+                     </p><h4 id="aws-resource-ssm-parameter-return-values-fn--getatt-fn--getatt"></h4><div class="variablelist">
                         <dl>
-                           
-                           <dt><span class="term"><code class="literal">Type</code></span></dt>
-                           
+                           <dt><a id="Type-fn::getatt"></a><span class="term"><code class="code">Type</code></span></dt>
                            <dd>
                               
                               <p>Returns the type of the parameter. Valid values are <code class="code">String</code> or
@@ -175,23 +198,16 @@ Properties:
                               </p>
                               
                            </dd>
-                           
-                           
-                           <dt><span class="term"><code class="literal">Value</code></span></dt>
-                           
+                           <dt><a id="Value-fn::getatt"></a><span class="term"><code class="code">Value</code></span></dt>
                            <dd>
                               
                               <p>Returns the value of the parameter.</p>
                               
                            </dd>
-                           
                         </dl>
-                     </div><p>For more information about using <code class="code">Fn::GetAtt</code>, see <a href="intrinsic-function-reference-getatt.html">Fn::GetAtt</a>.
-                     </p><h2 id="aws-resource-ssm-parameter-examples">Examples</h2><h3 id="w2ab1c21c10d231c27c15b3">SSM Parameter (String) Example</h3><p>The following example snippet creates an SSM parameter in Parameter Store.</p><div id="JSON" name="JSON" class="section langfilter">
-                        
-                        <h4 id="aws-resource-ssm-parameter-example.json">JSON</h4>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">{
-   &quot;Description&quot;: &quot;Create SSM Parameter&quot;,
+                     </div><h2 id="aws-resource-ssm-parameter--examples">Examples</h2><h3 id="aws-resource-ssm-parameter--examples--AWS_Systems_Manager_Parameter_String_Example">AWS Systems Manager Parameter String Example</h3><p>The following example creates a Systems Manager parameter with a
+                        <code class="code">String</code> type and adds the tag key-value pair <code class="code">&quot;Environment&quot;:&quot;Dev&quot;</code>.
+                     </p><h4 id="aws-resource-ssm-parameter--examples--AWS_Systems_Manager_Parameter_String_Example--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
    &quot;Resources&quot;: {
       &quot;BasicParameter&quot;: {
          &quot;Type&quot;: &quot;AWS::SSM::Parameter&quot;,
@@ -200,16 +216,14 @@ Properties:
             &quot;Type&quot;: &quot;String&quot;,
             &quot;Value&quot;: &quot;date&quot;,
             &quot;Description&quot;: &quot;SSM Parameter for running date command.&quot;,
-            &quot;AllowedPattern&quot; : &quot;^[a-zA-Z]{1,10}$&quot;
+            &quot;AllowedPattern&quot; : &quot;^[a-zA-Z]{1,10}$&quot;,
+            &quot;Tags&quot;: {
+               &quot;Environment&quot;: &quot;DEV&quot;
+            }
          }
       }
    }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        
-                        <h4 id="aws-resource-ssm-parameter-example.yaml">YAML</h4>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">Description: &quot;Create SSM Parameter&quot;
-Resources:
+}</code></pre><h4 id="aws-resource-ssm-parameter--examples--AWS_Systems_Manager_Parameter_String_Example--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Resources:
   BasicParameter:
     Type: &quot;AWS::SSM::Parameter&quot;
     Properties:
@@ -217,14 +231,11 @@ Resources:
       Type: &quot;String&quot;
       Value: &quot;date&quot;
       Description: &quot;SSM Parameter for running date command.&quot;
-      AllowedPattern: &quot;^[a-zA-Z]{1,10}$&quot;</code></pre>
-                        </div><h3 id="w2ab1c21c10d231c27c15b5">SSM Parameter (StringList) Example</h3><p>The following example creates an SSM parameter with a <code class="code">StringList</code>
-                        type.
-                     </p><div id="JSON" name="JSON" class="section langfilter">
-                        
-                        <h4 id="aws-resource-ssm-parameter-example2.json">JSON</h4>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">{
-   &quot;Description&quot;: &quot;Create SSM Parameter&quot;,
+      AllowedPattern: &quot;^[a-zA-Z]{1,10}$&quot;
+      Tags:
+        &quot;Environment&quot;: &quot;DEV&quot;</code></pre><h3 id="aws-resource-ssm-parameter--examples--AWS_Systems_Manager_Parameter_StringList_Example">AWS Systems Manager Parameter StringList Example</h3><p>The following example creates a Systems Manager parameter with a
+                        <code class="code">StringList</code> type.
+                     </p><h4 id="aws-resource-ssm-parameter--examples--AWS_Systems_Manager_Parameter_StringList_Example--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
    &quot;Resources&quot;: {
       &quot;BasicParameter&quot;: {
          &quot;Type&quot;: &quot;AWS::SSM::Parameter&quot;,
@@ -237,12 +248,7 @@ Resources:
          }
       }
    }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        
-                        <h4 id="aws-resource-ssm-parameter-example2.yaml">YAML</h4>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">Description: &quot;Create SSM Parameter&quot;
-Resources:
+}</code></pre><h4 id="aws-resource-ssm-parameter--examples--AWS_Systems_Manager_Parameter_StringList_Example--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Resources:
   BasicParameter:
     Type: &quot;AWS::SSM::Parameter&quot;
     Properties:
@@ -250,7 +256,8 @@ Resources:
       Type: &quot;StringList&quot;
       Value: &quot;date,ls&quot;
       Description: &quot;SSM Parameter of type StringList.&quot;
-      AllowedPattern: &quot;^[a-zA-Z]{1,10}$&quot;</code></pre>
-                        </div></div>
+      AllowedPattern: &quot;^[a-zA-Z]{1,10}$&quot;</code></pre><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
+                     </div></div>
 </body>
 </html>

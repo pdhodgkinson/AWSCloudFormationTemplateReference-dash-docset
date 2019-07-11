@@ -8,68 +8,88 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-properties-cloudfront-distribution-cookies">CloudFront Distribution Cookies</h1><p><code class="code">Cookies</code> is a property of the <a href="aws-properties-cloudfront-distribution-forwardedvalues.html">CloudFront Distribution ForwardedValues</a> property that describes which
-                        cookies are forwarded to the Amazon CloudFront origin.
-                     </p><h2 id="w2ab1c21c10c60c14c24b5">Syntax</h2><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-properties-cloudfront-distribution-cookies-syntax.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
-  &quot;<a href="aws-properties-cloudfront-distribution-cookies.html#cfn-cloudfront-distribution-cookies-forward">Forward</a>&quot; : <em class="replaceable"><code>String</code></em>,
-  &quot;<a href="aws-properties-cloudfront-distribution-cookies.html#cfn-cloudfront-distribution-cookies-whitelistednames">WhitelistedNames</a>&quot; : [ <em class="replaceable"><code>String, ...</code></em> ]
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-properties-cloudfront-distribution-cookies-syntax.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight"><a href="aws-properties-cloudfront-distribution-cookies.html#cfn-cloudfront-distribution-cookies-forward">Forward</a>: <em class="replaceable"><code>String</code></em>
-<a href="aws-properties-cloudfront-distribution-cookies.html#cfn-cloudfront-distribution-cookies-whitelistednames">WhitelistedNames</a>:
-  - <em class="replaceable"><code>String</code></em>
-</code></pre>
-                        </div><h2 id="w2ab1c21c10c60c14c24b7">Properties</h2><div class="aws-note">
-                        <p class="aws-note">Note</p>
-                        <p>For more information about the constraints and valid values of each property, see
-                           the
-                           <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_CookiePreference.html">CookiePreference</a> data type
-                           in the <em>Amazon CloudFront API Reference</em>.
-                        </p>
-                     </div><div class="variablelist">
-                        
-                        
-                        
+    <h1 class="topictitle" id="aws-properties-cloudfront-distribution-cookies">AWS::CloudFront::Distribution Cookies</h1><p>A complex type that specifies whether you want CloudFront to forward cookies to the
+                        origin 
+                        			and, if so, which ones. For more information about forwarding cookies to the origin,
+                        see 
+                        				<a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Cookies.html">How CloudFront Forwards, Caches, and Logs Cookies</a> in 
+                        			the <em>Amazon CloudFront Developer Guide</em>.
+                     </p><h2 id="aws-properties-cloudfront-distribution-cookies-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-properties-cloudfront-distribution-cookies-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;<a href="#cfn-cloudfront-distribution-cookies-forward">Forward</a>&quot; : <em class="replaceable"><code>String</code></em>,
+  &quot;<a href="#cfn-cloudfront-distribution-cookies-whitelistednames">WhitelistedNames</a>&quot; : <em class="replaceable"><code>[ String, ... ]</code></em>
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-properties-cloudfront-distribution-cookies-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">  <a href="#cfn-cloudfront-distribution-cookies-forward">Forward</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-cloudfront-distribution-cookies-whitelistednames">WhitelistedNames</a>: <em class="replaceable"><code>
+    - String</code></em>
+</code></pre></div><h2 id="aws-properties-cloudfront-distribution-cookies-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
-                           <dt><a id="cfn-cloudfront-distribution-cookies-forward"></a><span class="term"><code class="literal">Forward</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>The cookies to forward to the origin of the cache behavior. You can specify
-                                 <code class="code">none</code>, <code class="code">all</code>, or <code class="code">whitelist</code>.
+                           <dt><a id="cfn-cloudfront-distribution-cookies-forward"></a><span class="term"><code class="code">Forward</code></span></dt>
+                           <dd> 
+                              		       
+                              <p>Specifies which cookies to forward to the origin for this cache behavior: all, none,
+                                 or 
+                                 			the list of cookies specified in the <code class="code">WhitelistedNames</code> complex type.
+                              </p> 
+                              		       
+                              <p>Amazon S3 doesn&apos;t process cookies. When the cache behavior is forwarding requests
+                                 to an 
+                                 			Amazon S3 origin, specify none for the <code class="code">Forward</code> element. 
                               </p>
-                              
+                              	     
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Allowed Values</em>: <code class="code">all | none | whitelist</code></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-cloudfront-distribution-cookies-whitelistednames"></a><span class="term"><code class="literal">WhitelistedNames</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>The names of cookies to forward to the origin for the cache behavior.</p>
-                              
-                              <p><em>Required</em>: Conditional. Required if you specified <code class="code">whitelist</code> for
-                                 the <code class="code">Forward</code> property.
+                           <dt><a id="cfn-cloudfront-distribution-cookies-whitelistednames"></a><span class="term"><code class="code">WhitelistedNames</code></span></dt>
+                           <dd> 
+                              		       
+                              <p>Required if you specify <code class="code">whitelist</code> for the value of <code class="code">Forward:</code>. 
+                                 			A complex type that specifies how many different cookies you want CloudFront to
+                                 forward to the 
+                                 			origin for this cache behavior and, if you want to forward selected cookies, the
+                                 names of 
+                                 			those cookies.
+                              </p> 
+                              		       
+                              <p>If you specify <code class="code">all</code> or none for the value of <code class="code">Forward</code>, omit 
+                                 				<code class="code">WhitelistedNames</code>. If you change the value of <code class="code">Forward</code> from 
+                                 				<code class="code">whitelist</code> to all or none and you don&apos;t delete the <code class="code">WhitelistedNames</code> 
+                                 			element and its child elements, CloudFront deletes them automatically.
+                              </p> 
+                              		       
+                              <p>For the current limit on the number of cookie names that you can whitelist for each
+                                 
+                                 			cache behavior, see <a href="https://docs.aws.amazon.com/general/latest/gr/xrefaws_service_limits.html#limits_cloudfront">
+                                    				CloudFront Limits</a> in the <em>AWS General Reference</em>.
                               </p>
-                              
-                              <p><em>Type</em>: List of String values
+                              	     
+                              <p><em>Required</em>: Conditional
                               </p>
-                              
+                              <p><em>Type</em>: List of String
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
                         </dl>
+                     </div><h2 id="aws-properties-cloudfront-distribution-cookies--seealso">See Also</h2><div class="itemizedlist">
+                        				        
+                        			      
+                        <ul class="itemizedlist" type="disc">
+                           <li class="listitem">
+                              					          
+                              <p>
+                                 						            <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_CookiePreference.html">CookiePreference</a> in the <em>Amazon CloudFront API Reference</em>
+                                 					          
+                              </p>
+                              				        
+                           </li>
+                        </ul>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
                      </div></div>
 </body>
 </html>

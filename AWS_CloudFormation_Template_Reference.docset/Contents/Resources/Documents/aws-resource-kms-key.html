@@ -8,234 +8,295 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-resource-kms-key">AWS::KMS::Key</h1><p>The <code class="code">AWS::KMS::Key</code> resource creates a customer master key (CMK) in AWS Key Management Service
-                        (AWS KMS). Users (customers) can use the master key to encrypt their data stored in
-                        AWS services
-                        that are integrated with AWS KMS or within their applications. For more information,
-                        see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/">What is the AWS Key Management Service?</a> in the
-                        <em>AWS Key Management Service Developer Guide</em>.
-                     </p><div class="highlights" id="inline-topiclist">
-                        <p><strong>Topics</strong></p>
-                        <ul>
-                           <li><a href="#aws-resource-kms-key-syntax">Syntax</a></li>
-                           <li><a href="#w2ab1c21c10d174c17b9">Properties</a></li>
-                           <li><a href="#w2ab1c21c10d174c17c11">Return Values</a></li>
-                           <li><a href="#w2ab1c21c10d174c17c13">Examples</a></li>
-                        </ul>
-                     </div><h2 id="aws-resource-kms-key-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-resource-kms-key-syntax.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
+    <h1 class="topictitle" id="aws-resource-kms-key">AWS::KMS::Key</h1><p>The <code class="code">AWS::KMS::Key</code> resource specifies a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys">customer master key</a> (CMK) in
+                        AWS Key Management Service (AWS KMS). Authorized users can use the CMK to encrypt
+                        and decrypt
+                        small amounts of data (up to 4096 bytes), but they are more commonly used to generate
+                        data
+                        keys. You can also use CMKs to encrypt data stored in AWS services that are <a href="http://aws.amazon.com/kms/features/#AWS_Service_Integration" target="_blank">integrated with AWS
+                           KMS</a> or within their applications. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/overview.html">What is the AWS Key
+                           Management Service?</a> in the <em>AWS Key Management Service Developer
+                           Guide</em>.
+                     </p><h2 id="aws-resource-kms-key-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-resource-kms-key-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
   &quot;Type&quot; : &quot;AWS::KMS::Key&quot;,
   &quot;Properties&quot; : {
-    &quot;<a href="aws-resource-kms-key.html#cfn-kms-key-description">Description</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-kms-key.html#cfn-kms-key-enabled">Enabled</a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
-    &quot;<a href="aws-resource-kms-key.html#cfn-kms-key-enablekeyrotation">EnableKeyRotation</a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
-    &quot;<a href="aws-resource-kms-key.html#cfn-kms-key-keypolicy">KeyPolicy</a>&quot; : <em class="replaceable"><code>JSON object</code></em>,
-    &quot;<a href="aws-resource-kms-key.html#cfn-kms-key-keyusage">KeyUsage</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-kms-key.html#cfn-kms-key-pendingwindowindays">PendingWindowInDays</a>&quot; : <em class="replaceable"><code>Integer</code></em>,
-    &quot;<a href="aws-resource-kms-key.html#cfn-kms-key-tags">Tags</a>&quot; : [ <em class="replaceable"><code>Resource Tag, ...</code></em> ]
-  }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-resource-kms-key-syntax.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">Type: AWS::KMS::Key
+      &quot;<a href="#cfn-kms-key-description">Description</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-kms-key-enabled">Enabled</a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
+      &quot;<a href="#cfn-kms-key-enablekeyrotation">EnableKeyRotation</a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
+      &quot;<a href="#cfn-kms-key-keypolicy">KeyPolicy</a>&quot; : <em class="replaceable"><code>Json</code></em>,
+      &quot;<a href="#cfn-kms-key-keyusage">KeyUsage</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-kms-key-pendingwindowindays">PendingWindowInDays</a>&quot; : <em class="replaceable"><code>Integer</code></em>,
+      &quot;<a href="#cfn-kms-key-tags">Tags</a>&quot; : <em class="replaceable"><code>[ <a href="aws-properties-resource-tags.html">Tag</a>, ... ]</code></em>
+    }
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-kms-key-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Type: AWS::KMS::Key
 Properties: 
-  <a href="aws-resource-kms-key.html#cfn-kms-key-description">Description</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-kms-key.html#cfn-kms-key-enabled">Enabled</a>: <em class="replaceable"><code>Boolean</code></em>
-  <a href="aws-resource-kms-key.html#cfn-kms-key-enablekeyrotation">EnableKeyRotation</a>: <em class="replaceable"><code>Boolean</code></em>
-  <a href="aws-resource-kms-key.html#cfn-kms-key-keypolicy">KeyPolicy</a>: <em class="replaceable"><code>JSON object</code></em>
-  <a href="aws-resource-kms-key.html#cfn-kms-key-keyusage">KeyUsage</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-kms-key.html#cfn-kms-key-pendingwindowindays">PendingWindowInDays</a>: <em class="replaceable"><code>Integer</code></em>
-  <a href="aws-resource-kms-key.html#cfn-kms-key-tags">Tags</a>:
-    - <em class="replaceable"><code>Resource Tag</code></em>
-</code></pre>
-                        </div><h2 id="w2ab1c21c10d174c17b9">Properties</h2><div class="variablelist">
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
+  <a href="#cfn-kms-key-description">Description</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-kms-key-enabled">Enabled</a>: <em class="replaceable"><code>Boolean</code></em>
+  <a href="#cfn-kms-key-enablekeyrotation">EnableKeyRotation</a>: <em class="replaceable"><code>Boolean</code></em>
+  <a href="#cfn-kms-key-keypolicy">KeyPolicy</a>: <em class="replaceable"><code>Json</code></em>
+  <a href="#cfn-kms-key-keyusage">KeyUsage</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-kms-key-pendingwindowindays">PendingWindowInDays</a>: <em class="replaceable"><code>Integer</code></em>
+  <a href="#cfn-kms-key-tags">Tags</a>: <em class="replaceable"><code>
+    - <a href="aws-properties-resource-tags.html">Tag</a></code></em>
+</code></pre></div><h2 id="aws-resource-kms-key-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
                            <dt><a id="cfn-kms-key-description"></a><span class="term"><code class="code">Description</code></span></dt>
-                           
                            <dd>
                               
-                              <p>A description of the key. Use a description that helps your users decide
-                                 whether the key is appropriate for a particular task.
+                              <p>A description of the CMK. Use a description that helps you to distinguish this CMK
+                                 from
+                                 others in the account, such as its intended use.
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Minimum</em>: <code class="code">0</code></p>
+                              <p><em>Maximum</em>: <code class="code">8192</code></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-kms-key-enabled"></a><span class="term"><code class="code">Enabled</code></span></dt>
-                           
                            <dd>
                               
-                              <p>Indicates whether the key is available for use. AWS CloudFormation sets this value
-                                 to
-                                 <code class="code">true</code> by default.
+                              
+                              <p>Specifies whether the customer master key (CMK) is enabled. Disabled CMKs cannot be
+                                 used
+                                 in cryptographic operations.
+                              </p>
+                              
+                              <p>When <code class="code">Enabled</code> is <code class="code">true</code>, the <em>key state</em> of the
+                                 CMK is <code class="code">Enabled</code>. When <code class="code">Enabled</code> is <code class="code">false</code>, the key state of
+                                 the CMK is <code class="code">Disabled</code>. The default value is <code class="code">true</code>.
+                              </p>
+                              
+                              <p>The actual key state of the CMK might be affected by actions taken outside of
+                                 CloudFormation, such as running the <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_EnableKey.html">EnableKey</a>, <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DisableKey.html">DisableKey</a>, or
+                                 <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_ScheduleKeyDeletion.html">ScheduleKeyDeletion</a> operations.
+                              </p>
+                              
+                              <p>For information about the key states of a CMK, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use of a Customer Master
+                                    Key</a> in the <em>AWS Key Management Service Developer Guide</em>. 
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: Boolean
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-kms-key-enablekeyrotation"></a><span class="term"><code class="code">EnableKeyRotation</code></span></dt>
-                           
                            <dd>
                               
-                              <p>Indicates whether AWS KMS rotates the key. AWS CloudFormation sets this value to
-                                 <code class="code">false</code> by default.
+                              
+                              <p>Enables automatic rotation of the key material for the specified customer master key
+                                 (CMK). By default, automation key rotation is not enabled.
+                              </p>
+                              
+                              <p>When you enable automatic rotation, AWS KMS automatically creates new key material
+                                 for the
+                                 CMK 365 days after the enable (or reenable) date and every 365 days thereafter. AWS
+                                 KMS
+                                 retains all key material until you delete the CMK.
+                              </p>
+                              
+                              <p>For detailed information about automatic key rotation, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html">Rotating Customer Master Keys</a> in the
+                                 <em>AWS Key Management Service Developer Guide</em>.
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: Boolean
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-kms-key-keypolicy"></a><span class="term"><code class="code">KeyPolicy</code></span></dt>
-                           
                            <dd>
                               
-                              <p>An AWS KMS key policy to attach to the key. Use a policy to specify who has permission
-                                 to use the key and which actions they can perform. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html">Key Policies</a> in the <em>AWS Key Management Service Developer Guide</em>.
+                              
+                              
+                              <p>The key policy that authorizes use of the CMK. The key policy must observe the following
+                                 rules.
+                              </p>
+                              
+                              <div class="itemizedlist">
+                                 
+                                 
+                                 
+                                 
+                                 <ul class="itemizedlist" type="disc">
+                                    <li class="listitem">
+                                       
+                                       <p>The key policy must allow the caller to make a subsequent <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_PutKeyPolicy.html">PutKeyPolicy</a> request on the
+                                          CMK. This reduces the risk that the CMK becomes unmanageable. For more information,
+                                          refer
+                                          to the scenario in the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam">Default Key Policy</a> section of the <em> 
+                                             <em>AWS Key Management Service
+                                                Developer Guide</em> 
+                                             </em>.
+                                       </p>
+                                       
+                                    </li>
+                                    <li class="listitem">
+                                       
+                                       <p>Each statement in the key policy must contain one or more principals. The principals
+                                          in the key policy must exist and be visible to AWS KMS. When you create a new AWS
+                                          principal (for example, an IAM user or role), you might need to enforce a delay before
+                                          including the new principal in a key policy because the new principal might not be
+                                          immediately visible to AWS KMS. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency">Changes that I make are not always immediately visible</a> in the <em>AWS
+                                             Identity and Access Management User Guide</em>.
+                                       </p>
+                                       
+                                    </li>
+                                    <li class="listitem">
+                                       
+                                       <p>The key policy size limit is 32 kilobytes (32768 bytes).</p>
+                                       
+                                    </li>
+                                 </ul>
+                              </div>
+                              
+                              <p>If you are unsure of which policy to use, consider the <em>default key
+                                    policy</em>. This is the key policy that AWS KMS applies to CMKs that are created by
+                                 using the CreateKey API with no specified key policy. It gives the AWS account that
+                                 owns the
+                                 key permission to perform all operations on the key. It also allows you write IAM
+                                 policies to
+                                 authorize access to the key. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default">Default Key
+                                    Policy</a> in the <em>AWS Key Management Service Developer Guide</em>.
                               </p>
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
-                              <p><em>Type</em>: JSON object
+                              <p><em>Type</em>: Json
                               </p>
-                              
+                              <p><em>Minimum</em>: <code class="code">1</code></p>
+                              <p><em>Maximum</em>: <code class="code">131072</code></p>
+                              <p><em>Pattern</em>: <code class="code">[\u0009\u000A\u000D\u0020-\u00FF]+</code></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-kms-key-keyusage"></a><span class="term"><code class="code">KeyUsage</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The intended use of the key. You can use CMKs only for symmetric encryption and decryption.</p>
-                              
-                              <p>Valid values: <code class="code">ENCRYPT_DECRYPT</code></p>
+                              <p>The cryptographic operations for which you can use the CMK. The only valid value is
+                                 <code class="code">ENCRYPT_DECRYPT</code>, which means you can use the CMK to encrypt and decrypt
+                                 data.
+                              </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Allowed Values</em>: <code class="code">ENCRYPT_DECRYPT</code></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-kms-key-pendingwindowindays"></a><span class="term"><code class="code">PendingWindowInDays</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The waiting period, specified in number of days. After the waiting period ends, AWS
-                                 KMS deletes the customer master key (CMK).
+                              
+                              
+                              <p>Specifies the number of days in the waiting period before AWS KMS deletes a CMK that
+                                 has
+                                 been removed from a CloudFormation stack. Enter a value between 7 and 30 days. The
+                                 default
+                                 value is 30 days.
                               </p>
                               
-                              <p>Valid Range: Minimum value of 7. Maximum value of 30.</p>
+                              <p>When you remove a customer master key (CMK) from a CloudFormation stack, AWS KMS schedules
+                                 the CMK for deletion and starts the mandatory waiting period. The
+                                 <code class="code">PendingWindowInDays</code> property determines the length of waiting period. During the
+                                 waiting period, the key state of CMK is <code class="code">Pending Deletion</code>, which prevents the CMK
+                                 from being used in cryptographic operations. When the waiting period expires, AWS
+                                 KMS
+                                 permanently deletes the CMK.
+                              </p>
+                              
+                              <p> You cannot use a CloudFormation template to cancel deletion of the CMK after you
+                                 remove
+                                 it from the stack, regardless of the waiting period. If you specify a CMK in your
+                                 template,
+                                 even one with the same name, CloudFormation creates a new CMK. To cancel deletion
+                                 of a CMK,
+                                 use the AWS KMS console or the <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_CancelKeyDeletion.html">CancelKeyDeletion</a>
+                                 operation.
+                              </p>
+                              
+                              <p>For information about the <code class="code">PendingDeletion</code> key state, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use
+                                    of a Customer Master Key</a> in the <em>AWS Key Management Service Developer
+                                    Guide</em>. For more information about deleting CMKs, see the <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_ScheduleKeyDeletion.html">ScheduleKeyDeletion</a> operation in the <em>AWS Key Management Service API
+                                    Reference</em> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/deleting-keys.html">Deleting Customer Master Keys</a> in
+                                 the <em>AWS Key Management Service Developer Guide</em>. 
+                              </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: Integer
                               </p>
-                              
+                              <p><em>Minimum</em>: <code class="code">1</code></p>
+                              <p><em>Maximum</em>: <code class="code">365</code></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-kms-key-tags"></a><span class="term"><code class="code">Tags</code></span></dt>
-                           
                            <dd>
                               
-                              <p>Specifies an arbitrary set of tags (key&#x2013;value pairs) to associate with this
-                                 key. Use tags to manage your resources.
+                              
+                              <p>An array of key-value pairs to apply to this resource.</p>
+                              
+                              <p>For more information, see <a href="aws-properties-resource-tags.html">Tag</a>.
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: <a href="aws-properties-resource-tags.html">Resource Tag</a></p>
-                              
+                              <p><em>Type</em>: List of <a href="aws-properties-resource-tags.html">Tag</a></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
                         </dl>
-                     </div><h2 id="w2ab1c21c10d174c17c11">Return Values</h2><h3 id="w2ab1c21c10d174c17c11b2">Ref</h3><p>When you provide the logical ID of this resource to the <code class="code">Ref</code> intrinsic
-                        function, it returns the key ID, such as
-                        <code class="code">123ab456-a4c2-44cb-95fd-b781f32fbb37</code>.
+                     </div><h2 id="aws-resource-kms-key-return-values">Return Values</h2><h3 id="aws-resource-kms-key-return-values-ref">Ref</h3><p> 
+                        When you pass the logical ID of this resource to the intrinsic <code class="code">Ref</code> function, <code class="code">Ref</code> returns the key ID, such as
+                        <code class="code">1234abcd-12ab-34cd-56ef-1234567890ab</code>.
                      </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                     </p><h3 id="w2ab1c21c10d174c17c11b4">Fn::GetAtt</h3><p><code class="code">Fn::GetAtt</code> returns a value for a specified attribute of this type.
-                        The following are the available attributes and sample return values.
-                     </p><div class="variablelist">
-                        
-                        
+                     </p><h3 id="aws-resource-kms-key-return-values-fn--getatt">Fn::GetAtt</h3><p>The <code class="code">Fn::GetAtt</code> intrinsic function returns a value for a specified attribute of this type. The following
+                        are the available attributes and sample return values.
+                     </p><p>For more information about using the <code class="code">Fn::GetAtt</code> intrinsic function, see <a href="intrinsic-function-reference-getatt.html">Fn::GetAtt</a>.
+                     </p><h4 id="aws-resource-kms-key-return-values-fn--getatt-fn--getatt"></h4><div class="variablelist">
                         <dl>
-                           
-                           <dt><span class="term"><code class="code">Arn</code></span></dt>
-                           
+                           <dt><a id="Arn-fn::getatt"></a><span class="term"><code class="code">Arn</code></span></dt>
                            <dd>
                               
-                              <p>The ARN of the AWS KMS key, such as <code class="code">arn:aws:kms:us-west-2:123456789012:key/12a34567-8c90-1defg-af84-0bf06c1747f3</code>.
+                              <p>The Amazon Resource Name (ARN) of the AWS KMS customer master key (CMK), such as
+                                 <code class="code">arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.
+                              </p>
+                              
+                              <p>For help with finding the ARN of a CMK, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/viewing-keys.html#find-cmk-id-arn">Finding the Key ID and
+                                    ARN</a> in the <em>AWS Key Management Service Developer Guide</em>.
                               </p>
                               
                            </dd>
-                           
                         </dl>
-                     </div><p>For more information about using <code class="code">Fn::GetAtt</code>, see <a href="intrinsic-function-reference-getatt.html">Fn::GetAtt</a>.
-                     </p><h2 id="w2ab1c21c10d174c17c13">Examples</h2><h3 id="w2ab1c21c10d174c17c13b2"></h3><p>The following example creates a custom CMK, which permits the IAM user
-                        <code class="code">Alice</code> to administer the key and allows <code class="code">Bob</code> to use the key
-                        for encrypting and decrypting data.
-                     </p><div id="JSON" name="JSON" class="section langfilter">
-                        <h4 id="aws-resource-kms-key-example.json">JSON</h4>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">&quot;myKey&quot; : {
+                     </div><h2 id="aws-resource-kms-key--examples">Examples</h2><h3 id="aws-resource-kms-key--examples--Create_a_customer_master_key">Create a customer master key</h3><p>The following example creates a customer managed CMK. The key policy for the CMK
+                        allows <code class="code">Alice</code> to manage the key and allows <code class="code">Bob</code> to view the CMK
+                        and use it in cryptographic operations. It also allows the AWS account (root) full
+                        access
+                        to the key. This prevents you from losing control of the key if both <code class="code">Alice</code>
+                        and <code class="code">Bob</code> are deleted from the account.
+                     </p><h4 id="aws-resource-kms-key--examples--Create_a_customer_master_key--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">&quot;myKey&quot; : {
   &quot;Type&quot; : &quot;AWS::KMS::Key&quot;,
   &quot;Properties&quot; : {
-    &quot;Description&quot; : &quot;A sample key&quot;,
+    &quot;Description&quot; : &quot;An example CMK&quot;,
     &quot;KeyPolicy&quot; : {
       &quot;Version&quot;: &quot;2012-10-17&quot;,
       &quot;Id&quot;: &quot;key-default-1&quot;,
       &quot;Statement&quot;: [
+        {
+          &quot;Sid&quot;: &quot;Enable IAM User Permissions&quot;,
+          &quot;Effect&quot;: &quot;Allow&quot;,
+          &quot;Principal&quot;: {&quot;AWS&quot;: &quot;arn:aws:iam::111122223333:root&quot;},
+          &quot;Action&quot;: &quot;kms:*&quot;,
+          &quot;Resource&quot;: &quot;*&quot;
+        }, 
         {
           &quot;Sid&quot;: &quot;Allow administration of the key&quot;,
           &quot;Effect&quot;: &quot;Allow&quot;,
@@ -261,30 +322,33 @@ Properties:
           &quot;Effect&quot;: &quot;Allow&quot;,
           &quot;Principal&quot;: { &quot;AWS&quot;: &quot;arn:aws:iam::123456789012:user/Bob&quot; },
           &quot;Action&quot;: [
+            &quot;kms:DescribeKey&quot;,
             &quot;kms:Encrypt&quot;,
             &quot;kms:Decrypt&quot;,
             &quot;kms:ReEncrypt*&quot;,
-            &quot;kms:GenerateDataKey*&quot;,
-            &quot;kms:DescribeKey&quot;
+            &quot;kms:GenerateDataKey&quot;,
+            &quot;kms:GenerateDataKeyWithoutPlaintext&quot;
           ], 
           &quot;Resource&quot;: &quot;*&quot;
         }    
       ]
     }
   }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h4 id="aws-resource-kms-key-example.yaml">YAML</h4>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">myKey: 
+}</code></pre><h4 id="aws-resource-kms-key--examples--Create_a_customer_master_key--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">myKey: 
   Type: AWS::KMS::Key
   Properties: 
-    Description: &quot;A sample key&quot;
+    Description: &quot;An example CMK&quot;
     KeyPolicy: 
       Version: &quot;2012-10-17&quot;
       Id: &quot;key-default-1&quot;
-      Statement: 
-        - 
+      Statement:
+       -
+          Sid: &quot;Enable IAM User Permissions&quot;
+          Effect: &quot;Allow&quot;
+          Principal: AWS: &quot;arn:aws:iam::111122223333:root&quot;
+          Action: &quot;kms:*&quot;
+          Resource: &quot;*&quot;
+       - 
           Sid: &quot;Allow administration of the key&quot;
           Effect: &quot;Allow&quot;
           Principal: 
@@ -309,17 +373,14 @@ Properties:
           Principal: 
             AWS: &quot;arn:aws:iam::123456789012:user/Bob&quot;
           Action: 
+            - &quot;kms:DescribeKey&quot;
             - &quot;kms:Encrypt&quot;
             - &quot;kms:Decrypt&quot;
             - &quot;kms:ReEncrypt*&quot;
-            - &quot;kms:GenerateDataKey*&quot;
-            - &quot;kms:DescribeKey&quot;
+            - &quot;kms:GenerateDataKey&quot;
+            - &quot;kms:GenerateDataKeyWithoutPlaintext&quot;
           Resource: &quot;*&quot;
-</code></pre>
-                        </div><p>The following example creates a custom CMK with a single tag.</p><div id="JSON" name="JSON" class="section langfilter">
-                        
-                        <h4 id="aws-resource-kms-key-example-tags.json">JSON</h4>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">{
+</code></pre><h3 id="aws-resource-kms-key--examples--Create_a_CMK_with_a_tag">Create a CMK with a tag</h3><p>The following example creates a custom CMK with a single tag.</p><h4 id="aws-resource-kms-key--examples--Create_a_CMK_with_a_tag--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
   &quot;Resources&quot; : {
     &quot;myKey&quot; : {
       &quot;Type&quot; : &quot;AWS::KMS::Key&quot;,
@@ -356,11 +417,7 @@ Properties:
       &quot;Type&quot; : &quot;String&quot;
     }
   }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        
-                        <h4 id="aws-resource-kms-key-example-tags.yaml">YAML</h4>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">Resources:
+}</code></pre><h4 id="aws-resource-kms-key--examples--Create_a_CMK_with_a_tag--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Resources:
   myKey:
     Type: AWS::KMS::Key
     Properties:
@@ -385,7 +442,39 @@ Parameters:
   Key:
     Type: String
   Value:
-    Type: String</code></pre>
-                        </div></div>
+    Type: String</code></pre><h2 id="aws-resource-kms-key--seealso">See Also</h2><div class="itemizedlist">
+                        
+                        
+                        
+                        
+                        <ul class="itemizedlist" type="disc">
+                           <li class="listitem">
+                              
+                              <p> 
+                                 <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html">Creating Keys</a> in the <em>AWS Key Management Service Developer
+                                    Guide</em>.
+                              </p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p> 
+                                 <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html">CreateKey</a> in the <em>AWS Key Management Service API
+                                    Reference</em>.
+                              </p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p> 
+                                 <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys">Customer master keys</a>
+                                 in the <em>AWS Key Management Service Developer Guide</em>.
+                              </p>
+                              
+                           </li>
+                        </ul>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
+                     </div></div>
 </body>
 </html>

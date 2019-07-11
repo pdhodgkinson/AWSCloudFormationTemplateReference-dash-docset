@@ -8,93 +8,78 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-properties-ssm-maintenancewindowtask-target">AWS Systems Manager
-                        MaintenanceWindowTask Target
-                     </h1><p>The <code class="code">Target</code>
-                        property type specifies targets (either instances or tags). You specify instances
-                        by using
-                        <code class="code">Key=instanceids,Values=<em class="replaceable"><code>instanceid1</code></em>,<em class="replaceable"><code>instanceid2</code></em></code>.
-                        You specify tags by using <code class="code">Key=<em class="replaceable"><code>tag name</code></em>,Values=<em class="replaceable"><code>tag
-                                 value</code></em></code> for a Maintenance Window task in AWS Systems Manager.
+    <h1 class="topictitle" id="aws-properties-ssm-maintenancewindowtask-target">AWS::SSM::MaintenanceWindowTask Target</h1><p>The <code class="code">Target</code> property type specifies targets (either instances or window
+                        target IDs). You specify instances by using <code class="code">Key=InstanceIds,Values=&lt;<b>instanceid1</b>&gt;,&lt;<b>instanceid2</b>&gt;</code>. You specify window target IDs using
+                        <code class="code">Key=WindowTargetIds,Values=&lt;<b>window-target-id-1</b>&gt;,&lt;<b>window-target-id-2</b>&gt;</code> for a maintenance window task in AWS
+                        Systems Manager.
                      </p><p>
-                        <code class="code">Target</code> is a property of the <a href="aws-resource-ssm-maintenancewindowtask.html">AWS::SSM::MaintenanceWindowTask</a> resource.
+                        <code class="code">Target</code> is a property of the <a href="aws-resource-ssm-maintenancewindowtask.html">AWS::SSM::MaintenanceWindowTask</a> property type.
                      </p><h2 id="aws-properties-ssm-maintenancewindowtask-target-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
-                        
-                        <h3 id="aws-properties-ssm-maintenancewindowtask-target-syntax.json">JSON</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
-  &quot;<a href="aws-properties-ssm-maintenancewindowtask-target.html#cfn-ssm-maintenancewindowtask-target-key">Key</a>&quot; : <em class="replaceable"><code>String</code></em>,
-  &quot;<a href="aws-properties-ssm-maintenancewindowtask-target.html#cfn-ssm-maintenancewindowtask-target-values">Values</a>&quot; : [ <em class="replaceable"><code>String</code></em>, ... ]
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        
-                        <h3 id="aws-properties-ssm-maintenancewindowtask-target-syntax.yaml">YAML</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight"><a href="aws-properties-ssm-maintenancewindowtask-target.html#cfn-ssm-maintenancewindowtask-target-key">Key</a>: <em class="replaceable"><code>String</code></em>
-<a href="aws-properties-ssm-maintenancewindowtask-target.html#cfn-ssm-maintenancewindowtask-target-values">Values</a>: 
-  - <em class="replaceable"><code>String</code></em></code></pre>
-                        </div><h2 id="aws-properties-ssm-maintenancewindowtask-target-properties">Properties</h2><div class="variablelist">
-                        
-                        
-                        
+                        <h3 id="aws-properties-ssm-maintenancewindowtask-target-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;<a href="#cfn-ssm-maintenancewindowtask-target-key">Key</a>&quot; : <em class="replaceable"><code>String</code></em>,
+  &quot;<a href="#cfn-ssm-maintenancewindowtask-target-values">Values</a>&quot; : <em class="replaceable"><code>[ String, ... ]</code></em>
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-properties-ssm-maintenancewindowtask-target-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">  <a href="#cfn-ssm-maintenancewindowtask-target-key">Key</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-ssm-maintenancewindowtask-target-values">Values</a>: <em class="replaceable"><code>
+    - String</code></em>
+</code></pre></div><h2 id="aws-properties-ssm-maintenancewindowtask-target-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
                            <dt><a id="cfn-ssm-maintenancewindowtask-target-key"></a><span class="term"><code class="code">Key</code></span></dt>
-                           
                            <dd>
                               
-                              <p>User-defined criteria for sending commands that target instances that meet the
-                                 criteria. <code class="code">Key</code> can be <code class="code">tag:<em class="replaceable"><code>Amazon EC2
-                                          tag</code></em></code> or <code class="code">InstanceIds</code>. For more information about how to
-                                 send commands that target instances by using <code class="code">Key,Value</code> parameters, see
-                                 <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html"> Sending Commands to a
-                                    Fleet</a> in the <em>AWS Systems Manager User Guide</em>.
+                              <p>User-defined criteria for sending commands that target instances that meet the criteria.
+                                 <code class="code">Key</code> can be <code class="code">InstanceIds</code> or <code class="code">WindowTargetIds</code>. For
+                                 more information about how to target instances within a maintenance window task, see
+                                 <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/register-tasks-options.html">About &apos;register-task-with-maintenance-window&apos; Options and Values</a> in the
+                                 <em>AWS Systems Manager User Guide</em>.
                               </p>
                               
-                              <p>
-                                 <em>Required</em>: Yes
+                              <p><em>Required</em>: Yes
                               </p>
-                              
-                              <p>
-                                 <em>Type</em>: String
+                              <p><em>Type</em>: String
                               </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No
-                                    interruption</a>
-                                 
-                              </p>
-                              
+                              <p><em>Minimum</em>: <code class="code">1</code></p>
+                              <p><em>Maximum</em>: <code class="code">128</code></p>
+                              <p><em>Pattern</em>: <code class="code">^[\p{L}\p{Z}\p{N}_.:/=\-@]*$</code></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-ssm-maintenancewindowtask-target-values"></a><span class="term"><code class="code">Values</code></span></dt>
-                           
                            <dd>
                               
                               <p>User-defined criteria that maps to <code class="code">Key</code>. For example, if you specify
-                                 <code class="code">tag:ServerRole</code>, you can specify <code class="code">value:WebServer</code> to execute a
-                                 command on instances that include Amazon EC2 tags of <code class="code">ServerRole,WebServer</code>. For
-                                 more information about how to send commands that target instances using
-                                 <code class="code">Key,Value</code> parameters, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html"> Sending Commands to a Fleet</a>
-                                 in the <em>AWS Systems Manager User Guide</em>.
+                                 <code class="code">InstanceIds</code>, you can specify
+                                 <code class="code">i-1234567890abcdef0,i-9876543210abcdef0</code> to run a command on two EC2
+                                 instances. For more information about how to target instances within a maintenance
+                                 window
+                                 task, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/register-tasks-options.html">About
+                                    &apos;register-task-with-maintenance-window&apos; Options and Values</a> in the <em>AWS
+                                    Systems Manager User Guide</em>.
                               </p>
                               
-                              <p>
-                                 <em>Required</em>: No
+                              <p><em>Required</em>: No
                               </p>
-                              
-                              <p>
-                                 <em>Type</em>: List of String values
+                              <p><em>Type</em>: List of String
                               </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No
-                                    interruption</a>
-                                 
-                              </p>
-                              
+                              <p><em>Maximum</em>: <code class="code">50</code></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
                         </dl>
+                     </div><h2 id="aws-properties-ssm-maintenancewindowtask-target--seealso">See Also</h2><div class="itemizedlist">
+                        
+                        
+                        <ul class="itemizedlist" type="disc">
+                           <li class="listitem">
+                              
+                              <p>
+                                 <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_RegisterTargetWithMaintenanceWindow.html">RegisterTargetWithMaintenanceWindow</a> in the <em>AWS Systems
+                                    Manager API Reference</em>.
+                              </p>
+                              
+                           </li>
+                        </ul>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
                      </div></div>
 </body>
 </html>

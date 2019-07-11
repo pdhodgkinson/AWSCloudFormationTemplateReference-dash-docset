@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="css/awsdocs.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/awsdocs.min.js"></script>
+    <meta charset="utf-8">
+</head>
+<body>
+    <div id="content" style="padding: 10px 30px;">
+    <h1 class="topictitle" id="aws-resource-appmesh-route">AWS::AppMesh::Route</h1><p>Creates a route that is associated with a virtual router.</p><p>You can use the <code class="code">prefix</code> parameter in your route specification for path-based
+                        routing of requests. For example, if your virtual service name is
+                        <code class="code">my-service.local</code> and you want the route to match requests to
+                        <code class="code">my-service.local/metrics</code>, your prefix should be
+                        <code class="code">/metrics</code>.
+                     </p><p>If your route matches a request, you can distribute traffic to one or more target
+                        virtual nodes with relative weighting.
+                     </p><h2 id="aws-resource-appmesh-route-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-resource-appmesh-route-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;Type&quot; : &quot;AWS::AppMesh::Route&quot;,
+  &quot;Properties&quot; : {
+      &quot;<a href="#cfn-appmesh-route-meshname">MeshName</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-appmesh-route-routename">RouteName</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-appmesh-route-spec">Spec</a>&quot; : <em class="replaceable"><code><a href="aws-properties-appmesh-route-routespec.html">RouteSpec</a></code></em>,
+      &quot;<a href="#cfn-appmesh-route-tags">Tags</a>&quot; : <em class="replaceable"><code>[ <a href="aws-properties-resource-tags.html">Tag</a>, ... ]</code></em>,
+      &quot;<a href="#cfn-appmesh-route-virtualroutername">VirtualRouterName</a>&quot; : <em class="replaceable"><code>String</code></em>
+    }
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-appmesh-route-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Type: AWS::AppMesh::Route
+Properties: 
+  <a href="#cfn-appmesh-route-meshname">MeshName</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-appmesh-route-routename">RouteName</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-appmesh-route-spec">Spec</a>: <em class="replaceable"><code>
+    <a href="aws-properties-appmesh-route-routespec.html">RouteSpec</a></code></em>
+  <a href="#cfn-appmesh-route-tags">Tags</a>: <em class="replaceable"><code>
+    - <a href="aws-properties-resource-tags.html">Tag</a></code></em>
+  <a href="#cfn-appmesh-route-virtualroutername">VirtualRouterName</a>: <em class="replaceable"><code>String</code></em>
+</code></pre></div><h2 id="aws-resource-appmesh-route-properties">Properties</h2><div class="variablelist">
+                        <dl>
+                           <dt><a id="cfn-appmesh-route-meshname"></a><span class="term"><code class="code">MeshName</code></span></dt>
+                           <dd>
+                              
+                              <p>The name of the service mesh to create the route in.</p>
+                              
+                              <p><em>Required</em>: Yes
+                              </p>
+                              <p><em>Type</em>: String
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                           </dd>
+                           <dt><a id="cfn-appmesh-route-routename"></a><span class="term"><code class="code">RouteName</code></span></dt>
+                           <dd>
+                              
+                              <p>The name to use for the route.</p>
+                              
+                              <p><em>Required</em>: Yes
+                              </p>
+                              <p><em>Type</em>: String
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                           </dd>
+                           <dt><a id="cfn-appmesh-route-spec"></a><span class="term"><code class="code">Spec</code></span></dt>
+                           <dd>
+                              
+                              <p>The route specification to apply.</p>
+                              
+                              <p><em>Required</em>: Yes
+                              </p>
+                              <p><em>Type</em>: <a href="aws-properties-appmesh-route-routespec.html">RouteSpec</a></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                           </dd>
+                           <dt><a id="cfn-appmesh-route-tags"></a><span class="term"><code class="code">Tags</code></span></dt>
+                           <dd>
+                              
+                              <p>Optional metadata that you can apply to the route to assist with categorization and
+                                 organization. Each tag consists of a key and an optional value, both of which you
+                                 define.
+                                 Tag keys can have a maximum character length of 128 characters, and tag values can
+                                 have
+                                 a maximum length of 256 characters.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              <p><em>Type</em>: List of <a href="aws-properties-resource-tags.html">Tag</a></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                           </dd>
+                           <dt><a id="cfn-appmesh-route-virtualroutername"></a><span class="term"><code class="code">VirtualRouterName</code></span></dt>
+                           <dd>
+                              
+                              <p>The name of the virtual router in which to create the route.</p>
+                              
+                              <p><em>Required</em>: Yes
+                              </p>
+                              <p><em>Type</em>: String
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                           </dd>
+                        </dl>
+                     </div><h2 id="aws-resource-appmesh-route-return-values">Return Values</h2><h3 id="aws-resource-appmesh-route-return-values-ref">Ref</h3><p>
+                        When you pass the logical ID of this resource to the intrinsic <code class="code">Ref</code> function, <code class="code">Ref</code> returns the resource ARN. For example:
+                     </p><p>
+                        <code class="code">{ &quot;Ref&quot;: &quot;myRoute&quot; }</code>
+                        
+                     </p><p>When you pass the logical ID of an <code class="code">AWS::AppMesh::Route</code> resource to the
+                        intrinsic Ref function, the function returns the route ARN, such as
+                        <code class="code">arn:aws:appmesh:<em>us-east-1</em>:<em>555555555555</em>:route/<em>myRoute</em>
+                           </code>.
+                     </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
+                     </p><h3 id="aws-resource-appmesh-route-return-values-fn--getatt">Fn::GetAtt</h3><p>The <code class="code">Fn::GetAtt</code> intrinsic function returns a value for a specified attribute of this type. The following
+                        are the available attributes and sample return values.
+                     </p><p>For more information about using the <code class="code">Fn::GetAtt</code> intrinsic function, see <a href="intrinsic-function-reference-getatt.html">Fn::GetAtt</a>.
+                     </p><h4 id="aws-resource-appmesh-route-return-values-fn--getatt-fn--getatt"></h4><div class="variablelist">
+                        <dl>
+                           <dt><a id="Arn-fn::getatt"></a><span class="term"><code class="code">Arn</code></span></dt>
+                           <dd>
+                              
+                              <p>The full Amazon Resource Name (ARN) for the route.</p>
+                              
+                           </dd>
+                           <dt><a id="MeshName-fn::getatt"></a><span class="term"><code class="code">MeshName</code></span></dt>
+                           <dd>
+                              
+                              <p>The name of the service mesh that the route resides in.</p>
+                              
+                           </dd>
+                           <dt><a id="RouteName-fn::getatt"></a><span class="term"><code class="code">RouteName</code></span></dt>
+                           <dd>
+                              
+                              <p>The name of the route.</p>
+                              
+                           </dd>
+                           <dt><a id="Uid-fn::getatt"></a><span class="term"><code class="code">Uid</code></span></dt>
+                           <dd>
+                              
+                              <p>The unique identifier for the route.</p>
+                              
+                           </dd>
+                           <dt><a id="VirtualRouterName-fn::getatt"></a><span class="term"><code class="code">VirtualRouterName</code></span></dt>
+                           <dd>
+                              
+                              <p>The name of the virtual router that the route is associated with.</p>
+                              
+                           </dd>
+                        </dl>
+                     </div><h2 id="aws-resource-appmesh-route--examples">Examples</h2><h3 id="aws-resource-appmesh-route--examples--Create_a_Route">Create a Route</h3><p>This example creates a route with two weighted targets.</p><h4 id="aws-resource-appmesh-route--examples--Create_a_Route--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+   &quot;Description&quot;: &quot;Basic Test Route&quot;,
+   &quot;Resources&quot;: {
+      &quot;BasicRoute&quot;: {
+         &quot;Type&quot;: &quot;AWS::AppMesh::Route&quot;,
+         &quot;Properties&quot;: {
+            &quot;RouteName&quot;: &quot;TestRoute&quot;,
+            &quot;MeshName&quot;: null,
+            &quot;VirtualRouterName&quot;: null,
+            &quot;Spec&quot;: {
+               &quot;HttpRoute&quot;: {
+                  &quot;Match&quot;: {
+                     &quot;Prefix&quot;: &quot;routePrefix&quot;
+                  },
+                  &quot;Action&quot;: {
+                     &quot;WeightedTargets&quot;: [
+                        {
+                           &quot;VirtualNode&quot;: null,
+                           &quot;Weight&quot;: 10
+                        },
+                        {
+                           &quot;VirtualNode&quot;: null,
+                           &quot;Weight&quot;: 20
+                        }
+                     ]
+                  }
+               }
+            },
+            &quot;Tags&quot;: [
+               {
+                  &quot;Key&quot;: &quot;Key1&quot;,
+                  &quot;Value&quot;: &quot;Value1&quot;
+               },
+               {
+                  &quot;Key&quot;: &quot;Key2&quot;,
+                  &quot;Value&quot;: &quot;Value2&quot;
+               }
+            ]
+         }
+      }
+   },
+   &quot;Outputs&quot;: {
+      &quot;RouteName&quot;: {
+         &quot;Description&quot;: &quot;Name of the Route&quot;,
+         &quot;Value&quot;: {
+            &quot;Fn::GetAtt&quot;: [
+               &quot;BasicRoute&quot;,
+               &quot;RouteName&quot;
+            ]
+         }
+      },
+      &quot;MeshName&quot;: {
+         &quot;Description&quot;: &quot;Name of the Mesh&quot;,
+         &quot;Value&quot;: {
+            &quot;Fn::GetAtt&quot;: [
+               &quot;BasicRoute&quot;,
+               &quot;MeshName&quot;
+            ]
+         }
+      },
+      &quot;VirtualRouterName&quot;: {
+         &quot;Description&quot;: &quot;Name of the VirtualRouter&quot;,
+         &quot;Value&quot;: {
+            &quot;Fn::GetAtt&quot;: [
+               &quot;BasicRoute&quot;,
+               &quot;VirtualRouterName&quot;
+            ]
+         }
+      },
+      &quot;Arn&quot;: {
+         &quot;Description&quot;: &quot;Arn of the Route created&quot;,
+         &quot;Value&quot;: {
+            &quot;Fn::GetAtt&quot;: [
+               &quot;BasicRoute&quot;,
+               &quot;Arn&quot;
+            ]
+         }
+      },
+      &quot;Uid&quot;: {
+         &quot;Description&quot;: &quot;Uid of the Route created&quot;,
+         &quot;Value&quot;: {
+            &quot;Fn::GetAtt&quot;: [
+               &quot;BasicRoute&quot;,
+               &quot;Uid&quot;
+            ]
+         }
+      }
+   }
+}</code></pre><h4 id="aws-resource-appmesh-route--examples--Create_a_Route--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Description: &quot;Basic Test Route&quot;
+Resources:
+  BasicRoute:
+    Type: &quot;AWS::AppMesh::Route&quot;
+    Properties:
+      RouteName: &quot;TestRoute&quot;
+      MeshName: !ImportValue TestMeshName
+      VirtualRouterName: !ImportValue TestVirtualRouterName1
+      Spec:
+        HttpRoute:
+          Match:
+            Prefix: &quot;routePrefix&quot;
+          Action:
+            WeightedTargets:
+            - VirtualNode: !ImportValue TestVirtualNodeName1
+              Weight: 10
+            - VirtualNode: !ImportValue TestVirtualNodeName2
+              Weight: 20
+      Tags:
+      - Key: &quot;Key1&quot;
+        Value: &quot;Value1&quot;
+      - Key: &quot;Key2&quot;
+        Value: &quot;Value2&quot;
+
+Outputs:
+  RouteName:
+    Description: Name of the Route
+    Value:
+      Fn::GetAtt:
+      - BasicRoute
+      - RouteName
+  MeshName:
+    Description: Name of the Mesh
+    Value:
+      Fn::GetAtt:
+      - BasicRoute
+      - MeshName
+  VirtualRouterName:
+    Description: Name of the VirtualRouter
+    Value:
+      Fn::GetAtt:
+      - BasicRoute
+      - VirtualRouterName
+  Arn:
+    Description: Arn of the Route created
+    Value:
+      Fn::GetAtt:
+      - BasicRoute
+      - Arn
+  Uid:
+    Description: Uid of the Route created
+    Value:
+      Fn::GetAtt:
+      - BasicRoute
+      - Uid</code></pre><h2 id="aws-resource-appmesh-route--seealso">See Also</h2><div class="itemizedlist">
+                        
+                        
+                        
+                        <ul class="itemizedlist" type="disc">
+                           <li class="listitem">
+                              
+                              <p>
+                                 <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/routes.html">Routes</a> in the <em>
+                                    AWS App Mesh User Guide
+                                    </em>.
+                              </p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p>
+                                 <a href="https://docs.aws.amazon.com/app-mesh/latest/APIReference/API_CreateRoute.html">CreateRoute</a> in
+                                 the <em>
+                                    AWS App Mesh API Reference
+                                    </em>.
+                              </p>
+                              
+                           </li>
+                        </ul>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
+                     </div></div>
+</body>
+</html>

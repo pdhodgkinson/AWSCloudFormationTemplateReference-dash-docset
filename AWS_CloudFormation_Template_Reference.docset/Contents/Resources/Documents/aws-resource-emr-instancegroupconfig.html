@@ -8,303 +8,340 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-resource-emr-instancegroupconfig">AWS::EMR::InstanceGroupConfig</h1><p>The <code class="code">AWS::EMR::InstanceGroupConfig</code> resource configures a task instance group for
-                        an Amazon EMR cluster.
-                     </p><div class="aws-note">
-                        <p class="aws-note">Note</p>
-                        <p>You can&apos;t delete an instance group. If you remove an instance group, AWS CloudFormation
-                           sets the
-                           instance count to zero (<code class="code">0</code>).
-                        </p>
-                     </div><h2 id="aws-resource-emr-instancegroupconfig-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-resource-emr-instancegroupconfig-syntax.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
+    <h1 class="topictitle" id="aws-resource-emr-instancegroupconfig">AWS::EMR::InstanceGroupConfig</h1><p>Use <code class="code">InstanceGroupConfig</code> to define instance groups for an EMR cluster. A cluster can not use both instance
+                        groups and instance fleets. For more information, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html">Create a Cluster with Instance Fleets or Uniform Instance Groups</a> in the <em>Amazon EMR Management Guide</em>.
+                     </p><h2 id="aws-resource-emr-instancegroupconfig-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-resource-emr-instancegroupconfig-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
   &quot;Type&quot; : &quot;AWS::EMR::InstanceGroupConfig&quot;,
   &quot;Properties&quot; : {
-    &quot;<a href="aws-resource-emr-instancegroupconfig.html#cfn-elasticmapreduce-instancegroupconfig-autoscalingpolicy">AutoScalingPolicy</a>&quot; : <em class="replaceable"><code>AutoScalingPolicy</code></em>,
-    &quot;<a href="aws-resource-emr-instancegroupconfig.html#cfn-emr-instancegroupconfig-bidprice">BidPrice</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-emr-instancegroupconfig.html#cfn-emr-instancegroupconfig-configurations">Configurations</a>&quot; : [ <em class="replaceable"><code>Configuration, ...</code></em> ],
-    &quot;<a href="aws-resource-emr-instancegroupconfig.html#cfn-emr-instancegroupconfig-ebsconfiguration">EbsConfiguration</a>&quot; : <em class="replaceable"><code>EBSConfiguration</code></em>,
-    &quot;<a href="aws-resource-emr-instancegroupconfig.html#cfn-emr-instancegroupconfig-instancecount">InstanceCount</a>&quot; : <em class="replaceable"><code>Integer</code></em>,
-    &quot;<a href="aws-resource-emr-instancegroupconfig.html#cfn-emr-instancegroupconfig-instancerole">InstanceRole</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-emr-instancegroupconfig.html#cfn-emr-instancegroupconfig-instancetype">InstanceType</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-emr-instancegroupconfig.html#cfn-emr-instancegroupconfig-jobflowid">JobFlowId</a>&quot;: <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-emr-instancegroupconfig.html#cfn-emr-instancegroupconfig-market">Market</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-emr-instancegroupconfig.html#cfn-emr-instancegroupconfig-name">Name</a>&quot; : <em class="replaceable"><code>String</code></em>
-  }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-resource-emr-instancegroupconfig-syntax.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">Type: AWS::EMR::InstanceGroupConfig
+      &quot;<a href="#cfn-elasticmapreduce-instancegroupconfig-autoscalingpolicy">AutoScalingPolicy</a>&quot; : <em class="replaceable"><code><a href="aws-properties-elasticmapreduce-instancegroupconfig-autoscalingpolicy.html">AutoScalingPolicy</a></code></em>,
+      &quot;<a href="#cfn-emr-instancegroupconfig-bidprice">BidPrice</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-emr-instancegroupconfig-configurations">Configurations</a>&quot; : <em class="replaceable"><code>[ <a href="aws-properties-emr-cluster-configuration.html">Configuration</a>, ... ]</code></em>,
+      &quot;<a href="#cfn-emr-instancegroupconfig-ebsconfiguration">EbsConfiguration</a>&quot; : <em class="replaceable"><code><a href="aws-properties-emr-ebsconfiguration.html">EbsConfiguration</a></code></em>,
+      &quot;<a href="#cfn-emr-instancegroupconfiginstancecount-">InstanceCount</a>&quot; : <em class="replaceable"><code>Integer</code></em>,
+      &quot;<a href="#cfn-emr-instancegroupconfig-instancerole">InstanceRole</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-emr-instancegroupconfig-instancetype">InstanceType</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-emr-instancegroupconfig-jobflowid">JobFlowId</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-emr-instancegroupconfig-market">Market</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-emr-instancegroupconfig-name">Name</a>&quot; : <em class="replaceable"><code>String</code></em>
+    }
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-emr-instancegroupconfig-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Type: AWS::EMR::InstanceGroupConfig
 Properties: 
-  <a href="aws-resource-emr-instancegroupconfig.html#cfn-elasticmapreduce-instancegroupconfig-autoscalingpolicy">AutoScalingPolicy</a>:
-    <em class="replaceable"><code>AutoScalingPolicy</code></em>
-  <a href="aws-resource-emr-instancegroupconfig.html#cfn-emr-instancegroupconfig-bidprice">BidPrice</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-emr-instancegroupconfig.html#cfn-emr-instancegroupconfig-configurations">Configurations</a>:
-    - <em class="replaceable"><code>Configuration</code></em>
-  <a href="aws-resource-emr-instancegroupconfig.html#cfn-emr-instancegroupconfig-ebsconfiguration">EbsConfiguration</a>&quot; :
-    <em class="replaceable"><code>EBSConfiguration</code></em>
-  <a href="aws-resource-emr-instancegroupconfig.html#cfn-emr-instancegroupconfig-instancecount">InstanceCount</a>&quot; : <em class="replaceable"><code>Integer</code></em>
-  <a href="aws-resource-emr-instancegroupconfig.html#cfn-emr-instancegroupconfig-instancerole">InstanceRole</a>&quot; : <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-emr-instancegroupconfig.html#cfn-emr-instancegroupconfig-instancetype">InstanceType</a>&quot; : <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-emr-instancegroupconfig.html#cfn-emr-instancegroupconfig-jobflowid">JobFlowId</a>&quot;: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-emr-instancegroupconfig.html#cfn-emr-instancegroupconfig-market">Market</a>&quot; : <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-emr-instancegroupconfig.html#cfn-emr-instancegroupconfig-name">Name</a>&quot; : <em class="replaceable"><code>String</code></em>
-</code></pre>
-                        </div><h2 id="w2ab1c21c10d141c22b9">Properties</h2><div class="aws-note">
-                        <p class="aws-note">Note</p>
-                        <p>For more information about the constraints and valid values of each property, 
-                           see the <a href="https://docs.aws.amazon.com//ElasticMapReduce/latest/API/API_InstanceGroupConfig.html">InstanceGroupConfig</a> in the Amazon EMR API Reference.
-                        </p>
-                     </div><div class="variablelist">
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
+  <a href="#cfn-elasticmapreduce-instancegroupconfig-autoscalingpolicy">AutoScalingPolicy</a>: <em class="replaceable"><code>
+    <a href="aws-properties-elasticmapreduce-instancegroupconfig-autoscalingpolicy.html">AutoScalingPolicy</a></code></em>
+  <a href="#cfn-emr-instancegroupconfig-bidprice">BidPrice</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-emr-instancegroupconfig-configurations">Configurations</a>: <em class="replaceable"><code>
+    - <a href="aws-properties-emr-cluster-configuration.html">Configuration</a></code></em>
+  <a href="#cfn-emr-instancegroupconfig-ebsconfiguration">EbsConfiguration</a>: <em class="replaceable"><code>
+    <a href="aws-properties-emr-ebsconfiguration.html">EbsConfiguration</a></code></em>
+  <a href="#cfn-emr-instancegroupconfiginstancecount-">InstanceCount</a>: <em class="replaceable"><code>Integer</code></em>
+  <a href="#cfn-emr-instancegroupconfig-instancerole">InstanceRole</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-emr-instancegroupconfig-instancetype">InstanceType</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-emr-instancegroupconfig-jobflowid">JobFlowId</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-emr-instancegroupconfig-market">Market</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-emr-instancegroupconfig-name">Name</a>: <em class="replaceable"><code>String</code></em>
+</code></pre></div><h2 id="aws-resource-emr-instancegroupconfig-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
                            <dt><a id="cfn-elasticmapreduce-instancegroupconfig-autoscalingpolicy"></a><span class="term"><code class="code">AutoScalingPolicy</code></span></dt>
-                           
                            <dd>
                               
-                              <p>An automatic scaling policy for a core instance group or task instance group in an
-                                 Amazon EMR cluster. An automatic scaling policy defines how an instance group dynamically
-                                 adds and terminates EC2 instances in response to the value of a CloudWatch metric.
-                                 For more
-                                 information, see <a href="https://docs.aws.amazon.com//ElasticMapReduce/latest/API/API_PutAutoScalingPolicy.html">PutAutoScalingPolicy</a> in the Amazon EMR API Reference. 
+                              <p><code class="code">AutoScalingPolicy</code> is a subproperty of <code class="code">InstanceGroupConfig</code>. <code class="code">AutoScalingPolicy</code> defines how an instance group dynamically adds and terminates EC2 instances in response
+                                 to the value of a CloudWatch metric. For more information, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html">Using Automatic Scaling in Amazon EMR</a> in the <em>Amazon EMR Management Guide</em>.
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: <a href="aws-properties-elasticmapreduce-instancegroupconfig-autoscalingpolicy.html">Amazon EMR
-                                    InstanceGroupConfig AutoScalingPolicy</a></p>
-                              
+                              <p><em>Type</em>: <a href="aws-properties-elasticmapreduce-instancegroupconfig-autoscalingpolicy.html">AutoScalingPolicy</a></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-emr-instancegroupconfig-bidprice"></a><span class="term"><code class="code">BidPrice</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The bid price in USD for each Amazon EC2 instance in the instance group when launching
-                                 instances (nodes) as Spot Instances.
+                              <p>The maximum Spot price your are willing to pay for EC2 instances.</p>
+                              
+                              <p>If <code class="code">BidPrice</code> is specified, Amazon EMR uses Spot Instances for the instance group. Specified in
+                                 USD. Alternatively, a value of <code class="code">OnDemandPrice</code> indicates that the maximum Spot price is set equal to the On-Demand price.
                               </p>
+                              
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Minimum</em>: <code class="code">0</code></p>
+                              <p><em>Maximum</em>: <code class="code">256</code></p>
+                              <p><em>Pattern</em>: <code class="code">[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*</code></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-emr-instancegroupconfig-configurations"></a><span class="term"><code class="code">Configurations</code></span></dt>
-                           
                            <dd>
-                              
-                              <p>A list of configurations to apply to this instance group. For more information see,
-                                 <a href="https://docs.aws.amazon.com//ElasticMapReduce/latest/ReleaseGuide/emr-configure-apps.html">Configuring Applications</a> in the <em>Amazon EMR Release
-                                    Guide</em>.
-                              </p>
-                              
-                              <p><em>Required</em>: No
-                              </p>
-                              
-                              <p><em>Type</em>: List of <a href="aws-properties-emr-cluster-configuration.html">Amazon EMR Cluster
-                                    Configurations</a></p>
-                              
-                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
-                           </dd>
-                           
-                           
-                           <dt><a id="cfn-emr-instancegroupconfig-ebsconfiguration"></a><span class="term"><code class="code">EbsConfiguration</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>Configures Amazon Elastic Block Store (Amazon EBS) storage volumes to attach to your
-                                 instances.
-                              </p>
-                              
-                              <p><em>Required</em>: No
-                              </p>
-                              
-                              <p><em>Type</em>: <a href="aws-properties-emr-ebsconfiguration.html">Amazon EMR EbsConfiguration</a></p>
-                              
-                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
-                           </dd>
-                           
-                           
-                           <dt><a id="cfn-emr-instancegroupconfig-instancecount"></a><span class="term"><code class="code">InstanceCount</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>The number of instances to launch in the instance group.</p>
-                              
-                              <p><em>Required</em>: Yes
-                              </p>
-                              
-                              <p><em>Type</em>: Integer
-                              </p>
-                              
-                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
-                           </dd>
-                           
-                           
-                           <dt><a id="cfn-emr-instancegroupconfig-instancerole"></a><span class="term"><code class="code">InstanceRole</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>The role of the servers in the Amazon EMR cluster, such as <code class="code">TASK</code>. For more
-                                 information, see <a href="https://docs.aws.amazon.com//ElasticMapReduce/latest/ManagementGuide/InstanceGroups.html">Instance Groups</a> in the <em>Amazon EMR Management
-                                    Guide</em>.
-                              </p>
                               
                               <div class="aws-note">
                                  <p class="aws-note">Note</p>
-                                 <p>Currently, the only valid value is <code class="code">TASK</code>. You configure the master and
-                                    core instance groups as part of the <a href="aws-resource-emr-cluster.html">AWS::EMR::Cluster</a> resource.
-                                 </p>
+                                 <p>Amazon EMR releases 4.x or later.</p>
                               </div>
                               
+                              <p>The list of configurations supplied for an EMR cluster instance group. You can specify
+                                 a separate configuration for each instance group (master, core, and task).
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              <p><em>Type</em>: List of <a href="aws-properties-emr-cluster-configuration.html">Configuration</a></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                           </dd>
+                           <dt><a id="cfn-emr-instancegroupconfig-ebsconfiguration"></a><span class="term"><code class="code">EbsConfiguration</code></span></dt>
+                           <dd>
+                              
+                              <p><code class="code">EbsConfiguration</code> determines the EBS volumes to attach to EMR cluster instances.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              <p><em>Type</em>: <a href="aws-properties-emr-ebsconfiguration.html">EbsConfiguration</a></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                           </dd>
+                           <dt><a id="cfn-emr-instancegroupconfiginstancecount-"></a><span class="term"><code class="code">InstanceCount</code></span></dt>
+                           <dd>
+                              
+                              <p>Target number of instances for the instance group.</p>
+                              
                               <p><em>Required</em>: Yes
                               </p>
+                              <p><em>Type</em>: Integer
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                           </dd>
+                           <dt><a id="cfn-emr-instancegroupconfig-instancerole"></a><span class="term"><code class="code">InstanceRole</code></span></dt>
+                           <dd>
                               
+                              <p>The role of the instance group in the cluster.</p>
+                              
+                              <p><em>Required</em>: Yes
+                              </p>
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Allowed Values</em>: <code class="code">CORE | MASTER | TASK</code></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-emr-instancegroupconfig-instancetype"></a><span class="term"><code class="code">InstanceType</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The EC2 instance type for all instances in the instance group. For more information,
-                                 see <a href="https://docs.aws.amazon.com//ElasticMapReduce/latest/ManagementGuide/emr-plan-ec2-instances.html">Instance Configurations</a> in the <em>Amazon EMR Management
-                                    Guide</em>.
-                              </p>
+                              <p>The EC2 instance type for all instances in the instance group.</p>
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Minimum</em>: <code class="code">1</code></p>
+                              <p><em>Maximum</em>: <code class="code">256</code></p>
+                              <p><em>Pattern</em>: <code class="code">[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*</code></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-emr-instancegroupconfig-jobflowid"></a><span class="term"><code class="code">JobFlowId</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The ID of an Amazon EMR cluster that you want to associate this instance group
-                                 with.
-                              </p>
+                              <p>The ID of an Amazon EMR cluster that you want to associate this instance group with.</p>
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-emr-instancegroupconfig-market"></a><span class="term"><code class="code">Market</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The type of marketplace from which your instances are provisioned into this group,
-                                 either <code class="code">ON_DEMAND</code> or <code class="code">SPOT</code>. For more information, see <a href="https://aws.amazon.com/ec2/purchasing-options/" target="_blank">Amazon EC2 Purchasing Options</a>.
-                              </p>
+                              <p>Market type of the EC2 instances used to create a cluster node.</p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Allowed Values</em>: <code class="code">ON_DEMAND | SPOT</code></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-emr-instancegroupconfig-name"></a><span class="term"><code class="code">Name</code></span></dt>
-                           
                            <dd>
                               
-                              <p>A name for the instance group.</p>
+                              <p>Friendly name given to the instance group.</p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Minimum</em>: <code class="code">0</code></p>
+                              <p><em>Maximum</em>: <code class="code">256</code></p>
+                              <p><em>Pattern</em>: <code class="code">[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*</code></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
                         </dl>
-                     </div><h2 id="w2ab1c21c10d141c22c11">Return Values</h2><h3 id="w2ab1c21c10d141c22c11b2">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code>
-                        intrinsic function, <code class="code">Ref</code> returns the instance group ID, such as
-                        <code class="code">ig-ABC12DEF3456</code>.
+                     </div><h2 id="aws-resource-emr-instancegroupconfig-return-values">Return Values</h2><h3 id="aws-resource-emr-instancegroupconfig-return-values-ref">Ref</h3><p>When you pass the logical ID of this resource to the intrinsic <code class="code">Ref</code> function, <code class="code">Ref</code> returns returns the ID of the instance group.
                      </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                     </p><h2 id="w2ab1c21c10d141c22c13">Example</h2><p>The following example adds a task instance group to the <code class="code">TestCluster</code> cluster.
-                        The instance group contains two m3.xlarge instances.
-                     </p><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-resource-emr-instancegroupconfig-example.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">&quot;TestInstanceGroupConfig&quot;: {
-  &quot;Type&quot;: &quot;AWS::EMR::InstanceGroupConfig&quot;,
-  &quot;Properties&quot;: {
-    &quot;InstanceCount&quot;: 2,
-    &quot;InstanceType&quot;: &quot;m3.xlarge&quot;,
-    &quot;InstanceRole&quot;: &quot;TASK&quot;,
-    &quot;Market&quot;: &quot;ON_DEMAND&quot;,
-    &quot;Name&quot;: &quot;cfnTask2&quot;,
-    &quot;JobFlowId&quot;: {
-      &quot;Ref&quot;: &quot;cluster&quot;
+                     </p><h2 id="aws-resource-emr-instancegroupconfig--examples">Examples</h2><p>Example instance group configuration specifications.</p><h3 id="aws-resource-emr-instancegroupconfig--examples--Add_a_task_instance_group">Add a task instance group</h3><p>The following example adds a task instance group to a cluster named <code class="code">TestCluster</code>.
+                     </p><h4 id="aws-resource-emr-instancegroupconfig--examples--Add_a_task_instance_group--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">&quot;TestInstanceGroupConfig&quot;: {
+    &quot;Type&quot;: &quot;AWS: : EMR: : InstanceGroupConfig&quot;,
+    &quot;Properties&quot;: {
+        &quot;InstanceCount&quot;: 2,
+        &quot;InstanceType&quot;: &quot;m3.xlarge&quot;,
+        &quot;InstanceRole&quot;: &quot;TASK&quot;,
+        &quot;Market&quot;: &quot;ON_DEMAND&quot;,
+        &quot;Name&quot;: &quot;cfnTask2&quot;,
+        &quot;JobFlowId&quot;: {
+            &quot;Ref&quot;: &quot;cluster&quot;
+        }
     }
-  }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-resource-emr-instancegroupconfig-example.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">TestInstanceGroupConfig: 
-  Type: AWS::EMR::InstanceGroupConfig
+}</code></pre><h4 id="aws-resource-emr-instancegroupconfig--examples--Add_a_task_instance_group--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">TestInstanceGroupConfig: 
   Properties: 
     InstanceCount: 2
-    InstanceType: &quot;m3.xlarge&quot;
-    InstanceRole: &quot;TASK&quot;
-    Market: &quot;ON_DEMAND&quot;
-    Name: &quot;cfnTask2&quot;
+    InstanceRole: TASK
+    InstanceType: m3.xlarge
     JobFlowId: 
-      Ref: &quot;cluster&quot;</code></pre>
-                        </div></div>
+      Ref: cluster
+    Market: ON_DEMAND
+    Name: cfnTask2
+  Type: &quot;AWS::EMR::InstanceGroupConfig&quot;</code></pre><h3 id="aws-resource-emr-instancegroupconfig--examples--Specify_an_Automatic_Scaling_Policy">Specify an Automatic Scaling Policy</h3><p>The following example defines an <code class="code">AutoScalingPolicy</code> for an <code class="code">InstanceGroupConfig</code> resource.
+                     </p><h4 id="aws-resource-emr-instancegroupconfig--examples--Specify_an_Automatic_Scaling_Policy--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">&quot;MyInstanceGroupConfig&quot;: {
+  &quot;Type&quot;: &quot;AWS::EMR::InstanceGroupConfig&quot;,
+  &quot;Properties&quot;: {
+    &quot;InstanceCount&quot;: 1,
+    &quot;InstanceType&quot;: {
+      &quot;Ref&quot;: &quot;InstanceType&quot;
+    },
+    &quot;InstanceRole&quot;: &quot;TASK&quot;,
+    &quot;Market&quot;: &quot;ON_DEMAND&quot;,
+    &quot;Name&quot;: &quot;cfnTask&quot;,
+    &quot;JobFlowId&quot;: {
+      &quot;Ref&quot;: &quot;MyCluster&quot;
+    },
+    &quot;AutoScalingPolicy&quot;: {
+      &quot;Constraints&quot;: {
+        &quot;MinCapacity&quot;: {
+          &quot;Ref&quot;: &quot;MinCapacity&quot;
+        },
+        &quot;MaxCapacity&quot;: {
+          &quot;Ref&quot;: &quot;MaxCapacity&quot;
+        }
+      },
+      &quot;Rules&quot;: [
+        {
+          &quot;Name&quot;: &quot;Scale-out&quot;,
+          &quot;Description&quot;: &quot;Scale-out policy&quot;,
+          &quot;Action&quot;: {
+            &quot;SimpleScalingPolicyConfiguration&quot;: {
+              &quot;AdjustmentType&quot;: &quot;CHANGE_IN_CAPACITY&quot;,
+              &quot;ScalingAdjustment&quot;: 1,
+              &quot;CoolDown&quot;: 300
+            }
+          },
+          &quot;Trigger&quot;: {
+            &quot;CloudWatchAlarmDefinition&quot;: {
+              &quot;Dimensions&quot;: [
+                {
+                  &quot;Key&quot;: &quot;JobFlowId&quot;,
+                  &quot;Value&quot;: &quot;${emr.clusterId}&quot;
+                }
+              ],
+              &quot;EvaluationPeriods&quot;: 1,
+              &quot;Namespace&quot;: &quot;AWS/ElasticMapReduce&quot;,
+              &quot;Period&quot;: 300,
+              &quot;ComparisonOperator&quot;: &quot;LESS_THAN&quot;,
+              &quot;Statistic&quot;: &quot;AVERAGE&quot;,
+              &quot;Threshold&quot;: 15,
+              &quot;Unit&quot;: &quot;PERCENT&quot;,
+              &quot;MetricName&quot;: &quot;YARNMemoryAvailablePercentage&quot;
+            }
+          }
+        },
+        {
+          &quot;Name&quot;: &quot;Scale-in&quot;,
+          &quot;Description&quot;: &quot;Scale-in policy&quot;,
+          &quot;Action&quot;: {
+            &quot;SimpleScalingPolicyConfiguration&quot;: {
+              &quot;AdjustmentType&quot;: &quot;CHANGE_IN_CAPACITY&quot;,
+              &quot;ScalingAdjustment&quot;: -1,
+              &quot;CoolDown&quot;: 300
+            }
+          },
+          &quot;Trigger&quot;: {
+            &quot;CloudWatchAlarmDefinition&quot;: {
+              &quot;Dimensions&quot;: [
+                {
+                  &quot;Key&quot;: &quot;JobFlowId&quot;,
+                  &quot;Value&quot;: &quot;${emr.clusterId}&quot;
+                }
+              ],
+              &quot;EvaluationPeriods&quot;: 1,
+              &quot;Namespace&quot;: &quot;AWS/ElasticMapReduce&quot;,
+              &quot;Period&quot;: 300,
+              &quot;ComparisonOperator&quot;: &quot;GREATER_THAN&quot;,
+              &quot;Statistic&quot;: &quot;AVERAGE&quot;,
+              &quot;Threshold&quot;: 75,
+              &quot;Unit&quot;: &quot;PERCENT&quot;,
+              &quot;MetricName&quot;: &quot;YARNMemoryAvailablePercentage&quot;
+            }
+          }
+        }
+      ]
+    }
+  }
+}</code></pre><h4 id="aws-resource-emr-instancegroupconfig--examples--Specify_an_Automatic_Scaling_Policy--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">MyInstanceGroupConfig:
+  Type: &apos;AWS::EMR::InstanceGroupConfig&apos;
+  Properties:
+    InstanceCount: 1
+    InstanceType: !Ref InstanceType
+    InstanceRole: TASK
+    Market: ON_DEMAND
+    Name: cfnTask
+    JobFlowId: !Ref MyCluster
+    AutoScalingPolicy:
+      Constraints:
+        MinCapacity: !Ref MinCapacity
+        MaxCapacity: !Ref MaxCapacity
+      Rules:
+        - Name: Scale-out
+          Description: Scale-out policy
+          Action:
+            SimpleScalingPolicyConfiguration:
+              AdjustmentType: CHANGE_IN_CAPACITY
+              ScalingAdjustment: 1
+              CoolDown: 300
+          Trigger:
+            CloudWatchAlarmDefinition:
+              Dimensions:
+                - Key: JobFlowId
+                  Value: &apos;${emr.clusterId}&apos;
+              EvaluationPeriods: 1
+              Namespace: AWS/ElasticMapReduce
+              Period: 300
+              ComparisonOperator: LESS_THAN
+              Statistic: AVERAGE
+              Threshold: 15
+              Unit: PERCENT
+              MetricName: YARNMemoryAvailablePercentage
+        - Name: Scale-in
+          Description: Scale-in policy
+          Action:
+            SimpleScalingPolicyConfiguration:
+              AdjustmentType: CHANGE_IN_CAPACITY
+              ScalingAdjustment: -1
+              CoolDown: 300
+          Trigger:
+            CloudWatchAlarmDefinition:
+              Dimensions:
+                - Key: JobFlowId
+                  Value: &apos;${emr.clusterId}&apos;
+              EvaluationPeriods: 1
+              Namespace: AWS/ElasticMapReduce
+              Period: 300
+              ComparisonOperator: GREATER_THAN
+              Statistic: AVERAGE
+              Threshold: 75
+              Unit: PERCENT
+              MetricName: YARNMemoryAvailablePercentage</code></pre><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
+                     </div></div>
 </body>
 </html>

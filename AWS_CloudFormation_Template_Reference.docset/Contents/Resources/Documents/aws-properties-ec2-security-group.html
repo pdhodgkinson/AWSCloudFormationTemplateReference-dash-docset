@@ -8,198 +8,129 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-properties-ec2-security-group">AWS::EC2::SecurityGroup</h1><p>Creates an Amazon EC2 security group. To create a VPC security group, use the <a href="aws-properties-ec2-security-group.html#cfn-ec2-securitygroup-vpcid">VpcId</a> property.
+    <h1 class="topictitle" id="aws-properties-ec2-security-group">AWS::EC2::SecurityGroup</h1><p>Specifies a security group. To create a VPC security group, use the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group.html#cfn-ec2-securitygroup-vpcid">VpcId</a> property.
                      </p><p>This type supports updates. For more information about updating stacks, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks.html">AWS CloudFormation Stacks Updates</a>.
                      </p><div class="aws-note">
                         <p class="aws-note">Important</p>
                         <p>If you want to cross-reference two security groups in the ingress and egress rules
                            of
-                           those security groups, use the <a href="aws-resource-ec2-security-group-egress.html">AWS::EC2::SecurityGroupEgress</a> and <a href="aws-properties-ec2-security-group-ingress.html">AWS::EC2::SecurityGroupIngress</a> resources to define your
+                           those security groups, use the <a href="aws-resource-ec2-security-group-egress.html">AWS::EC2::SecurityGroupEgress</a> and <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-security-group-ingress.html">AWS::EC2::SecurityGroupIngress</a> resources to define your
                            rules. Do not use the embedded ingress and egress rules in the
                            <code class="code">AWS::EC2::SecurityGroup</code>. Doing so creates a circular dependency, which
-                           AWS CloudFormation doesn&apos;t allow.
+                           CloudFormation doesn&apos;t allow.
                         </p>
-                     </div><h2 id="aws-resource-ec2-securitygroup-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-resource-ec2-securitygroup-syntax.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
+                     </div><h2 id="aws-properties-ec2-security-group-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-properties-ec2-security-group-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
   &quot;Type&quot; : &quot;AWS::EC2::SecurityGroup&quot;,
   &quot;Properties&quot; : {
-     &quot;<a href="aws-properties-ec2-security-group.html#cfn-ec2-securitygroup-groupname">GroupName</a>&quot; : <em class="replaceable"><code>String</code></em>,
-     &quot;<a href="aws-properties-ec2-security-group.html#cfn-ec2-securitygroup-groupdescription">GroupDescription</a>&quot; : <em class="replaceable"><code>String</code></em>,
-     &quot;<a href="aws-properties-ec2-security-group.html#cfn-ec2-securitygroup-securitygroupegress">SecurityGroupEgress</a>&quot; : [ <em class="replaceable"><code>Security Group Rule, ...</code></em> ],
-     &quot;<a href="aws-properties-ec2-security-group.html#cfn-ec2-securitygroup-securitygroupingress">SecurityGroupIngress</a>&quot; : [ <em class="replaceable"><code>Security Group Rule, ...</code></em> ],
-     &quot;<a href="aws-properties-ec2-security-group.html#cfn-ec2-securitygroup-tags">Tags</a>&quot; :  [ <em class="replaceable"><code>Resource Tag, ...</code></em> ],
-     &quot;<a href="aws-properties-ec2-security-group.html#cfn-ec2-securitygroup-vpcid">VpcId</a>&quot; : <em class="replaceable"><code>String</code></em>
-  }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-resource-ec2-securitygroup-syntax.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">
-Type: AWS::EC2::SecurityGroup
+      &quot;<a href="#cfn-ec2-securitygroup-groupdescription">GroupDescription</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-ec2-securitygroup-groupname">GroupName</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-ec2-securitygroup-securitygroupegress">SecurityGroupEgress</a>&quot; : <em class="replaceable"><code>[ <a href="aws-properties-ec2-security-group-rule.html">Egress</a>, ... ]</code></em>,
+      &quot;<a href="#cfn-ec2-securitygroup-securitygroupingress">SecurityGroupIngress</a>&quot; : <em class="replaceable"><code>[ <a href="aws-properties-ec2-security-group-rule-1.html">Ingress</a>, ... ]</code></em>,
+      &quot;<a href="#cfn-ec2-securitygroup-tags">Tags</a>&quot; : <em class="replaceable"><code>[ <a href="aws-properties-resource-tags.html">Tag</a>, ... ]</code></em>,
+      &quot;<a href="#cfn-ec2-securitygroup-vpcid">VpcId</a>&quot; : <em class="replaceable"><code>String</code></em>
+    }
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-properties-ec2-security-group-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Type: AWS::EC2::SecurityGroup
 Properties: 
-  <a href="aws-properties-ec2-security-group.html#cfn-ec2-securitygroup-groupname">GroupName</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-properties-ec2-security-group.html#cfn-ec2-securitygroup-groupdescription">GroupDescription</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-properties-ec2-security-group.html#cfn-ec2-securitygroup-securitygroupegress">SecurityGroupEgress</a>:
-    - <em class="replaceable"><code>Security Group Rule</code></em>
-  <a href="aws-properties-ec2-security-group.html#cfn-ec2-securitygroup-securitygroupingress">SecurityGroupIngress</a>:
-    - <em class="replaceable"><code>Security Group Rule</code></em>
-  <a href="aws-properties-ec2-security-group.html#cfn-ec2-securitygroup-tags">Tags</a>:
-    - <em class="replaceable"><code>Resource Tag</code></em>
-  <a href="aws-properties-ec2-security-group.html#cfn-ec2-securitygroup-vpcid">VpcId</a>: <em class="replaceable"><code>String</code></em>
-</code></pre>
-                        </div><h2 id="w2ab1c21c10d111d104c11">Properties</h2><div class="variablelist">
-                        
-                        
-                        
-                        
-                        
-                        
-                        
+  <a href="#cfn-ec2-securitygroup-groupdescription">GroupDescription</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-ec2-securitygroup-groupname">GroupName</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-ec2-securitygroup-securitygroupegress">SecurityGroupEgress</a>: <em class="replaceable"><code>
+    - <a href="aws-properties-ec2-security-group-rule.html">Egress</a></code></em>
+  <a href="#cfn-ec2-securitygroup-securitygroupingress">SecurityGroupIngress</a>: <em class="replaceable"><code>
+    - <a href="aws-properties-ec2-security-group-rule-1.html">Ingress</a></code></em>
+  <a href="#cfn-ec2-securitygroup-tags">Tags</a>: <em class="replaceable"><code>
+    - <a href="aws-properties-resource-tags.html">Tag</a></code></em>
+  <a href="#cfn-ec2-securitygroup-vpcid">VpcId</a>: <em class="replaceable"><code>String</code></em>
+</code></pre></div><h2 id="aws-properties-ec2-security-group-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
-                           <dt><a id="cfn-ec2-securitygroup-groupname"></a><span class="term"><code class="code">GroupName</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>The name of the security group. For valid values, see the <a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSecurityGroup.html">GroupName</a> parameter of the <code class="code">CreateSecurityGroup</code> action in the <em>Amazon EC2 API Reference</em>.
-                              </p>
-                              
-                              <p>If you don&apos;t specify a <code class="code">GroupName</code>, AWS CloudFormation generates a unique physical ID and uses that ID for the group
-                                 name. For more information, see <a href="aws-properties-name.html">Name Type</a>.
-                              </p>
-                              
-                              <div class="aws-note">
-                                 <p class="aws-note">Important</p>
-                                 <p>If you specify a name, you cannot perform updates that require replacement of this
-                                    resource.
-                                    You can perform updates that require no or some interruption. If you must replace
-                                    the resource, specify a new name.
-                                 </p>
-                              </div>
-                              
-                              <p><em>Required</em>: No
-                              </p>
-                              
-                              <p><em>Type</em>: String
-                              </p>
-                              
-                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
-                           </dd>
-                           
-                           
                            <dt><a id="cfn-ec2-securitygroup-groupdescription"></a><span class="term"><code class="code">GroupDescription</code></span></dt>
-                           
                            <dd>
                               
-                              <p>A description of the security group.</p>
+                              <p>A description for the security group. This is informational only.</p>
+                              		       
+                              <p>Constraints: Up to 255 characters in length</p>
+                              		       
+                              <p>Constraints for EC2-Classic: ASCII characters</p>
+                              		       
+                              <p>Constraints for EC2-VPC: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&amp;;{}!$*</p>
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
-                           
+                           <dt><a id="cfn-ec2-securitygroup-groupname"></a><span class="term"><code class="code">GroupName</code></span></dt>
+                           <dd>
+                              
+                              <p>The name of the security group.</p>
+                              
+                              <p>Constraints: Up to 255 characters in length. Cannot start with
+                                 <code class="code">sg-</code>.
+                              </p>
+                              
+                              <p>Constraints for EC2-Classic: ASCII characters</p>
+                              
+                              <p>Constraints for EC2-VPC: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&amp;;{}!$*</p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              <p><em>Type</em>: String
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                           </dd>
                            <dt><a id="cfn-ec2-securitygroup-securitygroupegress"></a><span class="term"><code class="code">SecurityGroupEgress</code></span></dt>
-                           
                            <dd>
                               
-                              <p>A list of Amazon EC2 security group egress rules.</p>
+                              <p>[VPC only] The outbound rules associated with the security group.</p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: List of <a href="aws-properties-ec2-security-group-rule.html">SecurityGroupRule</a></p>
-                              
+                              <p><em>Type</em>: List of <a href="aws-properties-ec2-security-group-rule.html">Egress</a></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-ec2-securitygroup-securitygroupingress"></a><span class="term"><code class="code">SecurityGroupIngress</code></span></dt>
-                           
                            <dd>
                               
-                              <p>A list of Amazon EC2 security group ingress rules.</p>
+                              <p>The inbound rules associated with the security group.</p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: List of <a href="aws-properties-ec2-security-group-rule.html">SecurityGroupRule</a></p>
-                              
+                              <p><em>Type</em>: List of <a href="aws-properties-ec2-security-group-rule-1.html">Ingress</a></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-ec2-securitygroup-tags"></a><span class="term"><code class="code">Tags</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The tags that you want to attach to the resource.</p>
+                              <p>Any tags assigned to the security group.</p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: List of <a href="aws-properties-resource-tags.html">Resource Tag</a></p>
-                              
+                              <p><em>Type</em>: List of <a href="aws-properties-resource-tags.html">Tag</a></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-ec2-securitygroup-vpcid"></a><span class="term"><code class="code">VpcId</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The physical ID of the VPC. You can obtain the physical ID by using a reference
-                                 to an <a href="aws-resource-ec2-vpc.html">AWS::EC2::VPC</a>, such as: <code class="code">{
-                                    &quot;Ref&quot; : &quot;myVPC&quot; }</code>.
-                              </p>
+                              <p>[VPC only] The ID of the VPC for the security group.</p>
                               
-                              <p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
+                              <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Required</em>: Yes, for VPC security groups without a default
-                                 VPC
-                              </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
-                              <div class="aws-note">
-                                 <p class="aws-note">Note</p>
-                                 <p>For more information about VPC security groups, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html">Security Groups</a> in the
-                                    <em>Amazon VPC User Guide</em>.
-                                 </p>
-                              </div>
-                              
                            </dd>
-                           
                         </dl>
-                     </div><h2 id="w2ab1c21c10d111d104c13">Return Values</h2><h3 id="w2ab1c21c10d111d104c13b2">Ref</h3><p>When you specify an <code class="code">AWS::EC2::SecurityGroup</code> type as an argument to the
-                        <code class="code">Ref</code> function, AWS CloudFormation returns the security group name or the security
-                        group ID (for EC2-VPC security groups that are not in a default VPC).
+                     </div><h2 id="aws-properties-ec2-security-group-return-values">Return Values</h2><h3 id="aws-properties-ec2-security-group-return-values-ref">Ref</h3><p>When you pass the logical ID of this resource to the intrinsic <code class="code">Ref</code> function, <code class="code">Ref</code> returns the resource name.
                      </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                     </p><h3 id="w2ab1c21c10d111d104c13b4">Fn::GetAtt</h3><p><code class="code">Fn::GetAtt</code> returns a value for a specified attribute of this type.
-                        The following are the available attributes and sample return values.
-                     </p><div class="variablelist">
-                        
-                        
-                        
+                     </p><h3 id="aws-properties-ec2-security-group-return-values-fn--getatt">Fn::GetAtt</h3><p>The <code class="code">Fn::GetAtt</code> intrinsic function returns a value for a specified attribute of this type. The following
+                        are the available attributes and sample return values.
+                     </p><p>For more information about using the <code class="code">Fn::GetAtt</code> intrinsic function, see <a href="intrinsic-function-reference-getatt.html">Fn::GetAtt</a>.
+                     </p><h4 id="aws-properties-ec2-security-group-return-values-fn--getatt-fn--getatt"></h4><div class="variablelist">
                         <dl>
-                           
-                           <dt><span class="term"><code class="code">GroupId</code></span></dt>
-                           
+                           <dt><a id="GroupId-fn::getatt"></a><span class="term"><code class="code">GroupId</code></span></dt>
                            <dd>
                               
                               <p>The group ID of the specified security group, such as
@@ -207,36 +138,29 @@ Properties:
                               </p>
                               
                            </dd>
-                           
-                           
-                           <dt><span class="term"><code class="code">VpcId</code></span></dt>
-                           
+                           <dt><a id="VpcId-fn::getatt"></a><span class="term"><code class="code">VpcId</code></span></dt>
                            <dd>
                               
-                              <p>The ID of the VPC, such as
-                                 <code class="code">vpc-3325caf2</code>.
+                              <p>The physical ID of the VPC. You can obtain the physical ID by using a reference
+                                 to an <a href="aws-resource-ec2-vpc.html">AWS::EC2::VPC</a>, such as: <code class="code">{
+                                    &quot;Ref&quot; : &quot;myVPC&quot; }</code>.
                               </p>
                               
                            </dd>
-                           
                         </dl>
-                     </div><p>For more information about using <code class="code">Fn::GetAtt</code>, see <a href="intrinsic-function-reference-getatt.html">Fn::GetAtt</a>.
-                     </p><h2 id="w2ab1c21c10d111d104c15">Examples</h2><h3 id="w2ab1c21c10d111d104c15b2">Define Basic Ingress and Egress Rules</h3><p>The following example defines a security group with an ingress and egress
-                        rule.
-                     </p><div id="JSON" name="JSON" class="section langfilter">
-                        <h4 id="aws-resource-ec2-securitygroup-example-1.json">JSON</h4>
+                     </div><h2 id="aws-properties-ec2-security-group--examples">Examples</h2><h3 id="aws-properties-ec2-security-group--examples--Define_Basic_Ingress_and_Egress_Rules">Define Basic Ingress and Egress Rules</h3><p>The following example specifies a security group with an ingress and egress rule.
                         
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">&quot;InstanceSecurityGroup&quot; : {
+                     </p><h4 id="aws-properties-ec2-security-group--examples--Define_Basic_Ingress_and_Egress_Rules--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">&quot;InstanceSecurityGroup&quot; : {
    &quot;Type&quot; : &quot;AWS::EC2::SecurityGroup&quot;,
    &quot;Properties&quot; : {
       &quot;GroupDescription&quot; : &quot;Allow http to client host&quot;,
       &quot;VpcId&quot; : {&quot;Ref&quot; : &quot;myVPC&quot;},
       &quot;SecurityGroupIngress&quot; : [{
-            &quot;IpProtocol&quot; : &quot;tcp&quot;,
-            &quot;FromPort&quot; : 80,
-            &quot;ToPort&quot; : 80,
-            &quot;CidrIp&quot; : &quot;0.0.0.0/0&quot;
-         }],
+         &quot;IpProtocol&quot; : &quot;tcp&quot;,
+         &quot;FromPort&quot; : 80,
+         &quot;ToPort&quot; : 80,
+         &quot;CidrIp&quot; : &quot;0.0.0.0/0&quot;
+      }],
       &quot;SecurityGroupEgress&quot; : [{
          &quot;IpProtocol&quot; : &quot;tcp&quot;,
          &quot;FromPort&quot; : 80,
@@ -244,36 +168,27 @@ Properties:
          &quot;CidrIp&quot; : &quot;0.0.0.0/0&quot;
       }]
    }
-}     </code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h4 id="aws-resource-ec2-securitygroup-example-1.yaml">YAML</h4>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">InstanceSecurityGroup:
+}</code></pre><h4 id="aws-properties-ec2-security-group--examples--Define_Basic_Ingress_and_Egress_Rules--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">InstanceSecurityGroup:
   Type: AWS::EC2::SecurityGroup
   Properties:
-    GroupDescription: Allow http to client host
-    VpcId:
-      Ref: myVPC
-    SecurityGroupIngress:
-    - IpProtocol: tcp
-      FromPort: 80
-      ToPort: 80
-      CidrIp: 0.0.0.0/0
-    SecurityGroupEgress:
-    - IpProtocol: tcp
-      FromPort: 80
-      ToPort: 80
-      CidrIp: 0.0.0.0/0</code></pre>
-                        </div><h3 id="w2ab1c21c10d111d104c15b4">Remove Default Rule</h3><p>When you create a VPC security group, Amazon EC2 creates a default egress rule that
-                        allows
-                        egress traffic on all ports and IP protocols to any location. The default rule is
-                        removed only when you specify one or more egress rules. If you want to remove the
-                        default rule and limit egress traffic to just the localhost (<code class="code">127.0.0.1/32</code>),
-                        use the following example.
-                     </p><div id="JSON" name="JSON" class="section langfilter">
-                        <h4 id="aws-resource-ec2-securitygroup-example-2.json">JSON</h4>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">&quot;sgwithoutegress&quot;: {
+      GroupDescription: Allow http to client host
+      VpcId:
+         Ref: myVPC
+      SecurityGroupIngress:
+      - IpProtocol: tcp
+        FromPort: 80
+        ToPort: 80
+        CidrIp: 0.0.0.0/0
+      SecurityGroupEgress:
+      - IpProtocol: tcp
+        FromPort: 80
+        ToPort: 80
+        CidrIp: 0.0.0.0/0</code></pre><h3 id="aws-properties-ec2-security-group--examples--Remove_Default_Rule">Remove Default Rule</h3><p>When you specify a VPC security group, Amazon EC2 creates a default egress rule that
+                        allows egress traffic on all ports and IP protocols to any location. The default rule
+                        is removed only when you specify one or more egress rules. If you want to remove the
+                        default rule and limit egress traffic to just the localhost (127.0.0.1/32), use the
+                        following example. 
+                     </p><h4 id="aws-properties-ec2-security-group--examples--Remove_Default_Rule--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">&quot;sgwithoutegress&quot;: {
   &quot;Type&quot;: &quot;AWS::EC2::SecurityGroup&quot;,
   &quot;Properties&quot;: {
     &quot;GroupDescription&quot;: &quot;Limits security group egress traffic&quot;,
@@ -284,12 +199,8 @@ Properties:
       }
     ],
     &quot;VpcId&quot;: { &quot;Ref&quot;: &quot;myVPC&quot;}
-  }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h4 id="aws-resource-ec2-securitygroup-example-2.yaml">YAML</h4>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">sgwithoutegress:
+   }
+}</code></pre><h4 id="aws-properties-ec2-security-group--examples--Remove_Default_Rule--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">sgwithoutegress:
   Type: AWS::EC2::SecurityGroup
   Properties:
     GroupDescription: Limits security group egress traffic
@@ -297,26 +208,26 @@ Properties:
     - CidrIp: 127.0.0.1/32
       IpProtocol: &quot;-1&quot;
     VpcId:
-      Ref: myVPC</code></pre>
-                        </div><h2 id="w2ab1c21c10d111d104c17">More Info</h2><div class="itemizedlist">
+      Ref: myVPC</code></pre><h2 id="aws-properties-ec2-security-group--seealso">See Also</h2><div class="itemizedlist">
                         
                         
                         
                         <ul class="itemizedlist" type="disc">
                            <li class="listitem">
                               
-                              <p><a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html">Using Security
-                                    Groups</a> in the <em>Amazon EC2 User Guide for Linux Instances</em>.
-                              </p>
+                              <p>
+                                 <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html">Security Groups for Your VPC</a> in the <em>Amazon VPC User Guide</em></p>
                               
                            </li>
                            <li class="listitem">
                               
-                              <p><a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html">Security Groups</a> in the <em>Amazon VPC User Guide</em>.
-                              </p>
+                              <p>
+                                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html">Amazon EC2 Security Groups for Linux Instances </a> in the <em>Amazon EC2 User Guide for Linux Instances</em></p>
                               
                            </li>
                         </ul>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
                      </div></div>
 </body>
 </html>

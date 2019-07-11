@@ -8,108 +8,58 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-properties-glue-partition-serdeinfo">AWS Glue Partition SerdeInfo</h1><p>The 
-                        <code class="code">SerdeInfo</code> property type specifies information about a serialization/deserialization program
-                        (SerDe), which serves as an extractor and loader for an AWS Glue partition.
-                     </p><p>
-                        <code class="code">SerdeInfo</code> is a property of the <a href="aws-properties-glue-partition-storagedescriptor.html">StorageDescriptor</a> property type.
+    <h1 class="topictitle" id="aws-properties-glue-partition-serdeinfo">AWS::Glue::Partition SerdeInfo</h1><p>Information about a serialization/deserialization program (SerDe) that serves as an
+                        extractor and loader.
                      </p><h2 id="aws-properties-glue-partition-serdeinfo-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
-                        
-                        <h3 id="aws-properties-glue-partition-serdeinfo-syntax.json">JSON</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
-  &quot;<a href="aws-properties-glue-partition-serdeinfo.html#cfn-glue-partition-serdeinfo-parameters">Parameters</a>&quot; : <em class="replaceable"><code>JSON object</code></em>,
-  &quot;<a href="aws-properties-glue-partition-serdeinfo.html#cfn-glue-partition-serdeinfo-serializationlibrary">SerializationLibrary</a>&quot; : <em class="replaceable"><code>String</code></em>,
-  &quot;<a href="aws-properties-glue-partition-serdeinfo.html#cfn-glue-partition-serdeinfo-name">Name</a>&quot; : <em class="replaceable"><code>String</code></em>
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        
-                        <h3 id="aws-properties-glue-partition-serdeinfo-syntax.yaml">YAML</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight"><a href="aws-properties-glue-partition-serdeinfo.html#cfn-glue-partition-serdeinfo-parameters">Parameters</a>:
-  <em class="replaceable"><code>JSON object</code></em>
-<a href="aws-properties-glue-partition-serdeinfo.html#cfn-glue-partition-serdeinfo-serializationlibrary">SerializationLibrary</a>: <em class="replaceable"><code>String</code></em>
-<a href="aws-properties-glue-partition-serdeinfo.html#cfn-glue-partition-serdeinfo-name">Name</a>: <em class="replaceable"><code>String</code></em></code></pre>
-                        </div><h2 id="aws-properties-glue-partition-serdeinfo-properties">Properties</h2><div class="variablelist">
-                        
-                        
-                        
-                        
+                        <h3 id="aws-properties-glue-partition-serdeinfo-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;<a href="#cfn-glue-partition-serdeinfo-name">Name</a>&quot; : <em class="replaceable"><code>String</code></em>,
+  &quot;<a href="#cfn-glue-partition-serdeinfo-parameters">Parameters</a>&quot; : <em class="replaceable"><code>Json</code></em>,
+  &quot;<a href="#cfn-glue-partition-serdeinfo-serializationlibrary">SerializationLibrary</a>&quot; : <em class="replaceable"><code>String</code></em>
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-properties-glue-partition-serdeinfo-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">  <a href="#cfn-glue-partition-serdeinfo-name">Name</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-glue-partition-serdeinfo-parameters">Parameters</a>: <em class="replaceable"><code>Json</code></em>
+  <a href="#cfn-glue-partition-serdeinfo-serializationlibrary">SerializationLibrary</a>: <em class="replaceable"><code>String</code></em>
+</code></pre></div><h2 id="aws-properties-glue-partition-serdeinfo-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
-                           <dt><a id="cfn-glue-partition-serdeinfo-parameters"></a><span class="term"><code class="code">Parameters</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>UTF-8 string&#x2013;to&#x2013;UTF-8 string key-value pairs that specify the initialization parameters
-                                 for the SerDe.
-                              </p>
-                              
-                              <p>
-                                 <em>Required</em>: No
-                              </p>
-                              
-                              <p>
-                                 <em>Type</em>: JSON object
-                              </p>
-                              
-                              <p>
-                                 <em>Update requires</em>:                                 
-                                 <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
-                                 
-                              </p>
-                              
-                           </dd>
-                           
-                           
-                           <dt><a id="cfn-glue-partition-serdeinfo-serializationlibrary"></a><span class="term"><code class="code">SerializationLibrary</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>The serialization library. This is usually the class that implements the
-                                 SerDe, such as <code class="code">org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe</code>. It
-                                 must match the single-line string pattern:
-                                 <code class="code">[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\t]*</code></p>
-                              
-                              <p>
-                                 <em>Required</em>: No
-                              </p>
-                              
-                              <p>
-                                 <em>Type</em>: String
-                              </p>
-                              
-                              <p>
-                                 <em>Update requires</em>:                                 
-                                 <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
-                                 
-                              </p>
-                              
-                           </dd>
-                           
-                           
                            <dt><a id="cfn-glue-partition-serdeinfo-name"></a><span class="term"><code class="code">Name</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The name of the SerDe. It must match the single-line string pattern:
-                                 <code class="code">[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\t]*</code></p>
+                              <p>Name of the SerDe.</p>
                               
-                              <p>
-                                 <em>Required</em>: No
+                              <p><em>Required</em>: No
                               </p>
-                              
-                              <p>
-                                 <em>Type</em>: String
+                              <p><em>Type</em>: String
                               </p>
-                              
-                              <p>
-                                 <em>Update requires</em>:                                 
-                                 <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
-                                 
-                              </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
+                           <dt><a id="cfn-glue-partition-serdeinfo-parameters"></a><span class="term"><code class="code">Parameters</code></span></dt>
+                           <dd>
+                              
+                              <p>These key-value pairs define initialization parameters for the SerDe.</p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              <p><em>Type</em>: Json
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                           </dd>
+                           <dt><a id="cfn-glue-partition-serdeinfo-serializationlibrary"></a><span class="term"><code class="code">SerializationLibrary</code></span></dt>
+                           <dd>
+                              
+                              <p>Usually the class that implements the SerDe. An example is
+                                 <code class="code">org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe</code>.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              <p><em>Type</em>: String
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                           </dd>
                         </dl>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
                      </div></div>
 </body>
 </html>

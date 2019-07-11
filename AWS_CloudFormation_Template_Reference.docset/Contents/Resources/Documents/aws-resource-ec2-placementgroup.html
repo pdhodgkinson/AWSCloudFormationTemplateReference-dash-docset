@@ -8,85 +8,56 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-resource-ec2-placementgroup">AWS::EC2::PlacementGroup</h1><p>The <code class="code">AWS::EC2::PlacementGroup</code> resource is a logical grouping of instances
-                        within a single Availability Zone (AZ) that enables applications to participate in
-                        a
-                        low-latency, 10 Gbps network. You create a placement group first, and then you can
-                        launch
-                        instances in the placement group.
-                     </p><div class="highlights" id="inline-topiclist">
-                        <p><strong>Topics</strong></p>
-                        <ul>
-                           <li><a href="#aws-resource-ec2-placementgroup-syntax">Syntax</a></li>
-                           <li><a href="#w2ab1c21c10d111c88b9">Properties</a></li>
-                           <li><a href="#w2ab1c21c10d111c88c11">Return Values</a></li>
-                           <li><a href="#w2ab1c21c10d111c88c13">Example</a></li>
-                        </ul>
-                     </div><h2 id="aws-resource-ec2-placementgroup-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-resource-ec2-placementgroup-syntax.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
+    <h1 class="topictitle" id="aws-resource-ec2-placementgroup">AWS::EC2::PlacementGroup</h1><p>Specifies a placement group in which to launch instances. The strategy of the placement
+                        group determines how the instances are organized within the group. 
+                     </p><p>A <code class="code">cluster</code> placement group is a logical grouping of instances within a
+                        single Availability Zone that benefit from low network latency, high network throughput.
+                        A <code class="code">spread</code> placement group places instances on distinct hardware. A
+                        <code class="code">partition</code> placement group places groups of instances in different
+                        partitions, where instances in one partition do not share the same hardware with
+                        instances in another partition.
+                     </p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement Groups</a> in the
+                        <em>Amazon Elastic Compute Cloud User Guide</em>.
+                     </p><h2 id="aws-resource-ec2-placementgroup-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-resource-ec2-placementgroup-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
   &quot;Type&quot; : &quot;AWS::EC2::PlacementGroup&quot;,
   &quot;Properties&quot; : {
-    &quot;<a href="aws-resource-ec2-placementgroup.html#cfn-ec2-placementgroup-strategy">Strategy</a>&quot; : <em class="replaceable"><code>String</code></em>
-  }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-resource-ec2-placementgroup-syntax.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">
-Type: AWS::EC2::PlacementGroup
+      &quot;<a href="#cfn-ec2-placementgroup-strategy">Strategy</a>&quot; : <em class="replaceable"><code>String</code></em>
+    }
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-ec2-placementgroup-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Type: AWS::EC2::PlacementGroup
 Properties: 
-  <a href="aws-resource-ec2-placementgroup.html#cfn-ec2-placementgroup-strategy">Strategy</a>: <em class="replaceable"><code>String</code></em>
-</code></pre>
-                        </div><h2 id="w2ab1c21c10d111c88b9">Properties</h2><div class="variablelist">
-                        
-                        
+  <a href="#cfn-ec2-placementgroup-strategy">Strategy</a>: <em class="replaceable"><code>String</code></em>
+</code></pre></div><h2 id="aws-resource-ec2-placementgroup-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
                            <dt><a id="cfn-ec2-placementgroup-strategy"></a><span class="term"><code class="code">Strategy</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The placement strategy, which relates to the instance types that can be added
-                                 to the placement group. For example, for the <code class="code">cluster</code> strategy, you can
-                                 cluster C4 instance types but not T2 instance types. For valid values, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreatePlacementGroup.html">CreatePlacementGroup</a> in the
-                                 <em>Amazon EC2 API Reference</em>. By default, AWS CloudFormation sets the value of this
-                                 property to <code class="code">cluster</code>.
-                              </p>
+                              <p>The placement strategy.</p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Allowed Values</em>: <code class="code">cluster | partition | spread</code></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
                         </dl>
-                     </div><h2 id="w2ab1c21c10d111c88c11">Return Values</h2><h3 id="w2ab1c21c10d111c88c11b2">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code> intrinsic
-                        function, <code class="code">Ref</code> returns the resource name.
+                     </div><h2 id="aws-resource-ec2-placementgroup-return-values">Return Values</h2><h3 id="aws-resource-ec2-placementgroup-return-values-ref">Ref</h3><p>When you pass the logical ID of this resource to the intrinsic <code class="code">Ref</code> function, <code class="code">Ref</code> returns the name of the placement group.
                      </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                     </p><h2 id="w2ab1c21c10d111c88c13">Example</h2><h3 id="w2ab1c21c10d111c88c13b2"></h3><p>The following example creates a placement group with a <code class="code">cluster</code> placement
-                        strategy.
-                     </p><div id="JSON" name="JSON" class="section langfilter">
-                        <h4 id="aws-resource-ec2-placementgroup-example-1.json">JSON</h4>
+                     </p><h2 id="aws-resource-ec2-placementgroup--examples">Examples</h2><h3 id="aws-resource-ec2-placementgroup--examples--Create_a_Placement_Group">Create a Placement Group</h3><p>The following example declares a placement group with a cluster placement strategy.
                         
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">&quot;PlacementGroup&quot; : {
-  &quot;Type&quot; : &quot;AWS::EC2::PlacementGroup&quot;,
-  &quot;Properties&quot; : {
-    &quot;Strategy&quot; : &quot;cluster&quot;
-  }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h4 id="aws-resource-ec2-placementgroup-example-1.yaml">YAML</h4>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">PlacementGroup:
+                     </p><h4 id="aws-resource-ec2-placementgroup--examples--Create_a_Placement_Group--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">&quot;PlacementGroup&quot; : {
+   &quot;Type&quot; : &quot;AWS::EC2::PlacementGroup&quot;,
+   &quot;Properties&quot; : {
+            &quot;Strategy&quot; : &quot;cluster&quot;
+   }
+}</code></pre><h4 id="aws-resource-ec2-placementgroup--examples--Create_a_Placement_Group--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">PlacementGroup:
   Type: AWS::EC2::PlacementGroup
-  Properties:
-    Strategy: cluster</code></pre>
-                        </div></div>
+   Properties:
+     Strategy: cluster</code></pre><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
+                     </div></div>
 </body>
 </html>

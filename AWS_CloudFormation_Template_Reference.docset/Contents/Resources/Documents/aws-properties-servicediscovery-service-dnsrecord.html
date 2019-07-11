@@ -8,81 +8,269 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-properties-servicediscovery-service-dnsrecord">AWS Cloud Map ServiceDiscovery DnsRecord</h1><p>The <code class="code">DnsRecord</code> property type 
-                        		specifies settings for one DNS record that you want AWS Cloud Map to create when
-                        you register an instance.
-                     </p><p>The <code class="code">DnsRecords</code> property of the 
-                        		<a href="aws-properties-servicediscovery-service-dnsconfig.html">DnsConfig</a> 
-                        		property type contains a list of <code class="code">DnsRecord</code> property types.
+    <h1 class="topictitle" id="aws-properties-servicediscovery-service-dnsrecord">AWS::ServiceDiscovery::Service DnsRecord</h1><p>A complex type that contains information about the Route 53 DNS records that you want
+                        AWS Cloud Map to create when you register an instance.
                      </p><h2 id="aws-properties-servicediscovery-service-dnsrecord-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
-                        			
-                        <h3 id="aws-properties-servicediscovery-service-dnsrecord-syntax.json">JSON</h3>
-                        				<pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
-  &quot;<a href="aws-properties-servicediscovery-service-dnsrecord.html#cfn-servicediscovery-service-dnsrecord-type">Type</a>&quot; : <em class="replaceable"><code>String</code></em>,
-  &quot;<a href="aws-properties-servicediscovery-service-dnsrecord.html#cfn-servicediscovery-service-dnsrecord-ttl">TTL</a>&quot; : <em class="replaceable"><code>String</code></em>
-}</code></pre>
-                        		</div><div id="YAML" name="YAML" class="section langfilter">
-                        			
-                        <h3 id="aws-properties-servicediscovery-service-dnsrecord-syntax.yaml">YAML</h3>
-                        			
-                        			<pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight"><a href="aws-properties-servicediscovery-service-dnsrecord.html#cfn-servicediscovery-service-dnsrecord-type">Type</a>: <em class="replaceable"><code>String</code></em>
-<a href="aws-properties-servicediscovery-service-dnsrecord.html#cfn-servicediscovery-service-dnsrecord-ttl">TTL</a>: <em class="replaceable"><code>String</code></em></code></pre>
-                        		</div><h2 id="aws-properties-servicediscovery-service-dnsrecord-properties">Properties</h2><div class="variablelist">
-                        			
-                        			
-                        		
+                        <h3 id="aws-properties-servicediscovery-service-dnsrecord-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;<a href="#cfn-servicediscovery-service-dnsrecord-ttl">TTL</a>&quot; : <em class="replaceable"><code>Double</code></em>,
+  &quot;<a href="#cfn-servicediscovery-service-dnsrecord-type">Type</a>&quot; : <em class="replaceable"><code>String</code></em>
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-properties-servicediscovery-service-dnsrecord-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">  <a href="#cfn-servicediscovery-service-dnsrecord-ttl">TTL</a>: <em class="replaceable"><code>Double</code></em>
+  <a href="#cfn-servicediscovery-service-dnsrecord-type">Type</a>: <em class="replaceable"><code>String</code></em>
+</code></pre></div><h2 id="aws-properties-servicediscovery-service-dnsrecord-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           				
-                           <dt><a id="cfn-servicediscovery-service-dnsrecord-type"></a><span class="term"><code class="code">Type</code></span></dt>
-                           				
-                           <dd>
-                              					
-                              <p>The DNS type of the record that you want AWS Cloud Map to create. Supported record
-                                 types include <code class="code">A</code>, 
-                                 						<code class="code">AAAA</code>, and <code class="code">SRV</code>.
-                              </p>
-                              					
-                              <p><em>Required</em>: Yes
-                              </p>
-                              					
-                              <p><em>Type</em>: String
-                              </p>
-                              					
-                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              				
-                           </dd>
-                           			
-                           				
                            <dt><a id="cfn-servicediscovery-service-dnsrecord-ttl"></a><span class="term"><code class="code">TTL</code></span></dt>
-                           				
                            <dd>
-                              					
+                              		       
                               <p>The amount of time, in seconds, that you want DNS resolvers to cache the settings
-                                 for this record. 
+                                 for this record.
                               </p>
-                              					
+                              		       
+                              <div class="aws-note">
+                                 <p class="aws-note">Note</p>
+                                 <p>Alias records don&apos;t include a TTL because Route 53 uses the TTL for the AWS resource
+                                    that an alias record 
+                                    			routes traffic to. If you include the <code class="code">AWS_ALIAS_DNS_NAME</code> attribute when you submit a 
+                                    			<a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html">RegisterInstance</a> request, 
+                                    			the <code class="code">TTL</code> value is ignored. Always specify a TTL for the service; you can use a service to
+                                    register instances that create either 
+                                    			alias or non-alias records.
+                                 </p>
+                              </div>
+                              	     
                               <p><em>Required</em>: Yes
                               </p>
-                              					
+                              <p><em>Type</em>: Double
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                           </dd>
+                           <dt><a id="cfn-servicediscovery-service-dnsrecord-type"></a><span class="term"><code class="code">Type</code></span></dt>
+                           <dd>
+                              		       
+                              <p>The type of the resource, which indicates the type of value that Route 53 returns
+                                 in response to DNS queries. You can specify 
+                                 			values for <code class="code">Type</code> in the following combinations:
+                              </p>
+                              			      
+                              <div class="itemizedlist">
+                                 				        
+                                 				        
+                                 				        
+                                 				        
+                                 				        
+                                 			      
+                                 <ul class="itemizedlist" type="disc">
+                                    <li class="listitem">
+                                       
+                                       <p>A</p>
+                                       
+                                    </li>
+                                    <li class="listitem">
+                                       
+                                       <p>AAAA</p>
+                                       
+                                    </li>
+                                    <li class="listitem">
+                                       
+                                       <p>A and AAAA</p>
+                                       
+                                    </li>
+                                    <li class="listitem">
+                                       
+                                       <p>SRV</p>
+                                       
+                                    </li>
+                                    <li class="listitem">
+                                       
+                                       <p>CNAME</p>
+                                       
+                                    </li>
+                                 </ul>
+                              </div>
+                              		
+                              		       
+                              <p>If you want AWS Cloud Map to create a Route 53 alias record when you register an instance,
+                                 specify <code class="code">A</code> or <code class="code">AAAA</code> 
+                                 			for <code class="code">Type</code>.
+                              </p>
+                              				
+                              		       
+                              <p>You specify other settings, such as the IP address for A and AAAA records, when you
+                                 register an instance. For more information, see 
+                                 			<a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html">RegisterInstance</a>.
+                              </p>
+                              		
+                              		       
+                              <p>The following values are supported:</p>
+                              		
+                              		       
+                              <p>
+                                 <b>A</b>
+                                 
+                              </p>
+                              		       
+                              <p>Route 53 returns the IP address of the resource in IPv4 format, such as 192.0.2.44.</p>
+                              		
+                              		       
+                              <p>
+                                 <b>AAAA</b>
+                                 
+                              </p>
+                              		       
+                              <p>Route 53 returns the IP address of the resource in IPv6 format, such as 2001:0db8:85a3:0000:0000:abcd:0001:2345.</p>
+                              		
+                              		       
+                              <p>
+                                 <b>CNAME</b>
+                                 
+                              </p>
+                              		       
+                              <p>Route 53 returns the domain name of the resource, such as www.example.com. Note the
+                                 following:
+                              </p>
+                              		       
+                              <div class="itemizedlist">
+                                 			         
+                                 			         
+                                 			         
+                                 		       
+                                 <ul class="itemizedlist" type="disc">
+                                    <li class="listitem">
+                                       
+                                       <p>You specify the domain name that you want to route traffic to when you register an
+                                          instance. For more information, 
+                                          				see 
+                                          				<a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html#cloudmap-RegisterInstance-request-Attributes">Attributes</a> 
+                                          				in the topic <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html">RegisterInstance</a>.
+                                       </p>
+                                       
+                                    </li>
+                                    <li class="listitem">
+                                       
+                                       <p>You must specify <code class="code">WEIGHTED</code> for the value of <code class="code">RoutingPolicy</code>.
+                                       </p>
+                                       
+                                    </li>
+                                    <li class="listitem">
+                                       
+                                       <p>You can&apos;t specify both <code class="code">CNAME</code> for <code class="code">Type</code> and settings for <code class="code">HealthCheckConfig</code>. 
+                                          				If you do, the request will fail with an <code class="code">InvalidInput</code> error.
+                                       </p>
+                                       
+                                    </li>
+                                 </ul>
+                              </div>
+                              		
+                              		       
+                              <p>
+                                 <b>SRV</b>
+                                 
+                              </p>
+                              		       
+                              <p>Route 53 returns the value for an SRV record. The value for an SRV record uses the
+                                 following values:
+                              </p>
+                              		       
+                              <p>
+                                 <code class="code">priority weight port service-hostname</code>
+                                 
+                              </p>
+                              		       
+                              <p>Note the following about the values:</p>
+                              			      
+                              <div class="itemizedlist">
+                                 				        
+                                 				        
+                                 				        
+                                 			      
+                                 <ul class="itemizedlist" type="disc">
+                                    <li class="listitem">
+                                       
+                                       <p>The values of <code class="code">priority</code> and <code class="code">weight</code> are both set to <code class="code">1</code> and can&apos;t be changed. 
+                                       </p>
+                                       
+                                    </li>
+                                    <li class="listitem">
+                                       
+                                       <p>The value of <code class="code">port</code> comes from the value that you specify for the <code class="code">AWS_INSTANCE_PORT</code> attribute 
+                                          					when you submit a <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html">RegisterInstance</a> request. 
+                                       </p>
+                                       
+                                    </li>
+                                    <li class="listitem">
+                                       
+                                       <p>The value of <code class="code">service-hostname</code> is a concatenation of the following values:
+                                       </p>
+                                       					          
+                                       <div class="itemizedlist">
+                                          						            
+                                          						            
+                                          						            
+                                          					          
+                                          <ul class="itemizedlist" type="disc">
+                                             <li class="listitem">
+                                                
+                                                <p>The value that you specify for <code class="code">InstanceId</code> when you register an instance.
+                                                </p>
+                                                
+                                             </li>
+                                             <li class="listitem">
+                                                
+                                                <p>The name of the service.</p>
+                                                
+                                             </li>
+                                             <li class="listitem">
+                                                
+                                                <p>The name of the namespace. </p>
+                                                
+                                             </li>
+                                          </ul>
+                                       </div>
+                                       					          
+                                       <p>For example, if the value of <code class="code">InstanceId</code> is <code class="code">test</code>, the name of the service is <code class="code">backend</code>, and the 
+                                          						name of the namespace is <code class="code">example.com</code>, the value of <code class="code">service-hostname</code> is:
+                                       </p>
+                                       					          
+                                       <p>
+                                          <code class="code">test.backend.example.com</code>
+                                          
+                                       </p>
+                                       				        
+                                    </li>
+                                 </ul>
+                              </div>
+                              		       
+                              <p>If you specify settings for an SRV record and if you specify values for <code class="code">AWS_INSTANCE_IPV4</code>, <code class="code">AWS_INSTANCE_IPV6</code>, or both 
+                                 			in the <code class="code">RegisterInstance</code> request, AWS Cloud Map automatically creates <code class="code">A</code> and/or <code class="code">AAAA</code> records that have the same name 
+                                 			as the value of <code class="code">service-hostname</code> in the SRV record. You can ignore these records.
+                              </p>
+                              		
+                              	     
+                              <p><em>Required</em>: Yes
+                              </p>
                               <p><em>Type</em>: String
                               </p>
-                              					
+                              <p><em>Allowed Values</em>: <code class="code">A | AAAA | CNAME | SRV</code></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              				
                            </dd>
-                           			
                         </dl>
-                     </div><h2 id="aws-properties-servicediscovery-service-dnsrecord-seealso">See Also</h2><div class="itemizedlist">
+                     </div><h2 id="aws-properties-servicediscovery-service-dnsrecord--seealso">See Also</h2><div class="itemizedlist">
+                        				
                         			
-                        		
                         <ul class="itemizedlist" type="disc">
                            <li class="listitem">
+                              					
+                              <p>
+                                 						<a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_DnsRecord.html">DnsRecord</a> 
+                                 						in the <em>AWS Cloud Map API Reference</em>
+                                 					
+                              </p>
                               				
-                              <p><a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_CreateService.html">CreateService</a> 
-                                 					in the <em>AWS Cloud Map API Reference</em></p>
-                              			
                            </li>
                         </ul>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
                      </div></div>
 </body>
 </html>

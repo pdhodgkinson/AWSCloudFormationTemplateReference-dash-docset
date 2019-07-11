@@ -10,448 +10,294 @@
     <div id="content" style="padding: 10px 30px;">
     <h1 class="topictitle" id="aws-resource-neptune-dbcluster">AWS::Neptune::DBCluster</h1><p>The <code class="code">AWS::Neptune::DBCluster</code> resource creates an Amazon Neptune DB cluster.
                         Neptune is a fully managed graph database.
-                        
                      </p><div class="aws-note">
                         <p class="aws-note">Note</p>
                         <p>Currently, you can create this resource only in AWS Regions in which Amazon Neptune
                            is
                            supported.
                         </p>
-                     </div><p>The default <code class="code">DeletionPolicy</code> for <code class="code">AWS::Neptune::DBCluster</code> resources
-                        is <code class="code">Snapshot</code>. For more information about how AWS CloudFormation deletes resources, see <a href="aws-attribute-deletionpolicy.html">DeletionPolicy Attribute</a>.
-                     </p><div class="highlights" id="inline-topiclist">
-                        <p><strong>Topics</strong></p>
-                        <ul>
-                           <li><a href="#aws-resource-neptune-dbcluster-syntax">Syntax</a></li>
-                           <li><a href="#aws-resource-neptune-dbcluster-properties">Properties</a></li>
-                           <li><a href="#aws-resource-neptune-dbcluster-return">Return Values</a></li>
-                        </ul>
-                     </div><h2 id="aws-resource-neptune-dbcluster-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-resource-neptune-dbcluster-syntax.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
+                     </div><p>If no <code class="code">DeletionPolicy</code> is set for <code class="code">AWS::Neptune::DBCluster</code>
+                        resources, the default deletion behavior is that the entire volume will be deleted
+                        without a snapshot.
+                        To retain a backup of the volume, the <code class="code">DeletionPolicy</code> should be set to <code class="code">Snapshot</code>.
+                        For more information about how AWS CloudFormation deletes resources, see <a href="aws-attribute-deletionpolicy.html">DeletionPolicy Attribute</a>.
+                     </p><h2 id="aws-resource-neptune-dbcluster-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-resource-neptune-dbcluster-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
   &quot;Type&quot; : &quot;AWS::Neptune::DBCluster&quot;,
-  &quot;Properties&quot; :
-  {
-    &quot;<a href="aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-availabilityzones">AvailabilityZones</a>&quot; : [ <em class="replaceable"><code>String, ...</code></em> ],
-    &quot;<a href="aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-backuprententionperiod">BackupRetentionPeriod</a>&quot; : <em class="replaceable"><code>Integer</code></em>,
-    &quot;<a href="aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-dbclusteridentifier">DBClusterIdentifier</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-dbclusterparametergroupname">DBClusterParameterGroupName</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-dbsubnetgroupname">DBSubnetGroupName</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-iamauthenabled">IamAuthEnabled</a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
-    &quot;<a href="aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-kmskeyid">KmsKeyId</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-port">Port</a>&quot; : <em class="replaceable"><code>Integer</code></em>,
-    &quot;<a href="aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-preferredbackupwindow">PreferredBackupWindow</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-preferredmaintenancewindow">PreferredMaintenanceWindow</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-snapshotidentifier">SnapshotIdentifier</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-storageencrypted">StorageEncrypted</a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
-    &quot;<a href="aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-tags">Tags</a>&quot; : [ <em class="replaceable"><code>Resource Tag, ...</code></em> ],
-    &quot;<a href="aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-vpcsecuritygroupids">VpcSecurityGroupIds</a>&quot; : [ <em class="replaceable"><code>String, ...</code></em> ]
-  }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-resource-neptune-dbcluster-syntax.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">Type: &quot;AWS::Neptune::DBCluster&quot;
-Properties:
-  <a href="aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-availabilityzones">AvailabilityZones</a>:
-    - <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-backuprententionperiod">BackupRetentionPeriod</a>: <em class="replaceable"><code>Integer</code></em>
-  <a href="aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-dbclusteridentifier">DBClusterIdentifier</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-dbclusterparametergroupname">DBClusterParameterGroupName</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-dbsubnetgroupname">DBSubnetGroupName</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-iamauthenabled">IamAuthEnabled</a>: <em class="replaceable"><code>Boolean</code></em>
-  <a href="aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-kmskeyid">KmsKeyId</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-port">Port</a>: <em class="replaceable"><code>Integer</code></em>
-  <a href="aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-preferredbackupwindow">PreferredBackupWindow</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-preferredmaintenancewindow">PreferredMaintenanceWindow</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-snapshotidentifier">SnapshotIdentifier</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-storageencrypted">StorageEncrypted</a>: <em class="replaceable"><code>Boolean</code></em>
-  <a href="aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-tags">Tags</a>:
-    - <em class="replaceable"><code>Resource Tag</code></em>
-  <a href="aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-vpcsecuritygroupids">VpcSecurityGroupIds</a>:
-    - <em class="replaceable"><code>String</code></em>
-</code></pre>
-                        </div><h2 id="aws-resource-neptune-dbcluster-properties">Properties</h2><div class="variablelist">
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
+  &quot;Properties&quot; : {
+      &quot;<a href="#cfn-neptune-dbcluster-availabilityzones">AvailabilityZones</a>&quot; : <em class="replaceable"><code>[ String, ... ]</code></em>,
+      &quot;<a href="#cfn-neptune-dbcluster-backupretentionperiod">BackupRetentionPeriod</a>&quot; : <em class="replaceable"><code>Integer</code></em>,
+      &quot;<a href="#cfn-neptune-dbcluster-dbclusteridentifier">DBClusterIdentifier</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-neptune-dbcluster-dbclusterparametergroupname">DBClusterParameterGroupName</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-neptune-dbcluster-dbsubnetgroupname">DBSubnetGroupName</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-neptune-dbcluster-iamauthenabled">IamAuthEnabled</a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
+      &quot;<a href="#cfn-neptune-dbcluster-kmskeyid">KmsKeyId</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-neptune-dbcluster-port">Port</a>&quot; : <em class="replaceable"><code>Integer</code></em>,
+      &quot;<a href="#cfn-neptune-dbcluster-preferredbackupwindow">PreferredBackupWindow</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-neptune-dbcluster-preferredmaintenancewindow">PreferredMaintenanceWindow</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-neptune-dbcluster-snapshotidentifier">SnapshotIdentifier</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-neptune-dbcluster-storageencrypted">StorageEncrypted</a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
+      &quot;<a href="#cfn-neptune-dbcluster-tags">Tags</a>&quot; : <em class="replaceable"><code>[ <a href="aws-properties-resource-tags.html">Tag</a>, ... ]</code></em>,
+      &quot;<a href="#cfn-neptune-dbcluster-vpcsecuritygroupids">VpcSecurityGroupIds</a>&quot; : <em class="replaceable"><code>[ String, ... ]</code></em>
+    }
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-neptune-dbcluster-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Type: AWS::Neptune::DBCluster
+Properties: 
+  <a href="#cfn-neptune-dbcluster-availabilityzones">AvailabilityZones</a>: <em class="replaceable"><code>
+    - String</code></em>
+  <a href="#cfn-neptune-dbcluster-backupretentionperiod">BackupRetentionPeriod</a>: <em class="replaceable"><code>Integer</code></em>
+  <a href="#cfn-neptune-dbcluster-dbclusteridentifier">DBClusterIdentifier</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-neptune-dbcluster-dbclusterparametergroupname">DBClusterParameterGroupName</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-neptune-dbcluster-dbsubnetgroupname">DBSubnetGroupName</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-neptune-dbcluster-iamauthenabled">IamAuthEnabled</a>: <em class="replaceable"><code>Boolean</code></em>
+  <a href="#cfn-neptune-dbcluster-kmskeyid">KmsKeyId</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-neptune-dbcluster-port">Port</a>: <em class="replaceable"><code>Integer</code></em>
+  <a href="#cfn-neptune-dbcluster-preferredbackupwindow">PreferredBackupWindow</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-neptune-dbcluster-preferredmaintenancewindow">PreferredMaintenanceWindow</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-neptune-dbcluster-snapshotidentifier">SnapshotIdentifier</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-neptune-dbcluster-storageencrypted">StorageEncrypted</a>: <em class="replaceable"><code>Boolean</code></em>
+  <a href="#cfn-neptune-dbcluster-tags">Tags</a>: <em class="replaceable"><code>
+    - <a href="aws-properties-resource-tags.html">Tag</a></code></em>
+  <a href="#cfn-neptune-dbcluster-vpcsecuritygroupids">VpcSecurityGroupIds</a>: <em class="replaceable"><code>
+    - String</code></em>
+</code></pre></div><h2 id="aws-resource-neptune-dbcluster-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
                            <dt><a id="cfn-neptune-dbcluster-availabilityzones"></a><span class="term"><code class="code">AvailabilityZones</code></span></dt>
-                           
                            <dd>
                               
-                              <p>A list of Availability Zones in which DB instances in the cluster can be
-                                 created.
+                              <p>Provides the list of EC2 Availability Zones that instances in the DB cluster can be
+                                 created in.
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: String
+                              <p><em>Type</em>: List of String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-neptune-dbcluster-backuprententionperiod"></a><span class="term"><code class="code">BackupRetentionPeriod</code></span></dt>
-                           
+                           <dt><a id="cfn-neptune-dbcluster-backupretentionperiod"></a><span class="term"><code class="code">BackupRetentionPeriod</code></span></dt>
                            <dd>
                               
-                              <p>The number of days for which automatic backups are retained. For more information,
-                                 see <a href="https://docs.aws.amazon.com/neptune/latest/userguide/API_CreateDBCluster.html">CreateDBCluster</a> in the
-                                 <em>Amazon Neptune User Guide</em>.
+                              <p>Specifies the number of days for which automatic DB snapshots are retained.</p>
+                              
+                              <p>An update may require some interruption. See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/api-instances.html#ModifyDBInstance">ModifyDBInstance</a> in the Amazon Neptune User Guide for more information.
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: Integer
                               </p>
-                              
-                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a> or <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt">some
-                                    interruption</a>. For more information, see <a href="https://docs.aws.amazon.com/neptune/latest/userguide/API_ModifyDBInstance.html">ModifyDBInstance</a> in the
-                                 <em>Amazon Neptune User Guide</em>.
-                              </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-neptune-dbcluster-dbclusteridentifier"></a><span class="term"><code class="code">DBClusterIdentifier</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The DB cluster identifier. This parameter is stored as a lowercase string. </p>
-                              
-                              <p><em>Constraints</em>:
+                              <p>Contains a user-supplied DB cluster identifier. This identifier is the unique key
+                                 that
+                                 identifies a DB cluster.
                               </p>
-                              
-                              <div class="itemizedlist">
-                                 
-                                 
-                                 
-                                 
-                                 <ul class="itemizedlist" type="disc">
-                                    <li class="listitem">
-                                       
-                                       <p>Must contain from 1 to 63 letters, numbers, or hyphens.</p>
-                                       
-                                    </li>
-                                    <li class="listitem">
-                                       
-                                       <p>First character must be a letter.</p>
-                                       
-                                    </li>
-                                    <li class="listitem">
-                                       
-                                       <p>Cannot end with a hyphen or contain two consecutive hyphens.</p>
-                                       
-                                    </li>
-                                 </ul>
-                              </div>
-                              
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-neptune-dbcluster-dbclusterparametergroupname"></a><span class="term"><code class="code">DBClusterParameterGroupName</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The name of the DB cluster parameter group to associate with this DB cluster.
-                                 
+                              <p>Provides the name of the DB cluster parameter group.</p>
+                              
+                              <p>An update may require some interruption. See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/api-instances.html#ModifyDBInstance">ModifyDBInstance</a> in the Amazon Neptune User Guide for more information.
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
-                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt">Some interruptions</a></p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-neptune-dbcluster-dbsubnetgroupname"></a><span class="term"><code class="code">DBSubnetGroupName</code></span></dt>
-                           
                            <dd>
                               
-                              <p>A DB subnet group that you want to associate with this DB cluster.</p>
+                              <p>Specifies information on the subnet group associated with the DB cluster, including
+                                 the
+                                 name, description, and subnets in the subnet group.
+                              </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-neptune-dbcluster-iamauthenabled"></a><span class="term"><code class="code">IamAuthEnabled</code></span></dt>
-                           
                            <dd>
                               
-                              <p>Enable IAM authentication and authorization on this cluster.</p>
+                              <p>True if mapping of AWS Identity and Access Management (IAM) accounts to database accounts
+                                 is enabled, and otherwise false.
+                              </p>
                               
+                              <p><em>Required</em>: No
+                              </p>
                               <p><em>Type</em>: Boolean
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-neptune-dbcluster-kmskeyid"></a><span class="term"><code class="code">KmsKeyId</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) master
-                                 key that is used to
-                                 encrypt the database instances in the DB cluster, such as
-                                 <code class="code">arn:aws:kms:us-east-1:012345678910:key/abcd1234-a123-456a-a12b-a123b4cd56ef</code>.
-                                 If you enable the <code class="code">StorageEncrypted</code> property but don&apos;t specify this
-                                 property, the default master key is used. If you specify this property, you must set
-                                 the
-                                 <code class="code">StorageEncrypted</code> property to <code class="code">true</code>.
-                              </p>
-                              
-                              <p>If you specify the <code class="code">SnapshotIdentifier</code>, do not specify this property.
-                                 The value is inherited from the snapshot DB cluster.
+                              <p>If <code class="code">StorageEncrypted</code> is true, the AWS KMS key identifier for the encrypted DB
+                                 cluster.
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
-                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a>.
-                              </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-neptune-dbcluster-port"></a><span class="term"><code class="code">Port</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The port number on which the DB instances in the cluster can accept
-                                 connections.
-                              </p>
+                              <p>Specifies the port that the database engine is listening on.</p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: Integer
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-neptune-dbcluster-preferredbackupwindow"></a><span class="term"><code class="code">PreferredBackupWindow</code></span></dt>
-                           
                            <dd>
                               
-                              <p>If automated backups are enabled (see the <code class="code">BackupRetentionPeriod</code>
-                                 property), the daily time range in UTC during which you want to create automated
-                                 backups.
+                              <p>Specifies the daily time range during which automated backups are created if automated
+                                 backups are enabled, as determined by the <code class="code">BackupRetentionPeriod</code>.
                               </p>
                               
-                              <p>For valid values, see the <code class="code">PreferredBackupWindow</code> parameter of the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/API_CreateDBInstance.html">CreateDBInstance</a> action.
-                              </p>
+                              <p>An update may require some interruption.</p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-neptune-dbcluster-preferredmaintenancewindow"></a><span class="term"><code class="code">PreferredMaintenanceWindow</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The weekly time range (in UTC) during which system maintenance can occur.</p>
-                              
-                              <p>For valid values, see the <code class="code">PreferredMaintenanceWindow</code> parameter of the
-                                 <a href="https://docs.aws.amazon.com/neptune/latest/userguide/API_CreateDBInstance.html">CreateDBInstance</a>
-                                 action.
+                              <p>Specifies the weekly time range during which system maintenance can occur, in Universal
+                                 Coordinated Time (UTC).
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
-                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a> or <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt">some
-                                    interruption</a>. For more information, see <a href="https://docs.aws.amazon.com/neptune/latest/userguide/API_ModifyDBInstance.html">ModifyDBInstance</a>.
-                              </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-neptune-dbcluster-snapshotidentifier"></a><span class="term"><code class="code">SnapshotIdentifier</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The identifier for the DB cluster snapshot from which you want to restore.</p>
+                              <p>Contains the identifier of the source DB cluster if this DB cluster is a Read
+                                 Replica.
+                              </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-neptune-dbcluster-storageencrypted"></a><span class="term"><code class="code">StorageEncrypted</code></span></dt>
-                           
                            <dd>
                               
-                              <p>Indicates whether the DB instances in the cluster are encrypted.</p>
+                              <p>Indicates whether the DB cluster is encrypted.</p>
                               
-                              <p>If you specify the <code class="code">SnapshotIdentifier</code> property, do not specify this
-                                 property. The value is inherited from the snapshot DB cluster.
+                              <p>If you specify the <code class="code">DBClusterIdentifier</code>,
+                                 <code class="code">DBSnapshotIdentifier</code>, or <code class="code">SourceDBInstanceIdentifier</code>
+                                 property, don&apos;t specify this property. The value is inherited from the cluster,
+                                 snapshot, or source DB instance. If you specify the <code class="code">KmsKeyId</code> property, you
+                                 must enable encryption.
                               </p>
                               
-                              <p><em>Required</em>: Conditional. If you specify the <code class="code">KmsKeyId</code> property, you must
-                                 enable encryption.
+                              <p>If you specify the <code class="code">KmsKeyId</code>, you must enable encryption by setting
+                                 <code class="code">StorageEncrypted</code> to true.
                               </p>
                               
+                              <p><em>Required</em>: No
+                              </p>
                               <p><em>Type</em>: Boolean
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-neptune-dbcluster-tags"></a><span class="term"><code class="code">Tags</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The tags that you want to attach to this DB cluster.</p>
+                              <p>The tags assigned to this cluster.</p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: A list of <a href="aws-properties-resource-tags.html">resource tags</a>.
-                              </p>
-                              
+                              <p><em>Type</em>: List of <a href="aws-properties-resource-tags.html">Tag</a></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-neptune-dbcluster-vpcsecuritygroupids"></a><span class="term"><code class="code">VpcSecurityGroupIds</code></span></dt>
-                           
                            <dd>
                               
-                              <p>A list of VPC security groups to associate with this DB cluster.</p>
+                              <p>Provides a list of VPC security groups that the DB cluster belongs to.</p>
                               
                               <p><em>Required</em>: No
                               </p>
+                              <p><em>Type</em>: List of String
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                           </dd>
+                        </dl>
+                     </div><h2 id="aws-resource-neptune-dbcluster-return-values">Return Values</h2><h3 id="aws-resource-neptune-dbcluster-return-values-ref">Ref</h3><p>When you pass the logical ID of this resource to the intrinsic <code class="code">Ref</code> function, <code class="code">Ref</code> returns the resource name.
+                     </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
+                     </p><h3 id="aws-resource-neptune-dbcluster-return-values-fn--getatt">Fn::GetAtt</h3><p>The <code class="code">Fn::GetAtt</code> intrinsic function returns a value for a specified attribute of this type. The following
+                        are the available attributes and sample return values.
+                     </p><p>For more information about using the <code class="code">Fn::GetAtt</code> intrinsic function, see <a href="intrinsic-function-reference-getatt.html">Fn::GetAtt</a>.
+                     </p><h4 id="aws-resource-neptune-dbcluster-return-values-fn--getatt-fn--getatt"></h4><div class="variablelist">
+                        <dl>
+                           <dt><a id="ClusterResourceId-fn::getatt"></a><span class="term"><code class="code">ClusterResourceId</code></span></dt>
+                           <dd>
                               
-                              <p><em>Type</em>: List of String values
+                              <p>The resource id for the DB cluster. For example: <code class="code">cluster-ABCD1234EFGH5678IJKL90MNOP</code>.
+                                 The cluster ID uniquely identifies the cluster and is used in things like IAM authentication
+                                 policies.
                               </p>
                               
-                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                        </dl>
-                     </div><h2 id="aws-resource-neptune-dbcluster-return">Return Values</h2><h3 id="aws-resource-neptune-dbcluster-return.ref">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code> intrinsic
-                        function, <code class="code">Ref</code> returns the resource name.
-                     </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                     </p><h3 id="aws-resource-neptune-dbcluster-return.getatt">Fn::GetAtt</h3><p><code class="code">Fn::GetAtt</code> returns a value for a specified attribute of this type.
-                        The following are the available attributes and sample return values.
-                     </p><div class="variablelist">
-                        
-                        
-                        
-                        
-                        
-                        <dl>
-                           
-                           <dt><span class="term"><code class="code">Endpoint</code></span></dt>
-                           
+                           <dt><a id="Endpoint-fn::getatt"></a><span class="term"><code class="code">Endpoint</code></span></dt>
                            <dd>
                               
                               <p>The connection endpoint for the DB cluster. For example:
-                                 <code class="code">mystack-mydbcluster-1apw1j4phylrk.cg034hpkmmjt.</code><span><code class="code">us-east-2</code></span><code class="code">.rds.amazonaws.com</code></p>
-                              
-                           </dd>
-                           
-                           
-                           <dt><span class="term"><code class="code">Port</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>The port number on which the DB cluster accepts connections. For example:
-                                 <code class="code">8182</code></p>
-                              
-                           </dd>
-                           
-                           
-                           <dt><span class="term"><code class="code">ReadEndpoint</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>The reader endpoint for the DB cluster. For example:
-                                 <code class="code">mystack-mydbcluster-ro-1apw1j4phylrk.cg034hpkmmjt.</code><span><code class="code">us-east-2</code></span><code class="code">.rds.amazonaws.com</code></p>
-                              
-                           </dd>
-                           
-                           
-                           <dt><span class="term"><code class="code">ClusterResourceId</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>The resource id for the DB cluster; for example:
-                                 <code class="code">cluster-ABCD1234EFGH5678IJKL90MNOP</code>. The cluster ID uniquely identifies
-                                 the cluster and is used in things like IAM authentication policies.
+                                 <code class="code">mystack-mydbcluster-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com</code>
+                                 
                               </p>
                               
                            </dd>
-                           
+                           <dt><a id="Port-fn::getatt"></a><span class="term"><code class="code">Port</code></span></dt>
+                           <dd>
+                              
+                              <p>The port number on which the DB cluster accepts connections. For example: <code class="code">8182</code>.
+                              </p>
+                              
+                           </dd>
+                           <dt><a id="ReadEndpoint-fn::getatt"></a><span class="term"><code class="code">ReadEndpoint</code></span></dt>
+                           <dd>
+                              
+                              <p>The reader endpoint for the DB cluster. For example:
+                                 <code class="code">mystack-mydbcluster-ro-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com</code>
+                                 
+                              </p>
+                              
+                           </dd>
                         </dl>
-                     </div><p>For more information about using <code class="code">Fn::GetAtt</code>, see <a href="intrinsic-function-reference-getatt.html">Fn::GetAtt</a>.
-                     </p></div>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
+                     </div></div>
 </body>
 </html>

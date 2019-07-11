@@ -8,920 +8,400 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-properties-ec2-elb">AWS::ElasticLoadBalancing::LoadBalancer</h1><p>Creates a Classic Load Balancer.</p><div class="aws-note">
-                        <p class="aws-note">Note</p>
-                        <p>If this resource has a public IP address and is also in a VPC that is defined in the
-                           same template, you must use the
-                           <code class="code">DependsOn</code> attribute to declare a dependency on the VPC-gateway attachment. For more information,
-                           see <a href="aws-attribute-dependson.html">DependsOn Attribute</a>.
-                        </p>
-                     </div><h2 id="aws-resource-elasticloadbalancing-loadbalancer-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-resource-elasticloadbalancing-loadbalancer-syntax.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">
-{
-   &quot;Type&quot;: &quot;AWS::ElasticLoadBalancing::LoadBalancer&quot;,
-   &quot;Properties&quot;: {
-      &quot;<a href="aws-properties-ec2-elb.html#cfn-ec2-elb-accessloggingpolicy">AccessLoggingPolicy</a>&quot; : <em class="replaceable"><code>AccessLoggingPolicy</code></em>,
-      &quot;<a href="aws-properties-ec2-elb.html#cfn-ec2-elb-appcookiestickinesspolicy">AppCookieStickinessPolicy</a>&quot; : [ <em class="replaceable"><code>AppCookieStickinessPolicy</code></em>, ... ],
-      &quot;<a href="aws-properties-ec2-elb.html#cfn-ec2-elb-availabilityzones">AvailabilityZones</a>&quot; : [ <em class="replaceable"><code>String</code></em>, ... ],
-      &quot;<a href="aws-properties-ec2-elb.html#cfn-ec2-elb-connectiondrainingpolicy">ConnectionDrainingPolicy</a>&quot; : <em class="replaceable"><code>ConnectionDrainingPolicy</code></em>,
-      &quot;<a href="aws-properties-ec2-elb.html#cfn-ec2-elb-connectionsettings">ConnectionSettings</a>&quot; : <em class="replaceable"><code>ConnectionSettings</code></em>,
-      &quot;<a href="aws-properties-ec2-elb.html#cfn-ec2-elb-crosszone">CrossZone</a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
-      &quot;<a href="aws-properties-ec2-elb.html#cfn-ec2-elb-healthcheck">HealthCheck</a>&quot; : <em class="replaceable"><code>HealthCheck</code></em>,
-      &quot;<a href="aws-properties-ec2-elb.html#cfn-ec2-elb-instances">Instances</a>&quot; : [ <em class="replaceable"><code>String</code></em>, ... ],
-      &quot;<a href="aws-properties-ec2-elb.html#cfn-ec2-elb-lbcookiestickinesspolicy">LBCookieStickinessPolicy</a>&quot; : [ <em class="replaceable"><code>LBCookieStickinessPolicy</code></em>, ... ],
-      &quot;<a href="aws-properties-ec2-elb.html#cfn-ec2-elb-listeners">Listeners</a>&quot; : [ <em class="replaceable"><code>Listener</code></em>, ... ],
-      &quot;<a href="aws-properties-ec2-elb.html#cfn-ec2-elb-elbname">LoadBalancerName</a>&quot; : <em class="replaceable"><code>String</code></em>,
-      &quot;<a href="aws-properties-ec2-elb.html#cfn-ec2-elb-policies">Policies</a>&quot; : [ <em class="replaceable"><code>ElasticLoadBalancing Policy</code></em>, ... ],
-      &quot;<a href="aws-properties-ec2-elb.html#cfn-ec2-elb-scheme">Scheme</a>&quot; : <em class="replaceable"><code>String</code></em>,
-      &quot;<a href="aws-properties-ec2-elb.html#cfn-ec2-elb-securitygroups">SecurityGroups</a>&quot; : [ <em class="replaceable"><code>Security Group</code></em>, ... ],
-      &quot;<a href="aws-properties-ec2-elb.html#cfn-ec2-elb-subnets">Subnets</a>&quot; : [ <em class="replaceable"><code>String</code></em>, ... ],
-      &quot;<a href="aws-properties-ec2-elb.html#cfn-ec2-elb-tags">Tags</a>&quot; : [ <em class="replaceable"><code>Resource Tag, ...</code></em> ]
-   }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-resource-elasticloadbalancing-loadbalancer-syntax.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">
-Type: AWS::ElasticLoadBalancing::LoadBalancer
-Properties:
-  <a href="aws-properties-ec2-elb.html#cfn-ec2-elb-accessloggingpolicy">AccessLoggingPolicy</a>:
-    <em class="replaceable"><code>AccessLoggingPolicy</code></em>
-  <a href="aws-properties-ec2-elb.html#cfn-ec2-elb-appcookiestickinesspolicy">AppCookieStickinessPolicy</a>:
-    - <em class="replaceable"><code>AppCookieStickinessPolicy</code></em>
-  <a href="aws-properties-ec2-elb.html#cfn-ec2-elb-availabilityzones">AvailabilityZones</a>:
-    - <em class="replaceable"><code>String</code></em>
-  <a href="aws-properties-ec2-elb.html#cfn-ec2-elb-connectiondrainingpolicy">ConnectionDrainingPolicy</a>:
-    <em class="replaceable"><code>ConnectionDrainingPolicy</code></em>
-  <a href="aws-properties-ec2-elb.html#cfn-ec2-elb-connectionsettings">ConnectionSettings</a>:
-    <em class="replaceable"><code>ConnectionSettings</code></em>
-  <a href="aws-properties-ec2-elb.html#cfn-ec2-elb-crosszone">CrossZone</a>: <em class="replaceable"><code>Boolean</code></em>
-  <a href="aws-properties-ec2-elb.html#cfn-ec2-elb-healthcheck">HealthCheck</a>:
-    <em class="replaceable"><code>HealthCheck</code></em>
-  <a href="aws-properties-ec2-elb.html#cfn-ec2-elb-instances">Instances</a>:
-    - <em class="replaceable"><code>String</code></em>
-  <a href="aws-properties-ec2-elb.html#cfn-ec2-elb-lbcookiestickinesspolicy">LBCookieStickinessPolicy</a>:
-    - <em class="replaceable"><code>LBCookieStickinessPolicy</code></em>
-  <a href="aws-properties-ec2-elb.html#cfn-ec2-elb-listeners">Listeners</a>:
-    - <em class="replaceable"><code>Listener</code></em>
-  <a href="aws-properties-ec2-elb.html#cfn-ec2-elb-elbname">LoadBalancerName</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-properties-ec2-elb.html#cfn-ec2-elb-policies">Policies</a>:
-    - <em class="replaceable"><code>ElasticLoadBalancing Policy</code></em>
-  <a href="aws-properties-ec2-elb.html#cfn-ec2-elb-scheme">Scheme</a>: <em class="replaceable"><code>String</code></em>,
-  <a href="aws-properties-ec2-elb.html#cfn-ec2-elb-securitygroups">SecurityGroups</a>:
-    - <em class="replaceable"><code>Security Group</code></em>
-  <a href="aws-properties-ec2-elb.html#cfn-ec2-elb-subnets">Subnets</a>:
-    - <em class="replaceable"><code>String</code></em>
-  <a href="aws-properties-ec2-elb.html#cfn-ec2-elb-tags">Tags</a>:
-    - <em class="replaceable"><code>Resource Tag</code></em>
-</code></pre>
-                        </div><h2 id="aws-properties-ec2-elb-prop">Properties</h2><div class="variablelist">
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
+    <h1 class="topictitle" id="aws-properties-ec2-elb">AWS::ElasticLoadBalancing::LoadBalancer</h1><p>Specifies a Classic Load Balancer.</p><p>You can specify the <code class="code">AvailabilityZones</code> or <code class="code">Subnets</code> property, but not both.
+                     </p><p>If this resource has a public IP address and is also in a VPC that is defined in the
+                        same template, you must use 
+                        the <a href="aws-attribute-dependson.html">DependsOn attribute</a>
+                        to declare a dependency on the VPC-gateway attachment.
+                     </p><h2 id="aws-properties-ec2-elb-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-properties-ec2-elb-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;Type&quot; : &quot;AWS::ElasticLoadBalancing::LoadBalancer&quot;,
+  &quot;Properties&quot; : {
+      &quot;<a href="#cfn-ec2-elb-accessloggingpolicy">AccessLoggingPolicy</a>&quot; : <em class="replaceable"><code><a href="aws-properties-ec2-elb-accessloggingpolicy.html">AccessLoggingPolicy</a></code></em>,
+      &quot;<a href="#cfn-ec2-elb-appcookiestickinesspolicy">AppCookieStickinessPolicy</a>&quot; : <em class="replaceable"><code>[ <a href="aws-properties-ec2-elb-AppCookieStickinessPolicy.html">AppCookieStickinessPolicy</a>, ... ]</code></em>,
+      &quot;<a href="#cfn-ec2-elb-availabilityzones">AvailabilityZones</a>&quot; : <em class="replaceable"><code>[ String, ... ]</code></em>,
+      &quot;<a href="#cfn-ec2-elb-connectiondrainingpolicy">ConnectionDrainingPolicy</a>&quot; : <em class="replaceable"><code><a href="aws-properties-ec2-elb-connectiondrainingpolicy.html">ConnectionDrainingPolicy</a></code></em>,
+      &quot;<a href="#cfn-ec2-elb-connectionsettings">ConnectionSettings</a>&quot; : <em class="replaceable"><code><a href="aws-properties-ec2-elb-connectionsettings.html">ConnectionSettings</a></code></em>,
+      &quot;<a href="#cfn-ec2-elb-crosszone">CrossZone</a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
+      &quot;<a href="#cfn-ec2-elb-healthcheck">HealthCheck</a>&quot; : <em class="replaceable"><code><a href="aws-properties-ec2-elb-health-check.html">HealthCheck</a></code></em>,
+      &quot;<a href="#cfn-ec2-elb-instances">Instances</a>&quot; : <em class="replaceable"><code>[ String, ... ]</code></em>,
+      &quot;<a href="#cfn-ec2-elb-lbcookiestickinesspolicy">LBCookieStickinessPolicy</a>&quot; : <em class="replaceable"><code>[ <a href="aws-properties-ec2-elb-LBCookieStickinessPolicy.html">LBCookieStickinessPolicy</a>, ... ]</code></em>,
+      &quot;<a href="#cfn-ec2-elb-listeners">Listeners</a>&quot; : <em class="replaceable"><code>[ <a href="aws-properties-ec2-elb-listener.html">Listeners</a>, ... ]</code></em>,
+      &quot;<a href="#cfn-ec2-elb-elbname">LoadBalancerName</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-ec2-elb-policies">Policies</a>&quot; : <em class="replaceable"><code>[ <a href="aws-properties-ec2-elb-policy.html">Policies</a>, ... ]</code></em>,
+      &quot;<a href="#cfn-ec2-elb-scheme">Scheme</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-ec2-elb-securitygroups">SecurityGroups</a>&quot; : <em class="replaceable"><code>[ String, ... ]</code></em>,
+      &quot;<a href="#cfn-ec2-elb-subnets">Subnets</a>&quot; : <em class="replaceable"><code>[ String, ... ]</code></em>,
+      &quot;<a href="#cfn-elasticloadbalancing-loadbalancer-tags">Tags</a>&quot; : <em class="replaceable"><code>[ <a href="aws-properties-resource-tags.html">Tag</a>, ... ]</code></em>
+    }
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-properties-ec2-elb-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Type: AWS::ElasticLoadBalancing::LoadBalancer
+Properties: 
+  <a href="#cfn-ec2-elb-accessloggingpolicy">AccessLoggingPolicy</a>: <em class="replaceable"><code>
+    <a href="aws-properties-ec2-elb-accessloggingpolicy.html">AccessLoggingPolicy</a></code></em>
+  <a href="#cfn-ec2-elb-appcookiestickinesspolicy">AppCookieStickinessPolicy</a>: <em class="replaceable"><code>
+    - <a href="aws-properties-ec2-elb-AppCookieStickinessPolicy.html">AppCookieStickinessPolicy</a></code></em>
+  <a href="#cfn-ec2-elb-availabilityzones">AvailabilityZones</a>: <em class="replaceable"><code>
+    - String</code></em>
+  <a href="#cfn-ec2-elb-connectiondrainingpolicy">ConnectionDrainingPolicy</a>: <em class="replaceable"><code>
+    <a href="aws-properties-ec2-elb-connectiondrainingpolicy.html">ConnectionDrainingPolicy</a></code></em>
+  <a href="#cfn-ec2-elb-connectionsettings">ConnectionSettings</a>: <em class="replaceable"><code>
+    <a href="aws-properties-ec2-elb-connectionsettings.html">ConnectionSettings</a></code></em>
+  <a href="#cfn-ec2-elb-crosszone">CrossZone</a>: <em class="replaceable"><code>Boolean</code></em>
+  <a href="#cfn-ec2-elb-healthcheck">HealthCheck</a>: <em class="replaceable"><code>
+    <a href="aws-properties-ec2-elb-health-check.html">HealthCheck</a></code></em>
+  <a href="#cfn-ec2-elb-instances">Instances</a>: <em class="replaceable"><code>
+    - String</code></em>
+  <a href="#cfn-ec2-elb-lbcookiestickinesspolicy">LBCookieStickinessPolicy</a>: <em class="replaceable"><code>
+    - <a href="aws-properties-ec2-elb-LBCookieStickinessPolicy.html">LBCookieStickinessPolicy</a></code></em>
+  <a href="#cfn-ec2-elb-listeners">Listeners</a>: <em class="replaceable"><code>
+    - <a href="aws-properties-ec2-elb-listener.html">Listeners</a></code></em>
+  <a href="#cfn-ec2-elb-elbname">LoadBalancerName</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-ec2-elb-policies">Policies</a>: <em class="replaceable"><code>
+    - <a href="aws-properties-ec2-elb-policy.html">Policies</a></code></em>
+  <a href="#cfn-ec2-elb-scheme">Scheme</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-ec2-elb-securitygroups">SecurityGroups</a>: <em class="replaceable"><code>
+    - String</code></em>
+  <a href="#cfn-ec2-elb-subnets">Subnets</a>: <em class="replaceable"><code>
+    - String</code></em>
+  <a href="#cfn-elasticloadbalancing-loadbalancer-tags">Tags</a>: <em class="replaceable"><code>
+    - <a href="aws-properties-resource-tags.html">Tag</a></code></em>
+</code></pre></div><h2 id="aws-properties-ec2-elb-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
-                           <dt><a id="cfn-ec2-elb-accessloggingpolicy"></a><span class="term"><code class="literal">AccessLoggingPolicy</code></span></dt>
-                           
+                           <dt><a id="cfn-ec2-elb-accessloggingpolicy"></a><span class="term"><code class="code">AccessLoggingPolicy</code></span></dt>
                            <dd>
                               
-                              <p>Captures detailed information for all requests made to your load balancer, such
-                                 as the time a request was received, client&#x2019;s IP address, latencies, request path,
-                                 and server responses.
-                              </p>
+                              <p>Information about where and how access logs are stored for the load balancer.</p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: <a href="aws-properties-ec2-elb-accessloggingpolicy.html">Elastic Load Balancing V1 AccessLoggingPolicy</a></p>
-                              
+                              <p><em>Type</em>: <a href="aws-properties-ec2-elb-accessloggingpolicy.html">AccessLoggingPolicy</a></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-ec2-elb-appcookiestickinesspolicy"></a><span class="term"><code class="literal">AppCookieStickinessPolicy</code></span></dt>
-                           
+                           <dt><a id="cfn-ec2-elb-appcookiestickinesspolicy"></a><span class="term"><code class="code">AppCookieStickinessPolicy</code></span></dt>
                            <dd>
                               
-                              <p>Generates one or more stickiness policies with sticky session lifetimes that
-                                 follow that of an application-generated cookie. These policies can be associated
-                                 only with HTTP/HTTPS listeners.
-                              </p>
+                              <p>Information about a policy for application-controlled session stickiness.</p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: A list of <a href="aws-properties-ec2-elb-AppCookieStickinessPolicy.html">AppCookieStickinessPolicy</a> objects.
-                              </p>
-                              
+                              <p><em>Type</em>: <a href="aws-properties-ec2-elb-AppCookieStickinessPolicy.html">List</a> of <a href="aws-properties-ec2-elb-AppCookieStickinessPolicy.html">AppCookieStickinessPolicy</a></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-ec2-elb-availabilityzones"></a><span class="term"><code class="literal">AvailabilityZones</code></span></dt>
-                           
+                           <dt><a id="cfn-ec2-elb-availabilityzones"></a><span class="term"><code class="code">AvailabilityZones</code></span></dt>
                            <dd>
                               
-                              <p>The Availability Zones in which to create the load balancer. You can specify
-                                 the <code class="code">AvailabilityZones</code> or <code class="code">Subnets</code> property, but not
-                                 both.
+                              <p>The Availability Zones for the load balancer. For load balancers in a VPC, specify
+                                 <code class="code">Subnets</code> instead.
                               </p>
                               
-                              <div class="aws-note">
-                                 <p class="aws-note">Note</p>
-                                 <p>For load balancers that are in a VPC, specify the <code class="code">Subnets</code>
-                                    property.
-                                 </p>
-                              </div>
-                              
-                              <p><em>Required</em>: No
-                              </p>
-                              
-                              <p><em>Type</em>: List of String values
-                              </p>
-                              
-                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a> if you did not have an Availability Zone specified and you
-                                 are adding one or if you are removing all Availability Zones. Otherwise, update
-                                 requires <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">no interruption</a>.
-                              </p>
-                              
-                           </dd>
-                           
-                           
-                           <dt><a id="cfn-ec2-elb-connectiondrainingpolicy"></a><span class="term"><code class="literal">ConnectionDrainingPolicy</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>Whether deregistered or unhealthy instances can complete all in-flight
-                                 requests.
+                              <p>Update requires replacement if you did not previously specify an Availability Zone
+                                 or if you are removing all Availability Zones.
+                                 Otherwise, update requires no interruption.
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
+                              <p><em>Type</em>: List of String
+                              </p>
+                           </dd>
+                           <dt><a id="cfn-ec2-elb-connectiondrainingpolicy"></a><span class="term"><code class="code">ConnectionDrainingPolicy</code></span></dt>
+                           <dd>
                               
-                              <p><em>Type</em>: <a href="aws-properties-ec2-elb-connectiondrainingpolicy.html">Elastic Load Balancing V1 ConnectionDrainingPolicy</a></p>
+                              <p>If enabled, the load balancer allows existing requests to complete before the load
+                                 balancer shifts traffic away from a deregistered or unhealthy instance.
+                              </p>
                               
+                              <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-conn-drain.html">Configure Connection Draining</a>
+                                 in the <em>Classic Load Balancers Guide</em>.
+                              </p> 
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              <p><em>Type</em>: <a href="aws-properties-ec2-elb-connectiondrainingpolicy.html">ConnectionDrainingPolicy</a></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-ec2-elb-connectionsettings"></a><span class="term"><code class="literal">ConnectionSettings</code></span></dt>
-                           
+                           <dt><a id="cfn-ec2-elb-connectionsettings"></a><span class="term"><code class="code">ConnectionSettings</code></span></dt>
                            <dd>
                               
-                              <p>Specifies how long front-end and back-end connections of your load balancer can
-                                 remain idle.
+                              <p>If enabled, the load balancer allows the connections to remain idle (no data is sent
+                                 over the connection) for the specified duration.
+                              </p>
+                              
+                              <p>By default, Elastic Load Balancing maintains a 60-second idle connection timeout for
+                                 both front-end and back-end connections of your load balancer.
+                                 For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html">Configure Idle Connection Timeout</a>
+                                 in the <em>Classic Load Balancers Guide</em>.
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: <a href="aws-properties-ec2-elb-connectionsettings.html">Elastic Load Balancing V1 ConnectionSettings</a></p>
-                              
+                              <p><em>Type</em>: <a href="aws-properties-ec2-elb-connectionsettings.html">ConnectionSettings</a></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-ec2-elb-crosszone"></a><span class="term"><code class="literal">CrossZone</code></span></dt>
-                           
+                           <dt><a id="cfn-ec2-elb-crosszone"></a><span class="term"><code class="code">CrossZone</code></span></dt>
                            <dd>
                               
-                              <p>Whether cross-zone load balancing is enabled for the load balancer. With
-                                 cross-zone load balancing, your load balancer nodes route traffic to the back-end
-                                 instances across all Availability Zones. By default the <code class="code">CrossZone</code>
-                                 property is <code class="code">false</code>.
+                              <p>If enabled, the load balancer routes the request traffic evenly across all instances
+                                 regardless of the Availability Zones.
+                              </p> 
+                              
+                              <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-crosszone-lb.html">Configure Cross-Zone Load Balancing</a>
+                                 in the <em>Classic Load Balancers Guide</em>.
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: Boolean
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-ec2-elb-healthcheck"></a><span class="term"><code class="literal">HealthCheck</code></span></dt>
-                           
+                           <dt><a id="cfn-ec2-elb-healthcheck"></a><span class="term"><code class="code">HealthCheck</code></span></dt>
                            <dd>
                               
-                              <p>Application health check for the instances.</p>
+                              <p>The health check settings to use when evaluating the health of your EC2 instances.</p>
                               
-                              <p><em>Required</em>: No
-                              </p>
-                              
-                              <p><em>Type</em>: <a href="aws-properties-ec2-elb-health-check.html">Elastic Load Balancing V1 HealthCheck</a>.
-                              </p>
-                              
-                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a> if you did not have a health check specified and you are
-                                 adding one or if you are removing a health check. Otherwise, update requires <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">no interruption</a>.
-                              </p>
-                              
-                           </dd>
-                           
-                           
-                           <dt><a id="cfn-ec2-elb-instances"></a><span class="term"><code class="literal">Instances</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>The IDs of the EC2 instances for the load balancer.</p>
-                              
-                              <p><em>Required</em>: No
-                              </p>
-                              
-                              <p><em>Type</em>: List of String values
-                              </p>
-                              
-                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
-                           </dd>
-                           
-                           
-                           <dt><a id="cfn-ec2-elb-lbcookiestickinesspolicy"></a><span class="term"><code class="literal">LBCookieStickinessPolicy</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>Generates a stickiness policy with sticky session lifetimes controlled by the
-                                 lifetime of the browser (user-agent), or by a specified expiration period. This
-                                 policy can be associated only with HTTP/HTTPS listeners.
+                              <p>Update requires replacement if you did not previously specify health check settings
+                                 or if you are removing the health check settings.
+                                 Otherwise, update requires no interruption.
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: A list of <a href="aws-properties-ec2-elb-LBCookieStickinessPolicy.html">LBCookieStickinessPolicy</a> objects.
-                              </p>
-                              
-                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
+                              <p><em>Type</em>: <a href="aws-properties-ec2-elb-health-check.html">HealthCheck</a></p>
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-ec2-elb-listeners"></a><span class="term"><code class="literal">Listeners</code></span></dt>
-                           
+                           <dt><a id="cfn-ec2-elb-instances"></a><span class="term"><code class="code">Instances</code></span></dt>
                            <dd>
                               
-                              <p>One or more listeners for this load balancer. Each listener must be registered
-                                 for a specific port, and you cannot have more than one listener for a given
-                                 port.
-                              </p>
+                              <p>The IDs of the instances for the load balancer.</p>
                               
-                              <div class="aws-note">
-                                 <p class="aws-note">Important</p>
-                                 <p>If you update the property values for a listener specified by the
-                                    <code class="code">Listeners</code> property, AWS CloudFormation will delete the existing listener and
-                                    create a new one with the updated properties. During the time that AWS CloudFormation
-                                    is
-                                    performing this action, clients will not be able to connect to the load
-                                    balancer.
-                                 </p>
-                              </div>
+                              <p><em>Required</em>: No
+                              </p>
+                              <p><em>Type</em>: List of String
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                           </dd>
+                           <dt><a id="cfn-ec2-elb-lbcookiestickinesspolicy"></a><span class="term"><code class="code">LBCookieStickinessPolicy</code></span></dt>
+                           <dd>
+                              
+                              <p>Information about a policy for duration-based session stickiness.</p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              <p><em>Type</em>: <a href="aws-properties-ec2-elb-LBCookieStickinessPolicy.html">List</a> of <a href="aws-properties-ec2-elb-LBCookieStickinessPolicy.html">LBCookieStickinessPolicy</a></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                           </dd>
+                           <dt><a id="cfn-ec2-elb-listeners"></a><span class="term"><code class="code">Listeners</code></span></dt>
+                           <dd>
+                              
+                              <p>The listeners for the load balancer. You can specify at most one listener per port.</p> 
+                              
+                              <p>If you update the properties for a listener, AWS CloudFormation deletes the existing
+                                 listener and 
+                                 creates a new one with the specified properties. While the new listener is being created,
+                                 clients 
+                                 cannot connect to the load balancer.
+                              </p>
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
-                              <p><em>Type</em>: A list of <a href="aws-properties-ec2-elb-listener.html">Elastic Load Balancing V1 Listener</a> objects.
-                              </p>
-                              
+                              <p><em>Type</em>: <a href="aws-properties-ec2-elb-listener.html">List</a> of <a href="aws-properties-ec2-elb-listener.html">Listeners</a></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-ec2-elb-elbname"></a><span class="term"><code class="literal">LoadBalancerName</code></span></dt>
-                           
+                           <dt><a id="cfn-ec2-elb-elbname"></a><span class="term"><code class="code">LoadBalancerName</code></span></dt>
                            <dd>
                               
-                              <p>A name for the load balancer. For valid values, see the <code class="code">LoadBalancerName</code> parameter for the <a href="https://docs.aws.amazon.com/elasticloadbalancing/2012-06-01/APIReference/API_CreateLoadBalancer.html"><code class="code">CreateLoadBalancer</code></a> action in the <em>Elastic Load Balancing API Reference version 2012-06-01</em>.
-                              </p>
+                              <p>The name of the load balancer. This name must be unique within your set of load balancers
+                                 for the region.
+                              </p> 
                               
-                              <p>If you don&apos;t specify a name, AWS CloudFormation generates a unique physical ID and
-                                 uses that ID for the load balancer. The name must be unique within your set of load
-                                 balancers. For more information, see <a href="aws-properties-name.html">Name Type</a>.
+                              <p>If you don&apos;t specify a name, AWS CloudFormation generates a unique physical ID for
+                                 the load balancer.
+                                 For more information, see <a href="aws-properties-name.html">Name Type</a>.
+                                 If you specify a name, you cannot perform updates that require replacement of this
+                                 resource, but you can perform 
+                                 other updates. To replace the resource, specify a new name. 
                               </p>
-                              <div class="aws-note">
-                                 <p class="aws-note">Important</p>
-                                 <p>If you specify a name, you cannot perform updates that require replacement of this
-                                    resource.
-                                    You can perform updates that require no or some interruption. If you must replace
-                                    the resource, specify a new name.
-                                 </p>
-                              </div>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-ec2-elb-policies"></a><span class="term"><code class="literal">Policies</code></span></dt>
-                           
+                           <dt><a id="cfn-ec2-elb-policies"></a><span class="term"><code class="code">Policies</code></span></dt>
                            <dd>
                               
-                              <p>The policies to apply to this elastic load balancer. Specify only back-end server
-                                 policies. For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/2012-06-01/APIReference/API_DescribeLoadBalancerPolicyTypes.html">DescribeLoadBalancerPolicyTypes</a> in the <em>Elastic Load Balancing API Reference version 2012-06-01</em>.
+                              <p>The policies defined for your Classic Load Balancer. Specify only back-end server
+                                 policies.
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: A list of <a href="aws-properties-ec2-elb-policy.html">ElasticLoadBalancing policy</a> objects.
-                              </p>
-                              
+                              <p><em>Type</em>: <a href="aws-properties-ec2-elb-policy.html">List</a> of <a href="aws-properties-ec2-elb-policy.html">Policies</a></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-ec2-elb-scheme"></a><span class="term"><code class="literal">Scheme</code></span></dt>
-                           
+                           <dt><a id="cfn-ec2-elb-scheme"></a><span class="term"><code class="code">Scheme</code></span></dt>
                            <dd>
                               
-                              <p>For load balancers attached to an Amazon VPC, this parameter can be used to
-                                 specify the type of load balancer to use. Specify <code class="code">internal</code> to create
-                                 an internal load balancer with a DNS name that resolves to private IP addresses or
-                                 <code class="code">internet-facing</code> to create a load balancer with a publicly
-                                 resolvable DNS name, which resolves to public IP addresses.
+                              <p>The type of load balancer. Valid only for load balancers in a VPC.</p>
+                              
+                              <p>If <code class="code">Scheme</code> is <code class="code">internet-facing</code>, the load balancer
+                                 has a public DNS name that resolves to a public IP address.
                               </p>
                               
-                              <div class="aws-note">
-                                 <p class="aws-note">Note</p>
-                                 <p>If you specify <code class="code">internal</code>, you must specify subnets to
-                                    associate with the load balancer, not Availability Zones.
-                                 </p>
-                              </div>
+                              <p>If <code class="code">Scheme</code> is <code class="code">internal</code>, the load balancer has a public 
+                                 DNS name that resolves to a private IP address.
+                              </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-ec2-elb-securitygroups"></a><span class="term"><code class="literal">SecurityGroups</code></span></dt>
-                           
+                           <dt><a id="cfn-ec2-elb-securitygroups"></a><span class="term"><code class="code">SecurityGroups</code></span></dt>
                            <dd>
+                              
+                              <p>The security groups for the load balancer. Valid only for load balancers in a VPC.</p> 
                               
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: The security groups assigned to your load balancer within your
-                                 virtual private cloud (VPC).
+                              <p><em>Type</em>: List of String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-ec2-elb-subnets"></a><span class="term"><code class="literal">Subnets</code></span></dt>
-                           
+                           <dt><a id="cfn-ec2-elb-subnets"></a><span class="term"><code class="code">Subnets</code></span></dt>
                            <dd>
                               
-                              <p>The subnet IDs in your virtual private cloud (VPC) to attach to your load
-                                 balancer. Do not specify multiple subnets that are in the same Availability Zone.
-                                 You can specify the <code class="code">AvailabilityZones</code> or <code class="code">Subnets</code>
-                                 property, but not both.
+                              <p>The IDs of the subnets for the load balancer. You can specify at most one subnet per
+                                 Availability Zone.
                               </p>
                               
-                              <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/.html">Add or Remove Subnets
-                                    for your Classic Load Balancer in a VPC</a> in the <em>User Guide for Classic Load Balancers</em>.
+                              <p>Update requires replacement if you did not previously specify a subnet or if you are
+                                 removing all subnets.
+                                 Otherwise, update requires no interruption. To update to a different subnet in the
+                                 current Availability Zone, 
+                                 you must first update to a subnet in a different Availability Zone, then update to
+                                 the new subnet in the original
+                                 Availability Zone.
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: List of String values
+                              <p><em>Type</em>: List of String
                               </p>
-                              
-                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a> if you did not have a subnet specified and you are adding
-                                 one or if you are removing all subnets. Otherwise, update requires <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">no interruption</a>. To update the load balancer to
-                                 another subnet that is in the same Availability Zone, you must do two updates. You
-                                 must
-                                 first update the load balancer to use a subnet in different Availability Zone. After
-                                 the
-                                 update is complete, update the load balancer to use the new subnet that is in the
-                                 original Availability Zone.
-                              </p>
-                              
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-ec2-elb-tags"></a><span class="term"><code class="literal">Tags</code></span></dt>
-                           
+                           <dt><a id="cfn-elasticloadbalancing-loadbalancer-tags"></a><span class="term"><code class="code">Tags</code></span></dt>
                            <dd>
                               
-                              <p>An arbitrary set of tags (key-value pairs) for this load balancer.</p>
+                              <p>The tags associated with a load balancer.</p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: <a href="aws-properties-resource-tags.html">Resource Tag</a></p>
-                              
+                              <p><em>Type</em>: List of <a href="aws-properties-resource-tags.html">Tag</a></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
                         </dl>
-                     </div><h2 id="aws-properties-ec2-elb-ref">Return Values</h2><h3 id="w2ab1c21c10d135c16c11b2">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code> intrinsic
-                        function, <code class="code">Ref</code> returns the resource name. For example, <code class="code">mystack-myelb-1WQN7BJGDB5YQ</code>.
+                     </div><h2 id="aws-properties-ec2-elb-return-values">Return Values</h2><h3 id="aws-properties-ec2-elb-return-values-ref">Ref</h3><p>
+                        When you pass the logical ID of this resource to the intrinsic <code class="code">Ref</code> function, <code class="code">Ref</code> returns the name of the load balancer.
                      </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                     </p><h3 id="w2ab1c21c10d135c16c11b4">Fn::GetAtt</h3><p><code class="code">Fn::GetAtt</code> returns a value for a specified attribute of this type.
-                        The following are the available attributes and sample return values.
-                     </p><div class="variablelist">
-                        
-                        
-                        
-                        
-                        
-                        
+                     </p><h3 id="aws-properties-ec2-elb-return-values-fn--getatt">Fn::GetAtt</h3><p>The <code class="code">Fn::GetAtt</code> intrinsic function returns a value for a specified attribute of this type. The following
+                        are the available attributes and sample return values.
+                     </p><p>For more information about using the <code class="code">Fn::GetAtt</code> intrinsic function, see <a href="intrinsic-function-reference-getatt.html">Fn::GetAtt</a>.
+                     </p><h4 id="aws-properties-ec2-elb-return-values-fn--getatt-fn--getatt"></h4><div class="variablelist">
                         <dl>
-                           
-                           <dt><span class="term"><code class="literal">CanonicalHostedZoneName</code></span></dt>
-                           
+                           <dt><a id="CanonicalHostedZoneName-fn::getatt"></a><span class="term"><code class="code">CanonicalHostedZoneName</code></span></dt>
                            <dd>
                               
-                              <p>The name of the Route&#xA0;53 hosted zone that is associated with the load balancer.</p>
-                              <div class="aws-note">
-                                 <p class="aws-note">Important</p>
-                                 <p>If you specify <code class="code">internal</code> for the Elastic Load Balancing scheme, use
-                                    <code class="code">DNSName</code> instead. For an <code class="code">internal</code> scheme, the
-                                    load balancer doesn&apos;t have a <code class="code">CanonicalHostedZoneName</code>
-                                    value.
-                                 </p>
-                              </div>
-                              
-                              <p>Example: <code class="code">mystack-myelb-15HMABG9ZCN57-1013119603.</code><span><code class="code">us-east-2</code></span><code class="code">.elb.amazonaws.com</code></p>
+                              <p>The name of the Route 53 hosted zone that is associated with the load balancer. Internal-facing
+                                 load balancers don&apos;t use this value, 
+                                 use <code class="code">DNSName</code> instead.
+                              </p>
                               
                            </dd>
-                           
-                           
-                           <dt><span class="term"><code class="literal">CanonicalHostedZoneNameID</code></span></dt>
-                           
+                           <dt><a id="CanonicalHostedZoneNameID-fn::getatt"></a><span class="term"><code class="code">CanonicalHostedZoneNameID</code></span></dt>
                            <dd>
                               
-                              <p>The ID of the Route&#xA0;53 hosted zone name that is associated with the load balancer.</p>
-                              
-                              <p>Example: <code class="code">Z3DZXE0Q79N41H</code></p>
+                              <p>The ID of the Route 53 hosted zone name that is associated with the load balancer.</p>
                               
                            </dd>
-                           
-                           
-                           <dt><span class="term"><code class="literal">DNSName</code></span></dt>
-                           
+                           <dt><a id="DNSName-fn::getatt"></a><span class="term"><code class="code">DNSName</code></span></dt>
                            <dd>
                               
                               <p>The DNS name for the load balancer.</p>
                               
-                              <p>Example: <code class="code">mystack-myelb-15HMABG9ZCN57-1013119603.</code><span><code class="code">us-east-2</code></span><code class="code">.elb.amazonaws.com</code></p>
-                              
                            </dd>
-                           
-                           
-                           <dt><span class="term"><code class="literal">SourceSecurityGroup.GroupName</code></span></dt>
-                           
+                           <dt><a id="SourceSecurityGroup.GroupName-fn::getatt"></a><span class="term"><code class="code">SourceSecurityGroup.GroupName</code></span></dt>
                            <dd>
                               
-                              <p>The security group that you can use as part of your inbound rules for your load balancer&apos;s
-                                 back-end Amazon EC2 application instances.
+                              <p>The name of the security group that you can use as part of your inbound rules for
+                                 your load balancer&apos;s back-end instances.
                               </p>
                               
-                              <p>Example: <code class="code">amazon-elb</code></p>
-                              
                            </dd>
-                           
-                           
-                           <dt><span class="term"><code class="literal">SourceSecurityGroup.OwnerAlias</code></span></dt>
-                           
+                           <dt><a id="SourceSecurityGroup.OwnerAlias-fn::getatt"></a><span class="term"><code class="code">SourceSecurityGroup.OwnerAlias</code></span></dt>
                            <dd>
                               
                               <p>The owner of the source security group.</p>
                               
-                              <p>Example: <code class="code">amazon-elb-sg</code></p>
-                              
                            </dd>
-                           
                         </dl>
-                     </div><p>For more information about using <code class="code">Fn::GetAtt</code>, see <a href="intrinsic-function-reference-getatt.html">Fn::GetAtt</a>.
-                     </p><h2 id="w2ab1c21c10d135c16c13">Examples</h2><h3 id="w2ab1c21c10d135c16c13b2">A load balancer with a health check and access logs</h3><div id="JSON" name="JSON" class="section langfilter">
-                        <h4 id="aws-resource-elasticloadbalancing-loadbalancer-example1.json">JSON</h4>
+                     </div><h2 id="aws-properties-ec2-elb--seealso">See Also</h2><div class="itemizedlist">
                         
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">&quot;ElasticLoadBalancer&quot; : {
-  &quot;Type&quot; : &quot;AWS::ElasticLoadBalancing::LoadBalancer&quot;,
-  &quot;Properties&quot; : {
-    &quot;AvailabilityZones&quot; : { &quot;Fn::GetAZs&quot; : &quot;&quot; },
-    &quot;Instances&quot; : [ { &quot;Ref&quot; : &quot;Ec2Instance1&quot; },{ &quot;Ref&quot; : &quot;Ec2Instance2&quot; } ],
-    &quot;Listeners&quot; : [ {
-      &quot;LoadBalancerPort&quot; : &quot;80&quot;,
-      &quot;InstancePort&quot; : { &quot;Ref&quot; : &quot;WebServerPort&quot; },
-      &quot;Protocol&quot; : &quot;HTTP&quot;
-    } ],
-    &quot;HealthCheck&quot; : {
-      &quot;Target&quot; : {
-        &quot;Fn::Join&quot; : [ &quot;&quot;, [ &quot;HTTP:&quot;, { &quot;Ref&quot; : &quot;WebServerPort&quot; }, &quot;/&quot; ] ]
-      },
-      &quot;HealthyThreshold&quot; : &quot;3&quot;,
-      &quot;UnhealthyThreshold&quot; : &quot;5&quot;,
-      &quot;Interval&quot; : &quot;30&quot;,
-      &quot;Timeout&quot; : &quot;5&quot;
-    },
-    &quot;AccessLoggingPolicy&quot;: {
-      &quot;S3BucketName&quot;: {
-        &quot;Ref&quot;: &quot;S3LoggingBucket&quot;
-      },
-      &quot;S3BucketPrefix&quot;: &quot;MyELBLogs&quot;,
-      &quot;Enabled&quot;: &quot;true&quot;,
-      &quot;EmitInterval&quot; : &quot;60&quot;
-    },
-  &quot;DependsOn&quot;: &quot;S3LoggingBucketPolicy&quot;
-  }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h4 id="aws-resource-elasticloadbalancing-loadbalancer-example1.yaml">YAML</h4>
                         
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">ElasticLoadBalancer:
-  Type: AWS::ElasticLoadBalancing::LoadBalancer
-  Properties:
-    AvailabilityZones:
-      Fn::GetAZs: &apos;&apos;
-    Instances:
-    - Ref: Ec2Instance1
-    - Ref: Ec2Instance2
-    Listeners:
-    - LoadBalancerPort: &apos;80&apos;
-      InstancePort:
-        Ref: WebServerPort
-      Protocol: HTTP
-    HealthCheck:
-      Target:
-        Fn::Join:
-        - &apos;&apos;
-        - - &apos;HTTP:&apos;
-          - Ref: WebServerPort
-          - &quot;/&quot;
-      HealthyThreshold: &apos;3&apos;
-      UnhealthyThreshold: &apos;5&apos;
-      Interval: &apos;30&apos;
-      Timeout: &apos;5&apos;
-    AccessLoggingPolicy:
-      S3BucketName:
-        Ref: S3LoggingBucket
-      S3BucketPrefix: MyELBLogs
-      Enabled: &apos;true&apos;
-      EmitInterval: &apos;60&apos;
-    DependsOn: S3LoggingBucketPolicy</code></pre>
-                        </div><h3 id="w2ab1c21c10d135c16c13b4">A load balancer with access logging enabled</h3><p>The following sample snippet creates an Amazon S3 bucket with a bucket policy that
-                        allows
-                        the load balancer to store information in the <code class="code">Logs/AWSLogs/<em class="replaceable"><code>AWS
-                                 account number</code></em>/</code> folder. The load balancer also includes an
-                        explicit dependency on the bucket policy, which is required before the load balancer
-                        can
-                        write to the bucket.
-                     </p><div id="JSON" name="JSON" class="section langfilter">
-                        <h4 id="aws-resource-elasticloadbalancing-loadbalancer-example2.json">JSON</h4>
                         
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">&quot;S3LoggingBucket&quot;: {
-  &quot;Type&quot;: &quot;AWS::S3::Bucket&quot;
-},
-&quot;S3LoggingBucketPolicy&quot;: {
-  &quot;Type&quot;: &quot;AWS::S3::BucketPolicy&quot;,
-  &quot;Properties&quot;: {
-    &quot;Bucket&quot;: {
-      &quot;Ref&quot;: &quot;S3LoggingBucket&quot;
-    },
-    &quot;PolicyDocument&quot;: {
-      &quot;Version&quot;: &quot;2012-10-17&quot;,
-      &quot;Statement&quot;: [ {
-        &quot;Sid&quot;: &quot;ELBAccessLogs20130930&quot;,
-        &quot;Effect&quot;: &quot;Allow&quot;,
-        &quot;Resource&quot;: {
-          &quot;Fn::Join&quot;: [
-            &quot;&quot;,
-            [
-              &quot;arn:aws:s3:::&quot;,
-              { &quot;Ref&quot;: &quot;S3LoggingBucket&quot; },
-              &quot;/&quot;,
-              &quot;Logs&quot;,
-              &quot;/AWSLogs/&quot;,
-              { &quot;Ref&quot;: &quot;AWS::AccountId&quot; },
-              &quot;/*&quot;
-            ]
-          ]
-        },
-        &quot;Principal&quot;: { &quot;Ref&quot;: &quot;ElasticLoadBalancingAccountID&quot; },
-        &quot;Action&quot;: [
-          &quot;s3:PutObject&quot;
-        ]
-      } ]
-    }
-  }
-},
-&quot;ElasticLoadBalancer&quot;: {
-  &quot;Type&quot;: &quot;AWS::ElasticLoadBalancing::LoadBalancer&quot;,
-  &quot;Properties&quot;: {
-    &quot;AvailabilityZones&quot;: { &quot;Fn::GetAZs&quot;: &quot;&quot; },
-    &quot;Listeners&quot;: [{
-      &quot;LoadBalancerPort&quot;: &quot;80&quot;,
-      &quot;InstancePort&quot;: &quot;80&quot;,
-      &quot;Protocol&quot;: &quot;HTTP&quot;
-    }],
-    &quot;HealthCheck&quot;: {
-      &quot;Target&quot;: &quot;HTTP:80/&quot;,
-      &quot;HealthyThreshold&quot;: &quot;3&quot;,
-      &quot;UnhealthyThreshold&quot;: &quot;5&quot;,
-      &quot;Interval&quot;: &quot;30&quot;,
-      &quot;Timeout&quot;: &quot;5&quot;
-    },
-    &quot;AccessLoggingPolicy&quot;: {
-      &quot;S3BucketName&quot;: {
-        &quot;Ref&quot;: &quot;S3LoggingBucket&quot;
-      },
-      &quot;S3BucketPrefix&quot;: &quot;Logs&quot;,
-      &quot;Enabled&quot;: &quot;true&quot;,
-      &quot;EmitInterval&quot; : &quot;60&quot;
-    }
-  },
-  &quot;DependsOn&quot;: &quot;S3LoggingBucketPolicy&quot;
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h4 id="aws-resource-elasticloadbalancing-loadbalancer-example2.yaml">YAML</h4>
                         
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">S3LoggingBucket:
-  Type: AWS::S3::Bucket
-S3LoggingBucketPolicy:
-  Type: AWS::S3::BucketPolicy
-  Properties:
-    Bucket:
-      Ref: S3LoggingBucket
-    PolicyDocument:
-      Version: &apos;2012-10-17&apos;
-      Statement:
-      - Sid: ELBAccessLogs20130930
-        Effect: Allow
-        Resource:
-          Fn::Join:
-          - &apos;&apos;
-          - - &apos;arn:aws:s3:::&apos;
-            - Ref: S3LoggingBucket
-            - &quot;/&quot;
-            - Logs
-            - &quot;/AWSLogs/&quot;
-            - Ref: AWS::AccountId
-            - &quot;/*&quot;
-        Principal:
-          Ref: ElasticLoadBalancingAccountID
-        Action:
-        - s3:PutObject
-ElasticLoadBalancer:
-  Type: AWS::ElasticLoadBalancing::LoadBalancer
-  Properties:
-    AvailabilityZones:
-      Fn::GetAZs: &apos;&apos;
-    Listeners:
-    - LoadBalancerPort: &apos;80&apos;
-      InstancePort: &apos;80&apos;
-      Protocol: HTTP
-    HealthCheck:
-      Target: HTTP:80/
-      HealthyThreshold: &apos;3&apos;
-      UnhealthyThreshold: &apos;5&apos;
-      Interval: &apos;30&apos;
-      Timeout: &apos;5&apos;
-    AccessLoggingPolicy:
-      S3BucketName:
-        Ref: S3LoggingBucket
-      S3BucketPrefix: Logs
-      Enabled: &apos;true&apos;
-      EmitInterval: &apos;60&apos;
-  DependsOn: S3LoggingBucketPolicy</code></pre>
-                        </div><h3 id="w2ab1c21c10d135c16c13b6">A load balancer with a connection draining policy</h3><p>The following snippet enables a connection draining policy that ends connections to
-                        a
-                        deregistered or unhealthy instance after 60 seconds.
-                     </p><div id="JSON" name="JSON" class="section langfilter">
-                        <h4 id="aws-resource-elasticloadbalancing-loadbalancer-example3.json">JSON</h4>
                         
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">&quot;ElasticLoadBalancer&quot; : {
-  &quot;Type&quot; : &quot;AWS::ElasticLoadBalancing::LoadBalancer&quot;,
-  &quot;Properties&quot; : {
-    &quot;AvailabilityZones&quot; : { &quot;Fn::GetAZs&quot; : &quot;&quot; },
-    &quot;Instances&quot; : [ { &quot;Ref&quot; : &quot;Ec2Instance1&quot; },{ &quot;Ref&quot; : &quot;Ec2Instance2&quot; } ],
-    &quot;Listeners&quot;: [{
-      &quot;LoadBalancerPort&quot;: &quot;80&quot;,
-      &quot;InstancePort&quot;: &quot;80&quot;,
-      &quot;Protocol&quot;: &quot;HTTP&quot;
-    }],
-    &quot;HealthCheck&quot;: {
-      &quot;Target&quot;: &quot;HTTP:80/&quot;,
-      &quot;HealthyThreshold&quot;: &quot;3&quot;,
-      &quot;UnhealthyThreshold&quot;: &quot;5&quot;,
-      &quot;Interval&quot;: &quot;30&quot;,
-      &quot;Timeout&quot;: &quot;5&quot;
-    },
-    &quot;ConnectionDrainingPolicy&quot;: {
-      &quot;Enabled&quot; : &quot;true&quot;,
-      &quot;Timeout&quot; : &quot;60&quot;
-    }
-  }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h4 id="aws-resource-elasticloadbalancing-loadbalancer-example3.yaml">YAML</h4>
                         
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">ElasticLoadBalancer:
-  Type: AWS::ElasticLoadBalancing::LoadBalancer
-  Properties:
-    AvailabilityZones:
-      Fn::GetAZs: &apos;&apos;
-    Instances:
-    - Ref: Ec2Instance1
-    - Ref: Ec2Instance2
-    Listeners:
-    - LoadBalancerPort: &apos;80&apos;
-      InstancePort: &apos;80&apos;
-      Protocol: HTTP
-    HealthCheck:
-      Target: HTTP:80/
-      HealthyThreshold: &apos;3&apos;
-      UnhealthyThreshold: &apos;5&apos;
-      Interval: &apos;30&apos;
-      Timeout: &apos;5&apos;
-    ConnectionDrainingPolicy:
-      Enabled: &apos;true&apos;
-      Timeout: &apos;60&apos;</code></pre>
-                        </div><h3 id="w2ab1c21c10d135c16c13b8">A load balancer with multiple policies</h3><p>The following snippet creates a load balancer with listeners on port 80 and 443. The
-                        snippet applies a proxy on port 80 and a back-end server authentication policy on
-                        port
-                        443.
-                     </p><div id="JSON" name="JSON" class="section langfilter">
-                        <h4 id="aws-resource-elasticloadbalancing-loadbalancer-example4.json">JSON</h4>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">&quot;ElasticLoadBalancer&quot;: {
-  &quot;Type&quot;: &quot;AWS::ElasticLoadBalancing::LoadBalancer&quot;,
-  &quot;Properties&quot;: {
-    &quot;SecurityGroups&quot; : { &quot;Ref&quot; : &quot;SecurityGroups&quot; },
-    &quot;Scheme&quot; : &quot;internet-facing&quot;,
-    &quot;AvailabilityZones&quot;: { &quot;Fn::GetAZs&quot;: &quot;&quot; },
-    &quot;Listeners&quot;: [
-      {
-        &quot;LoadBalancerPort&quot;: &quot;80&quot;,
-        &quot;InstancePort&quot;: &quot;80&quot;,
-        &quot;Protocol&quot;: &quot;TCP&quot;,
-        &quot;InstanceProtocol&quot; : &quot;TCP&quot;
-      },
-      {
-        &quot;LoadBalancerPort&quot;: &quot;443&quot;,
-        &quot;InstancePort&quot;: &quot;443&quot;,
-        &quot;Protocol&quot;: &quot;HTTPS&quot;,
-        &quot;SSLCertificateId&quot; : { &quot;Ref&quot; : &quot;CertARN&quot; },
-        &quot;PolicyNames&quot; : [&quot;MySSLNegotiationPolicy&quot;, &quot;MyAppCookieStickinessPolicy&quot;]
-      }
-    ],
-    &quot;Policies&quot; : [
-      {
-        &quot;PolicyName&quot; : &quot;MySSLNegotiationPolicy&quot;,
-        &quot;PolicyType&quot; : &quot;SSLNegotiationPolicyType&quot;,
-        &quot;Attributes&quot; : [
-            { &quot;Name&quot; : &quot;Protocol-TLSv1&quot;, &quot;Value&quot; : &quot;true&quot; },
-            { &quot;Name&quot; : &quot;Protocol-SSLv2&quot;, &quot;Value&quot; : &quot;true&quot; },
-            { &quot;Name&quot; : &quot;Protocol-SSLv3&quot;, &quot;Value&quot; : &quot;false&quot; },
-            { &quot;Name&quot; : &quot;DHE-RSA-AES256-SHA&quot;, &quot;Value&quot; : &quot;true&quot; }
-        ]
-      },
-      {
-        &quot;PolicyName&quot; : &quot;MyAppCookieStickinessPolicy&quot;,
-        &quot;PolicyType&quot; : &quot;AppCookieStickinessPolicyType&quot;,
-        &quot;Attributes&quot; : [
-          { &quot;Name&quot; : &quot;CookieName&quot;, &quot;Value&quot; : &quot;MyCookie&quot; }
-        ]
-      },
-      {
-        &quot;PolicyName&quot; : &quot;MyPublicKeyPolicy&quot;,
-        &quot;PolicyType&quot; : &quot;PublicKeyPolicyType&quot;,
-        &quot;Attributes&quot; : [
-          { &quot;Name&quot; : &quot;PublicKey&quot;, &quot;Value&quot; : { &quot;Fn::Join&quot; : [ &quot;\n&quot;, [
-            &quot;MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDh/51Aohx5VrpmlfGHZCzciMBa&quot;,
-            &quot;fkHve+MQYYJcxmNUKMdsWnz9WtVfKxxWUU7Cfor4lorYmENGCG8FWqCoLDMFs7pN&quot;,
-            &quot;yGEtpsrlKhzZWtgY1d7eGrUrBil03bI90E2KW0j4qAwGYAC8xixOkNClicojeEz4&quot;,
-            &quot;f4rr3sUf+ZBSsuMEuwIDAQAB&quot; ] ] }
-          }
-        ]
-      },
-      {
-        &quot;PolicyName&quot; : &quot;MyBackendServerAuthenticationPolicy&quot;,
-        &quot;PolicyType&quot; : &quot;BackendServerAuthenticationPolicyType&quot;,
-        &quot;Attributes&quot; : [
-          { &quot;Name&quot; : &quot;PublicKeyPolicyName&quot;, &quot;Value&quot; : &quot;MyPublicKeyPolicy&quot; }
-        ],
-        &quot;InstancePorts&quot; : [ &quot;443&quot; ]
-      },
-      {
-        &quot;PolicyName&quot; : &quot;EnableProxyProtocol&quot;,
-        &quot;PolicyType&quot; : &quot;ProxyProtocolPolicyType&quot;,
-        &quot;Attributes&quot; : [
-          { &quot;Name&quot;  : &quot;ProxyProtocol&quot;, &quot;Value&quot; : &quot;true&quot; }
-        ],
-        &quot;InstancePorts&quot; : [&quot;80&quot;]
-      }
-    ]
-  }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h4 id="aws-resource-elasticloadbalancing-loadbalancer-example4.yaml">YAML</h4>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">ElasticLoadBalancer:
-  Type: AWS::ElasticLoadBalancing::LoadBalancer
-  Properties:
-    SecurityGroups:
-      Ref: SecurityGroups
-    Scheme: internet-facing
-    AvailabilityZones:
-      Fn::GetAZs: &apos;&apos;
-    Listeners:
-    - LoadBalancerPort: &apos;80&apos;
-      InstancePort: &apos;80&apos;
-      Protocol: TCP
-      InstanceProtocol: TCP
-    - LoadBalancerPort: &apos;443&apos;
-      InstancePort: &apos;443&apos;
-      Protocol: HTTPS
-      SSLCertificateId:
-        Ref: CertARN
-      PolicyNames:
-      - MySSLNegotiationPolicy
-      - MyAppCookieStickinessPolicy
-    Policies:
-    - PolicyName: MySSLNegotiationPolicy
-      PolicyType: SSLNegotiationPolicyType
-      Attributes:
-      - Name: Protocol-TLSv1
-        Value: &apos;true&apos;
-      - Name: Protocol-SSLv2
-        Value: &apos;true&apos;
-      - Name: Protocol-SSLv3
-        Value: &apos;false&apos;
-      - Name: DHE-RSA-AES256-SHA
-        Value: &apos;true&apos;
-    - PolicyName: MyAppCookieStickinessPolicy
-      PolicyType: AppCookieStickinessPolicyType
-      Attributes:
-      - Name: CookieName
-        Value: MyCookie
-    - PolicyName: MyPublicKeyPolicy
-      PolicyType: PublicKeyPolicyType
-      Attributes:
-      - Name: PublicKey
-        Value:
-          Fn::Join:
-          - &quot;\n&quot;
-          - - MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDh/51Aohx5VrpmlfGHZCzciMBa
-            - fkHve+MQYYJcxmNUKMdsWnz9WtVfKxxWUU7Cfor4lorYmENGCG8FWqCoLDMFs7pN
-            - yGEtpsrlKhzZWtgY1d7eGrUrBil03bI90E2KW0j4qAwGYAC8xixOkNClicojeEz4
-            - f4rr3sUf+ZBSsuMEuwIDAQAB
-    - PolicyName: MyBackendServerAuthenticationPolicy
-      PolicyType: BackendServerAuthenticationPolicyType
-      Attributes:
-      - Name: PublicKeyPolicyName
-        Value: MyPublicKeyPolicy
-      InstancePorts:
-      - &apos;443&apos;
-    - PolicyName: EnableProxyProtocol
-      PolicyType: ProxyProtocolPolicyType
-      Attributes:
-      - Name: ProxyProtocol
-        Value: &apos;true&apos;
-      InstancePorts:
-      - &apos;80&apos;</code></pre>
-                        </div><h3 id="w2ab1c21c10d135c16c13c10">Additional  Examples</h3><p>You can view additional examples from the AWS CloudFormation sample template collection:
-                        <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-sample-templates.html">Sample Templates</a>.
-                     </p></div>
+                        <ul class="itemizedlist" type="disc">
+                           <li class="listitem">
+                              
+                              <p>
+                                 <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-elb.html">Elastic Load Balancing Template Snippets</a>
+                                 
+                              </p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p>
+                                 <a href="https://docs.aws.amazon.com/elasticloadbalancing/2012-06-01/APIReference/API_CreateLoadBalancer.html">CreateLoadBalancer</a> in the
+                                 <em>Elastic Load Balancing API Reference (version 2012-06-01)</em>
+                                 
+                              </p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p>
+                                 <a href="https://docs.aws.amazon.com/elasticloadbalancing/2012-06-01/APIReference/API_ModifyLoadBalancerAttributes.html">ModifyLoadBalancerAttributes</a> 
+                                 in the <em>Elastic Load Balancing API Reference (version 2012-06-01)</em>
+                                 
+                              </p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p>
+                                 <a href="https://docs.aws.amazon.com/elasticloadbalancing/2012-06-01/APIReference/API_ConfigureHealthCheck.html">ConfigureHealthCheck</a> in the
+                                 <em>Elastic Load Balancing API Reference (version 2012-06-01)</em>
+                                 
+                              </p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p>
+                                 <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic">User Guide for Classic Load Balancers</a>
+                                 
+                              </p>
+                              
+                           </li>
+                        </ul>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
+                     </div></div>
 </body>
 </html>

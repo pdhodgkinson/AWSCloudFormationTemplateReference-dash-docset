@@ -8,172 +8,115 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-resource-rds-security-group-ingress">AWS::RDS::DBSecurityGroupIngress</h1><p>The AWS::RDS::DBSecurityGroupIngress type enables ingress to a DBSecurityGroup using
-                        one of two forms of
-                        authorization. First, EC2 or VPC security groups can be added to the DBSecurityGroup
-                        if the application using the
-                        database is running on EC2 or VPC instances. Second, IP ranges are available if the
-                        application accessing your
-                        database is running on the Internet. For more information about DB security groups,
-                        see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithSecurityGroups.html">Working
-                           with DB security groups</a></p><p>This type supports updates. For more information about updating stacks, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks.html">AWS CloudFormation Stacks Updates</a>.
-                     </p><p>For details about the settings for DB security group ingress, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_AuthorizeDBSecurityGroupIngress.html">AuthorizeDBSecurityGroupIngress</a>.
-                     </p><div class="highlights" id="inline-topiclist">
-                        <p><strong>Topics</strong></p>
-                        <ul>
-                           <li><a href="#aws-resource-rds-dbsecuritygroupingress-syntax">Syntax</a></li>
-                           <li><a href="#cfn-rds-securitygroup-ingress-properties">Properties</a></li>
-                           <li><a href="#w2ab1c21c10d192c37c15">Return Values</a></li>
-                           <li><a href="#w2ab1c21c10d192c37c17">See Also</a></li>
-                        </ul>
-                     </div><h2 id="aws-resource-rds-dbsecuritygroupingress-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-resource-rds-dbsecuritygroupingress-syntax.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
+    <h1 class="topictitle" id="aws-resource-rds-security-group-ingress">AWS::RDS::DBSecurityGroupIngress</h1><p>The <code class="code">AWS::RDS::DBSecurityGroupIngress</code> resource enables ingress to a DB
+                        security group using one of two forms of authorization. First, you can add EC2 or
+                        VPC
+                        security groups to the DB security group if the application using the database is
+                        running on EC2 or VPC instances. Second, IP ranges are available if the application
+                        accessing your database is running on the Internet.
+                     </p><p>This type supports updates. For more information about updating stacks, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks.html">AWS
+                           CloudFormation Stacks Updates</a>.
+                     </p><p>For details about the settings for DB security group ingress, see 
+                        <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_AuthorizeDBSecurityGroupIngress.html">AuthorizeDBSecurityGroupIngress</a>.
+                     </p><h2 id="aws-resource-rds-security-group-ingress-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-resource-rds-security-group-ingress-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
   &quot;Type&quot; : &quot;AWS::RDS::DBSecurityGroupIngress&quot;,
   &quot;Properties&quot; : {
-   &quot;<a href="aws-resource-rds-security-group-ingress.html#cfn-rds-securitygroup-ingress-cidrip">CIDRIP</a>&quot;: <em class="replaceable"><code>String</code></em>,
-   &quot;<a href="aws-resource-rds-security-group-ingress.html#cfn-rds-securitygroup-ingress-dbsecuritygroupname">DBSecurityGroupName</a>&quot;: <em class="replaceable"><code>String</code></em>,
-   &quot;<a href="aws-resource-rds-security-group-ingress.html#cfn-rds-securitygroup-ingress-ec2securitygroupid">EC2SecurityGroupId</a>&quot;: <em class="replaceable"><code>String</code></em>,
-   &quot;<a href="aws-resource-rds-security-group-ingress.html#cfn-rds-securitygroup-ingress-ec2securitygroupname">EC2SecurityGroupName</a>&quot;: <em class="replaceable"><code>String</code></em>,
-   &quot;<a href="aws-resource-rds-security-group-ingress.html#cfn-rds-securitygroup-ingress-ec2securitygroupownerid">EC2SecurityGroupOwnerId</a>&quot;: <em class="replaceable"><code>String</code></em>
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-resource-rds-dbsecuritygroupingress-syntax.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">Type: &quot;AWS::RDS::DBSecurityGroupIngress&quot;
-Properties:  
-  <a href="aws-resource-rds-security-group-ingress.html#cfn-rds-securitygroup-ingress-cidrip">CIDRIP</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-rds-security-group-ingress.html#cfn-rds-securitygroup-ingress-dbsecuritygroupname">DBSecurityGroupName</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-rds-security-group-ingress.html#cfn-rds-securitygroup-ingress-ec2securitygroupid">EC2SecurityGroupId</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-rds-security-group-ingress.html#cfn-rds-securitygroup-ingress-ec2securitygroupname">EC2SecurityGroupName</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-rds-security-group-ingress.html#cfn-rds-securitygroup-ingress-ec2securitygroupownerid">EC2SecurityGroupOwnerId</a>: <em class="replaceable"><code>String</code></em>
-</code></pre>
-                        </div><h2 id="cfn-rds-securitygroup-ingress-properties">Properties</h2><div class="variablelist">
-                        
-                        
-                        
-                        
-                        
-                        
+      &quot;<a href="#cfn-rds-securitygroup-ingress-cidrip">CIDRIP</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-rds-securitygroup-ingress-dbsecuritygroupname">DBSecurityGroupName</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-rds-securitygroup-ingress-ec2securitygroupid">EC2SecurityGroupId</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-rds-securitygroup-ingress-ec2securitygroupname">EC2SecurityGroupName</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-rds-securitygroup-ingress-ec2securitygroupownerid">EC2SecurityGroupOwnerId</a>&quot; : <em class="replaceable"><code>String</code></em>
+    }
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-rds-security-group-ingress-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Type: AWS::RDS::DBSecurityGroupIngress
+Properties: 
+  <a href="#cfn-rds-securitygroup-ingress-cidrip">CIDRIP</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-rds-securitygroup-ingress-dbsecuritygroupname">DBSecurityGroupName</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-rds-securitygroup-ingress-ec2securitygroupid">EC2SecurityGroupId</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-rds-securitygroup-ingress-ec2securitygroupname">EC2SecurityGroupName</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-rds-securitygroup-ingress-ec2securitygroupownerid">EC2SecurityGroupOwnerId</a>: <em class="replaceable"><code>String</code></em>
+</code></pre></div><h2 id="aws-resource-rds-security-group-ingress-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
-                           <dt><a id="cfn-rds-securitygroup-ingress-cidrip"></a><span class="term"><code class="literal">CIDRIP</code></span></dt>
-                           
+                           <dt><a id="cfn-rds-securitygroup-ingress-cidrip"></a><span class="term"><code class="code">CIDRIP</code></span></dt>
                            <dd>
                               
                               <p>The IP range to authorize.</p>
                               
-                              <p>For an overview of CIDR ranges, go to the <a href="http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing" target="_blank">Wikipedia
-                                    Tutorial</a>.
+                              <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-rds-securitygroup-ingress-dbsecuritygroupname"></a><span class="term"><code class="literal">DBSecurityGroupName</code></span></dt>
-                           
+                           <dt><a id="cfn-rds-securitygroup-ingress-dbsecuritygroupname"></a><span class="term"><code class="code">DBSecurityGroupName</code></span></dt>
                            <dd>
                               
-                              <p>The name (ARN) of the <a href="aws-properties-rds-security-group.html">AWS::RDS::DBSecurityGroup</a> to which this ingress
-                                 will be added.
-                              </p>
-                              
-                              <p><em>Type</em>: String
-                              </p>
+                              <p>The name of the DB Security Group to add authorization to.</p>
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
+                              <p><em>Type</em>: String
+                              </p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-rds-securitygroup-ingress-ec2securitygroupid"></a><span class="term"><code class="literal">EC2SecurityGroupId</code></span></dt>
-                           
+                           <dt><a id="cfn-rds-securitygroup-ingress-ec2securitygroupid"></a><span class="term"><code class="code">EC2SecurityGroupId</code></span></dt>
                            <dd>
                               
-                              <p>The ID of the VPC or EC2 security group to authorize.</p>
-                              
-                              <p>For VPC DB security groups, use EC2SecurityGroupId. For EC2 security groups, use
-                                 EC2SecurityGroupOwnerId and either EC2SecurityGroupName or EC2SecurityGroupId.
-                              </p>
-                              
-                              <p><em>Type</em>: String
+                              <p>
+                                 Id of the EC2 Security Group to authorize.
+                                 For VPC DB Security Groups, <code class="code">EC2SecurityGroupId</code> must be provided.
+                                 Otherwise, EC2SecurityGroupOwnerId and either <code class="code">EC2SecurityGroupName</code> or <code class="code">EC2SecurityGroupId</code> must be provided.
+                                 
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
+                              <p><em>Type</em>: String
+                              </p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-rds-securitygroup-ingress-ec2securitygroupname"></a><span class="term"><code class="literal">EC2SecurityGroupName</code></span></dt>
-                           
+                           <dt><a id="cfn-rds-securitygroup-ingress-ec2securitygroupname"></a><span class="term"><code class="code">EC2SecurityGroupName</code></span></dt>
                            <dd>
                               
-                              <p>The name of the EC2 security group to authorize.</p>
-                              
-                              <p>For VPC DB security groups, use EC2SecurityGroupId. For EC2 security groups, use
-                                 EC2SecurityGroupOwnerId and either EC2SecurityGroupName or EC2SecurityGroupId.
-                              </p>
-                              
-                              <p><em>Type</em>: String
+                              <p>
+                                 Name of the EC2 Security Group to authorize.
+                                 For VPC DB Security Groups, <code class="code">EC2SecurityGroupId</code> must be provided.
+                                 Otherwise, EC2SecurityGroupOwnerId and either <code class="code">EC2SecurityGroupName</code> or <code class="code">EC2SecurityGroupId</code> must be provided.
+                                 
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
+                              <p><em>Type</em>: String
+                              </p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-rds-securitygroup-ingress-ec2securitygroupownerid"></a><span class="term"><code class="literal">EC2SecurityGroupOwnerId</code></span></dt>
-                           
+                           <dt><a id="cfn-rds-securitygroup-ingress-ec2securitygroupownerid"></a><span class="term"><code class="code">EC2SecurityGroupOwnerId</code></span></dt>
                            <dd>
                               
-                              <p>The AWS Account Number of the owner of the EC2 security group specified in the EC2SecurityGroupName
-                                 parameter. The AWS Access Key ID is not an acceptable value.
-                              </p>
-                              
-                              <p>For VPC DB security groups, use EC2SecurityGroupId. For EC2 security groups, use
-                                 EC2SecurityGroupOwnerId and either EC2SecurityGroupName or EC2SecurityGroupId.
-                              </p>
-                              
-                              <p><em>Type</em>: String
+                              <p>
+                                 AWS Account Number of the owner of the EC2 Security Group
+                                 specified in the EC2SecurityGroupName parameter.
+                                 The AWS Access Key ID is not an acceptable value.
+                                 For VPC DB Security Groups, <code class="code">EC2SecurityGroupId</code> must be provided.
+                                 Otherwise, EC2SecurityGroupOwnerId and either <code class="code">EC2SecurityGroupName</code> or <code class="code">EC2SecurityGroupId</code> must be provided.
+                                 
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
+                              <p><em>Type</em>: String
+                              </p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
                         </dl>
-                     </div><h2 id="w2ab1c21c10d192c37c15">Return Values</h2><h3 id="w2ab1c21c10d192c37c15b2">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code> intrinsic
-                        function, <code class="code">Ref</code> returns the resource name.
+                     </div><h2 id="aws-resource-rds-security-group-ingress-return-values">Return Values</h2><h3 id="aws-resource-rds-security-group-ingress-return-values-ref">Ref</h3><p>
+                        When you pass the logical ID of this resource to the intrinsic <code class="code">Ref</code> function, <code class="code">Ref</code> returns the DB security group that this ingress rule is associated with.
                      </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                     </p><h2 id="w2ab1c21c10d192c37c17">See Also</h2><div class="itemizedlist">
-                        
-                        
-                        <ul class="itemizedlist" type="disc">
-                           <li class="listitem">
-                              
-                              <p><a href="http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_AuthorizeDBSecurityGroupIngress.html">AuthorizeDBSecurityGroupIngress</a>
-                                 in the <em>Amazon Relational Database Service API Reference</em></p>
-                              
-                           </li>
-                        </ul>
+                     </p><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
                      </div></div>
 </body>
 </html>

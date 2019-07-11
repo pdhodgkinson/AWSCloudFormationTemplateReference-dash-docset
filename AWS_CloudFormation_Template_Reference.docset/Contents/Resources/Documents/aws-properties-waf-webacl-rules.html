@@ -8,83 +8,114 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-properties-waf-webacl-rules">AWS WAF WebACL ActivatedRule</h1><p><code class="code">ActivatedRule</code> is a property of the <a href="aws-resource-waf-webacl.html">AWS::WAF::WebACL</a> resource that specifies a rule to associate with
-                        an AWS WAF web access control list (ACL), and the rule&apos;s settings.
-                     </p><h2 id="aws-properties-waf-webacl-rules-syntax">Syntax</h2><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-properties-waf-webacl-rules-syntax.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
-  &quot;<a href="aws-properties-waf-webacl-rules.html#cfn-waf-webacl-rules-action">Action</a>&quot; : <em class="replaceable"><code>AWS WAF WebACL Action</code></em>
-  &quot;<a href="aws-properties-waf-webacl-rules.html#cfn-waf-webacl-rules-priority">Priority</a>&quot; : <em class="replaceable"><code>Integer</code></em>,
-  &quot;<a href="aws-properties-waf-webacl-rules.html#cfn-waf-webacl-rules-ruleid">RuleId</a>&quot; : <em class="replaceable"><code>String</code></em>
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-properties-waf-webacl-rules-syntax.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight"><a href="aws-properties-waf-webacl-rules.html#cfn-waf-webacl-rules-action">Action</a>: <em class="replaceable"><code>AWS WAF WebACL Action</code></em>
-<a href="aws-properties-waf-webacl-rules.html#cfn-waf-webacl-rules-priority">Priority</a>: <em class="replaceable"><code>Integer</code></em>
-<a href="aws-properties-waf-webacl-rules.html#cfn-waf-webacl-rules-ruleid">RuleId</a>: <em class="replaceable"><code>String</code></em>
-</code></pre>
-                        </div><h2 id="aws-properties-waf-webacl-rules-properties">Properties</h2><div class="variablelist">
-                        
-                        
-                        
-                        
+    <h1 class="topictitle" id="aws-properties-waf-webacl-rules">AWS::WAF::WebACL ActivatedRule</h1><p>The <code class="code">ActivatedRule</code> object in an <code class="code">UpdateWebACL</code> request specifies a <code class="code">Rule</code> that you want to insert or delete, 
+                        			the priority of the <code class="code">Rule</code> in the <code class="code">WebACL</code>, and the action that you want AWS WAF to take when a web request matches the <code class="code">Rule</code> 
+                        			(<code class="code">ALLOW</code>, <code class="code">BLOCK</code>, or <code class="code">COUNT</code>).
+                     </p><p>To specify whether to insert or delete a <code class="code">Rule</code>, use the <code class="code">Action</code> parameter in the <code class="code">WebACLUpdate</code> data type.
+                     </p><h2 id="aws-properties-waf-webacl-rules-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-properties-waf-webacl-rules-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;<a href="#cfn-waf-webacl-rules-action">Action</a>&quot; : <em class="replaceable"><code><a href="aws-properties-waf-webacl-action.html">WafAction</a></code></em>,
+  &quot;<a href="#cfn-waf-webacl-rules-priority">Priority</a>&quot; : <em class="replaceable"><code>Integer</code></em>,
+  &quot;<a href="#cfn-waf-webacl-rules-ruleid">RuleId</a>&quot; : <em class="replaceable"><code>String</code></em>
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-properties-waf-webacl-rules-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">  <a href="#cfn-waf-webacl-rules-action">Action</a>: <em class="replaceable"><code>
+    <a href="aws-properties-waf-webacl-action.html">WafAction</a></code></em>
+  <a href="#cfn-waf-webacl-rules-priority">Priority</a>: <em class="replaceable"><code>Integer</code></em>
+  <a href="#cfn-waf-webacl-rules-ruleid">RuleId</a>: <em class="replaceable"><code>String</code></em>
+</code></pre></div><h2 id="aws-properties-waf-webacl-rules-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
                            <dt><a id="cfn-waf-webacl-rules-action"></a><span class="term"><code class="code">Action</code></span></dt>
-                           
                            <dd>
-                              
-                              <p>The action that Amazon CloudFront (CloudFront) or AWS WAF takes when a web request
-                                 matches all
-                                 conditions in the rule, such as allow, block, or count the request.
+                              		       
+                              <p>Specifies the action that CloudFront or AWS WAF takes when a web request matches the
+                                 conditions in the <code class="code">Rule</code>.   
+                                 			Valid values for <code class="code">Action</code> include the following:
                               </p>
-                              
+                              			      
+                              <div class="itemizedlist">
+                                 				        
+                                 				        
+                                 				        
+                                 			      
+                                 <ul class="itemizedlist" type="disc">
+                                    <li class="listitem">
+                                       
+                                       <p>
+                                          <code class="code">ALLOW</code>: CloudFront responds with the requested object.
+                                       </p>
+                                       
+                                    </li>
+                                    <li class="listitem">
+                                       
+                                       <p>
+                                          <code class="code">BLOCK</code>: CloudFront responds with an HTTP 403 (Forbidden) status code.
+                                       </p>
+                                       
+                                    </li>
+                                    <li class="listitem">
+                                       
+                                       <p>
+                                          <code class="code">COUNT</code>: AWS WAF increments a counter of requests that match the conditions in the rule and
+                                          then continues to 
+                                          					inspect the web request based on the remaining rules in the web ACL. 
+                                       </p>
+                                       
+                                    </li>
+                                 </ul>
+                              </div>
+                              	        
+                              <p>
+                                 <code class="code">ActivatedRule|OverrideAction</code> applies only when updating or adding a
+                                 <code class="code">RuleGroup</code> to a <code class="code">WebACL</code>. In this
+                                 case,
+                                 you do not use <code class="code">ActivatedRule|Action</code>. For all other update requests,
+                                 <code class="code">ActivatedRule|Action</code> is used instead of
+                                 <code class="code">ActivatedRule|OverrideAction</code>.
+                              </p>
+                              	     
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: <a href="aws-properties-waf-webacl-action.html">AWS WAF WebACL Action</a></p>
-                              
+                              <p><em>Type</em>: <a href="aws-properties-waf-webacl-action.html">WafAction</a></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-waf-webacl-rules-priority"></a><span class="term"><code class="code">Priority</code></span></dt>
-                           
                            <dd>
-                              
-                              <p>The order in which AWS WAF evaluates the rules in a web ACL. AWS WAF evaluates
-                                 rules with a lower value before rules with a higher value. The value must be a
-                                 unique integer. If you have multiple rules in a web ACL, the priority numbers do
-                                 not need to be consecutive.
+                              		       
+                              <p>Specifies the order in which the <code class="code">Rules</code> in a <code class="code">WebACL</code> are evaluated. Rules with a lower value for 
+                                 			<code class="code">Priority</code> are evaluated before <code class="code">Rules</code> with a higher value. The value must be a unique integer. If you add multiple 
+                                 			<code class="code">Rules</code> to a <code class="code">WebACL</code>, the values don&apos;t need to be consecutive.
                               </p>
-                              
+                              	     
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: Integer
                               </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-waf-webacl-rules-ruleid"></a><span class="term"><code class="code">RuleId</code></span></dt>
-                           
                            <dd>
-                              
-                              <p>The ID of an AWS WAF <a href="aws-resource-waf-rule.html">rule</a> to
-                                 associate with a web ACL.
+                              		       
+                              <p>The <code class="code">RuleId</code> for a <code class="code">Rule</code>. You use <code class="code">RuleId</code> to get more information about a <code class="code">Rule</code>, 
+                                 			update a <code class="code">Rule</code>, insert a <code class="code">Rule</code> into a <code class="code">WebACL</code> or delete a 
+                                 			one from a <code class="code">WebACL</code>, or delete a <code class="code">Rule</code> from AWS WAF.
                               </p>
-                              
+                              		       
+                              <p>
+                                 		          <code class="code">RuleId</code> is returned by <code class="code">CreateRule</code> and by <code class="code">ListRules</code>.
+                              </p>
+                              	     
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Minimum</em>: <code class="code">1</code></p>
+                              <p><em>Maximum</em>: <code class="code">128</code></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
                         </dl>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
                      </div></div>
 </body>
 </html>

@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="css/awsdocs.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/awsdocs.min.js"></script>
+    <meta charset="utf-8">
+</head>
+<body>
+    <div id="content" style="padding: 10px 30px;">
+    <h1 class="topictitle" id="aws-resource-greengrass-group">AWS::Greengrass::Group</h1><p>AWS IoT Greengrass seamlessly extends AWS to edge devices so they can act locally
+                        on the data they generate, 
+                        while still using the cloud for management, analytics, and durable storage. With AWS
+                        IoT Greengrass, 
+                        connected devices can run AWS Lambda functions, execute predictions based on machine
+                        learning models, 
+                        keep device data in sync, and communicate with other devices securely &#x2013; even when
+                        not connected to the internet.  
+                        For more information, see the 
+                        <a href="https://docs.aws.amazon.com/greengrass/latest/developerguide/what-is-gg.html">AWS IoT Greengrass Developer Guide</a>.
+                     </p><div class="aws-note">
+                        <p class="aws-note">Note</p>
+                        <p>For AWS Region support, see <a href="https://docs.aws.amazon.com/greengrass/latest/developerguide/cloudformation-support.html">
+                              		     AWS CloudFormation Support for AWS IoT Greengrass</a> in the <em>AWS IoT Greengrass Developer Guide</em>.
+                        </p>
+                     </div><p>The 
+                        <code class="code">AWS::Greengrass::Group</code> resource represents a group in AWS IoT Greengrass. 
+                        In the AWS IoT Greengrass API, groups are used to organize your group versions.
+                     </p><p>Groups can reference multiple group versions. All group versions  
+                        must be associated with a group. A group version references a 
+                        device definition version, subscription definition version, and other version types
+                        
+                        that contain the components you want to deploy to a Greengrass core device.
+                     </p><p>To deploy a group version, the group version must reference a core definition version
+                        that 
+                        contains one core. Other version types are optionally included, depending on your
+                        business need.
+                     </p><div class="aws-note">
+                        <p class="aws-note">Note</p>
+                        <p>When you create a group, you can optionally include an initial group version. 
+                           To associate a group version later, create a <a href="aws-resource-greengrass-groupversion.html"><code class="code">AWS::Greengrass::GroupVersion</code></a> 
+                           resource and specify the ID of this group.
+                        </p>
+                        <p>To change group components (such as devices, subscriptions, or functions), 
+                           you must create new versions. This is because versions are immutable. 
+                           For example, to add a function, you create a function definition version that contains
+                           
+                           the new function (and all other functions that you want to deploy). Then you create
+                           a group version 
+                           that references the new function definition version (and all other version types that
+                           you want to deploy).
+                        </p>
+                     </div><p>
+                        <b>Deploying a Group Version</b>
+                        
+                     </p><p>After you create the group version in your AWS CloudFormation template, you can deploy
+                        it using the  
+                        		  <a href="https://docs.aws.amazon.com/greengrass/latest/apireference/createdeployment-post.html"><b>aws greengrass create-deployment</b></a> command in the AWS CLI or 
+                        		  from the <b>Greengrass</b> node in the AWS IoT console. To deploy a group version, you must have a Greengrass
+                        service role associated with 
+                        your AWS account. For more information, see <a href="https://docs.aws.amazon.com/greengrass/latest/developerguide/cloudformation-support.html">AWS CloudFormation Support for AWS IoT Greengrass</a> 
+                        		  in the <em>AWS IoT Greengrass Developer Guide</em>.
+                     </p><h2 id="aws-resource-greengrass-group-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-resource-greengrass-group-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;Type&quot; : &quot;AWS::Greengrass::Group&quot;,
+  &quot;Properties&quot; : {
+      &quot;<a href="#cfn-greengrass-group-initialversion">InitialVersion</a>&quot; : <em class="replaceable"><code><a href="aws-properties-greengrass-group-groupversion.html">GroupVersion</a></code></em>,
+      &quot;<a href="#cfn-greengrass-group-name">Name</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-greengrass-group-rolearn">RoleArn</a>&quot; : <em class="replaceable"><code>String</code></em>
+    }
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-greengrass-group-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Type: AWS::Greengrass::Group
+Properties: 
+  <a href="#cfn-greengrass-group-initialversion">InitialVersion</a>: <em class="replaceable"><code>
+    <a href="aws-properties-greengrass-group-groupversion.html">GroupVersion</a></code></em>
+  <a href="#cfn-greengrass-group-name">Name</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-greengrass-group-rolearn">RoleArn</a>: <em class="replaceable"><code>String</code></em>
+</code></pre></div><h2 id="aws-resource-greengrass-group-properties">Properties</h2><div class="variablelist">
+                        <dl>
+                           <dt><a id="cfn-greengrass-group-initialversion"></a><span class="term"><code class="code">InitialVersion</code></span></dt>
+                           <dd>
+                              
+                              <p>The group version to include when the group is created. 
+                                 A group version references the Amazon Resource Name (ARN) of a core definition version,
+                                 
+                                 device definition version, subscription definition version, and other version types.
+                              </p>
+                              				  
+                              <div class="aws-note">
+                                 <p class="aws-note">Note</p>
+                                 <p>To associate a group version after the group is created, 
+                                    				      create an <a href="aws-resource-greengrass-groupversion.html"><code class="code">AWS::Greengrass::GroupVersion</code></a> resource and specify the ID of this group.
+                                 </p>
+                              </div>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              <p><em>Type</em>: <a href="aws-properties-greengrass-group-groupversion.html">GroupVersion</a></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                           </dd>
+                           <dt><a id="cfn-greengrass-group-name"></a><span class="term"><code class="code">Name</code></span></dt>
+                           <dd>
+                              
+                              <p>The name of the group.</p>
+                              
+                              <p><em>Required</em>: Yes
+                              </p>
+                              <p><em>Type</em>: String
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                           </dd>
+                           <dt><a id="cfn-greengrass-group-rolearn"></a><span class="term"><code class="code">RoleArn</code></span></dt>
+                           <dd>
+                              
+                              <p>The Amazon Resource Name (ARN) of the IAM role attached to the group. This role contains
+                                 the permissions that 
+                                 				Lambda functions and connectors use to interact with other AWS services.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              <p><em>Type</em>: String
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                           </dd>
+                        </dl>
+                     </div><h2 id="aws-resource-greengrass-group-return-values">Return Values</h2><h3 id="aws-resource-greengrass-group-return-values-ref">Ref</h3><p>
+                        When you pass the logical ID of this resource to the intrinsic <code class="code">Ref</code> function, <code class="code">Ref</code> returns the 
+                        ID of the group, such as 
+                        <code class="code">1234a5b6-78cd-901e-2fgh-3i45j6k178l9</code>.
+                        
+                     </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
+                     </p><h3 id="aws-resource-greengrass-group-return-values-fn--getatt">Fn::GetAtt</h3><p>The <code class="code">Fn::GetAtt</code> intrinsic function returns a value for a specified attribute of this type. The following
+                        are the available attributes and sample return values.
+                     </p><p>For more information about using the <code class="code">Fn::GetAtt</code> intrinsic function, see <a href="intrinsic-function-reference-getatt.html">Fn::GetAtt</a>.
+                     </p><h4 id="aws-resource-greengrass-group-return-values-fn--getatt-fn--getatt"></h4><div class="variablelist">
+                        <dl>
+                           <dt><a id="Arn-fn::getatt"></a><span class="term"><code class="code">Arn</code></span></dt>
+                           <dd>
+                              
+                              <p>The ARN of the <code class="code">Group</code>, such as                                 
+                                 <code class="code">arn:aws:greengrass:us-east-1:123456789012:/greengrass/definition/groups/1234a5b6-78cd-901e-2fgh-3i45j6k178l9</code>.
+                                 
+                              </p>
+                              
+                           </dd>
+                           <dt><a id="Id-fn::getatt"></a><span class="term"><code class="code">Id</code></span></dt>
+                           <dd>
+                              
+                              <p>The ID of the <code class="code">Group</code>, such as <code class="code">1234a5b6-78cd-901e-2fgh-3i45j6k178l9</code>. 
+                                 
+                              </p>
+                              
+                           </dd>
+                           <dt><a id="LatestVersionArn-fn::getatt"></a><span class="term"><code class="code">LatestVersionArn</code></span></dt>
+                           <dd>
+                              
+                              <p>The ARN of the last <code class="code">GroupVersion</code> that was added to the 
+                                 <code class="code">Group</code>, such as 
+                                 <code class="code">arn:aws:greengrass:us-east-1:123456789012:/greengrass/definition/groups/1234a5b6-78cd-901e-2fgh-3i45j6k178l9/versions/9876ac30-4bdb-4f9d-95af-b5fdb66be1a2</code>.
+                                 
+                              </p>
+                              
+                           </dd>
+                           <dt><a id="Name-fn::getatt"></a><span class="term"><code class="code">Name</code></span></dt>
+                           <dd>
+                              
+                              <p>The name of the <code class="code">Group</code>, such as <code class="code">MyGroup</code>.                            
+                                 
+                              </p>
+                              
+                           </dd>
+                           <dt><a id="RoleArn-fn::getatt"></a><span class="term"><code class="code">RoleArn</code></span></dt>
+                           <dd>
+                              
+                              <p>The ARN of the IAM role that&apos;s attached to the <code class="code">Group</code>, such as 
+                                 <code class="code">arn:aws:iam::123456789012:role/role-name</code>.
+                                 
+                              </p>
+                              
+                           </dd>
+                           <dt><a id="RoleAttachedAt-fn::getatt"></a><span class="term"><code class="code">RoleAttachedAt</code></span></dt>
+                           <dd>
+                              
+                              <p>The time (in milliseconds since the epoch) when the group role was attached to the
+                                 <code class="code">Group</code>.                            
+                                 
+                              </p>
+                              
+                           </dd>
+                        </dl>
+                     </div><h2 id="aws-resource-greengrass-group--examples">Examples</h2><h3 id="aws-resource-greengrass-group--examples--Create_a_Group">Create a Group</h3><p>The following template defines a core, device, function, logger, subscription, and
+                        two resources, 
+                        		  and then references them from the group version.
+                     </p><p>The template includes parameters that let you specify the certificate ARNs for the
+                        core 
+                        		  and device and the ARN of the source Lambda function (which is an AWS Lambda resource).
+                        
+                        		  It uses the <code class="code">Ref</code> and <code class="code">GetAtt</code> intrinsic functions to 
+                        		  reference IDs, ARNs, and other attributes that are required to create Greengrass
+                        resources.
+                     </p><div class="aws-note">
+                        <p class="aws-note">Note</p>
+                        <p>After you create the group version in your AWS CloudFormation template, you can deploy
+                           it using the  
+                           		  <a href="https://docs.aws.amazon.com/greengrass/latest/apireference/createdeployment-post.html"><b>aws greengrass create-deployment</b></a> 
+                           		  command in the AWS CLI or from the group configuration page 
+                           		  in the AWS IoT console. To deploy a group version, you must have a Greengrass
+                           service role associated with 
+                           your AWS account. For more information, see <a href="https://docs.aws.amazon.com/greengrass/latest/developerguide/cloudformation-support.html">
+                              		  AWS CloudFormation Support for AWS IoT Greengrass</a> 
+                           		  in the <em>AWS IoT Greengrass Developer Guide</em>.
+                        </p>
+                     </div><h4 id="aws-resource-greengrass-group--examples--Create_a_Group--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+    &quot;Description&quot;: &quot;AWS IoT Greengrass example template that creates a group version with a core, device, function, logger, subscription, and resources.&quot;,
+    &quot;Parameters&quot;: {
+        &quot;CoreCertificateArn&quot;: {
+            &quot;Type&quot;: &quot;String&quot;
+        },
+        &quot;DeviceCertificateArn&quot;: {
+            &quot;Type&quot;: &quot;String&quot;
+        },
+        &quot;LambdaVersionArn&quot;: {
+            &quot;Type&quot;: &quot;String&quot;
+        }
+    },
+    &quot;Resources&quot;: {
+        &quot;TestCore1&quot;: {
+            &quot;Type&quot;: &quot;AWS::IoT::Thing&quot;,
+            &quot;Properties&quot;: {
+                &quot;ThingName&quot;: &quot;TestCore1&quot;
+            }
+        },
+        &quot;TestCoreDefinition&quot;: {
+            &quot;Type&quot;: &quot;AWS::Greengrass::CoreDefinition&quot;,
+            &quot;Properties&quot;: {
+                &quot;Name&quot;: &quot;DemoTestCoreDefinition&quot;
+            }
+        },
+        &quot;TestCoreDefinitionVersion&quot;: {
+            &quot;Type&quot;: &quot;AWS::Greengrass::CoreDefinitionVersion&quot;,
+            &quot;Properties&quot;: {
+                &quot;CoreDefinitionId&quot;: {
+                    &quot;Ref&quot;: &quot;TestCoreDefinition&quot;
+                },
+                &quot;Cores&quot;: [
+                    {
+                        &quot;Id&quot;: &quot;TestCore1&quot;,
+                        &quot;CertificateArn&quot;: {
+                            &quot;Ref&quot;: &quot;CoreCertificateArn&quot;
+                        },
+                        &quot;SyncShadow&quot;: &quot;false&quot;,
+                        &quot;ThingArn&quot;: {
+                            &quot;Fn::Join&quot;: [
+                                &quot;:&quot;,
+                                [
+                                    &quot;arn:aws:iot&quot;,
+                                    {
+                                        &quot;Ref&quot;: &quot;AWS::Region&quot;
+                                    },
+                                    {
+                                        &quot;Ref&quot;: &quot;AWS::AccountId&quot;
+                                    },
+                                    &quot;thing/TestCore1&quot;
+                                ]
+                            ]
+                        }
+                    }
+                ]
+            }
+        },
+        &quot;TestDevice1&quot;: {
+            &quot;Type&quot;: &quot;AWS::IoT::Thing&quot;,
+            &quot;Properties&quot;: {
+                &quot;ThingName&quot;: &quot;TestDevice1&quot;
+            }
+        },
+        &quot;TestDeviceDefinition&quot;: {
+            &quot;Type&quot;: &quot;AWS::Greengrass::DeviceDefinition&quot;,
+            &quot;Properties&quot;: {
+                &quot;Name&quot;: &quot;DemoTestDeviceDefinition&quot;
+            }
+        },
+        &quot;TestDeviceDefinitionVersion&quot;: {
+            &quot;Type&quot;: &quot;AWS::Greengrass::DeviceDefinitionVersion&quot;,
+            &quot;Properties&quot;: {
+                &quot;DeviceDefinitionId&quot;: {
+                    &quot;Fn::GetAtt&quot;: [
+                        &quot;TestDeviceDefinition&quot;,
+                        &quot;Id&quot;
+                    ]
+                },
+                &quot;Devices&quot;: [
+                    {
+                        &quot;Id&quot;: &quot;TestDevice1&quot;,
+                        &quot;CertificateArn&quot;: {
+                            &quot;Ref&quot;: &quot;DeviceCertificateArn&quot;
+                        },
+                        &quot;SyncShadow&quot;: &quot;true&quot;,
+                        &quot;ThingArn&quot;: {
+                            &quot;Fn::Join&quot;: [
+                                &quot;:&quot;,
+                                [
+                                    &quot;arn:aws:iot&quot;,
+                                    {
+                                        &quot;Ref&quot;: &quot;AWS::Region&quot;
+                                    },
+                                    {
+                                        &quot;Ref&quot;: &quot;AWS::AccountId&quot;
+                                    },
+                                    &quot;thing/TestDevice1&quot;
+                                ]
+                            ]
+                        }
+                    }
+                ]
+            }
+        },
+        &quot;TestFunctionDefinition&quot;: {
+            &quot;Type&quot;: &quot;AWS::Greengrass::FunctionDefinition&quot;,
+            &quot;Properties&quot;: {
+                &quot;Name&quot;: &quot;DemoTestFunctionDefinition&quot;
+            }
+        },
+        &quot;TestFunctionDefinitionVersion&quot;: {
+            &quot;Type&quot;: &quot;AWS::Greengrass::FunctionDefinitionVersion&quot;,
+            &quot;Properties&quot;: {
+                &quot;FunctionDefinitionId&quot;: {
+                    &quot;Fn::GetAtt&quot;: [
+                        &quot;TestFunctionDefinition&quot;,
+                        &quot;Id&quot;
+                    ]
+                },
+                &quot;DefaultConfig&quot;: {
+                    &quot;Execution&quot;: {
+                        &quot;IsolationMode&quot;: &quot;GreengrassContainer&quot;
+                    }
+                },
+                &quot;Functions&quot;: [
+                    {
+                        &quot;Id&quot;: &quot;TestLambda1&quot;,
+                        &quot;FunctionArn&quot;: {
+                            &quot;Ref&quot;: &quot;LambdaVersionArn&quot;
+                        },
+                        &quot;FunctionConfiguration&quot;: {
+                            &quot;Pinned&quot;: &quot;true&quot;,
+                            &quot;Executable&quot;: &quot;run.exe&quot;,
+                            &quot;ExecArgs&quot;: &quot;argument1&quot;,
+                            &quot;MemorySize&quot;: &quot;512&quot;,
+                            &quot;Timeout&quot;: &quot;2000&quot;,
+                            &quot;EncodingType&quot;: &quot;binary&quot;,
+                            &quot;Environment&quot;: {
+                                &quot;Variables&quot;: {
+                                    &quot;variable1&quot;: &quot;value1&quot;
+                                },
+                                &quot;ResourceAccessPolicies&quot;: [
+                                    {
+                                        &quot;ResourceId&quot;: &quot;ResourceId1&quot;,
+                                        &quot;Permission&quot;: &quot;ro&quot;
+                                    },
+                                    {
+                                        &quot;ResourceId&quot;: &quot;ResourceId2&quot;,
+                                        &quot;Permission&quot;: &quot;rw&quot;
+                                    }
+                                ],
+                                &quot;AccessSysfs&quot;: &quot;false&quot;,
+                                &quot;Execution&quot;: {
+                                    &quot;IsolationMode&quot;: &quot;GreengrassContainer&quot;,
+                                    &quot;RunAs&quot;: {
+                                        &quot;Uid&quot;: &quot;1&quot;,
+                                        &quot;Gid&quot;: &quot;10&quot;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        &quot;TestLoggerDefinition&quot;: {
+            &quot;Type&quot;: &quot;AWS::Greengrass::LoggerDefinition&quot;,
+            &quot;Properties&quot;: {
+                &quot;Name&quot;: &quot;DemoTestLoggerDefinition&quot;
+            }
+        },
+        &quot;TestLoggerDefinitionVersion&quot;: {
+            &quot;Type&quot;: &quot;AWS::Greengrass::LoggerDefinitionVersion&quot;,
+            &quot;Properties&quot;: {
+                &quot;LoggerDefinitionId&quot;: {
+                    &quot;Ref&quot;: &quot;TestLoggerDefinition&quot;
+                },
+                &quot;Loggers&quot;: [
+                    {
+                        &quot;Id&quot;: &quot;TestLogger1&quot;,
+                        &quot;Type&quot;: &quot;AWSCloudWatch&quot;,
+                        &quot;Component&quot;: &quot;GreengrassSystem&quot;,
+                        &quot;Level&quot;: &quot;INFO&quot;
+                    }
+                ]
+            }
+        },
+        &quot;TestResourceDefinition&quot;: {
+            &quot;Type&quot;: &quot;AWS::Greengrass::ResourceDefinition&quot;,
+            &quot;Properties&quot;: {
+                &quot;Name&quot;: &quot;DemoTestResourceDefinition&quot;
+            }
+        },
+        &quot;TestResourceDefinitionVersion&quot;: {
+            &quot;Type&quot;: &quot;AWS::Greengrass::ResourceDefinitionVersion&quot;,
+            &quot;Properties&quot;: {
+                &quot;ResourceDefinitionId&quot;: {
+                    &quot;Ref&quot;: &quot;TestResourceDefinition&quot;
+                },
+                &quot;Resources&quot;: [
+                    {
+                        &quot;Id&quot;: &quot;ResourceId1&quot;,
+                        &quot;Name&quot;: &quot;LocalDeviceResource&quot;,
+                        &quot;ResourceDataContainer&quot;: {
+                            &quot;LocalDeviceResourceData&quot;: {
+                                &quot;SourcePath&quot;: &quot;/dev/TestSourcePath1&quot;,
+                                &quot;GroupOwnerSetting&quot;: {
+                                    &quot;AutoAddGroupOwner&quot;: &quot;false&quot;,
+                                    &quot;GroupOwner&quot;: &quot;TestOwner&quot;
+                                }
+                            }
+                        }
+                    },
+                    {
+                        &quot;Id&quot;: &quot;ResourceId2&quot;,
+                        &quot;Name&quot;: &quot;LocalVolumeResourceData&quot;,
+                        &quot;ResourceDataContainer&quot;: {
+                            &quot;LocalVolumeResourceData&quot;: {
+                                &quot;SourcePath&quot;: &quot;/dev/TestSourcePath2&quot;,
+                                &quot;DestinationPath&quot;: &quot;/volumes/TestDestinationPath2&quot;,
+                                &quot;GroupOwnerSetting&quot;: {
+                                    &quot;AutoAddGroupOwner&quot;: &quot;false&quot;,
+                                    &quot;GroupOwner&quot;: &quot;TestOwner&quot;
+                                }
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        &quot;TestSubscriptionDefinition&quot;: {
+            &quot;Type&quot;: &quot;AWS::Greengrass::SubscriptionDefinition&quot;,
+            &quot;Properties&quot;: {
+                &quot;Name&quot;: &quot;DemoTestSubscriptionDefinition&quot;
+            }
+        },
+        &quot;TestSubscriptionDefinitionVersion&quot;: {
+            &quot;Type&quot;: &quot;AWS::Greengrass::SubscriptionDefinitionVersion&quot;,
+            &quot;Properties&quot;: {
+                &quot;SubscriptionDefinitionId&quot;: {
+                    &quot;Ref&quot;: &quot;TestSubscriptionDefinition&quot;
+                },
+                &quot;Subscriptions&quot;: [
+                    {
+                        &quot;Id&quot;: &quot;TestSubscription1&quot;,
+                        &quot;Source&quot;: {
+                            &quot;Fn::Join&quot;: [
+                                &quot;:&quot;,
+                                [
+                                    &quot;arn:aws:iot&quot;,
+                                    {
+                                        &quot;Ref&quot;: &quot;AWS::Region&quot;
+                                    },
+                                    {
+                                        &quot;Ref&quot;: &quot;AWS::AccountId&quot;
+                                    },
+                                    &quot;thing/TestDevice1&quot;
+                                ]
+                            ]
+                        },
+                        &quot;Subject&quot;: &quot;TestSubjectUpdated&quot;,
+                        &quot;Target&quot;: {
+                            &quot;Ref&quot;: &quot;LambdaVersionArn&quot;
+                        }
+                    }
+                ]
+            }
+        },
+        &quot;TestGroup&quot;: {
+            &quot;Type&quot;: &quot;AWS::Greengrass::Group&quot;,
+            &quot;Properties&quot;: {
+                &quot;Name&quot;: &quot;DemoTestGroupNewName&quot;,
+                &quot;RoleArn&quot;: {
+                    &quot;Fn::Join&quot;: [
+                        &quot;:&quot;,
+                        [
+                            &quot;arn:aws:iam:&quot;,
+                            {
+                                &quot;Ref&quot;: &quot;AWS::AccountId&quot;
+                            },
+                            &quot;role/TestUser&quot;
+                        ]
+                    ]
+                },
+                &quot;InitialVersion&quot;: {
+                    &quot;CoreDefinitionVersionArn&quot;: {
+                        &quot;Ref&quot;: &quot;TestCoreDefinitionVersion&quot;
+                    },
+                    &quot;DeviceDefinitionVersionArn&quot;: {
+                        &quot;Ref&quot;: &quot;TestDeviceDefinitionVersion&quot;
+                    },
+                    &quot;FunctionDefinitionVersionArn&quot;: {
+                        &quot;Ref&quot;: &quot;TestFunctionDefinitionVersion&quot;
+                    },
+                    &quot;SubscriptionDefinitionVersionArn&quot;: {
+                        &quot;Ref&quot;: &quot;TestSubscriptionDefinitionVersion&quot;
+                    },
+                    &quot;LoggerDefinitionVersionArn&quot;: {
+                        &quot;Ref&quot;: &quot;TestLoggerDefinitionVersion&quot;
+                    },
+                    &quot;ResourceDefinitionVersionArn&quot;: {
+                        &quot;Ref&quot;: &quot;TestResourceDefinitionVersion&quot;
+                    }
+                }
+            }
+        }
+    }
+}</code></pre><h4 id="aws-resource-greengrass-group--examples--Create_a_Group--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Description: &gt;-
+  AWS IoT Greengrass example template that creates a group version with a core,
+  device, function, logger, subscription, and resources.
+Parameters:
+  CoreCertificateArn:
+    Type: String
+  DeviceCertificateArn:
+    Type: String
+  LambdaVersionArn:
+    Type: String
+Resources:
+  TestCore1:
+    Type: &apos;AWS::IoT::Thing&apos;
+    Properties:
+      ThingName: TestCore1
+  TestCoreDefinition:
+    Type: &apos;AWS::Greengrass::CoreDefinition&apos;
+    Properties:
+      Name: DemoTestCoreDefinition
+  TestCoreDefinitionVersion:
+    Type: &apos;AWS::Greengrass::CoreDefinitionVersion&apos;
+    Properties:
+      CoreDefinitionId: !Ref TestCoreDefinition
+      Cores:
+        - Id: TestCore1
+          CertificateArn: !Ref CoreCertificateArn
+          SyncShadow: &apos;false&apos;
+          ThingArn: !Join 
+            - &apos;:&apos;
+            - - &apos;arn:aws:iot&apos;
+              - !Ref &apos;AWS::Region&apos;
+              - !Ref &apos;AWS::AccountId&apos;
+              - thing/TestCore1
+  TestDevice1:
+    Type: &apos;AWS::IoT::Thing&apos;
+    Properties:
+      ThingName: TestDevice1
+  TestDeviceDefinition:
+    Type: &apos;AWS::Greengrass::DeviceDefinition&apos;
+    Properties:
+      Name: DemoTestDeviceDefinition
+  TestDeviceDefinitionVersion:
+    Type: &apos;AWS::Greengrass::DeviceDefinitionVersion&apos;
+    Properties:
+      DeviceDefinitionId: !GetAtt 
+        - TestDeviceDefinition
+        - Id
+      Devices:
+        - Id: TestDevice1
+          CertificateArn: !Ref DeviceCertificateArn
+          SyncShadow: &apos;true&apos;
+          ThingArn: !Join 
+            - &apos;:&apos;
+            - - &apos;arn:aws:iot&apos;
+              - !Ref &apos;AWS::Region&apos;
+              - !Ref &apos;AWS::AccountId&apos;
+              - thing/TestDevice1
+  TestFunctionDefinition:
+    Type: &apos;AWS::Greengrass::FunctionDefinition&apos;
+    Properties:
+      Name: DemoTestFunctionDefinition
+  TestFunctionDefinitionVersion:
+    Type: &apos;AWS::Greengrass::FunctionDefinitionVersion&apos;
+    Properties:
+      FunctionDefinitionId: !GetAtt 
+        - TestFunctionDefinition
+        - Id
+      DefaultConfig:
+        Execution:
+          IsolationMode: GreengrassContainer
+      Functions:
+        - Id: TestLambda1
+          FunctionArn: !Ref LambdaVersionArn
+          FunctionConfiguration:
+            Pinned: &apos;true&apos;
+            Executable: run.exe
+            ExecArgs: argument1
+            MemorySize: &apos;512&apos;
+            Timeout: &apos;2000&apos;
+            EncodingType: binary
+            Environment:
+              Variables:
+                variable1: value1
+              ResourceAccessPolicies:
+                - ResourceId: ResourceId1
+                  Permission: ro
+                - ResourceId: ResourceId2
+                  Permission: rw
+              AccessSysfs: &apos;false&apos;
+              Execution:
+                IsolationMode: GreengrassContainer
+                RunAs:
+                  Uid: &apos;1&apos;
+                  Gid: &apos;10&apos;
+  TestLoggerDefinition:
+    Type: &apos;AWS::Greengrass::LoggerDefinition&apos;
+    Properties:
+      Name: DemoTestLoggerDefinition
+  TestLoggerDefinitionVersion:
+    Type: &apos;AWS::Greengrass::LoggerDefinitionVersion&apos;
+    Properties:
+      LoggerDefinitionId: !Ref TestLoggerDefinition
+      Loggers:
+        - Id: TestLogger1
+          Type: AWSCloudWatch
+          Component: GreengrassSystem
+          Level: INFO
+  TestResourceDefinition:
+    Type: &apos;AWS::Greengrass::ResourceDefinition&apos;
+    Properties:
+      Name: DemoTestResourceDefinition
+  TestResourceDefinitionVersion:
+    Type: &apos;AWS::Greengrass::ResourceDefinitionVersion&apos;
+    Properties:
+      ResourceDefinitionId: !Ref TestResourceDefinition
+      Resources:
+        - Id: ResourceId1
+          Name: LocalDeviceResource
+          ResourceDataContainer:
+            LocalDeviceResourceData:
+              SourcePath: /dev/TestSourcePath1
+              GroupOwnerSetting:
+                AutoAddGroupOwner: &apos;false&apos;
+                GroupOwner: TestOwner
+        - Id: ResourceId2
+          Name: LocalVolumeResourceData
+          ResourceDataContainer:
+            LocalVolumeResourceData:
+              SourcePath: /dev/TestSourcePath2
+              DestinationPath: /volumes/TestDestinationPath2
+              GroupOwnerSetting:
+                AutoAddGroupOwner: &apos;false&apos;
+                GroupOwner: TestOwner
+  TestSubscriptionDefinition:
+    Type: &apos;AWS::Greengrass::SubscriptionDefinition&apos;
+    Properties:
+      Name: DemoTestSubscriptionDefinition
+  TestSubscriptionDefinitionVersion:
+    Type: &apos;AWS::Greengrass::SubscriptionDefinitionVersion&apos;
+    Properties:
+      SubscriptionDefinitionId: !Ref TestSubscriptionDefinition
+      Subscriptions:
+        - Id: TestSubscription1
+          Source: !Join 
+            - &apos;:&apos;
+            - - &apos;arn:aws:iot&apos;
+              - !Ref &apos;AWS::Region&apos;
+              - !Ref &apos;AWS::AccountId&apos;
+              - thing/TestDevice1
+          Subject: TestSubjectUpdated
+          Target: !Ref LambdaVersionArn
+  TestGroup:
+    Type: &apos;AWS::Greengrass::Group&apos;
+    Properties:
+      Name: DemoTestGroupNewName
+      RoleArn: !Join 
+        - &apos;:&apos;
+        - - &apos;arn:aws:iam:&apos;
+          - !Ref &apos;AWS::AccountId&apos;
+          - role/TestUser
+      InitialVersion:
+        CoreDefinitionVersionArn: !Ref TestCoreDefinitionVersion
+        DeviceDefinitionVersionArn: !Ref TestDeviceDefinitionVersion
+        FunctionDefinitionVersionArn: !Ref TestFunctionDefinitionVersion
+        SubscriptionDefinitionVersionArn: !Ref TestSubscriptionDefinitionVersion
+        LoggerDefinitionVersionArn: !Ref TestLoggerDefinitionVersion
+        ResourceDefinitionVersionArn: !Ref TestResourceDefinitionVersion</code></pre><h2 id="aws-resource-greengrass-group--seealso">See Also</h2><div class="itemizedlist">          
+                        
+                        
+                        
+                        <ul class="itemizedlist" type="disc">
+                           <li class="listitem">
+                              
+                              <p>
+                                 <a href="https://docs.aws.amazon.com/greengrass/latest/apireference/creategroup-post.html">CreateGroup</a> in the <em>
+                                    AWS IoT Greengrass API Reference
+                                    </em>
+                                 
+                              </p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p>
+                                 <a href="https://docs.aws.amazon.com/greengrass/latest/developerguide/">AWS IoT Greengrass Developer Guide</a>
+                                 
+                              </p>
+                              
+                           </li>
+                        </ul>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
+                     </div></div>
+</body>
+</html>

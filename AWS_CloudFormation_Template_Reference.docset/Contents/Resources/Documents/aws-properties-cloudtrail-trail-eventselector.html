@@ -8,118 +8,89 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-properties-cloudtrail-trail-eventselector">AWS CloudTrail Trail EventSelector</h1><p>The 
-                        <code class="code">EventSelector</code> property type configures logging of management events and data events for an AWS
-                        CloudTrail trail. 
-                        For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_PutEventSelectors.html">PutEventSelectors</a> 
-                        in the <em>AWS CloudTrail API Reference</em>.
-                     </p><p>
-                        <code class="code">EventSelector</code> is a property of the <a href="aws-resource-cloudtrail-trail.html">AWS::CloudTrail::Trail</a> resource.
-                        
-                     </p><h2 id="aws-properties-cloudtrail-trail-eventselector-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
-                        
-                        <h3 id="aws-properties-cloudtrail-trail-eventselector-syntax.json">JSON</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
-  &quot;<a href="aws-properties-cloudtrail-trail-eventselector.html#cfn-cloudtrail-trail-eventselector-dataresources">DataResources</a>&quot; : [ <a href="aws-properties-cloudtrail-trail-dataresource.html">DataResource</a>, ... ],
-  &quot;<a href="aws-properties-cloudtrail-trail-eventselector.html#cfn-cloudtrail-trail-eventselector-includemanagementevents">IncludeManagementEvents</a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
-  &quot;<a href="aws-properties-cloudtrail-trail-eventselector.html#cfn-cloudtrail-trail-eventselector-readwritetype">ReadWriteType</a>&quot; : <em class="replaceable"><code>String</code></em>
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        
-                        <h3 id="aws-properties-cloudtrail-trail-eventselector-syntax.yaml">YAML</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight"><a href="aws-properties-cloudtrail-trail-eventselector.html#cfn-cloudtrail-trail-eventselector-dataresources">DataResources</a>: 
-  - <a href="aws-properties-cloudtrail-trail-dataresource.html">DataResource</a>
-<a href="aws-properties-cloudtrail-trail-eventselector.html#cfn-cloudtrail-trail-eventselector-includemanagementevents">IncludeManagementEvents</a>: <em class="replaceable"><code>Boolean</code></em>
-<a href="aws-properties-cloudtrail-trail-eventselector.html#cfn-cloudtrail-trail-eventselector-readwritetype">ReadWriteType</a>: <em class="replaceable"><code>String</code></em></code></pre>
-                        </div><h2 id="aws-properties-cloudtrail-trail-eventselector-properties">Properties</h2><div class="variablelist">
-                        
-                        
-                        
-                        
+    <h1 class="topictitle" id="aws-properties-cloudtrail-trail-eventselector">AWS::CloudTrail::Trail EventSelector</h1><p>Use event selectors to further specify the management and data event settings for
+                        your trail. By
+                        default, trails created without specific event selectors will be configured to log
+                        all read and 
+                        write management events, and no data events. When an event occurs in your account,
+                        CloudTrail evaluates the event selector
+                        for all trails. For each trail, if the event matches any event selector, the trail
+                        processes and logs the event. If the event doesn&apos;t match any event selector, the trail
+                        doesn&apos;t log the event.
+                     </p><p>You can configure up to five event selectors for a trail.</p><h2 id="aws-properties-cloudtrail-trail-eventselector-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-properties-cloudtrail-trail-eventselector-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;<a href="#cfn-cloudtrail-trail-eventselector-dataresources">DataResources</a>&quot; : <em class="replaceable"><code>[ <a href="aws-properties-cloudtrail-trail-dataresource.html">DataResource</a>, ... ]</code></em>,
+  &quot;<a href="#cfn-cloudtrail-trail-eventselector-includemanagementevents">IncludeManagementEvents</a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
+  &quot;<a href="#cfn-cloudtrail-trail-eventselector-readwritetype">ReadWriteType</a>&quot; : <em class="replaceable"><code>String</code></em>
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-properties-cloudtrail-trail-eventselector-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">  <a href="#cfn-cloudtrail-trail-eventselector-dataresources">DataResources</a>: <em class="replaceable"><code>
+    - <a href="aws-properties-cloudtrail-trail-dataresource.html">DataResource</a></code></em>
+  <a href="#cfn-cloudtrail-trail-eventselector-includemanagementevents">IncludeManagementEvents</a>: <em class="replaceable"><code>Boolean</code></em>
+  <a href="#cfn-cloudtrail-trail-eventselector-readwritetype">ReadWriteType</a>: <em class="replaceable"><code>String</code></em>
+</code></pre></div><h2 id="aws-properties-cloudtrail-trail-eventselector-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
                            <dt><a id="cfn-cloudtrail-trail-eventselector-dataresources"></a><span class="term"><code class="code">DataResources</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The resources for data events. CloudTrail supports logging data events for Amazon
-                                 S3
-                                 objects and AWS Lambda functions. For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html#logging-data-events">Data Events</a> in the <em>AWS CloudTrail User Guide</em>.
+                              <p>CloudTrail supports data event logging for Amazon S3 objects and AWS Lambda functions.
+                                 You can specify 
+                                 up to 250 resources for an individual event selector, but the total number of data
+                                 resources cannot exceed 
+                                 250 across all event selectors in a trail. This limit does not apply if you configure
+                                 resource logging for all data events. 
                               </p>
                               
-                              <p>
-                                 <em>Required</em>: No
-                              </p>
-                              
-                              <p>
-                                 <em>Type</em>: List of <a href="aws-properties-cloudtrail-trail-dataresource.html">DataResource</a></p>
-                              
-                              <p>
-                                 <em>Update requires</em>: 
-                                 <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
-                                 
-                              </p>
-                              
-                           </dd>
-                           
-                           
-                           <dt><a id="cfn-cloudtrail-trail-eventselector-includemanagementevents"></a><span class="term"><code class="code">IncludeManagementEvents</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>Specifies whether the event selector includes management events for the trail. The
-                                 default value is <code class="code">true</code>.
-                                 For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html#logging-management-events">Management  Events</a> 
+                              <p>For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html#logging-data-events">Data Events</a> and <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html">Limits in AWS CloudTrail</a> 
                                  in the <em>AWS CloudTrail User Guide</em>.
                               </p>
                               
-                              <p>
-                                 <em>Required</em>: No
+                              <p><em>Required</em>: No
                               </p>
-                              
-                              <p>
-                                 <em>Type</em>: Boolean
-                              </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: 
-                                 <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
-                                 
-                              </p>
-                              
+                              <p><em>Type</em>: List of <a href="aws-properties-cloudtrail-trail-dataresource.html">DataResource</a></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-cloudtrail-trail-eventselector-readwritetype"></a><span class="term"><code class="code">ReadWriteType</code></span></dt>
-                           
+                           <dt><a id="cfn-cloudtrail-trail-eventselector-includemanagementevents"></a><span class="term"><code class="code">IncludeManagementEvents</code></span></dt>
                            <dd>
                               
-                              <p>Specifies whether to log read-only events, write-only events, or all events.
-                                 The default value is <code class="code">All</code>.
-                              </p>
+                              <p>Specify if you want your event selector to include management events for your trail.</p>
                               
                               <p>
-                                 <em>Required</em>: No
+                                 For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html#logging-management-events">Management Events</a> in the <em>AWS CloudTrail User Guide</em>.
+                              </p> 
+                              
+                              
+                              <p>By default, the value is <code class="code">true</code>.
                               </p>
                               
-                              <p>
-                                 <em>Type</em>: String
+                              <p><em>Required</em>: No
                               </p>
-                              
-                              <p>
-                                 <em>Valid values</em>: <code class="code">ReadOnly</code> | <code class="code">WriteOnly</code> | <code class="code">All</code>
-                                 
+                              <p><em>Type</em>: Boolean
                               </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: 
-                                 <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
-                                 
-                              </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
+                           <dt><a id="cfn-cloudtrail-trail-eventselector-readwritetype"></a><span class="term"><code class="code">ReadWriteType</code></span></dt>
+                           <dd>
+                              
+                              <p>Specify if you want your trail to log read-only events, write-only events, or all.
+                                 For example,
+                                 the EC2 <code class="code">GetConsoleOutput</code> is a read-only API operation and
+                                 <code class="code">RunInstances</code> is a write-only API operation.
+                              </p>
+                              
+                              <p> By default, the value is <code class="code">All</code>.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              <p><em>Type</em>: String
+                              </p>
+                              <p><em>Allowed Values</em>: <code class="code">All | ReadOnly | WriteOnly</code></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                           </dd>
                         </dl>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
                      </div></div>
 </body>
 </html>

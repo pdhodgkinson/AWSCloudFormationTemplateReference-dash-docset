@@ -8,447 +8,351 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-resource-opsworks-layer">AWS::OpsWorks::Layer</h1><p>Creates an AWS OpsWorks layer. A layer defines, for example, which packages and applications
-                        are
-                        installed and how they are configured.
+    <h1 class="topictitle" id="aws-resource-opsworks-layer">AWS::OpsWorks::Layer</h1><p>Creates a layer. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-create.html">How to
+                           Create a Layer</a>.
+                     </p><div class="aws-note">
+                        <p class="aws-note">Note</p>
+                        <p>You should use <b>CreateLayer</b> for noncustom layer types such as PHP App Server only if the stack
+                           does not have an existing layer of that type. A stack can have at most one instance
+                           of each
+                           noncustom layer; if you attempt to create a second instance, <b>CreateLayer</b> fails. A
+                           stack can have an arbitrary number of custom layers, so you can call <b>CreateLayer</b> as
+                           many times as you like for that layer type.
+                        </p>
+                     </div><p>
+                        <b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
+                        level for the stack, or an attached policy that explicitly grants permissions. For
+                        more
+                        information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
+                           Permissions</a>.
                      </p><h2 id="aws-resource-opsworks-layer-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-resource-opsworks-layer-syntax.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
-  &quot;Type&quot;: &quot;AWS::OpsWorks::Layer&quot;,
-  &quot;Properties&quot;: {
-    &quot;<a href="aws-resource-opsworks-layer.html#cfn-opsworks-layer-attributes">Attributes</a>&quot; : { <em class="replaceable"><code>String</code></em>:<em class="replaceable"><code>String</code></em> },
-    &quot;<a href="aws-resource-opsworks-layer.html#cfn-opsworks-layer-autoassignelasticips">AutoAssignElasticIps</a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
-    &quot;<a href="aws-resource-opsworks-layer.html#cfn-opsworks-layer-autoassignpublicips">AutoAssignPublicIps</a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
-    &quot;<a href="aws-resource-opsworks-layer.html#cfn-opsworks-layer-custinstanceprofilearn">CustomInstanceProfileArn</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-opsworks-layer.html#cfn-opsworks-layer-customjson">CustomJson</a>&quot; : <em class="replaceable"><code>JSON object</code></em>,
-    &quot;<a href="aws-resource-opsworks-layer.html#cfn-opsworks-layer-customrecipes">CustomRecipes</a>&quot; : <em class="replaceable"><code>Recipes</code></em>,
-    &quot;<a href="aws-resource-opsworks-layer.html#cfn-opsworks-layer-custsecuritygroupnids">CustomSecurityGroupIds</a>&quot; :  [ <em class="replaceable"><code>String, ...</code></em> ],
-    &quot;<a href="aws-resource-opsworks-layer.html#cfn-opsworks-layer-enableautohealing">EnableAutoHealing</a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
-    &quot;<a href="aws-resource-opsworks-layer.html#cfn-opsworks-layer-installupdatesonboot">InstallUpdatesOnBoot</a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
-    &quot;<a href="aws-resource-opsworks-layer.html#cfn-opsworks-layer-lifecycleeventconfiguration">LifecycleEventConfiguration</a>&quot; : <em class="replaceable"><code>LifeCycleEventConfiguration</code></em>,
-    &quot;<a href="aws-resource-opsworks-layer.html#cfn-opsworks-layer-loadbasedautoscaling">LoadBasedAutoScaling</a>&quot; : <em class="replaceable"><code>LoadBasedAutoScaling</code></em>,
-    &quot;<a href="aws-resource-opsworks-layer.html#cfn-opsworks-layer-name">Name</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-opsworks-layer.html#cfn-opsworks-layer-packages">Packages</a>&quot; : [ <em class="replaceable"><code>String, ...</code></em> ],
-    &quot;<a href="aws-resource-opsworks-layer.html#cfn-opsworks-layer-shortname">Shortname</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-opsworks-layer.html#cfn-opsworks-layer-stackid">StackId</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-opsworks-layer.html#cfn-opsworks-layer-tags">Tags</a>&quot; : [ <em class="replaceable"><code><a href="aws-properties-resource-tags.html">Tags</a>, ...</code></em> ],
-    &quot;<a href="aws-resource-opsworks-layer.html#cfn-opsworks-layer-type">Type</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-opsworks-layer.html#cfn-opsworks-layer-volconfig">VolumeConfigurations</a>&quot; : [ <em class="replaceable"><code>VolumeConfiguration, ...</code></em> ]
-  }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-resource-opsworks-layer-syntax.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">Type: &quot;AWS::OpsWorks::Layer&quot;
-Properties:
-  <a href="aws-resource-opsworks-layer.html#cfn-opsworks-layer-attributes">Attributes</a>:
-    <em class="replaceable"><code>String</code></em>:<em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-opsworks-layer.html#cfn-opsworks-layer-autoassignelasticips">AutoAssignElasticIps</a>: <em class="replaceable"><code>Boolean</code></em>
-  <a href="aws-resource-opsworks-layer.html#cfn-opsworks-layer-autoassignpublicips">AutoAssignPublicIps</a>: <em class="replaceable"><code>Boolean</code></em>
-  <a href="aws-resource-opsworks-layer.html#cfn-opsworks-layer-custinstanceprofilearn">CustomInstanceProfileArn</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-opsworks-layer.html#cfn-opsworks-layer-customrecipes">CustomRecipes</a>:
-    <em class="replaceable"><code>Recipes</code></em>
-  <a href="aws-resource-opsworks-layer.html#cfn-opsworks-layer-customjson">CustomJson</a>:
-    <em class="replaceable"><code>JSON object</code></em>
-  <a href="aws-resource-opsworks-layer.html#cfn-opsworks-layer-custsecuritygroupnids">CustomSecurityGroupIds</a>:
-    - <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-opsworks-layer.html#cfn-opsworks-layer-enableautohealing">EnableAutoHealing</a>: <em class="replaceable"><code>Boolean</code></em>
-  <a href="aws-resource-opsworks-layer.html#cfn-opsworks-layer-installupdatesonboot">InstallUpdatesOnBoot</a>: <em class="replaceable"><code>Boolean</code></em>
-  <a href="aws-resource-opsworks-layer.html#cfn-opsworks-layer-lifecycleeventconfiguration">LifecycleEventConfiguration</a>:
-    <em class="replaceable"><code>LifeCycleEventConfiguration</code></em>
-  <a href="aws-resource-opsworks-layer.html#cfn-opsworks-layer-loadbasedautoscaling">LoadBasedAutoScaling</a>:
-    <em class="replaceable"><code>LoadBasedAutoScaling</code></em>
-  <a href="aws-resource-opsworks-layer.html#cfn-opsworks-layer-name">Name</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-opsworks-layer.html#cfn-opsworks-layer-packages">Packages</a>:
-    - <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-opsworks-layer.html#cfn-opsworks-layer-shortname">Shortname</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-opsworks-layer.html#cfn-opsworks-layer-stackid">StackId</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-opsworks-layer.html#cfn-opsworks-layer-tags">Tags</a>: 
-  - <em class="replaceable"><code><a href="aws-properties-resource-tags.html">Tags</a></code></em> 
-  <a href="aws-resource-opsworks-layer.html#cfn-opsworks-layer-type">Type</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-opsworks-layer.html#cfn-opsworks-layer-volconfig">VolumeConfigurations</a>:
-    - <em class="replaceable"><code>VolumeConfiguration</code></em> 
-</code></pre>
-                        </div><h2 id="w2ab1c21c10d183c29b7">Properties</h2><div class="variablelist">
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
+                        <h3 id="aws-resource-opsworks-layer-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;Type&quot; : &quot;AWS::OpsWorks::Layer&quot;,
+  &quot;Properties&quot; : {
+      &quot;<a href="#cfn-opsworks-layer-attributes">Attributes</a>&quot; : <em class="replaceable"><code>{<em class="replaceable"><code>Key</code></em> : <em class="replaceable"><code>Value</code></em>, ...}</code></em>,
+      &quot;<a href="#cfn-opsworks-layer-autoassignelasticips">AutoAssignElasticIps</a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
+      &quot;<a href="#cfn-opsworks-layer-autoassignpublicips">AutoAssignPublicIps</a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
+      &quot;<a href="#cfn-opsworks-layer-custominstanceprofilearn">CustomInstanceProfileArn</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-opsworks-layer-customjson">CustomJson</a>&quot; : <em class="replaceable"><code>Json</code></em>,
+      &quot;<a href="#cfn-opsworks-layer-customrecipes">CustomRecipes</a>&quot; : <em class="replaceable"><code><a href="aws-properties-opsworks-layer-recipes.html">Recipes</a></code></em>,
+      &quot;<a href="#cfn-opsworks-layer-customsecuritygroupids">CustomSecurityGroupIds</a>&quot; : <em class="replaceable"><code>[ String, ... ]</code></em>,
+      &quot;<a href="#cfn-opsworks-layer-enableautohealing">EnableAutoHealing</a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
+      &quot;<a href="#cfn-opsworks-layer-installupdatesonboot">InstallUpdatesOnBoot</a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
+      &quot;<a href="#cfn-opsworks-layer-lifecycleeventconfiguration">LifecycleEventConfiguration</a>&quot; : <em class="replaceable"><code><a href="aws-properties-opsworks-layer-lifecycleeventconfiguration.html">LifecycleEventConfiguration</a></code></em>,
+      &quot;<a href="#cfn-opsworks-layer-loadbasedautoscaling">LoadBasedAutoScaling</a>&quot; : <em class="replaceable"><code><a href="aws-properties-opsworks-layer-loadbasedautoscaling.html">LoadBasedAutoScaling</a></code></em>,
+      &quot;<a href="#cfn-opsworks-layer-name">Name</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-opsworks-layer-packages">Packages</a>&quot; : <em class="replaceable"><code>[ String, ... ]</code></em>,
+      &quot;<a href="#cfn-opsworks-layer-shortname">Shortname</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-opsworks-layer-stackid">StackId</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-opsworks-layer-tags">Tags</a>&quot; : <em class="replaceable"><code>[ <a href="aws-properties-resource-tags.html">Tag</a>, ... ]</code></em>,
+      &quot;<a href="#cfn-opsworks-layer-type">Type</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-opsworks-layer-useebsoptimizedinstances">UseEbsOptimizedInstances</a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
+      &quot;<a href="#cfn-opsworks-layer-volumeconfigurations">VolumeConfigurations</a>&quot; : <em class="replaceable"><code>[ <a href="aws-properties-opsworks-layer-volumeconfiguration.html">VolumeConfiguration</a>, ... ]</code></em>
+    }
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-opsworks-layer-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Type: AWS::OpsWorks::Layer
+Properties: 
+  <a href="#cfn-opsworks-layer-attributes">Attributes</a>: <em class="replaceable"><code>
+    <em class="replaceable"><code>Key</code></em> : <em class="replaceable"><code>Value</code></em></code></em>
+  <a href="#cfn-opsworks-layer-autoassignelasticips">AutoAssignElasticIps</a>: <em class="replaceable"><code>Boolean</code></em>
+  <a href="#cfn-opsworks-layer-autoassignpublicips">AutoAssignPublicIps</a>: <em class="replaceable"><code>Boolean</code></em>
+  <a href="#cfn-opsworks-layer-custominstanceprofilearn">CustomInstanceProfileArn</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-opsworks-layer-customjson">CustomJson</a>: <em class="replaceable"><code>
+    Json</code></em>
+  <a href="#cfn-opsworks-layer-customrecipes">CustomRecipes</a>: <em class="replaceable"><code>
+    <a href="aws-properties-opsworks-layer-recipes.html">Recipes</a></code></em>
+  <a href="#cfn-opsworks-layer-customsecuritygroupids">CustomSecurityGroupIds</a>: <em class="replaceable"><code>
+    - String</code></em>
+  <a href="#cfn-opsworks-layer-enableautohealing">EnableAutoHealing</a>: <em class="replaceable"><code>Boolean</code></em>
+  <a href="#cfn-opsworks-layer-installupdatesonboot">InstallUpdatesOnBoot</a>: <em class="replaceable"><code>Boolean</code></em>
+  <a href="#cfn-opsworks-layer-lifecycleeventconfiguration">LifecycleEventConfiguration</a>: <em class="replaceable"><code>
+    <a href="aws-properties-opsworks-layer-lifecycleeventconfiguration.html">LifecycleEventConfiguration</a></code></em>
+  <a href="#cfn-opsworks-layer-loadbasedautoscaling">LoadBasedAutoScaling</a>: <em class="replaceable"><code>
+    <a href="aws-properties-opsworks-layer-loadbasedautoscaling.html">LoadBasedAutoScaling</a></code></em>
+  <a href="#cfn-opsworks-layer-name">Name</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-opsworks-layer-packages">Packages</a>: <em class="replaceable"><code>
+    - String</code></em>
+  <a href="#cfn-opsworks-layer-shortname">Shortname</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-opsworks-layer-stackid">StackId</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-opsworks-layer-tags">Tags</a>: <em class="replaceable"><code>
+    - <a href="aws-properties-resource-tags.html">Tag</a></code></em>
+  <a href="#cfn-opsworks-layer-type">Type</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-opsworks-layer-useebsoptimizedinstances">UseEbsOptimizedInstances</a>: <em class="replaceable"><code>Boolean</code></em>
+  <a href="#cfn-opsworks-layer-volumeconfigurations">VolumeConfigurations</a>: <em class="replaceable"><code>
+    - <a href="aws-properties-opsworks-layer-volumeconfiguration.html">VolumeConfiguration</a></code></em>
+</code></pre></div><h2 id="aws-resource-opsworks-layer-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
                            <dt><a id="cfn-opsworks-layer-attributes"></a><span class="term"><code class="code">Attributes</code></span></dt>
-                           
                            <dd>
                               
-                              <p>One or more user-defined key-value pairs to be added to the stack attributes
-                                 bag.
+                              <p>One or more user-defined key-value pairs to be added to the stack attributes.</p>
+                              
+                              <p>To create a cluster layer, set the <code class="code">EcsClusterArn</code> attribute to the cluster&apos;s ARN.
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: A list of key-value pairs
+                              <p><em>Type</em>: Map of String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-opsworks-layer-autoassignelasticips"></a><span class="term"><code class="code">AutoAssignElasticIps</code></span></dt>
-                           
                            <dd>
                               
-                              <p>Whether to automatically assign an Elastic IP address to Amazon EC2 instances in
-                                 this layer.
+                              <p>Whether to automatically assign an <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic IP
+                                    address</a> to the layer&apos;s instances. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html">How to Edit
+                                    a Layer</a>.
                               </p>
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: Boolean
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-opsworks-layer-autoassignpublicips"></a><span class="term"><code class="code">AutoAssignPublicIps</code></span></dt>
-                           
                            <dd>
                               
-                              <p>For AWS OpsWorks stacks that are running in a VPC, whether to automatically assign
-                                 a
-                                 public IP address to Amazon EC2 instances in this layer.
+                              <p>For stacks that are running in a VPC, whether to automatically assign a public IP
+                                 address to
+                                 the layer&apos;s instances. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html">How to Edit
+                                    a Layer</a>.
                               </p>
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: Boolean
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-opsworks-layer-custinstanceprofilearn"></a><span class="term"><code class="code">CustomInstanceProfileArn</code></span></dt>
-                           
+                           <dt><a id="cfn-opsworks-layer-custominstanceprofilearn"></a><span class="term"><code class="code">CustomInstanceProfileArn</code></span></dt>
                            <dd>
                               
-                              <p>The Amazon Resource Name (ARN) of an IAM instance profile that is to be used
-                                 for the Amazon EC2 instances in this layer.
+                              <p>The ARN of an IAM profile to be used for the layer&apos;s EC2 instances. For more information
+                                 about IAM ARNs, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">Using Identifiers</a>.
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-opsworks-layer-customjson"></a><span class="term"><code class="code">CustomJson</code></span></dt>
-                           
                            <dd>
                               
-                              <p>A custom stack configuration and deployment attributes that AWS OpsWorks installs
-                                 on
-                                 the layer&apos;s instances. For more information, see the <code class="code">CustomJson</code>
-                                 parameter for the <a href="https://docs.aws.amazon.com/opsworks/latest/APIReference/API_CreateLayer.html">CreateLayer</a> action in the
-                                 <em>AWS OpsWorks Stacks API Reference</em>.
+                              <p>A JSON-formatted string containing custom stack configuration and deployment attributes
+                                 to be installed on the layer&apos;s instances. For more information, see
+                                 <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-json-override.html">
+                                    Using Custom JSON</a>. This feature is supported as of version 1.7.42 of the AWS CLI. 
+                                 
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: JSON object
+                              <p><em>Type</em>: Json
                               </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-opsworks-layer-customrecipes"></a><span class="term"><code class="code">CustomRecipes</code></span></dt>
-                           
                            <dd>
                               
-                              <p>Custom event recipes for this layer.</p>
+                              <p>A <code class="code">LayerCustomRecipes</code> object that specifies the layer custom recipes.
+                              </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: <a href="aws-properties-opsworks-layer-recipes.html">AWS OpsWorks Recipes Type</a></p>
-                              
+                              <p><em>Type</em>: <a href="aws-properties-opsworks-layer-recipes.html">Recipes</a></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-opsworks-layer-custsecuritygroupnids"></a><span class="term"><code class="code">CustomSecurityGroupIds</code></span></dt>
-                           
+                           <dt><a id="cfn-opsworks-layer-customsecuritygroupids"></a><span class="term"><code class="code">CustomSecurityGroupIds</code></span></dt>
                            <dd>
                               
-                              <p>Custom security group IDs for this layer.</p>
+                              <p>An array containing the layer custom security group IDs.</p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: List of String values
+                              <p><em>Type</em>: List of String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-opsworks-layer-enableautohealing"></a><span class="term"><code class="code">EnableAutoHealing</code></span></dt>
-                           
                            <dd>
                               
-                              <p>Whether to automatically heal Amazon EC2 instances that have become disconnected or
-                                 timed out.
-                              </p>
+                              <p>Whether to disable auto healing for the layer.</p>
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: Boolean
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-opsworks-layer-installupdatesonboot"></a><span class="term"><code class="code">InstallUpdatesOnBoot</code></span></dt>
-                           
                            <dd>
                               
-                              <p>Whether to install operating system and package updates when the instance
-                                 boots.
+                              <p>Whether to install operating system and package updates when the instance boots. The
+                                 default
+                                 value is <code class="code">true</code>. To control when updates are installed, set this value to
+                                 <code class="code">false</code>. You must then update your instances manually by using
+                                 <a href="https://docs.aws.amazon.com/goto/WebAPI/opsworks-2013-02-18/CreateDeployment">CreateDeployment</a> to run the <code class="code">update_dependencies</code> stack command or
+                                 by manually running <code class="code">yum</code> (Amazon Linux) or <code class="code">apt-get</code> (Ubuntu) on the
+                                 instances. 
                               </p>
+                              
+                              <div class="aws-note">
+                                 <p class="aws-note">Note</p>
+                                 <p>To ensure that your
+                                    instances have the latest security updates, we strongly recommend using the default
+                                    value of <code class="code">true</code>.
+                                 </p>
+                              </div>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: Boolean
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-opsworks-layer-lifecycleeventconfiguration"></a><span class="term"><code class="code">LifecycleEventConfiguration</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The lifecycle events for the AWS OpsWorks layer.</p>
+                              <p>A <code class="code">LifeCycleEventConfiguration</code> object that you can use to configure the Shutdown event to
+                                 specify an execution timeout and enable or disable Elastic Load Balancer connection
+                                 draining.
+                              </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: <a href="aws-properties-opsworks-layer-lifecycleeventconfiguration.html">AWS OpsWorks Layer LifeCycleConfiguration</a></p>
-                              
+                              <p><em>Type</em>: <a href="aws-properties-opsworks-layer-lifecycleeventconfiguration.html">LifecycleEventConfiguration</a></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-opsworks-layer-loadbasedautoscaling"></a><span class="term"><code class="code">LoadBasedAutoScaling</code></span></dt>
-                           
                            <dd>
                               
                               <p>The load-based scaling configuration for the AWS OpsWorks layer.</p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: <a href="aws-properties-opsworks-layer-loadbasedautoscaling.html">AWS OpsWorks LoadBasedAutoScaling Type</a></p>
-                              
+                              <p><em>Type</em>: <a href="aws-properties-opsworks-layer-loadbasedautoscaling.html">LoadBasedAutoScaling</a></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-opsworks-layer-name"></a><span class="term"><code class="code">Name</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The AWS OpsWorks layer name.</p>
+                              <p>The layer name, which is used by the console.</p>
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-opsworks-layer-packages"></a><span class="term"><code class="code">Packages</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The packages for this layer.</p>
+                              <p>An array of <code class="code">Package</code> objects that describes the layer packages.
+                              </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: List of String values
+                              <p><em>Type</em>: List of String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-opsworks-layer-shortname"></a><span class="term"><code class="code">Shortname</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The layer short name, which is used internally by AWS OpsWorks and by Chef recipes.
-                                 The short name is also used as the name for the directory where your app files are
-                                 installed. 
+                              <p>For custom layers only, use this parameter to specify the layer&apos;s short name, which
+                                 is used internally by AWS OpsWorks Stacks and by Chef recipes. The short name is also
+                                 used as the name for the directory where your app files are installed. It can have
+                                 a maximum of 200 characters, which are limited to the alphanumeric characters, &apos;-&apos;,
+                                 &apos;_&apos;, and &apos;.&apos;.
                               </p>
                               
-                              <p>The name can have a maximum of 200 characters, which are limited to the
-                                 alphanumeric characters, &apos;-&apos;, &apos;_&apos;, and &apos;.&apos;.
+                              <p>The built-in layers&apos; short names are defined by AWS OpsWorks Stacks. For more information,
+                                 see the <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/layers.html">Layer Reference</a>.
                               </p>
-                              
-                              <div class="aws-note">
-                                 <p class="aws-note">Important</p>
-                                 <p>If you update a property that requires the layer to be replaced, you must specify
-                                    a new short name. You cannot have multiple layers with the same short name.
-                                 </p>
-                              </div>
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-opsworks-layer-stackid"></a><span class="term"><code class="code">StackId</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The ID of the AWS OpsWorks stack that this layer will be associated with.</p>
+                              <p>The layer stack ID.</p>
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-opsworks-layer-tags"></a><span class="term"><code class="code">Tags</code></span></dt>
-                           
                            <dd>
                               
-                              <p>Specifies an arbitrary set of tags (key&#x2013;value pairs) to associate with this
-                                 AWS OpsWorks layer. Use tags to manage your resources.
+                              <p>Specifies one or more sets of tags (key&#x2013;value pairs) to associate with this AWS
+                                 OpsWorks layer. Use tags to manage your resources.
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: <a href="aws-properties-resource-tags.html">Resource Tag</a></p>
-                              
+                              <p><em>Type</em>: List of <a href="aws-properties-resource-tags.html">Tag</a></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-opsworks-layer-type"></a><span class="term"><code class="code">Type</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The layer type. A stack cannot have more than one layer of the same type,
-                                 except for the <code class="code">custom</code> type. You can have any number of
-                                 <code class="code">custom</code> types. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/APIReference/API_CreateLayer.html">CreateLayer</a> in the
-                                 <em>AWS OpsWorks Stacks API Reference</em>.
+                              <p>The layer type. A stack cannot have more than one built-in layer of the same type.
+                                 It can have any number of custom layers. Built-in layers are not available in Chef
+                                 12 stacks.
                               </p>
-                              
-                              <div class="aws-note">
-                                 <p class="aws-note">Important</p>
-                                 <p>If you update a property that requires the layer to be replaced, you must
-                                    specify a new type unless you have a <code class="code">custom</code> type. You can have any
-                                    number of <code class="code">custom</code> types.
-                                 </p>
-                              </div>
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Allowed Values</em>: <code class="code">aws-flow-ruby | custom | db-master | ecs-cluster | java-app | lb | memcached | monitoring-master
+                                    | nodejs-app | php-app | rails-app | web</code></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-opsworks-layer-volconfig"></a><span class="term"><code class="code">VolumeConfigurations</code></span></dt>
-                           
+                           <dt><a id="cfn-opsworks-layer-useebsoptimizedinstances"></a><span class="term"><code class="code">UseEbsOptimizedInstances</code></span></dt>
                            <dd>
                               
-                              <p>Describes the Amazon EBS volumes for this layer.</p>
+                              <p>Whether to use Amazon EBS-optimized instances.</p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: A list of <a href="aws-properties-opsworks-layer-volumeconfig.html">AWS OpsWorks VolumeConfiguration</a></p>
-                              
-                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt">Some interruptions</a></p>
-                              
+                              <p><em>Type</em>: Boolean
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
+                           <dt><a id="cfn-opsworks-layer-volumeconfigurations"></a><span class="term"><code class="code">VolumeConfigurations</code></span></dt>
+                           <dd>
+                              
+                              <p>A <code class="code">VolumeConfigurations</code> object that describes the layer&apos;s Amazon EBS volumes.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              <p><em>Type</em>: List of <a href="aws-properties-opsworks-layer-volumeconfiguration.html">VolumeConfiguration</a></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                           </dd>
                         </dl>
-                     </div><h2 id="w2ab1c21c10d183c29b9">Return Values</h2><h3 id="w2ab1c21c10d183c29b9b2">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code> intrinsic
-                        function, <code class="code">Ref</code> returns the resource name. For example:
-                     </p><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{ &quot;Ref&quot;: &quot;<em class="replaceable"><code>myLayer</code></em>&quot; }</code></pre><p>For the AWS OpsWorks layer <code class="code">myLayer</code>, <code class="code">Ref</code> returns the AWS OpsWorks
-                        layer ID.
-                     </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                     </p><h2 id="w2ab1c21c10d183c29c11">Template Examples</h2><h3 id="w2ab1c21c10d183c29c11b2">AWS OpsWorks PHP Layer</h3><p>The following snippet creates an AWS OpsWorks PHP layer that is associated with the
-                        <code class="code">myStack</code> AWS OpsWorks stack. The layer is dependent on the <code class="code">myApp</code>
-                        AWS OpsWorks application.
-                     </p><div id="JSON" name="JSON" class="section langfilter">
-                        <h4 id="aws-resource-opsworks-layer-example1.json">JSON</h4>
+                     </div><h2 id="aws-resource-opsworks-layer-return-values">Return Values</h2><h3 id="aws-resource-opsworks-layer-return-values-ref">Ref</h3><p>
+                        When you pass the logical ID of this resource to the intrinsic <code class="code">Ref</code> function, <code class="code">Ref</code> returns the resource name. For example:
+                     </p><p>
+                        <code class="code">{ &quot;Ref&quot;: &quot;<em>myLayer</em>&quot; }</code>
                         
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">&quot;myLayer&quot;: {
+                     </p><p>For the AWS OpsWorks layer <em>myLayer</em>, <code class="code">Ref</code> returns the AWS OpsWorks layer ID.
+                     </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
+                     </p><h2 id="aws-resource-opsworks-layer--examples">Examples</h2><h3 id="aws-resource-opsworks-layer--examples--AWS_OpsWorks_PHP_Layer">AWS OpsWorks PHP Layer</h3><p>The following snippet creates an AWS OpsWorks PHP layer that is associated with
+                        the <code class="code">myStack</code> AWS OpsWorks stack. The layer is dependent on the
+                        <code class="code">myApp</code> AWS OpsWorks application.
+                     </p><h4 id="aws-resource-opsworks-layer--examples--AWS_OpsWorks_PHP_Layer--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">&quot;myLayer&quot;: {
   &quot;Type&quot;: &quot;AWS::OpsWorks::Layer&quot;,
   &quot;DependsOn&quot;: &quot;myApp&quot;,
   &quot;Properties&quot;: {
@@ -460,11 +364,7 @@ Properties:
     &quot;AutoAssignPublicIps&quot; : &quot;true&quot;,
     &quot;Name&quot;: &quot;MyPHPApp&quot;
   }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h4 id="aws-resource-opsworks-layer-example1.yaml">YAML</h4>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">myLayer: 
+}</code></pre><h4 id="aws-resource-opsworks-layer--examples--AWS_OpsWorks_PHP_Layer--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">myLayer: 
   Type: &quot;AWS::OpsWorks::Layer&quot;
   DependsOn: &quot;myApp&quot;
   Properties: 
@@ -475,14 +375,9 @@ Properties:
     EnableAutoHealing: &quot;true&quot;
     AutoAssignElasticIps: &quot;false&quot;
     AutoAssignPublicIps: &quot;true&quot;
-    Name: &quot;MyPHPApp&quot;</code></pre>
-                        </div><h3 id="w2ab1c21c10d183c29c11b4">Load-based Auto Scaling Layer</h3><p>The following snippet creates a load-based automatic scaling AWS OpsWorks PHP layer
-                        that is
-                        associated with the <code class="code">myStack</code> AWS OpsWorks stack.
-                     </p><div id="JSON" name="JSON" class="section langfilter">
-                        <h4 id="aws-resource-opsworks-layer-example2.json">JSON</h4>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">&quot;myLayer&quot;: {
+    Name: &quot;MyPHPApp&quot;</code></pre><h3 id="aws-resource-opsworks-layer--examples--Load-based_Auto_Scaling_Layer">Load-based Auto Scaling Layer</h3><p>The following snippet creates a load-based automatic scaling AWS OpsWorks PHP
+                        layer that is associated with the <code class="code">myStack</code> AWS OpsWorks stack.
+                     </p><h4 id="aws-resource-opsworks-layer--examples--Load-based_Auto_Scaling_Layer--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">&quot;myLayer&quot;: {
   &quot;Type&quot;: &quot;AWS::OpsWorks::Layer&quot;,
   &quot;DependsOn&quot;: &quot;myApp&quot;,
   &quot;Properties&quot;: {
@@ -513,11 +408,7 @@ Properties:
       }
     }
   }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h4 id="aws-resource-opsworks-layer-example2.yaml">YAML</h4>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">myLayer: 
+}</code></pre><h4 id="aws-resource-opsworks-layer--examples--Load-based_Auto_Scaling_Layer--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">myLayer: 
   Type: &quot;AWS::OpsWorks::Layer&quot;
   DependsOn: &quot;myApp&quot;
   Properties: 
@@ -544,14 +435,9 @@ Properties:
         IgnoreMetricsTime: 1
         CpuThreshold: 30
         MemoryThreshold: 70
-        LoadThreshold: 0.3</code></pre>
-                        </div><h3 id="aws-resource-opsworks-layer-example3">Specify tags for layers and stacks</h3><p>The following complete template example specifies tags for an AWS OpsWorks layer and
-                        stack
-                        that reference parameter values.
-                     </p><div id="JSON" name="JSON" class="section langfilter">
-                        
-                        <h4 id="aws-resource-opsworks-layer-example3.json">JSON</h4>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">{
+        LoadThreshold: 0.3</code></pre><h3 id="aws-resource-opsworks-layer--examples--Specify_tags_for_layers_and_stacks">Specify tags for layers and stacks</h3><p>The following complete template example specifies tags for an AWS OpsWorks layer
+                        and stack that reference parameter values.
+                     </p><h4 id="aws-resource-opsworks-layer--examples--Specify_tags_for_layers_and_stacks--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
     &quot;Resources&quot;: {
         &quot;ServiceRole&quot;: {
             &quot;Type&quot;: &quot;AWS::IAM::Role&quot;,
@@ -702,11 +588,7 @@ Properties:
             &quot;Type&quot;: &quot;String&quot;
         }
     }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        
-                        <h4 id="aws-resource-opsworks-layer-example3.yaml">YAML</h4>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">Resources:
+}</code></pre><h4 id="aws-resource-opsworks-layer--examples--Specify_tags_for_layers_and_stacks--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Resources:
   ServiceRole:
     Type: AWS::IAM::Role
     Properties:
@@ -786,30 +668,28 @@ Parameters:
   OpsServicePrincipal:
     Type: String
   Ec2ServicePrincipal:
-    Type: String
-</code></pre>
-                        </div><h2 id="w2ab1c21c10d183c29c13">See Also</h2><div class="itemizedlist">
-                        
+    Type: String</code></pre><h2 id="aws-resource-opsworks-layer--seealso">See Also</h2><div class="itemizedlist">
                         
                         
                         
                         <ul class="itemizedlist" type="disc">
                            <li class="listitem">
                               
-                              <p><a href="aws-resource-opsworks-stack.html">AWS::OpsWorks::Stack</a></p>
+                              <p>
+                                 <a href="https://docs.aws.amazon.com/opsworks/latest/APIReference/API_CreateLayer.html">CreateLayer</a> in the <em>AWS OpsWorks API Reference</em>.
+                              </p>
                               
                            </li>
                            <li class="listitem">
                               
-                              <p><a href="aws-resource-opsworks-app.html">AWS::OpsWorks::App</a></p>
-                              
-                           </li>
-                           <li class="listitem">
-                              
-                              <p><a href="aws-resource-opsworks-instance.html">AWS::OpsWorks::Instance</a></p>
+                              <p>
+                                 <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-create.html">Creating an OpsWorks Layer</a> in the <em>AWS OpsWorks User Guide</em>.
+                              </p>
                               
                            </li>
                         </ul>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
                      </div></div>
 </body>
 </html>

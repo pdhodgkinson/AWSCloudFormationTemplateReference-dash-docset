@@ -8,77 +8,62 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-resource-wafregional-xssmatchset">AWS::WAFRegional::XssMatchSet</h1><p>The <code class="code">AWS::WAFRegional::XssMatchSet</code> resource specifies the parts of web requests that you want AWS WAF to inspect for
-                        cross-site scripting attacks and the name of the header to inspect. For more information,
-                        see <a href="https://docs.aws.amazon.com/waf/latest/APIReference/API_regional_XssMatchSet.html">XssMatchSet</a> in the <em>AWS WAF Regional API Reference</em>.
+    <h1 class="topictitle" id="aws-resource-wafregional-xssmatchset">AWS::WAFRegional::XssMatchSet</h1><p>A complex type that contains <code class="code">XssMatchTuple</code> objects, which specify the parts of web requests that you 
+                        			want AWS WAF to inspect for cross-site scripting attacks and, if you want AWS WAF
+                        to inspect a header, the name of the header. If a 
+                        			<code class="code">XssMatchSet</code> contains more than one <code class="code">XssMatchTuple</code> object, a request needs to 
+                        			include cross-site scripting attacks in only one of the specified parts of the
+                        request to be considered a match.
                      </p><h2 id="aws-resource-wafregional-xssmatchset-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-resource-wafregional-xssmatchset-syntax.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
+                        <h3 id="aws-resource-wafregional-xssmatchset-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
   &quot;Type&quot; : &quot;AWS::WAFRegional::XssMatchSet&quot;,
   &quot;Properties&quot; : {
-    &quot;<a href="aws-resource-wafregional-xssmatchset.html#cfn-wafregional-xssmatchset-name">Name</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-wafregional-xssmatchset.html#cfn-wafregional-xssmatchset-xssmatchtuples">XssMatchTuples</a>&quot; : [ <em class="replaceable"><code>XssMatchTuple, ...</code></em> ]
-  }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-resource-wafregional-xssmatchset-syntax.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">Type: &quot;AWS::WAFRegional::XssMatchSet&quot;
+      &quot;<a href="#cfn-wafregional-xssmatchset-name">Name</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-wafregional-xssmatchset-xssmatchtuples">XssMatchTuples</a>&quot; : <em class="replaceable"><code>[ <a href="aws-properties-wafregional-xssmatchset-xssmatchtuple.html">XssMatchTuple</a>, ... ]</code></em>
+    }
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-wafregional-xssmatchset-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Type: AWS::WAFRegional::XssMatchSet
 Properties: 
-  <a href="aws-resource-wafregional-xssmatchset.html#cfn-wafregional-xssmatchset-name">Name</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-wafregional-xssmatchset.html#cfn-wafregional-xssmatchset-xssmatchtuples">XssMatchTuples</a>:
-    - <em class="replaceable"><code>XssMatchTuple</code></em> 
-</code></pre>
-                        </div><h2 id="w2ab1c21c10d237c41b7">Properties</h2><div class="variablelist">
-                        
-                        
-                        
+  <a href="#cfn-wafregional-xssmatchset-name">Name</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-wafregional-xssmatchset-xssmatchtuples">XssMatchTuples</a>: <em class="replaceable"><code>
+    - <a href="aws-properties-wafregional-xssmatchset-xssmatchtuple.html">XssMatchTuple</a></code></em>
+</code></pre></div><h2 id="aws-resource-wafregional-xssmatchset-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
                            <dt><a id="cfn-wafregional-xssmatchset-name"></a><span class="term"><code class="code">Name</code></span></dt>
-                           
                            <dd>
-                              
-                              <p>A friendly name or description for the <code class="code">XssMatchSet</code>.
+                              		       
+                              <p>The name, if any, of the <code class="code">XssMatchSet</code>.
                               </p>
-                              
+                              	     
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Minimum</em>: <code class="code">1</code></p>
+                              <p><em>Maximum</em>: <code class="code">128</code></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-wafregional-xssmatchset-xssmatchtuples"></a><span class="term"><code class="code">XssMatchTuples</code></span></dt>
-                           
                            <dd>
-                              
-                              <p>The parts of web requests that you want to inspect for cross-site scripting attacks.</p>
-                              
+                              		       
+                              <p>Specifies the parts of web requests that you want to inspect for cross-site scripting
+                                 attacks.
+                              </p>
+                              	     
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: List of <a href="aws-properties-wafregional-xssmatchset-xssmatchtuple.html">AWS WAF Regional XssMatchSet XssMatchTuple</a></p>
-                              
+                              <p><em>Type</em>: List of <a href="aws-properties-wafregional-xssmatchset-xssmatchtuple.html">XssMatchTuple</a></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
                         </dl>
-                     </div><h2 id="w2ab1c21c10d237c41b9">Return Value</h2><h3 id="w2ab1c21c10d237c41b9b2">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code> intrinsic function, <code class="code">Ref</code> returns the resource physical ID, such as <code class="code">1234a1a-a1b1-12a1-abcd-a123b123456</code>.
+                     </div><h2 id="aws-resource-wafregional-xssmatchset-return-values">Return Values</h2><h3 id="aws-resource-wafregional-xssmatchset-return-values-ref">Ref</h3><p>
+                        When you pass the logical ID of this resource to the intrinsic <code class="code">Ref</code> function, <code class="code">Ref</code> returns the resource physical ID, such as 1234a1a-a1b1-12a1-abcd-a123b123456.
                      </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                     </p><h2 id="w2ab1c21c10d237c41c11">Examples</h2><h3 id="w2ab1c21c10d237c41c11b2">Define Which Part of a Request to Check for Cross-site Scripting</h3><p>The following example looks for cross-site scripting in the URI or query string of
+                     </p><h2 id="aws-resource-wafregional-xssmatchset--examples">Examples</h2><h3 id="aws-resource-wafregional-xssmatchset--examples--Define_Which_Part_of_a_Request_to_Check_for_Cross-site_Scripting">Define Which Part of a Request to Check for Cross-site Scripting</h3><p>The following example looks for cross-site scripting in the URI or query string of
                         an
                         HTTP request.
-                     </p><div id="JSON" name="JSON" class="section langfilter">
-                        <h4 id="aws-resource-wafregional-xssmatchset-example1.json">JSON</h4>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">&quot;DetectXSS&quot;: {
+                     </p><h4 id="aws-resource-wafregional-xssmatchset--examples--Define_Which_Part_of_a_Request_to_Check_for_Cross-site_Scripting--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">&quot;DetectXSS&quot;: {
   &quot;Type&quot;: &quot;AWS::WAFRegional::XssMatchSet&quot;,
   &quot;Properties&quot;: {
     &quot;Name&quot;: &quot;XssMatchSet&quot;,
@@ -97,11 +82,7 @@ Properties:
       }
     ]
   }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h4 id="aws-resource-wafregional-xssmatchset-example1.yaml">YAML</h4>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">DetectXSS: 
+}</code></pre><h4 id="aws-resource-wafregional-xssmatchset--examples--Define_Which_Part_of_a_Request_to_Check_for_Cross-site_Scripting--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">DetectXSS: 
   Type: &quot;AWS::WAFRegional::XssMatchSet&quot;
   Properties: 
     Name: &quot;XssMatchSet&quot;
@@ -113,12 +94,8 @@ Properties:
       - 
         FieldToMatch: 
           Type: &quot;QUERY_STRING&quot;
-        TextTransformation: &quot;NONE&quot;</code></pre>
-                        </div><h3 id="w2ab1c21c10d237c41c11b4">Associate an XssMatchSet with a Web ACL Rule</h3><p>The following example associates the <code class="code">DetectXSS</code> match set with a web access control list (ACL) rule.
-                     </p><div id="JSON" name="JSON" class="section langfilter">
-                        <h4 id="aws-resource-wafregional-xssmatchset-example2.json">JSON</h4>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">&quot;XSSRule&quot; : {
+        TextTransformation: &quot;NONE&quot;</code></pre><h3 id="aws-resource-wafregional-xssmatchset--examples--Associate_an_XssMatchSet_with_a_Web_ACL_Rule">Associate an XssMatchSet with a Web ACL Rule</h3><p>The following example associates the <code class="code">DetectXSS</code> match set with a web access control list (ACL) rule.
+                     </p><h4 id="aws-resource-wafregional-xssmatchset--examples--Associate_an_XssMatchSet_with_a_Web_ACL_Rule--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">&quot;XSSRule&quot; : {
   &quot;Type&quot;: &quot;AWS::WAFRegional::Rule&quot;,
   &quot;Properties&quot;: {
     &quot;Name&quot;: &quot;XSSRule&quot;,
@@ -131,11 +108,7 @@ Properties:
       }
     ]
   }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h4 id="aws-resource-wafregional-xssmatchset-example2.yaml">YAML</h4>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">XSSRule: 
+}</code></pre><h4 id="aws-resource-wafregional-xssmatchset--examples--Associate_an_XssMatchSet_with_a_Web_ACL_Rule--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">XSSRule: 
   Type: &quot;AWS::WAFRegional::Rule&quot;
   Properties: 
     Name: &quot;XSSRule&quot;
@@ -145,13 +118,9 @@ Properties:
         DataId: 
           Ref: &quot;DetectXSS&quot;
         Negated: false
-        Type: &quot;XssMatch&quot;</code></pre>
-                        </div><h3 id="w2ab1c21c10d237c41c11b6">Create a Web ACL</h3><p>The following example associates the <code class="code">XSSRule</code> rule with a web ACL. The web ACL allows all requests except for ones that contain
+        Type: &quot;XssMatch&quot;</code></pre><h3 id="aws-resource-wafregional-xssmatchset--examples--Create_a_Web_ACL">Create a Web ACL</h3><p>The following example associates the <code class="code">XSSRule</code> rule with a web ACL. The web ACL allows all requests except for ones that contain
                         cross-site scripting in the URI or query string of an HTTP request.
-                     </p><div id="JSON" name="JSON" class="section langfilter">
-                        <h4 id="aws-resource-wafregional-xssmatchset-example3.json">JSON</h4>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">&quot;MyWebACL&quot;: {
+                     </p><h4 id="aws-resource-wafregional-xssmatchset--examples--Create_a_Web_ACL--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">&quot;MyWebACL&quot;: {
   &quot;Type&quot;: &quot;AWS::WAFRegional::WebACL&quot;,
   &quot;Properties&quot;: {
     &quot;Name&quot;: &quot;Web ACL to block cross-site scripting&quot;,
@@ -169,11 +138,7 @@ Properties:
       }
     ]
   }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h4 id="aws-resource-wafregional-xssmatchset-example3.yaml">YAML</h4>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">MyWebACL: 
+}</code></pre><h4 id="aws-resource-wafregional-xssmatchset--examples--Create_a_Web_ACL--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">MyWebACL: 
   Type: &quot;AWS::WAFRegional::WebACL&quot;
   Properties: 
     Name: &quot;Web ACL to block cross-site scripting&quot;
@@ -186,7 +151,8 @@ Properties:
           Type: &quot;BLOCK&quot;
         Priority: 1
         RuleId: 
-          Ref: &quot;XSSRule&quot;</code></pre>
-                        </div></div>
+          Ref: &quot;XSSRule&quot;</code></pre><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
+                     </div></div>
 </body>
 </html>

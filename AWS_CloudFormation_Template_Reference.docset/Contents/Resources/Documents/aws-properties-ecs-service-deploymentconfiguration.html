@@ -8,65 +8,95 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-properties-ecs-service-deploymentconfiguration">Amazon Elastic Container Service Service
-                        DeploymentConfiguration
-                     </h1><p><code class="code">DeploymentConfiguration</code> is a property of the <a href="aws-resource-ecs-service.html">AWS::ECS::Service</a> resource that configures how many tasks run when you update a running Amazon Elastic
-                        Container Service (Amazon ECS) service.
-                     </p><h2 id="w2ab1c21c10d117c17c21b5">Syntax</h2><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-properties-ecs-service-deploymentconfiguration-syntax.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
-  &quot;<a href="aws-properties-ecs-service-deploymentconfiguration.html#cfn-ecs-service-deploymentconfiguration-maximumpercent">MaximumPercent</a>&quot; : <em class="replaceable"><code>Integer</code></em>,
-  &quot;<a href="aws-properties-ecs-service-deploymentconfiguration.html#cfn-ecs-service-deploymentconfiguration-minimumhealthypercent">MinimumHealthyPercent</a>&quot; : <em class="replaceable"><code>Integer</code></em>
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-properties-ecs-service-deploymentconfiguration-syntax.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight"><a href="aws-properties-ecs-service-deploymentconfiguration.html#cfn-ecs-service-deploymentconfiguration-maximumpercent">MaximumPercent</a>: <em class="replaceable"><code>Integer</code></em>
-<a href="aws-properties-ecs-service-deploymentconfiguration.html#cfn-ecs-service-deploymentconfiguration-minimumhealthypercent">MinimumHealthyPercent</a>: <em class="replaceable"><code>Integer</code></em>
-</code></pre>
-                        </div><h2 id="w2ab1c21c10d117c17c21b7">Properties</h2><div class="variablelist">
-                        
-                        
-                        
+    <h1 class="topictitle" id="aws-properties-ecs-service-deploymentconfiguration">AWS::ECS::Service DeploymentConfiguration</h1><p>The <code class="code">DeploymentConfiguration</code> property specifies optional deployment
+                        parameters that control how many tasks run during the deploymentand the ordering of
+                        stopping and starting tasks.
+                     </p><h2 id="aws-properties-ecs-service-deploymentconfiguration-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-properties-ecs-service-deploymentconfiguration-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;<a href="#cfn-ecs-service-deploymentconfiguration-maximumpercent">MaximumPercent</a>&quot; : <em class="replaceable"><code>Integer</code></em>,
+  &quot;<a href="#cfn-ecs-service-deploymentconfiguration-minimumhealthypercent">MinimumHealthyPercent</a>&quot; : <em class="replaceable"><code>Integer</code></em>
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-properties-ecs-service-deploymentconfiguration-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">  <a href="#cfn-ecs-service-deploymentconfiguration-maximumpercent">MaximumPercent</a>: <em class="replaceable"><code>Integer</code></em>
+  <a href="#cfn-ecs-service-deploymentconfiguration-minimumhealthypercent">MinimumHealthyPercent</a>: <em class="replaceable"><code>Integer</code></em>
+</code></pre></div><h2 id="aws-properties-ecs-service-deploymentconfiguration-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
                            <dt><a id="cfn-ecs-service-deploymentconfiguration-maximumpercent"></a><span class="term"><code class="code">MaximumPercent</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The maximum number of tasks, specified as a percentage of the Amazon ECS service&apos;s
-                                 <code class="code">DesiredCount</code> value, that can run in a service during a deployment. To calculate the maximum number
-                                 of tasks, Amazon ECS uses this formula: the value of <code class="code">DesiredCount</code> * (the value of the <code class="code">MaximumPercent</code>/100), rounded down to the nearest integer value.
+                              <p>If a service is using the rolling update (<code class="code">ECS</code>) deployment type, the
+                                 <b>maximum percent</b> parameter represents an upper limit
+                                 on the number of tasks in a service that are allowed in the <code class="code">RUNNING</code> or
+                                 <code class="code">PENDING</code> state during a deployment, as a percentage of the desired
+                                 number of tasks (rounded down to the nearest integer), and while any container instances
+                                 are in the <code class="code">DRAINING</code> state if the service contains tasks using the
+                                 EC2 launch type. This parameter enables you to define the deployment batch
+                                 size. For example, if your service has a desired number of four tasks and a maximum
+                                 percent value of 200%, the scheduler may start four new tasks before stopping the
+                                 four
+                                 older tasks (provided that the cluster resources required to do this are available).
+                                 The
+                                 default value for maximum percent is 200%.
+                              </p>
+                              
+                              <p>If a service is using the blue/green (<code class="code">CODE_DEPLOY</code>) or
+                                 <code class="code">EXTERNAL</code> deployment types and tasks that use the EC2
+                                 launch type, the <b>maximum percent</b> value is set to the
+                                 default value and is used to define the upper limit on the number of the tasks in
+                                 the
+                                 service that remain in the <code class="code">RUNNING</code> state while the container instances are
+                                 in the <code class="code">DRAINING</code> state. If the tasks in the service use the
+                                 Fargate launch type, the maximum percent value is not used, although it is
+                                 returned when describing your service.
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: Integer
                               </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-ecs-service-deploymentconfiguration-minimumhealthypercent"></a><span class="term"><code class="code">MinimumHealthyPercent</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The minimum number of tasks, specified as a percentage of the Amazon ECS service&apos;s
-                                 <code class="code">DesiredCount</code> value, that must continue to run and remain healthy during a deployment. To calculate
-                                 the minimum number of tasks, Amazon ECS uses this formula: the value of <code class="code">DesiredCount</code> * (the value of the <code class="code">MinimumHealthyPercent</code>/100), rounded up to the nearest integer value.
+                              <p>If a service is using the rolling update (<code class="code">ECS</code>) deployment type, the
+                                 <b>minimum healthy percent</b> represents a lower limit on
+                                 the number of tasks in a service that must remain in the <code class="code">RUNNING</code> state
+                                 during a deployment, as a percentage of the desired number of tasks (rounded up to
+                                 the
+                                 nearest integer), and while any container instances are in the <code class="code">DRAINING</code>
+                                 state if the service contains tasks using the EC2 launch type. This
+                                 parameter enables you to deploy without using additional cluster capacity. For example,
+                                 if your service has a desired number of four tasks and a minimum healthy percent of
+                                 50%,
+                                 the scheduler may stop two existing tasks to free up cluster capacity before starting
+                                 two new tasks. Tasks for services that <em>do not</em> use a load balancer
+                                 are considered healthy if they are in the <code class="code">RUNNING</code> state; tasks for services
+                                 that <em>do</em> use a load balancer are considered healthy if they are in
+                                 the <code class="code">RUNNING</code> state and they are reported as healthy by the load balancer.
+                                 The default value for minimum healthy percent is 100%.
+                              </p>
+                              
+                              <p>If a service is using the blue/green (<code class="code">CODE_DEPLOY</code>) or
+                                 <code class="code">EXTERNAL</code> deployment types and tasks that use the EC2
+                                 launch type, the <b>minimum healthy percent</b> value is set
+                                 to the default value and is used to define the lower limit on the number of the tasks
+                                 in
+                                 the service that remain in the <code class="code">RUNNING</code> state while the container instances
+                                 are in the <code class="code">DRAINING</code> state. If the tasks in the service use the
+                                 Fargate launch type, the minimum healthy percent value is not used,
+                                 although it is returned when describing your service.
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: Integer
                               </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
                         </dl>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
                      </div></div>
 </body>
 </html>

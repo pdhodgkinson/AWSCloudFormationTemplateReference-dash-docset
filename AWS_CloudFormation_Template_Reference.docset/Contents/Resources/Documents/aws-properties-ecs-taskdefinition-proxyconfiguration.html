@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="css/awsdocs.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/awsdocs.min.js"></script>
+    <meta charset="utf-8">
+</head>
+<body>
+    <div id="content" style="padding: 10px 30px;">
+    <h1 class="topictitle" id="aws-properties-ecs-taskdefinition-proxyconfiguration">AWS::ECS::TaskDefinition ProxyConfiguration</h1><p>The <code class="code">ProxyConfiguration</code> property specifies the details for the App Mesh
+                        proxy.
+                     </p><p>For tasks using the EC2 launch type, the container instances require at least version
+                        1.26.0 of the container agent and at least version 1.26.0-1 of the <code class="code">ecs-init</code>
+                        package to enable a proxy configuration. If your container instances are launched
+                        from
+                        the Amazon ECS-optimized AMI version <code class="code">20190301</code> or later, then they contain
+                        the required versions of the container agent and <code class="code">ecs-init</code>. For more
+                        information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html">Amazon ECS-optimized
+                           Linux AMI</a> in the <em>Amazon Elastic Container Service Developer
+                           Guide</em>.
+                     </p><p>For tasks using the Fargate launch type, the task or service requires platform version
+                        1.3.0 or later.
+                     </p><h2 id="aws-properties-ecs-taskdefinition-proxyconfiguration-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-properties-ecs-taskdefinition-proxyconfiguration-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;<a href="#cfn-ecs-taskdefinition-proxyconfiguration-containername">ContainerName</a>&quot; : <em class="replaceable"><code>String</code></em>,
+  &quot;<a href="#cfn-ecs-taskdefinition-proxyconfiguration-proxyconfigurationproperties">ProxyConfigurationProperties</a>&quot; : <em class="replaceable"><code>[ <a href="aws-properties-ecs-taskdefinition-containerdefinitions-environment.html">KeyValuePair</a>, ... ]</code></em>,
+  &quot;<a href="#cfn-ecs-taskdefinition-proxyconfiguration-type">Type</a>&quot; : <em class="replaceable"><code>String</code></em>
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-properties-ecs-taskdefinition-proxyconfiguration-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">  <a href="#cfn-ecs-taskdefinition-proxyconfiguration-containername">ContainerName</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-ecs-taskdefinition-proxyconfiguration-proxyconfigurationproperties">ProxyConfigurationProperties</a>: <em class="replaceable"><code>
+    - <a href="aws-properties-ecs-taskdefinition-containerdefinitions-environment.html">KeyValuePair</a></code></em>
+  <a href="#cfn-ecs-taskdefinition-proxyconfiguration-type">Type</a>: <em class="replaceable"><code>String</code></em>
+</code></pre></div><h2 id="aws-properties-ecs-taskdefinition-proxyconfiguration-properties">Properties</h2><div class="variablelist">
+                        <dl>
+                           <dt><a id="cfn-ecs-taskdefinition-proxyconfiguration-containername"></a><span class="term"><code class="code">ContainerName</code></span></dt>
+                           <dd>
+                              
+                              <p>The name of the container that will serve as the App Mesh proxy.</p>
+                              
+                              <p><em>Required</em>: Yes
+                              </p>
+                              <p><em>Type</em>: String
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                           </dd>
+                           <dt><a id="cfn-ecs-taskdefinition-proxyconfiguration-proxyconfigurationproperties"></a><span class="term"><code class="code">ProxyConfigurationProperties</code></span></dt>
+                           <dd>
+                              
+                              <p>The set of network configuration parameters to provide the Container Network Interface
+                                 (CNI) plugin, specified as key-value pairs.
+                              </p>
+                              
+                              <div class="itemizedlist">
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 <ul class="itemizedlist" type="disc">
+                                    <li class="listitem">
+                                       
+                                       <p>
+                                          <code class="code">IgnoredUID</code> - (Required) The user ID (UID) of the proxy
+                                          container as defined by the <code class="code">user</code> parameter in a container
+                                          definition. This is used to ensure the proxy ignores its own traffic. If
+                                          <code class="code">IgnoredGID</code> is specified, this field can be empty.
+                                       </p>
+                                       
+                                    </li>
+                                    <li class="listitem">
+                                       
+                                       <p>
+                                          <code class="code">IgnoredGID</code> - (Required) The group ID (GID) of the proxy
+                                          container as defined by the <code class="code">user</code> parameter in a container
+                                          definition. This is used to ensure the proxy ignores its own traffic. If
+                                          <code class="code">IgnoredUID</code> is specified, this field can be empty.
+                                       </p>
+                                       
+                                    </li>
+                                    <li class="listitem">
+                                       
+                                       <p>
+                                          <code class="code">AppPorts</code> - (Required) The list of ports that the
+                                          application uses. Network traffic to these ports is forwarded to the
+                                          <code class="code">ProxyIngressPort</code> and <code class="code">ProxyEgressPort</code>.
+                                       </p>
+                                       
+                                    </li>
+                                    <li class="listitem">
+                                       
+                                       <p>
+                                          <code class="code">ProxyIngressPort</code> - (Required) Specifies the port that
+                                          incoming traffic to the <code class="code">AppPorts</code> is directed to.
+                                       </p>
+                                       
+                                    </li>
+                                    <li class="listitem">
+                                       
+                                       <p>
+                                          <code class="code">ProxyEgressPort</code> - (Required) Specifies the port that
+                                          outgoing traffic from the <code class="code">AppPorts</code> is directed to.
+                                       </p>
+                                       
+                                    </li>
+                                    <li class="listitem">
+                                       
+                                       <p>
+                                          <code class="code">EgressIgnoredPorts</code> - (Required) The egress traffic going to
+                                          the specified ports is ignored and not redirected to the
+                                          <code class="code">ProxyEgressPort</code>. It can be an empty list.
+                                       </p>
+                                       
+                                    </li>
+                                    <li class="listitem">
+                                       
+                                       <p>
+                                          <code class="code">EgressIgnoredIPs</code> - (Required) The egress traffic going to
+                                          the specified IP addresses is ignored and not redirected to the
+                                          <code class="code">ProxyEgressPort</code>. It can be an empty list.
+                                       </p>
+                                       
+                                    </li>
+                                 </ul>
+                              </div>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              <p><em>Type</em>: List of <a href="aws-properties-ecs-taskdefinition-containerdefinitions-environment.html">KeyValuePair</a></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                           </dd>
+                           <dt><a id="cfn-ecs-taskdefinition-proxyconfiguration-type"></a><span class="term"><code class="code">Type</code></span></dt>
+                           <dd>
+                              
+                              <p>The proxy type. The only supported value is <code class="code">APPMESH</code>.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              <p><em>Type</em>: String
+                              </p>
+                              <p><em>Allowed Values</em>: <code class="code">APPMESH</code></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                           </dd>
+                        </dl>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
+                     </div></div>
+</body>
+</html>

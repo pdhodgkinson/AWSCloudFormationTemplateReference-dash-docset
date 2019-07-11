@@ -8,165 +8,315 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-resource-docdb-dbcluster">AWS::DocDB::DBCluster</h1><p>The <code class="code">AWS::DocDB::DBCluster</code> Amazon DocumentDB (with MongoDB compatibility) resource describes a DBCluster. Amazon
-                        DocumentDB is a fully managed, 
-                        MongoDB-compatible document database engine. For more information, see <a href="https://docs.aws.amazon.com/amazondocdb/latest/developerguide/API_DBCluster">DBCluster</a> in the <em>Amazon DocumentDB Developer Guide</em>.
-                     </p><p>You can only use this resource in regions supported by Amazon DocumentDB. For more
-                        information,
-                        see <a href="https://docs.aws.amazon.com/amazondocdb/latest/developerguide/regions-and-azs.html">Choosing Regions and Availability
-                           Zones</a>.
-                     </p><div class="highlights" id="inline-topiclist">
-                        <p><strong>Topics</strong></p>
-                        <ul>
-                           <li><a href="#aws-resource-docdb-dbcluster-syntax">Syntax</a></li>
-                           <li><a href="#aws-resource-docdb-dbcluster-properties">Properties</a></li>
-                           <li><a href="#aws-resource-docdb-dbcluster-returnvalues">Return Values</a></li>
-                           <li><a href="#aws-resource-docdb-dbcluster-examples">Examples</a></li>
-                           <li><a href="#aws-resource-docdb-dbcluster-seealso">See Also</a></li>
-                        </ul>
-                     </div><h2 id="aws-resource-docdb-dbcluster-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
-                        
-                        <h3 id="aws-resource-docdb-dbcluster-syntax.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
+    <h1 class="topictitle" id="aws-resource-docdb-dbcluster">AWS::DocDB::DBCluster</h1><p>The <code class="code">AWS::DocDB::DBCluster</code> Amazon DocumentDB (with MongoDB compatibility) resource describes a DBCluster. 
+                        Amazon DocumentDB is a fully managed, MongoDB-compatible document database engine.
+                        For more information, see 
+                        <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DBCluster.html">DBCluster</a> in the <em>Amazon DocumentDB Developer Guide</em>. 
+                     </p><h2 id="aws-resource-docdb-dbcluster-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-resource-docdb-dbcluster-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
   &quot;Type&quot; : &quot;AWS::DocDB::DBCluster&quot;,
   &quot;Properties&quot; : {
-    &quot;<a href="aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-availabilityzones">AvailabilityZones</a>&quot; : [ <em class="replaceable"><code>String</code></em>, ... ],
-    &quot;<a href="aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-backupretentionperiod">BackupRetentionPeriod</a>&quot; : <em class="replaceable"><code>Integer</code></em>,
-    &quot;<a href="aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-dbclusteridentifier">DBClusterIdentifier</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-dbclusterparametergroupname">DBClusterParameterGroupName</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-dbsubnetgroupname">DBSubnetGroupName</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-engineversion">EngineVersion</a> : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-kmskeyid">KmsKeyId</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-masterusername">MasterUsername</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-masteruserpassword">MasterUserPassword</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-port">Port</a>&quot; : <em class="replaceable"><code>Integer</code></em>,
-    &quot;<a href="aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-preferredbackupwindow">PreferredBackupWindow</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-preferredmaintenancewindow">PreferredMaintenanceWindow</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-snapshotidentifier">SnapshotIdentifier</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-storageencrypted">StorageEncrypted</a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
-    &quot;<a href="aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-tags">Tags</a>&quot; : [ <a href="aws-properties-resource-tags.html">Tag</a>, ... ],
-    &quot;<a href="aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-vpcsecuritygroupids">VpcSecurityGroupIds</a>&quot; : [ <em class="replaceable"><code>String</code></em>, ... ]
-  }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        
-                        <h3 id="aws-resource-docdb-dbcluster-syntax.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">Type: &quot;AWS::DocDB::DBCluster&quot;
-Properties:
-  <a href="aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-availabilityzones">AvailabilityZones</a>: 
-    - <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-backupretentionperiod">BackupRetentionPeriod</a>: <em class="replaceable"><code>Integer</code></em>
-  <a href="aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-dbclusteridentifier">DBClusterIdentifier</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-dbclusterparametergroupname">DBClusterParameterGroupName</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-dbsubnetgroupname">DBSubnetGroupName</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-engineversion">EngineVersion</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-kmskeyid">KmsKeyId</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-masterusername">MasterUsername</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-masteruserpassword">MasterUserPassword</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-port">Port</a>: <em class="replaceable"><code>Integer</code></em>
-  <a href="aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-preferredbackupwindow">PreferredBackupWindow</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-preferredmaintenancewindow">PreferredMaintenanceWindow</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-snapshotidentifier">SnapshotIdentifier</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-storageencrypted">StorageEncrypted</a>: <em class="replaceable"><code>Boolean</code></em>
-  <a href="aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-tags">Tags</a>: 
-    - <a href="aws-properties-resource-tags.html">Tag</a>
-  <a href="aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-vpcsecuritygroupids">VpcSecurityGroupIds</a>: 
-    - <em class="replaceable"><code>String</code></em></code></pre>
-                        </div><h2 id="aws-resource-docdb-dbcluster-properties">Properties</h2><div class="variablelist">
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                          
-                        
-                          
-                        
-                        
-                        
-                          
-                        
-                        
-                        
-                        
-                        
-                          
-                        
-                        
-                        
-                        
-                        
-                        
+      &quot;<a href="#cfn-docdb-dbcluster-availabilityzones">AvailabilityZones</a>&quot; : <em class="replaceable"><code>[ String, ... ]</code></em>,
+      &quot;<a href="#cfn-docdb-dbcluster-backupretentionperiod">BackupRetentionPeriod</a>&quot; : <em class="replaceable"><code>Integer</code></em>,
+      &quot;<a href="#cfn-docdb-dbcluster-dbclusteridentifier">DBClusterIdentifier</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-docdb-dbcluster-dbclusterparametergroupname">DBClusterParameterGroupName</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-docdb-dbcluster-dbsubnetgroupname">DBSubnetGroupName</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-docdb-dbcluster-engineversion">EngineVersion</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-docdb-dbcluster-kmskeyid">KmsKeyId</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-docdb-dbcluster-masterusername">MasterUsername</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-docdb-dbcluster-masteruserpassword">MasterUserPassword</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-docdb-dbcluster-port">Port</a>&quot; : <em class="replaceable"><code>Integer</code></em>,
+      &quot;<a href="#cfn-docdb-dbcluster-preferredbackupwindow">PreferredBackupWindow</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-docdb-dbcluster-preferredmaintenancewindow">PreferredMaintenanceWindow</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-docdb-dbcluster-snapshotidentifier">SnapshotIdentifier</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-docdb-dbcluster-storageencrypted">StorageEncrypted</a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
+      &quot;<a href="#cfn-docdb-dbcluster-tags">Tags</a>&quot; : <em class="replaceable"><code>[ <a href="aws-properties-resource-tags.html">Tag</a>, ... ]</code></em>,
+      &quot;<a href="#cfn-docdb-dbcluster-vpcsecuritygroupids">VpcSecurityGroupIds</a>&quot; : <em class="replaceable"><code>[ String, ... ]</code></em>
+    }
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-docdb-dbcluster-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Type: AWS::DocDB::DBCluster
+Properties: 
+  <a href="#cfn-docdb-dbcluster-availabilityzones">AvailabilityZones</a>: <em class="replaceable"><code>
+    - String</code></em>
+  <a href="#cfn-docdb-dbcluster-backupretentionperiod">BackupRetentionPeriod</a>: <em class="replaceable"><code>Integer</code></em>
+  <a href="#cfn-docdb-dbcluster-dbclusteridentifier">DBClusterIdentifier</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-docdb-dbcluster-dbclusterparametergroupname">DBClusterParameterGroupName</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-docdb-dbcluster-dbsubnetgroupname">DBSubnetGroupName</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-docdb-dbcluster-engineversion">EngineVersion</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-docdb-dbcluster-kmskeyid">KmsKeyId</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-docdb-dbcluster-masterusername">MasterUsername</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-docdb-dbcluster-masteruserpassword">MasterUserPassword</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-docdb-dbcluster-port">Port</a>: <em class="replaceable"><code>Integer</code></em>
+  <a href="#cfn-docdb-dbcluster-preferredbackupwindow">PreferredBackupWindow</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-docdb-dbcluster-preferredmaintenancewindow">PreferredMaintenanceWindow</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-docdb-dbcluster-snapshotidentifier">SnapshotIdentifier</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-docdb-dbcluster-storageencrypted">StorageEncrypted</a>: <em class="replaceable"><code>Boolean</code></em>
+  <a href="#cfn-docdb-dbcluster-tags">Tags</a>: <em class="replaceable"><code>
+    - <a href="aws-properties-resource-tags.html">Tag</a></code></em>
+  <a href="#cfn-docdb-dbcluster-vpcsecuritygroupids">VpcSecurityGroupIds</a>: <em class="replaceable"><code>
+    - String</code></em>
+</code></pre></div><h2 id="aws-resource-docdb-dbcluster-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
                            <dt><a id="cfn-docdb-dbcluster-availabilityzones"></a><span class="term"><code class="code">AvailabilityZones</code></span></dt>
-                           
                            <dd>
                               
-                              <p>A list of Availability Zones (AZs) in which DB instances in the cluster can be
-                                 created.
+                              <p>A list of Amazon EC2 Availability Zones that instances in the DB cluster can be
+                                 created in.
                               </p>
                               
-                              <p>
-                                 <em>Required</em>: No
+                              <p><em>Required</em>: No
                               </p>
-                              
-                              <p>
-                                 <em>Type</em>: List of String values
+                              <p><em>Type</em>: List of String
                               </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a>
-                                 
-                              </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-docdb-dbcluster-backupretentionperiod"></a><span class="term"><code class="code">BackupRetentionPeriod</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The number of days for which automatic backups are retained. For more information,
-                                 see <a href="https://docs.aws.amazon.com/amazondocdb/latest/developerguide/backup-restore.snapshots.html">Comparing Automatic and Manual Snapshots</a> in the <em>Amazon DocumentDB Developer Guide</em>.
+                              <p>The number of days for which automated backups are retained. You must specify a
+                                 minimum value of 1.
                               </p>
                               
-                              <p>
-                                 <em>Required</em>: No
-                              </p>
+                              <p>Default: 1</p>
                               
-                              <p>
-                                 <em>Type</em>: Integer
-                              </p>
+                              <p>Constraints:</p>
                               
-                              <p>
-                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
+                              <div class="itemizedlist">
                                  
-                              </p>
+                                 
+                                 <ul class="itemizedlist" type="disc">
+                                    <li class="listitem">
+                                       
+                                       <p>Must be a value from 1 to 35.</p>
+                                       
+                                    </li>
+                                 </ul>
+                              </div>
                               
+                              <p><em>Required</em>: No
+                              </p>
+                              <p><em>Type</em>: Integer
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-docdb-dbcluster-dbclusteridentifier"></a><span class="term"><code class="code">DBClusterIdentifier</code></span></dt>
-                           
                            <dd>
                               
                               <p>The DB cluster identifier. This parameter is stored as a lowercase string.</p>
                               
+                              <p>Constraints:</p>
+                              
                               <div class="itemizedlist">
                                  
-                                 <p class="title"><b>Constraints:</b></p>
+                                 
+                                 
+                                 
+                                 <ul class="itemizedlist" type="disc">
+                                    <li class="listitem">
+                                       
+                                       <p>Must contain from 1 to 63 letters, numbers, or hyphens.</p>
+                                       
+                                    </li>
+                                    <li class="listitem">
+                                       
+                                       <p>The first character must be a letter.</p>
+                                       
+                                    </li>
+                                    <li class="listitem">
+                                       
+                                       <p>Cannot end with a hyphen or contain two consecutive hyphens.</p>
+                                       
+                                    </li>
+                                 </ul>
+                              </div>
+                              
+                              <p>Example: <code class="code">my-cluster</code>
+                                 
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              <p><em>Type</em>: String
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                           </dd>
+                           <dt><a id="cfn-docdb-dbcluster-dbclusterparametergroupname"></a><span class="term"><code class="code">DBClusterParameterGroupName</code></span></dt>
+                           <dd>
+                              
+                              <p> The name of the DB cluster parameter group to associate with this DB cluster.</p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              <p><em>Type</em>: String
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                           </dd>
+                           <dt><a id="cfn-docdb-dbcluster-dbsubnetgroupname"></a><span class="term"><code class="code">DBSubnetGroupName</code></span></dt>
+                           <dd>
+                              
+                              <p>A DB subnet group to associate with this DB cluster.</p>
+                              
+                              <p>Constraints: Must match the name of an existing <code class="code">DBSubnetGroup</code>. Must not
+                                 be default.
+                              </p>
+                              
+                              <p>Example: <code class="code">mySubnetgroup</code>
+                                 
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              <p><em>Type</em>: String
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                           </dd>
+                           <dt><a id="cfn-docdb-dbcluster-engineversion"></a><span class="term"><code class="code">EngineVersion</code></span></dt>
+                           <dd>
+                              
+                              <p>The version number of the database engine to use.</p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              <p><em>Type</em>: String
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                           </dd>
+                           <dt><a id="cfn-docdb-dbcluster-kmskeyid"></a><span class="term"><code class="code">KmsKeyId</code></span></dt>
+                           <dd>
+                              
+                              <p>The AWS KMS key identifier for an encrypted DB cluster.</p>
+                              
+                              <p>The AWS KMS key identifier is the Amazon Resource Name (ARN) for the AWS KMS
+                                 encryption key. If you are creating a DB cluster using the same AWS account that owns
+                                 the AWS KMS encryption key that is used to encrypt the new DB cluster, you can use
+                                 the
+                                 AWS KMS key alias instead of the ARN for the AWS KMS encryption key.
+                              </p>
+                              
+                              <p>If an encryption key is not specified in <code class="code">KmsKeyId</code>:
+                              </p>
+                              
+                              <div class="itemizedlist">
+                                 
+                                 
+                                 
+                                 <ul class="itemizedlist" type="disc">
+                                    <li class="listitem">
+                                       
+                                       <p>If <code class="code">ReplicationSourceIdentifier</code> identifies an encrypted source,
+                                          then Amazon DocumentDB uses the encryption key that is used to encrypt the source.
+                                          Otherwise, Amazon DocumentDB uses your default encryption key. 
+                                       </p>
+                                       
+                                    </li>
+                                    <li class="listitem">
+                                       
+                                       <p>If the <code class="code">StorageEncrypted</code> parameter is <code class="code">true</code> and
+                                          <code class="code">ReplicationSourceIdentifier</code> is not specified, Amazon DocumentDB uses your
+                                          default encryption key.
+                                       </p>
+                                       
+                                    </li>
+                                 </ul>
+                              </div>
+                              
+                              <p>AWS KMS creates the default encryption key for your AWS account. Your AWS account
+                                 has
+                                 a different default encryption key for each AWS Region.
+                              </p>
+                              
+                              <p>If you create a replica of an encrypted DB cluster in another AWS Region, you must
+                                 set
+                                 <code class="code">KmsKeyId</code> to a KMS key ID that is valid in the destination AWS Region.
+                                 This key is used to encrypt the replica in that AWS Region.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              <p><em>Type</em>: String
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                           </dd>
+                           <dt><a id="cfn-docdb-dbcluster-masterusername"></a><span class="term"><code class="code">MasterUsername</code></span></dt>
+                           <dd>
+                              
+                              <p>The name of the master user for the DB cluster.</p>
+                              
+                              <p>Constraints:</p>
+                              
+                              <div class="itemizedlist">
+                                 
+                                 
+                                 
+                                 
+                                 <ul class="itemizedlist" type="disc">
+                                    <li class="listitem">
+                                       
+                                       <p>Must be from 1 to 63 letters or numbers.</p>
+                                       
+                                    </li>
+                                    <li class="listitem">
+                                       
+                                       <p>The first character must be a letter.</p>
+                                       
+                                    </li>
+                                    <li class="listitem">
+                                       
+                                       <p>Cannot be a reserved word for the chosen database engine.</p>
+                                       
+                                    </li>
+                                 </ul>
+                              </div>
+                              
+                              <p><em>Required</em>: Conditional
+                              </p>
+                              <p><em>Type</em>: String
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                           </dd>
+                           <dt><a id="cfn-docdb-dbcluster-masteruserpassword"></a><span class="term"><code class="code">MasterUserPassword</code></span></dt>
+                           <dd>
+                              
+                              <p>The password for the master database user. This password can contain any printable
+                                 ASCII character except forward slash (/), double quote (&quot;), or the &quot;at&quot; symbol
+                                 (@).
+                              </p>
+                              
+                              <p>Constraints: Must contain from 8 to 100 characters.</p>
+                              
+                              <p><em>Required</em>: Conditional
+                              </p>
+                              <p><em>Type</em>: String
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                           </dd>
+                           <dt><a id="cfn-docdb-dbcluster-port"></a><span class="term"><code class="code">Port</code></span></dt>
+                           <dd>
+                              
+                              <p>Specifies the port that the database engine is listening on.</p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              <p><em>Type</em>: Integer
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                           </dd>
+                           <dt><a id="cfn-docdb-dbcluster-preferredbackupwindow"></a><span class="term"><code class="code">PreferredBackupWindow</code></span></dt>
+                           <dd>
+                              
+                              <p>The daily time range during which automated backups are created if automated backups
+                                 are enabled using the <code class="code">BackupRetentionPeriod</code> parameter. 
+                              </p>
+                              
+                              <p>The default is a 30-minute window selected at random from an 8-hour block of time
+                                 for
+                                 each AWS Region. 
+                              </p>
+                              
+                              <p>Constraints:</p>
+                              
+                              <div class="itemizedlist">
                                  
                                  
                                  
@@ -175,439 +325,175 @@ Properties:
                                  <ul class="itemizedlist" type="disc">
                                     <li class="listitem">
                                        
-                                       <p>Length is between [1-63] letters, numbers, or hyphens</p>
-                                    </li>
-                                    <li class="listitem">
-                                       
-                                       <p>First character must be a letter</p>
-                                    </li>
-                                    <li class="listitem">
-                                       
-                                       <p>Cannot end with a hyphen or contain two consecutive hyphens</p>
-                                    </li>
-                                    <li class="listitem">
-                                       
-                                       <p>Must be unique for all clusters (across Amazon RDS, Neptune and Amazon DocumentDB)
-                                          per AWS account, per region.
+                                       <p>Must be in the format <code class="code">hh24:mi-hh24:mi</code>.
                                        </p>
+                                       
+                                    </li>
+                                    <li class="listitem">
+                                       
+                                       <p>Must be in Universal Coordinated Time (UTC).</p>
+                                       
+                                    </li>
+                                    <li class="listitem">
+                                       
+                                       <p>Must not conflict with the preferred maintenance window.</p>
+                                       
+                                    </li>
+                                    <li class="listitem">
+                                       
+                                       <p>Must be at least 30 minutes.</p>
+                                       
                                     </li>
                                  </ul>
                               </div>
                               
-                              <p>
-                                 <em>Required</em>: No
+                              <p><em>Required</em>: No
                               </p>
-                              
-                              <p>
-                                 <em>Type</em>: String
+                              <p><em>Type</em>: String
                               </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a>
-                                 
-                              </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-docdb-dbcluster-dbclusterparametergroupname"></a><span class="term"><code class="code">DBClusterParameterGroupName</code></span></dt>
-                           
+                           <dt><a id="cfn-docdb-dbcluster-preferredmaintenancewindow"></a><span class="term"><code class="code">PreferredMaintenanceWindow</code></span></dt>
                            <dd>
                               
-                              <p>The name of the DB cluster parameter group to associate with this DB cluster. </p>
-                              
-                              <div class="aws-note">
-                                 <p class="aws-note">Note</p>
-                                 <p>If this argument is omitted, <code class="code">default.docdb3.6</code> is used.
-                                 </p>
-                              </div>
-                              
-                              <p>
-                                 <em>Required</em>: No
+                              <p>The weekly time range during which system maintenance can occur, in Universal
+                                 Coordinated Time (UTC).
                               </p>
                               
-                              <p>
-                                 <em>Type</em>: String
-                              </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
+                              <p>Format: <code class="code">ddd:hh24:mi-ddd:hh24:mi</code>
                                  
                               </p>
                               
-                           </dd>
-                           
-                           
-                           <dt><a id="cfn-docdb-dbcluster-dbsubnetgroupname"></a><span class="term"><code class="code">DBSubnetGroupName</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>A DB subnet group that you want to associate with this DB cluster.</p>
-                              
-                              <p>
-                                 <em>Required</em>: No
+                              <p>The default is a 30-minute window selected at random from an 8-hour block of time
+                                 for
+                                 each AWS Region, occurring on a random day of the week.
                               </p>
                               
-                              <p>
-                                 <em>Type</em>: String
-                              </p>
+                              <p>Valid days: Mon, Tue, Wed, Thu, Fri, Sat, Sun</p>
                               
-                              <p>
-                                 <em>Update requires</em>: 
-                                 
-                                 <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a>
-                                 
-                              </p>
-                              
-                           </dd>
-                           
-                           
-                           <dt><a id="cfn-docdb-dbcluster-engineversion"></a><span class="term"><code class="code">EngineVersion</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>The version number of the database engine that you want to use.</p>
+                              <p>Constraints: Minimum 30-minute window.</p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
-                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-docdb-dbcluster-kmskeyid"></a><span class="term"><code class="code">KmsKeyId</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>The Amazon Resource Name (ARN) of the AWS Key Management Service master key that is
-                                 used to
-                                 encrypt the DB instances in the DB cluster, such as
-                                 <code class="code">arn:aws:kms:us-east-1:012345678910:key/abcd1234-a123-456a-a12b-a123b4cd56ef</code>.
-                                 If you enable the <code class="code">StorageEncrypted</code> property but don&apos;t specify this
-                                 property, the default master key is used. If you specify this property, you must
-                                 set the <code class="code">StorageEncrypted</code> property to <code class="code">true</code>.
-                              </p>
-                              
-                              <p>
-                                 <em>Required</em>: No
-                              </p>
-                              
-                              <p>
-                                 <em>Type</em>: String
-                              </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: 
-                                 
-                                 <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a>
-                                 
-                              </p>
-                              
-                           </dd>
-                           
-                           
-                           <dt><a id="cfn-docdb-dbcluster-masterusername"></a><span class="term"><code class="code">MasterUsername</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>The master user name for the DB instance.</p>
-                              
-                              <p><em>Required</em>: Conditional. You must specify this property unless you specify the
-                                 <code class="code">SnapshotIdentifier</code> property. In that case, do not specify this
-                                 property.
-                              </p>
-                              
-                              <p>
-                                 <em>Type</em>: String
-                              </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a>
-                                 
-                              </p>
-                              
-                           </dd>
-                           
-                           
-                           <dt><a id="cfn-docdb-dbcluster-masteruserpassword"></a><span class="term"><code class="code">MasterUserPassword</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>The password for the master database user.</p>
-                              
-                              <p><em>Required</em>: Conditional. You must specify this property unless you specify the
-                                 <code class="code">SnapshotIdentifier</code> property. In that case, do not specify this
-                                 property.
-                              </p>
-                              
-                              <p>
-                                 <em>Required</em>: No
-                              </p>
-                              
-                              <p>
-                                 <em>Type</em>: String
-                              </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
-                                 
-                              </p>
-                              
-                           </dd>
-                           
-                           
-                           <dt><a id="cfn-docdb-dbcluster-port"></a><span class="term"><code class="code">Port</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>The port number on which the DB instances in the cluster can accept
-                                 connections. If this argument is omitted, <code class="code">27017</code> is used.
-                              </p>
-                              
-                              <p>
-                                 <em>Required</em>: No
-                              </p>
-                              
-                              <p>
-                                 <em>Type</em>: Integer
-                              </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
-                                 
-                              </p>
-                              
-                           </dd>
-                           
-                           
-                           <dt><a id="cfn-docdb-dbcluster-preferredbackupwindow"></a><span class="term"><code class="code">PreferredBackupWindow</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>If automated backups are enabled (see the <code class="code">BackupRetentionPeriod</code>
-                                 property), the daily time range in UTC during which automated backups are
-                                 created.
-                              </p>
-                              
-                              <p>
-                                 <em>Required</em>: No
-                              </p>
-                              
-                              <p>
-                                 <em>Type</em>: String
-                              </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
-                                 
-                              </p>
-                              
-                           </dd>
-                           
-                           
-                           <dt><a id="cfn-docdb-dbcluster-preferredmaintenancewindow"></a><span class="term"><code class="code">PreferredMaintenanceWindow</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>The weekly time range (in UTC) during which system maintenance can occur.</p>
-                              
-                              <p>For valid values, see the <code class="code">PreferredMaintenanceWindow</code> parameter of
-                                 the <a href="https://docs.aws.amazon.com/amazondocdb/latest/developerguide/API_CreateDBCluster.html">CreateDBCluster</a> action in the
-                                 <em>Amazon DocumentDB Developer Guide</em>.
-                              </p>
-                              
-                              <p>
-                                 <em>Required</em>: No
-                              </p>
-                              
-                              <p>
-                                 <em>Type</em>: String
-                              </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
-                                 
-                              </p>
-                              
-                           </dd>
-                           
-                           
                            <dt><a id="cfn-docdb-dbcluster-snapshotidentifier"></a><span class="term"><code class="code">SnapshotIdentifier</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The identifier for the DB cluster snapshot from which you want to restore.</p>
+                              <p>The identifier for the DB snapshot or DB cluster snapshot to restore from.</p>
                               
-                              <p>
-                                 <em>Required</em>: No
+                              <p>You can use either the name or the Amazon Resource Name (ARN) to specify a DB cluster
+                                 snapshot. However, you can use only the ARN to specify a DB snapshot.
                               </p>
                               
-                              <p>
-                                 <em>Type</em>: String
-                              </p>
+                              <p>Constraints:</p>
                               
-                              <p>
-                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a>
+                              <div class="itemizedlist">
                                  
-                              </p>
+                                 
+                                 <ul class="itemizedlist" type="disc">
+                                    <li class="listitem">
+                                       
+                                       <p>Must match the identifier of an existing snapshot.</p>
+                                       
+                                    </li>
+                                 </ul>
+                              </div>
                               
+                              <p><em>Required</em>: No
+                              </p>
+                              <p><em>Type</em>: String
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-docdb-dbcluster-storageencrypted"></a><span class="term"><code class="code">StorageEncrypted</code></span></dt>
-                           
                            <dd>
                               
-                              <p>Indicates whether the DB instances in the cluster are encrypted.</p>
+                              <p>Specifies whether the DB cluster is encrypted.</p>
                               
-                              <p><em>Required</em>: Conditional. If you specify the <code class="code">KmsKeyId</code> property, you
-                                 must enable encryption.
+                              <p><em>Required</em>: Conditional
                               </p>
-                              
-                              <p>
-                                 <em>Type</em>: Boolean
+                              <p><em>Type</em>: Boolean
                               </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a>
-                                 
-                              </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-docdb-dbcluster-tags"></a><span class="term"><code class="code">Tags</code></span></dt>
-                           
                            <dd>
                               
-                              <p>A list of up to 50 tags. A tag is metadata assigned to an Amazon DocumentDB resource
-                                 consisting of a key-value pair.
-                              </p>
+                              <p>The tags to be assigned to the DB cluster.</p>
                               
-                              <p>
-                                 <em>Required</em>: No
+                              <p><em>Required</em>: No
                               </p>
-                              
-                              <p>
-                                 <em>Type</em>: List of <a href="aws-properties-resource-tags.html">Resource Tag</a> property types
-                              </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
-                                 
-                              </p>
-                              
+                              <p><em>Type</em>: List of <a href="aws-properties-resource-tags.html">Tag</a></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-docdb-dbcluster-vpcsecuritygroupids"></a><span class="term"><code class="code">VpcSecurityGroupIds</code></span></dt>
-                           
                            <dd>
                               
-                              <p>A list of VPC security groups to associate with this DB cluster.</p>
+                              <p>A list of EC2 VPC security groups to associate with this DB cluster.</p>
                               
-                              <p>
-                                 <em>Required</em>: No
+                              <p><em>Required</em>: No
                               </p>
-                              
-                              <p>
-                                 <em>Type</em>: List of String values
+                              <p><em>Type</em>: List of String
                               </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
-                                 
-                              </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
                         </dl>
-                     </div><h2 id="aws-resource-docdb-dbcluster-returnvalues">Return Values</h2><h3 id="aws-resource-docdb-dbcluster-ref">Ref</h3><p>When you pass the logical ID of an <code class="code">AWS::DocDB::DBCluster</code> resource to the intrinsic 
-                        <code class="code">Ref</code> function, the function returns the
-                        DB cluster identifier, such as <code class="code">MyCluster</code>.
-                        
-                     </p><p>For more information about using the <code class="code">Ref</code> function, see 
-                        <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                        
-                     </p><h3 id="aws-resource-docdb-dbcluster-getatt">Fn::GetAtt</h3><p><code class="code">Fn::GetAtt</code> returns a value for a specified attribute of this type. The
-                        following are the available attributes and sample return values.
-                     </p><div class="variablelist">
-                        
-                        
-                        
-                        
-                        
+                     </div><h2 id="aws-resource-docdb-dbcluster-return-values">Return Values</h2><h3 id="aws-resource-docdb-dbcluster-return-values-ref">Ref</h3><p>
+                        When you pass the logical ID of this resource to the intrinsic <code class="code">Ref</code> function, <code class="code">Ref</code> returns the DBClusterIdentifier, such as <code class="code">mycluster</code>.
+                     </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
+                     </p><h3 id="aws-resource-docdb-dbcluster-return-values-fn--getatt">Fn::GetAtt</h3><p>The <code class="code">Fn::GetAtt</code> intrinsic function returns a value for a specified attribute of this type. The following
+                        are the available attributes and sample return values.
+                     </p><p>For more information about using the <code class="code">Fn::GetAtt</code> intrinsic function, see <a href="intrinsic-function-reference-getatt.html">Fn::GetAtt</a>.
+                     </p><h4 id="aws-resource-docdb-dbcluster-return-values-fn--getatt-fn--getatt"></h4><div class="variablelist">
                         <dl>
-                           
-                           <dt><span class="term"><code class="code">ClusterResourceId</code></span></dt>
-                           
+                           <dt><a id="ClusterResourceId-fn::getatt"></a><span class="term"><code class="code">ClusterResourceId</code></span></dt>
                            <dd>
                               
                               <p>The resource id for the DB cluster; for example: <code class="code">cluster-ABCD1234EFGH5678IJKL90MNOP</code>. 
                                  The cluster ID uniquely identifies the cluster and is used in things like IAM authentication
-                                 policies.
+                                 policies. 
                               </p>
                               
                            </dd>
-                           
-                           
-                           <dt><span class="term"><code class="code">Endpoint</code></span></dt>
-                           
+                           <dt><a id="Endpoint-fn::getatt"></a><span class="term"><code class="code">Endpoint</code></span></dt>
                            <dd>
                               
                               <p>The connection endpoint for the DB cluster, such as 
-                                 <code class="code">&quot;sample-cluster.cluster-cozrlsfrcjoc.us-east-1.docdb.amazonaws.com</code>.
+                                 <code class="code">sample-cluster.cluster-cozrlsfrcjoc.us-east-1.docdb.amazonaws.com</code>.
                               </p>
                               
                            </dd>
-                           
-                           
-                           <dt><span class="term"><code class="code">Port</code></span></dt>
-                           
+                           <dt><a id="Port-fn::getatt"></a><span class="term"><code class="code">Port</code></span></dt>
                            <dd>
                               
                               <p>The port number on which the DB cluster accepts connections. For example: <code class="code">27017</code>.
                               </p>
                               
                            </dd>
-                           
-                           
-                           <dt><span class="term"><code class="code">ReadEndpoint</code></span></dt>
-                           
+                           <dt><a id="ReadEndpoint-fn::getatt"></a><span class="term"><code class="code">ReadEndpoint</code></span></dt>
                            <dd>
                               
-                              <p>The reader endpoint for the DB cluster. For example:  
-                                 <code class="code">sample-cluster.cluster-ro-cozrlsfrcjoc.us-east-1.docdb.amazonaws.com</code>.
-                                 
-                                 
+                              <p>The reader endpoint for the DB cluster. For example: <code class="code">sample-cluster.cluster-ro-cozrlsfrcjoc.us-east-1.docdb.amazonaws.com</code>.
                               </p>
                               
                            </dd>
-                           
                         </dl>
-                     </div><p>For more information about using <code class="code">Fn::GetAtt</code>, see 
-                        <a href="intrinsic-function-reference-getatt.html">Fn::GetAtt</a>.
-                        
-                     </p><h2 id="aws-resource-docdb-dbcluster-examples">Examples</h2><div id="JSON" name="JSON" class="section langfilter">
-                        
-                        <h3 id="aws-resource-docdb-dbcluster-example1.json">JSON</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+                     </div><h2 id="aws-resource-docdb-dbcluster--examples">Examples</h2><h3 id="aws-resource-docdb-dbcluster--examples--"></h3><h4 id="aws-resource-docdb-dbcluster--examples----json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
    &quot;AWSTemplateFormatVersion&quot; : &quot;2010-09-09&quot;,
    &quot;Resources&quot; : {
       &quot;myDBInstance&quot; : {
          &quot;Type&quot; : &quot;AWS::DocDB::DBCluster&quot;,
          &quot;Properties&quot; : {
             &quot;BackupRetentionPeriod&quot; : 8,
-            &quot;DBClusterIdentufier&quot; : &quot;sample-cluster&quot;,
+            &quot;DBClusterIdentifier&quot; : &quot;sample-cluster&quot;,
             &quot;DBClusterParameterGroupName&quot; : &quot;default.docdb3.6&quot;,
             &quot;DBSubnetGroupName&quot; : &quot;default&quot;,
-            &quot;KMSKeyId&quot; : &quot;<em class="replaceable"><code>your-kms-key-id</code></em>&quot;,
-            &quot;MasterUsername&quot; : &quot;<em class="replaceable"><code>your-master-username</code></em>&quot;,
-            &quot;MasterUserPassword&quot; : &quot;<em class="replaceable"><code>your-master-user-password</code></em>&quot;,
+            &quot;KmsKeyId&quot; : &quot;your-kms-key-id&quot;,
+            &quot;MasterUsername&quot; : &quot;your-master-username&quot;,
+            &quot;MasterUserPassword&quot; : &quot;your-master-user-password&quot;,
             &quot;Port&quot; : &quot;27017&quot;,
             &quot;PreferredBackupWindow&quot; : &quot;07:34-08:04&quot;,
             &quot;PreferredMaintenanceWindow&quot; : &quot;sat:04:51-sat:05:21&quot;,
@@ -616,34 +502,28 @@ Properties:
             &quot;Tags&quot; : [ {&quot;Key&quot; : &quot;String&quot;, &quot;Value&quot; : &quot;String&quot;} ]
          }
       }
-   }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        
-                        <h3 id="aws-resource-docdb-dbcluster-example1.yaml">YAML</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">AWSTemplateFormatVersion: &quot;2010-09-09&quot;
+   }  
+}</code></pre><h4 id="aws-resource-docdb-dbcluster--examples----yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">AWSTemplateFormatVersion: &quot;2010-09-09&quot;
 Resources: 
-  myDBInstance: 
-    Type: &quot;AWS::DocDB::DBCluster&quot;
-    Properties: 
-      BackupRetentionPeriod : 8
-      DBClusterIdentufier : &quot;sample-cluster&quot;
-      DBClusterParameterGroupName : &quot;default.docdb3.6&quot;
-      DBSubnetGroupName : &quot;default&quot;
-      KMSKeyId : &quot;<em class="replaceable"><code>your-kms-key-id</code></em>&quot;
-      MasterUsername : &quot;<em class="replaceable"><code>your-master-username</code></em>&quot;
-      MasterUserPassword : &quot;<em class="replaceable"><code>your-master-user-password</code></em>&quot;
-      Port : &quot;27017&quot;
-      PreferredBackupWindow : &quot;07:34-08:04&quot;
-      PreferredMaintenanceWindow : &quot;sat:04:51-sat:05:21&quot;
-      SnapshotIdentifier : &quot;sample-cluster-snapshot-id&quot;
-      StorageEncrypted : true
-      Tags: 
-        - 
-          Key: &quot;String&quot;
-          Value: &quot;String&quot;</code></pre>
-                        </div><h2 id="aws-resource-docdb-dbcluster-seealso">See Also</h2><p>For more information, see the following topics in the <em>Amazon DocumentDB Developer Guide</em>.
-                     </p><div class="itemizedlist">
+   myDBInstance: 
+      Type: &quot;AWS::DocDB::DBCluster&quot;
+      Properties: 
+         BackupRetentionPeriod : 8
+         DBClusterIdentifier : &quot;sample-cluster&quot;
+         DBClusterParameterGroupName : &quot;default.docdb3.6&quot;
+         DBSubnetGroupName : &quot;default&quot;
+         KmsKeyId : &quot;your-kms-key-id&quot;
+         MasterUsername : &quot;your-master-username&quot;
+         MasterUserPassword : &quot;your-master-user-password&quot;
+         Port : &quot;27017&quot;
+         PreferredBackupWindow : &quot;07:34-08:04&quot;
+         PreferredMaintenanceWindow : &quot;sat:04:51-sat:05:21&quot;
+         SnapshotIdentifier : &quot;sample-cluster-snapshot-id&quot;
+         StorageEncrypted : true
+         Tags: 
+            - 
+               Key: &quot;String&quot;
+               Value: &quot;String&quot;</code></pre><h2 id="aws-resource-docdb-dbcluster--seealso">See Also</h2><div class="itemizedlist">
                         
                         
                         
@@ -652,21 +532,48 @@ Resources:
                         
                         <ul class="itemizedlist" type="disc">
                            <li class="listitem">
-                              <p><a href="https://docs.aws.amazon.com/amazondocdb/latest/developerguide/API_DBCluster.html">DBCluster</a></p>
+                              
+                              <p>
+                                 <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DBCluster.html">DBCluster</a>
+                                 
+                              </p>
+                              
                            </li>
                            <li class="listitem">
-                              <p><a href="https://docs.aws.amazon.com/amazondocdb/latest/developerguide/API_CreateDBCluster.html">CreateDBCluster</a></p>
+                              
+                              <p>
+                                 <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBCluster.html">CreateDBCluster</a>
+                                 
+                              </p>
+                              
                            </li>
                            <li class="listitem">
-                              <p><a href="https://docs.aws.amazon.com/amazondocdb/latest/developerguide/API_DeleteDBCluster.html">DeleteDBCluster</a></p>
+                              
+                              <p>
+                                 <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DeleteDBCluster.html">DeleteDBCluster</a>
+                                 
+                              </p>
+                              
                            </li>
                            <li class="listitem">
-                              <p><a href="https://docs.aws.amazon.com/amazondocdb/latest/developerguide/API_DescribeDBClusters.html">DescribeDBClusters</a></p>
+                              
+                              <p>
+                                 <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DescribeDBClusters.html">DescribeDBClusters</a>
+                                 
+                              </p>
+                              
                            </li>
                            <li class="listitem">
-                              <p><a href="https://docs.aws.amazon.com/amazondocdb/latest/developerguide/API_ModifyDBCluster.html">ModifyDBCluster</a></p>
+                              
+                              <p>
+                                 <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/API_ModifyDBCluster.html">ModifyDBCluster</a>
+                                 
+                              </p>
+                              
                            </li>
                         </ul>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
                      </div></div>
 </body>
 </html>

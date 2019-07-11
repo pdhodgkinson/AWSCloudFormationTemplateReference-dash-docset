@@ -8,253 +8,197 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-resource-eks-cluster">AWS::EKS::Cluster</h1><p>The <code class="code">AWS::EKS::Cluster</code> resource creates an Amazon EKS cluster control plane. The
-                        Amazon EKS cluster control plane consists of control plane instances that run the
-                        Kubernetes
-                        software, like <code class="code">etcd</code> and the Kubernetes API server. The control plane runs in an
-                        account managed by AWS, and the Kubernetes API is exposed via the Amazon EKS endpoint
-                        associated with
-                        your cluster. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/clusters.html">Clusters</a> in the
-                        <em>Amazon EKS User Guide</em>.
+    <h1 class="topictitle" id="aws-resource-eks-cluster">AWS::EKS::Cluster</h1><p>Creates an Amazon EKS control plane. </p><p>The Amazon EKS control plane consists of control plane instances that run the Kubernetes
+                        software, such as <code class="code">etcd</code> and the API server. The control plane runs in an
+                        account managed by AWS, and the Kubernetes API is exposed via the Amazon EKS API server
+                        endpoint. Each Amazon EKS cluster control plane is single-tenant and unique and runs
+                        on its
+                        own set of Amazon EC2 instances.
+                     </p><p>The cluster control plane is provisioned across multiple Availability Zones and fronted
+                        by an Elastic Load Balancing Network Load Balancer. Amazon EKS also provisions elastic
+                        network interfaces in your VPC subnets to
+                        provide connectivity from the control plane instances to the worker nodes (for example,
+                        to
+                        support <code class="code">kubectl exec</code>, <code class="code">logs</code>, and <code class="code">proxy</code> data
+                        flows).
+                     </p><p>Amazon EKS worker nodes run in your AWS account and connect to your cluster&apos;s control
+                        plane
+                        via the Kubernetes API server endpoint and a certificate file that is created for
+                        your
+                        cluster.
+                     </p><p>Cluster creation typically takes between 10 and 15 minutes. After you create an Amazon
+                        EKS cluster, you must configure your Kubernetes tooling to
+                        communicate with the API server and launch worker nodes into your cluster. For more
+                        information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/managing-auth.html">Managing Cluster Authentication</a> and <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-workers.html">Launching Amazon EKS
+                           Worker Nodes</a> in the <em>Amazon EKS User Guide</em>.
                      </p><h2 id="aws-resource-eks-cluster-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
-                        
-                        <h3 id="aws-resource-eks-cluster-syntax.json">JSON</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
+                        <h3 id="aws-resource-eks-cluster-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
   &quot;Type&quot; : &quot;AWS::EKS::Cluster&quot;,
   &quot;Properties&quot; : {
-    &quot;<a href="aws-resource-eks-cluster.html#cfn-eks-cluster-name">Name</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-eks-cluster.html#cfn-eks-cluster-resourcesvpcconfig">ResourcesVpcConfig</a>&quot; : <em class="replaceable"><code><a href="aws-properties-eks-cluster-resourcesvpcconfig.html">EKS Cluster ResourcesVpcConfig</a></code></em>,
-    &quot;<a href="aws-resource-eks-cluster.html#cfn-eks-cluster-rolearn">RoleArn</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-eks-cluster.html#cfn-eks-cluster-version">Version</a>&quot; : <em class="replaceable"><code>String</code></em>
-  }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        
-                        <h3 id="aws-resource-eks-cluster-syntax.yaml">YAML</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">Type: &quot;AWS::EKS::Cluster&quot;
-Properties:
-  <a href="aws-resource-eks-cluster.html#cfn-eks-cluster-name">Name</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-eks-cluster.html#cfn-eks-cluster-resourcesvpcconfig">ResourcesVpcConfig</a>: <em class="replaceable"><code><a href="aws-properties-eks-cluster-resourcesvpcconfig.html">EKS Cluster ResourcesVpcConfig</a></code></em>
-  <a href="aws-resource-eks-cluster.html#cfn-eks-cluster-rolearn">RoleArn</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-eks-cluster.html#cfn-eks-cluster-version">Version</a>: <em class="replaceable"><code>String</code></em></code></pre>
-                        </div><h2 id="aws-resource-eks-cluster-properties">Properties</h2><div class="variablelist">
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
+      &quot;<a href="#cfn-eks-cluster-name">Name</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-eks-cluster-resourcesvpcconfig">ResourcesVpcConfig</a>&quot; : <em class="replaceable"><code><a href="aws-properties-eks-cluster-resourcesvpcconfig.html">ResourcesVpcConfig</a></code></em>,
+      &quot;<a href="#cfn-eks-cluster-rolearn">RoleArn</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-eks-cluster-version">Version</a>&quot; : <em class="replaceable"><code>String</code></em>
+    }
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-eks-cluster-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Type: AWS::EKS::Cluster
+Properties: 
+  <a href="#cfn-eks-cluster-name">Name</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-eks-cluster-resourcesvpcconfig">ResourcesVpcConfig</a>: <em class="replaceable"><code>
+    <a href="aws-properties-eks-cluster-resourcesvpcconfig.html">ResourcesVpcConfig</a></code></em>
+  <a href="#cfn-eks-cluster-rolearn">RoleArn</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-eks-cluster-version">Version</a>: <em class="replaceable"><code>String</code></em>
+</code></pre></div><h2 id="aws-resource-eks-cluster-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
                            <dt><a id="cfn-eks-cluster-name"></a><span class="term"><code class="code">Name</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The name of the cluster.</p>
+                              <p>The unique name to give to your cluster.</p>
                               
-                              <p>
-                                 <em>Required</em>: No
+                              <p><em>Required</em>: No
                               </p>
-                              
-                              <p>
-                                 <em>Type</em>: String
+                              <p><em>Type</em>: String
                               </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: 
-                                 <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a>
-                                 
-                              </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-eks-cluster-resourcesvpcconfig"></a><span class="term"><code class="code">ResourcesVpcConfig</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The VPC subnets and security groups used by the cluster control plane. Amazon EKS
-                                 VPC resources have specific
-                                 requirements to work properly with Kubernetes. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html">Cluster VPC
+                              <p>The VPC configuration used by the cluster control plane. Amazon EKS VPC resources
+                                 have
+                                 specific requirements to work properly with Kubernetes. For more information, see
+                                 <a href="https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html">Cluster VPC
                                     Considerations</a> and <a href="https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html">Cluster Security Group Considerations</a> in the
-                                 <em>Amazon EKS User Guide</em>.
+                                 <em>Amazon EKS User Guide</em>. You must specify at least two subnets. You can specify up to five
+                                 security groups, but we recommend that you use a dedicated security group for your
+                                 cluster control plane.
                               </p>
                               
-                              <p>
-                                 <em>Required</em>: Yes
+                              <p><em>Required</em>: Yes
                               </p>
-                              
-                              <p>
-                                 <em>Type</em>: <a href="aws-properties-eks-cluster-resourcesvpcconfig.html">EKS Cluster ResourcesVpcConfig</a></p>
-                              
-                              <p>
-                                 <em>Update requires</em>:   
-                                 <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a>
-                                 
-                              </p>
-                              
+                              <p><em>Type</em>: <a href="aws-properties-eks-cluster-resourcesvpcconfig.html">ResourcesVpcConfig</a></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-eks-cluster-rolearn"></a><span class="term"><code class="code">RoleArn</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The Amazon Resource Name (ARN) of the IAM role that provides permissions for
-                                 the Kubernetes control plane to make calls to AWS API operations on your
-                                 behalf.
+                              <p>The Amazon Resource Name (ARN) of the IAM role that provides permissions for Amazon
+                                 EKS to make calls
+                                 to other AWS API operations on your behalf. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/service_IAM_role.html">Amazon EKS Service
+                                    IAM Role</a> in the <em>
+                                    <em>Amazon EKS User Guide</em>
+                                    </em>.
                               </p>
                               
-                              <p>
-                                 <em>Required</em>: Yes
+                              <p><em>Required</em>: Yes
                               </p>
-                              
-                              <p>
-                                 <em>Type</em>: String
+                              <p><em>Type</em>: String
                               </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: 
-                                 <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a>
-                                 
-                              </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-eks-cluster-version"></a><span class="term"><code class="code">Version</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The Kubernetes server version for the cluster.</p>
-                              
-                              <p>
-                                 <em>Required</em>: No
+                              <p>The desired Kubernetes version for your cluster. If you don&apos;t specify a value
+                                 here, the latest version available in Amazon EKS is used.
                               </p>
                               
-                              <p>
-                                 <em>Type</em>: String
+                              <p><em>Required</em>: No
                               </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: 
-                                 <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a>
-                                 
+                              <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
                         </dl>
-                     </div><h2 id="aws-resource-eks-cluster-returnvalues">Return Values</h2><h3 id="aws-resource-eks-cluster-ref">Ref</h3><p>When you pass the logical ID of an <code class="code">AWS::EKS::Cluster</code> resource to the
-                        intrinsic <code class="code">Ref</code> function, the function returns the name of the cluster, such as
-                        <code class="code">EKSCluster-NT5EUXTNTXXD</code>. 
-                     </p><p>For more information about using the 
-                        <code class="code">Ref</code> function, see 
-                        <a href="intrinsic-function-reference-ref.html">Ref</a>.
+                     </div><h2 id="aws-resource-eks-cluster-return-values">Return Values</h2><h3 id="aws-resource-eks-cluster-return-values-ref">Ref</h3><p>
+                        When you pass the logical ID of this resource to the intrinsic <code class="code">Ref</code> function, <code class="code">Ref</code> returns the resource name. For example:
+                     </p><p>
+                        <code class="code">{ &quot;Ref&quot;: &quot;myCluster&quot; }</code>
                         
-                     </p><h3 id="aws-resource-eks-cluster-getatt">Fn::GetAtt</h3><p>
-                        <code class="code">Fn::GetAtt</code> returns a value for a specified attribute of this type.
-                        The following are the available attributes and sample return values.
-                        
-                     </p><div class="variablelist">
-                        
-                        
-                        
-                        
+                     </p><p>For the Amazon EKS cluster <code class="code">myCluster</code>, <code class="code">Ref</code> returns the
+                        name of the cluster.
+                     </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
+                     </p><h3 id="aws-resource-eks-cluster-return-values-fn--getatt">Fn::GetAtt</h3><p>The <code class="code">Fn::GetAtt</code> intrinsic function returns a value for a specified attribute of this type. The following
+                        are the available attributes and sample return values.
+                     </p><p>For more information about using the <code class="code">Fn::GetAtt</code> intrinsic function, see <a href="intrinsic-function-reference-getatt.html">Fn::GetAtt</a>.
+                     </p><h4 id="aws-resource-eks-cluster-return-values-fn--getatt-fn--getatt"></h4><div class="variablelist">
                         <dl>
-                           
-                           <dt><span class="term"><code class="code">Arn</code></span></dt>
-                           
+                           <dt><a id="Arn-fn::getatt"></a><span class="term"><code class="code">Arn</code></span></dt>
                            <dd>
                               
                               <p>The ARN of the cluster, such as
-                                 <code class="code">arn:aws:eks:us-west-2:666666666666:cluster/prod</code>. 
+                                 <code class="code">arn:aws:eks:us-west-2:666666666666:cluster/prod</code>.
                               </p>
                               
                            </dd>
-                           
-                           
-                           <dt><span class="term"><code class="code">CertificateAuthorityData</code></span></dt>
-                           
+                           <dt><a id="CertificateAuthorityData-fn::getatt"></a><span class="term"><code class="code">CertificateAuthorityData</code></span></dt>
                            <dd>
                               
-                              <p>The <code class="code">certificate-authority-data</code> for your cluster. 
+                              <p>The <code class="code">certificate-authority-data</code> for your cluster.
                               </p>
                               
                            </dd>
-                           
-                           
-                           <dt><span class="term"><code class="code">Endpoint</code></span></dt>
-                           
+                           <dt><a id="Endpoint-fn::getatt"></a><span class="term"><code class="code">Endpoint</code></span></dt>
                            <dd>
                               
-                              <p>The endpoint for your Kubernetes API server, such as <code class="code">https://5E1D0CEXAMPLEA591B746AFC5AB30262.yl4.us-west-2.eks.amazonaws.com</code>
-                                 
+                              <p>The endpoint for your Kubernetes API server, such as
+                                 <code class="code">https://5E1D0CEXAMPLEA591B746AFC5AB30262.yl4.us-west-2.eks.amazonaws.com</code>.
                               </p>
                               
                            </dd>
-                           
                         </dl>
-                     </div><p>For more information about using 
-                        <code class="code">Fn::GetAtt</code>, see 
-                        <a href="intrinsic-function-reference-getatt.html">Fn::GetAtt</a>.
-                        
-                     </p><h2 id="aws-resource-eks-cluster-examples">Examples</h2><h3 id="aws-resource-eks-cluster-example1">Create a Cluster</h3><p>The following example creates an Amazon EKS cluster called <code class="code">prod</code>.
-                     </p><div id="JSON" name="JSON" class="section langfilter">
-                        
-                        <h4 id="aws-resource-eks-cluster-example1.json">JSON</h4>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">{
+                     </div><h2 id="aws-resource-eks-cluster--examples">Examples</h2><h3 id="aws-resource-eks-cluster--examples--Create_a_Cluster">Create a Cluster</h3><p>The following example creates an Amazon EKS cluster called prod.</p><h4 id="aws-resource-eks-cluster--examples--Create_a_Cluster--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
   &quot;Type&quot;: &quot;AWS::EKS::Cluster&quot;,
   &quot;Properties&quot;: {
     &quot;Name&quot;: &quot;prod&quot;,
-    &quot;Version&quot;: &quot;1.10&quot;,
-    &quot;RoleArn&quot;: &quot;arn:aws:iam::012345678910:role/eks-service-role-AWSServiceRoleForAmazonEKS-EXAMPLEBQ4PI&quot;,
+    &quot;Version&quot;: &quot;1.11&quot;,
+    &quot;RoleArn&quot;: &quot;arn:aws:iam::<em>012345678910</em>:role/<em>eks-service-role-AWSServiceRoleForAmazonEKS-EXAMPLEBQ4PI</em>&quot;,
     &quot;ResourcesVpcConfig&quot;: {
       &quot;SecurityGroupIds&quot;: [
-        &quot;sg-6979fe18&quot;
+        &quot;sg-<em>6979fe18</em>&quot;
       ],
       &quot;SubnetIds&quot;: [
-        &quot;subnet-6782e71e&quot;,
-        &quot;subnet-e7e761ac&quot;
+        &quot;subnet-<em>6782e71e</em>&quot;,
+        &quot;subnet-<em>e7e761ac</em>&quot;
       ]
     }
   }
-}
-</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        
-                        <h4 id="aws-resource-eks-cluster-example1.yaml">YAML</h4>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">Type: &quot;AWS::EKS::Cluster&quot;
+}</code></pre><h4 id="aws-resource-eks-cluster--examples--Create_a_Cluster--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Type: AWS::EKS::Cluster
 Properties:
-  Name: &quot;prod&quot;
-  Version: &quot;1.10&quot;
-  RoleArn: &quot;arn:aws:iam::012345678910:role/eks-service-role-AWSServiceRoleForAmazonEKS-EXAMPLEBQ4PI&quot;
+  Name: prod
+  Version: &apos;1.11&apos;
+  RoleArn: arn:aws:iam::<em>012345678910</em>:role/<em>eks-service-role-AWSServiceRoleForAmazonEKS-EXAMPLEBQ4PI</em>
   ResourcesVpcConfig:
-    SecurityGroupIds: [&quot;sg-6979fe18&quot;]
-    SubnetIds: [&quot;subnet-6782e71e&quot;, &quot;subnet-e7e761ac&quot;]</code></pre>
-                        </div><h2 id="aws-resource-eks-cluster-seealso">See Also</h2><div class="itemizedlist">
+    SecurityGroupIds:
+    - sg-<em>6979fe18</em>
+    SubnetIds:
+    - subnet-<em>6782e71e</em>
+    - subnet-<em>e7e761ac</em>
+         </code></pre><h2 id="aws-resource-eks-cluster--seealso">See Also</h2><div class="itemizedlist">
                         
                         
                         
                         <ul class="itemizedlist" type="disc">
                            <li class="listitem">
                               
-                              <p><a href="https://docs.aws.amazon.com/eks/latest/userguide/clusters.html">Clusters</a> in
-                                 the <em>Amazon EKS User Guide</em>.
+                              <p>
+                                 <a href="https://docs.aws.amazon.com/eks/latest/userguide/clusters.html">Clusters</a> in the <em>Amazon EKS User Guide
+                                    </em>.
                               </p>
                               
                            </li>
                            <li class="listitem">
                               
-                              <p><a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_CreateCluster.html">CreateCluster</a> in the <em>Amazon EKS API
-                                    Reference</em>.
+                              <p>
+                                 <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_CreateCluster.html">CreateCluster</a> in the <em>Amazon EKS API Reference
+                                    </em>.
                               </p>
+                              
                            </li>
                         </ul>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
                      </div></div>
 </body>
 </html>

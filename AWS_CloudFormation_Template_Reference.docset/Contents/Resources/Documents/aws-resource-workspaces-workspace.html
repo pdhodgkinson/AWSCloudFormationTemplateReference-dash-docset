@@ -8,259 +8,156 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-resource-workspaces-workspace">AWS::WorkSpaces::Workspace</h1><p>The <code class="code">AWS::WorkSpaces::Workspace</code> resource creates an Amazon WorkSpaces workspace, which is a
-                        cloud-based desktop experience for end users. Before creating a Workspace
-                        in CloudFormation, you must register a Directory Service directory with
-                        Workspaces. This process is documented at <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/register-deregister-directory.html">Register a Directory with Amazon WorkSpaces</a>. For more information, see the <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/"><em>Amazon WorkSpaces Administration Guide</em></a>. 
-                        
-                     </p><div class="highlights">
-                        <p><strong>Topics</strong></p>
-                        <ul>
-                           <li><a href="#aws-resource-workspaces-workspace-syntax">Syntax</a></li>
-                           <li><a href="#w2ab1c21c10d240c13b9">Properties</a></li>
-                           <li><a href="#w2ab1c21c10d240c13c11">Return Values</a></li>
-                           <li><a href="#w2ab1c21c10d240c13c13">Example</a></li>
-                           <li><a href="aws-properties-workspaces-workspace-workspaceproperties.html">Amazon WorkSpaces Workspace WorkspaceProperties</a></li>
-                        </ul>
-                     </div><h2 id="aws-resource-workspaces-workspace-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-resource-workspaces-workspace-syntax.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
+    <h1 class="topictitle" id="aws-resource-workspaces-workspace">AWS::WorkSpaces::Workspace</h1><p>Specifies a WorkSpace.</p><p>Updates are not supported for the <code class="code">BundleId</code>, <code class="code">RootVolumeEncryptionEnabled</code>, 
+                        <code class="code">UserVolumeEncryptionEnabled</code>, or <code class="code">VolumeEncryptionKey</code> properties. To update 
+                        these properties, you must also update a property that triggers a replacement, such
+                        as the 
+                        <code class="code">UserName</code> property.
+                     </p><h2 id="aws-resource-workspaces-workspace-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-resource-workspaces-workspace-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
   &quot;Type&quot; : &quot;AWS::WorkSpaces::Workspace&quot;,
   &quot;Properties&quot; : {
-    &quot;<a href="aws-resource-workspaces-workspace.html#cfn-workspaces-workspace-bundleid">BundleId</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-workspaces-workspace.html#cfn-workspaces-workspace-directoryid">DirectoryId</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-workspaces-workspace.html#cfn-workspaces-workspace-rootvolumeencryptionenabled">RootVolumeEncryptionEnabled</a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
-    &quot;<a href="aws-resource-workspaces-workspace.html#cfn-workspaces-workspace-tags">Tags</a>&quot; : [ <a href="aws-properties-resource-tags.html">Tag</a>, ... ],
-    &quot;<a href="aws-resource-workspaces-workspace.html#cfn-workspaces-workspace-username">UserName</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-workspaces-workspace.html#cfn-workspaces-workspace-uservolumeencryptionenabled">UserVolumeEncryptionEnabled</a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
-    &quot;<a href="aws-resource-workspaces-workspace.html#cfn-workspaces-workspace-volumeencryptionkey">VolumeEncryptionKey</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-workspaces-workspace.html#cfn-workspaces-workspace-workspaceproperties">WorkspaceProperties</a>&quot; : <a href="aws-properties-workspaces-workspace-workspaceproperties.html">WorkspaceProperties</a>
-  }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-resource-workspaces-workspace-syntax.yaml">YAML</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">Type: &quot;AWS::WorkSpaces::Workspace&quot;
+      &quot;<a href="#cfn-workspaces-workspace-bundleid">BundleId</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-workspaces-workspace-directoryid">DirectoryId</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-workspaces-workspace-rootvolumeencryptionenabled">RootVolumeEncryptionEnabled</a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
+      &quot;<a href="#cfn-workspaces-workspace-tags">Tags</a>&quot; : <em class="replaceable"><code>[ <a href="aws-properties-resource-tags.html">Tag</a>, ... ]</code></em>,
+      &quot;<a href="#cfn-workspaces-workspace-username">UserName</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-workspaces-workspace-uservolumeencryptionenabled">UserVolumeEncryptionEnabled</a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
+      &quot;<a href="#cfn-workspaces-workspace-volumeencryptionkey">VolumeEncryptionKey</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-workspaces-workspace-workspaceproperties">WorkspaceProperties</a>&quot; : <em class="replaceable"><code><a href="aws-properties-workspaces-workspace-workspaceproperties.html">WorkspaceProperties</a></code></em>
+    }
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-workspaces-workspace-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Type: AWS::WorkSpaces::Workspace
 Properties: 
-  <a href="aws-resource-workspaces-workspace.html#cfn-workspaces-workspace-bundleid">BundleId</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-workspaces-workspace.html#cfn-workspaces-workspace-directoryid">DirectoryId</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-workspaces-workspace.html#cfn-workspaces-workspace-rootvolumeencryptionenabled">RootVolumeEncryptionEnabled</a>: <em class="replaceable"><code>Boolean</code></em>
-  <a href="aws-resource-workspaces-workspace.html#cfn-workspaces-workspace-tags">Tags</a>:
-    - <a href="aws-properties-resource-tags.html">Tag</a>
-  <a href="aws-resource-workspaces-workspace.html#cfn-workspaces-workspace-username">UserName</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-workspaces-workspace.html#cfn-workspaces-workspace-uservolumeencryptionenabled">UserVolumeEncryptionEnabled</a>: <em class="replaceable"><code>Boolean</code></em>
-  <a href="aws-resource-workspaces-workspace.html#cfn-workspaces-workspace-volumeencryptionkey">VolumeEncryptionKey</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-workspaces-workspace.html#cfn-workspaces-workspace-workspaceproperties">WorkspaceProperties</a>: 
-    <a href="aws-properties-workspaces-workspace-workspaceproperties.html">WorkspaceProperties</a></code></pre>
-                        </div><h2 id="w2ab1c21c10d240c13b9">Properties</h2><div class="variablelist">
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
+  <a href="#cfn-workspaces-workspace-bundleid">BundleId</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-workspaces-workspace-directoryid">DirectoryId</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-workspaces-workspace-rootvolumeencryptionenabled">RootVolumeEncryptionEnabled</a>: <em class="replaceable"><code>Boolean</code></em>
+  <a href="#cfn-workspaces-workspace-tags">Tags</a>: <em class="replaceable"><code>
+    - <a href="aws-properties-resource-tags.html">Tag</a></code></em>
+  <a href="#cfn-workspaces-workspace-username">UserName</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-workspaces-workspace-uservolumeencryptionenabled">UserVolumeEncryptionEnabled</a>: <em class="replaceable"><code>Boolean</code></em>
+  <a href="#cfn-workspaces-workspace-volumeencryptionkey">VolumeEncryptionKey</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-workspaces-workspace-workspaceproperties">WorkspaceProperties</a>: <em class="replaceable"><code>
+    <a href="aws-properties-workspaces-workspace-workspaceproperties.html">WorkspaceProperties</a></code></em>
+</code></pre></div><h2 id="aws-resource-workspaces-workspace-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
                            <dt><a id="cfn-workspaces-workspace-bundleid"></a><span class="term"><code class="code">BundleId</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The identifier of the bundle from which you want to create the workspace. A
-                                 bundle specifies the details of the workspace, such as the installed applications
-                                 and the size of CPU, memory, and storage. Use the <a href="https://docs.aws.amazon.com/workspaces/latest/devguide/API_DescribeWorkspaceBundles.html">DescribeWorkspaceBundles</a> action to list the bundles that AWS
-                                 offers.
-                              </p>
+                              <p>The identifier of the bundle for the WorkSpace.</p>
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
-                              <p><em>Update requires</em>: Updates are not supported.. To update this property, you must also update another
-                                 property that triggers a replacement, such as the <code class="code">UserName</code>
-                                 property.
-                              </p>
-                              
+                              <p><em>Pattern</em>: <code class="code">^wsb-[0-9a-z]{8,63}$</code></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-workspaces-workspace-directoryid"></a><span class="term"><code class="code">DirectoryId</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The identifier of the AWS Directory Service directory in which you want to create
-                                 the
-                                 workspace. The directory must already be registered with Amazon WorkSpaces. Use the
-                                 <a href="https://docs.aws.amazon.com/workspaces/latest/devguide/API_DescribeWorkspaceDirectories.html">DescribeWorkspaceDirectories</a> action to list the directories that are
-                                 available.
-                              </p>
+                              <p>The identifier of the AWS Directory Service directory for the WorkSpace.</p> 
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
-                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
+                              <p><em>Pattern</em>: <code class="code">^d-[0-9a-f]{8,63}$</code></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-workspaces-workspace-rootvolumeencryptionenabled"></a><span class="term"><code class="code">RootVolumeEncryptionEnabled</code></span></dt>
-                           
                            <dd>
                               
-                              <p>Indicates whether Amazon WorkSpaces encrypts data stored on the root volume
-                                 (<code class="code">C:</code> drive).
-                              </p>
+                              <p>Indicates whether the data stored on the root volume is encrypted.</p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: Boolean
                               </p>
-                              
-                              <p><em>Update requires</em>: Updates are not supported.. To update this property, you must also update another
-                                 property that triggers a replacement, such as the <code class="code">UserName</code>
-                                 property.
-                              </p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-workspaces-workspace-tags"></a><span class="term"><code class="code">Tags</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The tags (key-value pairs) for the WorkSpace.</p>
+                              <p>The tags for the WorkSpace.</p>
                               
-                              <p>
-                                 <em>Required</em>: No
+                              <p><em>Required</em>: No
                               </p>
-                              
-                              <p>
-                                 <em>Type</em>: List of <a href="aws-properties-resource-tags.html">Resource Tag</a></p>
-                              
-                              <p>
-                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No
-                                    interruption</a>
-                                 
-                              </p>
-                              
+                              <p><em>Type</em>: List of <a href="aws-properties-resource-tags.html">Tag</a></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-workspaces-workspace-username"></a><span class="term"><code class="code">UserName</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The name of the user to which the workspace is assigned. This user name must
-                                 exist in the specified AWS Directory Service directory.
+                              <p>The username of the user for the WorkSpace. This username must exist in the
+                                 AWS Directory Service directory for the WorkSpace.
                               </p>
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Minimum</em>: <code class="code">1</code></p>
+                              <p><em>Maximum</em>: <code class="code">63</code></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-workspaces-workspace-uservolumeencryptionenabled"></a><span class="term"><code class="code">UserVolumeEncryptionEnabled</code></span></dt>
-                           
                            <dd>
                               
-                              <p>Indicates whether Amazon WorkSpaces encrypts data stored on the user volume
-                                 (<code class="code">D:</code> drive).
-                              </p>
+                              <p>Indicates whether the data stored on the user volume is encrypted.</p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: Boolean
                               </p>
-                              
-                              <p><em>Update requires</em>: Updates are not supported.. To update this property, you must also update another
-                                 property that triggers a replacement, such as the <code class="code">UserName</code>
-                                 property.
-                              </p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-workspaces-workspace-volumeencryptionkey"></a><span class="term"><code class="code">VolumeEncryptionKey</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The AWS Key Management Service (AWS KMS) key ID that Amazon WorkSpaces uses to encrypt
-                                 data stored on your
-                                 workspace.
-                              </p>
+                              <p>The KMS key used to encrypt data stored on your WorkSpace.</p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
-                              <p><em>Update requires</em>: Updates are not supported.. To update this property, you must also update another
-                                 property that triggers a replacement, such as the <code class="code">UserName</code>
-                                 property.
-                              </p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-workspaces-workspace-workspaceproperties"></a><span class="term"><code class="code">WorkspaceProperties</code></span></dt>
-                           
                            <dd>
                               
                               <p>The WorkSpace properties.</p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: <a href="aws-properties-workspaces-workspace-workspaceproperties.html">Amazon WorkSpaces Workspace WorkspaceProperties</a></p>
-                              
+                              <p><em>Type</em>: <a href="aws-properties-workspaces-workspace-workspaceproperties.html">WorkspaceProperties</a></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
                         </dl>
-                     </div><h2 id="w2ab1c21c10d240c13c11">Return Values</h2><h3 id="w2ab1c21c10d240c13c11b2">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code> intrinsic
-                        function, <code class="code">Ref</code> returns the resource name.
+                     </div><h2 id="aws-resource-workspaces-workspace-return-values">Return Values</h2><h3 id="aws-resource-workspaces-workspace-return-values-ref">Ref</h3><p>When you pass the logical ID of this resource to the intrinsic <code class="code">Ref</code> function, <code class="code">Ref</code> returns the resource name.
                      </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                     </p><h2 id="w2ab1c21c10d240c13c13">Example</h2><h3 id="w2ab1c21c10d240c13c13b2"></h3><p>The following example creates a workspace for user <code class="code">test</code>. The bundle and
-                        directory IDs are specified as parameters in the same template.
-                     </p><div id="JSON" name="JSON" class="section langfilter">
-                        <h4 id="aws-resource-workspaces-workspace-example.json">JSON</h4>
+                     </p><h2 id="aws-resource-workspaces-workspace--seealso">See Also</h2><div class="itemizedlist">
                         
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">&quot;workspace1&quot; : {
-  &quot;Type&quot; : &quot;AWS::WorkSpaces::Workspace&quot;,
-  &quot;Properties&quot; : {
-    &quot;BundleId&quot; : {&quot;Ref&quot; : &quot;BundleId&quot;},
-    &quot;DirectoryId&quot; : {&quot;Ref&quot; : &quot;DirectoryId&quot;},
-    &quot;UserName&quot; : &quot;test&quot;
-  }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h4 id="aws-resource-workspaces-workspace-example.yaml">YAML</h4>
                         
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">workspace1: 
-  Type: &quot;AWS::WorkSpaces::Workspace&quot;
-  Properties: 
-    BundleId: 
-      Ref: &quot;BundleId&quot;
-    DirectoryId: 
-      Ref: &quot;DirectoryId&quot;
-    UserName: &quot;test&quot;</code></pre>
-                        </div></div>
+                        
+                        <ul class="itemizedlist" type="disc">
+                           <li class="listitem">
+                              
+                              <p>
+                                 <a href="https://docs.aws.amazon.com/workspaces/latest/api/API_CreateWorkspaces.html">CreateWorkspaces</a> in the
+                                 <em>Amazon WorkSpaces API Reference</em>
+                                 
+                              </p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p>
+                                 <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/launch-workspaces-tutorials.html">Launch a Virtual Desktop
+                                    Using Amazon WorkSpaces</a> in the <em>Amazon WorkSpaces Administration Guide</em>
+                                 
+                              </p>
+                              
+                           </li>
+                        </ul>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
+                     </div></div>
 </body>
 </html>

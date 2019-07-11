@@ -8,177 +8,161 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-resource-iam-servicelinkedrole">AWS::IAM::ServiceLinkedRole</h1><p>The <code class="code">AWS::IAM::ServiceLinkedRole</code> resource creates a service-linked role in
-                        AWS Identity and Access Management (IAM). A service-linked role is a unique type of
-                        IAM role that is linked directly
-                        to an AWS service. Service-linked roles are predefined by the service and include
-                        all the
-                        permissions that the service requires to call other AWS services on your behalf. The
-                        linked
-                        service also defines how you create, modify, and delete a service-linked role. For
-                        more
-                        information, see <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateServiceLinkedRole.html">CreateServiceLinkedRole</a> in the <em>IAM API Reference</em> or <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html">Using Service-Linked Roles</a> in the
-                        <em>IAM User Guide</em>. 
-                     </p><div class="highlights" id="inline-topiclist">
-                        <p><strong>Topics</strong></p>
-                        <ul>
-                           <li><a href="#aws-resource-iam-servicelinkedrole-syntax">Syntax</a></li>
-                           <li><a href="#aws-resource-iam-servicelinkedrole-properties">Properties</a></li>
-                           <li><a href="#aws-resource-iam-servicelinkedrole-examples">Examples</a></li>
-                           <li><a href="#aws-resource-iam-servicelinkedrole-seealso">See Also</a></li>
-                        </ul>
-                     </div><h2 id="aws-resource-iam-servicelinkedrole-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
-                        
-                        <h3 id="aws-resource-iam-servicelinkedrole-syntax.json">JSON</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
+    <h1 class="topictitle" id="aws-resource-iam-servicelinkedrole">AWS::IAM::ServiceLinkedRole</h1><p>Creates an IAM role that is linked to a specific AWS service. The service controls
+                        the attached policies and when the role can be deleted. This helps ensure that the
+                        service
+                        is not broken by an unexpectedly changed or deleted role, which could put your AWS
+                        resources into an unknown state. Allowing the service to control the role helps improve
+                        service stability and proper cleanup when a service and its role are no longer needed.
+                        For
+                        more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html">Using Service-Linked Roles</a>
+                        in the <em>IAM User Guide</em>. 
+                     </p><p>To attach a policy to this service-linked role, you must make the request using the
+                        AWS service that depends on this role.
+                     </p><h2 id="aws-resource-iam-servicelinkedrole-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-resource-iam-servicelinkedrole-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
   &quot;Type&quot; : &quot;AWS::IAM::ServiceLinkedRole&quot;,
   &quot;Properties&quot; : {
-    
-    &quot;<a href="aws-resource-iam-servicelinkedrole.html#cfn-iam-servicelinkedrole-awsservicename">AWSServiceName</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-iam-servicelinkedrole.html#cfn-iam-servicelinkedrole-customsuffix">CustomSuffix</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-iam-servicelinkedrole.html#cfn-iam-servicelinkedrole-description">Description</a>&quot; : <em class="replaceable"><code>String</code></em>
-  }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        
-                        <h3 id="aws-resource-iam-servicelinkedrole-syntax.yaml">YAML</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">Type: &quot;AWS::IAM::ServiceLinkedRole&quot;
-Properties:
-  <a href="aws-resource-iam-servicelinkedrole.html#cfn-iam-servicelinkedrole-awsservicename">AWSServiceName</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-iam-servicelinkedrole.html#cfn-iam-servicelinkedrole-customsuffix">CustomSuffix</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-iam-servicelinkedrole.html#cfn-iam-servicelinkedrole-description">Description</a>: <em class="replaceable"><code>String</code></em></code></pre>
-                        </div><h2 id="aws-resource-iam-servicelinkedrole-properties">Properties</h2><div class="variablelist">
-                        
-                        
-                        
-                        
+      &quot;<a href="#cfn-iam-servicelinkedrole-awsservicename">AWSServiceName</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-iam-servicelinkedrole-customsuffix">CustomSuffix</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-iam-servicelinkedrole-description">Description</a>&quot; : <em class="replaceable"><code>String</code></em>
+    }
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-iam-servicelinkedrole-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Type: AWS::IAM::ServiceLinkedRole
+Properties: 
+  <a href="#cfn-iam-servicelinkedrole-awsservicename">AWSServiceName</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-iam-servicelinkedrole-customsuffix">CustomSuffix</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-iam-servicelinkedrole-description">Description</a>: <em class="replaceable"><code>String</code></em>
+</code></pre></div><h2 id="aws-resource-iam-servicelinkedrole-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
                            <dt><a id="cfn-iam-servicelinkedrole-awsservicename"></a><span class="term"><code class="code">AWSServiceName</code></span></dt>
-                           
                            <dd>
                               
-                              <p> The service principal for the AWS service to which this role is attached. You use
-                                 a string similar to a URL but without the <code class="code">http://</code> in front. For example:
+                              <p>The service principal for the AWS service to which this role is attached. You use
+                                 a
+                                 string similar to a URL but without the http:// in front. For example:
                                  <code class="code">elasticbeanstalk.amazonaws.com</code>. 
                               </p>
                               
-                              <p>Service principals are unique and case sensitive. To find the exact service
-                                 principal for your service-linked role, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html">AWS Services That
-                                    Work with IAM</a> in the <em>IAM User Guide</em>.
-                                 Look for the services that have <b>Yes </b>in the <b>Service-Linked Role</b> column. Choose the <b>Yes</b> link to view the service-linked role documentation for that
-                                 service.
+                              <p>Service principals are unique and case-sensitive. To find the exact service principal
+                                 for your service-linked role, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html">AWS Services That
+                                    Work with IAM</a> in the <em>IAM User Guide</em>. Look for the
+                                 services that have <b>Yes </b>in the <b>Service-Linked Role</b> column. Choose the <b>Yes</b>
+                                 link to view the service-linked role documentation for that service.
                               </p>
                               
-                              <p>
-                                 <em>Required</em>: Yes
+                              <p><em>Required</em>: Yes
                               </p>
-                              
-                              <p>
-                                 <em>Type</em>: String
+                              <p><em>Type</em>: String
                               </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a>
-                                 
-                              </p>
-                              
+                              <p><em>Minimum</em>: <code class="code">1</code></p>
+                              <p><em>Maximum</em>: <code class="code">128</code></p>
+                              <p><em>Pattern</em>: <code class="code">[\w+=,.@-]+</code></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-iam-servicelinkedrole-customsuffix"></a><span class="term"><code class="code">CustomSuffix</code></span></dt>
-                           
                            <dd>
                               
-                              <p> A string that you provide, which is combined with the service-provided prefix to
-                                 form the complete role name. If you make multiple requests for the same service, then
-                                 you must supply a different <code class="code">CustomSuffix</code> for each request. Otherwise the
-                                 request fails with a duplicate role name error. For example, you could add
-                                 <code class="code">-1</code> or <code class="code">-debug</code> to the suffix.
+                              
+                              <p>A string that you provide, which is combined with the service-provided prefix to form
+                                 the complete role name. If you make multiple requests for the same service, then you
+                                 must
+                                 supply a different <code class="code">CustomSuffix</code> for each request. Otherwise the request fails
+                                 with a duplicate role name error. For example, you could add <code class="code">-1</code> or
+                                 <code class="code">-debug</code> to the suffix.
                               </p>
                               
-                              <p>Some services do not support the <code class="code">CustomSuffix</code> parameter. If you provide
-                                 an optional suffix and the operation fails, try the operation again without the
-                                 suffix.
+                              <p>Some services do not support the <code class="code">CustomSuffix</code> parameter. If you provide an
+                                 optional suffix and the operation fails, try the operation again without the suffix.
                               </p>
                               
-                              <p>
-                                 <em>Required</em>: No
+                              <p><em>Required</em>: No
                               </p>
-                              
-                              <p>
-                                 <em>Type</em>: String
+                              <p><em>Type</em>: String
                               </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a>
-                                 
-                              </p>
-                              
+                              <p><em>Minimum</em>: <code class="code">1</code></p>
+                              <p><em>Maximum</em>: <code class="code">64</code></p>
+                              <p><em>Pattern</em>: <code class="code">[\w+=,.@-]+</code></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-iam-servicelinkedrole-description"></a><span class="term"><code class="code">Description</code></span></dt>
-                           
                            <dd>
                               
                               <p>The description of the role.</p>
                               
-                              <p>
-                                 <em>Required</em>: No
+                              <p><em>Required</em>: No
                               </p>
-                              
-                              <p>
-                                 <em>Type</em>: String
+                              <p><em>Type</em>: String
                               </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: 
-                                 
-                                 <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
-                                 
-                              </p>
-                              
+                              <p><em>Maximum</em>: <code class="code">1000</code></p>
+                              <p><em>Pattern</em>: <code class="code">[\p{L}\p{M}\p{Z}\p{S}\p{N}\p{P}]*</code></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
                         </dl>
-                     </div><h2 id="aws-resource-iam-servicelinkedrole-examples">Examples</h2><h3 id="aws-resource-iam-servicelinkedrole-example1">Create an IAM
-                        Service-Linked Role for Auto Scaling
-                     </h3><p>The following example creates a service-linked role that can be assumed by the Auto
-                        Scaling
-                        service.
-                     </p><div id="YAML" name="YAML" class="section langfilter">
-                        
-                        <h4 id="aws-resource-iam-servicelinkedrole-example1.yaml">YAML</h4>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">---
-Description: &quot;SLR resource create test - Auto Scaling&quot;
-Resources:
-  BasicSLR:
-    Type: &quot;AWS::IAM::ServiceLinkedRole&quot;
-    Properties:
-      AWSServiceName: &quot;autoscaling.amazonaws.com&quot;
-      Description: &quot;Test SLR description&quot;
-      CustomSuffix: &quot;TestSuffix&quot;
-Outputs:
-  SLRId:
-    Value: !Ref BasicSLR</code></pre>
-                        </div><h2 id="aws-resource-iam-servicelinkedrole-seealso">See Also</h2><div class="itemizedlist">
+                     </div><h2 id="aws-resource-iam-servicelinkedrole--examples">Examples</h2><h3 id="aws-resource-iam-servicelinkedrole--examples--Create_an_IAM_Service-Linked_Role_for_Auto_Scaling">Create an IAM Service-Linked Role for Auto Scaling</h3><p>The following example creates a service-linked role that can be assumed by the
+                        Auto Scaling service.
+                     </p><h4 id="aws-resource-iam-servicelinkedrole--examples--Create_an_IAM_Service-Linked_Role_for_Auto_Scaling--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">
+            { 
+              &quot;Description&quot;: &quot;SLR resource create test - Auto Scaling&quot;,
+              &quot;Resources&quot;: {
+                &quot;BasicSLR&quot;: {
+                  &quot;Type&quot;: &quot;AWS::IAM::ServiceLinkedRole&quot;,
+                  &quot;Properties&quot;: {
+                     &quot;AWSServiceName&quot;: &quot;autoscaling.amazonaws.com&quot;,
+                     &quot;Description&quot;: &quot;Test SLR description&quot;,
+                     &quot;CustomSuffix&quot;:
+                     &quot;TestSuffix&quot;
+                     }
+                    }
+                   },
+                   &quot;Outputs&quot;: {
+                     &quot;SLRId&quot;: {
+                       &quot;Value&quot;: {
+                       &quot;Ref&quot;: &quot;BasicSLR&quot;
+                    }
+                   }
+                  }
+                }
+         </code></pre><h4 id="aws-resource-iam-servicelinkedrole--examples--Create_an_IAM_Service-Linked_Role_for_Auto_Scaling--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">
+            Description: &quot;SLR resource create test - &amp;AS;&quot;
+            Resources:
+              BasicSLR:
+              Type: &quot;AWS::&amp;IAM;::ServiceLinkedRole&quot;
+              Properties:
+                AWSServiceName: &quot;autoscaling.amazonaws.com&quot; 
+                Description: &quot;Test SLR description&quot;
+                CustomSuffix: &quot;TestSuffix&quot;
+            Outputs:
+              SLRId:
+                Value: !Ref BasicSLR
+         </code></pre><h2 id="aws-resource-iam-servicelinkedrole--seealso">See Also</h2><div class="itemizedlist">
                         
                         
                         
                         <ul class="itemizedlist" type="disc">
                            <li class="listitem">
                               
-                              <p><a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateServiceLinkedRole.html">CreateServiceLinkedRole</a> in the <em>IAM API Reference</em></p>
+                              <p>
+                                 <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateServiceLinkedRole.html">CreateServiceLinkedRole</a> in the <em>AWS Identity and Access
+                                    Management API Reference</em>
+                                 
+                              </p>
                               
                            </li>
                            <li class="listitem">
                               
-                              <p><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html">Using Service-Linked
-                                    Roles</a> in the <em>IAM User Guide</em></p>
+                              <p>
+                                 <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html">Using Service-Linked
+                                    Roles</a> in the <em>AWS Identity and Access Management User
+                                    Guide</em>
+                                 
+                              </p>
                               
                            </li>
                         </ul>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
                      </div></div>
 </body>
 </html>

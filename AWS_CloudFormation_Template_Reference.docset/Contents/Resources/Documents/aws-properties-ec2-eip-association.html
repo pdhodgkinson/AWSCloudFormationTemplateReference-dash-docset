@@ -8,259 +8,192 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-properties-ec2-eip-association">AWS::EC2::EIPAssociation</h1><p>The AWS::EC2::EIPAssociation resource type associates an Elastic IP address with an
-                        Amazon EC2
-                        instance. The Elastic IP address can be an existing Elastic IP address or an Elastic
-                        IP
-                        address allocated through an <a href="aws-properties-ec2-eip.html">AWS::EC2::EIP
-                           resource</a>.
-                     </p><p>For more information EC2-Classic and EC2-VPC, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AssociateAddress.html">AssociateAddress</a> in the
-                        <em>Amazon EC2 API Reference</em>.
-                     </p><div class="highlights" id="inline-topiclist">
-                        <p><strong>Topics</strong></p>
-                        <ul>
-                           <li><a href="#aws-resource-ec2-eipassociation-syntax">Syntax</a></li>
-                           <li><a href="#aws-resource-ec2-eip-association-prop">Properties</a></li>
-                           <li><a href="#w2ab1c21c10d111c36c13">Return Values</a></li>
-                           <li><a href="#w2ab1c21c10d111c36c15">Examples</a></li>
-                        </ul>
-                     </div><h2 id="aws-resource-ec2-eipassociation-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-resource-ec2-eipassociation-syntax.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">
-{
-   &quot;Type&quot;: &quot;AWS::EC2::EIPAssociation&quot;,
-   &quot;Properties&quot;: {
-      &quot;<a href="aws-properties-ec2-eip-association.html#cfn-ec2-eipassociation-allocationid">AllocationId</a>&quot;: <em class="replaceable"><code>String</code></em>,
-      &quot;<a href="aws-properties-ec2-eip-association.html#cfn-ec2-eipassociation-eip">EIP</a>&quot;: <em class="replaceable"><code>String</code></em>,
-      &quot;<a href="aws-properties-ec2-eip-association.html#cfn-ec2-eipassociation-instanceid">InstanceId</a>&quot;: <em class="replaceable"><code>String</code></em>,
-      &quot;<a href="aws-properties-ec2-eip-association.html#cfn-ec2-eipassociation-networkinterfaceid">NetworkInterfaceId</a>&quot;: <em class="replaceable"><code>String</code></em>,
-      &quot;<a href="aws-properties-ec2-eip-association.html#cfn-ec2-eipassociation-PrivateIpAddress">PrivateIpAddress</a>&quot;: <em class="replaceable"><code>String</code></em>
-   }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-resource-ec2-eipassociation-syntax.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">
-Type: AWS::EC2::EIPAssociation
-Properties:
-  <a href="aws-properties-ec2-eip-association.html#cfn-ec2-eipassociation-allocationid">AllocationId</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-properties-ec2-eip-association.html#cfn-ec2-eipassociation-eip">EIP</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-properties-ec2-eip-association.html#cfn-ec2-eipassociation-instanceid">InstanceId</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-properties-ec2-eip-association.html#cfn-ec2-eipassociation-networkinterfaceid">NetworkInterfaceId</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-properties-ec2-eip-association.html#cfn-ec2-eipassociation-PrivateIpAddress">PrivateIpAddress</a>: <em class="replaceable"><code>String</code></em>
-</code></pre>
-                        </div><h2 id="aws-resource-ec2-eip-association-prop">Properties</h2><div class="variablelist">
-                        
-                        
-                        
-                        
-                        
-                        
+    <h1 class="topictitle" id="aws-properties-ec2-eip-association">AWS::EC2::EIPAssociation</h1><p>Associates an Elastic IP address with an instance or a network interface. 
+                        		   Before you can use an Elastic IP address, you must allocate it to your account.
+                     </p><p>An Elastic IP address is for use in either the EC2-Classic platform or in a VPC.
+                        			For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic IP Addresses</a> 
+                        		   in the <em>Amazon Elastic Compute Cloud User Guide</em>.
+                     </p><p>[EC2-Classic, VPC in an EC2-VPC-only account] If the Elastic IP address is already
+                        			associated with a different instance, it is disassociated from that instance and
+                        associated
+                        			with the specified instance. If you associate an Elastic IP address with an instance
+                        that has
+                        			an existing Elastic IP address, the existing address is disassociated from the
+                        instance, but
+                        			remains allocated to your account.
+                     </p><p>[VPC in an EC2-Classic account] If you don&apos;t specify a private IP address, the Elastic
+                        			IP address is associated with the primary IP address. If the Elastic IP address
+                        is already
+                        			associated with a different instance or a network interface, you get an error unless
+                        you allow
+                        			reassociation. You cannot associate an Elastic IP address with an instance or network
+                        			interface that has an existing Elastic IP address.
+                     </p><h2 id="aws-properties-ec2-eip-association-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-properties-ec2-eip-association-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;Type&quot; : &quot;AWS::EC2::EIPAssociation&quot;,
+  &quot;Properties&quot; : {
+      &quot;<a href="#cfn-ec2-eipassociation-allocationid">AllocationId</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-ec2-eipassociation-eip">EIP</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-ec2-eipassociation-instanceid">InstanceId</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-ec2-eipassociation-networkinterfaceid">NetworkInterfaceId</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-ec2-eipassociation-PrivateIpAddress">PrivateIpAddress</a>&quot; : <em class="replaceable"><code>String</code></em>
+    }
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-properties-ec2-eip-association-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Type: AWS::EC2::EIPAssociation
+Properties: 
+  <a href="#cfn-ec2-eipassociation-allocationid">AllocationId</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-ec2-eipassociation-eip">EIP</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-ec2-eipassociation-instanceid">InstanceId</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-ec2-eipassociation-networkinterfaceid">NetworkInterfaceId</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-ec2-eipassociation-PrivateIpAddress">PrivateIpAddress</a>: <em class="replaceable"><code>String</code></em>
+</code></pre></div><h2 id="aws-properties-ec2-eip-association-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
                            <dt><a id="cfn-ec2-eipassociation-allocationid"></a><span class="term"><code class="code">AllocationId</code></span></dt>
-                           
                            <dd>
                               
-                              <p>[EC2-VPC] Allocation ID for the VPC Elastic IP address you want to associate
-                                 with an Amazon EC2 instance in your VPC.
-                              </p>
+                              <p>[EC2-VPC] The allocation ID. This is required for EC2-VPC.</p>
                               
-                              <p><em>Required</em>: Conditional. Required for  EC2-VPC.
+                              <p><em>Required</em>: Conditional
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
-                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a> if you also change the <code class="code">InstanceId</code> or
-                                 <code class="code">NetworkInterfaceId</code> property. If not, update requires <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>.
-                              </p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-ec2-eipassociation-eip"></a><span class="term"><code class="code">EIP</code></span></dt>
-                           
                            <dd>
                               
-                              <p>Elastic IP address that you want to associate with the Amazon EC2 instance specified
-                                 by the <code class="code">InstanceId</code> property. You can specify an existing Elastic IP
-                                 address or a reference to an Elastic IP address allocated with a <a href="aws-properties-ec2-eip.html">AWS::EC2::EIP resource</a>.
-                              </p>
+                              <p>The Elastic IP address to associate with the instance. This is required for EC2-Classic.</p>
                               
-                              <p><em>Required</em>: Conditional. Required for EC2-Classic.
+                              <p><em>Required</em>: Conditional
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
-                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a> if you also change the <code class="code">InstanceId</code> or
-                                 <code class="code">NetworkInterfaceId</code> property. If not, update requires <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>.
-                              </p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-ec2-eipassociation-instanceid"></a><span class="term"><code class="code">InstanceId</code></span></dt>
-                           
                            <dd>
                               
-                              <p>Instance ID of the Amazon EC2 instance that you want to associate with the Elastic
-                                 IP address specified by the EIP property. If the instance has more than one network
+                              <p>The ID of the instance. This is required for EC2-Classic. For EC2-VPC, you can specify
+                                 either the instance ID or the network interface ID, but not both. The operation fails
+                                 if you specify an instance ID unless exactly one network interface is attached.
+                              </p>
+                              
+                              <p><em>Required</em>: Conditional
+                              </p>
+                              <p><em>Type</em>: String
+                              </p>
+                           </dd>
+                           <dt><a id="cfn-ec2-eipassociation-networkinterfaceid"></a><span class="term"><code class="code">NetworkInterfaceId</code></span></dt>
+                           <dd>
+                              
+                              <p>[EC2-VPC] The ID of the network interface. If the instance has more than one network
                                  interface, you must specify a network interface ID.
                               </p>
-                              
-                              <p><em>Required</em>: Conditional. If you specify the <code class="code">EIP</code>
-                                 property, you must specify this property. If you specify the <code class="code">AllocationId</code>
-                                 property, you must specify this property or the <code class="code">NetworkInterfaceId</code>
-                                 property.
+                              	     
+                              <p>For EC2-VPC, you can specify either the instance ID or the network interface ID, but
+                                 not both. 
                               </p>
                               
+                              <p><em>Required</em>: Conditional
+                              </p>
                               <p><em>Type</em>: String
                               </p>
-                              
-                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a> if you also change the <code class="code">AllocationId</code> or
-                                 <code class="code">EIP</code> property. If not, update requires <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>.
-                              </p>
-                              
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-ec2-eipassociation-networkinterfaceid"></a><span class="term"><code class="code">NetworkInterfaceId</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>[EC2-VPC] The ID of the network interface to associate with the Elastic IP
-                                 address. If the instance has more than one network interface, you must specify a
-                                 network interface ID.
-                              </p>
-                              
-                              <p><em>Required</em>: Conditional. If you specify the
-                                 <code class="code">AllocationId</code> property, you must specify this property or the
-                                 <code class="code">InstanceId</code> property.
-                              </p>
-                              
-                              <p><em>Type</em>: String
-                              </p>
-                              
-                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a> if you also change the <code class="code">AllocationId</code> or
-                                 <code class="code">EIP</code> property. If not, update requires <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>.
-                              </p>
-                              
-                           </dd>
-                           
-                           
                            <dt><a id="cfn-ec2-eipassociation-PrivateIpAddress"></a><span class="term"><code class="code">PrivateIpAddress</code></span></dt>
-                           
                            <dd>
                               
-                              <p>[EC2-VPC] The private IP address that you want to associate with the Elastic IP
-                                 address. The private IP address is restricted to the primary and secondary private
-                                 IP addresses that are associated with the network interface. By default, the
-                                 private IP address that is associated with the EIP is the primary private IP
-                                 address of the network interface.
+                              <p>[EC2-VPC] The primary or secondary private IP address to associate with the Elastic
+                                 IP address. If no private IP address is specified, the Elastic IP address is associated
+                                 with the primary private IP address.
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
                         </dl>
-                     </div><h2 id="w2ab1c21c10d111c36c13">Return Values</h2><h3 id="w2ab1c21c10d111c36c13b2">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code> intrinsic
-                        function, <code class="code">Ref</code> returns the resource name.
+                     </div><h2 id="aws-properties-ec2-eip-association-return-values">Return Values</h2><h3 id="aws-properties-ec2-eip-association-return-values-ref">Ref</h3><p>When you pass the logical ID of this resource to the intrinsic <code class="code">Ref</code> function, <code class="code">Ref</code> returns the resource name.
                      </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                     </p><h2 id="w2ab1c21c10d111c36c15">Examples</h2><p>The following example creates an instance with two elastic network interfaces (ENI).
-                        The
-                        example assumes that you have an existing VPC.
-                     </p><p>For additional examples, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-ec2.html#scenario-ec2-eip">Assigning an Amazon EC2 Elastic IP Using AWS::EC2::EIP
-                           Snippet</a>.
-                     </p><h3 id="w2ab1c21c10d111c36c15b6">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">  &quot;Resources&quot; : {
+                     </p><h2 id="aws-properties-ec2-eip-association--examples">Examples</h2><h3 id="aws-properties-ec2-eip-association--examples--Associating_an_Elastic_IP_address_to_an_instance">Associating an Elastic IP address to an instance</h3><p>The following example creates an instance with two elastic network interfaces (ENI).
+                        The 
+                        			example assumes that you have an existing VPC.
+                     </p><p>For additional examples, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-ec2.html#scenario-ec2-eip">Assigning an 
+                           			Amazon EC2 Elastic IP Using AWS::EC2::EIP Snippet</a>.
+                     </p><h4 id="aws-properties-ec2-eip-association--examples--Associating_an_Elastic_IP_address_to_an_instance--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">  &quot;Resources&quot; : {
     &quot;ControlPortAddress&quot; : {
-      &quot;Type&quot; : &quot;AWS::EC2::EIP&quot;,
-      &quot;Properties&quot; : {
-        &quot;Domain&quot; : &quot;vpc&quot;
-      }
+        &quot;Type&quot; : &quot;AWS::EC2::EIP&quot;,
+        &quot;Properties&quot; : {
+            &quot;Domain&quot; : &quot;vpc&quot;
+        }
     },
     &quot;AssociateControlPort&quot; : {
-      &quot;Type&quot; : &quot;AWS::EC2::EIPAssociation&quot;,
-      &quot;Properties&quot; : {
-        &quot;AllocationId&quot; : { &quot;Fn::GetAtt&quot; : [ &quot;ControlPortAddress&quot;, &quot;AllocationId&quot; ]},
-        &quot;NetworkInterfaceId&quot; : { &quot;Ref&quot; : &quot;controlXface&quot; }
-      }
+        &quot;Type&quot; : &quot;AWS::EC2::EIPAssociation&quot;,
+        &quot;Properties&quot; : {
+            &quot;AllocationId&quot; : { &quot;Fn::GetAtt&quot; : [ &quot;ControlPortAddress&quot;, &quot;AllocationId&quot; ]},
+            &quot;NetworkInterfaceId&quot; : { &quot;Ref&quot; : &quot;controlXface&quot; }
+        }
     },
     &quot;WebPortAddress&quot; : {
-      &quot;Type&quot; : &quot;AWS::EC2::EIP&quot;,
-      &quot;Properties&quot; : {
-        &quot;Domain&quot; : &quot;vpc&quot;
-      }
+        &quot;Type&quot; : &quot;AWS::EC2::EIP&quot;,
+        &quot;Properties&quot; : {
+            &quot;Domain&quot; : &quot;vpc&quot;
+        }
     },
     &quot;AssociateWebPort&quot; : {
-      &quot;Type&quot; : &quot;AWS::EC2::EIPAssociation&quot;,
-      &quot;Properties&quot; : {
-        &quot;AllocationId&quot; : { &quot;Fn::GetAtt&quot; : [ &quot;WebPortAddress&quot;, &quot;AllocationId&quot; ]},
-        &quot;NetworkInterfaceId&quot; : { &quot;Ref&quot; : &quot;webXface&quot; }
-      }
+        &quot;Type&quot; : &quot;AWS::EC2::EIPAssociation&quot;,
+        &quot;Properties&quot; : {
+            &quot;AllocationId&quot; : { &quot;Fn::GetAtt&quot; : [ &quot;WebPortAddress&quot;, &quot;AllocationId&quot; ]},
+            &quot;NetworkInterfaceId&quot; : { &quot;Ref&quot; : &quot;webXface&quot; }
+        }
     },
     &quot;SSHSecurityGroup&quot; : {
-      &quot;Type&quot; : &quot;AWS::EC2::SecurityGroup&quot;,
-      &quot;Properties&quot; : {
-        &quot;VpcId&quot; : { &quot;Ref&quot; : &quot;VpcId&quot; },
-        &quot;GroupDescription&quot; : &quot;Enable SSH access via port 22&quot;,
-        &quot;SecurityGroupIngress&quot; : [ { &quot;IpProtocol&quot; : &quot;tcp&quot;, &quot;FromPort&quot; : &quot;22&quot;, &quot;ToPort&quot; : &quot;22&quot;, &quot;CidrIp&quot; : &quot;0.0.0.0/0&quot; } ]
-      }
+        &quot;Type&quot; : &quot;AWS::EC2::SecurityGroup&quot;,
+        &quot;Properties&quot; : {
+            &quot;VpcId&quot; : { &quot;Ref&quot; : &quot;VpcId&quot; },
+            &quot;GroupDescription&quot; : &quot;Enable SSH access via port 22&quot;,
+            &quot;SecurityGroupIngress&quot; : [ { &quot;IpProtocol&quot; : &quot;tcp&quot;, &quot;FromPort&quot; : &quot;22&quot;, &quot;ToPort&quot; : &quot;22&quot;, &quot;CidrIp&quot; : &quot;0.0.0.0/0&quot; } ]
+        }
     },
     &quot;WebSecurityGroup&quot; : {
-      &quot;Type&quot; : &quot;AWS::EC2::SecurityGroup&quot;,
-      &quot;Properties&quot; : {
-        &quot;VpcId&quot; : { &quot;Ref&quot; : &quot;VpcId&quot; },
-        &quot;GroupDescription&quot; : &quot;Enable HTTP access via user defined port&quot;,
-        &quot;SecurityGroupIngress&quot; : [ { &quot;IpProtocol&quot; : &quot;tcp&quot;, &quot;FromPort&quot; : 80, &quot;ToPort&quot; : 80, &quot;CidrIp&quot; : &quot;0.0.0.0/0&quot; } ]
-      }
+        &quot;Type&quot; : &quot;AWS::EC2::SecurityGroup&quot;,
+        &quot;Properties&quot; : {
+            &quot;VpcId&quot; : { &quot;Ref&quot; : &quot;VpcId&quot; },
+            &quot;GroupDescription&quot; : &quot;Enable HTTP access via user defined port&quot;,
+            &quot;SecurityGroupIngress&quot; : [ { &quot;IpProtocol&quot; : &quot;tcp&quot;, &quot;FromPort&quot; : 80, &quot;ToPort&quot; : 80, &quot;CidrIp&quot; : &quot;0.0.0.0/0&quot; } ]
+        }
     },
     &quot;controlXface&quot; : {
-      &quot;Type&quot; : &quot;AWS::EC2::NetworkInterface&quot;,
-      &quot;Properties&quot; : {
-        &quot;SubnetId&quot; : { &quot;Ref&quot; : &quot;SubnetId&quot; },
-        &quot;Description&quot; :&quot;Interface for control traffic such as SSH&quot;,
-        &quot;GroupSet&quot; : [ {&quot;Ref&quot; : &quot;SSHSecurityGroup&quot;} ],
-        &quot;SourceDestCheck&quot; : &quot;true&quot;,
-        &quot;Tags&quot; : [ {&quot;Key&quot; : &quot;Network&quot;, &quot;Value&quot; : &quot;Control&quot;}]
-      }
+        &quot;Type&quot; : &quot;AWS::EC2::NetworkInterface&quot;,
+        &quot;Properties&quot; : {
+            &quot;SubnetId&quot; : { &quot;Ref&quot; : &quot;SubnetId&quot; },
+            &quot;Description&quot; :&quot;Interface for control traffic such as SSH&quot;,
+            &quot;GroupSet&quot; : [ {&quot;Ref&quot; : &quot;SSHSecurityGroup&quot;} ],
+            &quot;SourceDestCheck&quot; : &quot;true&quot;,
+            &quot;Tags&quot; : [ {&quot;Key&quot; : &quot;Network&quot;, &quot;Value&quot; : &quot;Control&quot;}]
+        }
     },
-   &quot;webXface&quot; : {
-      &quot;Type&quot; : &quot;AWS::EC2::NetworkInterface&quot;,
-      &quot;Properties&quot; : {
-        &quot;SubnetId&quot; : { &quot;Ref&quot; : &quot;SubnetId&quot; },
-        &quot;Description&quot; :&quot;Interface for web traffic&quot;,
-        &quot;GroupSet&quot; : [ {&quot;Ref&quot; : &quot;WebSecurityGroup&quot;} ],
-        &quot;SourceDestCheck&quot; : &quot;true&quot;,
-        &quot;Tags&quot; : [ {&quot;Key&quot; : &quot;Network&quot;, &quot;Value&quot; : &quot;Web&quot;}]
-      }
+    &quot;webXface&quot; : {
+        &quot;Type&quot; : &quot;AWS::EC2::NetworkInterface&quot;,
+        &quot;Properties&quot; : {
+            &quot;SubnetId&quot; : { &quot;Ref&quot; : &quot;SubnetId&quot; },
+            &quot;Description&quot; :&quot;Interface for web traffic&quot;,
+            &quot;GroupSet&quot; : [ {&quot;Ref&quot; : &quot;WebSecurityGroup&quot;} ],
+            &quot;SourceDestCheck&quot; : &quot;true&quot;,
+            &quot;Tags&quot; : [ {&quot;Key&quot; : &quot;Network&quot;, &quot;Value&quot; : &quot;Web&quot;}]
+        }
     },
     &quot;Ec2Instance&quot; : {
-      &quot;Type&quot; : &quot;AWS::EC2::Instance&quot;,
-      &quot;Properties&quot; : {
-        &quot;ImageId&quot; : { &quot;Fn::FindInMap&quot; : [ &quot;RegionMap&quot;, { &quot;Ref&quot; : &quot;AWS::Region&quot; }, &quot;AMI&quot; ]},
-        &quot;KeyName&quot; : { &quot;Ref&quot; : &quot;KeyName&quot; },
-        &quot;NetworkInterfaces&quot; : [ { &quot;NetworkInterfaceId&quot; : {&quot;Ref&quot; : &quot;controlXface&quot;}, &quot;DeviceIndex&quot; : &quot;0&quot; },
-								{ &quot;NetworkInterfaceId&quot; : {&quot;Ref&quot; : &quot;webXface&quot;}, &quot;DeviceIndex&quot; : &quot;1&quot; }],
-        &quot;Tags&quot; : [ {&quot;Key&quot; : &quot;Role&quot;, &quot;Value&quot; : &quot;Test Instance&quot;}],
-        &quot;UserData&quot; : {&quot;Fn::Base64&quot; : { &quot;Fn::Join&quot; : [&quot;&quot;,[
-			&quot;#!/bin/bash -ex&quot;,&quot;\n&quot;,
-            &quot;\n&quot;,&quot;yum install ec2-net-utils -y&quot;,&quot;\n&quot;,
-			&quot;ec2ifup eth1&quot;,&quot;\n&quot;,
-			&quot;service httpd start&quot;]]}
-		}
-	  }
+        &quot;Type&quot; : &quot;AWS::EC2::Instance&quot;,
+        &quot;Properties&quot; : {
+            &quot;ImageId&quot; : { &quot;Fn::FindInMap&quot; : [ &quot;RegionMap&quot;, { &quot;Ref&quot; : &quot;AWS::Region&quot; }, &quot;AMI&quot; ]},
+            &quot;KeyName&quot; : { &quot;Ref&quot; : &quot;KeyName&quot; },
+            &quot;NetworkInterfaces&quot; : [ { &quot;NetworkInterfaceId&quot; : {&quot;Ref&quot; : &quot;controlXface&quot;}, &quot;DeviceIndex&quot; : &quot;0&quot; }, { &quot;NetworkInterfaceId&quot; : {&quot;Ref&quot; : &quot;webXface&quot;}, &quot;DeviceIndex&quot; : &quot;1&quot; }],
+            &quot;Tags&quot; : [ {&quot;Key&quot; : &quot;Role&quot;, &quot;Value&quot; : &quot;Test Instance&quot;}],
+            &quot;UserData&quot; : {&quot;Fn::Base64&quot; : { &quot;Fn::Join&quot; : [&quot;&quot;,[&quot;#!/bin/bash -ex&quot;,&quot;\n&quot;, &quot;\n&quot;,&quot;yum install ec2-net-utils -y&quot;,&quot;\n&quot;, &quot;ec2ifup eth1&quot;,&quot;\n&quot;, &quot;service httpd start&quot;]]}}
+        }
     }
-  }</code></pre><h3 id="w2ab1c21c10d111c36c15b8">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">Resources:
+}</code></pre><h3 id="aws-properties-ec2-eip-association--examples--"></h3><h4 id="aws-properties-ec2-eip-association--examples----yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Resources:
   ControlPortAddress:
     Type: AWS::EC2::EIP
     Properties:
@@ -284,11 +217,11 @@ Properties:
     Properties:
       VpcId: !Ref VpcId
       GroupDescription: Enable SSH access via port 22
-      SecurityGroupIngress:
-      - CidrIp: 0.0.0.0/0
-        FromPort: 22
-        IpProtocol: tcp
-        ToPort: 22
+     SecurityGroupIngress:
+     - CidrIp: 0.0.0.0/0
+       FromPort: 22
+       IpProtocol: tcp
+       ToPort: 22
   WebSecurityGroup:
     Type: AWS::EC2::SecurityGroup
     Properties:
@@ -308,9 +241,8 @@ Properties:
       - !Ref SSHSecurityGroup
       SourceDestCheck: true
       Tags:
-        -
-          Key: Network
-          Value: Control
+      - Key: Network
+        Value: Control
   webXface:
     Type: AWS::EC2::NetworkInterface
     Properties:
@@ -320,30 +252,28 @@ Properties:
       - !Ref WebSecurityGroup
       SourceDestCheck: true
       Tags:
-        -
-          Key: Network
-          Value: Web
+      - Key: Network
+        Value: Web
   Ec2Instance:
     Type: AWS::EC2::Instance
     Properties:
       ImageId: !FindInMap [ RegionMap, !Ref &apos;AWS::Region&apos;, AMI ]
       KeyName: !Ref KeyName
       NetworkInterfaces:
-        -
-          NetworkInterfaceId: !Ref controlXface
-          DeviceIndex: 0
-        -
-          NetworkInterfaceId: !Ref webXface
-          DeviceIndex: 1
+      - NetworkInterfaceId: !Ref controlXface
+        DeviceIndex: 0
+      - NetworkInterfaceId: !Ref webXface
+        DeviceIndex: 1
       Tags:
-        -
-          Key: Role
-          Value: Test Instance
-      UserData:
-        Fn::Base64: !Sub |
-          #!/bin/bash -xe
-          yum install ec2-net-utils -y
-          ec2ifup eth1
-          service httpd start</code></pre></div>
+      - Key: Role
+        Value: Test Instance
+UserData:
+  Fn::Base64: !Sub |
+    #!/bin/bash -xe
+    yum install ec2-net-utils -y
+    ec2ifup eth1
+    service httpd start</code></pre><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
+                     </div></div>
 </body>
 </html>

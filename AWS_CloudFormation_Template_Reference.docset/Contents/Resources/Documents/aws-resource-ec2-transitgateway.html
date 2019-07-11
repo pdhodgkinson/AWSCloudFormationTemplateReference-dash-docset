@@ -8,68 +8,51 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-resource-ec2-transitgateway">AWS::EC2::TransitGateway</h1><p>Creates a transit gateway. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/tgw/">Amazon VPC Transit Gateways</a>.
-                     </p><div class="highlights" id="inline-topiclist">
-                        <p><strong>Topics</strong></p>
-                        <ul>
-                           <li><a href="#aws-resource-ec2-transitgateway-syntax">Syntax</a></li>
-                           <li><a href="#aws-resource-ec2-transitgateway-properties">Properties</a></li>
-                           <li><a href="#aws-resource-ec2-transitgateway-returnvalues">Return Values</a></li>
-                           <li><a href="#aws-resource-ec2-transitgateway-examples">Example</a></li>
-                           <li><a href="#aws-resource-ec2-transitgateway-seealso">See Also</a></li>
-                        </ul>
-                     </div><h2 id="aws-resource-ec2-transitgateway-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
-                        
-                        <h3 id="aws-resource-ec2-transitgateway-syntax.json">JSON</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
+    <h1 class="topictitle" id="aws-resource-ec2-transitgateway">AWS::EC2::TransitGateway</h1><p>Specifies a transit gateway.</p><p>You can use a transit gateway to interconnect your virtual private clouds (VPC) and
+                        on-premises networks.
+                        After the transit gateway enters the <code class="code">available</code> state, you can attach your VPCs and VPN
+                        connections to the transit gateway.
+                     </p><p>To attach your VPCs, use <a href="aws-resource-ec2-transitgatewayattachment.html">AWS::EC2::TransitGatewayAttachment</a>.
+                     </p><p>To attach a VPN connection, use <a href="aws-resource-ec2-customer-gateway.html">AWS::EC2::CustomerGateway</a> to create a customer 
+                        gateway and specify the ID of the customer gateway and the ID of the transit gateway
+                        in a call to <a href="aws-resource-ec2-vpn-connection.html">AWS::EC2::VPNConnection</a>.
+                     </p><p>When you create a transit gateway, we create a default transit gateway route table
+                        and use it as the default association route table
+                        and the default propagation route table. You can use <a href="aws-resource-ec2-transitgatewayroutetable.html">AWS::EC2::TransitGatewayRouteTable</a> to create
+                        additional transit gateway route tables. If you disable automatic route propagation,
+                        we do not create a default transit gateway route table. 
+                        You can use <a href="aws-resource-ec2-transitgatewayroutetablepropagation.html">AWS::EC2::TransitGatewayRouteTablePropagation</a> to propagate routes from a resource 
+                        attachment to a transit gateway route table. If you disable automatic associations,
+                        you can use <a href="aws-resource-ec2-transitgatewayroutetableassociation.html">AWS::EC2::TransitGatewayRouteTableAssociation</a> to associate a resource attachment with a transit gateway route table.
+                     </p><h2 id="aws-resource-ec2-transitgateway-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-resource-ec2-transitgateway-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
   &quot;Type&quot; : &quot;AWS::EC2::TransitGateway&quot;,
   &quot;Properties&quot; : {
-    &quot;<a href="aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-amazonsideasn">AmazonSideAsn</a>&quot; : <em class="replaceable"><code>Integer</code></em>,
-    &quot;<a href="aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-autoacceptsharedattachments">AutoAcceptSharedAttachments</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-defaultroutetableassociation">DefaultRouteTableAssociation</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-defaultroutetablepropagation">DefaultRouteTablePropagation</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-description">Description</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-dnssupport">DnsSupport</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-tags">Tags</a>&quot; : [ <a href="aws-properties-resource-tags.html">Tag</a>, ... ],
-    &quot;<a href="aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-vpnecmpsupport">VpnEcmpSupport</a>&quot; : <em class="replaceable"><code>String</code></em>
-  }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        
-                        <h3 id="aws-resource-ec2-transitgateway-syntax.yaml">YAML</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">Type: &quot;AWS::EC2::TransitGateway&quot;
-Properties:
-  <a href="aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-amazonsideasn">AmazonSideAsn</a>: <em class="replaceable"><code>Integer</code></em>
-  <a href="aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-autoacceptsharedattachments">AutoAcceptSharedAttachments</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-defaultroutetableassociation">DefaultRouteTableAssociation</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-defaultroutetablepropagation">DefaultRouteTablePropagation</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-description">Description</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-dnssupport">DnsSupport</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-tags">Tags</a>: 
-    - <a href="aws-properties-resource-tags.html">Tag</a>
-  <a href="aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-vpnecmpsupport">VpnEcmpSupport</a>: <em class="replaceable"><code>String</code></em></code></pre>
-                        </div><h2 id="aws-resource-ec2-transitgateway-properties">Properties</h2><div class="variablelist">
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                                  
-                        
-                        
-                        
-                        
+      &quot;<a href="#cfn-ec2-transitgateway-amazonsideasn">AmazonSideAsn</a>&quot; : <em class="replaceable"><code>Integer</code></em>,
+      &quot;<a href="#cfn-ec2-transitgateway-autoacceptsharedattachments">AutoAcceptSharedAttachments</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-ec2-transitgateway-defaultroutetableassociation">DefaultRouteTableAssociation</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-ec2-transitgateway-defaultroutetablepropagation">DefaultRouteTablePropagation</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-ec2-transitgateway-description">Description</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-ec2-transitgateway-dnssupport">DnsSupport</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-ec2-transitgateway-tags">Tags</a>&quot; : <em class="replaceable"><code>[ <a href="aws-properties-resource-tags.html">Tag</a>, ... ]</code></em>,
+      &quot;<a href="#cfn-ec2-transitgateway-vpnecmpsupport">VpnEcmpSupport</a>&quot; : <em class="replaceable"><code>String</code></em>
+    }
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-ec2-transitgateway-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Type: AWS::EC2::TransitGateway
+Properties: 
+  <a href="#cfn-ec2-transitgateway-amazonsideasn">AmazonSideAsn</a>: <em class="replaceable"><code>Integer</code></em>
+  <a href="#cfn-ec2-transitgateway-autoacceptsharedattachments">AutoAcceptSharedAttachments</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-ec2-transitgateway-defaultroutetableassociation">DefaultRouteTableAssociation</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-ec2-transitgateway-defaultroutetablepropagation">DefaultRouteTablePropagation</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-ec2-transitgateway-description">Description</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-ec2-transitgateway-dnssupport">DnsSupport</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-ec2-transitgateway-tags">Tags</a>: <em class="replaceable"><code>
+    - <a href="aws-properties-resource-tags.html">Tag</a></code></em>
+  <a href="#cfn-ec2-transitgateway-vpnecmpsupport">VpnEcmpSupport</a>: <em class="replaceable"><code>String</code></em>
+</code></pre></div><h2 id="aws-resource-ec2-transitgateway-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
                            <dt><a id="cfn-ec2-transitgateway-amazonsideasn"></a><span class="term"><code class="code">AmazonSideAsn</code></span></dt>
-                           
                            <dd>
                               
                               <p>A private Autonomous System Number (ASN) for the Amazon side of a BGP session. 
@@ -77,219 +60,119 @@ Properties:
                                  ASNs.
                               </p>
                               
-                              <p>
-                                 <em>Required</em>: No
+                              <p><em>Required</em>: No
                               </p>
-                              
-                              <p>
-                                 <em>Type</em>: Integer
+                              <p><em>Type</em>: Integer
                               </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a>
-                                 
-                              </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-ec2-transitgateway-autoacceptsharedattachments"></a><span class="term"><code class="code">AutoAcceptSharedAttachments</code></span></dt>
-                           
                            <dd>
                               
-                              <p>Indicates whether attachment requests are automatically accepted. The default is <code class="code">disable</code>.
-                              </p>
+                              <p>Indicates whether attachment requests are automatically accepted.</p>
                               
-                              <p>
-                                 <em>Required</em>: No
+                              <p><em>Required</em>: No
                               </p>
-                              
-                              <p>
-                                 <em>Type</em>: String
+                              <p><em>Type</em>: String
                               </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a>
-                                 
-                              </p>
-                              
+                              <p><em>Allowed Values</em>: <code class="code">disable | enable</code></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-ec2-transitgateway-defaultroutetableassociation"></a><span class="term"><code class="code">DefaultRouteTableAssociation</code></span></dt>
-                           
                            <dd>
                               
-                              <p>Enable or disable automatic association with the default association route table.
-                                 The default is <code class="code">enable</code>.
+                              <p>Indicates whether resource attachments are automatically associated with the default
+                                 association route table.
                               </p>
                               
-                              <p>
-                                 <em>Required</em>: No
+                              <p><em>Required</em>: No
                               </p>
-                              
-                              <p>
-                                 <em>Type</em>: String
+                              <p><em>Type</em>: String
                               </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a>
-                                 
-                              </p>
-                              
+                              <p><em>Allowed Values</em>: <code class="code">disable | enable</code></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-ec2-transitgateway-defaultroutetablepropagation"></a><span class="term"><code class="code">DefaultRouteTablePropagation</code></span></dt>
-                           
                            <dd>
                               
-                              <p>Enable or disable automatic propagation of routes to the default propagation route
-                                 table. The default is <code class="code">enable</code>.
+                              <p>Indicates whether resource attachments automatically propagate routes to the default
+                                 propagation route table.
                               </p>
                               
-                              <p>
-                                 <em>Required</em>: No
+                              <p><em>Required</em>: No
                               </p>
-                              
-                              <p>
-                                 <em>Type</em>: String
+                              <p><em>Type</em>: String
                               </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a>
-                                 
-                              </p>
-                              
+                              <p><em>Allowed Values</em>: <code class="code">disable | enable</code></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-ec2-transitgateway-description"></a><span class="term"><code class="code">Description</code></span></dt>
-                           
                            <dd>
                               
-                              <p>A description of the transit gateway.</p>
+                              <p>The description of the transit gateway.</p>
                               
-                              <p>
-                                 <em>Required</em>: No
+                              <p><em>Required</em>: No
                               </p>
-                              
-                              <p>
-                                 <em>Type</em>: String
+                              <p><em>Type</em>: String
                               </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a>
-                                 
-                              </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-ec2-transitgateway-dnssupport"></a><span class="term"><code class="code">DnsSupport</code></span></dt>
-                           
                            <dd>
                               
-                              <p>Enable or disable DNS support. The default is <code class="code">enable</code>.
-                              </p>
+                              <p>Indicates whether DNS support is enabled.</p>
                               
-                              <p>
-                                 <em>Required</em>: No
+                              <p><em>Required</em>: No
                               </p>
-                              
-                              <p>
-                                 <em>Type</em>: String
+                              <p><em>Type</em>: String
                               </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a>
-                                 
-                              </p>
-                              
+                              <p><em>Allowed Values</em>: <code class="code">disable | enable</code></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-ec2-transitgateway-tags"></a><span class="term"><code class="code">Tags</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The tags to apply to the transit gateway.</p>
+                              <p>The tags for the transit gateway.</p>
                               
-                              <p>
-                                 <em>Required</em>: No
+                              <p><em>Required</em>: No
                               </p>
-                              
-                              <p>
-                                 <em>Type</em>: List of <a href="aws-properties-resource-tags.html">Resource Tag</a> property types
-                              </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a>
-                                 
-                              </p>
-                              
+                              <p><em>Type</em>: List of <a href="aws-properties-resource-tags.html">Tag</a></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-ec2-transitgateway-vpnecmpsupport"></a><span class="term"><code class="code">VpnEcmpSupport</code></span></dt>
-                           
                            <dd>
                               
-                              <p>Enable or disable Equal Cost Multipath Protocol. The default is <code class="code">enable</code>.
-                              </p>
+                              <p>Indicates whether Equal Cost Multipath Protocol support is enabled.</p>
                               
-                              <p>
-                                 <em>Required</em>: No
+                              <p><em>Required</em>: No
                               </p>
-                              
-                              <p>
-                                 <em>Type</em>: String
+                              <p><em>Type</em>: String
                               </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a>
-                                 
-                              </p>
-                              
+                              <p><em>Allowed Values</em>: <code class="code">disable | enable</code></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
                            </dd>
-                           
                         </dl>
-                     </div><h2 id="aws-resource-ec2-transitgateway-returnvalues">Return Values</h2><h3 id="aws-resource-ec2-transitgateway-ref">Ref</h3><p>When you pass the logical ID of an <code class="code">AWS::EC2::TransitGateway</code> resource to
-                        the intrinsic <code class="code">Ref</code> function, the function returns the ID of the transit gateway, such as
-                        <code class="code">tgw-1234567891234567</code>.
-                     </p><p>For more information about using the <code class="code">Ref</code> function, see 
-                        <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                     </p><h2 id="aws-resource-ec2-transitgateway-examples">Example</h2><div id="JSON" name="JSON" class="section langfilter">
-                        
-                        <h3 id="aws-resource-ec2-transitgateway-example1.json">JSON</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
-    &quot;Resources&quot;: {
-        &quot;myTransitGateway&quot;: {
-            &quot;Type&quot;: &quot;AWS::EC2::TransitGateway&quot;,
-            &quot;Properties&quot;: {
-                &quot;AmazonSideAsn&quot;: 65000,
-                &quot;Description&quot;: &quot;TGW Route Integration Test&quot;,
-                &quot;AutoAcceptSharedAttachments&quot;: &quot;disable&quot;,
-                &quot;DefaultRouteTableAssociation&quot;: &quot;enable&quot;,
-                &quot;DnsSupport&quot;: &quot;enable&quot;,
-                &quot;VpnEcmpSupport&quot;: &quot;enable&quot;,
-                &quot;Tags&quot;: [
-                    {
-                        &quot;Key&quot;: &quot;Application&quot;,
-                        &quot;Value&quot;: {
-                            &quot;Ref&quot;: &quot;AWS::StackId&quot;
-                        }
-                    }
-                ]
+                     </div><h2 id="aws-resource-ec2-transitgateway-return-values">Return Values</h2><h3 id="aws-resource-ec2-transitgateway-return-values-ref">Ref</h3><p>When you pass the logical ID of this resource to the intrinsic <code class="code">Ref</code> function, <code class="code">Ref</code> returns the ID of the transit gateway.
+                     </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
+                     </p><h2 id="aws-resource-ec2-transitgateway--examples">Examples</h2><h3 id="aws-resource-ec2-transitgateway--examples--Transit_Gateway">Transit Gateway</h3><p>The following example declares a transit gateway.</p><h4 id="aws-resource-ec2-transitgateway--examples--Transit_Gateway--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">&quot;myTransitGateway&quot;: {
+   &quot;Type&quot;: &quot;AWS::EC2::TransitGateway&quot;,
+   &quot;Properties&quot;: {
+      &quot;AmazonSideAsn&quot;: 65000,
+      &quot;Description&quot;: &quot;TGW Route Integration Test&quot;,
+      &quot;AutoAcceptSharedAttachments&quot;: &quot;disable&quot;,
+      &quot;DefaultRouteTableAssociation&quot;: &quot;enable&quot;,
+      &quot;DnsSupport&quot;: &quot;enable&quot;,
+      &quot;VpnEcmpSupport&quot;: &quot;enable&quot;,
+      &quot;Tags&quot;: [
+         {
+            &quot;Key&quot;: &quot;Application&quot;,
+            &quot;Value&quot;: {
+               &quot;Ref&quot;: &quot;AWS::StackId&quot;
             }
-        }
-    }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        
-                        <h3 id="aws-resource-ec2-transitgateway-example1.yaml">YAML</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Resources:
-  myTransitGateway:
+         }
+      ]
+   }
+}</code></pre><h4 id="aws-resource-ec2-transitgateway--examples--Transit_Gateway--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">  myTransitGateway:
     Type: &quot;AWS::EC2::TransitGateway&quot;
     Properties:
       AmazonSideAsn: 65000
@@ -300,25 +183,19 @@ Properties:
       VpnEcmpSupport: &quot;enable&quot;
       Tags:
       - Key: Application
-        Value: !Ref &apos;AWS::StackId&apos;</code></pre>
-                        </div><h2 id="aws-resource-ec2-transitgateway-seealso">See Also</h2><div class="itemizedlist">
-                        
+        Value: !Ref &apos;AWS::StackId&apos;</code></pre><h2 id="aws-resource-ec2-transitgateway--seealso">See Also</h2><div class="itemizedlist">
                         
                         
                         <ul class="itemizedlist" type="disc">
                            <li class="listitem">
                               
-                              <p><a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTransitGateway.html">CreateTransitGateway</a>
-                                 in the <em>Amazon EC2 API Reference</em></p>
-                              
-                           </li>
-                           <li class="listitem">
-                              
-                              <p><a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyTransitGateway.html">ModifyTransitGateway</a>
-                                 in the <em>Amazon EC2 API Reference</em></p>
+                              <p>
+                                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTransitGateway.html">CreateTransitGateway</a> in the <em>Amazon EC2 API Reference</em></p>
                               
                            </li>
                         </ul>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
                      </div></div>
 </body>
 </html>

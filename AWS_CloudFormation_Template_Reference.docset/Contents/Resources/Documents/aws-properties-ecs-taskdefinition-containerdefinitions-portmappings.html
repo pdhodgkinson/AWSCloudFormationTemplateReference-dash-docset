@@ -8,91 +8,127 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-properties-ecs-taskdefinition-containerdefinitions-portmappings">Amazon Elastic Container Service TaskDefinition PortMapping</h1><p><code class="code">PortMappings</code> is a property of the <a href="aws-properties-ecs-taskdefinition-containerdefinitions.html">Amazon Elastic Container Service TaskDefinition ContainerDefinition</a> property that maps
-                        a container port to a host port.
-                     </p><h2 id="w2ab1c21c10d117c21c61b5">Syntax</h2><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-properties-ecs-taskdefinition-containerdefinitions-portmappings-syntax.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
-  &quot;<a href="aws-properties-ecs-taskdefinition-containerdefinitions-portmappings.html#cfn-ecs-taskdefinition-containerdefinition-portmappings-containerport">ContainerPort</a>&quot; : <em class="replaceable"><code>Integer</code></em>,
-  &quot;<a href="aws-properties-ecs-taskdefinition-containerdefinitions-portmappings.html#cfn-ecs-taskdefinition-containerdefinition-portmappings-hostport">HostPort</a>&quot; : <em class="replaceable"><code>Integer</code></em>,
-  &quot;<a href="aws-properties-ecs-taskdefinition-containerdefinitions-portmappings.html#cfn-ecs-taskdefinition-containerdefinition-portmappings-protocol">Protocol</a>&quot; : <em class="replaceable"><code>String</code></em>
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-properties-ecs-taskdefinition-containerdefinitions-portmappings-syntax.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight"><a href="aws-properties-ecs-taskdefinition-containerdefinitions-portmappings.html#cfn-ecs-taskdefinition-containerdefinition-portmappings-containerport">ContainerPort</a>: <em class="replaceable"><code>Integer</code></em>
-<a href="aws-properties-ecs-taskdefinition-containerdefinitions-portmappings.html#cfn-ecs-taskdefinition-containerdefinition-portmappings-hostport">HostPort</a>: <em class="replaceable"><code>Integer</code></em>
-<a href="aws-properties-ecs-taskdefinition-containerdefinitions-portmappings.html#cfn-ecs-taskdefinition-containerdefinition-portmappings-protocol">Protocol</a>: <em class="replaceable"><code>String</code></em>
-</code></pre>
-                        </div><h2 id="w2ab1c21c10d117c21c61b7">Properties</h2><p>For more information about each property, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide//task_definition_parameters.html">Task Definition Parameters</a>
-                        in the <em>Amazon Elastic Container Service Developer Guide</em>.
-                     </p><div class="variablelist">
-                        
-                        
-                        
-                        
+    <h1 class="topictitle" id="aws-properties-ecs-taskdefinition-containerdefinitions-portmappings">AWS::ECS::TaskDefinition PortMapping</h1><p>The <code class="code">PortMapping</code> property specifies a port mapping. Port mappings allow
+                        containers to access ports on the host container instance to send or receive traffic.
+                        Port mappings are specified as part of the container definition.
+                     </p><p>If you are using containers in a task with the <code class="code">awsvpc</code> or
+                        <code class="code">host</code> network mode, exposed ports should be specified using
+                        <code class="code">containerPort</code>. The <code class="code">hostPort</code> can be left blank or it must
+                        be the same value as the <code class="code">containerPort</code>.
+                     </p><p>After a task reaches the <code class="code">RUNNING</code> status, manual and automatic host and
+                        container port assignments are visible in the <code class="code">networkBindings</code> section of
+                        <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeTasks.html">DescribeTasks</a> API
+                        responses.
+                     </p><h2 id="aws-properties-ecs-taskdefinition-containerdefinitions-portmappings-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-properties-ecs-taskdefinition-containerdefinitions-portmappings-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;<a href="#cfn-ecs-taskdefinition-containerdefinition-portmappings-containerport">ContainerPort</a>&quot; : <em class="replaceable"><code>Integer</code></em>,
+  &quot;<a href="#cfn-ecs-taskdefinition-containerdefinition-portmappings-readonly">HostPort</a>&quot; : <em class="replaceable"><code>Integer</code></em>,
+  &quot;<a href="#cfn-ecs-taskdefinition-containerdefinition-portmappings-sourcevolume">Protocol</a>&quot; : <em class="replaceable"><code>String</code></em>
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-properties-ecs-taskdefinition-containerdefinitions-portmappings-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">  <a href="#cfn-ecs-taskdefinition-containerdefinition-portmappings-containerport">ContainerPort</a>: <em class="replaceable"><code>Integer</code></em>
+  <a href="#cfn-ecs-taskdefinition-containerdefinition-portmappings-readonly">HostPort</a>: <em class="replaceable"><code>Integer</code></em>
+  <a href="#cfn-ecs-taskdefinition-containerdefinition-portmappings-sourcevolume">Protocol</a>: <em class="replaceable"><code>String</code></em>
+</code></pre></div><h2 id="aws-properties-ecs-taskdefinition-containerdefinitions-portmappings-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
                            <dt><a id="cfn-ecs-taskdefinition-containerdefinition-portmappings-containerport"></a><span class="term"><code class="code">ContainerPort</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The port number on the container bound to the host port.</p>
-                              
-                              <p><em>Required</em>: Yes
+                              <p>The port number on the container that is bound to the user-specified or automatically
+                                 assigned host port.
                               </p>
                               
+                              <p>If you are using containers in a task with the <code class="code">awsvpc</code> or
+                                 <code class="code">host</code> network mode, exposed ports should be specified using
+                                 <code class="code">containerPort</code>.
+                              </p>
+                              
+                              <p>If you are using containers in a task with the <code class="code">bridge</code> network mode and
+                                 you specify a container port and not a host port, your container automatically receives
+                                 a host port in the ephemeral port range. For more information, see
+                                 <code class="code">hostPort</code>. Port mappings that are automatically assigned in this way do not
+                                 count toward the 100 reserved ports limit of a container instance.
+                              </p>
+                              
+                              <div class="aws-note">
+                                 <p class="aws-note">Important</p>
+                                 <p>You cannot expose the same container port for multiple protocols. An error will be
+                                    returned if this is attempted.
+                                 </p>
+                              </div>
+                              
+                              <p><em>Required</em>: No
+                              </p>
                               <p><em>Type</em>: Integer
                               </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-ecs-taskdefinition-containerdefinition-portmappings-hostport"></a><span class="term"><code class="code">HostPort</code></span></dt>
-                           
+                           <dt><a id="cfn-ecs-taskdefinition-containerdefinition-portmappings-readonly"></a><span class="term"><code class="code">HostPort</code></span></dt>
                            <dd>
                               
-                              <p>The host port number on the container instance that you want to reserve for
-                                 your container. You can specify a non-reserved host port for your container port
-                                 mapping, omit the host port, or set the host port to <code class="code">0</code>. If you
-                                 specify a container port but no host port, your container host port is assigned
-                                 automatically .
+                              <p>The port number on the container instance to reserve for your container.</p>
+                              
+                              <p>If you are using containers in a task with the <code class="code">awsvpc</code> or
+                                 <code class="code">host</code> network mode, the <code class="code">hostPort</code> can either be left blank
+                                 or set to the same value as the <code class="code">containerPort</code>.
                               </p>
                               
-                              <p>Don&apos;t specify a host port in the <code class="code">49153</code> to <code class="code">65535</code> port
-                                 range; these ports are reserved for automatic assignment. Other reserved ports
-                                 include <code class="code">22</code> for SSH, <code class="code">2375</code> and <code class="code">2376</code> for
-                                 Docker, and <code class="code">51678</code> for the Amazon Elastic Container Service container agent. Don&apos;t specify a
-                                 host port that is being used for a task&#x2014;that port is reserved while the
-                                 task is running.
+                              <p>If you are using containers in a task with the <code class="code">bridge</code> network mode, you
+                                 can specify a non-reserved host port for your container port mapping, or you can omit
+                                 the <code class="code">hostPort</code> (or set it to <code class="code">0</code>) while specifying a
+                                 <code class="code">containerPort</code> and your container automatically receives a port in the
+                                 ephemeral port range for your container instance operating system and Docker
+                                 version.
+                              </p>
+                              
+                              <p>The default ephemeral port range for Docker version 1.6.0 and later is listed on the
+                                 instance under <code class="code">/proc/sys/net/ipv4/ip_local_port_range</code>. If this kernel
+                                 parameter is unavailable, the default ephemeral port range from 49153 through 65535
+                                 is
+                                 used. Do not attempt to specify a host port in the ephemeral port range as these are
+                                 reserved for automatic assignment. In general, ports below 32768 are outside of the
+                                 ephemeral port range.
+                              </p>
+                              
+                              <div class="aws-note">
+                                 <p class="aws-note">Note</p>
+                                 <p>The default ephemeral port range from 49153 through 65535 is always used for
+                                    Docker versions before 1.6.0.
+                                 </p>
+                              </div>
+                              
+                              <p>The default reserved ports are 22 for SSH, the Docker ports 2375 and 2376, and the
+                                 Amazon ECS container agent ports 51678-51680. Any host port that was previously
+                                 specified in a running task is also reserved while the task is running (after a task
+                                 stops, the host port is released). The current reserved ports are displayed in the
+                                 <code class="code">remainingResources</code> of <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeContainerInstances.html">DescribeContainerInstances</a> output. A container instance can have up to 100
+                                 reserved ports at a time, including the default reserved ports. Automatically assigned
+                                 ports don&apos;t count toward the 100 reserved ports limit.
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: Integer
                               </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-ecs-taskdefinition-containerdefinition-portmappings-protocol"></a><span class="term"><code class="code">Protocol</code></span></dt>
-                           
+                           <dt><a id="cfn-ecs-taskdefinition-containerdefinition-portmappings-sourcevolume"></a><span class="term"><code class="code">Protocol</code></span></dt>
                            <dd>
                               
-                              <p>The protocol used for the port mapping. For valid values, see the <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide//task_definition_parameters.html"><code class="code">protocol</code></a> parameter in the <em>Amazon Elastic Container Service Developer Guide</em>. By default, AWS CloudFormation specifies <code class="code">tcp</code>.
+                              <p>The protocol used for the port mapping. Valid values are <code class="code">tcp</code> and
+                                 <code class="code">udp</code>. The default is <code class="code">tcp</code>.
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Allowed Values</em>: <code class="code">tcp | udp</code></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
                            </dd>
-                           
                         </dl>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
                      </div></div>
 </body>
 </html>

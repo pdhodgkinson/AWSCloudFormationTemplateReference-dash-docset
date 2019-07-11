@@ -8,283 +8,258 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-resource-amazonmq-broker">AWS::AmazonMQ::Broker</h1><p>A <em>broker</em> is a message broker environment running on
-                        Amazon MQ. It is the basic building block of Amazon MQ.
+    <h1 class="topictitle" id="aws-resource-amazonmq-broker">AWS::AmazonMQ::Broker</h1><p>A <em>broker</em> is a message broker environment running on Amazon MQ. It is
+                        the basic building block of Amazon MQ.
                      </p><p>The <code class="code">AWS::AmazonMQ::Broker</code> resource lets you create Amazon MQ brokers, add
                         configuration changes or modify users for the specified broker, return information
                         about the
-                        specified broker, and delete the specified broker. For more information, see <a href="https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-basic-elements.html">Amazon MQ Basic Elements</a> in the
-                        <em>Amazon MQ Developer Guide</em>.
-                     </p><h2 id="aws-resource-amazonmq-broker-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        specified broker, and delete the specified broker. For more information, see <a href="https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-basic-elements.html">Amazon MQ Basic Elements</a> in the <em>Amazon MQ Developer
+                           Guide</em>.
+                     </p><div class="itemizedlist">
                         
-                        <h3 id="aws-resource-amazonmq-broker-syntax.json">JSON</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <ul class="itemizedlist" type="disc">
+                           <li class="listitem">
+                              
+                              <p><code class="code">ec2:CreateNetworkInterface</code></p>
+                              
+                              <p>This permission is required to allow Amazon MQ to create an elastic network interface
+                                 (ENI) on behalf of your account.
+                              </p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p><code class="code">ec2:CreateNetworkInterfacePermission</code></p>
+                              
+                              <p>This permission is required to attach the ENI to the broker instance.</p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p><code class="code">ec2:DeleteNetworkInterface</code></p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p><code class="code">ec2:DeleteNetworkInterfacePermission</code></p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p><code class="code">ec2:DetachNetworkInterface</code></p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p><code class="code">ec2:DescribeInternetGateways</code></p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p><code class="code">ec2:DescribeNetworkInterfaces</code></p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p><code class="code">ec2:DescribeNetworkInterfacePermissions</code></p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p><code class="code">ec2:DescribeRouteTables</code></p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p><code class="code">ec2:DescribeSecurityGroups</code></p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p><code class="code">ec2:DescribeSubnets</code></p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p><code class="code">ec2:DescribeVpcs</code></p>
+                              
+                           </li>
+                        </ul>
+                     </div><h2 id="aws-resource-amazonmq-broker-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-resource-amazonmq-broker-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
   &quot;Type&quot; : &quot;AWS::AmazonMQ::Broker&quot;,
   &quot;Properties&quot; : {
-    &quot;<a href="aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-autominorversionupgrade">AutoMinorVersionUpgrade</a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
-    &quot;<a href="aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-brokername">BrokerName</a>&quot; : <em class="replaceable"><code>String</code></em>,  
-    &quot;<a href="aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-users">Users</a>&quot; : [ <a href="aws-properties-amazonmq-broker-user.html">User</a>, ... ],
-    &quot;<a href="aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-configuration">Configuration</a>&quot; : <a href="aws-properties-amazonmq-broker-configurationid.html">ConfigurationId</a>,
-    &quot;<a href="aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-deploymentmode">DeploymentMode</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-enginetype">EngineType</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-engineversion">EngineVersion</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-hostinstancetype">HostInstanceType</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-logs">Logs</a>&quot; : <a href="aws-properties-amazonmq-broker-logsconfiguration.html">LogsConfiguration</a>,
-    &quot;<a href="aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-maintenancewindowstarttime">MaintenanceWindowStartTime</a>&quot; : <a href="aws-properties-amazonmq-broker-maintenancewindow.html">MaintenanceWindow</a>,
-    &quot;<a href="aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-publiclyaccessible">PubliclyAccessible</a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
-    &quot;<a href="aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-securitygroups">SecurityGroups</a>&quot; : [ <em class="replaceable"><code>String</code></em>, ... ],
-    &quot;<a href="aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-subnetids">SubnetIds</a>&quot; : [ <em class="replaceable"><code>String</code></em>, ... ],
-    &quot;<a href="aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-tags">Tags</a>&quot; : [ <em class="replaceable"><code>Resource Tag, ...</code></em> ] 
-  }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        
-                        <h3 id="aws-resource-amazonmq-broker-syntax.yaml">YAML</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Type: &quot;AWS::AmazonMQ::Broker&quot;
-Properties:
-  <a href="aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-autominorversionupgrade">AutoMinorVersionUpgrade</a>: <em class="replaceable"><code>Boolean</code></em>
-  <a href="aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-brokername">BrokerName</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-users">Users</a>: 
-    - <a href="aws-properties-amazonmq-broker-user.html">User</a>
-  <a href="aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-configuration">Configuration</a>: <a href="aws-properties-amazonmq-broker-configurationid.html">ConfigurationId</a>
-  <a href="aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-deploymentmode">DeploymentMode</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-enginetype">EngineType</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-engineversion">EngineVersion</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-hostinstancetype">HostInstanceType</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-logs">Logs</a>: <a href="aws-properties-amazonmq-broker-logsconfiguration.html">LogsConfiguration</a>
-  <a href="aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-maintenancewindowstarttime">MaintenanceWindowStartTime</a>: <a href="aws-properties-amazonmq-broker-maintenancewindow.html">MaintenanceWindow</a>
-  <a href="aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-publiclyaccessible">PubliclyAccessible</a>: <em class="replaceable"><code>Boolean</code></em>              
-  <a href="aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-securitygroups">SecurityGroups</a>: 
-    - <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-subnetids">SubnetIds</a>: 
-    - <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-tags">Tags</a>:
-    - <em class="replaceable"><code>Resource Tag</code></em></code></pre>
-                        </div><h2 id="aws-resource-amazonmq-broker-properties">Properties</h2><div class="variablelist">
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
+      &quot;<a href="#cfn-amazonmq-broker-autominorversionupgrade">AutoMinorVersionUpgrade</a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
+      &quot;<a href="#cfn-amazonmq-broker-brokername">BrokerName</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-amazonmq-broker-configuration">Configuration</a>&quot; : <em class="replaceable"><code><a href="aws-properties-amazonmq-broker-configurationid.html">ConfigurationId</a></code></em>,
+      &quot;<a href="#cfn-amazonmq-broker-deploymentmode">DeploymentMode</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-amazonmq-broker-enginetype">EngineType</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-amazonmq-broker-engineversion">EngineVersion</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-amazonmq-broker-hostinstancetype">HostInstanceType</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-amazonmq-broker-logs">Logs</a>&quot; : <em class="replaceable"><code><a href="aws-properties-amazonmq-broker-loglist.html">LogList</a></code></em>,
+      &quot;<a href="#cfn-amazonmq-broker-maintenancewindowstarttime">MaintenanceWindowStartTime</a>&quot; : <em class="replaceable"><code><a href="aws-properties-amazonmq-broker-maintenancewindow.html">MaintenanceWindow</a></code></em>,
+      &quot;<a href="#cfn-amazonmq-broker-publiclyaccessible">PubliclyAccessible</a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
+      &quot;<a href="#cfn-amazonmq-broker-securitygroups">SecurityGroups</a>&quot; : <em class="replaceable"><code>[ String, ... ]</code></em>,
+      &quot;<a href="#cfn-amazonmq-broker-subnetids">SubnetIds</a>&quot; : <em class="replaceable"><code>[ String, ... ]</code></em>,
+      &quot;<a href="#cfn-amazonmq-broker-tags">Tags</a>&quot; : <em class="replaceable"><code>[ <a href="aws-properties-amazonmq-broker-tagsentry.html">TagsEntry</a>, ... ]</code></em>,
+      &quot;<a href="#cfn-amazonmq-broker-users">Users</a>&quot; : <em class="replaceable"><code>[ <a href="aws-properties-amazonmq-broker-user.html">User</a>, ... ]</code></em>
+    }
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-amazonmq-broker-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Type: AWS::AmazonMQ::Broker
+Properties: 
+  <a href="#cfn-amazonmq-broker-autominorversionupgrade">AutoMinorVersionUpgrade</a>: <em class="replaceable"><code>Boolean</code></em>
+  <a href="#cfn-amazonmq-broker-brokername">BrokerName</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-amazonmq-broker-configuration">Configuration</a>: <em class="replaceable"><code>
+    <a href="aws-properties-amazonmq-broker-configurationid.html">ConfigurationId</a></code></em>
+  <a href="#cfn-amazonmq-broker-deploymentmode">DeploymentMode</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-amazonmq-broker-enginetype">EngineType</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-amazonmq-broker-engineversion">EngineVersion</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-amazonmq-broker-hostinstancetype">HostInstanceType</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-amazonmq-broker-logs">Logs</a>: <em class="replaceable"><code>
+    <a href="aws-properties-amazonmq-broker-loglist.html">LogList</a></code></em>
+  <a href="#cfn-amazonmq-broker-maintenancewindowstarttime">MaintenanceWindowStartTime</a>: <em class="replaceable"><code>
+    <a href="aws-properties-amazonmq-broker-maintenancewindow.html">MaintenanceWindow</a></code></em>
+  <a href="#cfn-amazonmq-broker-publiclyaccessible">PubliclyAccessible</a>: <em class="replaceable"><code>Boolean</code></em>
+  <a href="#cfn-amazonmq-broker-securitygroups">SecurityGroups</a>: <em class="replaceable"><code>
+    - String</code></em>
+  <a href="#cfn-amazonmq-broker-subnetids">SubnetIds</a>: <em class="replaceable"><code>
+    - String</code></em>
+  <a href="#cfn-amazonmq-broker-tags">Tags</a>: <em class="replaceable"><code>
+    - <a href="aws-properties-amazonmq-broker-tagsentry.html">TagsEntry</a></code></em>
+  <a href="#cfn-amazonmq-broker-users">Users</a>: <em class="replaceable"><code>
+    - <a href="aws-properties-amazonmq-broker-user.html">User</a></code></em>
+</code></pre></div><h2 id="aws-resource-amazonmq-broker-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
                            <dt><a id="cfn-amazonmq-broker-autominorversionupgrade"></a><span class="term"><code class="code">AutoMinorVersionUpgrade</code></span></dt>
-                           
                            <dd>
+                              
                               
                               <p>Enables automatic upgrades to new minor versions for brokers, as Apache releases the
                                  versions. The automatic upgrades occur during the maintenance window of the broker
-                                 or
-                                 after a manual broker reboot.
+                                 or after a
+                                 manual broker reboot.
                               </p>
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: Boolean
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-amazonmq-broker-brokername"></a><span class="term"><code class="code">BrokerName</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The name of the broker. This value must be unique in your AWS account, 1-50
-                                 characters long, must contain only letters, numbers, dashes, and underscores, and
-                                 must
-                                 not contain whitespaces, brackets, wildcard characters, or special characters.
+                              
+                              <p>The name of the broker. This value must be unique in your AWS account, 1-50 characters
+                                 long, must contain only letters, numbers, dashes, and underscores, and must not contain
+                                 white
+                                 spaces, brackets, wildcard characters, or special characters.
                               </p>
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
-                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a> 
-                              </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-amazonmq-broker-users"></a><span class="term"><code class="code">Users</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>The list of all ActiveMQ usernames for the specified broker.</p>
-                              
-                              <p><em>Required</em>: Yes
-                              </p>
-                              
-                              <p><em>Type</em>: List of <a href="aws-properties-amazonmq-broker-user.html">User</a> property types
-                              </p>
-                              
-                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt">Some interruptions</a></p>
-                              
-                           </dd>
-                           
-                           
                            <dt><a id="cfn-amazonmq-broker-configuration"></a><span class="term"><code class="code">Configuration</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The broker configuration. If no configuration exists for a broker, Amazon MQ
-                                 creates a default configuration.
-                              </p>
                               
-                              <div class="aws-note">
-                                 <p class="aws-note">Note</p>
-                                 <p>You can use AWS CloudFormation to modify&#x2014;but not delete&#x2014;an Amazon MQ configuration.</p>
-                              </div>
-                              
-                              
+                              <p>A list of information about the configuration.</p>
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: <a href="aws-properties-amazonmq-broker-configurationid.html">ConfigurationId</a></p>
-                              
-                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt">Some interruptions</a></p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-amazonmq-broker-deploymentmode"></a><span class="term"><code class="code">DeploymentMode</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The deployment mode of the broker. <code class="code">SINGLE_INSTANCE</code> creates a
-                                 single-instance broker in a single Availability Zone.
-                                 <code class="code">ACTIVE_STANDBY_MULTI_AZ</code> creates an active/standby broker for high
-                                 availability. 
-                              </p>
+                              
+                              <p>The deployment mode of the broker.</p>
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-amazonmq-broker-enginetype"></a><span class="term"><code class="code">EngineType</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The type of broker engine.</p>
                               
-                              <div class="aws-note">
-                                 <p class="aws-note">Note</p>
-                                 <p>Currently, Amazon MQ supports only <code class="code">ACTIVEMQ</code>.
-                                 </p>
-                              </div>
+                              <p>The type of broker engine. Note: Currently, Amazon MQ supports only ACTIVEMQ.</p>
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-amazonmq-broker-engineversion"></a><span class="term"><code class="code">EngineVersion</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The version of the broker engine.</p>
                               
-                              <div class="aws-note">
-                                 <p class="aws-note">Note</p>
-                                 <p>For a list of supported engine versions, see: 
-                                    <a href="https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html">Broker Engine</a>.
-                                 </p>
-                              </div>
+                              <p>The version of the broker engine. For a list of supported engine versions, see <a href="https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html">Engine</a> in the <em>Amazon MQ Developer Guide</em>. 
+                              </p>
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
-                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt">Some interruptions</a></p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-amazonmq-broker-hostinstancetype"></a><span class="term"><code class="code">HostInstanceType</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The broker&apos;s instance type. For more information, see <a href="https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker.html#broker-instance-types">Instance Types</a> in the
-                                 <em>Amazon MQ Developer Guide</em>.
-                              </p>
+                              
+                              <p>The broker&apos;s instance type.</p>
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-amazonmq-broker-logs"></a><span class="term"><code class="code">Logs</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The Amazon CloudWatch Logs configuration for the broker.</p>              
                               
+                              <p>Enables Amazon CloudWatch logging for brokers.</p>
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: <a href="aws-properties-amazonmq-broker-logsconfiguration.html">LogsConfiguration</a></p>
-                              
-                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt">Some interruptions</a></p>
-                              
+                              <p><em>Type</em>: <a href="aws-properties-amazonmq-broker-loglist.html">LogList</a></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-amazonmq-broker-maintenancewindowstarttime"></a><span class="term"><code class="code">MaintenanceWindowStartTime</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The parameters that determine the <code class="code">WeeklyStartTime</code>.
+                              
+                              <p>The scheduled time period relative to UTC during which Amazon MQ begins to apply pending
+                                 updates or patches to the broker..
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: <a href="aws-properties-amazonmq-broker-maintenancewindow.html">MaintenanceWindow</a></p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-amazonmq-broker-publiclyaccessible"></a><span class="term"><code class="code">PubliclyAccessible</code></span></dt>
-                           
                            <dd>
+                              
                               
                               <p>Enables connections from applications outside of the VPC that hosts the broker&apos;s
                                  subnets.
@@ -292,187 +267,182 @@ Properties:
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: Boolean
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-amazonmq-broker-securitygroups"></a><span class="term"><code class="code">SecurityGroups</code></span></dt>
-                           
                            <dd>
+                              
                               
                               <p>The list of rules (1 minimum, 125 maximum) that authorize connections to
                                  brokers.
                               </p>
-                              
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: List of String values
+                              <p><em>Type</em>: List of String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-amazonmq-broker-subnetids"></a><span class="term"><code class="code">SubnetIds</code></span></dt>
-                           
                            <dd>
+                              
                               
                               <p>The list of groups (2 maximum) that define which subnets and IP ranges the broker
-                                 can use from different Availability Zones. A <code class="code">SINGLE_INSTANCE</code>  deployment
-                                 requires one subnet (for example, the default subnet). An
-                                 <code class="code">ACTIVE_STANDBY_MULTI_AZ</code> deployment requires two subnets. 
+                                 can use from different Availability Zones. A SINGLE_INSTANCE deployment requires one
+                                 subnet (for example, the default subnet). An ACTIVE_STANDBY_MULTI_AZ deployment
+                                 requires two subnets.
+                              </p>
+                              <p><em>Required</em>: No
+                              </p>
+                              <p><em>Type</em>: List of String
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                           </dd>
+                           <dt><a id="cfn-amazonmq-broker-tags"></a><span class="term"><code class="code">Tags</code></span></dt>
+                           <dd>
+                              
+                              
+                              <p>An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using Cost Allocation Tags</a> in the <em>AWS Billing and Cost Management User Guide</em>.
+                                 
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: List of String values
-                              </p>
-                              
-                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
+                              <p><em>Type</em>: List of <a href="aws-properties-amazonmq-broker-tagsentry.html">TagsEntry</a></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-amazonmq-broker-tags"></a><span class="term"><code class="code">Tags</code></span></dt>
-                           
+                           <dt><a id="cfn-amazonmq-broker-users"></a><span class="term"><code class="code">Users</code></span></dt>
                            <dd>
                               
-                              <p>An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using
-                                    Cost Allocation Tags</a> in the <em>AWS Billing and Cost Management User
-                                    Guide</em>.
+                              
+                              <p>The list of ActiveMQ users (persons or applications) who can access queues and topics.
+                                 This value can contain only alphanumeric characters, dashes, periods, underscores,
+                                 and tildes
+                                 (- . _ ~). This value must be 2-100 characters long.
                               </p>
                               
-                              <p>
-                                 <em>Required</em>: No
+                              <p><em>Required</em>: Yes
                               </p>
+                              <p><em>Type</em>: List of <a href="aws-properties-amazonmq-broker-user.html">User</a></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                           </dd>
+                        </dl>
+                     </div><h2 id="aws-resource-amazonmq-broker-return-values">Return Values</h2><h3 id="aws-resource-amazonmq-broker-return-values-ref">Ref</h3><p>
+                        When you pass the logical ID of this resource to the intrinsic <code class="code">Ref</code> function, <code class="code">Ref</code> returns the Amazon MQ broker ID. For example: 
+                     </p><p>
+                        <code class="code">b-1234a5b6-78cd-901e-2fgh-3i45j6k178l9</code>
+                        
+                     </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
+                     </p><h3 id="aws-resource-amazonmq-broker-return-values-fn--getatt">Fn::GetAtt</h3><p>The <code class="code">Fn::GetAtt</code> intrinsic function returns a value for a specified attribute of this type. The following
+                        are the available attributes and sample return values.
+                     </p><p>For more information about using the <code class="code">Fn::GetAtt</code> intrinsic function, see <a href="intrinsic-function-reference-getatt.html">Fn::GetAtt</a>.
+                     </p><h4 id="aws-resource-amazonmq-broker-return-values-fn--getatt-fn--getatt"></h4><div class="variablelist">
+                        <dl>
+                           <dt><a id="AmqpEndpoints-fn::getatt"></a><span class="term"><code class="code">AmqpEndpoints</code></span></dt>
+                           <dd>
+                              
+                              <p>The AMQP endpoints of each broker instance as a list of strings.</p>
                               
                               <p>
-                                 <em>Type</em>: List of <a href="aws-properties-resource-tags.html">Resource Tag</a></p>
-                              
-                              <p>
-                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No
-                                    interruption</a>
+                                 <code class="code">amqp+ssl://b-4aada85d-a80c-4be0-9d30-e344a01b921e-1.mq.eu-central-amazonaws.com:5671</code>
                                  
                               </p>
                               
                            </dd>
-                           
-                        </dl>
-                     </div><h2 id="aws-resource-amazonmq-broker-returnvalues">Return Values</h2><h3 id="aws-resource-amazonmq-broker-ref">Ref</h3><p>When you pass the logical ID of an <code class="code">AWS::AmazonMQ::Broker</code> resource to
-                        the intrinsic <code class="code">Ref</code> function, the function returns the Amazon MQ broker ID. For
-                        example:
-                     </p><pre class="programlisting"><div class="code-btn-container"><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">b-1234a5b6-78cd-901e-2fgh-3i45j6k178l9</code></pre><p>For more information about using the <code class="code">Ref</code> function, see <code class="code"><a href="intrinsic-function-reference-ref.html">Ref</a></code>.
-                     </p><h3 id="aws-resource-amazonmq-broker-getatt">Fn::GetAtt</h3><p>
-                        <code class="code">Fn::GetAtt</code> returns a value for a specified attribute of this type. The following are the available
-                        attributes and sample return values.
-                        
-                     </p><div class="variablelist">
-                        
-                        
-                        
-                        
-                         
-                        
-                        
-                        
-                                
-                        
-                        <dl>
-                           
-                           <dt><span class="term"><code class="code">Arn</code></span></dt>
-                           
+                           <dt><a id="Arn-fn::getatt"></a><span class="term"><code class="code">Arn</code></span></dt>
                            <dd>
                               
                               <p>The Amazon Resource Name (ARN) of the Amazon MQ broker.</p>
-                              <pre class="programlisting"><div class="code-btn-container"><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">arn:aws:mq:us-east-2:123456789012:broker:MyBroker:b-1234a5b6-78cd-901e-2fgh-3i45j6k178l9</code></pre>
-                              </dd>
-                           
-                           
-                           <dt><span class="term"><code class="code">ConfigurationId</code></span></dt>
-                           
+                              
+                              <p>
+                                 <code class="code">arn:aws:mq:us-east-2:123456789012:broker:MyBroker:b-1234a5b6-78cd-901e-2fgh-3i45j6k178l9</code>
+                                 
+                              </p>
+                              
+                           </dd>
+                           <dt><a id="ConfigurationId-fn::getatt"></a><span class="term"><code class="code">ConfigurationId</code></span></dt>
                            <dd>
                               
                               <p>The unique ID that Amazon MQ generates for the configuration.</p>
-                              <pre class="programlisting"><div class="code-btn-container"><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">c-1234a5b6-78cd-901e-2fgh-3i45j6k178l9</code></pre>
-                              </dd>
-                           
-                           
-                           <dt><span class="term"><code class="code">ConfigurationRevision</code></span></dt>
-                           
+                              
+                              <p>
+                                 <code class="code">c-1234a5b6-78cd-901e-2fgh-3i45j6k178l9</code>
+                                 
+                              </p>
+                              
+                           </dd>
+                           <dt><a id="ConfigurationRevision-fn::getatt"></a><span class="term"><code class="code">ConfigurationRevision</code></span></dt>
                            <dd>
                               
                               <p>The revision number of the configuration.</p>
-                              <pre class="programlisting"><div class="code-btn-container"><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">1</code></pre>
-                              </dd>
-                           
-                           
-                           <dt><span class="term"><code class="code">IpAddresses</code></span></dt>
-                           
+                              
+                              <p>
+                                 <code class="code">1</code>
+                                 
+                              </p>
+                              
+                           </dd>
+                           <dt><a id="IpAddresses-fn::getatt"></a><span class="term"><code class="code">IpAddresses</code></span></dt>
                            <dd>
+                              
                               <p>The IP addresses of each broker instance as a list of strings.</p>
-                              <pre class="programlisting"><div class="code-btn-container"><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">[&apos;198.51.100.2&apos;, &apos;203.0.113.9&apos;]</code></pre></dd>
-                           
-                           
-                           <dt><span class="term"><code class="code">MqttEndpoints</code></span></dt>
-                           
+                              
+                              <p>
+                                 <code class="code">[&apos;198.51.100.2&apos;, &apos;203.0.113.9&apos;]</code>
+                                 
+                              </p>
+                              
+                           </dd>
+                           <dt><a id="MqttEndpoints-fn::getatt"></a><span class="term"><code class="code">MqttEndpoints</code></span></dt>
                            <dd>
+                              
                               <p>The MQTT endpoints of each broker instance as a list of strings.</p>
-                              <pre class="programlisting"><div class="code-btn-container"><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">mqtt+ssl://b-4aada85d-a80c-4be0-9d30-e344a01b921e-1.mq.eu-central-amazonaws.com:8883</code></pre></dd>
-                           
-                           
-                           <dt><span class="term"><code class="code">OpenWireEndpoints</code></span></dt>
-                           
+                              
+                              <p>
+                                 <code class="code">mqtt+ssl://b-4aada85d-a80c-4be0-9d30-e344a01b921e-1.mq.eu-central-amazonaws.com:8883</code>
+                                 
+                              </p>
+                              
+                           </dd>
+                           <dt><a id="OpenWireEndpoints-fn::getatt"></a><span class="term"><code class="code">OpenWireEndpoints</code></span></dt>
                            <dd>
+                              
                               <p>The OpenWire endpoints of each broker instance as a list of strings.</p>
-                              <pre class="programlisting"><div class="code-btn-container"><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">ssl://b-4aada85d-a80c-4be0-9d30-e344a01b921e-1.mq.eu-central-amazonaws.com:61617</code></pre></dd>
-                           
-                           
-                           <dt><span class="term"><code class="code">AmqpEndpoints</code></span></dt>
-                           
+                              
+                              <p>
+                                 <code class="code">ssl://b-4aada85d-a80c-4be0-9d30-e344a01b921e-1.mq.eu-central-amazonaws.com:61617</code>
+                                 
+                              </p>
+                              
+                           </dd>
+                           <dt><a id="StompEndpoints-fn::getatt"></a><span class="term"><code class="code">StompEndpoints</code></span></dt>
                            <dd>
-                              <p>The AMQP endpoints of each broker instance as a list of strings.</p>
-                              <pre class="programlisting"><div class="code-btn-container"><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">amqp+ssl://b-4aada85d-a80c-4be0-9d30-e344a01b921e-1.mq.eu-central-amazonaws.com:5671</code></pre></dd>
-                           
-                           
-                           <dt><span class="term"><code class="code">StompEndpoints</code></span></dt>
-                           
-                           <dd>
+                              
                               <p>The STOMP endpoints of each broker instance as a list of strings.</p>
-                              <pre class="programlisting"><div class="code-btn-container"><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">stomp+ssl://b-4aada85d-a80c-4be0-9d30-e344a01b921e-1.mq.eu-central-amazonaws.com:61614</code></pre></dd>
-                           
-                           
-                           <dt><span class="term"><code class="code">WssEndpoints</code></span></dt>
-                           
+                              
+                              <p>
+                                 <code class="code">stomp+ssl://b-4aada85d-a80c-4be0-9d30-e344a01b921e-1.mq.eu-central-amazonaws.com:61614</code>
+                                 
+                              </p>
+                              
+                           </dd>
+                           <dt><a id="WssEndpoints-fn::getatt"></a><span class="term"><code class="code">WssEndpoints</code></span></dt>
                            <dd>
+                              
                               <p>The WSS endpoints of each broker instance as a list of strings.</p>
-                              <pre class="programlisting"><div class="code-btn-container"><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">wss://b-4aada85d-a80c-4be0-9d30-e344a01b921e-1.mq.eu-central-amazonaws.com:61619</code></pre></dd>
-                           
+                              
+                              <p>
+                                 <code class="code">wss://b-4aada85d-a80c-4be0-9d30-e344a01b921e-1.mq.eu-central-amazonaws.com:61619</code>
+                                 
+                              </p>
+                              
+                           </dd>
                         </dl>
-                     </div><p>For more information about using <code class="code">Fn::GetAtt</code>, see <code class="code"><a href="intrinsic-function-reference-getatt.html">Fn::GetAtt</a></code>.
-                     </p><h2 id="aws-resource-amazonmq-broker-examples">Examples</h2><h3 id="aws-resource-amazonmq-broker-example-simple">Basic Amazon MQ Broker</h3><p>The following example creates a basic Amazon MQ broker with one user that belongs
+                     </div><h2 id="aws-resource-amazonmq-broker--examples">Examples</h2><h3 id="aws-resource-amazonmq-broker--examples--Basic_Amazon_MQ_Broker">Basic Amazon MQ Broker</h3><p>The following example creates a basic Amazon MQ broker with one user that belongs
                         to a
-                        group.
-                     </p><div class="aws-note">
-                        <p class="aws-note">Note</p>
-                        <p>We don&apos;t recommend including plaintext passwords in AWS CloudFormation templates.
-                           To securely retrieve your user credentials, add a <code class="code">Ref</code> to your template.
-                           For example, you can create a Lambda function and use it to retrieve encrypted credentials
-                           stored in a DynamoDB table.
-                           For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html">Using AWS Lambda with Amazon DynamoDB</a> 
-                           in the <em>AWS Lambda Developer Guide</em>.
-                        </p>
-                     </div><div id="JSON" name="JSON" class="section langfilter">
-                        
-                        <h4 id="aws-resource-amazonmq-broker-example-simple.json">JSON</h4>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+                        group. 
+                     </p><h4 id="aws-resource-amazonmq-broker--examples--Basic_Amazon_MQ_Broker--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
   &quot;Description&quot;: &quot;Create a basic AmazonMQ broker&quot;,
   &quot;Resources&quot;: {
     &quot;BasicBroker&quot;: {
@@ -498,11 +468,7 @@ Properties:
       }
     }
   }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        
-                        <h4 id="aws-resource-amazonmq-broker-example-simple.yaml">YAML</h4>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">--- 
+}</code></pre><h4 id="aws-resource-amazonmq-broker--examples--Basic_Amazon_MQ_Broker--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">--- 
 Description: &quot;Create a basic AmazonMQ broker&quot;
 Resources: 
   BasicBroker:
@@ -523,22 +489,9 @@ Resources:
           Password: 
             Ref: &quot;BrokerPassword&quot;            
           Username: 
-            Ref: &quot;BrokerUsername&quot;</code></pre>
-                        </div><h3 id="aws-resource-amazonmq-broker-example-complex">Complex Amazon MQ Broker</h3><p>The following example creates a complex Amazon MQ broker with two users that don&apos;t
-                        belong to a group and one user that belongs in a group.
-                     </p><div class="aws-note">
-                        <p class="aws-note">Note</p>
-                        <p>We don&apos;t recommend including plaintext passwords in AWS CloudFormation templates.
-                           To securely retrieve your user credentials, add a <code class="code">Ref</code> to your template.
-                           For example, you can create a Lambda function and use it to retrieve encrypted credentials
-                           stored in a DynamoDB table.
-                           For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html">Using AWS Lambda with Amazon DynamoDB</a> 
-                           in the <em>AWS Lambda Developer Guide</em>.
-                        </p>
-                     </div><div id="JSON" name="JSON" class="section langfilter">
-                        
-                        <h4 id="aws-resource-amazonmq-broker-example-complex.json">JSON</h4>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+            Ref: &quot;BrokerUsername&quot;</code></pre><h3 id="aws-resource-amazonmq-broker--examples--Complex_Amazon_MQ_Broker">Complex Amazon MQ Broker</h3><p>The following example creates a complex Amazon MQ broker with two users that don&apos;t
+                        belong to a group and one user that belongs in a group. 
+                     </p><h4 id="aws-resource-amazonmq-broker--examples--Complex_Amazon_MQ_Broker--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
   &quot;Description&quot;: &quot;Create a complex AmazonMQ broker&quot;,
   &quot;Resources&quot;: {
     &quot;ComplexBroker&quot;: {
@@ -590,11 +543,7 @@ Resources:
       }
     }
   }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        
-                        <h4 id="aws-resource-amazonmq-broker-example-complex.yaml">YAML</h4>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">--- 
+}</code></pre><h4 id="aws-resource-amazonmq-broker--examples--Complex_Amazon_MQ_Broker--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">--- 
 Description: &quot;Create a complex AmazonMQ broker&quot;
 Resources: 
   ComplexBroker:
@@ -642,7 +591,8 @@ Resources:
           Password: 
             Ref: &quot;BrokerPassword3&quot;
           Username: 
-            Ref: &quot;BrokerUsername3&quot;</code></pre>
-                        </div></div>
+            Ref: &quot;BrokerUsername3&quot;</code></pre><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
+                     </div></div>
 </body>
 </html>

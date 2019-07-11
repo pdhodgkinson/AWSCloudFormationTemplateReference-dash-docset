@@ -8,85 +8,85 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-properties-glue-trigger-action">AWS Glue Trigger Action</h1><p>The 
-                        <code class="code">Action</code> property type specifies the actions that an AWS Glue job trigger initiates when it
-                        fires.
-                     </p><p>
-                        <code class="code">Action</code> is a property of the <a href="aws-resource-glue-trigger.html">AWS::Glue::Trigger</a> resource.
-                     </p><h2 id="aws-properties-glue-trigger-action-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
-                        
-                        <h3 id="aws-properties-glue-trigger-action-syntax.json">JSON</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
-  &quot;<a href="aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-jobname">JobName</a>&quot; : <em class="replaceable"><code>String</code></em>,
-  &quot;<a href="aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-arguments">Arguments</a>&quot; : <em class="replaceable"><code>JSON object</code></em>
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        
-                        <h3 id="aws-properties-glue-trigger-action-syntax.yaml">YAML</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight"><a href="aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-jobname">JobName</a>: <em class="replaceable"><code>String</code></em>
-<a href="aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-arguments">Arguments</a>: <em class="replaceable"><code>JSON object</code></em></code></pre>
-                        </div><h2 id="aws-properties-glue-trigger-action-properties">Properties</h2><div class="variablelist">
-                        
-                        
-                        
+    <h1 class="topictitle" id="aws-properties-glue-trigger-action">AWS::Glue::Trigger Action</h1><p>Defines an action to be initiated by a trigger.</p><h2 id="aws-properties-glue-trigger-action-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-properties-glue-trigger-action-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;<a href="#cfn-glue-trigger-action-arguments">Arguments</a>&quot; : <em class="replaceable"><code>Json</code></em>,
+  &quot;<a href="#cfn-glue-trigger-action-jobname">JobName</a>&quot; : <em class="replaceable"><code>String</code></em>,
+  &quot;<a href="#cfn-glue-trigger-action-securityconfiguration">SecurityConfiguration</a>&quot; : <em class="replaceable"><code>String</code></em>
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-properties-glue-trigger-action-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">  <a href="#cfn-glue-trigger-action-arguments">Arguments</a>: <em class="replaceable"><code>Json</code></em>
+  <a href="#cfn-glue-trigger-action-jobname">JobName</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-glue-trigger-action-securityconfiguration">SecurityConfiguration</a>: <em class="replaceable"><code>String</code></em>
+</code></pre></div><h2 id="aws-properties-glue-trigger-action-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
-                           <dt><a id="cfn-glue-trigger-action-jobname"></a><span class="term"><code class="code">JobName</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>The name of the associated job. It must match the single-line string
-                                 pattern: <code class="code">[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\t]*</code></p>
-                              
-                              <p>
-                                 <em>Required</em>: No
-                              </p>
-                              
-                              <p>
-                                 <em>Type</em>: String
-                              </p>
-                              
-                              <p>
-                                 <em>Update requires</em>:                                 
-                                 <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
-                                 
-                              </p>
-                              
-                           </dd>
-                           
-                           
                            <dt><a id="cfn-glue-trigger-action-arguments"></a><span class="term"><code class="code">Arguments</code></span></dt>
-                           
                            <dd>
                               
-                              <p>UTF-8 string&#x2013;to&#x2013;UTF-8 string key-value pairs that specify the arguments for the action.</p>
-                              
-                              <p>
-                                 <em>Required</em>: No
+                              <p>The job arguments used when this trigger fires. For this job run, they replace the
+                                 default arguments set in the job definition itself.
                               </p>
                               
-                              <p>
-                                 <em>Type</em>: JSON object
+                              <p>You can specify arguments here that your own job-execution script consumes, in
+                                 addition to arguments that AWS Glue itself consumes.
                               </p>
                               
-                              <p>
-                                 <em>Update requires</em>:                                 
-                                 <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
-                                 
+                              <p>For information about how to specify and consume your own job arguments, see <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html">Calling AWS Glue APIs in Python</a> in the <em>AWS Glue Developer
+                                    Guide</em>.
                               </p>
                               
+                              <p>For information about the key-value pairs that AWS Glue consumes to set up your job,
+                                 see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html">Special Parameters
+                                    Used by AWS Glue</a> topic in the developer guide.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              <p><em>Type</em>: Json
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
+                           <dt><a id="cfn-glue-trigger-action-jobname"></a><span class="term"><code class="code">JobName</code></span></dt>
+                           <dd>
+                              
+                              <p>The name of a job to be executed.</p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              <p><em>Type</em>: String
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                           </dd>
+                           <dt><a id="cfn-glue-trigger-action-securityconfiguration"></a><span class="term"><code class="code">SecurityConfiguration</code></span></dt>
+                           <dd>
+                              
+                              <p>The name of the <code class="code">SecurityConfiguration</code> structure to be used with this
+                                 action.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              <p><em>Type</em>: String
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                           </dd>
                         </dl>
-                     </div><h2 id="aws-properties-glue-trigger-action-seealso">See Also</h2><div class="itemizedlist">
+                     </div><h2 id="aws-properties-glue-trigger-action--seealso">See Also</h2><div class="itemizedlist">
                         
                         
                         <ul class="itemizedlist" type="disc">
                            <li class="listitem">
-                              <p><a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-trigger.html#aws-glue-api-jobs-trigger-Action">
-                                    Action Structure</a> in the <em>AWS Glue Developer Guide</em></p>
+                              
+                              <p>
+                                 <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-trigger.html#aws-glue-api-jobs-trigger-Action">Action Structure</a> in the <em>AWS Glue Developer
+                                    Guide</em>
+                                 
+                              </p>
+                              
                            </li>
                         </ul>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
                      </div></div>
 </body>
 </html>

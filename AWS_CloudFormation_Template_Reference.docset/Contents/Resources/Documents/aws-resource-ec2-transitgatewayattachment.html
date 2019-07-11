@@ -8,165 +8,105 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-resource-ec2-transitgatewayattachment">AWS::EC2::TransitGatewayAttachment</h1><p>Creates an attachment between a VPC and a transit gateway. For more information, see
-                        <a href="https://docs.aws.amazon.com/vpc/latest/tgw/">Amazon VPC Transit Gateways</a>.
-                     </p><div class="highlights" id="inline-topiclist">
-                        <p><strong>Topics</strong></p>
-                        <ul>
-                           <li><a href="#aws-resource-ec2-transitgatewayattachment-syntax">Syntax</a></li>
-                           <li><a href="#aws-resource-ec2-transitgatewayattachment-properties">Properties</a></li>
-                           <li><a href="#aws-resource-ec2-transitgatewayattachment-returnvalues">Return Values</a></li>
-                           <li><a href="#aws-resource-ec2-transitgatewayattachment-seealso">See Also</a></li>
-                        </ul>
-                     </div><h2 id="aws-resource-ec2-transitgatewayattachment-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
-                        
-                        <h3 id="aws-resource-ec2-transitgatewayattachment-syntax.json">JSON</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
+    <h1 class="topictitle" id="aws-resource-ec2-transitgatewayattachment">AWS::EC2::TransitGatewayAttachment</h1><p>Attaches a VPC to a transit gateway.</p><p>If you attach a VPC with a CIDR range that overlaps the CIDR range of a VPC that is
+                        already attached,
+                        the new VPC CIDR range is not propagated to the default propagation route table.
+                     </p><p>To send VPC traffic to an attached transit gateway, add a route to the VPC route table
+                        using <a href="aws-resource-ec2-transitgatewayroute.html">AWS::EC2::TransitGatewayRoute</a>.
+                     </p><h2 id="aws-resource-ec2-transitgatewayattachment-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-resource-ec2-transitgatewayattachment-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
   &quot;Type&quot; : &quot;AWS::EC2::TransitGatewayAttachment&quot;,
   &quot;Properties&quot; : {
-    &quot;<a href="aws-resource-ec2-transitgatewayattachment.html#cfn-ec2-transitgatewayattachment-subnetids">SubnetIds</a>&quot; : [ <em class="replaceable"><code>String</code></em>, ... ],
-    &quot;<a href="aws-resource-ec2-transitgatewayattachment.html#cfn-ec2-transitgatewayattachment-tags">Tags</a>&quot; : [ <a href="aws-properties-resource-tags.html">Tag</a>, ... ],
-    &quot;<a href="aws-resource-ec2-transitgatewayattachment.html#cfn-ec2-transitgatewayattachment-transitgatewayid">TransitGatewayId</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-ec2-transitgatewayattachment.html#cfn-ec2-transitgatewayattachment-vpcid">VpcId</a>&quot; : <em class="replaceable"><code>String</code></em>
-  }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        
-                        <h3 id="aws-resource-ec2-transitgatewayattachment-syntax.yaml">YAML</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">Type: &quot;AWS::EC2::TransitGatewayAttachment&quot;
-Properties:
-  <a href="aws-resource-ec2-transitgatewayattachment.html#cfn-ec2-transitgatewayattachment-subnetids">SubnetIds</a>: 
-    - <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-ec2-transitgatewayattachment.html#cfn-ec2-transitgatewayattachment-tags">Tags</a>: 
-    - <a href="aws-properties-resource-tags.html">Tag</a>
-  <a href="aws-resource-ec2-transitgatewayattachment.html#cfn-ec2-transitgatewayattachment-transitgatewayid">TransitGatewayId</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-ec2-transitgatewayattachment.html#cfn-ec2-transitgatewayattachment-vpcid">VpcId</a>: <em class="replaceable"><code>String</code></em></code></pre>
-                        </div><h2 id="aws-resource-ec2-transitgatewayattachment-properties">Properties</h2><div class="variablelist">
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
+      &quot;<a href="#cfn-ec2-transitgatewayattachment-subnetids">SubnetIds</a>&quot; : <em class="replaceable"><code>[ String, ... ]</code></em>,
+      &quot;<a href="#cfn-ec2-transitgatewayattachment-tags">Tags</a>&quot; : <em class="replaceable"><code>[ <a href="aws-properties-resource-tags.html">Tag</a>, ... ]</code></em>,
+      &quot;<a href="#cfn-ec2-transitgatewayattachment-transitgatewayid">TransitGatewayId</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-ec2-transitgatewayattachment-vpcid">VpcId</a>&quot; : <em class="replaceable"><code>String</code></em>
+    }
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-ec2-transitgatewayattachment-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Type: AWS::EC2::TransitGatewayAttachment
+Properties: 
+  <a href="#cfn-ec2-transitgatewayattachment-subnetids">SubnetIds</a>: <em class="replaceable"><code>
+    - String</code></em>
+  <a href="#cfn-ec2-transitgatewayattachment-tags">Tags</a>: <em class="replaceable"><code>
+    - <a href="aws-properties-resource-tags.html">Tag</a></code></em>
+  <a href="#cfn-ec2-transitgatewayattachment-transitgatewayid">TransitGatewayId</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-ec2-transitgatewayattachment-vpcid">VpcId</a>: <em class="replaceable"><code>String</code></em>
+</code></pre></div><h2 id="aws-resource-ec2-transitgatewayattachment-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
                            <dt><a id="cfn-ec2-transitgatewayattachment-subnetids"></a><span class="term"><code class="code">SubnetIds</code></span></dt>
-                           
                            <dd>
                               
                               <p>The IDs of one or more subnets. You can specify only one subnet per Availability Zone.
-                                 You must specify at least one subnet, 
-                                 but we recommend that you specify two subnets for better availability. The transit
-                                 gateway uses one IP address from each specified subnet.
-                              </p>
-                              
-                              <p>
-                                 <em>Required</em>: Yes
-                              </p>
-                              
-                              <p>
-                                 <em>Type</em>: List of String values
-                              </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a>
                                  
+                                 You must specify at least one subnet, but we recommend that you specify two subnets
+                                 for better availability.
+                                 The transit gateway uses one IP address from each specified subnet.
                               </p>
                               
+                              <p><em>Required</em>: Yes
+                              </p>
+                              <p><em>Type</em>: List of String
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-ec2-transitgatewayattachment-tags"></a><span class="term"><code class="code">Tags</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The tags to apply to the VPC attachment.</p>
+                              <p>The tags for the attachment.</p>
                               
-                              <p>
-                                 <em>Required</em>: No
+                              <p><em>Required</em>: No
                               </p>
-                              
-                              <p>
-                                 <em>Type</em>: List of <a href="aws-properties-resource-tags.html">Resource Tag</a> property types
-                              </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a>
-                                 
-                              </p>
-                              
+                              <p><em>Type</em>: List of <a href="aws-properties-resource-tags.html">Tag</a></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-ec2-transitgatewayattachment-transitgatewayid"></a><span class="term"><code class="code">TransitGatewayId</code></span></dt>
-                           
                            <dd>
                               
                               <p>The ID of the transit gateway.</p>
                               
-                              <p>
-                                 <em>Required</em>: Yes
+                              <p><em>Required</em>: Yes
                               </p>
-                              
-                              <p>
-                                 <em>Type</em>: String
+                              <p><em>Type</em>: String
                               </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a>
-                                 
-                              </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-ec2-transitgatewayattachment-vpcid"></a><span class="term"><code class="code">VpcId</code></span></dt>
-                           
                            <dd>
                               
                               <p>The ID of the VPC.</p>
                               
-                              <p>
-                                 <em>Required</em>: Yes
+                              <p><em>Required</em>: Yes
                               </p>
-                              
-                              <p>
-                                 <em>Type</em>: String
+                              <p><em>Type</em>: String
                               </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a>
-                                 
-                              </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
                            </dd>
-                           
                         </dl>
-                     </div><h2 id="aws-resource-ec2-transitgatewayattachment-returnvalues">Return Values</h2><h3 id="aws-resource-ec2-transitgatewayattachment-ref">Ref</h3><p>When you pass the logical ID of an <code class="code">AWS::EC2::TransitGatewayAttachment</code> resource to the intrinsic 
-                        <code class="code">Ref</code> function, the function returns the ID of the attachment, such as <code class="code">tgw-attach-vpc-0d39e0d39e0d39e</code>.
-                     </p><p>For more information about using the <code class="code">Ref</code> function, see 
-                        <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                     </p><h2 id="aws-resource-ec2-transitgatewayattachment-seealso">See Also</h2><div class="itemizedlist">
+                     </div><h2 id="aws-resource-ec2-transitgatewayattachment-return-values">Return Values</h2><h3 id="aws-resource-ec2-transitgatewayattachment-return-values-ref">Ref</h3><p>When you pass the logical ID of this resource to the intrinsic <code class="code">Ref</code> function, <code class="code">Ref</code> returns the resource name.
+                     </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
+                     </p><h2 id="aws-resource-ec2-transitgatewayattachment--seealso">See Also</h2><div class="itemizedlist">
                         
                         
+                                 
                         
                         <ul class="itemizedlist" type="disc">
                            <li class="listitem">
                               
-                              <p><a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTransitGatewayVpcAttachment.html">CreateTransitGatewayVpcAttachment</a>
-                                 in the <em>Amazon EC2 API Reference</em></p>
+                              <p>
+                                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTransitGatewayVpcAttachment.html">CreateTransitGatewayVpcAttachment</a> in the <em>Amazon EC2 API Reference</em>.
+                              </p>
                               
                            </li>
                            <li class="listitem">
                               
-                              <p><a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyTransitGatewayVpcAttachment.html">ModifyTransitGatewayVpcAttachment</a>
-                                 in the <em>Amazon EC2 API Reference</em></p>
+                              <p>
+                                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyTransitGatewayVpcAttachment.html">ModifyTransitGatewayVpcAttachment</a> in the <em>Amazon EC2 API Reference</em></p>
                               
                            </li>
                         </ul>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
                      </div></div>
 </body>
 </html>

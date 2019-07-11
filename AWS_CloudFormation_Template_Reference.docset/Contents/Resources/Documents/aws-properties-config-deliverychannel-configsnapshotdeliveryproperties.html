@@ -8,44 +8,119 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-properties-config-deliverychannel-configsnapshotdeliveryproperties">AWS Config
-                        DeliveryChannel ConfigSnapshotDeliveryProperties
-                     </h1><p><code class="code">ConfigSnapshotDeliveryProperties</code> is a property of the <a href="aws-resource-config-deliverychannel.html">AWS::Config::DeliveryChannel</a> resource that specifies how AWS Config
-                        delivers configuration snapshots to the S3 bucket in your delivery channel.
-                     </p><h2 id="w2ab1c21c10c87c29c27b5">Syntax</h2><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-properties-config-deliverychannel-configsnapshotdeliveryproperties-syntax.json">JSON</h3>
+    <h1 class="topictitle" id="aws-properties-config-deliverychannel-configsnapshotdeliveryproperties">AWS::Config::DeliveryChannel ConfigSnapshotDeliveryProperties</h1><p>Provides options for how often AWS Config delivers
+                        			configuration snapshots to the Amazon S3 bucket in your delivery
+                        			channel.
+                     </p><div class="aws-note">
+                        <p class="aws-note">Note</p>
+                        <p>If you want to create a rule that triggers evaluations for
+                           				your resources when AWS Config delivers the configuration
+                           				snapshot, see the following:
+                        </p>
+                     </div><p>The frequency for a rule that triggers evaluations for your
+                        			resources when AWS Config delivers the configuration snapshot is set
+                        			by one of two values, depending on which is less frequent:
+                     </p><div class="itemizedlist">
+                        			         
                         
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
-  &quot;<a href="aws-properties-config-deliverychannel-configsnapshotdeliveryproperties.html#cfn-config-deliverychannel-configsnapshotdeliveryproperties-deliveryfrequency">DeliveryFrequency</a>&quot; : <em class="replaceable"><code>String</code></em>
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-properties-config-deliverychannel-configsnapshotdeliveryproperties-syntax.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight"><a href="aws-properties-config-deliverychannel-configsnapshotdeliveryproperties.html#cfn-config-deliverychannel-configsnapshotdeliveryproperties-deliveryfrequency">DeliveryFrequency</a>: <em class="replaceable"><code>String</code></em>
-</code></pre>
-                        </div><h2 id="w2ab1c21c10c87c29c27b7">Properties</h2><div class="variablelist">
-                        
-                        
-                        <dl>
-                           
-                           <dt><a id="cfn-config-deliverychannel-configsnapshotdeliveryproperties-deliveryfrequency"></a><span class="term"><code class="code">DeliveryFrequency</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>The frequency with which AWS Config delivers configuration snapshots. For valid
-                                 values, see <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html">ConfigSnapshotDeliveryProperties</a> in the
-                                 <em>AWS Config API Reference</em>.
+                        			         
+                        		       
+                        <ul class="itemizedlist" type="disc">
+                           <li class="listitem">
+                              				           
+                              <p>The value for the <code class="code">deliveryFrequency</code>
+                                 					parameter within the delivery channel configuration, which
+                                 					sets how often AWS Config delivers configuration snapshots.
+                                 					This value also sets how often AWS Config invokes
+                                 					evaluations for AWS Config rules.
                               </p>
-                              
+                              			         
+                           </li>
+                           <li class="listitem">
+                              				           
+                              <p>The value for the
+                                 						<code class="code">MaximumExecutionFrequency</code> parameter, which
+                                 					sets the maximum frequency with which AWS Config invokes
+                                 					evaluations for the rule. For more information, see <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigRule.html">ConfigRule</a>.
+                              </p>
+                              			         
+                           </li>
+                        </ul>
+                     </div><p>If the <code class="code">deliveryFrequency</code> value is less frequent
+                        			than the <code class="code">MaximumExecutionFrequency</code> value for a rule,
+                        			AWS Config invokes the rule only as often as the
+                        				<code class="code">deliveryFrequency</code> value.
+                     </p><div class="orderedlist">
+                        			         
+                        			         
+                        			         
+                        			         
+                        		       
+                        <ol>
+                           <li>
+                              				           
+                              <p>For example, you want your rule to run evaluations when
+                                 					AWS Config delivers the configuration snapshot.
+                              </p>
+                              			         
+                           </li>
+                           <li>
+                              				           
+                              <p>You specify the <code class="code">MaximumExecutionFrequency</code>
+                                 					value for <code class="code">Six_Hours</code>. 
+                              </p>
+                              			         
+                           </li>
+                           <li>
+                              				           
+                              <p>You then specify the delivery channel
+                                 						<code class="code">deliveryFrequency</code> value for
+                                 						<code class="code">TwentyFour_Hours</code>.
+                              </p>
+                              			         
+                           </li>
+                           <li>
+                              				           
+                              <p>Because the value for <code class="code">deliveryFrequency</code> is
+                                 					less frequent than <code class="code">MaximumExecutionFrequency</code>,
+                                 					AWS Config invokes evaluations for the rule every 24 hours.
+                                 				
+                              </p>
+                              			         
+                           </li>
+                        </ol>
+                     </div><p>You should set the <code class="code">MaximumExecutionFrequency</code> value
+                        			to be at least as frequent as the <code class="code">deliveryFrequency</code>
+                        			value. You can view the <code class="code">deliveryFrequency</code> value by
+                        			using the <code class="code">DescribeDeliveryChannnels</code> action.
+                     </p><p>To update the <code class="code">deliveryFrequency</code> with which AWS
+                        			Config delivers your configuration snapshots, use the
+                        				<code class="code">PutDeliveryChannel</code> action.
+                     </p><h2 id="aws-properties-config-deliverychannel-configsnapshotdeliveryproperties-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-properties-config-deliverychannel-configsnapshotdeliveryproperties-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;<a href="#cfn-config-deliverychannel-configsnapshotdeliveryproperties-deliveryfrequency">DeliveryFrequency</a>&quot; : <em class="replaceable"><code>String</code></em>
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-properties-config-deliverychannel-configsnapshotdeliveryproperties-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">  <a href="#cfn-config-deliverychannel-configsnapshotdeliveryproperties-deliveryfrequency">DeliveryFrequency</a>: <em class="replaceable"><code>String</code></em>
+</code></pre></div><h2 id="aws-properties-config-deliverychannel-configsnapshotdeliveryproperties-properties">Properties</h2><div class="variablelist">
+                        <dl>
+                           <dt><a id="cfn-config-deliverychannel-configsnapshotdeliveryproperties-deliveryfrequency"></a><span class="term"><code class="code">DeliveryFrequency</code></span></dt>
+                           <dd>
+                              		       
+                              <p>The frequency with which AWS Config delivers configuration
+                                 			snapshots.
+                              </p>
+                              	     
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Allowed Values</em>: <code class="code">One_Hour | Six_Hours | Three_Hours | Twelve_Hours | TwentyFour_Hours</code></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
                         </dl>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
                      </div></div>
 </body>
 </html>

@@ -8,318 +8,219 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-resource-ec2-route">AWS::EC2::Route</h1><p>The <code class="code">AWS::EC2::Route</code> resource creates a new route in a route table within a
-                        VPC. The route&apos;s target can be either a gateway attached to the VPC or a NAT instance
-                        in the
-                        VPC.
-                     </p><div class="highlights" id="inline-topiclist">
-                        <p><strong>Topics</strong></p>
-                        <ul>
-                           <li><a href="#aws-resource-ec2-route-syntax">Syntax</a></li>
-                           <li><a href="#w2ab1c21c10d111c93b9">Properties</a></li>
-                           <li><a href="#w2ab1c21c10d111c93c11">Return Values</a></li>
-                           <li><a href="#w2ab1c21c10d111c93c13">Examples</a></li>
-                           <li><a href="#w2ab1c21c10d111c93c15">More Info</a></li>
-                        </ul>
-                     </div><h2 id="aws-resource-ec2-route-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-resource-ec2-route-syntax.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
+    <h1 class="topictitle" id="aws-resource-ec2-route">AWS::EC2::Route</h1><p>Specifies a route in a route table within a VPC.</p><p>You must specify one of the following targets: internet gateway or virtual private
+                        			   gateway, NAT instance, NAT gateway, VPC peering connection, network interface,
+                        or
+                        			   egress-only internet gateway.
+                     </p><h2 id="aws-resource-ec2-route-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-resource-ec2-route-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
   &quot;Type&quot; : &quot;AWS::EC2::Route&quot;,
   &quot;Properties&quot; : {
-    &quot;<a href="aws-resource-ec2-route.html#cfn-ec2-route-destinationcidrblock">DestinationCidrBlock</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-ec2-route.html#cfn-ec2-route-destinationipv6cidrblock">DestinationIpv6CidrBlock</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-ec2-route.html#cfn-ec2-route-egressonlyinternetgatewayid">EgressOnlyInternetGatewayId</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-ec2-route.html#cfn-ec2-route-gatewayid">GatewayId</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-ec2-route.html#cfn-ec2-route-instanceid">InstanceId</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-ec2-route.html#cfn-ec2-route-natgatewayid">NatGatewayId</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-ec2-route.html#cfn-ec2-route-networkinterfaceid">NetworkInterfaceId</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-ec2-route.html#cfn-ec2-route-routetableid">RouteTableId</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-ec2-route.html#cfn-ec2-route-vpcpeeringconnectionid">VpcPeeringConnectionId</a>&quot; : <em class="replaceable"><code>String</code></em>
-  }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-resource-ec2-route-syntax.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">
-Type: AWS::EC2::Route
+      &quot;<a href="#cfn-ec2-route-destinationcidrblock">DestinationCidrBlock</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-ec2-route-destinationipv6cidrblock">DestinationIpv6CidrBlock</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-ec2-route-egressonlyinternetgatewayid">EgressOnlyInternetGatewayId</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-ec2-route-gatewayid">GatewayId</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-ec2-route-instanceid">InstanceId</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-ec2-route-natgatewayid">NatGatewayId</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-ec2-route-networkinterfaceid">NetworkInterfaceId</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-ec2-route-routetableid">RouteTableId</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-ec2-route-transitgatewayid">TransitGatewayId</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-ec2-route-vpcpeeringconnectionid">VpcPeeringConnectionId</a>&quot; : <em class="replaceable"><code>String</code></em>
+    }
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-ec2-route-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Type: AWS::EC2::Route
 Properties: 
-  <a href="aws-resource-ec2-route.html#cfn-ec2-route-destinationcidrblock">DestinationCidrBlock</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-ec2-route.html#cfn-ec2-route-destinationipv6cidrblock">DestinationIpv6CidrBlock</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-ec2-route.html#cfn-ec2-route-egressonlyinternetgatewayid">EgressOnlyInternetGatewayId</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-ec2-route.html#cfn-ec2-route-gatewayid">GatewayId</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-ec2-route.html#cfn-ec2-route-instanceid">InstanceId</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-ec2-route.html#cfn-ec2-route-natgatewayid">NatGatewayId</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-ec2-route.html#cfn-ec2-route-networkinterfaceid">NetworkInterfaceId</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-ec2-route.html#cfn-ec2-route-routetableid">RouteTableId</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-ec2-route.html#cfn-ec2-route-vpcpeeringconnectionid">VpcPeeringConnectionId</a>: <em class="replaceable"><code>String</code></em>
-</code></pre>
-                        </div><h2 id="w2ab1c21c10d111c93b9">Properties</h2><div class="variablelist">
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
+  <a href="#cfn-ec2-route-destinationcidrblock">DestinationCidrBlock</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-ec2-route-destinationipv6cidrblock">DestinationIpv6CidrBlock</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-ec2-route-egressonlyinternetgatewayid">EgressOnlyInternetGatewayId</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-ec2-route-gatewayid">GatewayId</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-ec2-route-instanceid">InstanceId</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-ec2-route-natgatewayid">NatGatewayId</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-ec2-route-networkinterfaceid">NetworkInterfaceId</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-ec2-route-routetableid">RouteTableId</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-ec2-route-transitgatewayid">TransitGatewayId</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-ec2-route-vpcpeeringconnectionid">VpcPeeringConnectionId</a>: <em class="replaceable"><code>String</code></em>
+</code></pre></div><h2 id="aws-resource-ec2-route-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
-                           <dt><a id="cfn-ec2-route-destinationcidrblock"></a><span class="term"><code class="literal">DestinationCidrBlock</code></span></dt>
-                           
+                           <dt><a id="cfn-ec2-route-destinationcidrblock"></a><span class="term"><code class="code">DestinationCidrBlock</code></span></dt>
                            <dd>
+                              		
+                              <p>The IPv4 CIDR block used for the destination match.</p>
                               
-                              <p>The IPv4 CIDR address block used for the destination match. For example,
-                                 <code class="code">0.0.0.0/0</code>. Routing decisions are based on the most specific
-                                 match.
+                              <p>You must specify the <code class="code">DestinationCidrBlock</code> or <code class="code">DestinationIpv6CidrBlock</code> property.
                               </p>
                               
-                              <p><em>Required</em>: Conditional. You must specify the <code class="code">DestinationCidrBlock</code> or <code class="code">DestinationIpv6CidrBlock</code> property.
+                              <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-ec2-route-destinationipv6cidrblock"></a><span class="term"><code class="code">DestinationIpv6CidrBlock</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The IPv6 CIDR address block used for the destination match. For example,
-                                 <code class="code">::/0</code>. Routing decisions are based on the most specific
-                                 match.
+                              <p>The IPv6 CIDR block used for the destination match.</p>
+                              
+                              <p>You must specify the <code class="code">DestinationCidrBlock</code> or <code class="code">DestinationIpv6CidrBlock</code> property.
                               </p>
                               
-                              <p><em>Required</em>: Conditional. You must specify the <code class="code">DestinationCidrBlock</code> or <code class="code">DestinationIpv6CidrBlock</code> property.
+                              <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
-                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
-                           </dd>
-                           
-                           
-                           <dt><a id="cfn-ec2-route-egressonlyinternetgatewayid"></a><span class="term"><code class="literal">EgressOnlyInternetGatewayId</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>The ID of an egress-only internet gateway that is attached to your VPC (over IPv6
-                                 only).
-                              </p>
-                              
-                              <p><em>Required</em>: Conditional. You must specify only one of the following properties:
-                                 <code class="code">EgressOnlyInternetGatewayId</code>, <code class="code">GatewayId</code>, <code class="code">InstanceId</code>, <code class="code">NatGatewayId</code>,
-                                 <code class="code">NetworkInterfaceId</code>, or <code class="code">VpcPeeringConnectionId</code>. For an example that uses this property, see 
-                                 <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-ec2.html#quickref-ec2-route-egressonlyinternetgateway">Amazon EC2 Route with Egress-Only Internet Gateway</a>.
-                              </p>
-                              
-                              <p><em>Type</em>: String
-                              </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-ec2-route-gatewayid"></a><span class="term"><code class="literal">GatewayId</code></span></dt>
-                           
+                           <dt><a id="cfn-ec2-route-egressonlyinternetgatewayid"></a><span class="term"><code class="code">EgressOnlyInternetGatewayId</code></span></dt>
                            <dd>
                               
-                              <p>The
-                                 ID of an internet gateway or virtual private gateway that is attached to your VPC.
-                                 For example:
-                                 <code class="code">igw-eaad4883</code>.
-                              </p>
+                              <p>The ID of the egress-only internet gateway.</p>
                               
-                              <p>For route entries that specify a gateway, you must specify a dependency on the
-                                 gateway attachment resource.  For more information, see <a href="aws-attribute-dependson.html">DependsOn Attribute</a>.
+                              <p><em>Required</em>: No
                               </p>
+                              <p><em>Type</em>: String
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                           </dd>
+                           <dt><a id="cfn-ec2-route-gatewayid"></a><span class="term"><code class="code">GatewayId</code></span></dt>
+                           <dd>
+                              		
+                              <p>The ID of a gateway attached to your VPC.</p>
                               
-                              <p><em>Required</em>: Conditional. You must specify only one of the following properties:
+                              <p> You must specify only one of the following properties:
                                  <code class="code">EgressOnlyInternetGatewayId</code>, <code class="code">GatewayId</code>, <code class="code">InstanceId</code>, <code class="code">NatGatewayId</code>,
                                  <code class="code">NetworkInterfaceId</code>, or <code class="code">VpcPeeringConnectionId</code>.
                               </p>
                               
+                              <p><em>Required</em>: No
+                              </p>
                               <p><em>Type</em>: String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-ec2-route-instanceid"></a><span class="term"><code class="literal">InstanceId</code></span></dt>
-                           
+                           <dt><a id="cfn-ec2-route-instanceid"></a><span class="term"><code class="code">InstanceId</code></span></dt>
                            <dd>
+                              		
+                              <p>The ID of a NAT instance in your VPC.</p>
                               
-                              <p>The
-                                 ID of a NAT instance in your VPC. For example,
-                                 <code class="code">i-1a2b3c4d</code>.
-                              </p>
-                              
-                              <p><em>Required</em>: Conditional. You must specify only one of the following properties:
+                              <p>You must specify only one of the following properties:
                                  <code class="code">EgressOnlyInternetGatewayId</code>, <code class="code">GatewayId</code>, <code class="code">InstanceId</code>, <code class="code">NatGatewayId</code>,
                                  <code class="code">NetworkInterfaceId</code>, or <code class="code">VpcPeeringConnectionId</code>.
                               </p>
                               
+                              <p><em>Required</em>: No
+                              </p>
                               <p><em>Type</em>: String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-ec2-route-natgatewayid"></a><span class="term"><code class="code">NatGatewayId</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The
-                                 ID of a NAT gateway. For example,
-                                 <code class="code">nat-0a12bc456789de0fg</code>.
-                              </p>
+                              <p>The ID of a NAT gateway.</p>
                               
-                              <p><em>Required</em>: Conditional. You must specify only one of the following properties:
+                              <p>You must specify only one of the following properties:
                                  <code class="code">EgressOnlyInternetGatewayId</code>, <code class="code">GatewayId</code>, <code class="code">InstanceId</code>, <code class="code">NatGatewayId</code>,
                                  <code class="code">NetworkInterfaceId</code>, or <code class="code">VpcPeeringConnectionId</code>.
                               </p>
                               
+                              <p><em>Required</em>: No
+                              </p>
                               <p><em>Type</em>: String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-ec2-route-networkinterfaceid"></a><span class="term"><code class="literal">NetworkInterfaceId</code></span></dt>
-                           
+                           <dt><a id="cfn-ec2-route-networkinterfaceid"></a><span class="term"><code class="code">NetworkInterfaceId</code></span></dt>
                            <dd>
+                              		
+                              <p>The ID of the network interface.</p>
                               
-                              <p>Allows
-                                 the routing of network interface IDs.
-                              </p>
-                              
-                              <p><em>Required</em>: Conditional. You must specify only one of the following properties:
+                              <p>You must specify only one of the following properties:
                                  <code class="code">EgressOnlyInternetGatewayId</code>, <code class="code">GatewayId</code>, <code class="code">InstanceId</code>, <code class="code">NatGatewayId</code>,
                                  <code class="code">NetworkInterfaceId</code>, or <code class="code">VpcPeeringConnectionId</code>.
                               </p>
                               
+                              <p><em>Required</em>: No
+                              </p>
                               <p><em>Type</em>: String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-ec2-route-routetableid"></a><span class="term"><code class="literal">RouteTableId</code></span></dt>
-                           
+                           <dt><a id="cfn-ec2-route-routetableid"></a><span class="term"><code class="code">RouteTableId</code></span></dt>
                            <dd>
                               
-                              <p>The ID of the <a href="aws-resource-ec2-route-table.html">route table</a> where the route will
-                                 be added.
+                              <p>The ID of the route table. The routing table must be associated with the same VPC
+                                 that the virtual private gateway is attached to. 
                               </p>
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
-                        </dl>
-                     </div><div class="variablelist">
-                        
-                        
-                        <dl>
-                           
-                           <dt><a id="cfn-ec2-route-vpcpeeringconnectionid"></a><span class="term"><code class="literal">VpcPeeringConnectionId</code></span></dt>
-                           
+                           <dt><a id="cfn-ec2-route-transitgatewayid"></a><span class="term"><code class="code">TransitGatewayId</code></span></dt>
+                           <dd>
+                              
+                              <p>The ID of a transit gateway.</p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              <p><em>Type</em>: String
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                           </dd>
+                           <dt><a id="cfn-ec2-route-vpcpeeringconnectionid"></a><span class="term"><code class="code">VpcPeeringConnectionId</code></span></dt>
                            <dd>
                               
                               <p>The ID of a VPC peering connection.</p>
                               
-                              <p><em>Required</em>: Conditional. You must specify only one of the following properties:
-                                 <code class="code">EgressOnlyInternetGatewayId</code>, <code class="code">GatewayId</code>, <code class="code">InstanceId</code>, <code class="code">NatGatewayId</code>,
-                                 <code class="code">NetworkInterfaceId</code>, or <code class="code">VpcPeeringConnectionId</code>.
+                              <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
                         </dl>
-                     </div><h2 id="w2ab1c21c10d111c93c11">Return Values</h2><h3 id="w2ab1c21c10d111c93c11b2">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code> intrinsic
-                        function, <code class="code">Ref</code> returns the resource name.
+                     </div><h2 id="aws-resource-ec2-route-return-values">Return Values</h2><h3 id="aws-resource-ec2-route-return-values-ref">Ref</h3><p>When you pass the logical ID of this resource to the intrinsic <code class="code">Ref</code> function, <code class="code">Ref</code> returns the ID of the route.
                      </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                     </p><h2 id="w2ab1c21c10d111c93c13">Examples</h2><p>The following example creates a route that is added to a gateway.</p><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-resource-ec2-route-example-1.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">
-{
-   &quot;AWSTemplateFormatVersion&quot; : &quot;2010-09-09&quot;,
-   &quot;Resources&quot; : {
-      &quot;myRoute&quot; : {
-         &quot;Type&quot; : &quot;AWS::EC2::Route&quot;,
-         &quot;DependsOn&quot; : &quot;GatewayToInternet&quot;,
-         &quot;Properties&quot; : {
-            &quot;RouteTableId&quot; : { &quot;Ref&quot; : &quot;myRouteTable&quot; },
-            &quot;DestinationCidrBlock&quot; : &quot;0.0.0.0/0&quot;,
-            &quot;GatewayId&quot; : { &quot;Ref&quot; : &quot;myInternetGateway&quot; }
-         }
-      }
+                     </p><h2 id="aws-resource-ec2-route--examples">Examples</h2><h3 id="aws-resource-ec2-route--examples--Add_a_Route">Add a Route</h3><p>The following example adds a route that is added to a gateway.</p><h4 id="aws-resource-ec2-route--examples--Add_a_Route--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">
+&quot;myRoute&quot; : {
+   &quot;Type&quot; : &quot;AWS::EC2::Route&quot;,
+   &quot;DependsOn&quot; : &quot;GatewayToInternet&quot;,
+   &quot;Properties&quot; : {
+      &quot;RouteTableId&quot; : { &quot;Ref&quot; : &quot;myRouteTable&quot; },
+      &quot;DestinationCidrBlock&quot; : &quot;0.0.0.0/0&quot;,
+      &quot;GatewayId&quot; : { &quot;Ref&quot; : &quot;myInternetGateway&quot; }
    }
-}        </code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-resource-ec2-route-example-1.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">AWSTemplateFormatVersion: &apos;2010-09-09&apos;
-Resources:
-  myRoute:
+}</code></pre><h4 id="aws-resource-ec2-route--examples--Add_a_Route--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">  myRoute:
     Type: AWS::EC2::Route
     DependsOn: GatewayToInternet
     Properties:
-      RouteTableId:
-        Ref: myRouteTable
-      DestinationCidrBlock: 0.0.0.0/0
-      GatewayId:
-        Ref: myInternetGateway</code></pre>
-                        </div><h2 id="w2ab1c21c10d111c93c15">More Info</h2><div class="itemizedlist">
-                        
+       RouteTableId:
+         Ref: myRouteTable
+       DestinationCidrBlock: 0.0.0.0/0
+       GatewayId:
+         Ref: myInternetGateway</code></pre><h2 id="aws-resource-ec2-route--seealso">See Also</h2><div class="itemizedlist">
                         
                         
                         
                         <ul class="itemizedlist" type="disc">
                            <li class="listitem">
                               
-                              <p><a href="aws-resource-ec2-route-table.html">AWS::EC2::RouteTable</a></p>
+                              <p>
+                                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateRoute.html">CreateRoute</a> in the <em>Amazon EC2 API Reference</em></p>
                               
                            </li>
                            <li class="listitem">
                               
-                              <p><a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateRoute.html">CreateRoute</a> in the <em>Amazon EC2 API Reference</em></p>
-                              
-                           </li>
-                           <li class="listitem">
-                              
-                              <p><a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html">Route Tables</a> in the <em>Amazon VPC User Guide</em></p>
+                              <p>
+                                 <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route Tables</a> in the <em>Amazon VPC User Guide</em></p>
                               
                            </li>
                         </ul>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
                      </div></div>
 </body>
 </html>

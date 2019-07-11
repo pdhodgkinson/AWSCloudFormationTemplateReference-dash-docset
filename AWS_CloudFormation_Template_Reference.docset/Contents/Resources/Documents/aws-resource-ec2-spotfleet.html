@@ -8,98 +8,90 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-resource-ec2-spotfleet">AWS::EC2::SpotFleet</h1><p>The <code class="code">AWS::EC2::SpotFleet</code> resource creates a request for a collection of Spot
-                        instances. The Spot fleet attempts to launch the number of Spot instances to meet
-                        the target
-                        capacity that you specified. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html">Spot Instances</a> in the
-                        <em>Amazon EC2 User Guide for Linux Instances</em>.
+    <h1 class="topictitle" id="aws-resource-ec2-spotfleet">AWS::EC2::SpotFleet</h1><p>Specifies a Spot Fleet request. A Spot Fleet request contains the configuration information
+                        to launch a fleet, or group, of instances.
+                     </p><p>The Spot Fleet request specifies the total target capacity and the On-Demand target
+                        capacity for the fleet. Amazon EC2 calculates the difference between the total capacity
+                        and On-Demand
+                        capacity, and launches the difference as Spot capacity.
+                     </p><p>The Spot Fleet request can include multiple launch specifications that vary by instance
+                        type, AMI, Availability Zone, or subnet.
+                     </p><p>By default, the Spot Fleet requests Spot Instances in the Spot pool where the price
+                        per unit is the lowest. Each launch specification can include its own instance weighting
+                        that reflects the value of the instance type to your application workload.
+                     </p><p>Alternatively, you can specify that the Spot Fleet distribute the target capacity
+                        across the Spot pools included in its launch specifications. By ensuring that the
+                        Spot Instances in your Spot Fleet are in different Spot pools, you can improve the
+                        availability of your fleet.
+                     </p><p>You can specify tags for the Spot Instances. You cannot tag other resource types in
+                        a
+                        Spot Fleet request because only the <code class="code">instance</code> resource type is
+                        supported.
+                     </p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-requests.html">Spot Fleet Requests</a> 
+                        in the <em>Amazon EC2 User Guide for Linux Instances</em>.
                      </p><h2 id="aws-resource-ec2-spotfleet-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-resource-ec2-spotfleet-syntax.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
+                        <h3 id="aws-resource-ec2-spotfleet-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
   &quot;Type&quot; : &quot;AWS::EC2::SpotFleet&quot;,
   &quot;Properties&quot; : {
-    &quot;<a href="aws-resource-ec2-spotfleet.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata">SpotFleetRequestConfigData</a>&quot; : <em class="replaceable"><code>SpotFleetRequestConfigData</code></em>
-  }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-resource-ec2-spotfleet-syntax.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">
-Type: AWS::EC2::SpotFleet
+      &quot;<a href="#cfn-ec2-spotfleet-spotfleetrequestconfigdata">SpotFleetRequestConfigData</a>&quot; : <em class="replaceable"><code><a href="aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html">SpotFleetRequestConfigData</a></code></em>
+    }
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-ec2-spotfleet-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Type: AWS::EC2::SpotFleet
 Properties: 
-  <a href="aws-resource-ec2-spotfleet.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata">SpotFleetRequestConfigData</a>:
-    <em class="replaceable"><code>SpotFleetRequestConfigData</code></em>
-</code></pre>
-                        </div><h2 id="w2ab1c21c10d111d118b7">Properties</h2><div class="variablelist">
-                        
-                        
+  <a href="#cfn-ec2-spotfleet-spotfleetrequestconfigdata">SpotFleetRequestConfigData</a>: <em class="replaceable"><code>
+    <a href="aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html">SpotFleetRequestConfigData</a></code></em>
+</code></pre></div><h2 id="aws-resource-ec2-spotfleet-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
                            <dt><a id="cfn-ec2-spotfleet-spotfleetrequestconfigdata"></a><span class="term"><code class="code">SpotFleetRequestConfigData</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The configuration for a Spot fleet request.</p>
+                              <p>Describes the configuration of a Spot Fleet request.</p>
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
-                              <p><em>Type</em>: <a href="aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html">Amazon EC2 SpotFleet
-                                    SpotFleetRequestConfigData</a></p>
-                              
-                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt">Some interruptions</a></p>
-                              
+                              <p><em>Type</em>: <a href="aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html">SpotFleetRequestConfigData</a></p>
                            </dd>
-                           
                         </dl>
-                     </div><h2 id="w2ab1c21c10d111d118b9">Return Values</h2><h3 id="w2ab1c21c10d111d118b9b2">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code> intrinsic
-                        function, <code class="code">Ref</code> returns the resource name.
+                     </div><h2 id="aws-resource-ec2-spotfleet-return-values">Return Values</h2><h3 id="aws-resource-ec2-spotfleet-return-values-ref">Ref</h3><p>When you pass the logical ID of this resource to the intrinsic <code class="code">Ref</code> function, <code class="code">Ref</code> returns the ID of the Spot Fleet.
                      </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                     </p><h2 id="w2ab1c21c10d111d118c11">Example</h2><p>The following example creates a Spot fleet with two launch specifications. The weighted
+                     </p><h2 id="aws-resource-ec2-spotfleet--examples">Examples</h2><h3 id="aws-resource-ec2-spotfleet--examples--Spot_Fleet">Spot Fleet</h3><p>The following example specifies a Spot Fleet with two launch specifications. The weighted
                         capacities are the same, so Amazon EC2 launches the same number of instances for each
                         specification. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet.html">How Spot
                            Fleet Works</a> in the <em>Amazon EC2 User Guide for Linux Instances</em>.
-                     </p><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-resource-ec2-spotfleet-example-1.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">&quot;SpotFleet&quot;: {
+                     </p><h4 id="aws-resource-ec2-spotfleet--examples--Spot_Fleet--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">&quot;SpotFleet&quot;: {
   &quot;Type&quot;: &quot;AWS::EC2::SpotFleet&quot;,
   &quot;Properties&quot;: {
     &quot;SpotFleetRequestConfigData&quot;: {
-      &quot;IamFleetRole&quot;: { &quot;Fn::GetAtt&quot;: [ &quot;IAMFleetRole&quot;, &quot;Arn&quot;] },
-      &quot;SpotPrice&quot;: &quot;1000&quot;,
-      &quot;TargetCapacity&quot;: { &quot;Ref&quot;: &quot;TargetCapacity&quot; },
-      &quot;LaunchSpecifications&quot;: [
-      {
-        &quot;EbsOptimized&quot;: &quot;false&quot;,
-        &quot;InstanceType&quot;: { &quot;Ref&quot;: &quot;InstanceType&quot; },
-        &quot;ImageId&quot;: { &quot;Fn::FindInMap&quot;: [ &quot;AWSRegionArch2AMI&quot;, { &quot;Ref&quot;: &quot;AWS::Region&quot; },
-                     { &quot;Fn::FindInMap&quot;: [ &quot;AWSInstanceType2Arch&quot;, { &quot;Ref&quot;: &quot;InstanceType&quot; }, &quot;Arch&quot; ] }
-                   ]},
-        &quot;SubnetId&quot;: { &quot;Ref&quot;: &quot;Subnet1&quot; },
-        &quot;WeightedCapacity&quot;: &quot;8&quot;
-      },
-      {
-        &quot;EbsOptimized&quot;: &quot;true&quot;,
-        &quot;InstanceType&quot;: { &quot;Ref&quot;: &quot;InstanceType&quot; },
-        &quot;ImageId&quot;: { &quot;Fn::FindInMap&quot;: [ &quot;AWSRegionArch2AMI&quot;, { &quot;Ref&quot;: &quot;AWS::Region&quot; },
-                     { &quot;Fn::FindInMap&quot;: [ &quot;AWSInstanceType2Arch&quot;, { &quot;Ref&quot;: &quot;InstanceType&quot; }, &quot;Arch&quot; ] }
-                   ]},
-        &quot;Monitoring&quot;: { &quot;Enabled&quot;: &quot;true&quot; },
-        &quot;SecurityGroups&quot;: [ { &quot;GroupId&quot;: { &quot;Fn::GetAtt&quot;: [ &quot;SG0&quot;, &quot;GroupId&quot; ] } } ],
-        &quot;SubnetId&quot;: { &quot;Ref&quot;: &quot;Subnet0&quot; },
-        &quot;IamInstanceProfile&quot;: { &quot;Arn&quot;: { &quot;Fn::GetAtt&quot;: [ &quot;RootInstanceProfile&quot;, &quot;Arn&quot; ] } },
-        &quot;WeightedCapacity&quot;: &quot;8&quot;
-      }
-      ]
-    }
-  }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-resource-ec2-spotfleet-example-1.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">SpotFleet:
+     &quot;IamFleetRole&quot;: { &quot;Fn::GetAtt&quot;: [ &quot;IAMFleetRole&quot;, &quot;Arn&quot;] },
+     &quot;SpotPrice&quot;: &quot;1000&quot;,
+     &quot;TargetCapacity&quot;: { &quot;Ref&quot;: &quot;TargetCapacity&quot; },
+     &quot;LaunchSpecifications&quot;: [
+     {
+         &quot;EbsOptimized&quot;: &quot;false&quot;,
+         &quot;InstanceType&quot;: { &quot;Ref&quot;: &quot;InstanceType&quot; },
+         &quot;ImageId&quot;: { &quot;Fn::FindInMap&quot;: [ &quot;AWSRegionArch2AMI&quot;, { &quot;Ref&quot;: &quot;AWS::Region&quot; },
+                      { &quot;Fn::FindInMap&quot;: [ &quot;AWSInstanceType2Arch&quot;, { &quot;Ref&quot;: &quot;InstanceType&quot; }, &quot;Arch&quot; ] }
+                     ]},
+          &quot;SubnetId&quot;: { &quot;Ref&quot;: &quot;Subnet1&quot; },
+          &quot;WeightedCapacity&quot;: &quot;8&quot;
+     },
+     {
+         &quot;EbsOptimized&quot;: &quot;true&quot;,
+         &quot;InstanceType&quot;: { &quot;Ref&quot;: &quot;InstanceType&quot; },
+         &quot;ImageId&quot;: { &quot;Fn::FindInMap&quot;: [ &quot;AWSRegionArch2AMI&quot;, { &quot;Ref&quot;: &quot;AWS::Region&quot; },
+                      { &quot;Fn::FindInMap&quot;: [ &quot;AWSInstanceType2Arch&quot;, { &quot;Ref&quot;: &quot;InstanceType&quot; }, &quot;Arch&quot; ] }
+                     ]},
+          &quot;Monitoring&quot;: { &quot;Enabled&quot;: &quot;true&quot; },
+          &quot;SecurityGroups&quot;: [ { &quot;GroupId&quot;: { &quot;Fn::GetAtt&quot;: [ &quot;SG0&quot;, &quot;GroupId&quot; ] } } ],
+          &quot;SubnetId&quot;: { &quot;Ref&quot;: &quot;Subnet0&quot; },
+          &quot;IamInstanceProfile&quot;: { &quot;Arn&quot;: { &quot;Fn::GetAtt&quot;: [ &quot;RootInstanceProfile&quot;, &quot;Arn&quot; ] } },
+          &quot;WeightedCapacity&quot;: &quot;8&quot;
+         }
+         ]
+     }
+   }
+}</code></pre><h4 id="aws-resource-ec2-spotfleet--examples--Spot_Fleet--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">SpotFleet:
   Type: AWS::EC2::SpotFleet
   Properties:
     SpotFleetRequestConfigData:
@@ -111,45 +103,62 @@ Properties:
       - EbsOptimized: &apos;false&apos;
         InstanceType:
           Ref: InstanceType
-        ImageId:
-          Fn::FindInMap:
-          - AWSRegionArch2AMI
-          - Ref: AWS::Region
-          - Fn::FindInMap:
-            - AWSInstanceType2Arch
-            - Ref: InstanceType
-            - Arch
-        SubnetId:
-          Ref: Subnet1
-        WeightedCapacity: &apos;8&apos;
-      - EbsOptimized: &apos;true&apos;
-        InstanceType:
-          Ref: InstanceType
-        ImageId:
-          Fn::FindInMap:
-          - AWSRegionArch2AMI
-          - Ref: AWS::Region
-          - Fn::FindInMap:
-            - AWSInstanceType2Arch
-            - Ref: InstanceType
-            - Arch
-        Monitoring:
-          Enabled: &apos;true&apos;
+      ImageId:
+        Fn::FindInMap:
+        - AWSRegionArch2AMI
+        - Ref: AWS::Region
+        - Fn::FindInMap:
+          - AWSInstanceType2Arch
+          - Ref: InstanceType
+          - Arch
+      SubnetId:
+        Ref: Subnet1
+      WeightedCapacity: &apos;8&apos;
+    - EbsOptimized: &apos;true&apos;
+      InstanceType:
+        Ref: InstanceType
+      ImageId:
+        Fn::FindInMap:
+        - AWSRegionArch2AMI
+        - Ref: AWS::Region
+        - Fn::FindInMap:
+        - AWSInstanceType2Arch
+        - Ref: InstanceType
+        - Arch
+      Monitoring:
+        Enabled: &apos;true&apos;
         SecurityGroups:
-        - GroupId:
-            Fn::GetAtt:
-            - SG0
-            - GroupId
-        SubnetId:
+         - GroupId:
+             Fn::GetAtt:
+             - SG0
+             - GroupId
+       SubnetId:
           Ref: Subnet0
-        IamInstanceProfile:
-          Arn:
-            Fn::GetAtt:
-            - RootInstanceProfile
-            - Arn
-        WeightedCapacity: &apos;8&apos;</code></pre>
-                        </div><h2 id="w2ab1c21c10d111d118c13">Related Resources</h2><p>To use Application Auto Scaling to scale an Amazon ECS service in response to CloudWatch
-                        alarms, use the <a href="aws-resource-applicationautoscaling-scalabletarget.html">AWS::ApplicationAutoScaling::ScalableTarget</a> and <a href="aws-resource-applicationautoscaling-scalingpolicy.html">AWS::ApplicationAutoScaling::ScalingPolicy</a> resources.
-                     </p></div>
+       IamInstanceProfile:
+         Arn:
+         Fn::GetAtt:
+         - RootInstanceProfile
+         - Arn
+       WeightedCapacity: &apos;8&apos;</code></pre><h2 id="aws-resource-ec2-spotfleet--seealso">See Also</h2><div class="itemizedlist">
+                        
+                        
+                        
+                        <ul class="itemizedlist" type="disc">
+                           <li class="listitem">
+                              
+                              <p>
+                                 <a href="aws-resource-applicationautoscaling-scalabletarget.html">AWS::ApplicationAutoScaling::ScalableTarget</a></p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p>
+                                 <a href="aws-resource-applicationautoscaling-scalingpolicy.html">AWS::ApplicationAutoScaling::ScalingPolicy</a></p>
+                              
+                           </li>
+                        </ul>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
+                     </div></div>
 </body>
 </html>

@@ -8,154 +8,88 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-resource-docdb-dbsubnetgroup">AWS::DocDB::DBSubnetGroup</h1><p>The <code class="code">AWS::DocDB::DBSubnetGroup</code> Amazon DocumentDB resource describes a DBSubnetGroup. For more information, see
-                        <a href="https://docs.aws.amazon.com/amazondocdb/latest/developerguide/API_DBSubnetGroup.html">DBSubnetGroup</a> in the <em>Amazon DocumentDB Developer Guide</em>.
-                     </p><div class="highlights" id="inline-topiclist">
-                        <p><strong>Topics</strong></p>
-                        <ul>
-                           <li><a href="#aws-resource-docdb-dbsubnetgroup-syntax">Syntax</a></li>
-                           <li><a href="#aws-resource-docdb-dbsubnetgroup-properties">Properties</a></li>
-                           <li><a href="#aws-resource-docdb-dbsubnetgroup-returnvalues">Return Values</a></li>
-                           <li><a href="#aws-resource-docdb-dbsubnetgroup-examples">Example</a></li>
-                           <li><a href="#aws-resource-docdb-dbsubnetgroup-seealso">See Also</a></li>
-                        </ul>
-                     </div><h2 id="aws-resource-docdb-dbsubnetgroup-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+    <h1 class="topictitle" id="aws-resource-docdb-dbsubnetgroup">AWS::DocDB::DBSubnetGroup</h1><p>The <code class="code">AWS::DocDB::DBSubnetGroup</code> Amazon DocumentDB (with MongoDB compatibility) resource describes a DBSubnetGroup.
                         
-                        <h3 id="aws-resource-docdb-dbsubnetgroup-syntax.json">JSON</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
+                        DB subnet groups must contain at least one subnet in at least two Availability Zones
+                        in the AWS Region.
+                        For more information, see <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DBSubnetGroup.html">DBSubnetGroup</a> in the <em>Amazon DocumentDB Developer Guide</em>.  
+                     </p><h2 id="aws-resource-docdb-dbsubnetgroup-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-resource-docdb-dbsubnetgroup-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
   &quot;Type&quot; : &quot;AWS::DocDB::DBSubnetGroup&quot;,
   &quot;Properties&quot; : {
-    &quot;<a href="aws-resource-docdb-dbsubnetgroup.html#cfn-docdb-dbsubnetgroup-dbsubnetgroupdescription">DBSubnetGroupDescription</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-docdb-dbsubnetgroup.html#cfn-docdb-dbsubnetgroup-dbsubnetgroupname">DBSubnetGroupName</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-docdb-dbsubnetgroup.html#cfn-docdb-dbsubnetgroup-subnetids">SubnetIds</a>&quot; : [ <em class="replaceable"><code>String</code></em>, ... ],
-    &quot;<a href="aws-resource-docdb-dbsubnetgroup.html#cfn-docdb-dbsubnetgroup-tags">Tags</a>&quot; : [ <a href="aws-properties-resource-tags.html">Tag</a>, ... ]
-  }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        
-                        <h3 id="aws-resource-docdb-dbsubnetgroup-syntax.yaml">YAML</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">Type: &quot;AWS::DocDB::DBSubnetGroup&quot;
-Properties:
-  <a href="aws-resource-docdb-dbsubnetgroup.html#cfn-docdb-dbsubnetgroup-dbsubnetgroupdescription">DBSubnetGroupDescription</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-docdb-dbsubnetgroup.html#cfn-docdb-dbsubnetgroup-dbsubnetgroupname">DBSubnetGroupName</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-docdb-dbsubnetgroup.html#cfn-docdb-dbsubnetgroup-subnetids">SubnetIds</a>: 
-    - <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-docdb-dbsubnetgroup.html#cfn-docdb-dbsubnetgroup-tags">Tags</a>: 
-    - <a href="aws-properties-resource-tags.html">Tag</a></code></pre>
-                        </div><h2 id="aws-resource-docdb-dbsubnetgroup-properties">Properties</h2><div class="variablelist">
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
+      &quot;<a href="#cfn-docdb-dbsubnetgroup-dbsubnetgroupdescription">DBSubnetGroupDescription</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-docdb-dbsubnetgroup-dbsubnetgroupname">DBSubnetGroupName</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-docdb-dbsubnetgroup-subnetids">SubnetIds</a>&quot; : <em class="replaceable"><code>[ String, ... ]</code></em>,
+      &quot;<a href="#cfn-docdb-dbsubnetgroup-tags">Tags</a>&quot; : <em class="replaceable"><code>[ <a href="aws-properties-resource-tags.html">Tag</a>, ... ]</code></em>
+    }
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-docdb-dbsubnetgroup-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Type: AWS::DocDB::DBSubnetGroup
+Properties: 
+  <a href="#cfn-docdb-dbsubnetgroup-dbsubnetgroupdescription">DBSubnetGroupDescription</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-docdb-dbsubnetgroup-dbsubnetgroupname">DBSubnetGroupName</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-docdb-dbsubnetgroup-subnetids">SubnetIds</a>: <em class="replaceable"><code>
+    - String</code></em>
+  <a href="#cfn-docdb-dbsubnetgroup-tags">Tags</a>: <em class="replaceable"><code>
+    - <a href="aws-properties-resource-tags.html">Tag</a></code></em>
+</code></pre></div><h2 id="aws-resource-docdb-dbsubnetgroup-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
                            <dt><a id="cfn-docdb-dbsubnetgroup-dbsubnetgroupdescription"></a><span class="term"><code class="code">DBSubnetGroupDescription</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The description of the DB subnet group.</p>
+                              <p>The description for the DB subnet group.</p>
                               
-                              <p>
-                                 <em>Required</em>: Yes
+                              <p><em>Required</em>: Yes
                               </p>
-                              
-                              <p>
-                                 <em>Type</em>: String
+                              <p><em>Type</em>: String
                               </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
-                                 
-                              </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-docdb-dbsubnetgroup-dbsubnetgroupname"></a><span class="term"><code class="code">DBSubnetGroupName</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The name of the DB subnet group.</p>
+                              <p>The name for the DB subnet group. This value is stored as a lowercase string.</p>
                               
-                              <p>
-                                 <em>Required</em>: No
+                              <p>Constraints: Must contain no more than 255 letters, numbers, periods, underscores,
+                                 spaces, or hyphens. Must not be default.
                               </p>
                               
-                              <p>
-                                 <em>Type</em>: String
-                              </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a>
+                              <p>Example: <code class="code">mySubnetgroup</code>
                                  
                               </p>
                               
+                              <p><em>Required</em>: No
+                              </p>
+                              <p><em>Type</em>: String
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-docdb-dbsubnetgroup-subnetids"></a><span class="term"><code class="code">SubnetIds</code></span></dt>
-                           
                            <dd>
                               
-                              <p>List of subnet identifiers.</p>
+                              <p>The Amazon EC2 subnet IDs for the DB subnet group.</p>
                               
-                              <p>
-                                 <em>Required</em>: Yes
+                              <p><em>Required</em>: Yes
                               </p>
-                              
-                              <p>
-                                 <em>Type</em>: List of String values
+                              <p><em>Type</em>: List of String
                               </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
-                                 
-                              </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-docdb-dbsubnetgroup-tags"></a><span class="term"><code class="code">Tags</code></span></dt>
-                           
                            <dd>
                               
-                              <p>A list of up to 50 tags. A tag is metadata assigned to an Amazon DocumentDB (with
-                                 MongoDB compatibility) resource consisting of a key-value pair.
-                              </p>
+                              <p>The tags to be assigned to the DB subnet group.</p>
                               
-                              <p>
-                                 <em>Required</em>: No
+                              <p><em>Required</em>: No
                               </p>
-                              
-                              <p>
-                                 <em>Type</em>: List of <a href="aws-properties-resource-tags.html">Resource Tag</a> property types
-                              </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
-                                 
-                              </p>
-                              
+                              <p><em>Type</em>: List of <a href="aws-properties-resource-tags.html">Tag</a></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
                         </dl>
-                     </div><h2 id="aws-resource-docdb-dbsubnetgroup-returnvalues">Return Values</h2><h3 id="aws-resource-docdb-dbsubnetgroup-ref">Ref</h3><p>When you pass the logical ID of an <code class="code">AWS::DocDB::DBSubnetGroup</code> to the intrinsic 
-                        <code class="code">Ref</code> function, the function returns the name of the DBSubnetGroup, such as 
-                        <code class="code">default</code>.
-                     </p><p>For more information about using the 
-                        <code class="code">Ref</code> function, see 
-                        <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                        
-                     </p><h2 id="aws-resource-docdb-dbsubnetgroup-examples">Example</h2><div id="JSON" name="JSON" class="section langfilter">
-                        
-                        <h3 id="aws-resource-docdb-dbsubnetgroup-example1.json">JSON</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+                     </div><h2 id="aws-resource-docdb-dbsubnetgroup-return-values">Return Values</h2><h3 id="aws-resource-docdb-dbsubnetgroup-return-values-ref">Ref</h3><p>
+                        When you pass the logical ID of this resource to the intrinsic <code class="code">Ref</code> function, <code class="code">Ref</code> returns the DBSubnetGroup&apos;s name, such as <code class="code">default</code>.
+                     </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
+                     </p><h2 id="aws-resource-docdb-dbsubnetgroup--examples">Examples</h2><h3 id="aws-resource-docdb-dbsubnetgroup--examples--"></h3><h4 id="aws-resource-docdb-dbsubnetgroup--examples----json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
    &quot;AWSTemplateFormatVersion&quot; : &quot;2010-09-09&quot;,
    &quot;Resources&quot; : {
       &quot;myDBSubnetGroup&quot; : {
@@ -167,25 +101,20 @@ Properties:
          }
       }
    }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        
-                        <h3 id="aws-resource-docdb-dbsubnetgroup-example1.yaml">YAML</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">AWSTemplateFormatVersion: &quot;2010-09-09&quot;
+}</code></pre><h4 id="aws-resource-docdb-dbsubnetgroup--examples----yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">AWSTemplateFormatVersion: &quot;2010-09-09&quot;
 Resources: 
-  myDBSubnetGroup: 
-    Type: &quot;AWS::DocDB::DBSubnetGroup&quot;
-    Properties: 
-      DBSubnetGroupDescription: &quot;description&quot;
-      SubnetIds: 
-        - &quot;subnet-7b5b4112&quot;
-        - &quot;subnet-7b5b4115&quot;
-      Tags: 
-        - 
-          Key: &quot;String&quot;
-          Value: &quot;String&quot;</code></pre>
-                        </div><h2 id="aws-resource-docdb-dbsubnetgroup-seealso">See Also</h2><p>For more information, see the following topics in the <em>Amazon DocumentDB (with MongoDB compatibility) Developer
-                           Guide</em>.<b></b></p><div class="itemizedlist">
+   myDBSubnetGroup: 
+      Type: &quot;AWS::DocDB::DBSubnetGroup&quot;
+      Properties: 
+         DBSubnetGroupDescription: &quot;description&quot;
+         SubnetIds: 
+            - &quot;subnet-7b5b4112&quot;
+            - &quot;subnet-7b5b4115&quot;
+         Tags: 
+            - 
+               Key: &quot;String&quot;
+               Value: &quot;String&quot;</code></pre><h2 id="aws-resource-docdb-dbsubnetgroup--seealso">See Also</h2><div class="itemizedlist">
+                        
                         
                         
                         
@@ -194,24 +123,56 @@ Resources:
                         
                         <ul class="itemizedlist" type="disc">
                            <li class="listitem">
-                              <p><a href="https://docs.aws.amazon.com/amazondocdb/latest/developerguide/API_DBSubnetGroup.html">DBSubnetGroup</a></p>
+                              
+                              <p>
+                                 <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/API_Subnet.html">Subnet</a>
+                                 
+                              </p>
+                              
                            </li>
                            <li class="listitem">
-                              <p><a href="https://docs.aws.amazon.com/amazondocdb/latest/developerguide/API_Subnet.html">Subnet</a></p>
+                              
+                              <p>
+                                 <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DBSubnetGroup.html">DBSubnetGroup</a>
+                                 
+                              </p>
+                              
                            </li>
                            <li class="listitem">
-                              <p><a href="https://docs.aws.amazon.com/amazondocdb/latest/developerguide/API_CreateDBSubnetGroup.html">CreateDBSubnetGroup</a></p>
+                              
+                              <p>
+                                 <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBSubnetGroup.html">CreateDBSubnetGroup</a>
+                                 
+                              </p>
+                              
                            </li>
                            <li class="listitem">
-                              <p><a href="https://docs.aws.amazon.com/amazondocdb/latest/developerguide/API_DeleteDBSubnetGroup.html">DeleteDBSubnetGroup</a></p>
+                              
+                              <p>
+                                 <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DeleteDBSubnetGroup.html">DeleteDBSubnetGroup</a>
+                                 
+                              </p>
+                              
                            </li>
                            <li class="listitem">
-                              <p><a href="https://docs.aws.amazon.com/amazondocdb/latest/developerguide/API_DescribeDBSubnetGroups.html">DescribeDBSubnetGroups</a></p>
+                              
+                              <p>
+                                 <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DescribeDBSubnetGroups.html">DescribeDBSubnetGroups</a>
+                                 
+                              </p>
+                              
                            </li>
                            <li class="listitem">
-                              <p><a href="https://docs.aws.amazon.com/amazondocdb/latest/developerguide/API_ModifyDBSubnetGroup.html">ModifyDBSubnetGroup</a></p>
+                              
+                              <p>
+                                 <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/API_ModifyDBSubnetGroup.html">ModifyDBSubnetGroup</a>
+                                 
+                              </p>
+                              
                            </li>
                         </ul>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
                      </div></div>
 </body>
 </html>

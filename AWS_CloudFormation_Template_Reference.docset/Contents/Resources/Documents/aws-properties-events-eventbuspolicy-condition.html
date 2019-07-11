@@ -8,112 +8,65 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-properties-events-eventbuspolicy-condition">Amazon CloudWatch Events EventBusPolicy Condition</h1><p>The 
-                        <code class="code">Condition</code> property type enables you to grant event bus permissions to all the AWS accounts
-                        in an organization.
+    <h1 class="topictitle" id="aws-properties-events-eventbuspolicy-condition">AWS::Events::EventBusPolicy Condition</h1><p>A JSON string which you can use to limit the event bus permissions you are granting
+                        to only accounts that fulfill the 
+                        condition. Currently, the only supported condition is membership in a certain AWS
+                        organization. The string
+                        must contain <code class="code">Type</code>, <code class="code">Key</code>, and <code class="code">Value</code> fields. The <code class="code">Value</code> field specifies
+                        the ID of the AWS organization. Following is an example value for <code class="code">Condition</code>:
                      </p><p>
-                        <code class="code">Condition</code> is a property of the <a href="aws-resource-events-eventbuspolicy.html">AWS::Events::EventBusPolicy</a> resource type.
+                        <code class="code">&apos;{&quot;Type&quot; : &quot;StringEquals&quot;, &quot;Key&quot;: &quot;aws:PrincipalOrgID&quot;, &quot;Value&quot;: &quot;o-1234567890&quot;}&apos;</code>
+                        
                      </p><h2 id="aws-properties-events-eventbuspolicy-condition-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
-                        
-                        <h3 id="aws-properties-events-eventbuspolicy-condition-syntax.json">JSON</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
-  &quot;<a href="aws-properties-events-eventbuspolicy-condition.html#cfn-events-eventbuspolicy-condition-key">Key</a>&quot; : <em class="replaceable"><code>String</code></em>,
-  &quot;<a href="aws-properties-events-eventbuspolicy-condition.html#cfn-events-eventbuspolicy-condition-type">Type</a>&quot; : <em class="replaceable"><code>String</code></em>,
-  &quot;<a href="aws-properties-events-eventbuspolicy-condition.html#cfn-events-eventbuspolicy-condition-value">Value</a>&quot; : <em class="replaceable"><code>String</code></em>
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        
-                        <h3 id="aws-properties-events-eventbuspolicy-condition-syntax.yaml">YAML</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">
-<a href="aws-properties-events-eventbuspolicy-condition.html#cfn-events-eventbuspolicy-condition-key">Key</a>: <em class="replaceable"><code>String</code></em>
-<a href="aws-properties-events-eventbuspolicy-condition.html#cfn-events-eventbuspolicy-condition-type">Type</a>: <em class="replaceable"><code>String</code></em>
-<a href="aws-properties-events-eventbuspolicy-condition.html#cfn-events-eventbuspolicy-condition-value">Value</a>: <em class="replaceable"><code>String</code></em></code></pre>
-                        </div><h2 id="aws-properties-events-eventbuspolicy-condition-properties">Properties</h2><div class="variablelist">
-                          
-                        
-                        
-                        
+                        <h3 id="aws-properties-events-eventbuspolicy-condition-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;<a href="#cfn-events-eventbuspolicy-condition-key">Key</a>&quot; : <em class="replaceable"><code>String</code></em>,
+  &quot;<a href="#cfn-events-eventbuspolicy-condition-type">Type</a>&quot; : <em class="replaceable"><code>String</code></em>,
+  &quot;<a href="#cfn-events-eventbuspolicy-condition-value">Value</a>&quot; : <em class="replaceable"><code>String</code></em>
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-properties-events-eventbuspolicy-condition-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">  <a href="#cfn-events-eventbuspolicy-condition-key">Key</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-events-eventbuspolicy-condition-type">Type</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-events-eventbuspolicy-condition-value">Value</a>: <em class="replaceable"><code>String</code></em>
+</code></pre></div><h2 id="aws-properties-events-eventbuspolicy-condition-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
                            <dt><a id="cfn-events-eventbuspolicy-condition-key"></a><span class="term"><code class="code">Key</code></span></dt>
-                           
                            <dd>
                               
-                              <p>Currently, <code class="code">Key</code> must be <code class="code">aws:PrincipalOrgID</code></p>
-                              
-                              <p>
-                                 <em>Required</em>: No
+                              <p>Specifies the key for the condition. Currently the only supported key is <code class="code">aws:PrincipalOrgID</code>.
                               </p>
                               
-                              <p>
-                                 <em>Type</em>: String
+                              <p><em>Required</em>: No
                               </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
-                                 
+                              <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-events-eventbuspolicy-condition-type"></a><span class="term"><code class="code">Type</code></span></dt>
-                           
                            <dd>
                               
-                              <p>Currently, <code class="code">Type</code> must be <code class="code">StringEquals</code></p>
-                              
-                              <p>
-                                 <em>Required</em>: No
+                              <p>Specifies the type of condition. Currently the only supported value is <code class="code">StringEquals</code>.
                               </p>
                               
-                              <p>
-                                 <em>Type</em>: String
+                              <p><em>Required</em>: No
                               </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
-                                 
+                              <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-events-eventbuspolicy-condition-value"></a><span class="term"><code class="code">Value</code></span></dt>
-                           
                            <dd>
                               
-                              <p>Specifies the ID of the AWS organization to which you want to grant permission.</p>
+                              <p>Specifies the value for the key. Currently, this must be the ID of the organization.</p>
                               
-                              <p>
-                                 <em>Required</em>: No
+                              <p><em>Required</em>: No
                               </p>
-                              
-                              <p>
-                                 <em>Type</em>: String
+                              <p><em>Type</em>: String
                               </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
-                                 
-                              </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
                         </dl>
-                     </div><h2 id="aws-properties-events-eventbuspolicy-condition-seealso">See Also</h2><div class="itemizedlist">
-                        
-                        
-                        
-                        <ul class="itemizedlist" type="disc">
-                           <li class="listitem">
-                              <p><a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatchEvents-CrossAccountEventDelivery.html">Sending and Receiving Events
-                                    Between AWS Accounts</a> in the <em>Amazon CloudWatch Events User Guide</em></p>
-                           </li>
-                           <li class="listitem">
-                              <p><a href="https://docs.aws.amazon.com/AmazonCloudWatchEvents/latest/APIReference/API_PutPermission.html">PutPermission</a> in the <em>Amazon CloudWatch Events API Reference</em></p>
-                           </li>
-                        </ul>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
                      </div></div>
 </body>
 </html>

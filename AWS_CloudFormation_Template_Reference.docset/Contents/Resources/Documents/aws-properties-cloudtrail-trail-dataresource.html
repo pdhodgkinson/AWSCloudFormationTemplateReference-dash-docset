@@ -8,96 +8,212 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-properties-cloudtrail-trail-dataresource">AWS CloudTrail Trail DataResource</h1><p>The 
-                        <code class="code">DataResource</code> property type specifies Amazon S3 objects for event selectors in a CloudTrail trail.
-                        
-                        Data events are object-level API operations that access Amazon S3 objects, such as
-                        <code class="code">GetObject</code>, <code class="code">DeleteObject</code>, and <code class="code">PutObject</code>. 
-                        You can specify up to 250 Amazon S3 buckets and object prefixes for a trail. 
-                        For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_DataResource.html">DataResource</a>
-                        in the <em>AWS CloudTrail API Reference</em>.
-                     </p><p>
-                        <code class="code">DataResource</code> is a property of the <a href="aws-properties-cloudtrail-trail-eventselector.html">EventSelector</a> property type.
-                        
-                     </p><h2 id="aws-properties-cloudtrail-trail-dataresource-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
-                        
-                        <h3 id="aws-properties-cloudtrail-trail-dataresource-syntax.json">JSON</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
-  &quot;<a href="aws-properties-cloudtrail-trail-dataresource.html#cfn-cloudtrail-trail-dataresource-type">Type</a>&quot; : <em class="replaceable"><code>String</code></em>,
-  &quot;<a href="aws-properties-cloudtrail-trail-dataresource.html#cfn-cloudtrail-trail-dataresource-values">Values</a>&quot; : [ <em class="replaceable"><code>String</code></em>, ... ]
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        
-                        <h3 id="aws-properties-cloudtrail-trail-dataresource-syntax.yaml">YAML</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight"><a href="aws-properties-cloudtrail-trail-dataresource.html#cfn-cloudtrail-trail-dataresource-type">Type</a>: <em class="replaceable"><code>String</code></em>
-<a href="aws-properties-cloudtrail-trail-dataresource.html#cfn-cloudtrail-trail-dataresource-values">Values</a>: 
-  - <em class="replaceable"><code>String</code></em></code></pre>
-                        </div><h2 id="aws-properties-cloudtrail-trail-dataresource-properties">Properties</h2><div class="variablelist">
+    <h1 class="topictitle" id="aws-properties-cloudtrail-trail-dataresource">AWS::CloudTrail::Trail DataResource</h1><p>The Amazon S3 buckets or AWS Lambda functions that you specify in your event selectors
+                        for your trail to
+                        log data events. Data events provide insight into the resource operations performed
+                        on or within a resource itself.
+                        These are also known as data plane operations. You can specify up to 250 data resources
+                        for a trail.
+                     </p><div class="aws-note">
+                        <p class="aws-note">Note</p>
+                        <p>The total number of allowed data resources is 250. This number can be distributed
+                           between 1 and 5 event selectors, 
+                           but the total cannot exceed 250 across all selectors.
+                        </p>
+                     </div><p>The following example demonstrates how logging works when you configure logging of
+                        all data events
+                        for an S3 bucket named <code class="code">bucket-1</code>. In this example, the CloudTrail user specified an empty prefix, 
+                        and the option to log both <code class="code">Read</code> and <code class="code">Write</code> data events.
+                     </p><div class="orderedlist">
                         
                         
                         
+                        
+                        
+                        
+                        <ol>
+                           <li>
+                              
+                              <p>A user uploads an image file to <code class="code">bucket-1</code>.
+                              </p>
+                              
+                           </li>
+                           <li>
+                              
+                              <p>The <code class="code">PutObject</code> API operation is an Amazon S3 object-level API. 
+                                 It is recorded as a data event in CloudTrail. Because the CloudTrail user specified
+                                 an S3 bucket
+                                 with an empty prefix, events that occur on any object in that bucket are logged. The
+                                 trail processes and logs the
+                                 event.
+                              </p>
+                              
+                           </li>
+                           <li>
+                              
+                              <p>A user uploads an object to an Amazon S3 bucket named
+                                 <code class="code">arn:aws:s3:::bucket-2</code>.
+                              </p>
+                              
+                           </li>
+                           <li>
+                              
+                              <p>The <code class="code">PutObject</code> API operation occurred for an object in an S3 bucket that the CloudTrail
+                                 user didn&apos;t specify for the trail. The trail doesn&#x2019;t log the event.
+                              </p>
+                              
+                           </li>
+                        </ol>
+                     </div><p>The following example demonstrates how logging works when you configure logging of
+                        AWS Lambda data events for a 
+                        Lambda function named <em>MyLambdaFunction</em>, but not for all AWS Lambda functions.
+                     </p><div class="orderedlist">
+                        
+                        
+                        
+                        
+                        <ol>
+                           <li>
+                              
+                              <p>A user runs a script that includes a call to the <em>MyLambdaFunction</em> function and the
+                                 <em>MyOtherLambdaFunction</em> function.
+                              </p>
+                              
+                           </li>
+                           <li>
+                              
+                              <p>The <code class="code">Invoke</code> API operation on <em>MyLambdaFunction</em> is an AWS Lambda API. 
+                                 It is recorded as a data event in CloudTrail. Because the CloudTrail user specified
+                                 logging data events for
+                                 <em>MyLambdaFunction</em>, any invocations of that function are logged. The trail processes and logs the event.
+                                 
+                              </p>
+                              
+                           </li>
+                           <li>
+                              
+                              <p>The <code class="code">Invoke</code> API operation on <em>MyOtherLambdaFunction</em> is an AWS Lambda API. 
+                                 Because the CloudTrail user did not specify logging data events for all Lambda functions,
+                                 the <code class="code">Invoke</code> operation for <em>MyOtherLambdaFunction</em> does not match the function specified for the trail. 
+                                 The trail doesn&#x2019;t log the event. 
+                              </p>
+                              
+                           </li>
+                        </ol>
+                     </div><h2 id="aws-properties-cloudtrail-trail-dataresource-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-properties-cloudtrail-trail-dataresource-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;<a href="#cfn-cloudtrail-trail-dataresource-type">Type</a>&quot; : <em class="replaceable"><code>String</code></em>,
+  &quot;<a href="#cfn-cloudtrail-trail-dataresource-values">Values</a>&quot; : <em class="replaceable"><code>[ String, ... ]</code></em>
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-properties-cloudtrail-trail-dataresource-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">  <a href="#cfn-cloudtrail-trail-dataresource-type">Type</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-cloudtrail-trail-dataresource-values">Values</a>: <em class="replaceable"><code>
+    - String</code></em>
+</code></pre></div><h2 id="aws-properties-cloudtrail-trail-dataresource-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
                            <dt><a id="cfn-cloudtrail-trail-dataresource-type"></a><span class="term"><code class="code">Type</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The resource type to log data events for. You can specify the following
-                                 values: <code class="code">AWS::S3::Object</code> or <code class="code">AWS::Lambda::Function</code>.
+                              <p>The resource type in which you want to log data events. You can specify <code class="code">AWS::S3::Object</code> or
+                                 <code class="code">AWS::Lambda::Function</code> resources.
                               </p>
                               
-                              <p>
-                                 <em>Required</em>: Yes
+                              <p><em>Required</em>: Yes
                               </p>
-                              
-                              <p>
-                                 <em>Type</em>: String
+                              <p><em>Type</em>: String
                               </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: 
-                                 <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
-                                 
-                              </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-cloudtrail-trail-dataresource-values"></a><span class="term"><code class="code">Values</code></span></dt>
-                           
                            <dd>
                               
-                              <p>A list of ARN-like strings for the specified Amazon S3 objects.</p>
-                              
-                              <p>To log data events for all objects in all Amazon S3 buckets in your AWS account, specify
-                                 the prefix as <code class="code">arn:aws:s3:::</code>.
+                              <p>An array of Amazon Resource Name (ARN) strings or partial ARN strings for the specified
+                                 objects.
                               </p>
                               
-                              <p>To log data events for all objects in an Amazon S3 bucket, specify the bucket and
-                                 an empty object prefix such as <code class="code">arn:aws:s3:::bucket-1/</code>. The trail logs data events for all objects in this Amazon S3 bucket.
-                              </p>
-                              
-                              <p>To log data events for specific objects, specify the Amazon S3 bucket and object prefix
-                                 such as <code class="code">arn:aws:s3:::bucket-1/example-images</code>. The trail logs data events for objects in the bucket that match the prefix.
-                              </p>
-                              
-                              <p>
-                                 <em>Required</em>: No
-                              </p>
-                              
-                              <p>
-                                 <em>Type</em>: List of String values
-                              </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: 
-                                 <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
+                              <div class="itemizedlist">      
                                  
-                              </p>
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 <ul class="itemizedlist" type="disc">
+                                    <li class="listitem">
+                                       
+                                       <p>To log data events for all objects in all S3 buckets in your AWS account, specify
+                                          the 
+                                          prefix as <code class="code">arn:aws:s3:::</code>. 
+                                       </p>
+                                       
+                                       <div class="aws-note">
+                                          <p class="aws-note">Note</p>
+                                          <p>This will also enable logging of data event activity performed by any user or role
+                                             in your AWS account, 
+                                             even if that activity is performed on a bucket that belongs to another AWS account.
+                                             
+                                          </p>
+                                       </div>
+                                       
+                                    </li>
+                                    <li class="listitem">
+                                       
+                                       <p>To log data events for all objects in an S3 bucket, specify the bucket and an empty
+                                          object prefix such as <code class="code">arn:aws:s3:::bucket-1/</code>. The trail logs data events for
+                                          all objects in this S3 bucket.
+                                       </p>
+                                       
+                                    </li>
+                                    <li class="listitem">
+                                       
+                                       <p>To log data events for specific objects, specify the S3 bucket and object prefix such
+                                          as <code class="code">arn:aws:s3:::bucket-1/example-images</code>. The trail logs data events for
+                                          objects in this S3 bucket that match the prefix.
+                                       </p>
+                                       
+                                    </li>
+                                    <li class="listitem">
+                                       
+                                       <p>To log data events for all functions in your AWS account, specify the prefix as
+                                          <code class="code">arn:aws:lambda</code>.
+                                       </p>
+                                       
+                                       <div class="aws-note">
+                                          <p class="aws-note">Note</p>
+                                          <p>This will also enable logging of <code class="code">Invoke</code> activity performed by any user or role in your AWS account, 
+                                             even if that activity is performed on a function that belongs to another AWS account.
+                                             
+                                          </p>
+                                       </div>
+                                       
+                                    </li>
+                                    <li class="listitem">
+                                       
+                                       <p>To log data events for a specific Lambda function, specify the function ARN.</p>
+                                       
+                                       <div class="aws-note">
+                                          <p class="aws-note">Note</p>
+                                          <p>Lambda function ARNs are exact. For example, if you specify a 
+                                             function ARN <em>arn:aws:lambda:us-west-2:111111111111:function:helloworld</em>, data events will
+                                             only be logged for <em>arn:aws:lambda:us-west-2:111111111111:function:helloworld</em>. They will
+                                             not be logged for <em>arn:aws:lambda:us-west-2:111111111111:function:helloworld2</em>.
+                                          </p>
+                                       </div> 
+                                       
+                                    </li>
+                                 </ul>
+                              </div>
                               
+                              <p><em>Required</em>: No
+                              </p>
+                              <p><em>Type</em>: List of String
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
                         </dl>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
                      </div></div>
 </body>
 </html>

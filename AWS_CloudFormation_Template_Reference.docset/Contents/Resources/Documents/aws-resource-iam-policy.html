@@ -8,240 +8,268 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-resource-iam-policy">AWS::IAM::Policy</h1><p>The <code class="code">AWS::IAM::Policy</code> resource associates an IAM policy with IAM users,
-                        roles, or groups. For more information about IAM policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies_overview.html">Overview of IAM Policies</a> in the
-                        <em>IAM User Guide</em> guide.
+    <h1 class="topictitle" id="aws-resource-iam-policy">AWS::IAM::Policy</h1><p>Adds or updates an inline policy document that is embedded in the specified IAM user,
+                        group, or role.
+                     </p><p>An IAM user can also have a managed policy attached to it. For information about
+                        policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed Policies and Inline
+                           Policies</a> in the <em>IAM User Guide</em>.
+                     </p><p>The Groups, Roles, and Users properties are optional. However, you must specify at
+                        least
+                        one of these properties.
+                     </p><p>For information about limits on the number of inline policies that you can embed in
+                        an
+                        identity, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html">Limitations on IAM
+                           Entities</a> in the <em>IAM User Guide</em>.
                      </p><h2 id="aws-resource-iam-policy-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-resource-iam-policy-syntax.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
+                        <h3 id="aws-resource-iam-policy-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
   &quot;Type&quot; : &quot;AWS::IAM::Policy&quot;,
-  &quot;Properties&quot; : { 
-    &quot;<a href="aws-resource-iam-policy.html#cfn-iam-policy-groups">Groups</a>&quot; : [ <em class="replaceable"><code>String, ...</code></em> ],
-    &quot;<a href="aws-resource-iam-policy.html#cfn-iam-policy-policydocument">PolicyDocument</a>&quot; : <em class="replaceable"><code>JSON object</code></em>,
-    &quot;<a href="aws-resource-iam-policy.html#cfn-iam-policy-policyname">PolicyName</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-iam-policy.html#cfn-iam-policy-roles">Roles</a>&quot; : [ <em class="replaceable"><code>String, ...</code></em> ],
-    &quot;<a href="aws-resource-iam-policy.html#cfn-iam-policy-users">Users</a>&quot; : [ <em class="replaceable"><code>String, ...</code></em> ]
-  }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-resource-iam-policy-syntax.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">Type: AWS::IAM::Policy
+  &quot;Properties&quot; : {
+      &quot;<a href="#cfn-iam-policy-groups">Groups</a>&quot; : <em class="replaceable"><code>[ String, ... ]</code></em>,
+      &quot;<a href="#cfn-iam-policy-policydocument">PolicyDocument</a>&quot; : <em class="replaceable"><code>Json</code></em>,
+      &quot;<a href="#cfn-iam-policy-policyname">PolicyName</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-iam-policy-roles">Roles</a>&quot; : <em class="replaceable"><code>[ String, ... ]</code></em>,
+      &quot;<a href="#cfn-iam-policy-users">Users</a>&quot; : <em class="replaceable"><code>[ String, ... ]</code></em>
+    }
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-iam-policy-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Type: AWS::IAM::Policy
 Properties: 
-  <a href="aws-resource-iam-policy.html#cfn-iam-policy-groups">Groups</a>:
-    - <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-iam-policy.html#cfn-iam-policy-policydocument">PolicyDocument</a>: <em class="replaceable"><code>JSON object</code></em>
-  <a href="aws-resource-iam-policy.html#cfn-iam-policy-policyname">PolicyName</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-iam-policy.html#cfn-iam-policy-roles">Roles</a>:
-    - <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-iam-policy.html#cfn-iam-policy-users">Users</a>:
-    - <em class="replaceable"><code>String</code></em>
-</code></pre>
-                        </div><h2 id="w2ab1c21c10d156c32b7">Properties</h2><div class="variablelist">
-                        
-                        
-                        
-                        
-                        
-                        
+  <a href="#cfn-iam-policy-groups">Groups</a>: <em class="replaceable"><code>
+    - String</code></em>
+  <a href="#cfn-iam-policy-policydocument">PolicyDocument</a>: <em class="replaceable"><code>Json</code></em>
+  <a href="#cfn-iam-policy-policyname">PolicyName</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-iam-policy-roles">Roles</a>: <em class="replaceable"><code>
+    - String</code></em>
+  <a href="#cfn-iam-policy-users">Users</a>: <em class="replaceable"><code>
+    - String</code></em>
+</code></pre></div><h2 id="aws-resource-iam-policy-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
                            <dt><a id="cfn-iam-policy-groups"></a><span class="term"><code class="code">Groups</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The names of groups to which you want to add the policy.</p>
+                              <p>The name of the group to associate the policy with.</p>
                               
-                              <p><em>Required</em>: Conditional. You must specify at least one of the following
-                                 properties: <code class="code">Groups</code>, <code class="code">Roles</code>, or <code class="code">Users</code>.
+                              <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex" target="_blank">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric 
+                                 characters with no spaces. You can also include any of the following characters: _+=,.@-.
                               </p>
                               
-                              <p><em>Type</em>: List of String values
+                              <p><em>Required</em>: No
                               </p>
-                              
+                              <p><em>Type</em>: List of String
+                              </p>
+                              <p><em>Minimum</em>: <code class="code">1</code></p>
+                              <p><em>Maximum</em>: <code class="code">128</code></p>
+                              <p><em>Pattern</em>: <code class="code">[\w+=,.@-]+</code></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-iam-policy-policydocument"></a><span class="term"><code class="code">PolicyDocument</code></span></dt>
-                           
                            <dd>
                               
-                              <p>A policy document that contains permissions to add to the specified users or
-                                 groups.
+                              <p>The policy document.</p>
+                              
+                              <p>You must provide policies in JSON format in IAM. However, for AWS CloudFormation
+                                 templates formatted in YAML, you can provide the policy in JSON or YAML format. AWS
+                                 CloudFormation always converts a YAML policy to JSON format before submitting it to
+                                 IAM.
+                              </p> 
+                              
+                              <p>The <a href="http://wikipedia.org/wiki/regex" target="_blank">regex pattern</a> 
+                                 used to validate this parameter is a string of characters consisting of the following:
                               </p>
+                              
+                              <div class="itemizedlist">
+                                 
+                                 
+                                 
+                                 
+                                 <ul class="itemizedlist" type="disc">
+                                    <li class="listitem">
+                                       
+                                       <p>Any printable ASCII 
+                                          character ranging from the space character (\u0020) through the end of the ASCII character
+                                          range
+                                       </p>
+                                       
+                                    </li>
+                                    <li class="listitem">
+                                       
+                                       <p>The printable characters in the Basic Latin and  Latin-1 Supplement character set
+                                          
+                                          (through \u00FF)
+                                       </p>
+                                       
+                                    </li>
+                                    <li class="listitem">
+                                       
+                                       <p>The special characters tab (\u0009), line feed (\u000A), and 
+                                          carriage return (\u000D)
+                                       </p>
+                                       
+                                    </li>
+                                 </ul>
+                              </div> 
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
-                              <p><em>Type</em>: JSON object
+                              <p><em>Type</em>: Json
                               </p>
-                              
-                              <div class="aws-note">
-                                 <p class="aws-note">Note</p>
-                                 <p>AWS Identity and Access Management (IAM) requires that policies be in JSON format.
-                                    However, for templates formatted in YAML, you can create an IAM policy in either JSON
-                                    or YAML format. AWS CloudFormation always converts a policy to JSON format before
-                                    submitting it to IAM.
-                                 </p>
-                              </div>
-                              
-                              
+                              <p><em>Minimum</em>: <code class="code">1</code></p>
+                              <p><em>Maximum</em>: <code class="code">131072</code></p>
+                              <p><em>Pattern</em>: <code class="code">[\u0009\u000A\u000D\u0020-\u00FF]+</code></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-iam-policy-policyname"></a><span class="term"><code class="code">PolicyName</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The name of the policy. If you specify multiple policies for an entity, specify
-                                 unique names. For example, if you specify a list of policies for an IAM role,
-                                 each policy must have a unique name.
+                              <p>The name of the policy document.</p>
+                              
+                              <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex" target="_blank">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric 
+                                 characters with no spaces. You can also include any of the following characters: _+=,.@-
                               </p>
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Minimum</em>: <code class="code">1</code></p>
+                              <p><em>Maximum</em>: <code class="code">128</code></p>
+                              <p><em>Pattern</em>: <code class="code">[\w+=,.@-]+</code></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-iam-policy-roles"></a><span class="term"><code class="code">Roles</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The names of <a href="aws-resource-iam-role.html">AWS::IAM::Role</a>s to
-                                 which this policy will be attached.
+                              <p>The name of the role to associate the policy with.</p>
+                              
+                              <p>This parameter allows (per its <a href="http://wikipedia.org/wiki/regex" target="_blank">regex
+                                    pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+                                 characters with no spaces. You can also include any of the following characters:
+                                 _+=,.@-
                               </p>
                               
                               <div class="aws-note">
                                  <p class="aws-note">Note</p>
-                                 <p>If a policy has a <code class="code">Ref</code> to a role and if a resource (such as
-                                    <code class="code">AWS::ECS::Service</code>) also has a <code class="code">Ref</code> to the same
-                                    role, add a <code class="code">DependsOn</code> attribute to the resource so that the
-                                    resource depends on the policy. This dependency ensures that the role&apos;s policy
-                                    is available throughout the resource&apos;s lifecycle. For example, when you delete
-                                    a stack with an <code class="code">AWS::ECS::Service</code> resource, the
-                                    <code class="code">DependsOn</code> attribute ensures that the
-                                    <code class="code">AWS::ECS::Service</code> resource can complete its deletion before its
-                                    role&apos;s policy is deleted.
+                                 <p>If an external policy (such as <code class="code">AWS::IAM::Policy</code> or
+                                    <code class="code">AWS::IAM::ManagedPolicy</code>) has a <code class="code">Ref</code> to a role and if a
+                                    resource (such as <code class="code">AWS::ECS::Service</code>) also has a <code class="code">Ref</code> to the
+                                    same role, add a <code class="code">DependsOn</code> attribute to the resource to make the resource
+                                    depend on the external policy. This dependency ensures that the role&apos;s policy is
+                                    available throughout the resource&apos;s lifecycle. For example, when you delete a stack
+                                    with
+                                    an <code class="code">AWS::ECS::Service</code> resource, the <code class="code">DependsOn</code> attribute ensures
+                                    that AWS CloudFormation deletes the <code class="code">AWS::ECS::Service</code> resource before
+                                    deleting its role&apos;s policy.
                                  </p>
                               </div>
                               
-                              <p><em>Required</em>: Conditional. You must specify at least one of the following
-                                 properties: <code class="code">Groups</code>, <code class="code">Roles</code>, or <code class="code">Users</code>.
+                              <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: List of String values
+                              <p><em>Type</em>: List of String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-iam-policy-users"></a><span class="term"><code class="code">Users</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The names of users for whom you want to add the policy.</p>
+                              <p>The name of the user to associate the policy with.</p>
                               
-                              <p><em>Required</em>: Conditional. You must specify at least one of the following
-                                 properties: <code class="code">Groups</code>, <code class="code">Roles</code>, or <code class="code">Users</code>.
+                              <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex" target="_blank">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric 
+                                 characters with no spaces. You can also include any of the following characters: _+=,.@-
                               </p>
                               
-                              <p><em>Type</em>: List of String values
+                              <p><em>Required</em>: No
                               </p>
-                              
+                              <p><em>Type</em>: List of String
+                              </p>
+                              <p><em>Minimum</em>: <code class="code">1</code></p>
+                              <p><em>Maximum</em>: <code class="code">128</code></p>
+                              <p><em>Pattern</em>: <code class="code">[\w+=,.@-]+</code></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
                         </dl>
-                     </div><h2 id="w2ab1c21c10d156c32b9">Return Values</h2><h3 id="w2ab1c21c10d156c32b9b2">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code> intrinsic
-                        function, <code class="code">Ref</code> returns the resource name.
+                     </div><h2 id="aws-resource-iam-policy-return-values">Return Values</h2><h3 id="aws-resource-iam-policy-return-values-ref">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code> intrinsic function, <code class="code">Ref</code> returns the resource name.
                      </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                     </p><h2 id="w2ab1c21c10d156c32c11">Examples</h2><h3 id="w2ab1c21c10d156c32c11b2">IAM Policy with policy group</h3><div id="JSON" name="JSON" class="section langfilter">
-                        <h4 id="aws-resource-iam-policy-example1.json">JSON</h4>
+                     </p><h2 id="aws-resource-iam-policy--examples">Examples</h2><h3 id="aws-resource-iam-policy--examples--IAM_Policy_with_policy_group">IAM Policy with policy group</h3><h4 id="aws-resource-iam-policy--examples--IAM_Policy_with_policy_group--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">
+            {
+              &quot;Type&quot; : &quot;AWS::IAM::Policy&quot;,
+              &quot;Properties&quot; : {
+              &quot;PolicyName&quot; : &quot;CFNUsers&quot;,
+              &quot;PolicyDocument&quot; : {
+                &quot;Version&quot; : &quot;2012-10-17&quot;,
+                &quot;Statement&quot;: [ {
+                &quot;Effect&quot; : &quot;Allow&quot;,
+                &quot;Action&quot; : [
+                &quot;cloudformation:Describe*&quot;,
+                &quot;cloudformation:List*&quot;,
+                &quot;cloudformation:Get*&quot;
+             ],
+                &quot;Resource&quot; : &quot;*&quot; 
+             } ]
+           },
+             &quot;Groups&quot; : [ { &quot;Ref&quot; : &quot;CFNUserGroup&quot; } ]
+          } 
+        }
+       </code></pre><h4 id="aws-resource-iam-policy--examples--IAM_Policy_with_policy_group--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">
+            Type: AWS::IAM::Policy
+            Properties:
+              PolicyName: &quot;CFNUsers&quot;
+              PolicyDocument:
+                Version: &quot;2012-10-17&quot;
+                Statement:
+                  -
+                    Effect: &quot;Allow&quot;
+                    Action:
+                      - &quot;cloudformation:Describe*&quot;
+                      - &quot;cloudformation:List*&quot;
+                      - &quot;cloudformation:Get*&quot;
+                    Resource: &quot;*&quot; 
+              Groups:
+                -
+                  Ref: &quot;CFNUserGroup&quot;
+         </code></pre><h3 id="aws-resource-iam-policy--examples--IAM_Policy_with_specified_role">IAM Policy with specified role</h3><h4 id="aws-resource-iam-policy--examples--IAM_Policy_with_specified_role--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">
+            {
+              &quot;Type&quot;: &quot;AWS::IAM::Policy&quot;,
+              &quot;Properties&quot;: {
+              &quot;PolicyName&quot;: &quot;root&quot;,
+              &quot;PolicyDocument&quot;: {
+                &quot;Version&quot; : &quot;2012-10-17&quot;,
+                &quot;Statement&quot;: [
+                   { &quot;Effect&quot;: &quot;Allow&quot;, &quot;Action&quot;: &quot;*&quot;, &quot;Resource&quot;: &quot;*&quot; }
+                 ]
+               },
+               &quot;Roles&quot;: [ { &quot;Ref&quot;: &quot;RootRole&quot; } ]
+             }
+            }
+         </code></pre><h4 id="aws-resource-iam-policy--examples--IAM_Policy_with_specified_role--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">
+            Type: AWS::IAM::Policy 
+            Properties:
+              PolicyName: &quot;root&quot;
+              PolicyDocument:
+                Version: &quot;2012-10-17&quot;
+                Statement:
+                  -
+                    Effect: &quot;Allow&quot;
+                    Action: &quot;*&quot;
+                    Resource: &quot;*&quot;
+              Roles:
+                -
+                 Ref: &quot;RootRole&quot;
+         </code></pre><h2 id="aws-resource-iam-policy--seealso">See Also</h2><div class="itemizedlist">
                         
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
-   &quot;Type&quot; : &quot;AWS::IAM::Policy&quot;,
-   &quot;Properties&quot; : {
-      &quot;PolicyName&quot; : &quot;CFNUsers&quot;,
-      &quot;PolicyDocument&quot; : {
-         &quot;Version&quot; : &quot;2012-10-17&quot;,
-         &quot;Statement&quot;: [ {
-         &quot;Effect&quot;   : &quot;Allow&quot;,
-         &quot;Action&quot;   : [
-            &quot;cloudformation:Describe*&quot;,
-            &quot;cloudformation:List*&quot;,
-            &quot;cloudformation:Get*&quot;
-         ],
-         &quot;Resource&quot; : &quot;*&quot;
-         } ]
-      },
-      &quot;Groups&quot; : [ { &quot;Ref&quot; : &quot;CFNUserGroup&quot; } ]
-   }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h4 id="aws-resource-iam-policy-example1.yaml">YAML</h4>
                         
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Type: AWS::IAM::Policy
-Properties: 
-  PolicyName: &quot;CFNUsers&quot;
-  PolicyDocument: 
-    Version: &quot;2012-10-17&quot;
-    Statement: 
-      - 
-        Effect: &quot;Allow&quot;
-        Action: 
-          - &quot;cloudformation:Describe*&quot;
-          - &quot;cloudformation:List*&quot;
-          - &quot;cloudformation:Get*&quot;
-        Resource: &quot;*&quot;
-  Groups: 
-    - 
-      Ref: &quot;CFNUserGroup&quot;</code></pre>
-                        </div><h3 id="w2ab1c21c10d156c32c11b4">IAM Policy with specified role</h3><div id="JSON" name="JSON" class="section langfilter">
-                        <h4 id="aws-resource-iam-policy-example2.json">JSON</h4>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
-   &quot;Type&quot;: &quot;AWS::IAM::Policy&quot;,
-   &quot;Properties&quot;: {
-      &quot;PolicyName&quot;: &quot;root&quot;,
-      &quot;PolicyDocument&quot;: {
-         &quot;Version&quot; : &quot;2012-10-17&quot;,
-         &quot;Statement&quot;: [
-            { &quot;Effect&quot;: &quot;Allow&quot;, &quot;Action&quot;: &quot;*&quot;, &quot;Resource&quot;: &quot;*&quot; }
-         ]
-      },
-      &quot;Roles&quot;: [ { &quot;Ref&quot;: &quot;RootRole&quot; } ]
-   }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h4 id="aws-resource-iam-policy-example2.yaml">YAML</h4>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Type: AWS::IAM::Policy
-Properties: 
-  PolicyName: &quot;root&quot;
-  PolicyDocument: 
-    Version: &quot;2012-10-17&quot;
-    Statement: 
-      - 
-        Effect: &quot;Allow&quot;
-        Action: &quot;*&quot;
-        Resource: &quot;*&quot;
-  Roles: 
-    - 
-      Ref: &quot;RootRole&quot;</code></pre>
-                        </div></div>
+                        <ul class="itemizedlist" type="disc">
+                           <li class="listitem">
+                              
+                              <p>
+                                 <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreatePolicy.html">CreatePolicy</a> in the <em>AWS Identity and Access Management API
+                                    Reference</em>
+                                 
+                              </p>
+                              
+                           </li>
+                        </ul>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
+                     </div></div>
 </body>
 </html>

@@ -8,133 +8,88 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-resource-ec2-vpn-gatewayrouteprop">AWS::EC2::VPNGatewayRoutePropagation</h1><p>Enables a virtual private gateway (VGW) to propagate routes to the routing tables
-                        of a
-                        VPC.
-                     </p><div class="aws-note">
-                        <p class="aws-note">Note</p>
-                        <p>If you reference a VPN gateway that is in the same template as your VPN gateway route
-                           propagation, you must explicitly declare a dependency on the VPN gateway attachment.
-                           The
-                           <code class="code">AWS::EC2::VPNGatewayRoutePropagation</code> resource cannot use the VPN gateway
-                           until it has successfully attached to the VPC. Add a <a href="aws-attribute-dependson.html">DependsOn</a> attribute in the
-                           <code class="code">AWS::EC2::VPNGatewayRoutePropagation</code> resource to explicitly declare a
-                           dependency on the VPN gateway attachment.
-                        </p>
-                     </div><div class="highlights" id="inline-topiclist">
-                        <p><strong>Topics</strong></p>
-                        <ul>
-                           <li><a href="#aws-resource-ec2-vpngatewayroutepropagation-syntax">Syntax</a></li>
-                           <li><a href="#w2ab1c21c10d111d222c11">Properties</a></li>
-                           <li><a href="#w2ab1c21c10d111d222c13">Return Value</a></li>
-                           <li><a href="#w2ab1c21c10d111d222c15">Example</a></li>
-                           <li><a href="#w2ab1c21c10d111d222c17">See Also</a></li>
-                        </ul>
-                     </div><h2 id="aws-resource-ec2-vpngatewayroutepropagation-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-resource-ec2-vpngatewayroutepropagation-syntax.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">
-{
-   &quot;Type&quot; : &quot;AWS::EC2::VPNGatewayRoutePropagation&quot;,
-   &quot;Properties&quot; : {
-      &quot;<a href="aws-resource-ec2-vpn-gatewayrouteprop.html#cfn-ec2-vpngatewayrouteprop-routetableids">RouteTableIds</a>&quot; : [ <em class="replaceable"><code>String, ...</code></em> ],
-      &quot;<a href="aws-resource-ec2-vpn-gatewayrouteprop.html#cfn-ec2-vpngatewayrouteprop-vpngatewayid">VpnGatewayId</a>&quot; : <em class="replaceable"><code>String</code></em>
-   }
-}
-     </code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-resource-ec2-vpngatewayroutepropagation-syntax.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">Type: AWS::EC2::VPNGatewayRoutePropagation
-Properties: 
-  <a href="aws-resource-ec2-vpn-gatewayrouteprop.html#cfn-ec2-vpngatewayrouteprop-routetableids">RouteTableIds</a>:
-    - <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-ec2-vpn-gatewayrouteprop.html#cfn-ec2-vpngatewayrouteprop-vpngatewayid">VpnGatewayId</a>: <em class="replaceable"><code>String</code></em>
-</code></pre>
-                        </div><h2 id="w2ab1c21c10d111d222c11">Properties</h2><div class="variablelist">
-                        
-                        
-                        
-                        <dl>
-                           
-                           <dt><a id="cfn-ec2-vpngatewayrouteprop-routetableids"></a><span class="term"><code class="literal">RouteTableIds</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>A list of routing table IDs that are associated with a VPC. The routing
-                                 tables must be associated with the same VPC that the virtual private gateway is
-                                 attached to.
-                              </p>
-                              
-                              <p><em>Required</em>: Yes
-                              </p>
-                              
-                              <p><em>Type</em>: List of route table IDs
-                              </p>
-                              
-                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
-                           </dd>
-                           
-                           
-                           <dt><a id="cfn-ec2-vpngatewayrouteprop-vpngatewayid"></a><span class="term"><code class="literal">VpnGatewayId</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>The ID of the virtual private gateway that is attached to a VPC. The virtual
-                                 private gateway must be attached to the same VPC that the routing tables are
-                                 associated with.
-                              </p>
-                              
-                              <p><em>Required</em>: Yes
-                              </p>
-                              
-                              <p><em>Type</em>: String
-                              </p>
-                              
-                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
-                           </dd>
-                           
-                        </dl>
-                     </div><h2 id="w2ab1c21c10d111d222c13">Return Value</h2><p>When the logical ID of this resource is provided to the <code class="code">Ref</code> intrinsic
-                        function, <code class="code">Ref</code> returns the resource name. For example:
-                     </p><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{ &quot;Ref&quot;: &quot;<em class="replaceable"><code>myVPNGatewayRouteProp</code></em>&quot; }</code></pre><p>For the VPN gateway with the logical ID
-                        <code class="code"><em class="replaceable"><code>myVPNGatewayRouteProp</code></em></code>,
-                        <code class="code">Ref</code> will return the gateway&apos;s resource name.
-                     </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                     </p><h2 id="w2ab1c21c10d111d222c15">Example</h2><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-resource-ec2-vpngatewayroutepropagation-example.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">&quot;myVPNGatewayRouteProp&quot; : {
+    <h1 class="topictitle" id="aws-resource-ec2-vpn-gatewayrouteprop">AWS::EC2::VPNGatewayRoutePropagation</h1><p>Enables a virtual private gateway (VGW) to propagate routes to the specified route
+                        table of a VPC.
+                     </p><p>If you reference a VPN gateway that is in the same template as your VPN gateway route
+                        propagation, you must explicitly declare a dependency on the VPN gateway attachment.
+                        The
+                        <code class="code">AWS::EC2::VPNGatewayRoutePropagation</code> resource cannot use the VPN gateway
+                        until it has successfully attached to the VPC. Add a <a href="aws-attribute-dependson.html">
+                           DependsOn Attribute</a> in the <code class="code">AWS::EC2::VPNGatewayRoutePropagation</code> resource to explicitly declare a
+                        dependency on the VPN gateway attachment.
+                     </p><h2 id="aws-resource-ec2-vpn-gatewayrouteprop-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-resource-ec2-vpn-gatewayrouteprop-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
   &quot;Type&quot; : &quot;AWS::EC2::VPNGatewayRoutePropagation&quot;,
   &quot;Properties&quot; : {
-    &quot;RouteTableIds&quot; : [{&quot;Ref&quot; : &quot;PrivateRouteTable&quot;}],
-    &quot;VpnGatewayId&quot; : {&quot;Ref&quot; : &quot;VPNGateway&quot;}
-  }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-resource-ec2-vpngatewayroutepropagation-example.yaml">YAML</h3>
+      &quot;<a href="#cfn-ec2-vpngatewayrouteprop-routetableids">RouteTableIds</a>&quot; : <em class="replaceable"><code>[ String, ... ]</code></em>,
+      &quot;<a href="#cfn-ec2-vpngatewayrouteprop-vpngatewayid">VpnGatewayId</a>&quot; : <em class="replaceable"><code>String</code></em>
+    }
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-ec2-vpn-gatewayrouteprop-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Type: AWS::EC2::VPNGatewayRoutePropagation
+Properties: 
+  <a href="#cfn-ec2-vpngatewayrouteprop-routetableids">RouteTableIds</a>: <em class="replaceable"><code>
+    - String</code></em>
+  <a href="#cfn-ec2-vpngatewayrouteprop-vpngatewayid">VpnGatewayId</a>: <em class="replaceable"><code>String</code></em>
+</code></pre></div><h2 id="aws-resource-ec2-vpn-gatewayrouteprop-properties">Properties</h2><div class="variablelist">
+                        <dl>
+                           <dt><a id="cfn-ec2-vpngatewayrouteprop-routetableids"></a><span class="term"><code class="code">RouteTableIds</code></span></dt>
+                           <dd>
+                              
+                              <p>The ID of the route table. The routing table must be associated with the same VPC
+                                 that the virtual private gateway is attached to. 
+                              </p>
+                              
+                              <p><em>Required</em>: Yes
+                              </p>
+                              <p><em>Type</em>: List of String
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                           </dd>
+                           <dt><a id="cfn-ec2-vpngatewayrouteprop-vpngatewayid"></a><span class="term"><code class="code">VpnGatewayId</code></span></dt>
+                           <dd>
+                              
+                              <p>The ID of the virtual private gateway that is attached to a VPC. The virtual private
+                                 gateway must be attached to the same VPC that the routing tables are associated with.
+                                 
+                              </p>
+                              
+                              <p><em>Required</em>: Yes
+                              </p>
+                              <p><em>Type</em>: String
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                           </dd>
+                        </dl>
+                     </div><h2 id="aws-resource-ec2-vpn-gatewayrouteprop-return-values">Return Values</h2><h3 id="aws-resource-ec2-vpn-gatewayrouteprop-return-values-ref">Ref</h3><p>When you pass the logical ID of this resource to the intrinsic <code class="code">Ref</code> function, <code class="code">Ref</code> returns the ID of the VPN gateway.
+                     </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
+                     </p><h2 id="aws-resource-ec2-vpn-gatewayrouteprop--examples">Examples</h2><h3 id="aws-resource-ec2-vpn-gatewayrouteprop--examples--VPN_Gateway_Route_Propagation">VPN Gateway Route Propagation</h3><p>The following example enables route propagation for the private route table named
+                        PrivateRouteTable .
+                     </p><h4 id="aws-resource-ec2-vpn-gatewayrouteprop--examples--VPN_Gateway_Route_Propagation--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">&quot;myVPNGatewayRouteProp&quot; : {
+   &quot;Type&quot; : &quot;AWS::EC2::VPNGatewayRoutePropagation&quot;,
+   &quot;Properties&quot; : {
+      &quot;RouteTableIds&quot; : [{&quot;Ref&quot; : &quot;PrivateRouteTable&quot;}],
+      &quot;VpnGatewayId&quot; : {&quot;Ref&quot; : &quot;VPNGateway&quot;}
+   }
+}</code></pre><h4 id="aws-resource-ec2-vpn-gatewayrouteprop--examples--VPN_Gateway_Route_Propagation--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Type: AWS::EC2::VPNGatewayRoutePropagation
+   Properties:
+       RouteTableIds: 
+        - !Ref PrivateRouteTable
+       VpnGatewayId: 
+      ` !Ref VPNGateway</code></pre><h2 id="aws-resource-ec2-vpn-gatewayrouteprop--seealso">See Also</h2><div class="itemizedlist">
                         
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">myVPNGatewayRouteProp: 
-  Type: AWS::EC2::VPNGatewayRoutePropagation
-  Properties:
-    RouteTableIds: 
-      - !Ref PrivateRouteTable
-    VpnGatewayId: 
-      !Ref VPNGateway
-</code></pre>
-                        </div><h2 id="w2ab1c21c10d111d222c17">See Also</h2><div class="itemizedlist">
                         
                         
                         <ul class="itemizedlist" type="disc">
                            <li class="listitem">
                               
-                              <p><a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-EnableVgwRoutePropagation.html">EnableVgwRoutePropagation</a> in the <em>Amazon EC2 API Reference</em>.
-                              </p>
+                              <p>
+                                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EnableVgwRoutePropagation.html">EnableVgwRoutePropagation</a> in the <em>Amazon EC2 API Reference</em></p>
                               
                            </li>
                         </ul>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
                      </div></div>
 </body>
 </html>

@@ -8,122 +8,100 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-resource-iotanalytics-pipeline">AWS::IoTAnalytics::Pipeline</h1><p>The 
-                        <code class="code">AWS::IoTAnalytics::Pipeline</code> resource consumes messages from one or more channels
-                        and processes the messages before storing them in a data store. For more information,
-                        see 
+    <h1 class="topictitle" id="aws-resource-iotanalytics-pipeline">AWS::IoTAnalytics::Pipeline</h1><p>The AWS::IoTAnalytics::Pipeline resource consumes messages from one or more channels
+                        and allows 
+                        you to process the messages before storing them in a data store. You must specify
+                        both a 
+                        <code class="code">channel</code> and a <code class="code">datastore</code> activity and, optionally, as many
+                        as 23 additional activities in the <code class="code">pipelineActivities</code> array. For more information, see
                         <a href="https://docs.aws.amazon.com/iotanalytics/latest/userguide/welcome.html#aws-iot-analytics-how">
                            How to Use AWS IoT Analytics</a> in the <em>AWS IoT Analytics User Guide</em>.
                         
                      </p><h2 id="aws-resource-iotanalytics-pipeline-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
-                        
-                        <h3 id="aws-resource-iotanalytics-pipeline-syntax.json">JSON</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
+                        <h3 id="aws-resource-iotanalytics-pipeline-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
   &quot;Type&quot; : &quot;AWS::IoTAnalytics::Pipeline&quot;,
   &quot;Properties&quot; : {
-    &quot;<a href="aws-resource-iotanalytics-pipeline.html#cfn-iotanalytics-pipeline-pipelineactivities">PipelineActivities</a>&quot; : [ <a href="aws-properties-iotanalytics-pipeline-activity.html">Activity</a>, ... ],
-    &quot;<a href="aws-resource-iotanalytics-pipeline.html#cfn-iotanalytics-pipeline-pipelinename">PipelineName</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-iotanalytics-pipeline.html#cfn-iotanalytics-pipeline-tags">Tags</a>&quot; : [ <a href="aws-properties-resource-tags.html">Tag</a>, ... ]
-  }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        
-                        <h3 id="aws-resource-iotanalytics-pipeline-syntax.yaml">YAML</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">Type: &quot;AWS::IoTAnalytics::Pipeline&quot;
-Properties:
-  <a href="aws-resource-iotanalytics-pipeline.html#cfn-iotanalytics-pipeline-pipelineactivities">PipelineActivities</a>: 
-    - <a href="aws-properties-iotanalytics-pipeline-activity.html">Activity</a>
-  <a href="aws-resource-iotanalytics-pipeline.html#cfn-iotanalytics-pipeline-pipelinename">PipelineName</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-iotanalytics-pipeline.html#cfn-iotanalytics-pipeline-tags">Tags</a>: 
-    - <a href="aws-properties-resource-tags.html">Tag</a></code></pre>
-                        </div><h2 id="aws-resource-iotanalytics-pipeline-properties">Properties</h2><div class="variablelist">
-                        
-                        
-                        
-                        
-                        
-                          
-                        
-                        
+      &quot;<a href="#cfn-iotanalytics-pipeline-pipelineactivities">PipelineActivities</a>&quot; : <em class="replaceable"><code>[ <a href="aws-properties-iotanalytics-pipeline-activity.html">Activity</a>, ... ]</code></em>,
+      &quot;<a href="#cfn-iotanalytics-pipeline-pipelinename">PipelineName</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-iotanalytics-pipeline-tags">Tags</a>&quot; : <em class="replaceable"><code>[ <a href="aws-properties-resource-tags.html">Tag</a>, ... ]</code></em>
+    }
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-iotanalytics-pipeline-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Type: AWS::IoTAnalytics::Pipeline
+Properties: 
+  <a href="#cfn-iotanalytics-pipeline-pipelineactivities">PipelineActivities</a>: <em class="replaceable"><code>
+    - <a href="aws-properties-iotanalytics-pipeline-activity.html">Activity</a></code></em>
+  <a href="#cfn-iotanalytics-pipeline-pipelinename">PipelineName</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-iotanalytics-pipeline-tags">Tags</a>: <em class="replaceable"><code>
+    - <a href="aws-properties-resource-tags.html">Tag</a></code></em>
+</code></pre></div><h2 id="aws-resource-iotanalytics-pipeline-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
                            <dt><a id="cfn-iotanalytics-pipeline-pipelineactivities"></a><span class="term"><code class="code">PipelineActivities</code></span></dt>
-                           
                            <dd>
                               
-                              <p>A list of pipeline activities which perform transformations on your messages, such
-                                 as
-                                 removing, renaming, or adding message attributes; filtering messages based on attribute
-                                 value;
-                                 invoking your Lambda functions on messages for advanced processing; or performing
-                                 mathematical
-                                 transformation to normalize device data.
+                              <p>A list of &quot;PipelineActivity&quot; objects. Activities perform transformations on your messages,
+                                 
+                                 such as removing, renaming or adding message attributes; filtering messages based
+                                 on attribute 
+                                 values; invoking your Lambda functions on messages for advanced processing; or performing
+                                 
+                                 mathematical transformations to normalize device data.
+                              </p>
+                              
+                              <p>The list can be 2-25 <b>PipelineActivity</b> objects and must 
+                                 contain both a <code class="code">channel</code> and a <code class="code">datastore</code> activity. Each entry in the 
+                                 list must contain only one activity, for example:
                               </p>
                               
                               <p>
-                                 <em>Required</em>: Yes
-                              </p>
-                              
-                              <p>
-                                 <em>Type</em>: List of <a href="aws-properties-iotanalytics-pipeline-activity.html">Activity</a> property types
-                              </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
+                                 <code class="code">pipelineActivities = [
+                                    {
+                                    &quot;channel&quot;: { ... }
+                                    },
+                                    {
+                                    &quot;lambda&quot;: { ... }
+                                    },
+                                    ...      
+                                    ]</code>
                                  
                               </p>
                               
+                              <p><em>Required</em>: Yes
+                              </p>
+                              <p><em>Type</em>: List of <a href="aws-properties-iotanalytics-pipeline-activity.html">Activity</a></p>
+                              <p><em>Maximum</em>: <code class="code">25</code></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-iotanalytics-pipeline-pipelinename"></a><span class="term"><code class="code">PipelineName</code></span></dt>
-                           
                            <dd>
                               
                               <p>The name of the pipeline.</p>
                               
-                              <p>
-                                 <em>Required</em>: No
+                              <p><em>Required</em>: No
                               </p>
-                              
-                              <p>
-                                 <em>Type</em>: String
+                              <p><em>Type</em>: String
                               </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a>
-                                 
-                              </p>
-                              
+                              <p><em>Minimum</em>: <code class="code">1</code></p>
+                              <p><em>Maximum</em>: <code class="code">128</code></p>
+                              <p><em>Pattern</em>: <code class="code">^[a-zA-Z0-9_]+$</code></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-iotanalytics-pipeline-tags"></a><span class="term"><code class="code">Tags</code></span></dt>
-                           
                            <dd>
                               
                               <p>Metadata which can be used to manage the pipeline.</p>
                               
-                              <p>
-                                 <em>Required</em>: No
+                              <p>For more information, see <a href="aws-properties-resource-tags.html">Tag</a>.
                               </p>
                               
-                              <p>
-                                 <em>Type</em>: List of <a href="aws-properties-resource-tags.html">Resource Tag</a> property types
+                              <p><em>Required</em>: No
                               </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
-                                 
-                              </p>
-                              
+                              <p><em>Type</em>: List of <a href="aws-properties-resource-tags.html">Tag</a></p>
+                              <p><em>Maximum</em>: <code class="code">50</code></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
                         </dl>
-                     </div><h2 id="aws-resource-iotanalytics-pipeline-examples">Examples</h2><h3 id="aws-resource-iotanalytics-pipeline-example1">Simple Pipeline</h3><p>The following example creates a simple pipeline.</p><div id="JSON" name="JSON" class="section langfilter">
-                        
-                        <h4 id="aws-resource-iotanalytics-pipeline-example1.json">JSON</h4>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">{
+                     </div><h2 id="aws-resource-iotanalytics-pipeline--examples">Examples</h2><h3 id="aws-resource-iotanalytics-pipeline--examples--Simple_Pipeline">Simple Pipeline</h3><p>The following example creates a simple pipeline.</p><h4 id="aws-resource-iotanalytics-pipeline--examples--Simple_Pipeline--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
     &quot;Description&quot;: &quot;Create a simple Pipeline&quot;,
     &quot;Resources&quot;: {
         &quot;Pipeline&quot;: {
@@ -146,11 +124,7 @@ Properties:
             }
         }
     }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        
-                        <h4 id="aws-resource-iotanalytics-pipeline-example1.yaml">YAML</h4>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">---
+}</code></pre><h4 id="aws-resource-iotanalytics-pipeline--examples--Simple_Pipeline--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">---
 Description: &quot;Create a simple Pipeline&quot;
 Resources:
   Pipeline:
@@ -165,11 +139,7 @@ Resources:
             Next: &quot;DatastoreActivity&quot;
           Datastore:
             Name: &quot;DatastoreActivity&quot;
-            DatastoreName: &quot;SimpleDatastore&quot;</code></pre>
-                        </div><h3 id="aws-resource-iotanalytics-pipeline-example2">Complex Pipeline</h3><p>The following example creates a complex pipeline.</p><div id="JSON" name="JSON" class="section langfilter">
-                        
-                        <h4 id="aws-resource-iotanalytics-pipeline-example2.json">JSON</h4>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">{
+            DatastoreName: &quot;SimpleDatastore&quot;</code></pre><h3 id="aws-resource-iotanalytics-pipeline--examples--Complex_Pipeline">Complex Pipeline</h3><p>The following example creates a complex pipeline.</p><h4 id="aws-resource-iotanalytics-pipeline--examples--Complex_Pipeline--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
     &quot;Description&quot;: &quot;Create a complex Pipeline&quot;,
     &quot;Resources&quot;: {
         &quot;Pipeline&quot;: {
@@ -247,11 +217,7 @@ Resources:
             }
         }
     }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        
-                        <h4 id="aws-resource-iotanalytics-pipeline-example2.yaml">YAML</h4>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">---
+}</code></pre><h4 id="aws-resource-iotanalytics-pipeline--examples--Complex_Pipeline--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">---
 Description: &quot;Create a complex Pipeline&quot;
 Resources:
   Pipeline:
@@ -314,15 +280,32 @@ Resources:
             Next: &quot;DatastoreActivity&quot;
           Datastore:
             Name: &quot;DatastoreActivity&quot;
-            DatastoreName: &quot;Datastore&quot;</code></pre>
-                        </div><h2 id="aws-resource-iotanalytics-pipeline-seealso">See Also</h2><div class="itemizedlist">
+            DatastoreName: &quot;Datastore&quot;</code></pre><h2 id="aws-resource-iotanalytics-pipeline--seealso">See Also</h2><div class="itemizedlist">
+                        
+                        
                         
                         <ul class="itemizedlist" type="disc">
                            <li class="listitem">
-                              <p><a href="https://docs.aws.amazon.com/iotanalytics/latest/userguide/welcome.html#aws-iot-analytics-how">
-                                    How to Use AWS IoT Analytics</a> in the <em>AWS IoT Analytics User Guide</em></p>
+                              
+                              <p>
+                                 <a href="https://docs.aws.amazon.com/iotanalytics/latest/userguide/welcome.html#aws-iot-analytics-how">How to Use AWS IoT 
+                                    Analytics</a> in the <em>AWS IoT Analytics User Guide</em>
+                                 
+                              </p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p>
+                                 <a href="https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_CreatePipeline.html">CreatePipeline</a> in the 
+                                 <em>AWS IoT Analytics API Reference</em>
+                                 
+                              </p>
+                              
                            </li>
                         </ul>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
                      </div></div>
 </body>
 </html>

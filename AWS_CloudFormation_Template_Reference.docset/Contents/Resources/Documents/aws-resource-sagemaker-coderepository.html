@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="css/awsdocs.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/awsdocs.min.js"></script>
+    <meta charset="utf-8">
+</head>
+<body>
+    <div id="content" style="padding: 10px 30px;">
+    <h1 class="topictitle" id="aws-resource-sagemaker-coderepository">AWS::SageMaker::CodeRepository</h1><p>Creates
+                        a
+                        Git
+                        repository as a resource in your Amazon SageMaker account. You can associate the repository
+                        with
+                        notebook instances so that you can use
+                        Git
+                        source control for the notebooks you create. The
+                        Git
+                        repository is a resource in your Amazon SageMaker account, so it can be associated
+                        with more than
+                        one notebook instance, and it persists independently from the lifecycle of any notebook
+                        instances it is associated with.
+                     </p><p>The repository can be hosted either in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">AWS
+                           CodeCommit</a> or in any other
+                        Git
+                        repository.
+                     </p><h2 id="aws-resource-sagemaker-coderepository-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-resource-sagemaker-coderepository-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;Type&quot; : &quot;AWS::SageMaker::CodeRepository&quot;,
+  &quot;Properties&quot; : {
+      &quot;<a href="#cfn-sagemaker-coderepository-coderepositoryname">CodeRepositoryName</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-sagemaker-coderepository-gitconfig">GitConfig</a>&quot; : <em class="replaceable"><code><a href="aws-properties-sagemaker-coderepository-gitconfig.html">GitConfig</a></code></em>
+    }
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-sagemaker-coderepository-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Type: AWS::SageMaker::CodeRepository
+Properties: 
+  <a href="#cfn-sagemaker-coderepository-coderepositoryname">CodeRepositoryName</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-sagemaker-coderepository-gitconfig">GitConfig</a>: <em class="replaceable"><code>
+    <a href="aws-properties-sagemaker-coderepository-gitconfig.html">GitConfig</a></code></em>
+</code></pre></div><h2 id="aws-resource-sagemaker-coderepository-properties">Properties</h2><div class="variablelist">
+                        <dl>
+                           <dt><a id="cfn-sagemaker-coderepository-coderepositoryname"></a><span class="term"><code class="code">CodeRepositoryName</code></span></dt>
+                           <dd>
+                              
+                              <p>The name of the Git repository.</p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              <p><em>Type</em>: String
+                              </p>
+                              <p><em>Minimum</em>: <code class="code">1</code></p>
+                              <p><em>Maximum</em>: <code class="code">63</code></p>
+                              <p><em>Pattern</em>: <code class="code">^[a-zA-Z0-9](-*[a-zA-Z0-9])*$</code></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                           </dd>
+                           <dt><a id="cfn-sagemaker-coderepository-gitconfig"></a><span class="term"><code class="code">GitConfig</code></span></dt>
+                           <dd>
+                              
+                              <p>Configuration details for the Git repository, including the URL where it is located
+                                 and the ARN of the AWS Secrets Manager secret that contains the credentials used to
+                                 access the repository.
+                              </p>
+                              
+                              <p><em>Required</em>: Yes
+                              </p>
+                              <p><em>Type</em>: <a href="aws-properties-sagemaker-coderepository-gitconfig.html">GitConfig</a></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                           </dd>
+                        </dl>
+                     </div><h2 id="aws-resource-sagemaker-coderepository-return-values">Return Values</h2><h3 id="aws-resource-sagemaker-coderepository-return-values-ref">Ref</h3><p>
+                        When you pass the logical ID of this resource to the intrinsic <code class="code">Ref</code> function, <code class="code">Ref</code> returns the Amazon Resource Name (ARN) of the new
+                        repository.
+                     </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
+                     </p><h3 id="aws-resource-sagemaker-coderepository-return-values-fn--getatt">Fn::GetAtt</h3><p>The <code class="code">Fn::GetAtt</code> intrinsic function returns a value for a specified attribute of this type. The following
+                        are the available attributes and sample return values.
+                     </p><p>For more information about using the <code class="code">Fn::GetAtt</code> intrinsic function, see <a href="intrinsic-function-reference-getatt.html">Fn::GetAtt</a>.
+                     </p><h4 id="aws-resource-sagemaker-coderepository-return-values-fn--getatt-fn--getatt"></h4><div class="variablelist">
+                        <dl>
+                           <dt><a id="CodeRepositoryName-fn::getatt"></a><span class="term"><code class="code">CodeRepositoryName</code></span></dt>
+                           <dd>
+                              <p>The name of the Git repository.</p>
+                              
+                           </dd>
+                        </dl>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
+                     </div></div>
+</body>
+</html>

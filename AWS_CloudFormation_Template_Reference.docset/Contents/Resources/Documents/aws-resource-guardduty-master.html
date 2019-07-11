@@ -8,195 +8,87 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-resource-guardduty-master">AWS::GuardDuty::Master</h1><p>You can use the <code class="code">AWS::GuardDuty::Master</code> resource in a GuardDuty member account
-                        to accept an invitation to be managed by a GuardDuty master account. The GuardDuty
-                        master
-                        account must have already invited the current account (by calling the InviteMembers
-                        API
-                        operation or by creating an <code class="code">AWS::GuardDuty::Member</code> resource) before the current
-                        account can use the <code class="code">AWS::GuardDuty::Master</code> resource to accept the master account&apos;s
-                        invitation.
-                     </p><div class="highlights" id="inline-topiclist">
-                        <p><strong>Topics</strong></p>
-                        <ul>
-                           <li><a href="#aws-resource-guardduty-master-syntax">Syntax</a></li>
-                           <li><a href="#aws-resource-guardduty-master-properties">Properties</a></li>
-                           <li><a href="#aws-resource-guardduty-master-returnvalues">Return Values</a></li>
-                           <li><a href="#aws-resource-guardduty-master-examples">Examples</a></li>
-                        </ul>
-                     </div><h2 id="aws-resource-guardduty-master-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
-                        
-                        <h3 id="aws-resource-guardduty-master-syntax.json">JSON</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
+    <h1 class="topictitle" id="aws-resource-guardduty-master">AWS::GuardDuty::Master</h1><p>You can use the <code class="code">AWS::GuardDuty::Master</code> resource in a GuardDuty member account to accept an invitation
+                        from a GuardDuty master account. The
+                        invitation to the member account must be sent prior to using the
+                        <code class="code">AWS::GuardDuty::Master</code> resource to accept the master account&apos;s
+                        invitation. You can invite a member account by using the
+                        <code class="code">InviteMembers</code> operation of the Amazon GuardDuty API, or by creating an
+                        <code class="code">AWS::GuardDuty::Member</code> resource.
+                     </p><h2 id="aws-resource-guardduty-master-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-resource-guardduty-master-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
   &quot;Type&quot; : &quot;AWS::GuardDuty::Master&quot;,
   &quot;Properties&quot; : {
-    &quot;<a href="aws-resource-guardduty-master.html#cfn-guardduty-master-detectorid">DetectorId</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-guardduty-master.html#cfn-guardduty-master-masterid">MasterId</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-guardduty-master.html#cfn-guardduty-master-invitationid">InvitationId</a>&quot; : <em class="replaceable"><code>String</code></em>
-  }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        
-                        <h3 id="aws-resource-guardduty-master-syntax.yaml">YAML</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">Type: AWS::GuardDuty::Master
-Properties:
-  <a href="aws-resource-guardduty-master.html#cfn-guardduty-master-detectorid">DetectorId</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-guardduty-master.html#cfn-guardduty-master-masterid">MasterId</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-guardduty-master.html#cfn-guardduty-master-invitationid">InvitationId</a>: <em class="replaceable"><code>String</code></em></code></pre>
-                        </div><h2 id="aws-resource-guardduty-master-properties">Properties</h2><div class="variablelist">
-                        
-                        
-                        
-                        
-                        <dl>
-                           
-                           <dt><a id="cfn-guardduty-master-detectorid"></a><span class="term"><code class="code">DetectorId</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>The detector ID of the AWS account that is accepting an invitation to become a
-                                 GuardDuty member account.
-                              </p>
-                              
-                              <p>
-                                 <em>Required</em>: Yes
-                              </p>
-                              
-                              <p>
-                                 <em>Type</em>: String
-                              </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a>
-                                 
-                              </p>
-                              
-                           </dd>
-                           
-                           
-                           <dt><a id="cfn-guardduty-master-masterid"></a><span class="term"><code class="code">MasterId</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>The account ID of the master GuardDuty account whose invitation you&apos;re
-                                 accepting.
-                              </p>
-                              
-                              <p>
-                                 <em>Required</em>: Yes
-                              </p>
-                              
-                              <p>
-                                 <em>Type</em>: String
-                              </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a>
-                                 
-                              </p>
-                              
-                           </dd>
-                           
-                           
-                           <dt><a id="cfn-guardduty-master-invitationid"></a><span class="term"><code class="code">InvitationId</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>The ID of the invitation that is sent to the AWS account by the GuardDuty master
-                                 account. There are several ways to retrieve the invitationId:
-                              </p>
-                              
-                              <div class="itemizedlist">
-                                 
-                                 
-                                 
-                                 
-                                 
-                                 <ul class="itemizedlist" type="disc">
-                                    <li class="listitem">
-                                       
-                                       <p>By calling the ListInvitation API operation with the GuardDuty member account&apos;s
-                                          credentials. (You can also run the following CLI command: <code class="code">aws guardduty
-                                             list-invitations</code>.) In the returned results, locate the invitation details
-                                          (including the invitationID) from the GuardDuty master account ID that you would
-                                          like to accept.
-                                       </p>
-                                       
-                                    </li>
-                                    <li class="listitem">
-                                       
-                                       <p>The email account associated with the GuardDuty member account should have
-                                          received an invitation email from the master account when they invited the current
-                                          account. This email contains an acceptance link which has the invitationId.
-                                       </p>
-                                       
-                                    </li>
-                                    <li class="listitem">
-                                       
-                                       <p>If you access the member account&#x2019;s Personal Health Dashboard, you can also see
-                                          the same invitation email from the master account (with the invitationId included
-                                          as
-                                          part of the invitation acceptance link).
-                                       </p>
-                                       
-                                    </li>
-                                    <li class="listitem">
-                                       
-                                       <p>If the value for InvitationId is not specified, it can be retrieved by
-                                          calling <a href="https://docs.aws.amazon.com/guardduty/latest/ug/list-invitations.html">ListInvitations</a> and receiving the invitation from the given master
-                                          account ID.
-                                       </p>
-                                       
-                                    </li>
-                                 </ul>
-                              </div>
-                              
-                              <p>
-                                 <em>Required</em>: No
-                              </p>
-                              
-                              <p>
-                                 <em>Type</em>: String
-                              </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a>
-                                 
-                              </p>
-                              
-                           </dd>
-                           
-                        </dl>
-                     </div><h2 id="aws-resource-guardduty-master-returnvalues">Return Values</h2><h3 id="aws-resource-guardduty-master-ref">Ref</h3><p>When you pass the logical ID of an <code class="code">AWS::GuardDuty::Master</code> resource to the
-                        intrinsic <code class="code">Ref</code> function, the function returns the unique ID of the GuardDuty
-                        master account, such as <code class="code">012345678901</code>. 
-                     </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>. 
-                     </p><h2 id="aws-resource-guardduty-master-examples">Examples</h2><h3 id="aws-resource-guardduty-master-example1">Declaring a GuardDuty Master Resource</h3><p>The following example shows how to declare an <code class="code">AWS::GuardDuty::Master</code>
-                        resource to create a GuardDuty master account.
-                     </p><div id="JSON" name="JSON" class="section langfilter">
-                        
-                        <h4 id="aws-resource-guardduty-master-example1.json">JSON</h4>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">
-&quot;GDmaster&quot;: {
-  &quot;Type&quot;: &quot;AWS::GuardDuty::Master&quot;,
-  &quot;Properties&quot;: {
-    &quot;DetectorId&quot;: &quot;a12abc34d567e8fa901bc2d34e56789f0&quot;,
-    &quot;MasterId&quot;: &quot;012345678901&quot;,
-    &quot;InvitationId&quot;: &quot;84b097800250d17d1872b34c4daadcf5&quot;
-   }
+      &quot;<a href="#cfn-guardduty-master-detectorid">DetectorId</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-guardduty-master-invitationid">InvitationId</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-guardduty-master-masterid">MasterId</a>&quot; : <em class="replaceable"><code>String</code></em>
+    }
 }
-        </code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        
-                        <h4 id="aws-resource-guardduty-master-example1.yaml">YAML</h4>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">
-GDmaster:
-  Type: AWS::GuardDuty::Master
-  Properties:
-    DetectorId: &quot;a12abc34d567e8fa901bc2d34e56789f0&quot;
-    MasterId: &quot;012345678901&quot;
-    InvitationId: &quot;84b097800250d17d1872b34c4daadcf5&quot;
-        </code></pre>
-                        </div></div>
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-guardduty-master-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Type: AWS::GuardDuty::Master
+Properties: 
+  <a href="#cfn-guardduty-master-detectorid">DetectorId</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-guardduty-master-invitationid">InvitationId</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-guardduty-master-masterid">MasterId</a>: <em class="replaceable"><code>String</code></em>
+</code></pre></div><h2 id="aws-resource-guardduty-master-properties">Properties</h2><div class="variablelist">
+                        <dl>
+                           <dt><a id="cfn-guardduty-master-detectorid"></a><span class="term"><code class="code">DetectorId</code></span></dt>
+                           <dd>
+                              
+                              
+                              <p>The unique ID of the detector associated with the GuardDuty master account.</p>
+                              <p><em>Required</em>: Yes
+                              </p>
+                              <p><em>Type</em>: String
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                           </dd>
+                           <dt><a id="cfn-guardduty-master-invitationid"></a><span class="term"><code class="code">InvitationId</code></span></dt>
+                           <dd>
+                              
+                              <p>The ID of the invitation that is sent to the account designated as a member account.
+                                 You can find the 
+                                 invitation ID by using the ListInvitation action of the GuardDuty API.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              <p><em>Type</em>: String
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                           </dd>
+                           <dt><a id="cfn-guardduty-master-masterid"></a><span class="term"><code class="code">MasterId</code></span></dt>
+                           <dd>
+                              
+                              <p>The AWS account ID of the account designated as the GuardDuty master account.</p>            
+                              
+                              <p><em>Required</em>: Yes
+                              </p>
+                              <p><em>Type</em>: String
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                           </dd>
+                        </dl>
+                     </div><h2 id="aws-resource-guardduty-master-return-values">Return Values</h2><h3 id="aws-resource-guardduty-master-return-values-ref">Ref</h3><p>
+                        When you pass the logical ID of this resource to the intrinsic <code class="code">Ref</code> function, <code class="code">Ref</code> returns the unique ID of the GuardDuty master account, such as
+                        012345678901.
+                     </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
+                     </p><h2 id="aws-resource-guardduty-master--examples">Examples</h2><h3 id="aws-resource-guardduty-master--examples--Declare_a_Master_Resource">Declare a Master Resource</h3><p>To declare a GuardDuty
+                        <code class="code">Master</code> resource:
+                     </p><h4 id="aws-resource-guardduty-master--examples--Declare_a_Master_Resource--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">&quot;GDMaster&quot;: {
+    &quot;Type&quot; : &quot;AWS::GuardDuty::Master&quot;,
+    &quot;Properties&quot; : {
+        &quot;DetectorId&quot; : &quot;a12abc34d567e8fa901bc2d34e56789f0&quot;,
+        &quot;MasterId&quot; : &quot;012345678901&quot;,
+        &quot;InvitationId&quot; : &quot;84b097800250d17d1872b34c4daadcf5&quot;
+    }
+}</code></pre><h4 id="aws-resource-guardduty-master--examples--Declare_a_Master_Resource--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">&quot;GDMaster&quot;: {
+    Type: AWS::GuardDuty::Master
+    Properties:
+        DetectorId: &quot;a12abc34d567e8fa901bc2d34e56789f0&quot;
+        MasterId: &quot;012345678901&quot;
+        InvitationId: &quot;84b097800250d17d1872b34c4daadcf5&quot;</code></pre><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
+                     </div></div>
 </body>
 </html>

@@ -8,103 +8,174 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-resource-stepfunctions-activity">AWS::StepFunctions::Activity</h1><p>Use the <code class="code">AWS::StepFunctions::Activity</code> resource to create an AWS Step Functions
-                        activity.
-                     </p><p>For information about creating an activity and creating a state machine with an activity,
-                        see <a href="https://docs.aws.amazon.com/step-functions/latest/dg/activity-tutorial.html">Tutorial: An Activity State
-                           Machine</a> in the <em>AWS Step Functions Developer Guide</em> and <code class="code"><a href="https://docs.aws.amazon.com/step-functions/latest/apireference/API_CreateActivity.html">CreateActivity</a></code> in the
-                        <em>AWS Step Functions API Reference</em>.
-                     </p><h2 id="w2ab1c21c10d228c14b7">Syntax</h2><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-resource-stepfunctions-activity-syntax.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
-   &quot;Type&quot;: &quot;AWS::StepFunctions::Activity&quot;,
-   &quot;Properties&quot;: {
-      &quot;<a href="aws-resource-stepfunctions-activity.html#cfn-stepfunctions-activity-name">Name</a>&quot;: <em class="replaceable"><code>String</code></em>
+    <h1 class="topictitle" id="aws-resource-stepfunctions-activity">AWS::StepFunctions::Activity</h1><p>An activity is a task that you write in any programming language and host on any machine
+                        that has access to AWS Step Functions. Activities must poll Step Functions using the
+                        <code class="code">GetActivityTask</code> API action and respond using <code class="code">SendTask*</code> API
+                        actions. This function lets Step Functions know the existence of your activity and
+                        returns
+                        an identifier for use in a state machine and when polling from the activity.
+                     </p><p>For information about creating an activity, see <a href="https://docs.aws.amazon.com/step-functions/latest/dg/tutorial-creating-activity-state-machine.html">Creating an
+                           Activity State Machine</a> in the <em>AWS Step Functions Developer Guide</em> and <a href="https://docs.aws.amazon.com/step-functions/latest/apireference/API_CreateActivity.html">CreateActivity</a> in the <em>AWS Step Functions API
+                           Reference</em>.
+                     </p><h2 id="aws-resource-stepfunctions-activity-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-resource-stepfunctions-activity-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;Type&quot; : &quot;AWS::StepFunctions::Activity&quot;,
+  &quot;Properties&quot; : {
+      &quot;<a href="#cfn-stepfunctions-activity-name">Name</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-stepfunctions-activity-tags">Tags</a>&quot; : <em class="replaceable"><code>[ <a href="aws-properties-stepfunctions-activity-tagsentry.html">TagsEntry</a>, ... ]</code></em>
     }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-resource-stepfunctions-activity-syntax.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">Type: &quot;AWS::StepFunctions::Activity&quot;
-Properties:
-  <a href="aws-resource-stepfunctions-activity.html#cfn-stepfunctions-activity-name">Name</a>: <em class="replaceable"><code>String</code></em></code></pre>
-                        </div><h2 id="w2ab1c21c10d228c14b9">Properties</h2><div class="variablelist">
-                        
-                        
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-stepfunctions-activity-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Type: AWS::StepFunctions::Activity
+Properties: 
+  <a href="#cfn-stepfunctions-activity-name">Name</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-stepfunctions-activity-tags">Tags</a>: <em class="replaceable"><code>
+    - <a href="aws-properties-stepfunctions-activity-tagsentry.html">TagsEntry</a></code></em>
+</code></pre></div><h2 id="aws-resource-stepfunctions-activity-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
                            <dt><a id="cfn-stepfunctions-activity-name"></a><span class="term"><code class="code">Name</code></span></dt>
-                           
-                           <dd>
+                           <dd> 
                               
-                              <p>The name of the activity to create. This name must be unique for your AWS
-                                 account and region.
+                              <p>The name of the activity.</p> 
+                              
+                              <p>A name must <em>not</em> contain:
                               </p>
+                              
+                              <div class="itemizedlist">
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 <ul class="itemizedlist" type="disc">
+                                    <li class="listitem">
+                                       
+                                       <p>white space</p>
+                                       
+                                    </li>
+                                    <li class="listitem">
+                                       
+                                       <p>brackets <code class="code">&lt; &gt; { } [ ]</code>
+                                          
+                                       </p>
+                                       
+                                    </li>
+                                    <li class="listitem">
+                                       
+                                       <p>wildcard characters <code class="code">? *</code>
+                                          
+                                       </p>
+                                       
+                                    </li>
+                                    <li class="listitem">
+                                       
+                                       <p>special characters <code class="code">&quot; # % \ ^ | ~ ` $ &amp; , ; : /</code>
+                                          
+                                       </p>
+                                       
+                                    </li>
+                                    <li class="listitem">
+                                       
+                                       <p>control characters (<code class="code">U+0000-001F</code>, <code class="code">U+007F-009F</code>)
+                                       </p>
+                                       
+                                    </li>
+                                 </ul>
+                              </div> 
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
+                           <dt><a id="cfn-stepfunctions-activity-tags"></a><span class="term"><code class="code">Tags</code></span></dt>
+                           <dd>
+                              
+                              <p>The list of tags to add to a resource.</p> 
+                              
+                              <p>Tags may only contain Unicode letters, digits, white space, or these symbols: <code class="code">_ . : / = + - @</code>.
+                              </p> 
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              <p><em>Type</em>: List of <a href="aws-properties-stepfunctions-activity-tagsentry.html">TagsEntry</a></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                           </dd>
                         </dl>
-                     </div><h2 id="w2ab1c21c10d228c14c11">Return Values</h2><h3 id="w2ab1c21c10d228c14c11b2">Ref</h3><p>When you provide the logical ID of this resource to the <code class="code">Ref</code> intrinsic
-                        function, <code class="code">Ref</code> returns the ARN of the created activity. For
-                        example:
-                     </p><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{ &quot;Ref&quot;: &quot;<em class="replaceable"><code>MyActivity</code></em>&quot; }</code></pre><p>Returns
-                        a value similar to the
-                        following:
-                     </p><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">arn:aws:states:us-east-1:111122223333:activity:myActivity</code></pre><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                     </p><h3 id="w2ab1c21c10d228c14c11b4">Fn::GetAtt</h3><p><code class="code">Fn::GetAtt</code> returns a value for a specified attribute of this type.
-                        The following are the available attributes and sample return values.
-                     </p><div class="variablelist">
+                     </div><h2 id="aws-resource-stepfunctions-activity-return-values">Return Values</h2><h3 id="aws-resource-stepfunctions-activity-return-values-ref">Ref</h3><p>When you provide the logical ID of this resource to the <code class="code">Ref</code> intrinsic
+                        function, <code class="code">Ref</code> returns the ARN of the created activity. For example:
+                     </p><p>
+                        <code class="code">{ &quot;Ref&quot;: &quot;MyActivity&quot; }</code>
                         
+                     </p><p>Returns a value similar to the following:</p><p>
+                        <code class="code">arn:aws:states:us-east-1:111122223333:activity:myActivity</code>
                         
+                     </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
+                     </p><h3 id="aws-resource-stepfunctions-activity-return-values-fn--getatt">Fn::GetAtt</h3><p>
+                        <code class="code">Fn::GetAtt</code> returns a value for a specified attribute of this type. The
+                        following are the available attributes and sample return values.
+                     </p><h4 id="aws-resource-stepfunctions-activity-return-values-fn--getatt-fn--getatt"></h4><div class="variablelist">
                         <dl>
-                           
-                           <dt><span class="term"><code class="literal">Name</code></span></dt>
-                           
+                           <dt><a id="Name-fn::getatt"></a><span class="term"><code class="code">Name</code></span></dt>
                            <dd>
                               
                               <p>Returns the name of the activity. For example:</p>
-                              <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{ &quot;Fn::GetAtt&quot;: [&quot;<em class="replaceable"><code>MyActivity</code></em>&quot;, &quot;Name&quot;] }</code></pre>
-                              <p>Returns a value similar to the
-                                 following:
-                              </p><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">myActivity</code></pre>
-                              </dd>
-                           
+                              
+                              <p>
+                                 <code class="code">{ &quot;Fn::GetAtt&quot;: [&quot;MyActivity&quot;, &quot;Name&quot;] }</code>
+                                 
+                              </p>
+                              
+                              <p>Returns a value similar to the following:</p>
+                              
+                              <p>
+                                 <code class="code">myActivity</code>
+                                 
+                              </p>
+                              
+                              <p>For more information about using <code class="code">Fn::GetAtt</code>, see <a href="intrinsic-function-reference-getatt.html">Fn::GetAtt</a>.
+                              </p>
+                              
+                           </dd>
                         </dl>
-                     </div><p>For more information about using <code class="code">Fn::GetAtt</code>, see <a href="intrinsic-function-reference-getatt.html">Fn::GetAtt</a>.
-                     </p><h2 id="w2ab1c21c10d228c14c13">Example</h2><p>The following example creates a Step Functions activity.</p><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-resource-stepfunctions-activity-example.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+                     </div><h2 id="aws-resource-stepfunctions-activity--examples">Examples</h2><p>The following examples create a Step Functions activity.</p><h3 id="aws-resource-stepfunctions-activity--examples--"></h3><h4 id="aws-resource-stepfunctions-activity--examples----json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
    &quot;AWSTemplateFormatVersion&quot; : &quot;2010-09-09&quot;,
    &quot;Description&quot; : &quot;An example template for a Step Functions activity.&quot;,
    &quot;Resources&quot; : {
       &quot;MyActivity&quot; : {
          &quot;Type&quot; : &quot;AWS::StepFunctions::Activity&quot;,
          &quot;Properties&quot; : {
-            &quot;Name&quot; : &quot;myActivity&quot;
+            &quot;Name&quot; : &quot;myActivity&quot;,
+            &quot;Tags&quot;: [
+                    {
+                        &quot;Key&quot;: &quot;keyname1&quot;,
+                        &quot;Value&quot;: &quot;value1&quot;
+                    },
+                    {
+                        &quot;Key&quot;: &quot;keyname2&quot;,
+                        &quot;Value&quot;: &quot;value2&quot;
+                    }
+                ]
         }
       }
    }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-resource-stepfunctions-activity-example.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">AWSTemplateFormatVersion: &quot;2010-09-09&quot;
+}</code></pre><h3 id="aws-resource-stepfunctions-activity--examples--"></h3><h4 id="aws-resource-stepfunctions-activity--examples----yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">AWSTemplateFormatVersion: &quot;2010-09-09&quot;
 Description: &quot;A sample template for a Step Functions activity&quot;
 Resources: 
   MyActivity:
     Type: &quot;AWS::StepFunctions::Activity&quot;
     Properties: 
-      Name: myActivity</code></pre>
-                        </div></div>
+      Name: myActivity
+      Tags:
+        -
+          Key: &quot;keyname1&quot;
+          Value: &quot;value1&quot;
+        -
+          Key: &quot;keyname2&quot;
+          Value: &quot;value2&quot;</code></pre><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
+                     </div></div>
 </body>
 </html>

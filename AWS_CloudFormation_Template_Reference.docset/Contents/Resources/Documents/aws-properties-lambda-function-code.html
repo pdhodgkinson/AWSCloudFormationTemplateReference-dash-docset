@@ -8,454 +8,101 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-properties-lambda-function-code">AWS Lambda Function Code</h1><p><code class="code">Code</code> is a property of the <a href="aws-resource-lambda-function.html">AWS::Lambda::Function</a> resource that specifies the code for a Lambda
-                        function. For all runtimes, you can specify the location of a deployment package in
-                        Amazon S3. For
-                        Node.js and Python functions, you can also specify the function code inline in the
-                        template.
-                     </p><div class="aws-note">
-                        <p class="aws-note">Note</p>
-                        <p>Changes to a deployment package in Amazon S3 are not detected automatically. To update
-                           the
-                           function code, change the object key, or use object versioning and change the version
-                           number
-                           in the template.
-                        </p>
-                     </div><h2 id="w2ab1c21c10d177c21c17b7">Syntax</h2><div id="JSON" name="JSON" class="section langfilter">
-                        
-                        <h3 id="aws-properties-lambda-function-code-syntax.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
-  &quot;<a href="aws-properties-lambda-function-code.html#cfn-lambda-function-code-s3bucket">S3Bucket</a>&quot; : <em class="replaceable"><code>String</code></em>,
-  &quot;<a href="aws-properties-lambda-function-code.html#cfn-lambda-function-code-s3key">S3Key</a>&quot; : <em class="replaceable"><code>String</code></em>,
-  &quot;<a href="aws-properties-lambda-function-code.html#cfn-lambda-function-code-s3objectversion">S3ObjectVersion</a>&quot; : <em class="replaceable"><code>String</code></em>,
-  &quot;<a href="aws-properties-lambda-function-code.html#cfn-lambda-function-code-zipfile">ZipFile</a>&quot; : <em class="replaceable"><code>String</code></em>
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        
-                        <h3 id="aws-properties-lambda-function-code-syntax.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight"><a href="aws-properties-lambda-function-code.html#cfn-lambda-function-code-s3bucket">S3Bucket</a>: <em class="replaceable"><code>String</code></em>
-<a href="aws-properties-lambda-function-code.html#cfn-lambda-function-code-s3key">S3Key</a>: <em class="replaceable"><code>String</code></em>
-<a href="aws-properties-lambda-function-code.html#cfn-lambda-function-code-s3objectversion">S3ObjectVersion</a>: <em class="replaceable"><code>String</code></em>
-<a href="aws-properties-lambda-function-code.html#cfn-lambda-function-code-zipfile">ZipFile</a>: <em class="replaceable"><code>String</code></em></code></pre>
-                        </div><h2 id="w2ab1c21c10d177c21c17b9">Properties</h2><div class="variablelist">
-                        
-                        
-                        
-                        
-                        
+    <h1 class="topictitle" id="aws-properties-lambda-function-code">AWS::Lambda::Function Code</h1><p>The deployment package for a Lambda function. For all runtimes, you can specify the
+                        location of an object in
+                        Amazon S3. For Node.js and Python functions, you can specify the function code inline
+                        in the template.
+                     </p><p>Changes to a deployment package in Amazon S3 are not detected automatically during
+                        stack updates. To update
+                        the function code, change the object key or version in the template.
+                     </p><h2 id="aws-properties-lambda-function-code-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-properties-lambda-function-code-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;<a href="#cfn-lambda-function-code-s3bucket">S3Bucket</a>&quot; : <em class="replaceable"><code>String</code></em>,
+  &quot;<a href="#cfn-lambda-function-code-s3key">S3Key</a>&quot; : <em class="replaceable"><code>String</code></em>,
+  &quot;<a href="#cfn-lambda-function-code-s3objectversion">S3ObjectVersion</a>&quot; : <em class="replaceable"><code>String</code></em>,
+  &quot;<a href="#cfn-lambda-function-code-zipfile">ZipFile</a>&quot; : <em class="replaceable"><code>String</code></em>
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-properties-lambda-function-code-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">  <a href="#cfn-lambda-function-code-s3bucket">S3Bucket</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-lambda-function-code-s3key">S3Key</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-lambda-function-code-s3objectversion">S3ObjectVersion</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-lambda-function-code-zipfile">ZipFile</a>: <em class="replaceable"><code>String</code></em>
+</code></pre></div><h2 id="aws-properties-lambda-function-code-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
                            <dt><a id="cfn-lambda-function-code-s3bucket"></a><span class="term"><code class="code">S3Bucket</code></span></dt>
-                           
-                           <dd>
+                           <dd> 
                               
-                              <p>An Amazon S3 bucket in the same region as your function. The bucket can be in a different
-                                 AWS account.
+                              <p>An Amazon S3 bucket in the same AWS Region as your function. The bucket can be in
+                                 a different AWS account.
+                              </p> 
+                              
+                              <p><em>Required</em>: Conditional
                               </p>
-                              
-                              <div class="aws-note">
-                                 <p class="aws-note">Note</p>
-                                 <p>The <code class="code">cfn-response</code> module isn&apos;t available for source code that&apos;s stored
-                                    in Amazon S3 buckets. To send responses, write your own functions.
-                                 </p>
-                              </div>
-                              
-                              <p><em>Required</em>: Conditional. Specify both the <code class="code">S3Bucket</code> and
-                                 <code class="code">S3Key</code> properties, or specify the <code class="code">ZipFile</code> property.
-                              </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Minimum</em>: <code class="code">3</code></p>
+                              <p><em>Maximum</em>: <code class="code">63</code></p>
+                              <p><em>Pattern</em>: <code class="code">^[0-9A-Za-z\.\-_]*(?&lt;!\.)$</code></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-lambda-function-code-s3key"></a><span class="term"><code class="code">S3Key</code></span></dt>
-                           
-                           <dd>
+                           <dd> 
                               
-                              <p>The Amazon S3 key of the deployment package.</p>
+                              <p>The Amazon S3 key of the deployment package.</p> 
                               
-                              <p><em>Required</em>: Conditional. You must specify both the <code class="code">S3Bucket</code> and
-                                 <code class="code">S3Key</code> properties, or specify the <code class="code">ZipFile</code> property.
+                              <p><em>Required</em>: Conditional
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Minimum</em>: <code class="code">1</code></p>
+                              <p><em>Maximum</em>: <code class="code">1024</code></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-lambda-function-code-s3objectversion"></a><span class="term"><code class="code">S3ObjectVersion</code></span></dt>
-                           
-                           <dd>
+                           <dd> 
                               
-                              <p>For versioned objects, the version of the deployment package object to use.</p>
+                              <p>For versioned objects, the version of the deployment package object to use.</p> 
                               
-                              <p><em>Required</em>: No
+                              <p><em>Required</em>: Conditional
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Minimum</em>: <code class="code">1</code></p>
+                              <p><em>Maximum</em>: <code class="code">1024</code></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-lambda-function-code-zipfile"></a><span class="term"><code class="code">ZipFile</code></span></dt>
-                           
                            <dd>
                               
                               <p>(Node.js and Python) The source code of your Lambda function. If you include your
-                                 function source inline with this parameter, AWS CloudFormation places it in a file
-                                 named
-                                 <code class="code">index</code> and zips it to create a <a href="https://docs.aws.amazon.com/lambda/latest/dg/deployment-package-v2.html">deployment package</a>. For the
-                                 <code class="code">Handler</code> property, the first part of the handler identifier must be
-                                 <code class="code">index</code>. For example, <code class="code">index.handler</code>.
+                                 function source inline with
+                                 this parameter, AWS CloudFormation places it in a file named <code class="code">index</code> and zips it to create a <a href="https://docs.aws.amazon.com/lambda/latest/dg/deployment-package-v2.html">deployment package</a>. For the
+                                 <code class="code">Handler</code> property, the first part of the handler identifier must be <code class="code">index</code>. For example,
+                                 <code class="code">index.handler</code>.
                               </p>
                               
                               <p>Your source code can contain up to 4096 characters. For JSON, you must escape quotes
-                                 and special characters such as newline (<code class="code">\n</code>) with a backslash.
+                                 and special characters
+                                 such as newline (<code class="code">\n</code>) with a backslash.
                               </p>
                               
                               <p>If you specify a function that interacts with an AWS CloudFormation custom resource,
-                                 you don&apos;t
-                                 have to write your own functions to send responses to the custom resource that invoked
-                                 the function. AWS CloudFormation provides a response module that simplifies sending
-                                 responses. For
-                                 more information, see <a href="aws-properties-lambda-function-code.html#cfn-lambda-function-code-cfnresponsemodule">cfn-response
-                                    Module</a>.
+                                 you don&apos;t have to write
+                                 your own functions to send responses to the custom resource that invoked the function.
+                                 AWS CloudFormation provides
+                                 a response module (<code class="code">cfn-response</code>) that simplifies sending responses. See <a href="https://docs.aws.amazon.com/lambda/latest/dg/services-cloudformation.html">Using AWS Lambda with AWS CloudFormation</a> for
+                                 details. 
                               </p>
                               
-                              <p><em>Required</em>: Conditional. You must specify both the <code class="code">S3Bucket</code> and
-                                 <code class="code">S3Key</code> properties, or specify the <code class="code">ZipFile</code> property.
+                              <p><em>Required</em>: Conditional
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
                         </dl>
-                     </div><h2 id="cfn-lambda-function-code-cfnresponsemodule"><code class="code">cfn-response</code>
-                        Module
-                     </h2><p>When you use the <code class="code">ZipFile</code> property to specify your function&apos;s source code and
-                        that function interacts with an AWS CloudFormation custom resource, you can load the
-                        <code class="code">cfn-response</code> module to send responses to those resources. The module contains a
-                        <code class="code">send</code> method, which sends a <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/crpg-ref-responses.html">response
-                           object</a> to a custom resource by way of an Amazon S3 presigned URL (the
-                        <code class="code">ResponseURL</code>).
-                     </p><p>After executing the <code class="code">send</code> method, the Lambda function terminates, so anything
-                        you write after that method is ignored.
-                     </p><div class="aws-note">
-                        <p class="aws-note">Note</p>
-                        <p>The <code class="code">cfn-response</code> module is available only when you use the
-                           <code class="code">ZipFile</code> property to write your source code. It isn&apos;t available for source
-                           code that&apos;s stored in Amazon S3 buckets. For code in buckets, you must write your
-                           own functions
-                           to send responses.
-                        </p>
-                     </div><h3 id="w2ab1c21c10d177c21c17c11b9">Loading the <code class="code">cfn-response</code> Module
-                     </h3><p>For Node.js functions, use the <code class="code">require()</code> function to load the
-                        <code class="code">cfn-response</code> module. For example, the following code example creates a
-                        <code class="code">cfn-response</code> object with the name <code class="code">response</code>:
-                     </p><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">var response = require(&apos;cfn-response&apos;);</code></pre><p>For Python, use the <code class="code">import</code> statement to load the <code class="code">cfnresponse</code>
-                        module, as shown in the following example:
-                     </p><div class="aws-note">
-                        <p class="aws-note">Note</p>
-                        <p>Use this exact import statement. If you use other variants of the import statement,
-                           AWS CloudFormation doesn&apos;t include the response module.
-                        </p>
-                     </div><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">import cfnresponse</code></pre><h3 id="w2ab1c21c10d177c21c17c11c11"><code class="code">send</code> Method Parameters
-                     </h3><p>You can use the following parameters with the <code class="code">send</code> method.
-                     </p><div class="variablelist">
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        <dl>
-                           
-                           <dt><span class="term"><code class="code">event</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>The fields in a <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/crpg-ref-requesttypes.html">custom resource
-                                    request</a>.
-                              </p>
-                              
-                           </dd>
-                           
-                           
-                           <dt><span class="term"><code class="code">context</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>An object, specific to Lambda functions, that you can use to specify when the
-                                 function and any callbacks have completed execution, or to access information from
-                                 within the Lambda execution environment. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/programming-model.html">Programming Model (Node.js)</a> in the
-                                 <em>AWS Lambda Developer Guide</em>.
-                              </p>
-                              
-                           </dd>
-                           
-                           
-                           <dt><span class="term"><code class="code">responseStatus</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>Whether the function successfully completed. Use the <code class="code">cfnresponse</code>
-                                 module constants to specify the status: <code class="code">SUCCESS</code> for successful executions
-                                 and <code class="code">FAILED</code> for failed executions.
-                              </p>
-                              
-                           </dd>
-                           
-                           
-                           <dt><span class="term"><code class="code">responseData</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>The <code class="code">Data</code> field of a custom resource <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/crpg-ref-responses.html">response object</a>. The data is a list of
-                                 name-value pairs.
-                              </p>
-                              
-                           </dd>
-                           
-                           
-                           <dt><span class="term"><code class="code">physicalResourceId</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>Optional. The unique identifier of the custom resource that invoked the function.
-                                 By default, the module uses the name of the Amazon CloudWatch Logs log stream that&apos;s
-                                 associated
-                                 with the Lambda function.
-                              </p>
-                              
-                           </dd>
-                           
-                           
-                           <dt><span class="term"><code class="code">noEcho</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>Optional. Indicates whether to mask the output of the custom resource when it&apos;s
-                                 retrieved by using the <code class="code">Fn::GetAtt</code> function. If set to <code class="code">true</code>,
-                                 all returned values are masked with asterisks (*****). By default, this value is
-                                 <code class="code">false</code>.
-                              </p>
-                              
-                           </dd>
-                           
-                        </dl>
-                     </div><h3 id="w2ab1c21c10d177c21c17c11c13">Examples</h3><h4 id="w2ab1c21c10d177c21c17c11c13b3">Node.js</h4><p>In the following Node.js example, the inline Lambda function takes an input value
-                        and
-                        multiplies it by 5. Inline functions are especially useful for smaller functions because
-                        they allow you to specify the source code directly in the template, instead of creating
-                        a
-                        package and uploading it to an Amazon S3 bucket. The function uses the
-                        <code class="code">cfn-response</code>
-                        <code class="code">send</code> method to send the result back to the custom resource that invoked
-                        it.
-                     </p><div id="JSON" name="JSON" class="section langfilter">
-                        
-                        <h5 id="cfn-lambda-function-code-zipfile-examplenodejs.json">JSON</h5>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">&quot;ZipFile&quot;: { &quot;Fn::Join&quot;: [&quot;&quot;, [
-  &quot;var response = require(&apos;cfn-response&apos;);&quot;,
-  &quot;exports.handler = function(event, context) {&quot;,
-  &quot;  var input = parseInt(event.ResourceProperties.Input);&quot;,
-  &quot;  var responseData = {Value: input * 5};&quot;,
-  &quot;  response.send(event, context, response.SUCCESS, responseData);&quot;,
-  &quot;};&quot;
-]]}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        
-                        <h5 id="cfn-lambda-function-code-zipfile-examplenodejs.yaml">YAML</h5>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">ZipFile: &gt;
-  var response = require(&apos;cfn-response&apos;);
-  exports.handler = function(event, context) {
-    var input = parseInt(event.ResourceProperties.Input);
-    var responseData = {Value: input * 5};
-    response.send(event, context, response.SUCCESS, responseData);
-  };</code></pre>
-                        </div><h4 id="w2ab1c21c10d177c21c17c11c13b5">Python</h4><p>In the following Python example, the inline Lambda function takes an integer value
-                        and
-                        multiplies it by 5.
-                     </p><div id="JSON" name="JSON" class="section langfilter">
-                        
-                        <h5 id="cfn-lambda-function-code-zipfile-examplepython.json">JSON</h5>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">&quot;ZipFile&quot; : { &quot;Fn::Join&quot; : [&quot;\n&quot;, [
-  &quot;import json&quot;,
-  &quot;import cfnresponse&quot;,
-  &quot;def handler(event, context):&quot;,
-  &quot;   responseValue = int(event[&apos;ResourceProperties&apos;][&apos;Input&apos;]) * 5&quot;,
-  &quot;   responseData = {}&quot;,
-  &quot;   responseData[&apos;Data&apos;] = responseValue&quot;,
-  &quot;   cfnresponse.send(event, context, cfnresponse.SUCCESS, responseData, \&quot;CustomResourcePhysicalID\&quot;)&quot;
-]]}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        
-                        <h5 id="cfn-lambda-function-code-zipfile-examplepython.yaml">YAML</h5>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">ZipFile: |
-  import json
-  import cfnresponse
-  def handler(event, context):
-    responseValue = int(event[&apos;ResourceProperties&apos;][&apos;Input&apos;]) * 5
-    responseData = {}
-    responseData[&apos;Data&apos;] = responseValue
-    cfnresponse.send(event, context, cfnresponse.SUCCESS, responseData, &quot;CustomResourcePhysicalID&quot;)
-</code></pre>
-                        </div><h3 id="w2ab1c21c10d177c21c17c11c15">Module Source Code</h3><p>The following is the response module source code for the Node.js functions. Review
-                        it to
-                        understand what the module does and for help with implementing your own response
-                        functions.
-                     </p><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">/* Copyright 2015 Amazon Web Services, Inc. or its affiliates. All Rights Reserved.
-   This file is licensed to you under the AWS Customer Agreement (the &quot;License&quot;).
-   You may not use this file except in compliance with the License.
-   A copy of the License is located at http://aws.amazon.com/agreement/ .
-   This file is distributed on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, express or implied.
-   See the License for the specific language governing permissions and limitations under the License. */
-
-exports.SUCCESS = &quot;SUCCESS&quot;;
-exports.FAILED = &quot;FAILED&quot;;
-
-exports.send = function(event, context, responseStatus, responseData, physicalResourceId, noEcho) {
-
-    var responseBody = JSON.stringify({
-        Status: responseStatus,
-        Reason: &quot;See the details in CloudWatch Log Stream: &quot; + context.logStreamName,
-        PhysicalResourceId: physicalResourceId || context.logStreamName,
-        StackId: event.StackId,
-        RequestId: event.RequestId,
-        LogicalResourceId: event.LogicalResourceId,
-        NoEcho: noEcho || false,
-        Data: responseData
-    });
-
-    console.log(&quot;Response body:\n&quot;, responseBody);
-
-    var https = require(&quot;https&quot;);
-    var url = require(&quot;url&quot;);
-
-    var parsedUrl = url.parse(event.ResponseURL);
-    var options = {
-        hostname: parsedUrl.hostname,
-        port: 443,
-        path: parsedUrl.path,
-        method: &quot;PUT&quot;,
-        headers: {
-            &quot;content-type&quot;: &quot;&quot;,
-            &quot;content-length&quot;: responseBody.length
-        }
-    };
-
-    var request = https.request(options, function(response) {
-        console.log(&quot;Status code: &quot; + response.statusCode);
-        console.log(&quot;Status message: &quot; + response.statusMessage);
-        context.done();
-    });
-
-    request.on(&quot;error&quot;, function(error) {
-        console.log(&quot;send(..) failed executing https.request(..): &quot; + error);
-        context.done();
-    });
-
-    request.write(responseBody);
-    request.end();
-}</code></pre><p>The following is the response module source code for Python 3 functions: </p><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">#  Copyright 2016 Amazon Web Services, Inc. or its affiliates. All Rights Reserved.
-#  This file is licensed to you under the AWS Customer Agreement (the &quot;License&quot;).
-#  You may not use this file except in compliance with the License.
-#  A copy of the License is located at http://aws.amazon.com/agreement/ .
-#  This file is distributed on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, express or implied.
-#  See the License for the specific language governing permissions and limitations under the License.
-
-from botocore.vendored import requests
-import json
-
-SUCCESS = &quot;SUCCESS&quot;
-FAILED = &quot;FAILED&quot;
-
-def send(event, context, responseStatus, responseData, physicalResourceId=None, noEcho=False):
-    responseUrl = event[&apos;ResponseURL&apos;]
-
-    print(responseUrl)
-
-    responseBody = {}
-    responseBody[&apos;Status&apos;] = responseStatus
-    responseBody[&apos;Reason&apos;] = &apos;See the details in CloudWatch Log Stream: &apos; + context.log_stream_name
-    responseBody[&apos;PhysicalResourceId&apos;] = physicalResourceId or context.log_stream_name
-    responseBody[&apos;StackId&apos;] = event[&apos;StackId&apos;]
-    responseBody[&apos;RequestId&apos;] = event[&apos;RequestId&apos;]
-    responseBody[&apos;LogicalResourceId&apos;] = event[&apos;LogicalResourceId&apos;]
-    responseBody[&apos;NoEcho&apos;] = noEcho
-    responseBody[&apos;Data&apos;] = responseData
-
-    json_responseBody = json.dumps(responseBody)
-
-    print(&quot;Response body:\n&quot; + json_responseBody)
-
-    headers = {
-        &apos;content-type&apos; : &apos;&apos;,
-        &apos;content-length&apos; : str(len(json_responseBody))
-    }
-
-    try:
-        response = requests.put(responseUrl,
-                                data=json_responseBody,
-                                headers=headers)
-        print(&quot;Status code: &quot; + response.reason)
-    except Exception as e:
-        print(&quot;send(..) failed executing requests.put(..): &quot; + str(e))</code></pre><p>The following is the response module source code for Python 2 functions:</p><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">#  Copyright 2016 Amazon Web Services, Inc. or its affiliates. All Rights Reserved.
-#  This file is licensed to you under the AWS Customer Agreement (the &quot;License&quot;).
-#  You may not use this file except in compliance with the License.
-#  A copy of the License is located at http://aws.amazon.com/agreement/ .
-#  This file is distributed on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, express or implied.
-#  See the License for the specific language governing permissions and limitations under the License.
-
-from botocore.vendored import requests
-import json
-
-SUCCESS = &quot;SUCCESS&quot;
-FAILED = &quot;FAILED&quot;
-
-def send(event, context, responseStatus, responseData, physicalResourceId=None, noEcho=False):
-    responseUrl = event[&apos;ResponseURL&apos;]
-
-    print responseUrl
-
-    responseBody = {}
-    responseBody[&apos;Status&apos;] = responseStatus
-    responseBody[&apos;Reason&apos;] = &apos;See the details in CloudWatch Log Stream: &apos; + context.log_stream_name
-    responseBody[&apos;PhysicalResourceId&apos;] = physicalResourceId or context.log_stream_name
-    responseBody[&apos;StackId&apos;] = event[&apos;StackId&apos;]
-    responseBody[&apos;RequestId&apos;] = event[&apos;RequestId&apos;]
-    responseBody[&apos;LogicalResourceId&apos;] = event[&apos;LogicalResourceId&apos;]
-    responseBody[&apos;NoEcho&apos;] = noEcho
-    responseBody[&apos;Data&apos;] = responseData
-
-    json_responseBody = json.dumps(responseBody)
-   
-    print &quot;Response body:\n&quot; + json_responseBody
-
-    headers = {
-        &apos;content-type&apos; : &apos;&apos;, 
-        &apos;content-length&apos; : str(len(json_responseBody))
-    }
-    
-    try:
-        response = requests.put(responseUrl,
-                                data=json_responseBody,
-                                headers=headers)
-        print &quot;Status code: &quot; + response.reason
-    except Exception as e:
-        print &quot;send(..) failed executing requests.put(..): &quot; + str(e)</code></pre></div>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
+                     </div></div>
 </body>
 </html>

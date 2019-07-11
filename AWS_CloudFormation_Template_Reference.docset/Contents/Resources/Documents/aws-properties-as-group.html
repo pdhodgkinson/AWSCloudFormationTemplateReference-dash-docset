@@ -8,742 +8,760 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-properties-as-group">AWS::AutoScaling::AutoScalingGroup</h1><p>Creates an Amazon EC2 Auto Scaling group.</p><p>You can add an <a href="aws-attribute-updatepolicy.html">UpdatePolicy Attribute</a> attribute to your Auto Scaling group to control how
-                        rolling updates are performed when a change has been made to the Auto Scaling group&apos;s
-                        <a href="aws-properties-as-launchconfig.html">launch configuration</a> or <a href="aws-properties-as-group.html#cfn-as-group-vpczoneidentifier">subnet group membership</a>.
-                     </p><h2 id="aws-resource-autoscaling-autoscalinggroup-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
-                        
-                        <h3 id="aws-resource-autoscaling-autoscalinggroup-syntax.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">
-{
-   &quot;Type&quot; : &quot;AWS::AutoScaling::AutoScalingGroup&quot;,
-   &quot;Properties&quot; : {
-      &quot;<a href="aws-properties-as-group.html#cfn-autoscaling-autoscalinggroup-autoscalinggroupname">AutoScalingGroupName</a>&quot; : <em class="replaceable"><code>String</code></em>,
-      &quot;<a href="aws-properties-as-group.html#cfn-as-group-availabilityzones">AvailabilityZones</a>&quot; : [ <em class="replaceable"><code>String</code></em>, ... ],
-      &quot;<a href="aws-properties-as-group.html#cfn-as-group-cooldown">Cooldown</a>&quot; : <em class="replaceable"><code>String</code></em>,
-      &quot;<a href="aws-properties-as-group.html#cfn-as-group-desiredcapacity">DesiredCapacity</a>&quot; : <em class="replaceable"><code>String</code></em>,
-      &quot;<a href="aws-properties-as-group.html#cfn-as-group-healthcheckgraceperiod">HealthCheckGracePeriod</a>&quot; : <em class="replaceable"><code>Integer</code></em>,
-      &quot;<a href="aws-properties-as-group.html#cfn-as-group-healthchecktype">HealthCheckType</a>&quot; : <em class="replaceable"><code>String</code></em>,
-      &quot;<a href="aws-properties-as-group.html#cfn-as-group-instanceid">InstanceId</a>&quot; : <em class="replaceable"><code>String</code></em>,
-      &quot;<a href="aws-properties-as-group.html#cfn-as-group-launchconfigurationname">LaunchConfigurationName</a>&quot; : <em class="replaceable"><code>String</code></em>,
-      &quot;<a href="aws-properties-as-group.html#cfn-as-group-launchtemplate">LaunchTemplate</a>&quot; : <a href="aws-properties-autoscaling-autoscalinggroup-launchtemplatespecification.html">LaunchTemplateSpecification</a>,
-      &quot;<a href="aws-properties-as-group.html#cfn-autoscaling-autoscalinggroup-lifecyclehookspecificationlist">LifecycleHookSpecificationList</a>&quot; : [ <a href="aws-properties-autoscaling-autoscalinggroup-lifecyclehookspecification.html">LifecycleHookSpecification</a>, ... ],
-      &quot;<a href="aws-properties-as-group.html#cfn-as-group-loadbalancernames">LoadBalancerNames</a>&quot; : [ <em class="replaceable"><code>String</code></em>, ... ],
-      &quot;<a href="aws-properties-as-group.html#cfn-as-group-maxsize">MaxSize</a>&quot; : <em class="replaceable"><code>String</code></em>,
-      &quot;<a href="aws-properties-as-group.html#cfn-as-group-metricscollection">MetricsCollection</a>&quot; : [ <a href="aws-properties-as-metricscollection.html">MetricsCollection</a>, ... ],
-      &quot;<a href="aws-properties-as-group.html#cfn-as-group-minsize">MinSize</a>&quot; : <em class="replaceable"><code>String</code></em>,
-      &quot;<a href="aws-properties-as-group.html#cfn-as-group-mixedinstancespolicy">MixedInstancesPolicy</a>&quot; : <a href="aws-properties-autoscaling-autoscalinggroup-mixedinstancespolicy.html">MixedInstancesPolicy</a>,
-      &quot;<a href="aws-properties-as-group.html#cfn-as-group-notificationconfigurations">NotificationConfigurations</a>&quot; : [ <a href="aws-properties-as-notificationconfigurations.html">NotificationConfiguration</a>, ... ],
-      &quot;<a href="aws-properties-as-group.html#cfn-as-group-placementgroup">PlacementGroup</a>&quot; : <em class="replaceable"><code>String</code></em>,
-      &quot;<a href="aws-properties-as-group.html#cfn-autoscaling-autoscalinggroup-servicelinkedrolearn">ServiceLinkedRoleARN</a>&quot; : <em class="replaceable"><code>String</code></em>,
-      &quot;<a href="aws-properties-as-group.html#cfn-as-group-tags">Tags</a>&quot; : [ <a href="aws-properties-as-tags.html">TagProperty</a>, ... ],
-      &quot;<a href="aws-properties-as-group.html#cfn-as-group-targetgrouparns">TargetGroupARNs</a>&quot; : [ <em class="replaceable"><code>String, ...</code></em> ],
-      &quot;<a href="aws-properties-as-group.html#cfn-as-group-termpolicy">TerminationPolicies</a>&quot; : [ <em class="replaceable"><code>String</code></em>, ... ],
-      &quot;<a href="aws-properties-as-group.html#cfn-as-group-vpczoneidentifier">VPCZoneIdentifier</a>&quot; : [ <em class="replaceable"><code>String</code></em>, ... ]
-   }
-}     </code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        
-                        <h3 id="aws-resource-autoscaling-autoscalinggroup-syntax.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">Type: AWS::AutoScaling::AutoScalingGroup
-Properties:
-  <a href="aws-properties-as-group.html#cfn-autoscaling-autoscalinggroup-autoscalinggroupname">AutoScalingGroupName</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-properties-as-group.html#cfn-as-group-availabilityzones">AvailabilityZones</a>:
-    - <em class="replaceable"><code>String</code></em>
-  <a href="aws-properties-as-group.html#cfn-as-group-cooldown">Cooldown</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-properties-as-group.html#cfn-as-group-desiredcapacity">DesiredCapacity</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-properties-as-group.html#cfn-as-group-healthcheckgraceperiod">HealthCheckGracePeriod</a>: <em class="replaceable"><code>Integer</code></em>
-  <a href="aws-properties-as-group.html#cfn-as-group-healthchecktype">HealthCheckType</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-properties-as-group.html#cfn-as-group-instanceid">InstanceId</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-properties-as-group.html#cfn-as-group-launchconfigurationname">LaunchConfigurationName</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-properties-as-group.html#cfn-as-group-launchtemplate">LaunchTemplate</a>: <a href="aws-properties-autoscaling-autoscalinggroup-launchtemplatespecification.html">LaunchTemplateSpecification</a>
-  <a href="aws-properties-as-group.html#cfn-autoscaling-autoscalinggroup-lifecyclehookspecificationlist">LifecycleHookSpecificationList</a>: 
-    - <a href="aws-properties-autoscaling-autoscalinggroup-lifecyclehookspecification.html">LifecycleHookSpecification</a>
-  <a href="aws-properties-as-group.html#cfn-as-group-loadbalancernames">LoadBalancerNames</a>:
-    - <em class="replaceable"><code>String</code></em>
-  <a href="aws-properties-as-group.html#cfn-as-group-maxsize">MaxSize</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-properties-as-group.html#cfn-as-group-metricscollection">MetricsCollection</a>:
-    - <a href="aws-properties-as-metricscollection.html">MetricsCollection</a>
-  <a href="aws-properties-as-group.html#cfn-as-group-minsize">MinSize</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-properties-as-group.html#cfn-as-group-mixedinstancespolicy">MixedInstancesPolicy</a>: 
-    <a href="aws-properties-autoscaling-autoscalinggroup-mixedinstancespolicy.html">MixedInstancesPolicy</a>
-  <a href="aws-properties-as-group.html#cfn-as-group-notificationconfigurations">NotificationConfigurations</a>:
-    - <a href="aws-properties-as-notificationconfigurations.html">NotificationConfiguration</a>
-  <a href="aws-properties-as-group.html#cfn-as-group-placementgroup">PlacementGroup</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-properties-as-group.html#cfn-autoscaling-autoscalinggroup-servicelinkedrolearn">ServiceLinkedRoleARN</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-properties-as-group.html#cfn-as-group-tags">Tags</a>:
-    - <a href="aws-properties-as-tags.html">TagProperty</a>
-  <a href="aws-properties-as-group.html#cfn-as-group-targetgrouparns">TargetGroupARNs</a>:
-    - <em class="replaceable"><code>String</code></em>
-  <a href="aws-properties-as-group.html#cfn-as-group-termpolicy">TerminationPolicies</a>:
-    - <em class="replaceable"><code>String</code></em>
-  <a href="aws-properties-as-group.html#cfn-as-group-vpczoneidentifier">VPCZoneIdentifier</a>:
-    - <em class="replaceable"><code>String</code></em>
-</code></pre>
-                        </div><h2 id="aws-properties-as-group-prop">Properties</h2><div class="variablelist">
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                            
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
+    <h1 class="topictitle" id="aws-properties-as-group">AWS::AutoScaling::AutoScalingGroup</h1><p>Defines an Amazon EC2 Auto Scaling group with the specified name and attributes. </p><p>To configure Amazon EC2 instances launched as part of the group, you can specify a
+                        launch
+                        template or a launch configuration. We recommend that you use a launch template to
+                        make sure
+                        that you can use the latest features of Amazon EC2, such as T2 Unlimited instances.
+                        For more
+                        information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-template.html">Creating a Launch Template for
+                           an Auto Scaling Group</a>.
+                     </p><div class="aws-note">
+                        <p class="aws-note">Important</p>
+                        <p>You can add an <a href="aws-attribute-updatepolicy.html">UpdatePolicy
+                              attribute</a> to your Auto Scaling group to perform rolling updates (or replace the group) when
+                           a change has been
+                           made to the group. You can find sample update policies for rolling updates in the
+                           <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#aws-properties-as-group--examples">Examples</a> section.
+                        </p>
+                     </div><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CreateAutoScalingGroup.html">CreateAutoScalingGroup</a> and <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_UpdateAutoScalingGroup.html">UpdateAutoScalingGroup</a> in the <em>Amazon EC2 Auto Scaling API
+                           Reference</em>. For more information about Amazon EC2 Auto Scaling, see the <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html">Amazon EC2 Auto Scaling User Guide</a>. 
+                     </p><h2 id="aws-properties-as-group-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-properties-as-group-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;Type&quot; : &quot;AWS::AutoScaling::AutoScalingGroup&quot;,
+  &quot;Properties&quot; : {
+      &quot;<a href="#cfn-autoscaling-autoscalinggroup-autoscalinggroupname">AutoScalingGroupName</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-as-group-availabilityzones">AvailabilityZones</a>&quot; : <em class="replaceable"><code>[ String, ... ]</code></em>,
+      &quot;<a href="#cfn-as-group-cooldown">Cooldown</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-as-group-desiredcapacity">DesiredCapacity</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-as-group-healthcheckgraceperiod">HealthCheckGracePeriod</a>&quot; : <em class="replaceable"><code>Integer</code></em>,
+      &quot;<a href="#cfn-as-group-healthchecktype">HealthCheckType</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-as-group-instanceid">InstanceId</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-as-group-launchconfigurationname">LaunchConfigurationName</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-as-group-launchtemplate">LaunchTemplate</a>&quot; : <em class="replaceable"><code><a href="aws-properties-autoscaling-autoscalinggroup-launchtemplatespecification.html">LaunchTemplateSpecification</a></code></em>,
+      &quot;<a href="#cfn-autoscaling-autoscalinggroup-lifecyclehookspecificationlist">LifecycleHookSpecificationList</a>&quot; : <em class="replaceable"><code>[ <a href="aws-properties-autoscaling-autoscalinggroup-lifecyclehookspecification.html">LifecycleHookSpecification</a>, ... ]</code></em>,
+      &quot;<a href="#cfn-as-group-loadbalancernames">LoadBalancerNames</a>&quot; : <em class="replaceable"><code>[ String, ... ]</code></em>,
+      &quot;<a href="#cfn-as-group-maxsize">MaxSize</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-as-group-metricscollection">MetricsCollection</a>&quot; : <em class="replaceable"><code>[ <a href="aws-properties-as-metricscollection.html">MetricsCollection</a>, ... ]</code></em>,
+      &quot;<a href="#cfn-as-group-minsize">MinSize</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-as-group-mixedinstancespolicy">MixedInstancesPolicy</a>&quot; : <em class="replaceable"><code><a href="aws-properties-autoscaling-autoscalinggroup-mixedinstancespolicy.html">MixedInstancesPolicy</a></code></em>,
+      &quot;<a href="#cfn-as-group-notificationconfigurations">NotificationConfigurations</a>&quot; : <em class="replaceable"><code>[ <a href="aws-properties-as-notificationconfigurations.html">NotificationConfiguration</a>, ... ]</code></em>,
+      &quot;<a href="#cfn-as-group-placementgroup">PlacementGroup</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-autoscaling-autoscalinggroup-servicelinkedrolearn">ServiceLinkedRoleARN</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-as-group-tags">Tags</a>&quot; : <em class="replaceable"><code>[ <a href="aws-properties-as-tags.html">TagProperty</a>, ... ]</code></em>,
+      &quot;<a href="#cfn-as-group-targetgrouparns">TargetGroupARNs</a>&quot; : <em class="replaceable"><code>[ String, ... ]</code></em>,
+      &quot;<a href="#cfn-as-group-termpolicy">TerminationPolicies</a>&quot; : <em class="replaceable"><code>[ String, ... ]</code></em>,
+      &quot;<a href="#cfn-as-group-vpczoneidentifier">VPCZoneIdentifier</a>&quot; : <em class="replaceable"><code>[ String, ... ]</code></em>
+    }
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-properties-as-group-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Type: AWS::AutoScaling::AutoScalingGroup
+Properties: 
+  <a href="#cfn-autoscaling-autoscalinggroup-autoscalinggroupname">AutoScalingGroupName</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-as-group-availabilityzones">AvailabilityZones</a>: <em class="replaceable"><code>
+    - String</code></em>
+  <a href="#cfn-as-group-cooldown">Cooldown</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-as-group-desiredcapacity">DesiredCapacity</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-as-group-healthcheckgraceperiod">HealthCheckGracePeriod</a>: <em class="replaceable"><code>Integer</code></em>
+  <a href="#cfn-as-group-healthchecktype">HealthCheckType</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-as-group-instanceid">InstanceId</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-as-group-launchconfigurationname">LaunchConfigurationName</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-as-group-launchtemplate">LaunchTemplate</a>: <em class="replaceable"><code>
+    <a href="aws-properties-autoscaling-autoscalinggroup-launchtemplatespecification.html">LaunchTemplateSpecification</a></code></em>
+  <a href="#cfn-autoscaling-autoscalinggroup-lifecyclehookspecificationlist">LifecycleHookSpecificationList</a>: <em class="replaceable"><code>
+    - <a href="aws-properties-autoscaling-autoscalinggroup-lifecyclehookspecification.html">LifecycleHookSpecification</a></code></em>
+  <a href="#cfn-as-group-loadbalancernames">LoadBalancerNames</a>: <em class="replaceable"><code>
+    - String</code></em>
+  <a href="#cfn-as-group-maxsize">MaxSize</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-as-group-metricscollection">MetricsCollection</a>: <em class="replaceable"><code>
+    - <a href="aws-properties-as-metricscollection.html">MetricsCollection</a></code></em>
+  <a href="#cfn-as-group-minsize">MinSize</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-as-group-mixedinstancespolicy">MixedInstancesPolicy</a>: <em class="replaceable"><code>
+    <a href="aws-properties-autoscaling-autoscalinggroup-mixedinstancespolicy.html">MixedInstancesPolicy</a></code></em>
+  <a href="#cfn-as-group-notificationconfigurations">NotificationConfigurations</a>: <em class="replaceable"><code>
+    - <a href="aws-properties-as-notificationconfigurations.html">NotificationConfiguration</a></code></em>
+  <a href="#cfn-as-group-placementgroup">PlacementGroup</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-autoscaling-autoscalinggroup-servicelinkedrolearn">ServiceLinkedRoleARN</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-as-group-tags">Tags</a>: <em class="replaceable"><code>
+    - <a href="aws-properties-as-tags.html">TagProperty</a></code></em>
+  <a href="#cfn-as-group-targetgrouparns">TargetGroupARNs</a>: <em class="replaceable"><code>
+    - String</code></em>
+  <a href="#cfn-as-group-termpolicy">TerminationPolicies</a>: <em class="replaceable"><code>
+    - String</code></em>
+  <a href="#cfn-as-group-vpczoneidentifier">VPCZoneIdentifier</a>: <em class="replaceable"><code>
+    - String</code></em>
+</code></pre></div><h2 id="aws-properties-as-group-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
-                           <dt><a id="cfn-autoscaling-autoscalinggroup-autoscalinggroupname"></a><span class="term"><code class="literal">AutoScalingGroupName</code></span></dt>
-                           
+                           <dt><a id="cfn-autoscaling-autoscalinggroup-autoscalinggroupname"></a><span class="term"><code class="code">AutoScalingGroupName</code></span></dt>
                            <dd>
                               
-                              <p>The name of the Auto Scaling group.</p>
-                              
-                              <p>Minimum length of 1. Maximum length of 255. Must follow the following pattern:
-                                 <code class="code">[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*</code></p>
+                              <p>The name of the Auto Scaling group. This name must be unique per Region per
+                                 account.
+                              </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Minimum</em>: <code class="code">1</code></p>
+                              <p><em>Maximum</em>: <code class="code">255</code></p>
+                              <p><em>Pattern</em>: <code class="code">[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*</code></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-as-group-availabilityzones"></a><span class="term"><code class="literal">AvailabilityZones</code></span></dt>
-                           
+                           <dt><a id="cfn-as-group-availabilityzones"></a><span class="term"><code class="code">AvailabilityZones</code></span></dt>
                            <dd>
                               
-                              <p>Contains a list of availability zones for the group.</p>
-                              
-                              <p><em>Required</em>: Conditional. If you don&apos;t specify the <code class="code">VPCZoneIdentifier</code>
-                                 property, you must specify this property.
+                              <p>A list of Availability Zones for the group. You must specify one of the following
+                                 properties: <code class="code">VPCZoneIdentifier</code> or <code class="code">AvailabilityZones</code>. 
                               </p>
                               
-                              <p><em>Type</em>: List of String values
+                              <p>If your account supports EC2-Classic and VPC, this property is required to launch
+                                 instances into EC2-Classic.
                               </p>
                               
+                              <p><em>Required</em>: Conditional
+                              </p>
+                              <p><em>Type</em>: List of String
+                              </p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-as-group-cooldown"></a><span class="term"><code class="literal">Cooldown</code></span></dt>
-                           
+                           <dt><a id="cfn-as-group-cooldown"></a><span class="term"><code class="code">Cooldown</code></span></dt>
                            <dd>
                               
-                              <p>The number of seconds after a scaling activity is completed before any further
-                                 scaling activities can start.
+                              <p>The amount of time, in seconds, after a scaling activity completes before another
+                                 scaling
+                                 activity can start. The default value is <code class="code">300</code>. 
+                              </p>
+                              
+                              <p>Used only when a scaling-specific cooldown is not specified and not supported for
+                                 target
+                                 tracking scaling policies, step scaling policies, or scheduled scaling. For more information,
+                                 see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html">Scaling
+                                    Cooldowns</a> in the <em>Amazon EC2 Auto Scaling User Guide</em>.
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-as-group-desiredcapacity"></a><span class="term"><code class="literal">DesiredCapacity</code></span></dt>
-                           
+                           <dt><a id="cfn-as-group-desiredcapacity"></a><span class="term"><code class="code">DesiredCapacity</code></span></dt>
                            <dd>
                               
-                              <p>Specifies the desired capacity for the Auto Scaling group.</p>
-                              
-                              <p>If <code class="code">SpotPrice</code> is not set in the <a href="aws-properties-as-launchconfig.html">AWS::AutoScaling::LaunchConfiguration</a> for this Auto Scaling group, then Auto Scaling
-                                 will begin to bring instances online based on <code class="code">DesiredCapacity</code>.
-                                 CloudFormation will not mark the Auto Scaling group as successful (by setting its
-                                 status
-                                 to CREATE_COMPLETE) until the desired capacity is reached.
+                              <p>The number of Amazon EC2 instances that the Auto Scaling group attempts to maintain.
+                                 The
+                                 number must be greater than or equal to the minimum size of the group and less than
+                                 or equal
+                                 to the maximum size of the group. If you do not specify a desired capacity, the default
+                                 is the
+                                 minimum size of the group.
                               </p>
                               
+                              <p>If <code class="code">SpotPrice</code> is not set in the <a href="aws-properties-as-launchconfig.html">LaunchConfiguration</a> for the Auto Scaling group, then Amazon EC2 Auto Scaling will
+                                 begin to launch instances based on <code class="code">DesiredCapacity</code>. CloudFormation will not mark
+                                 the Auto Scaling group as successful (by setting its status to CREATE_COMPLETE) until
+                                 the
+                                 desired capacity is reached. 
+                              </p>
                               
                               <p>If <code class="code">SpotPrice</code>
-                                 <em>is</em> set, then <code class="code">DesiredCapacity</code> will not be used as
-                                 a criteria for success, since instances will only be started when the spot price
-                                 has been matched. After the spot price has been matched, however, Amazon EC2 Auto
-                                 Scaling uses
-                                 <code class="code">DesiredCapacity</code> as the target capacity for the group.
+                                 <em>is</em> set, then <code class="code">DesiredCapacity</code> will not be used as a criteria
+                                 for success, since instances will only be started when the Spot price has been matched.
+                                 After
+                                 the Spot price has been matched, however, Amazon EC2 Auto Scaling uses
+                                 <code class="code">DesiredCapacity</code> as the target capacity for the group. 
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-as-group-healthcheckgraceperiod"></a><span class="term"><code class="literal">HealthCheckGracePeriod</code></span></dt>
-                           
+                           <dt><a id="cfn-as-group-healthcheckgraceperiod"></a><span class="term"><code class="code">HealthCheckGracePeriod</code></span></dt>
                            <dd>
                               
-                              <p>The length of time in seconds after a new EC2 instance comes into service that
-                                 Amazon EC2 Auto Scaling starts checking its health.
+                              <p>The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking
+                                 the
+                                 health status of an EC2 instance that has come into service.
                               </p>
                               
-                              <p><em>Required</em>: No
+                              <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html">Health Checks for Auto Scaling
+                                    Instances</a> in the <em>Amazon EC2 Auto Scaling User Guide</em>. 
                               </p>
                               
+                              <p>If you are adding an <code class="code">ELB</code> health check, you must specify this property.
+                              </p>
+                              
+                              <p><em>Required</em>: Conditional
+                              </p>
                               <p><em>Type</em>: Integer
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-as-group-healthchecktype"></a><span class="term"><code class="literal">HealthCheckType</code></span></dt>
-                           
+                           <dt><a id="cfn-as-group-healthchecktype"></a><span class="term"><code class="code">HealthCheckType</code></span></dt>
                            <dd>
                               
-                              <p>The service you want the health status from, Amazon EC2 or Elastic Load
-                                 Balancer. Valid values are <code class="code">EC2</code> or <code class="code">ELB</code>.
+                              <p>The service to use for the health checks. The valid values are <code class="code">EC2</code> (default)
+                                 and <code class="code">ELB</code>. If you configure an Auto Scaling group to use ELB health checks, it
+                                 considers the instance unhealthy if it fails either the EC2 status checks or the load
+                                 balancer
+                                 health checks.
+                              </p>
+                              
+                              <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html">Health Checks for Auto Scaling
+                                    Instances</a> in the <em>Amazon EC2 Auto Scaling User Guide</em>. 
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Minimum</em>: <code class="code">1</code></p>
+                              <p><em>Maximum</em>: <code class="code">32</code></p>
+                              <p><em>Pattern</em>: <code class="code">[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*</code></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-as-group-instanceid"></a><span class="term"><code class="literal">InstanceId</code></span></dt>
-                           
+                           <dt><a id="cfn-as-group-instanceid"></a><span class="term"><code class="code">InstanceId</code></span></dt>
                            <dd>
                               
-                              <p>The ID of the Amazon EC2 instance you want to use to create the Auto Scaling group.
-                                 Use this
-                                 property if you want to create an Auto Scaling group that uses an existing Amazon
-                                 EC2 instance
-                                 instead of a launch configuration.
+                              <p>The ID of the instance used to create a launch configuration for the group. </p>
+                              
+                              <p>When you specify an ID of an instance, Amazon EC2 Auto Scaling creates a new launch
+                                 configuration and associates it with the Auto Scaling group. The new launch configuration
+                                 derives all its properties from the instance, with the exception of
+                                 <code class="code">BlockDeviceMapping</code> and <code class="code">AssociatePublicIpAddress</code>. 
                               </p>
                               
-                              <p>When you use an Amazon EC2 instance to create an Auto Scaling group, a new launch
-                                 configuration is first created and then associated with the Auto Scaling group. The
-                                 new
-                                 launch configuration derives all its properties from the instance, with the
-                                 exception of <code class="code">BlockDeviceMapping</code> and
-                                 <code class="code">AssociatePublicIpAddress</code>.
+                              <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-from-instance.html">Create an Auto Scaling Group
+                                    Using an EC2 Instance</a> in the <em>Amazon EC2 Auto Scaling User
+                                    Guide</em>. 
                               </p>
                               
-                              <p><em>Required</em>: Conditional. You must specify one of the following:
-                                 <code class="code">InstanceId</code>, <code class="code">LaunchConfigurationName</code>,
-                                 <code class="code">LaunchTemplate</code>, or <code class="code">MixedInstancesPolicy</code>. 
+                              <p>When you create an Auto Scaling group, you must specify one of the following properties
+                                 in
+                                 your request: <code class="code">LaunchConfigurationName</code>, <code class="code">LaunchTemplate</code>,
+                                 <code class="code">InstanceId</code>, or <code class="code">MixedInstancesPolicy</code>.
                               </p>
                               
+                              <p><em>Required</em>: Conditional
+                              </p>
                               <p><em>Type</em>: String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-as-group-launchconfigurationname"></a><span class="term"><code class="literal">LaunchConfigurationName</code></span></dt>
-                           
+                           <dt><a id="cfn-as-group-launchconfigurationname"></a><span class="term"><code class="code">LaunchConfigurationName</code></span></dt>
                            <dd>
                               
-                              <p>Specifies the name of the associated <a href="aws-properties-as-launchconfig.html">AWS::AutoScaling::LaunchConfiguration</a> resource.
+                              <p>The name of the <a href="aws-properties-as-launchconfig.html">LaunchConfiguration</a> to use to launch instances.
+                              </p>
+                              
+                              <p>If this resource has a public IP address and is also in a VPC that is defined in the
+                                 same
+                                 template, you must use the <a href="aws-attribute-dependson.html">DependsOn
+                                    attribute</a> to declare a dependency on the <a href="aws-resource-ec2-vpc-gateway-attachment.html">VPC-gateway attachment</a>.
+                              </p>
+                              
+                              <p>When you create an Auto Scaling group, you must specify one of the following properties
+                                 in
+                                 your request: <code class="code">LaunchConfigurationName</code>, <code class="code">LaunchTemplate</code>,
+                                 <code class="code">InstanceId</code>, or <code class="code">MixedInstancesPolicy</code>.
                               </p>
                               
                               <div class="aws-note">
                                  <p class="aws-note">Note</p>
-                                 <p>If this resource has a public IP address and is also in a VPC that is defined in the
-                                    same template, you must use the
-                                    <code class="code">DependsOn</code> attribute to declare a dependency on the VPC-gateway attachment. For more information,
-                                    see <a href="aws-attribute-dependson.html">DependsOn Attribute</a>.
+                                 <p>When you update <code class="code">LaunchConfigurationName</code>, existing Amazon EC2 instances
+                                    continue to run with the configuration that they were originally launched with. To
+                                    update
+                                    existing instances, specify an <a href="aws-attribute-updatepolicy.html">UpdatePolicy
+                                       attribute</a> for the Auto Scaling group. 
                                  </p>
                               </div>
                               
-                              <p><em>Required</em>: Conditional. You must specify one of the following:
-                                 <code class="code">InstanceId</code>, <code class="code">LaunchConfigurationName</code>,
-                                 <code class="code">LaunchTemplate</code>, or <code class="code">MixedInstancesPolicy</code>.
+                              <p><em>Required</em>: Conditional
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Minimum</em>: <code class="code">1</code></p>
+                              <p><em>Maximum</em>: <code class="code">255</code></p>
+                              <p><em>Pattern</em>: <code class="code">[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*</code></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                           </dd>
+                           <dt><a id="cfn-as-group-launchtemplate"></a><span class="term"><code class="code">LaunchTemplate</code></span></dt>
+                           <dd>
+                              
+                              <p>The <a href="aws-resource-ec2-launchtemplate.html">LaunchTemplate</a> to use to launch instances.
+                              </p>
+                              
+                              <p>When you create an Auto Scaling group, you must specify one of the following properties
+                                 in
+                                 your request: <code class="code">LaunchConfigurationName</code>, <code class="code">LaunchTemplate</code>,
+                                 <code class="code">InstanceId</code>, or <code class="code">MixedInstancesPolicy</code>.
+                              </p>
                               
                               <div class="aws-note">
-                                 <p class="aws-note">Important</p>
-                                 <p>When you update the <code class="code">LaunchConfigurationName</code>, existing Amazon EC2
-                                    instances continue to run with the configuration that they were originally
-                                    launched with. To update existing instances, specify an update policy attribute
-                                    for this Auto Scaling group. For more information, see <a href="aws-attribute-updatepolicy.html">UpdatePolicy Attribute</a>.
+                                 <p class="aws-note">Note</p>
+                                 <p>When you update <code class="code">LaunchTemplate</code>, existing Amazon EC2 instances continue to
+                                    run with the configuration that they were originally launched with. To update existing
+                                    instances, specify an <a href="aws-attribute-updatepolicy.html">UpdatePolicy
+                                       attribute</a> for the Auto Scaling group.
                                  </p>
                               </div>
                               
-                           </dd>
-                           
-                           
-                           <dt><a id="cfn-as-group-launchtemplate"></a><span class="term"><code class="literal">LaunchTemplate</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>The launch template to use to launch instances.</p>
-                              
-                              <p><em>Required</em>: Conditional. You must specify one of the following:
-                                 <code class="code">InstanceId</code>, <code class="code">LaunchConfigurationName</code>,
-                                 <code class="code">LaunchTemplate</code>, or <code class="code">MixedInstancesPolicy</code>.
+                              <p><em>Required</em>: Conditional
                               </p>
-                              
                               <p><em>Type</em>: <a href="aws-properties-autoscaling-autoscalinggroup-launchtemplatespecification.html">LaunchTemplateSpecification</a></p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
-                              <div class="aws-note">
-                                 <p class="aws-note">Important</p>
-                                 <p>When you update the <code class="code">LaunchTemplate</code>, existing Amazon EC2 instances
-                                    continue to run with the configuration that they were originally launched with.
-                                    To update existing instances, specify an update policy attribute for this Auto Scaling
-                                    group. For more information, see <a href="aws-attribute-updatepolicy.html">UpdatePolicy Attribute</a>.
-                                 </p>
-                              </div>
-                              
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-autoscaling-autoscalinggroup-lifecyclehookspecificationlist"></a><span class="term"><code class="literal">LifecycleHookSpecificationList</code></span></dt>
-                           
+                           <dt><a id="cfn-autoscaling-autoscalinggroup-lifecyclehookspecificationlist"></a><span class="term"><code class="code">LifecycleHookSpecificationList</code></span></dt>
                            <dd>
                               
-                              <p>The lifecycle hooks for the group, which specify actions to perform when
-                                 Amazon EC2 Auto Scaling launches or terminates instances. For more information, see
-                                 <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/lifecycle-hooks.html"> Amazon EC2 Auto Scaling Lifecycle Hooks</a> in the
-                                 <em>Amazon EC2 Auto Scaling User Guide</em>.
+                              <p>The lifecycle hooks for the group, which specify actions to perform when Amazon EC2
+                                 Auto
+                                 Scaling launches or terminates instances.
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: List of <a href="aws-properties-autoscaling-autoscalinggroup-lifecyclehookspecification.html">LifecycleHookSpecification</a></p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-as-group-loadbalancernames"></a><span class="term"><code class="code">LoadBalancerNames</code></span></dt>
-                           
                            <dd>
                               
-                              <p>A list of Classic Load Balancers associated with this Auto Scaling group. To specify
-                                 Application Load Balancers or Network Load Balancers, use <code class="code">TargetGroupARNs</code> instead.
+                              <p>A list of Classic Load Balancers associated with this Auto Scaling group. For Application
+                                 Load Balancers and Network Load Balancers, specify a list of target groups using the
+                                 <code class="code">TargetGroupARNs</code> property instead. 
+                              </p>
+                              
+                              <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html">Using a Load Balancer with an
+                                    Auto Scaling Group</a> in the <em>Amazon EC2 Auto Scaling User Guide</em>. 
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: List of String values
+                              <p><em>Type</em>: List of String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-as-group-maxsize"></a><span class="term"><code class="code">MaxSize</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The maximum size of the Auto Scaling group.</p>
+                              <p>The maximum number of Amazon EC2 instances in the Auto Scaling group.</p>
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-as-group-metricscollection"></a><span class="term"><code class="literal">MetricsCollection</code></span></dt>
-                           
+                           <dt><a id="cfn-as-group-metricscollection"></a><span class="term"><code class="code">MetricsCollection</code></span></dt>
                            <dd>
                               
-                              <p>Enables the monitoring of group metrics of an Auto Scaling group.</p>
+                              <p>Enables the monitoring of group metrics of an Auto Scaling group. By default, these
+                                 metrics are disabled. 
+                              </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: A list of <a href="aws-properties-as-metricscollection.html">Amazon EC2 Auto Scaling AutoScalingGroup
-                                    MetricsCollection</a></p>
-                              
+                              <p><em>Type</em>: <a href="aws-properties-as-metricscollection.html">List</a> of <a href="aws-properties-as-metricscollection.html">MetricsCollection</a></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-as-group-minsize"></a><span class="term"><code class="literal">MinSize</code></span></dt>
-                           
+                           <dt><a id="cfn-as-group-minsize"></a><span class="term"><code class="code">MinSize</code></span></dt>
                            <dd>
                               
-                              <p>The minimum size of the Auto Scaling group.</p>
+                              <p>The minimum number of Amazon EC2 instances in the Auto Scaling group.</p>
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-as-group-mixedinstancespolicy"></a><span class="term"><code class="literal">MixedInstancesPolicy</code></span></dt>
-                           
+                           <dt><a id="cfn-as-group-mixedinstancespolicy"></a><span class="term"><code class="code">MixedInstancesPolicy</code></span></dt>
                            <dd>
                               
-                              <p>The mixed instances policy to use to launch instances.</p>
+                              <p>An embedded object that specifies a mixed instances policy.</p>
                               
-                              <p><em>Required</em>: Conditional. You must specify one of the following:
-                                 <code class="code">InstanceId</code>, <code class="code">LaunchConfigurationName</code>,
-                                 <code class="code">LaunchTemplate</code>, or <code class="code">MixedInstancesPolicy</code>.
+                              <p>The policy includes properties that not only define the distribution of On-Demand
+                                 Instances and Spot Instances, the maximum price to pay for Spot instances, and how
+                                 the Auto
+                                 Scaling group allocates instance types to fulfill On-Demand and Spot capacity, but
+                                 also the
+                                 properties that specify the instance configuration information&#x2014;the launch template
+                                 and
+                                 instance types.
                               </p>
                               
+                              <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-purchase-options.html">Auto Scaling Groups with Multiple
+                                    Instance Types and Purchase Options</a> in the <em>Amazon EC2 Auto Scaling User
+                                    Guide</em>.
+                              </p>
+                              
+                              <p>When you create an Auto Scaling group, you must specify one of the following properties
+                                 in
+                                 your request: <code class="code">LaunchConfigurationName</code>, <code class="code">LaunchTemplate</code>,
+                                 <code class="code">InstanceId</code>, or <code class="code">MixedInstancesPolicy</code>.
+                              </p>
+                              
+                              <p><em>Required</em>: Conditional
+                              </p>
                               <p><em>Type</em>: <a href="aws-properties-autoscaling-autoscalinggroup-mixedinstancespolicy.html">MixedInstancesPolicy</a></p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-as-group-notificationconfigurations"></a><span class="term"><code class="literal">NotificationConfigurations</code></span></dt>
-                           
+                           <dt><a id="cfn-as-group-notificationconfigurations"></a><span class="term"><code class="code">NotificationConfigurations</code></span></dt>
                            <dd>
                               
-                              <p>An embedded property that configures an Auto Scaling group to send notifications when
-                                 specified events take place.
+                              <p>Configures an Auto Scaling group to send notifications when specified events take
+                                 place.
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: List of <a href="aws-properties-as-notificationconfigurations.html">Amazon EC2 Auto Scaling AutoScalingGroup 
-                                    NotificationConfiguration</a></p>
-                              
+                              <p><em>Type</em>: List of <a href="aws-properties-as-notificationconfigurations.html">NotificationConfiguration</a></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-as-group-placementgroup"></a><span class="term"><code class="literal">PlacementGroup</code></span></dt>
-                           
+                           <dt><a id="cfn-as-group-placementgroup"></a><span class="term"><code class="code">PlacementGroup</code></span></dt>
                            <dd>
                               
-                              <p>The name of an existing cluster placement group into which you want to launch
-                                 your instances. A placement group is a logical grouping of instances within a
-                                 single Availability Zone. You cannot specify multiple Availability Zones and a
-                                 placement group.
+                              <p>The name of an existing cluster placement group into which you want to launch your
+                                 instances. A placement group is a logical grouping of instances within a single Availability
+                                 Zone. You cannot specify multiple Availability Zones and a placement group. 
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Minimum</em>: <code class="code">1</code></p>
+                              <p><em>Maximum</em>: <code class="code">255</code></p>
+                              <p><em>Pattern</em>: <code class="code">[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*</code></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-autoscaling-autoscalinggroup-servicelinkedrolearn"></a><span class="term"><code class="literal">ServiceLinkedRoleARN</code></span></dt>
-                           
+                           <dt><a id="cfn-autoscaling-autoscalinggroup-servicelinkedrolearn"></a><span class="term"><code class="code">ServiceLinkedRoleARN</code></span></dt>
                            <dd>
                               
-                              <p>The Amazon Resource Name (ARN) of the service-linked role that the Auto Scaling
-                                 group uses to call other AWS services on your behalf. By default, Auto Scaling
-                                 uses a service-linked role named AWSServiceRoleForAutoScaling, which it creates if
-                                 it does not exist.
+                              <p>The Amazon Resource Name (ARN) of the service-linked role that the Auto Scaling group
+                                 uses
+                                 to call other AWS services on your behalf. By default, Amazon EC2 Auto Scaling uses
+                                 a
+                                 service-linked role named AWSServiceRoleForAutoScaling, which it creates if it does
+                                 not exist.
+                                 
                               </p>
-                              
-                              <p>Length Constraints: Minimum length of 1. Maximum length of 1600.</p>
-                              
-                              <p>Pattern: [\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*</p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Minimum</em>: <code class="code">1</code></p>
+                              <p><em>Maximum</em>: <code class="code">1600</code></p>
+                              <p><em>Pattern</em>: <code class="code">[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*</code></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-as-group-tags"></a><span class="term"><code class="code">Tags</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The tags to attach to this resource. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-tagging.html">Tagging Auto Scaling Groups and
-                                    Instances</a> in the <em>Amazon EC2 Auto Scaling User Guide</em>.
-                              </p>
+                              <p>The tags for the group.</p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: List of <a href="aws-properties-as-tags.html">Amazon EC2 Auto Scaling AutoScalingGroup TagProperty</a></p>
-                              
+                              <p><em>Type</em>: List of <a href="aws-properties-as-tags.html">TagProperty</a></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-as-group-targetgrouparns"></a><span class="term"><code class="code">TargetGroupARNs</code></span></dt>
-                           
                            <dd>
                               
-                              <p>A list of Amazon Resource Names (ARN) of target groups to associate with the
-                                 Auto Scaling group.
+                              <p>A list of Amazon Resource Names (ARN) of target groups to associate with the Auto
+                                 Scaling
+                                 group. Instances are registered as targets in a target group, and traffic is routed
+                                 to the
+                                 target group. 
+                              </p>
+                              
+                              <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html">Using a Load Balancer with an
+                                    Auto Scaling Group</a> in the <em>Amazon EC2 Auto Scaling User Guide</em>. 
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: List of String values
+                              <p><em>Type</em>: List of String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-as-group-termpolicy"></a><span class="term"><code class="code">TerminationPolicies</code></span></dt>
-                           
                            <dd>
                               
-                              <p>A policy or a list of policies that are used to select the instances to
-                                 terminate. The policies are executed in the order that you list them.
+                              <p>A policy or a list of policies that are used to select the instances to terminate.
+                                 The
+                                 policies are executed in the order that you list them. The termination policies supported
+                                 by
+                                 Amazon EC2 Auto Scaling: <code class="code">OldestInstance</code>, <code class="code">OldestLaunchConfiguration</code>,
+                                 <code class="code">NewestInstance</code>, <code class="code">ClosestToNextInstanceHour</code>, <code class="code">Default</code>,
+                                 <code class="code">OldestLaunchTemplate</code>, and <code class="code">AllocationStrategy</code>. 
                               </p>
                               
-                              <p> For more information on configuring a termination policy for your Auto Scaling group,
-                                 see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html">Controlling Which Auto Scaling
-                                    Instances Terminate During Scale In</a> in the
-                                 <em>Amazon EC2 Auto Scaling User Guide</em>. 
+                              <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html">Controlling Which Auto Scaling
+                                    Instances Terminate During Scale In</a> in the <em>Amazon EC2 Auto Scaling User
+                                    Guide</em>. 
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: List of String values
+                              <p><em>Type</em>: List of String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-as-group-vpczoneidentifier"></a><span class="term"><code class="literal">VPCZoneIdentifier</code></span></dt>
-                           
+                           <dt><a id="cfn-as-group-vpczoneidentifier"></a><span class="term"><code class="code">VPCZoneIdentifier</code></span></dt>
                            <dd>
                               
-                              <p>A list of subnet identifiers of Amazon Virtual Private Cloud (Amazon VPCs).</p>
-                              
-                              <p>If you specify the <code class="code">AvailabilityZones</code> property, the subnets that
-                                 you specify for this property must reside in those Availability Zones.
+                              <p>A list of subnet IDs for a virtual private cloud (VPC). You must specify one of the
+                                 following properties: <code class="code">VPCZoneIdentifier</code> or <code class="code">AvailabilityZones</code>. If you
+                                 specify <code class="code">VPCZoneIdentifier</code> with <code class="code">AvailabilityZones</code>, the subnets that
+                                 you specify for this property must reside in those Availability Zones. 
                               </p>
                               
-                              <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html">Launching
-                                    Auto Scaling Instances in a VPC</a> in the
-                                 <em>Amazon EC2 Auto Scaling User Guide</em>.
+                              <p>If your account supports EC2-Classic and VPC, this property is required to launch
+                                 instances into a VPC. 
                               </p>
-                              
-                              <p><em>Required</em>: Conditional. If you don&apos;t specify the <code class="code">AvailabilityZones</code>
-                                 property, you must specify this property.
-                              </p>
-                              
-                              <p><em>Type</em>: List of String values
-                              </p>
-                              
-                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt">Some interruptions</a></p>
                               
                               <div class="aws-note">
                                  <p class="aws-note">Note</p>
-                                 <p>When you update VPCZoneIdentifier, the instances are replaced, but not the
-                                    Auto Scaling group.
+                                 <p>When you update <code class="code">VPCZoneIdentifier</code>, this retains the same Auto Scaling group
+                                    and replaces old instances with new ones, according to the specified subnets. You
+                                    can
+                                    specify how AWS CloudFormation handles these updates by using an <a href="aws-attribute-updatepolicy.html">UpdatePolicy
+                                       attribute</a>.
                                  </p>
                               </div>
                               
+                              <p><em>Required</em>: Conditional
+                              </p>
+                              <p><em>Type</em>: List of String
+                              </p>
+                              <p><em>Minimum</em>: <code class="code">1</code></p>
+                              <p><em>Maximum</em>: <code class="code">2047</code></p>
+                              <p><em>Pattern</em>: <code class="code">[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*</code></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
                         </dl>
-                     </div><h2 id="aws-properties-as-group-ref">Return Value</h2><p>When the logical ID of this resource is provided to the <code class="code">Ref</code> intrinsic
-                        function, <code class="code">Ref</code> returns the resource name.
-                     </p><p>In the following sample, the <code class="code">Ref</code> function returns the name of the
-                        <code class="code">MyASGroup</code> Auto Scaling group, such as
+                     </div><h2 id="aws-properties-as-group-return-values">Return Values</h2><h3 id="aws-properties-as-group-return-values-ref">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code> intrinsic
+                        function, <code class="code">Ref</code> returns the resource name. For example:
                         <code class="code">mystack-myasgroup-NT5EUXTNTXXD</code>.
-                     </p><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">{ &quot;Ref&quot;: &quot;MyASGroup&quot; }</code></pre><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                     </p><h2 id="w2ab1c21c10c42c13c15">Examples</h2><p>To view more examples, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-autoscaling.html">Auto Scaling Template Snippets</a>.
-                     </p><h3 id="w2ab1c21c10c42c13c15b5">Auto Scaling Group with an Elastic Load Balancing Load Balancer, Launch Configuration,
-                        and Metric Collection
-                     </h3><div id="JSON" name="JSON" class="section langfilter">
+                     </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
                         
-                        <h4 id="aws-resource-autoscaling-autoscalinggroup-example1.json">JSON</h4>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">&quot;WebServerGroup&quot; : {
-   &quot;Type&quot; : &quot;AWS::AutoScaling::AutoScalingGroup&quot;,
-   &quot;Properties&quot; : {
-      &quot;AvailabilityZones&quot; : { &quot;Fn::GetAZs&quot; : &quot;&quot; },
-      &quot;LaunchConfigurationName&quot; : { &quot;Ref&quot; : &quot;LaunchConfig&quot; },
-      &quot;MinSize&quot; : &quot;2&quot;,
-      &quot;MaxSize&quot; : &quot;2&quot;,
-      &quot;LoadBalancerNames&quot; : [ { &quot;Ref&quot; : &quot;ElasticLoadBalancer&quot; } ],
-      &quot;MetricsCollection&quot;: [
-         {
-            &quot;Granularity&quot;: &quot;1Minute&quot;,
-            &quot;Metrics&quot;: [
-               &quot;GroupMinSize&quot;,
-               &quot;GroupMaxSize&quot;
-            ]
-         }
+                     </p><h2 id="aws-properties-as-group--examples">Examples</h2><p>The following examples create or make changes to an Auto Scaling group. To view more
+                        examples, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-autoscaling.html">Auto Scaling Template
+                           Snippets</a>.
+                     </p><h3 id="aws-properties-as-group--examples--Auto_Scaling_Group_with_Load_Balancer_and_Multiple_Properties">Auto Scaling Group with Load Balancer and Multiple Properties</h3><p>The following example attaches an Elastic Load Balancing load balancer to an Auto
+                        Scaling group named <code class="code">myASGroup</code>. It enables two group metrics using the
+                        <code class="code">MetricsCollection</code> property and creates tags using the <code class="code">Tags</code>
+                        property. The first tag, <code class="code">Environment</code>=<code class="code">Production</code>, is assigned to
+                        the Auto Scaling group and to any EC2 instances launched as part of the Auto Scaling
+                        group. The second tag, <code class="code">Purpose</code>=<code class="code">WebServerGroup</code>, is assigned only
+                        to the Auto Scaling group itself. 
+                     </p><p>It also specifies the launch configuration that the Auto Scaling group uses to launch
+                        EC2 instances. The <code class="code">AvailabilityZones</code> property specifies the Availability
+                        Zones where the Auto Scaling group&apos;s instances will be created. The <a href="intrinsic-function-reference-getavailabilityzones.html">Fn::GetAZs</a> function call { &quot;Fn::GetAZs&quot; : &quot;&quot; } specifies all Availability Zones
+                        for the region in which the stack is created. Amazon EC2 Auto Scaling can scale the
+                        number
+                        of instances in the group at a minimum of 1 instance and a maximum of 4 based on the
+                        values for <code class="code">MinSize</code> and <code class="code">MaxSize</code>.
+                     </p><h4 id="aws-properties-as-group--examples--Auto_Scaling_Group_with_Load_Balancer_and_Multiple_Properties--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;myASGroup&quot;:{
+    &quot;Type&quot;:&quot;AWS::AutoScaling::AutoScalingGroup&quot;,
+    &quot;Properties&quot;:{
+      &quot;AvailabilityZones&quot;:{
+        &quot;Fn::GetAZs&quot;:&quot;&quot;
+      },
+      &quot;LaunchConfigurationName&quot;:{
+        &quot;Ref&quot;:&quot;myLaunchConfig&quot;
+      },
+      &quot;MinSize&quot;:&quot;1&quot;,
+      &quot;MaxSize&quot;:&quot;4&quot;,
+      &quot;LoadBalancerNames&quot;:[
+        {
+          &quot;Ref&quot;:&quot;myLoadBalancer&quot;
+        }
+      ],
+      &quot;MetricsCollection&quot;:[
+        {
+          &quot;Granularity&quot;:&quot;1Minute&quot;,
+          &quot;Metrics&quot;:[
+            &quot;GroupMinSize&quot;,
+            &quot;GroupMaxSize&quot;
+          ]
+        }
+      ],
+      &quot;Tags&quot;:[
+        {
+          &quot;Key&quot;:&quot;Environment&quot;,
+          &quot;Value&quot;:&quot;Production&quot;,
+          &quot;PropagateAtLaunch&quot;:&quot;true&quot;
+        },
+        {
+          &quot;Key&quot;:&quot;Purpose&quot;,
+          &quot;Value&quot;:&quot;WebServerGroup&quot;,
+          &quot;PropagateAtLaunch&quot;:&quot;false&quot;
+        }
       ]
-   }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        
-                        <h4 id="aws-resource-autoscaling-autoscalinggroup-example1.yaml">YAML</h4>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">WebServerGroup: 
+    }
+  }
+}</code></pre><h4 id="aws-properties-as-group--examples--Auto_Scaling_Group_with_Load_Balancer_and_Multiple_Properties--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">myASGroup: 
   Type: AWS::AutoScaling::AutoScalingGroup
   Properties: 
     AvailabilityZones: 
       Fn::GetAZs: &quot;&quot;
     LaunchConfigurationName: 
-      Ref: &quot;LaunchConfig&quot;
-    MinSize: &quot;2&quot;
-    MaxSize: &quot;2&quot;
+      Ref: &quot;myLaunchConfig&quot;
+    MinSize: &quot;1&quot;
+    MaxSize: &quot;4&quot;
     LoadBalancerNames: 
-      - Ref: &quot;ElasticLoadBalancer&quot;
+      - Ref: &quot;myLoadBalancer&quot;
     MetricsCollection: 
       - 
         Granularity: &quot;1Minute&quot;
         Metrics: 
           - &quot;GroupMinSize&quot;
-          - &quot;GroupMaxSize&quot;</code></pre>
-                        </div><h3 id="w2ab1c21c10c42c13c15b7">Batch Update Instances in an Auto Scaling Group</h3><p>The following example shows how to configure updates by including an <a href="aws-attribute-updatepolicy.html">UpdatePolicy Attribute</a>
-                        attribute. The attribute contains an <code class="code">AutoScalingRollingUpdate</code> embedded
-                        object with three attributes that specify the update policy settings.
-                     </p><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">
-&quot;ASG1&quot; : {
-   &quot;UpdatePolicy&quot; : {
-      &quot;AutoScalingRollingUpdate&quot; : {
-         &quot;MinInstancesInService&quot; : &quot;1&quot;,
-         &quot;MaxBatchSize&quot; : &quot;1&quot;,
-         &quot;PauseTime&quot; : &quot;PT12M5S&quot;
+          - &quot;GroupMaxSize&quot;
+    Tags:
+      - Key: Environment
+        Value: Production
+        PropagateAtLaunch: &quot;true&quot;
+      - Key: Purpose
+        Value: WebServerGroup
+        PropagateAtLaunch: &quot;false&quot;</code></pre><h3 id="aws-properties-as-group--examples--Rolling_Updates_with_Batch_Update_Policy">Rolling Updates with Batch Update Policy</h3><p>The following example specifies an <a href="aws-attribute-updatepolicy.html">UpdatePolicy
+                           attribute</a> for an Auto Scaling group and configures it to use the
+                        <code class="code">AutoScalingRollingUpdate</code> policy with attributes that define the update
+                        policy settings. 
+                     </p><p>The sample update policy instructs CloudFormation to perform a rolling update. The
+                        rolling update makes changes to the Auto Scaling group in small batches (for this
+                        example,
+                        instance by instance) based on the <code class="code">MaxBatchSize</code> and a pause time between
+                        batches of updates based on the <code class="code">PauseTime</code>. The
+                        <code class="code">MinInstancesInService</code> specifies the minimum number of instances that must
+                        be in service within the Auto Scaling group while CloudFormation updates old instances.
+                        
+                     </p><p>While the stack update is in progress, the following Auto Scaling processes are
+                        suspended: <code class="code">HealthCheck</code>, <code class="code">ReplaceUnhealthy</code>,
+                        <code class="code">AZRebalance</code>, <code class="code">AlarmNotification</code>, and
+                        <code class="code">ScheduledActions</code>. Note: Do not suspend the <code class="code">Launch</code>,
+                        <code class="code">Terminate</code>, or <code class="code">AddToLoadBalancer</code> (if the Auto Scaling group is
+                        being used with Elastic Load Balancing) process types because it can prevent the rolling
+                        update from functioning properly. 
+                     </p><h4 id="aws-properties-as-group--examples--Rolling_Updates_with_Batch_Update_Policy--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;myASGroup&quot;:{
+    &quot;UpdatePolicy&quot;:{
+      &quot;AutoScalingRollingUpdate&quot;:{
+        &quot;MinInstancesInService&quot;:&quot;1&quot;,
+        &quot;MaxBatchSize&quot;:&quot;1&quot;,
+        &quot;PauseTime&quot;:&quot;PT12M5S&quot;,
+        &quot;SuspendProcesses&quot;:[
+          &quot;HealthCheck&quot;,
+          &quot;ReplaceUnhealthy&quot;,
+          &quot;AZRebalance&quot;,
+          &quot;AlarmNotification&quot;,
+          &quot;ScheduledActions&quot;
+        ]
       }
-   },
-   &quot;Type&quot; : &quot;AWS::AutoScaling::AutoScalingGroup&quot;,
-   &quot;Properties&quot; : {
-      &quot;AvailabilityZones&quot; : { &quot;Fn::GetAZs&quot; : { &quot;Ref&quot; : &quot;AWS::Region&quot; } },
-      &quot;LaunchConfigurationName&quot; : { &quot;Ref&quot; : &quot;ASLC&quot; },
-      &quot;MaxSize&quot; : &quot;3&quot;,
-      &quot;MinSize&quot; : &quot;1&quot;
-   }
-}</code></pre><h3 id="w2ab1c21c10c42c13c15b9">Auto Scaling Group Wait on Signals From New Instances</h3><p>In the following example, the Auto Scaling group waits for new Amazon EC2 instances
-                        to signal the
-                        group before Amazon EC2 Auto Scaling proceeds to update the next batch of instances.
-                        In the <a href="aws-attribute-updatepolicy.html">UpdatePolicy Attribute</a>
-                        attribute, the <code class="code">WaitOnResourceSignals</code> flag is set to <code class="code">true</code>. You
-                        can use the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-signal.html">cfn-signal</a> helper script on
-                        each instance to signal the Auto Scaling group.
-                     </p><div id="JSON" name="JSON" class="section langfilter">
-                        
-                        <h4 id="aws-resource-autoscaling-autoscalinggroup-example2.json">JSON</h4>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">&quot;ASG1&quot; : {
-   &quot;UpdatePolicy&quot; : {
-      &quot;AutoScalingRollingUpdate&quot; : {
-         &quot;MinInstancesInService&quot; : &quot;1&quot;,
-         &quot;MaxBatchSize&quot; : &quot;1&quot;,
-         &quot;PauseTime&quot; : &quot;PT12M5S&quot;,
-         &quot;WaitOnResourceSignals&quot; : &quot;true&quot;
-      }
-   },
-   &quot;Type&quot; : &quot;AWS::AutoScaling::AutoScalingGroup&quot;,
-   &quot;Properties&quot; : {
-      &quot;AvailabilityZones&quot; : { &quot;Fn::GetAZs&quot; : { &quot;Ref&quot; : &quot;AWS::Region&quot; } },
-      &quot;LaunchConfigurationName&quot; : { &quot;Ref&quot; : &quot;ASLC&quot; },
-      &quot;MaxSize&quot; : &quot;3&quot;,
-      &quot;MinSize&quot; : &quot;1&quot;
-   }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        
-                        <h4 id="aws-resource-autoscaling-autoscalinggroup-example2.yaml">YAML</h4>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">ASG1: 
+    },
+    &quot;Type&quot;:&quot;AWS::AutoScaling::AutoScalingGroup&quot;,
+    &quot;Properties&quot;:{
+      &quot;AvailabilityZones&quot;:{
+        &quot;Fn::GetAZs&quot;:{
+          &quot;Ref&quot;:&quot;AWS::Region&quot;
+        }
+      },
+      &quot;LaunchConfigurationName&quot;:{
+        &quot;Ref&quot;:&quot;myLaunchConfig&quot;
+      },
+      &quot;MaxSize&quot;:&quot;3&quot;,
+      &quot;MinSize&quot;:&quot;1&quot;
+    }
+  }
+}</code></pre><h4 id="aws-properties-as-group--examples--Rolling_Updates_with_Batch_Update_Policy--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">myASGroup: 
   UpdatePolicy: 
     AutoScalingRollingUpdate: 
       MinInstancesInService: &quot;1&quot;
       MaxBatchSize: &quot;1&quot;
       PauseTime: &quot;PT12M5S&quot;
-      WaitOnResourceSignals: &quot;true&quot;
+      SuspendProcesses:
+        - HealthCheck
+        - ReplaceUnhealthy
+        - AZRebalance
+        - AlarmNotification
+        - ScheduledActions
   Type: AWS::AutoScaling::AutoScalingGroup
   Properties: 
     AvailabilityZones: 
       Fn::GetAZs: 
         Ref: &quot;AWS::Region&quot;
     LaunchConfigurationName: 
-      Ref: &quot;ASLC&quot;
+      Ref: &quot;myLaunchConfig&quot;
     MaxSize: &quot;3&quot;
-    MinSize: &quot;1&quot;</code></pre>
-                        </div><h2 id="w2ab1c21c10c42c13c17">See Also</h2><div class="itemizedlist">
+    MinSize: &quot;1&quot;</code></pre><h3 id="aws-properties-as-group--examples--Batch_Update_Policy_with_Wait_Condition">Batch Update Policy with Wait Condition</h3><p>The following example demonstrates a batch update policy that instructs CloudFormation
+                        to wait for new instances to signal the Auto Scaling group before the group proceeds
+                        to
+                        update the next batch of instances. In the <a href="aws-attribute-updatepolicy.html">UpdatePolicy
+                           attribute</a>, the <code class="code">WaitOnResourceSignals</code> attribute is set to
+                        <code class="code">true</code>. AWS CloudFormation must receive a signal from each new instance
+                        within the specified <code class="code">PauseTime</code> before continuing the update. To signal the
+                        Auto Scaling group, a <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-signal.html">cfn-signal</a> helper
+                        script (not shown) is run on each instance. 
+                     </p><h4 id="aws-properties-as-group--examples--Batch_Update_Policy_with_Wait_Condition--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;myASGroup&quot;:{
+    &quot;UpdatePolicy&quot;:{
+      &quot;AutoScalingRollingUpdate&quot;:{
+        &quot;MinInstancesInService&quot;:&quot;1&quot;,
+        &quot;MaxBatchSize&quot;:&quot;1&quot;,
+        &quot;PauseTime&quot;:&quot;PT15M&quot;,
+        &quot;WaitOnResourceSignals&quot;:&quot;true&quot;,
+        &quot;SuspendProcesses&quot;:[
+          &quot;HealthCheck&quot;,
+          &quot;ReplaceUnhealthy&quot;,
+          &quot;AZRebalance&quot;,
+          &quot;AlarmNotification&quot;,
+          &quot;ScheduledActions&quot;
+        ]
+      }
+    },
+    &quot;Type&quot;:&quot;AWS::AutoScaling::AutoScalingGroup&quot;,
+    &quot;Properties&quot;:{
+      &quot;AvailabilityZones&quot;:{
+        &quot;Fn::GetAZs&quot;:{
+          &quot;Ref&quot;:&quot;AWS::Region&quot;
+        }
+      },
+      &quot;LaunchConfigurationName&quot;:{
+        &quot;Ref&quot;:&quot;myLaunchConfig&quot;
+      },
+      &quot;MaxSize&quot;:&quot;3&quot;,
+      &quot;MinSize&quot;:&quot;1&quot;
+    }
+  }
+}</code></pre><h4 id="aws-properties-as-group--examples--Batch_Update_Policy_with_Wait_Condition--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">myASGroup: 
+  UpdatePolicy: 
+    AutoScalingRollingUpdate: 
+      MinInstancesInService: &quot;1&quot;
+      MaxBatchSize: &quot;1&quot;
+      PauseTime: &quot;PT15M&quot;
+      WaitOnResourceSignals: &quot;true&quot;
+      SuspendProcesses:
+        - HealthCheck
+        - ReplaceUnhealthy
+        - AZRebalance
+        - AlarmNotification
+        - ScheduledActions
+  Type: AWS::AutoScaling::AutoScalingGroup
+  Properties: 
+    AvailabilityZones: 
+      Fn::GetAZs: 
+        Ref: &quot;AWS::Region&quot;
+    LaunchConfigurationName: 
+      Ref: &quot;myLaunchConfig&quot;
+    MaxSize: &quot;3&quot;
+    MinSize: &quot;1&quot;</code></pre><h2 id="aws-properties-as-group--seealso">See Also</h2><div class="itemizedlist">
                         
                         
                         
@@ -751,20 +769,26 @@ Properties:
                         <ul class="itemizedlist" type="disc">
                            <li class="listitem">
                               
-                              <p><a href="aws-attribute-updatepolicy.html">UpdatePolicy Attribute</a></p>
+                              <p><a href="aws-attribute-updatepolicy.html">UpdatePolicy
+                                    Attribute</a></p>
                               
                            </li>
                            <li class="listitem">
                               
-                              <p><a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_UpdateAutoScalingGroup.html">UpdateAutoScalingGroup</a> in the <em>Amazon EC2 Auto Scaling API Reference</em></p>
+                              <p><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks.html">AWS
+                                    CloudFormation Stacks Updates</a></p>
                               
                            </li>
                            <li class="listitem">
                               
-                              <p><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks.html">AWS CloudFormation Stacks Updates</a></p>
+                              <p><a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-suspend-resume-processes.html">Suspending and
+                                    Resuming Scaling Processes</a> in the <em>Amazon EC2 Auto Scaling User
+                                    Guide</em></p>
                               
                            </li>
                         </ul>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
                      </div></div>
 </body>
 </html>

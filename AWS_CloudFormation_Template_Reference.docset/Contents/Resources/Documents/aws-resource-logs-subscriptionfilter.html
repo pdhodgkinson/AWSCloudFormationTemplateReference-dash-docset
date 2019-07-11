@@ -8,137 +8,128 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-resource-logs-subscriptionfilter">AWS::Logs::SubscriptionFilter</h1><p>The <code class="code">AWS::Logs::SubscriptionFilter</code> resource creates an Amazon CloudWatch Logs (CloudWatch Logs)
-                        subscription filter that defines which log events are delivered to your Kinesis stream
-                        or
-                        AWS Lambda (Lambda) function and where to send them.
-                     </p><div class="highlights" id="inline-topiclist">
-                        <p><strong>Topics</strong></p>
-                        <ul>
-                           <li><a href="#aws-resource-logs-subscriptionfilter-syntax">Syntax</a></li>
-                           <li><a href="#w2ab1c21c10c69c55b9">Properties</a></li>
-                           <li><a href="#w2ab1c21c10c69c55c11">Return Values</a></li>
-                           <li><a href="#w2ab1c21c10c69c55c13">Example</a></li>
-                        </ul>
-                     </div><h2 id="aws-resource-logs-subscriptionfilter-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-resource-logs-subscriptionfilter-syntax.json">JSON</h3>
+    <h1 class="topictitle" id="aws-resource-logs-subscriptionfilter">AWS::Logs::SubscriptionFilter</h1><p>The <code class="code">AWS::Logs::SubscriptionFilter</code> resource specifies a subscription filter and associates it with the specified log
+                        group. Subscription filters allow you to subscribe to a real-time stream of log events
+                        and have them delivered to a specific
+                        destination. Currently, the supported destinations are:
+                     </p><div class="itemizedlist">
                         
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
+                        
+                        
+                        
+                        
+                        <ul class="itemizedlist" type="disc">
+                           <li class="listitem">
+                              
+                              <p>An Amazon Kinesis data stream belonging to the same account as the subscription filter,
+                                 for same-account delivery.
+                              </p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p>A logical destination that belongs to a different account, for cross-account delivery.</p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p>An Amazon Kinesis Firehose delivery stream that belongs to the same account as the
+                                 subscription filter, for same-account delivery.
+                              </p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p>An AWS Lambda function that belongs to the same account as the subscription filter,
+                                 for same-account delivery.
+                              </p>
+                              
+                           </li>
+                        </ul>
+                     </div><p>There can only be one subscription filter associated with a log group.</p><h2 id="aws-resource-logs-subscriptionfilter-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-resource-logs-subscriptionfilter-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
   &quot;Type&quot; : &quot;AWS::Logs::SubscriptionFilter&quot;,
   &quot;Properties&quot; : {
-    &quot;<a href="aws-resource-logs-subscriptionfilter.html#cfn-cwl-subscriptionfilter-destinationarn">DestinationArn</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-logs-subscriptionfilter.html#cfn-cwl-subscriptionfilter-filterpattern">FilterPattern</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-logs-subscriptionfilter.html#cfn-cwl-subscriptionfilter-loggroupname">LogGroupName</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-logs-subscriptionfilter.html#cfn-cwl-subscriptionfilter-rolearn">RoleArn</a>&quot; : <em class="replaceable"><code>String</code></em>
-  }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-resource-logs-subscriptionfilter-syntax.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">Type: AWS::Logs::SubscriptionFilter
+      &quot;<a href="#cfn-cwl-subscriptionfilter-destinationarn">DestinationArn</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-cwl-subscriptionfilter-filterpattern">FilterPattern</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-cwl-subscriptionfilter-loggroupname">LogGroupName</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-cwl-subscriptionfilter-rolearn">RoleArn</a>&quot; : <em class="replaceable"><code>String</code></em>
+    }
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-logs-subscriptionfilter-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Type: AWS::Logs::SubscriptionFilter
 Properties: 
-  <a href="aws-resource-logs-subscriptionfilter.html#cfn-cwl-subscriptionfilter-destinationarn">DestinationArn</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-logs-subscriptionfilter.html#cfn-cwl-subscriptionfilter-filterpattern">FilterPattern</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-logs-subscriptionfilter.html#cfn-cwl-subscriptionfilter-loggroupname">LogGroupName</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-logs-subscriptionfilter.html#cfn-cwl-subscriptionfilter-rolearn">RoleArn</a>: <em class="replaceable"><code>String</code></em>
-</code></pre>
-                        </div><h2 id="w2ab1c21c10c69c55b9">Properties</h2><div class="variablelist">
-                        
-                        
-                        
-                        
-                        
+  <a href="#cfn-cwl-subscriptionfilter-destinationarn">DestinationArn</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-cwl-subscriptionfilter-filterpattern">FilterPattern</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-cwl-subscriptionfilter-loggroupname">LogGroupName</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-cwl-subscriptionfilter-rolearn">RoleArn</a>: <em class="replaceable"><code>String</code></em>
+</code></pre></div><h2 id="aws-resource-logs-subscriptionfilter-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
                            <dt><a id="cfn-cwl-subscriptionfilter-destinationarn"></a><span class="term"><code class="code">DestinationArn</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The Amazon Resource Name (ARN) of the Kinesis stream, Kinesis Data Firehose delivery
-                                 stream, or Lambda function that you
-                                 want to use as the subscription feed destination.
-                              </p>
+                              <p>The Amazon Resource Name (ARN) of the destination.</p>
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Minimum</em>: <code class="code">1</code></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-cwl-subscriptionfilter-filterpattern"></a><span class="term"><code class="code">FilterPattern</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The filtering expressions that restrict what gets delivered to the destination
-                                 AWS resource. For more information about the filter pattern syntax, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/FilterAndPatternSyntax.html">Filter and Pattern
-                                    Syntax</a> in the <em>Amazon CloudWatch User Guide</em>.
+                              <p>The filtering expressions that restrict what gets delivered to the destination AWS
+                                 resource. 
+                                 For more information about the filter pattern syntax, see 
+                                 <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html">Filter and Pattern Syntax</a>. 
                               </p>
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-cwl-subscriptionfilter-loggroupname"></a><span class="term"><code class="code">LogGroupName</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The log group to associate with the subscription filter. All log events that
-                                 are uploaded to this log group are filtered and delivered to the specified AWS
-                                 resource if the filter pattern matches the log events.
+                              <p>The log group to associate with the subscription filter. All log events that are
+                                 uploaded to this log group are filtered and delivered to the specified AWS resource
+                                 if the filter pattern matches the log events. 
                               </p>
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Minimum</em>: <code class="code">1</code></p>
+                              <p><em>Maximum</em>: <code class="code">512</code></p>
+                              <p><em>Pattern</em>: <code class="code">[\.\-_/#A-Za-z0-9]+</code></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-cwl-subscriptionfilter-rolearn"></a><span class="term"><code class="code">RoleArn</code></span></dt>
-                           
                            <dd>
                               
-                              <p>An IAM role that grants CloudWatch Logs permission to put data into the specified
-                                 Kinesis stream. For Lambda and CloudWatch Logs destinations, don&apos;t specify this property
-                                 because CloudWatch Logs gets the necessary permissions from the destination resource.
+                              <p>The ARN of an IAM role that grants CloudWatch Logs permissions to deliver ingested
+                                 log events to the destination stream.
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Minimum</em>: <code class="code">1</code></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
                         </dl>
-                     </div><h2 id="w2ab1c21c10c69c55c11">Return Values</h2><h3 id="w2ab1c21c10c69c55c11b2">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code> intrinsic
-                        function, <code class="code">Ref</code> returns the resource name.
+                     </div><h2 id="aws-resource-logs-subscriptionfilter-return-values">Return Values</h2><h3 id="aws-resource-logs-subscriptionfilter-return-values-ref">Ref</h3><p>
+                        When you pass the logical ID of this resource to the intrinsic <code class="code">Ref</code> function, <code class="code">Ref</code> returns the resource name.
                      </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                     </p><h2 id="w2ab1c21c10c69c55c13">Example</h2><p>The following example sends log events that are associated with the <code class="code">Root</code>
-                        user to an Kinesis stream.
-                     </p><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-resource-logs-subscriptionfilter-example.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">&quot;SubscriptionFilter&quot; : {
+                     </p><h2 id="aws-resource-logs-subscriptionfilter--examples">Examples</h2><h3 id="aws-resource-logs-subscriptionfilter--examples--Create_a_Subscription_Filter">Create a Subscription Filter</h3><p>The following example sends log events that are associated with the <code class="code">Root</code>
+                        user to a Kinesis data stream.
+                     </p><h4 id="aws-resource-logs-subscriptionfilter--examples--Create_a_Subscription_Filter--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">&quot;SubscriptionFilter&quot; : {
   &quot;Type&quot; : &quot;AWS::Logs::SubscriptionFilter&quot;,
   &quot;Properties&quot; : {
     &quot;RoleArn&quot; : { &quot;Fn::GetAtt&quot; : [ &quot;CloudWatchIAMRole&quot;, &quot;Arn&quot; ] },
@@ -146,11 +137,7 @@ Properties:
     &quot;FilterPattern&quot; : &quot;{$.userIdentity.type = Root}&quot;,
     &quot;DestinationArn&quot; : { &quot;Fn::GetAtt&quot; : [ &quot;KinesisStream&quot;, &quot;Arn&quot; ] }
   }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-resource-logs-subscriptionfilter-example.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">SubscriptionFilter: 
+}</code></pre><h4 id="aws-resource-logs-subscriptionfilter--examples--Create_a_Subscription_Filter--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">SubscriptionFilter: 
   Type: AWS::Logs::SubscriptionFilter
   Properties: 
     RoleArn: 
@@ -163,7 +150,8 @@ Properties:
     DestinationArn: 
       Fn::GetAtt: 
         - &quot;KinesisStream&quot;
-        - &quot;Arn&quot;</code></pre>
-                        </div></div>
+        - &quot;Arn&quot;</code></pre><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
+                     </div></div>
 </body>
 </html>

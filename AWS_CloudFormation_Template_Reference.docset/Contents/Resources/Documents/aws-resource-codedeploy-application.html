@@ -8,125 +8,106 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-resource-codedeploy-application">AWS::CodeDeploy::Application</h1><p>The <code class="code">AWS::CodeDeploy::Application</code> resource creates an CodeDeploy application. In CodeDeploy, an application is a name
-                        that functions as a container 
-                        to ensure that the correct combination of revision, deployment configuration, and
-                        deployment group are referenced during a deployment. 
-                        You can use the <code class="code">AWS::CodeDeploy::DeploymentGroup</code> resource to associate the application with an CodeDeploy deployment group.
-                        For more information, see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-steps.html">CodeDeploy Deployments</a> in the <em>AWS CodeDeploy User Guide</em>.
-                     </p><div class="highlights" id="inline-topiclist">
-                        <p><strong>Topics</strong></p>
-                        <ul>
-                           <li><a href="#aws-resource-codedeploy-application-syntax">Syntax</a></li>
-                           <li><a href="#aws-resource-codedeploy-application-properties">Properties</a></li>
-                           <li><a href="#aws-resource-codedeploy-application-returnvalues">Return Value</a></li>
-                           <li><a href="#aws-resource-codedeploy-application-examples">Examples</a></li>
-                           <li><a href="#w2ab1c21c10c78c13c15">Related Resources</a></li>
-                        </ul>
-                     </div><h2 id="aws-resource-codedeploy-application-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-resource-codedeploy-application-syntax.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
+    <h1 class="topictitle" id="aws-resource-codedeploy-application">AWS::CodeDeploy::Application</h1><p>The <code class="code">AWS::CodeDeploy::Application</code> resource creates an AWS CodeDeploy
+                        application. In CodeDeploy, an application is a name that functions as a container
+                        to ensure
+                        that the correct combination of revision, deployment configuration, and deployment
+                        group are
+                        referenced during a deployment. You can use the <code class="code">AWS::CodeDeploy::DeploymentGroup</code>
+                        resource to associate the application with a CodeDeploy deployment group. For more
+                        information, see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-steps.html">CodeDeploy Deployments</a> in
+                        the <em>AWS CodeDeploy User Guide</em>.
+                     </p><h2 id="aws-resource-codedeploy-application-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-resource-codedeploy-application-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
   &quot;Type&quot; : &quot;AWS::CodeDeploy::Application&quot;,
   &quot;Properties&quot; : {
-    &quot;<a href="aws-resource-codedeploy-application.html#cfn-codedeploy-application-applicationname">ApplicationName</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-codedeploy-application.html#cfn-codedeploy-application-computeplatform">ComputePlatform</a>&quot; : <em class="replaceable"><code>String</code></em>
-  }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-resource-codedeploy-application-syntax.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">Type: AWS::CodeDeploy::Application
-Properties:
-  <a href="aws-resource-codedeploy-application.html#cfn-codedeploy-application-applicationname">ApplicationName</a>: <em class="replaceable"><code>String</code></em>	    
-  <a href="aws-resource-codedeploy-application.html#cfn-codedeploy-application-computeplatform">ComputePlatform</a>: <em class="replaceable"><code>String</code></em>
-</code></pre>
-                        </div><h2 id="aws-resource-codedeploy-application-properties">Properties</h2><div class="variablelist">
-                          
-                        
-                        
+      &quot;<a href="#cfn-codedeploy-application-applicationname">ApplicationName</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-codedeploy-application-computeplatform">ComputePlatform</a>&quot; : <em class="replaceable"><code>String</code></em>
+    }
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-codedeploy-application-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Type: AWS::CodeDeploy::Application
+Properties: 
+  <a href="#cfn-codedeploy-application-applicationname">ApplicationName</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-codedeploy-application-computeplatform">ComputePlatform</a>: <em class="replaceable"><code>String</code></em>
+</code></pre></div><h2 id="aws-resource-codedeploy-application-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
                            <dt><a id="cfn-codedeploy-application-applicationname"></a><span class="term"><code class="code">ApplicationName</code></span></dt>
-                           
                            <dd>
                               
-                              <p>A name for the application. If you don&apos;t specify a name, AWS CloudFormation generates
-                                 a unique
-                                 physical ID and uses that ID for the application name. For more information, see <a href="aws-properties-name.html">Name Type</a>.
+                              <p>
+                                 A name for the application. If you don&apos;t specify a name, AWS CloudFormation generates
+                                 a unique physical ID and uses that ID for the 
+                                 application name. For more information, see <a href="aws-properties-name.html">Name Type</a>.
+                                 
                               </p>
+                              
+                              <div class="aws-note">
+                                 <p class="aws-note">Note</p>
+                                 <p>
+                                    Updates to <code class="code">ApplicationName</code> are not supported.
+                                    
+                                 </p>
+                              </div>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
-                              <p><em>Update requires</em>: Updates are not supported.
-                              </p>
-                              
+                              <p><em>Minimum</em>: <code class="code">1</code></p>
+                              <p><em>Maximum</em>: <code class="code">100</code></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-codedeploy-application-computeplatform"></a><span class="term"><code class="code">ComputePlatform</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The compute platform that CodeDeploy deploys the application to. For valid values
-                                 see <a href="https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_CreateApplication.html#CodeDeploy-CreateApplication-request-computePlatform">CreateApplication</a> in the <em>CodeDeploy API Reference</em>.
-                              </p>
+                              <p>The compute platform that CodeDeploy deploys the application to.</p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
-                              <p><em>Update requires</em>: 
-                                 <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
+                              <p><em>Allowed Values</em>: <code class="code">ECS | Lambda | Server</code></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
                            </dd>
-                           
                         </dl>
-                     </div><h2 id="aws-resource-codedeploy-application-returnvalues">Return Value</h2><h3 id="w2ab1c21c10c78c13c11b2">Ref</h3><p>When you pass the logical ID of an <code class="code">AWS::CodeDeploy::Application</code> resource to
-                        the intrinsic <code class="code">Ref</code> function, the function returns the application name,
-                        such as <code class="code">myapplication-a123d0d1</code>.
+                     </div><h2 id="aws-resource-codedeploy-application-return-values">Return Values</h2><h3 id="aws-resource-codedeploy-application-return-values-ref">Ref</h3><p>When you pass the logical ID of an <code class="code">AWS::CodeDeploy::Application</code> resource to the intrinsic <code class="code">Ref</code> function, the function returns the application name, such as <code class="code">myapplication-a123d0d1</code>.
                      </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                     </p><h2 id="aws-resource-codedeploy-application-examples">Examples</h2><p>The following example creates an CodeDeploy application with a <code class="code">Lambda</code> compute platform.
-                     </p><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-resource-codedeploy-application-example.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">&quot;CodeDeployApplication&quot;: {
+                     </p><h2 id="aws-resource-codedeploy-application--examples">Examples</h2><h3 id="aws-resource-codedeploy-application--examples--Specify_an_application_with_a_Lambda_compute_platform">Specify an application with a Lambda compute platform</h3><p>The following example specifies a CodeDeploy application with a Lambda compute
+                        platform.
+                     </p><h4 id="aws-resource-codedeploy-application--examples--Specify_an_application_with_a_Lambda_compute_platform--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">&quot;CodeDeployApplication&quot;: {
   &quot;Type&quot;: &quot;AWS::CodeDeploy::Application&quot;,
   &quot;Properties&quot;: {
     &quot;ComputePlatform&quot;: &quot;Lambda&quot;
   }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-resource-codedeploy-application-example.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">CodeDeployApplication:
+}</code></pre><h4 id="aws-resource-codedeploy-application--examples--Specify_an_application_with_a_Lambda_compute_platform--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">CodeDeployApplication:
   Type: AWS::CodeDeploy::Application
   Properties:
-    ComputePlatform: Lambda</code></pre>
-                        </div><p>The following example creates an CodeDeploy application with a <code class="code">Server</code> compute platform.
-                     </p><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-resource-codedeploy-application-example-server.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">&quot;CodeDeployApplication&quot;: {
+    ComputePlatform: Lambda</code></pre><h3 id="aws-resource-codedeploy-application--examples--Specify_an_application_with_a_Server_compute_platform">Specify an application with a Server compute platform</h3><p>The following example creates a CodeDeploy application with a <code class="code">Server</code>
+                        compute platform.
+                     </p><h4 id="aws-resource-codedeploy-application--examples--Specify_an_application_with_a_Server_compute_platform--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">&quot;CodeDeployApplication&quot;: {
   &quot;Type&quot;: &quot;AWS::CodeDeploy::Application&quot;,
   &quot;Properties&quot;: {
     &quot;ComputePlatform&quot;: &quot;Server&quot;
   }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-resource-codedeploy-application-example-server.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">CodeDeployApplication:
+}</code></pre><h4 id="aws-resource-codedeploy-application--examples--Specify_an_application_with_a_Server_compute_platform--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">CodeDeployApplication:
   Type: AWS::CodeDeploy::Application
   Properties:
-    ComputePlatform: Server</code></pre>
-                        </div><h2 id="w2ab1c21c10c78c13c15">Related Resources</h2><p>For configuring your deployment and specifying your application revisions, see <a href="aws-resource-codedeploy-deploymentconfig.html">AWS::CodeDeploy::DeploymentConfig</a> and <a href="aws-resource-codedeploy-deploymentgroup.html">AWS::CodeDeploy::DeploymentGroup</a>.
-                     </p></div>
+    ComputePlatform: Server</code></pre><h2 id="aws-resource-codedeploy-application--seealso">See Also</h2><div class="itemizedlist">
+                        
+                        
+                        <ul class="itemizedlist" type="disc">
+                           <li class="listitem">
+                              
+                              <p>For configuring your deployment and specifying your application revisions, see <a href="aws-resource-codedeploy-deploymentconfig.html">
+                                    AWS::CodeDeploy::DeploymentConfig</a> and <a href="aws-resource-codedeploy-deploymentgroup.html">
+                                    AWS::CodeDeploy::DeploymentGroup</a>.
+                              </p>
+                              
+                           </li>
+                        </ul>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
+                     </div></div>
 </body>
 </html>

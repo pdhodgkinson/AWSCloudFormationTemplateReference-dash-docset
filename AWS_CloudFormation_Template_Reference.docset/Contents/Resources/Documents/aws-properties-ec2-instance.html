@@ -8,840 +8,635 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-properties-ec2-instance">AWS::EC2::Instance</h1><p>The <code class="code">AWS::EC2::Instance</code> resource creates an EC2  instance.
-                     </p><p>If an Elastic IP address is attached to your instance, AWS CloudFormation reattaches
-                        the Elastic IP address after it updates
-                        the instance. For more information about updating stacks, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks.html">AWS CloudFormation Stacks Updates</a>.
-                     </p><h2 id="aws-resource-ec2-instance-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-properties-ec2-instance-syntax.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">
-{
-   &quot;Type&quot; : &quot;AWS::EC2::Instance&quot;,
-   &quot;Properties&quot; : {
-      &quot;<a href="aws-properties-ec2-instance.html#cfn-ec2-instance-affinity">Affinity</a>&quot; : <em class="replaceable"><code>String</code></em>,
-      &quot;<a href="aws-properties-ec2-instance.html#cfn-ec2-instance-availabilityzone">AvailabilityZone</a>&quot; : <em class="replaceable"><code>String</code></em>,
-      &quot;<a href="aws-properties-ec2-instance.html#cfn-ec2-instance-blockdevicemappings">BlockDeviceMappings</a>&quot; : [ <em class="replaceable"><code>EC2 Block Device Mapping</code></em>, ... ],
-      &quot;<a href="aws-properties-ec2-instance.html#cfn-ec2-instance-creditspecification">CreditSpecification</a>&quot; : <em class="replaceable"><code>CreditSpecification</code></em>,     
-      &quot;<a href="aws-properties-ec2-instance.html#cfn-ec2-instance-disableapitermination">DisableApiTermination</a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
-      &quot;<a href="aws-properties-ec2-instance.html#cfn-ec2-instance-ebsoptimized">EbsOptimized</a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
-      &quot;<a href="aws-properties-ec2-instance.html#cfn-ec2-instance-elasticgpuspecifications">ElasticGpuSpecifications</a>&quot; : [ <em class="replaceable"><code>ElasticGpuSpecification, ...</code></em> ],
-      &quot;<a href="aws-properties-ec2-instance.html#cfn-ec2-instance-elasticInferenceaccelerators">ElasticInferenceAccelerators</a>&quot; : [ <em class="replaceable"><code><a href="aws-properties-ec2-instance-elasticInferenceaccelerator.html">ElasticInferenceAccelerator</a></code></em>, ... ],
-      &quot;<a href="aws-properties-ec2-instance.html#cfn-ec2-instance-hostid">HostId</a>&quot; : <em class="replaceable"><code>String</code></em>,
-      &quot;<a href="aws-properties-ec2-instance.html#cfn-ec2-instance-iaminstanceprofile">IamInstanceProfile</a>&quot; : <em class="replaceable"><code>String</code></em>,
-      &quot;<a href="aws-properties-ec2-instance.html#cfn-ec2-instance-imageid">ImageId</a>&quot; : <em class="replaceable"><code>String</code></em>,
-      &quot;<a href="aws-properties-ec2-instance.html#cfn-ec2-instance-instanceinitiatedshutdownbehavior">InstanceInitiatedShutdownBehavior</a>&quot; : <em class="replaceable"><code>String</code></em>,
-      &quot;<a href="aws-properties-ec2-instance.html#cfn-ec2-instance-instancetype">InstanceType</a>&quot; : <em class="replaceable"><code>String</code></em>,
-      &quot;<a href="aws-properties-ec2-instance.html#cfn-ec2-instance-ipv6addresscount">Ipv6AddressCount</a>&quot; : <em class="replaceable"><code>Integer</code></em>,
-      &quot;<a href="aws-properties-ec2-instance.html#cfn-ec2-instance-ipv6addresses">Ipv6Addresses</a>&quot; : [ <em class="replaceable"><code>IPv6 Address Type, ...</code></em> ],
-      &quot;<a href="aws-properties-ec2-instance.html#cfn-ec2-instance-kernelid">KernelId</a>&quot; : <em class="replaceable"><code>String</code></em>,
-      &quot;<a href="aws-properties-ec2-instance.html#cfn-ec2-instance-keyname">KeyName</a>&quot; : <em class="replaceable"><code>String</code></em>,
-      &quot;<a href="aws-properties-ec2-instance.html#cfn-ec2-instance-launchtemplate">LaunchTemplate</a>&quot; : <em class="replaceable"><code><a href="aws-properties-ec2-instance-launchtemplatespecification.html">LaunchTemplateSpecification</a></code></em>,
-      &quot;<a href="aws-properties-ec2-instance.html#cfn-ec2-instance-licensespecifications">LicenseSpecifications</a>&quot; : [ <em class="replaceable"><code><a href="aws-properties-ec2-instance-licensespecification.html">LicenseSpecification</a></code></em>, ... ],
-      &quot;<a href="aws-properties-ec2-instance.html#cfn-ec2-instance-monitoring">Monitoring</a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
-      &quot;<a href="aws-properties-ec2-instance.html#cfn-ec2-instance-networkinterfaces">NetworkInterfaces</a>&quot; : [ <em class="replaceable"><code>EC2 Network Interface</code></em>, ... ],
-      &quot;<a href="aws-properties-ec2-instance.html#cfn-ec2-instance-placementgroupname">PlacementGroupName</a>&quot; : <em class="replaceable"><code>String</code></em>,
-      &quot;<a href="aws-properties-ec2-instance.html#cfn-ec2-instance-privateipaddress">PrivateIpAddress</a>&quot; : <em class="replaceable"><code>String</code></em>,
-      &quot;<a href="aws-properties-ec2-instance.html#cfn-ec2-instance-ramdiskid">RamdiskId</a>&quot; : <em class="replaceable"><code>String</code></em>,
-      &quot;<a href="aws-properties-ec2-instance.html#cfn-ec2-instance-securitygroupids">SecurityGroupIds</a>&quot; : [ <em class="replaceable"><code>String, ...</code></em> ],
-      &quot;<a href="aws-properties-ec2-instance.html#cfn-ec2-instance-securitygroups">SecurityGroups</a>&quot; : [ <em class="replaceable"><code>String, ...</code></em> ],
-      &quot;<a href="aws-properties-ec2-instance.html#cfn-ec2-instance-sourcedestcheck">SourceDestCheck</a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
-      &quot;<a href="aws-properties-ec2-instance.html#cfn-ec2-instance-ssmassociations">SsmAssociations</a>&quot; : [ <em class="replaceable"><code>SSMAssociation, ...</code></em> ],
-      &quot;<a href="aws-properties-ec2-instance.html#cfn-ec2-instance-subnetid">SubnetId</a>&quot; : <em class="replaceable"><code>String</code></em>,
-      &quot;<a href="aws-properties-ec2-instance.html#cfn-ec2-instance-tags">Tags</a>&quot; : [ <em class="replaceable"><code>Resource Tag, ...</code></em> ],
-      &quot;<a href="aws-properties-ec2-instance.html#cfn-ec2-instance-tenancy">Tenancy</a>&quot; : <em class="replaceable"><code>String</code></em>,
-      &quot;<a href="aws-properties-ec2-instance.html#cfn-ec2-instance-userdata">UserData</a>&quot; : <em class="replaceable"><code>String</code></em>,
-      &quot;<a href="aws-properties-ec2-instance.html#cfn-ec2-instance-volumes">Volumes</a>&quot; : [ <em class="replaceable"><code><a href="aws-properties-ec2-mount-point.html">EC2 MountPoint</a></code></em>, ... ],
-      &quot;<a href="aws-properties-ec2-instance.html#cfn-ec2-instance-additionalinfo">AdditionalInfo</a>&quot; : <em class="replaceable"><code>String</code></em>
-   }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-properties-ec2-instance-syntax.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">Type: AWS::EC2::Instance
+    <h1 class="topictitle" id="aws-properties-ec2-instance">AWS::EC2::Instance</h1><p>Specifies an EC2 instance.</p><p>If an Elastic IP address is attached to your instance, AWS CloudFormation 
+                        		reattaches the Elastic IP address after it updates the instance. For more 
+                        		information about updating stacks, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks.html">
+                           			AWS CloudFormation Stacks Updates</a>.
+                     </p><h2 id="aws-properties-ec2-instance-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-properties-ec2-instance-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;Type&quot; : &quot;AWS::EC2::Instance&quot;,
+  &quot;Properties&quot; : {
+      &quot;<a href="#cfn-ec2-instance-additionalinfo">AdditionalInfo</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-ec2-instance-affinity">Affinity</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-ec2-instance-availabilityzone">AvailabilityZone</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-ec2-instance-blockdevicemappings">BlockDeviceMappings</a>&quot; : <em class="replaceable"><code>[ <a href="aws-properties-ec2-blockdev-mapping.html">BlockDeviceMapping</a>, ... ]</code></em>,
+      &quot;<a href="#cfn-ec2-instance-creditspecification">CreditSpecification</a>&quot; : <em class="replaceable"><code><a href="aws-properties-ec2-instance-creditspecification.html">CreditSpecification</a></code></em>,
+      &quot;<a href="#cfn-ec2-instance-disableapitermination">DisableApiTermination</a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
+      &quot;<a href="#cfn-ec2-instance-ebsoptimized">EbsOptimized</a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
+      &quot;<a href="#cfn-ec2-instance-elasticgpuspecifications">ElasticGpuSpecifications</a>&quot; : <em class="replaceable"><code>[ <a href="aws-properties-ec2-instance-elasticgpuspecification.html">ElasticGpuSpecification</a>, ... ]</code></em>,
+      &quot;<a href="#cfn-ec2-instance-elasticinferenceaccelerators">ElasticInferenceAccelerators</a>&quot; : <em class="replaceable"><code>[ <a href="aws-properties-ec2-instance-elasticinferenceaccelerator.html">ElasticInferenceAccelerator</a>, ... ]</code></em>,
+      &quot;<a href="#cfn-ec2-instance-hostid">HostId</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-ec2-instance-iaminstanceprofile">IamInstanceProfile</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-ec2-instance-imageid">ImageId</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-ec2-instance-instanceinitiatedshutdownbehavior">InstanceInitiatedShutdownBehavior</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-ec2-instance-instancetype">InstanceType</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-ec2-instance-ipv6addresscount">Ipv6AddressCount</a>&quot; : <em class="replaceable"><code>Integer</code></em>,
+      &quot;<a href="#cfn-ec2-instance-ipv6addresses">Ipv6Addresses</a>&quot; : <em class="replaceable"><code>[ <a href="aws-properties-ec2-instance-instanceipv6address.html">InstanceIpv6Address</a>, ... ]</code></em>,
+      &quot;<a href="#cfn-ec2-instance-kernelid">KernelId</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-ec2-instance-keyname">KeyName</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-ec2-instance-launchtemplate">LaunchTemplate</a>&quot; : <em class="replaceable"><code><a href="aws-properties-ec2-instance-launchtemplatespecification.html">LaunchTemplateSpecification</a></code></em>,
+      &quot;<a href="#cfn-ec2-instance-licensespecifications">LicenseSpecifications</a>&quot; : <em class="replaceable"><code>[ <a href="aws-properties-ec2-instance-licensespecification.html">LicenseSpecification</a>, ... ]</code></em>,
+      &quot;<a href="#cfn-ec2-instance-monitoring">Monitoring</a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
+      &quot;<a href="#cfn-ec2-instance-networkinterfaces">NetworkInterfaces</a>&quot; : <em class="replaceable"><code>[ <a href="aws-properties-ec2-network-iface-embedded.html">NetworkInterface</a>, ... ]</code></em>,
+      &quot;<a href="#cfn-ec2-instance-placementgroupname">PlacementGroupName</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-ec2-instance-privateipaddress">PrivateIpAddress</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-ec2-instance-ramdiskid">RamdiskId</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-ec2-instance-securitygroupids">SecurityGroupIds</a>&quot; : <em class="replaceable"><code>[ String, ... ]</code></em>,
+      &quot;<a href="#cfn-ec2-instance-securitygroups">SecurityGroups</a>&quot; : <em class="replaceable"><code>[ String, ... ]</code></em>,
+      &quot;<a href="#cfn-ec2-instance-sourcedestcheck">SourceDestCheck</a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
+      &quot;<a href="#cfn-ec2-instance-ssmassociations">SsmAssociations</a>&quot; : <em class="replaceable"><code>[ <a href="aws-properties-ec2-instance-ssmassociations.html">SsmAssociation</a>, ... ]</code></em>,
+      &quot;<a href="#cfn-ec2-instance-subnetid">SubnetId</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-ec2-instance-tags">Tags</a>&quot; : <em class="replaceable"><code>[ <a href="aws-properties-resource-tags.html">Tag</a>, ... ]</code></em>,
+      &quot;<a href="#cfn-ec2-instance-tenancy">Tenancy</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-ec2-instance-userdata">UserData</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-ec2-instance-volumes">Volumes</a>&quot; : <em class="replaceable"><code>[ <a href="aws-properties-ec2-mount-point.html">Volume</a>, ... ]</code></em>
+    }
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-properties-ec2-instance-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Type: AWS::EC2::Instance
 Properties: 
-  <a href="aws-properties-ec2-instance.html#cfn-ec2-instance-affinity">Affinity</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-properties-ec2-instance.html#cfn-ec2-instance-availabilityzone">AvailabilityZone</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-properties-ec2-instance.html#cfn-ec2-instance-blockdevicemappings">BlockDeviceMappings</a>: 
-    - <em class="replaceable"><code>EC2 Block Device Mapping</code></em>
-  <a href="aws-properties-ec2-instance.html#cfn-ec2-instance-creditspecification">CreditSpecification</a>: <em class="replaceable"><code>CreditSpecification</code></em>
-  <a href="aws-properties-ec2-instance.html#cfn-ec2-instance-disableapitermination">DisableApiTermination</a>: <em class="replaceable"><code>Boolean</code></em>
-  <a href="aws-properties-ec2-instance.html#cfn-ec2-instance-ebsoptimized">EbsOptimized</a>: <em class="replaceable"><code>Boolean</code></em>
-  <a href="aws-properties-ec2-instance.html#cfn-ec2-instance-elasticgpuspecifications">ElasticGpuSpecifications</a>: [ <em class="replaceable"><code>ElasticGpuSpecification, ...</code></em> ]
-  <a href="aws-properties-ec2-instance.html#cfn-ec2-instance-elasticInferenceaccelerators">ElasticInferenceAccelerators</a>: 
-    - <em class="replaceable"><code><a href="aws-properties-ec2-instance-elasticInferenceaccelerator.html">ElasticInferenceAccelerator</a></code></em>
-  <a href="aws-properties-ec2-instance.html#cfn-ec2-instance-hostid">HostId</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-properties-ec2-instance.html#cfn-ec2-instance-iaminstanceprofile">IamInstanceProfile</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-properties-ec2-instance.html#cfn-ec2-instance-imageid">ImageId</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-properties-ec2-instance.html#cfn-ec2-instance-instanceinitiatedshutdownbehavior">InstanceInitiatedShutdownBehavior</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-properties-ec2-instance.html#cfn-ec2-instance-instancetype">InstanceType</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-properties-ec2-instance.html#cfn-ec2-instance-ipv6addresscount">Ipv6AddressCount</a>: <em class="replaceable"><code>Integer</code></em>
-  <a href="aws-properties-ec2-instance.html#cfn-ec2-instance-ipv6addresses">Ipv6Addresses</a>:
-    - <em class="replaceable"><code>IPv6 Address Type</code></em>
-  <a href="aws-properties-ec2-instance.html#cfn-ec2-instance-kernelid">KernelId</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-properties-ec2-instance.html#cfn-ec2-instance-keyname">KeyName</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-properties-ec2-instance.html#cfn-ec2-instance-launchtemplate">LaunchTemplate</a>: <em class="replaceable"><code><a href="aws-properties-ec2-instance-launchtemplatespecification.html">LaunchTemplateSpecification</a></code></em>
-  <a href="aws-properties-ec2-instance.html#cfn-ec2-instance-licensespecifications">LicenseSpecifications</a>: 
-    - <em class="replaceable"><code><a href="aws-properties-ec2-instance-licensespecification.html">LicenseSpecification</a></code></em>
-  <a href="aws-properties-ec2-instance.html#cfn-ec2-instance-monitoring">Monitoring</a>: <em class="replaceable"><code>Boolean</code></em>
-  <a href="aws-properties-ec2-instance.html#cfn-ec2-instance-networkinterfaces">NetworkInterfaces</a>: 
-    - <em class="replaceable"><code>EC2 Network Interface</code></em>
-  <a href="aws-properties-ec2-instance.html#cfn-ec2-instance-placementgroupname">PlacementGroupName</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-properties-ec2-instance.html#cfn-ec2-instance-privateipaddress">PrivateIpAddress</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-properties-ec2-instance.html#cfn-ec2-instance-ramdiskid">RamdiskId</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-properties-ec2-instance.html#cfn-ec2-instance-securitygroupids">SecurityGroupIds</a>: 
-    - <em class="replaceable"><code>String</code></em>
-  <a href="aws-properties-ec2-instance.html#cfn-ec2-instance-securitygroups">SecurityGroups</a>: 
-    - <em class="replaceable"><code>String</code></em>
-  <a href="aws-properties-ec2-instance.html#cfn-ec2-instance-sourcedestcheck">SourceDestCheck</a>: <em class="replaceable"><code>Boolean</code></em>
-  <a href="aws-properties-ec2-instance.html#cfn-ec2-instance-ssmassociations">SsmAssociations</a>: 
-    - <em class="replaceable"><code>SSMAssociation</code></em>
-  <a href="aws-properties-ec2-instance.html#cfn-ec2-instance-subnetid">SubnetId</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-properties-ec2-instance.html#cfn-ec2-instance-tags">Tags</a>: 
-    - <em class="replaceable"><code>Resource Tag</code></em>
-  <a href="aws-properties-ec2-instance.html#cfn-ec2-instance-tenancy">Tenancy</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-properties-ec2-instance.html#cfn-ec2-instance-userdata">UserData</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-properties-ec2-instance.html#cfn-ec2-instance-volumes">Volumes</a>: 
-    - <em class="replaceable"><code>EC2 MountPoint</code></em>
-  <a href="aws-properties-ec2-instance.html#cfn-ec2-instance-additionalinfo">AdditionalInfo</a>: <em class="replaceable"><code>String</code></em></code></pre>
-                        </div><h2 id="aws-properties-ec2-instance-prop">Properties</h2><div class="variablelist">
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
+  <a href="#cfn-ec2-instance-additionalinfo">AdditionalInfo</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-ec2-instance-affinity">Affinity</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-ec2-instance-availabilityzone">AvailabilityZone</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-ec2-instance-blockdevicemappings">BlockDeviceMappings</a>: <em class="replaceable"><code>
+    - <a href="aws-properties-ec2-blockdev-mapping.html">BlockDeviceMapping</a></code></em>
+  <a href="#cfn-ec2-instance-creditspecification">CreditSpecification</a>: <em class="replaceable"><code>
+    <a href="aws-properties-ec2-instance-creditspecification.html">CreditSpecification</a></code></em>
+  <a href="#cfn-ec2-instance-disableapitermination">DisableApiTermination</a>: <em class="replaceable"><code>Boolean</code></em>
+  <a href="#cfn-ec2-instance-ebsoptimized">EbsOptimized</a>: <em class="replaceable"><code>Boolean</code></em>
+  <a href="#cfn-ec2-instance-elasticgpuspecifications">ElasticGpuSpecifications</a>: <em class="replaceable"><code>
+    - <a href="aws-properties-ec2-instance-elasticgpuspecification.html">ElasticGpuSpecification</a></code></em>
+  <a href="#cfn-ec2-instance-elasticinferenceaccelerators">ElasticInferenceAccelerators</a>: <em class="replaceable"><code>
+    - <a href="aws-properties-ec2-instance-elasticinferenceaccelerator.html">ElasticInferenceAccelerator</a></code></em>
+  <a href="#cfn-ec2-instance-hostid">HostId</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-ec2-instance-iaminstanceprofile">IamInstanceProfile</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-ec2-instance-imageid">ImageId</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-ec2-instance-instanceinitiatedshutdownbehavior">InstanceInitiatedShutdownBehavior</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-ec2-instance-instancetype">InstanceType</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-ec2-instance-ipv6addresscount">Ipv6AddressCount</a>: <em class="replaceable"><code>Integer</code></em>
+  <a href="#cfn-ec2-instance-ipv6addresses">Ipv6Addresses</a>: <em class="replaceable"><code>
+    - <a href="aws-properties-ec2-instance-instanceipv6address.html">InstanceIpv6Address</a></code></em>
+  <a href="#cfn-ec2-instance-kernelid">KernelId</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-ec2-instance-keyname">KeyName</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-ec2-instance-launchtemplate">LaunchTemplate</a>: <em class="replaceable"><code>
+    <a href="aws-properties-ec2-instance-launchtemplatespecification.html">LaunchTemplateSpecification</a></code></em>
+  <a href="#cfn-ec2-instance-licensespecifications">LicenseSpecifications</a>: <em class="replaceable"><code>
+    - <a href="aws-properties-ec2-instance-licensespecification.html">LicenseSpecification</a></code></em>
+  <a href="#cfn-ec2-instance-monitoring">Monitoring</a>: <em class="replaceable"><code>Boolean</code></em>
+  <a href="#cfn-ec2-instance-networkinterfaces">NetworkInterfaces</a>: <em class="replaceable"><code>
+    - <a href="aws-properties-ec2-network-iface-embedded.html">NetworkInterface</a></code></em>
+  <a href="#cfn-ec2-instance-placementgroupname">PlacementGroupName</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-ec2-instance-privateipaddress">PrivateIpAddress</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-ec2-instance-ramdiskid">RamdiskId</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-ec2-instance-securitygroupids">SecurityGroupIds</a>: <em class="replaceable"><code>
+    - String</code></em>
+  <a href="#cfn-ec2-instance-securitygroups">SecurityGroups</a>: <em class="replaceable"><code>
+    - String</code></em>
+  <a href="#cfn-ec2-instance-sourcedestcheck">SourceDestCheck</a>: <em class="replaceable"><code>Boolean</code></em>
+  <a href="#cfn-ec2-instance-ssmassociations">SsmAssociations</a>: <em class="replaceable"><code>
+    - <a href="aws-properties-ec2-instance-ssmassociations.html">SsmAssociation</a></code></em>
+  <a href="#cfn-ec2-instance-subnetid">SubnetId</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-ec2-instance-tags">Tags</a>: <em class="replaceable"><code>
+    - <a href="aws-properties-resource-tags.html">Tag</a></code></em>
+  <a href="#cfn-ec2-instance-tenancy">Tenancy</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-ec2-instance-userdata">UserData</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-ec2-instance-volumes">Volumes</a>: <em class="replaceable"><code>
+    - <a href="aws-properties-ec2-mount-point.html">Volume</a></code></em>
+</code></pre></div><h2 id="aws-properties-ec2-instance-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
+                           <dt><a id="cfn-ec2-instance-additionalinfo"></a><span class="term"><code class="code">AdditionalInfo</code></span></dt>
+                           <dd>
+                              
+                              <p>Reserved.</p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              <p><em>Type</em>: String
+                              </p>
+                           </dd>
                            <dt><a id="cfn-ec2-instance-affinity"></a><span class="term"><code class="code">Affinity</code></span></dt>
-                           
                            <dd>
-                              
-                              <p>Indicates whether Amazon Elastic Compute Cloud (Amazon EC2) always associates the
-                                 instance with a <a href="aws-properties-ec2-instance.html#cfn-ec2-instance-hostid">dedicated host</a>. If you want Amazon EC2 to always restart the instance (if it was stopped) onto the
-                                 same host on which it was launched, specify <code class="code">host</code>. If you want Amazon EC2 to restart the instance on any available host, but to try
-                                 to launch the instance onto the last host it ran on (on a best-effort basis), specify
-                                 <code class="code">default</code>.
+                              	  
+                              <p>Indicates whether the instance is associated with a dedicated host. If you want the
+                                 instance 
+                                 	  	to always restart on the same host on which it was launched, specify <code class="code">host</code>. If you 
+                                 		want the instance to restart on any available host, but try to launch onto the last
+                                 host it 
+                                 		ran on (on a best-effort basis), specify <code class="code">default</code>.
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
-                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-ec2-instance-availabilityzone"></a><span class="term"><code class="code">AvailabilityZone</code></span></dt>
-                           
                            <dd>
                               
-                              <p>Specifies the name of the Availability Zone in which the instance is
-                                 located.
+                              <p>The Availability Zone of the instance.</p>
+                              
+                              <p>If not specified, an Availability Zone will be automatically chosen for you based
+                                 on
+                                 the load balancing criteria for the Region.
                               </p>
                               
-                              <p>For more information about AWS regions and Availability Zones, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html">Regions and Availability Zones</a> in the <em>Amazon EC2 User
-                                    Guide</em>.
+                              <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Required</em>: No. If not specified, an Availability Zone will be automatically
-                                 chosen for you based on the load balancing criteria for the region.
-                              </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-ec2-instance-blockdevicemappings"></a><span class="term"><code class="code">BlockDeviceMappings</code></span></dt>
-                           
                            <dd>
                               
-                              <p>Defines a set of Amazon Elastic Block Store block device mappings, ephemeral instance
-                                 store
-                                 block device mappings, or both. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/DeveloperGuide/AmazonEBS.html">Amazon Elastic Block Store</a> or <a href="https://docs.aws.amazon.com/AWSEC2/latest/DeveloperGuide/InstanceStorage.html">Amazon EC2 Instance Store</a> in the
-                                 <em>Amazon EC2 User Guide for Linux Instances</em>.
+                              <p>The block device mapping entries that defines the block devices to attach to the instance
+                                 at launch.
+                              </p>
+                              
+                              <p>By default, the block devices specified in the block device mapping for the AMI are
+                                 used. You can
+                                 override the AMI block device mapping using the instance block device mapping. For
+                                 the root volume,
+                                 you can only override the volume size, volume type, and <code class="code">DeleteOnTermination</code> setting.
+                                 After the instance is running, you can only modify the <code class="code">DeleteOnTermination</code> settings
+                                 of the attached EBS volumes.
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: A list of <a href="aws-properties-ec2-blockdev-mapping.html">Amazon EC2 BlockDeviceMapping</a>.
-                              </p>
-                              
-                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a>. If you change only the <code class="code">DeleteOnTermination</code>
-                                 property for one or more block devices, update requires <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>.
-                              </p>
-                              
+                              <p><em>Type</em>: List of <a href="aws-properties-ec2-blockdev-mapping.html">BlockDeviceMapping</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-ec2-instance-creditspecification"></a><span class="term"><code class="code">CreditSpecification</code></span></dt>
-                           
                            <dd>
                               
-                              <p>Specifies the credit option for CPU usage of a T2 instance.</p>
+                              <p>The credit option for CPU usage of the T2 or T3 instance. Valid values are
+                                 <code class="code">standard</code> and <code class="code">unlimited</code>. To change this attribute after
+                                 launch, use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyInstanceCreditSpecification.html">
+                                    ModifyInstanceCreditSpecification</a>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable
+                                    Performance Instances</a> in the <em>Amazon Elastic Compute Cloud User Guide</em>.
+                              </p>
+                              
+                              <p>Default: <code class="code">standard</code> (T2 instances) or <code class="code">unlimited</code> (T3
+                                 instances)
+                              </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: <a href="aws-properties-ec2-instance-creditspecification.html">Amazon EC2 Instance CreditSpecification</a>.
-                              </p>
-                              
+                              <p><em>Type</em>: <a href="aws-properties-ec2-instance-creditspecification.html">CreditSpecification</a></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-ec2-instance-disableapitermination"></a><span class="term"><code class="code">DisableApiTermination</code></span></dt>
-                           
                            <dd>
                               
-                              <p>Specifies whether the instance can be terminated through the API.</p>
+                              <p>If you set this parameter to <code class="code">true</code>, you can&apos;t terminate the instance using
+                                 the Amazon EC2 console, CLI, or API; otherwise, you can. To change this attribute
+                                 after launch, 
+                                 use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyInstanceAttribute.html">ModifyInstanceAttribute</a>.
+                                 Alternatively, if you set <code class="code">InstanceInitiatedShutdownBehavior</code> to
+                                 <code class="code">terminate</code>, you can terminate the instance by running the shutdown
+                                 command from the instance.
+                              </p>
+                              
+                              <p>Default: <code class="code">false</code>
+                                 
+                              </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: Boolean
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-ec2-instance-ebsoptimized"></a><span class="term"><code class="code">EbsOptimized</code></span></dt>
-                           
                            <dd>
                               
-                              <p>Specifies whether the instance is optimized for Amazon Elastic Block Store I/O. This
-                                 optimization provides dedicated throughput to Amazon EBS and an optimized configuration
-                                 stack to provide optimal <code class="code">EBS</code> I/O performance.
+                              <p>Indicates whether the instance is optimized for Amazon EBS I/O. This optimization
+                                 provides dedicated throughput to Amazon EBS and an optimized configuration stack to
+                                 provide optimal Amazon EBS I/O performance. This optimization isn&apos;t available with
+                                 all
+                                 instance types. Additional usage charges apply when using an EBS-optimized
+                                 instance.
                               </p>
                               
-                              <p>For more information about the instance types that can be launched as Amazon EBS
-                                 optimized instances, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html">Amazon
-                                    EBS-Optimized Instances</a> in the <em>Amazon Elastic Compute Cloud
-                                    User Guide</em>. Additional fees are incurred when using Amazon EBS-optimized
-                                 instances.
+                              <p>Default: <code class="code">false</code>
+                                 
                               </p>
                               
-                              <p><em>Required</em>: No. By default, AWS CloudFormation specifies <code class="code">false</code>.
+                              <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: Boolean
                               </p>
-                              
-                              <p><em>Update requires</em>:
-                              </p>
-                              
-                              <div class="itemizedlist">
-                                 
-                                 
-                                 
-                                 <ul class="itemizedlist" type="disc">
-                                    <li class="listitem">
-                                       
-                                       <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt">Some interruptions</a> for Amazon EBS-backed instances
-                                       </p>
-                                       
-                                    </li>
-                                    <li class="listitem">
-                                       
-                                       <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a> for instance store-backed instances
-                                       </p>
-                                       
-                                    </li>
-                                 </ul>
-                              </div>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-ec2-instance-elasticgpuspecifications"></a><span class="term"><code class="code">ElasticGpuSpecifications</code></span></dt>
-                           
                            <dd>
                               
-                              <p>Specifies the Elastic GPUs. An Elastic GPU is a GPU resource that you can attach to
-                                 your instance to accelerate the graphics performance of your applications. For more
-                                 information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-gpus.html">Amazon EC2 Elastic GPUs</a> in the <em>Amazon EC2 User Guide for Windows Instances</em>. Duplicates are not allowed.
+                              <p>An elastic GPU to associate with the instance. An Elastic GPU is a GPU resource that
+                                 you can attach to your Windows instance to accelerate the graphics performance of
+                                 your
+                                 applications. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-graphics.html"> Amazon EC2 Elastic
+                                    GPUs</a> in the <em>Amazon Elastic Compute Cloud User Guide</em>.
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type:</em> List of <a href="aws-properties-ec2-instance-elasticgpuspecification.html">Amazon EC2 Instance ElasticGpuSpecification</a></p>
-                              
+                              <p><em>Type</em>: List of <a href="aws-properties-ec2-instance-elasticgpuspecification.html">ElasticGpuSpecification</a></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-ec2-instance-elasticInferenceaccelerators"></a><span class="term"><code class="code">ElasticInferenceAccelerators</code></span></dt>
-                           
+                           <dt><a id="cfn-ec2-instance-elasticinferenceaccelerators"></a><span class="term"><code class="code">ElasticInferenceAccelerators</code></span></dt>
                            <dd>
                               
-                              <p>Specify a list of elastic inference accelerators for an instance. Elastic Inference
-                                 (EI) accelerators are a resource you can attach to your Amazon EC2 instances to
-                                 accelerate your Deep Learning (DL) inference workloads.
+                              <p>An elastic inference accelerator to associate with the instance. Elastic inference
+                                 accelerators are a resource you can attach to your Amazon EC2 instances to accelerate
+                                 your Deep Learning (DL) inference workloads.
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type:</em> List of <a href="aws-properties-ec2-instance-elasticInferenceaccelerator.html">ElasticInferenceAccelerator</a></p>
-                              
+                              <p><em>Type</em>: List of <a href="aws-properties-ec2-instance-elasticinferenceaccelerator.html">ElasticInferenceAccelerator</a></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-ec2-instance-hostid"></a><span class="term"><code class="code">HostId</code></span></dt>
-                           
                            <dd>
-                              
-                              <p>If you specify <code class="code">host</code> for the <code class="code">Affinity</code> property, the ID of a dedicated host that the instance is associated with. If you
-                                 don&apos;t specify an ID, Amazon EC2 launches the instance onto any available, compatible
-                                 dedicated host in your account. This type of launch is called an untargeted launch.
-                                 Note that for untargeted launches, you must have a compatible, dedicated host available
-                                 to successfully launch instances.
+                              	  
+                              <p>If you specify host for the <code class="code">Affinity</code> property, the ID of a dedicated host that the instance is associated with. 
+                                 	     If you don&apos;t specify an ID, Amazon EC2 launches the instance onto any available,
+                                 compatible dedicated host in your account. 
+                                 	     This type of launch is called an untargeted launch. Note that for untargeted
+                                 launches, you must have a compatible, dedicated 
+                                 	     host available to successfully launch instances.
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
-                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-ec2-instance-iaminstanceprofile"></a><span class="term"><code class="code">IamInstanceProfile</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The name of an instance profile or a reference to an <a href="aws-resource-iam-instanceprofile.html">AWS::IAM::InstanceProfile</a> resource.
-                              </p>
-                              
-                              <p>For more information about IAM roles, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html">Working with Roles</a> in the
-                                 <em>AWS Identity and Access Management User Guide</em>.
-                              </p>
+                              <p>The IAM instance profile.</p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-ec2-instance-imageid"></a><span class="term"><code class="code">ImageId</code></span></dt>
-                           
                            <dd>
                               
-                              <p>Provides the unique ID of the Amazon Machine Image (AMI) that was assigned
-                                 during registration.
+                              <p>The ID of the AMI. An AMI ID is required to launch an instance and must be 
+                                 	specified here or in a launch template.
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-ec2-instance-instanceinitiatedshutdownbehavior"></a><span class="term"><code class="code">InstanceInitiatedShutdownBehavior</code></span></dt>
-                           
                            <dd>
                               
-                              <p>Indicates whether an instance stops or terminates when you shut down the
-                                 instance from the instance&apos;s operating system shutdown command. You can specify
-                                 <code class="code">stop</code> or <code class="code">terminate</code>. For more information, see the
-                                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-RunInstances.html">RunInstances</a> command in the
-                                 <em>Amazon EC2 API Reference</em>.
+                              <p>Indicates whether an instance stops or terminates when you initiate shutdown from
+                                 the
+                                 instance (using the operating system command for system shutdown).
+                              </p>
+                              
+                              <p>Default: <code class="code">stop</code>
+                                 
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Allowed Values</em>: <code class="code">stop | terminate</code></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-ec2-instance-instancetype"></a><span class="term"><code class="code">InstanceType</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The instance type, such as <code class="code">t2.micro</code>. The default type is
-                                 <code class="code">m1.small</code>. For a list of instance types, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance Families and
-                                    Types</a>.
+                              <p>The instance type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance Types</a> in the
+                                 <em>Amazon Elastic Compute Cloud User Guide</em>.
+                              </p>
+                              
+                              <p>Default: <code class="code">m1.small</code>
+                                 
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
-                              <p><em>Update requires</em>:
-                              </p>
-                              
-                              <div class="itemizedlist">
-                                 
-                                 
-                                 
-                                 <ul class="itemizedlist" type="disc">
-                                    <li class="listitem">
-                                       
-                                       <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt">Some interruptions</a> for Amazon EBS-backed instances
-                                       </p>
-                                       
-                                    </li>
-                                    <li class="listitem">
-                                       
-                                       <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a> for instance store-backed instances
-                                       </p>
-                                       
-                                    </li>
-                                 </ul>
-                              </div>
-                              
+                              <p><em>Allowed Values</em>: <code class="code">a1.2xlarge | a1.4xlarge | a1.large | a1.medium | a1.xlarge | c1.medium | c1.xlarge
+                                    | c3.2xlarge | c3.4xlarge | c3.8xlarge | c3.large | c3.xlarge | c4.2xlarge | c4.4xlarge
+                                    | c4.8xlarge | c4.large | c4.xlarge | c5.12xlarge | c5.18xlarge | c5.24xlarge | c5.2xlarge
+                                    | c5.4xlarge | c5.9xlarge | c5.large | c5.metal | c5.xlarge | c5d.18xlarge | c5d.2xlarge
+                                    | c5d.4xlarge | c5d.9xlarge | c5d.large | c5d.xlarge | c5n.18xlarge | c5n.2xlarge
+                                    | c5n.4xlarge | c5n.9xlarge | c5n.large | c5n.xlarge | cc1.4xlarge | cc2.8xlarge |
+                                    cg1.4xlarge | cr1.8xlarge | d2.2xlarge | d2.4xlarge | d2.8xlarge | d2.xlarge | f1.16xlarge
+                                    | f1.2xlarge | f1.4xlarge | g2.2xlarge | g2.8xlarge | g3.16xlarge | g3.4xlarge | g3.8xlarge
+                                    | g3s.xlarge | h1.16xlarge | h1.2xlarge | h1.4xlarge | h1.8xlarge | hi1.4xlarge |
+                                    hs1.8xlarge | i2.2xlarge | i2.4xlarge | i2.8xlarge | i2.xlarge | i3.16xlarge | i3.2xlarge
+                                    | i3.4xlarge | i3.8xlarge | i3.large | i3.metal | i3.xlarge | i3en.12xlarge | i3en.24xlarge
+                                    | i3en.2xlarge | i3en.3xlarge | i3en.6xlarge | i3en.large | i3en.xlarge | m1.large
+                                    | m1.medium | m1.small | m1.xlarge | m2.2xlarge | m2.4xlarge | m2.xlarge | m3.2xlarge
+                                    | m3.large | m3.medium | m3.xlarge | m4.10xlarge | m4.16xlarge | m4.2xlarge | m4.4xlarge
+                                    | m4.large | m4.xlarge | m5.12xlarge | m5.16xlarge | m5.24xlarge | m5.2xlarge | m5.4xlarge
+                                    | m5.8xlarge | m5.large | m5.metal | m5.xlarge | m5a.12xlarge | m5a.16xlarge | m5a.24xlarge
+                                    | m5a.2xlarge | m5a.4xlarge | m5a.8xlarge | m5a.large | m5a.xlarge | m5ad.12xlarge
+                                    | m5ad.16xlarge | m5ad.24xlarge | m5ad.2xlarge | m5ad.4xlarge | m5ad.8xlarge | m5ad.large
+                                    | m5ad.xlarge | m5d.12xlarge | m5d.16xlarge | m5d.24xlarge | m5d.2xlarge | m5d.4xlarge
+                                    | m5d.8xlarge | m5d.large | m5d.metal | m5d.xlarge | p2.16xlarge | p2.8xlarge | p2.xlarge
+                                    | p3.16xlarge | p3.2xlarge | p3.8xlarge | p3dn.24xlarge | r3.2xlarge | r3.4xlarge
+                                    | r3.8xlarge | r3.large | r3.xlarge | r4.16xlarge | r4.2xlarge | r4.4xlarge | r4.8xlarge
+                                    | r4.large | r4.xlarge | r5.12xlarge | r5.16xlarge | r5.24xlarge | r5.2xlarge | r5.4xlarge
+                                    | r5.8xlarge | r5.large | r5.metal | r5.xlarge | r5a.12xlarge | r5a.16xlarge | r5a.24xlarge
+                                    | r5a.2xlarge | r5a.4xlarge | r5a.8xlarge | r5a.large | r5a.xlarge | r5ad.12xlarge
+                                    | r5ad.16xlarge | r5ad.24xlarge | r5ad.2xlarge | r5ad.4xlarge | r5ad.8xlarge | r5ad.large
+                                    | r5ad.xlarge | r5d.12xlarge | r5d.16xlarge | r5d.24xlarge | r5d.2xlarge | r5d.4xlarge
+                                    | r5d.8xlarge | r5d.large | r5d.metal | r5d.xlarge | t1.micro | t2.2xlarge | t2.large
+                                    | t2.medium | t2.micro | t2.nano | t2.small | t2.xlarge | t3.2xlarge | t3.large |
+                                    t3.medium | t3.micro | t3.nano | t3.small | t3.xlarge | t3a.2xlarge | t3a.large |
+                                    t3a.medium | t3a.micro | t3a.nano | t3a.small | t3a.xlarge | u-12tb1.metal | u-6tb1.metal
+                                    | u-9tb1.metal | x1.16xlarge | x1.32xlarge | x1e.16xlarge | x1e.2xlarge | x1e.32xlarge
+                                    | x1e.4xlarge | x1e.8xlarge | x1e.xlarge | z1d.12xlarge | z1d.2xlarge | z1d.3xlarge
+                                    | z1d.6xlarge | z1d.large | z1d.metal | z1d.xlarge</code></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-ec2-instance-ipv6addresscount"></a><span class="term"><code class="code">Ipv6AddressCount</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The number of IPv6 addresses to associate with the instance&apos;s primary network
-                                 interface. Amazon EC2 automatically selects the IPv6 addresses from the subnet range.
-                                 To specify specific IPv6 addresses, use the <code class="code">Ipv6Addresses</code> property
-                                 and don&apos;t specify this property.
+                              <p>[EC2-VPC] The number of IPv6 addresses to associate with the primary network
+                                 interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet. You
+                                 cannot specify this option and the option to assign specific IPv6 addresses in the
+                                 same
+                                 request. You can specify this option if you&apos;ve specified a minimum number of instances
+                                 to launch.
                               </p>
                               
-                              <p>For restrictions on which instance types support IPv6 addresses, see the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-RunInstances.html">RunInstances</a>
-                                 action in the <em>Amazon EC2 API Reference</em>.
+                              <p>You cannot specify this option and the network interfaces option in the same
+                                 request.
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: Integer
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-ec2-instance-ipv6addresses"></a><span class="term"><code class="code">Ipv6Addresses</code></span></dt>
-                           
                            <dd>
                               
-                              <p>One or more specific IPv6 addresses from the IPv6 CIDR block range of your
-                                 subnet to associate with the instance&apos;s primary network interface. To specify a
-                                 number of IPv6 addresses, use the <code class="code">Ipv6AddressCount</code> property and don&apos;t
-                                 specify this property.
+                              <p>[EC2-VPC] The IPv6 addresses from the range of the subnet to associate with the
+                                 primary network interface. You cannot specify this option and the option to assign
+                                 a
+                                 number of IPv6 addresses in the same request. You cannot specify this option if you&apos;ve
+                                 specified a minimum number of instances to launch.
                               </p>
                               
-                              <p>For information about restrictions on which instance types support IPv6
-                                 addresses, see the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-RunInstances.html">RunInstances</a> action in the
-                                 <em>Amazon EC2 API Reference</em>.
+                              <p>You cannot specify this option and the network interfaces option in the same
+                                 request.
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: List of <a href="aws-properties-ec2-networkinterface-ipv6addresses.html">EC2 NetworkInterface
-                                    Ipv6Addresses</a></p>
-                              
+                              <p><em>Type</em>: List of <a href="aws-properties-ec2-instance-instanceipv6address.html">InstanceIpv6Address</a></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-ec2-instance-kernelid"></a><span class="term"><code class="code">KernelId</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The kernel ID.</p>
+                              <p>The ID of the kernel.</p>
+                              
+                              <div class="aws-note">
+                                 <p class="aws-note">Important</p>
+                                 <p>We recommend that you use PV-GRUB instead of kernels and RAM disks. For more
+                                    information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html"> PV-GRUB</a> in the
+                                    <em>Amazon Elastic Compute Cloud User Guide</em>.
+                                 </p>
+                              </div>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
-                              </p> 
-                              <p><em>Update requires</em>:
                               </p>
-                              
-                              <div class="itemizedlist">
-                                 
-                                 
-                                 
-                                 <ul class="itemizedlist" type="disc">
-                                    <li class="listitem">
-                                       
-                                       <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt">Some interruptions</a> for Amazon EBS-backed instances
-                                       </p>
-                                       
-                                    </li>
-                                    <li class="listitem">
-                                       
-                                       <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a> for instance store-backed instances
-                                       </p>
-                                       
-                                    </li>
-                                 </ul>
-                              </div> 
                            </dd>
-                           
-                           
                            <dt><a id="cfn-ec2-instance-keyname"></a><span class="term"><code class="code">KeyName</code></span></dt>
-                           
                            <dd>
                               
-                              <p>Provides the name of the Amazon EC2 key pair.</p>
+                              <p>The name of the key pair. You can create a key pair using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateKeyPair.html">CreateKeyPair</a> or
+                                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportKeyPair.html">ImportKeyPair</a>.
+                              </p>
+                              
+                              <div class="aws-note">
+                                 <p class="aws-note">Important</p>
+                                 <p>If you do not specify a key pair, you can&apos;t connect to the instance unless you
+                                    choose an AMI that is configured to allow users another way to log in.
+                                 </p>
+                              </div>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-ec2-instance-launchtemplate"></a><span class="term"><code class="code">LaunchTemplate</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The launch template to use.</p>
+                              <p>The launch template to use to launch the instances. Any parameters that you specify
+                                 	in the AWS CloudFormation template override the same parameters in the launch template.
+                                 You can specify either the name or ID of a launch template, but not both.
+                              </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: <a href="aws-properties-ec2-instance-launchtemplatespecification.html">Amazon EC2  Instance LaunchTemplateSpecification</a></p>
-                              
+                              <p><em>Type</em>: <a href="aws-properties-ec2-instance-launchtemplatespecification.html">LaunchTemplateSpecification</a></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-ec2-instance-licensespecifications"></a><span class="term"><code class="code">LicenseSpecifications</code></span></dt>
-                           
                            <dd>
                               
-                              <p>Associate a list of license configurations with the instance.</p>
+                              <p>The license configurations.</p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type:</em> List of <a href="aws-properties-ec2-instance-licensespecification.html">LicenseSpecification</a></p>
-                              
+                              <p><em>Type</em>: List of <a href="aws-properties-ec2-instance-licensespecification.html">LicenseSpecification</a></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-ec2-instance-monitoring"></a><span class="term"><code class="code">Monitoring</code></span></dt>
-                           
                            <dd>
                               
                               <p>Specifies whether detailed monitoring is enabled for the instance.</p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: Boolean
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-ec2-instance-networkinterfaces"></a><span class="term"><code class="code">NetworkInterfaces</code></span></dt>
-                           
                            <dd>
-                              
-                              <p>A list of embedded objects that describes the network interfaces to associate
-                                 with this instance.
-                              </p>
-                              
+                              	  
+                              <p>The network interfaces to associate with the instance.</p>
+                              	  
                               <div class="aws-note">
                                  <p class="aws-note">Note</p>
-                                 <p>If you use this property to point to a network interface, you must terminate
-                                    the original interface before attaching a new one to allow the update of the
-                                    instance to succeed.
+                                 <p>If you use this property to point to a network interface, you must terminate the original
+                                    
+                                    			interface before attaching a new one to allow the update of the instance to succeed.
                                  </p>
                                  <p>If this resource has a public IP address and is also in a VPC that is defined in the
-                                    same template, you must use the
-                                    <code class="code">DependsOn</code> attribute to declare a dependency on the VPC-gateway attachment. For more information,
-                                    see <a href="aws-attribute-dependson.html">DependsOn Attribute</a>.
+                                    same 
+                                    		       template, you must use the <a href="aws-attribute-dependson.html">
+                                       		          DependsOn Attribute</a> to declare a dependency on the VPC-gateway 
+                                    			attachment.
                                  </p>
                               </div>
-                              
+                              	    
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: A list of <a href="aws-properties-ec2-network-iface-embedded.html">EC2 NetworkInterface</a></p>
-                              
+                              <p><em>Type</em>: List of <a href="aws-properties-ec2-network-iface-embedded.html">NetworkInterface</a></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-ec2-instance-placementgroupname"></a><span class="term"><code class="code">PlacementGroupName</code></span></dt>
-                           
                            <dd>
-                              
-                              <p>The name of an existing placement group that you want to launch the instance
-                                 into (for cluster instances).
+                              	  
+                              <p>The name of an existing placement group that you want to launch the instance into
+                                 (for cluster instances).
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-ec2-instance-privateipaddress"></a><span class="term"><code class="code">PrivateIpAddress</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The private IP address for this instance.</p>
+                              <p>[EC2-VPC] The primary IPv4 address. You must specify a value from the IPv4 address
+                                 range of the subnet.
+                              </p>
+                              
+                              <p>Only one private IP address can be designated as primary. You can&apos;t specify this
+                                 option if you&apos;ve specified the option to designate a private IP address as the primary
+                                 IP address in a network interface specification. You cannot specify this option if
+                                 you&apos;re launching more than one instance in the request.
+                              </p>
+                              	    
+                              <p>You cannot specify this option and the network interfaces option in the same request.</p>
+                              	    
+                              <p>If you make an update to an instance that requires replacement, you must assign a
+                                 new private 
+                                 			IP address. During a replacement, AWS CloudFormation creates a new instance but
+                                 doesn&apos;t delete 
+                                 			the old instance until the stack has successfully updated. If the stack update
+                                 fails, AWS 
+                                 			CloudFormation uses the old instance in order to roll back the stack to the previous
+                                 working 
+                                 			state. The old and new instances cannot have the same private IP address.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              <p><em>Type</em>: String
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                           </dd>
+                           <dt><a id="cfn-ec2-instance-ramdiskid"></a><span class="term"><code class="code">RamdiskId</code></span></dt>
+                           <dd>
+                              
+                              <p>The ID of the RAM disk to select. Some kernels require additional drivers at launch.
+                                 Check the kernel requirements for information about whether you need to specify a
+                                 RAM
+                                 disk. To find kernel requirements, go to the AWS Resource Center and search for the
+                                 kernel ID.
+                              </p>
                               
                               <div class="aws-note">
                                  <p class="aws-note">Important</p>
-                                 <p>If you make an update to an instance that requires replacement, you must
-                                    assign a new private IP address. During a replacement, AWS CloudFormation creates
-                                    a new
-                                    instance but doesn&apos;t delete the old instance until the stack has
-                                    successfully updated. If the stack update fails, AWS CloudFormation uses the old instance
-                                    in order to roll back the stack to the previous working state. The old and
-                                    new instances cannot have the same private IP address.
+                                 <p>We recommend that you use PV-GRUB instead of kernels and RAM disks. For more
+                                    information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html"> PV-GRUB</a> in the
+                                    <em>Amazon Elastic Compute Cloud User Guide</em>.
                                  </p>
                               </div>
                               
-                              <p>(Optional) If you&apos;re using Amazon VPC, you can use this parameter to assign the
-                                 instance a specific available IP address from the subnet (for example, 10.0.0.25).
-                                 By default, Amazon VPC selects an IP address from the subnet for the instance.
-                              </p>
-                              
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
-                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-ec2-instance-ramdiskid"></a><span class="term"><code class="code">RamdiskId</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>The ID of the RAM disk to select. Some kernels require additional drivers at
-                                 launch. Check the kernel requirements for information about whether you need to
-                                 specify a RAM disk. To find kernel requirements, go to the AWS Resource Center and
-                                 search for the kernel ID.
-                              </p>
-                              
-                              <p><em>Required</em>: No
-                              </p>
-                              
-                              <p><em>Type</em>: String
-                              </p> 
-                              <p><em>Update requires</em>:
-                              </p>
-                              
-                              <div class="itemizedlist">
-                                 
-                                 
-                                 
-                                 <ul class="itemizedlist" type="disc">
-                                    <li class="listitem">
-                                       
-                                       <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt">Some interruptions</a> for Amazon EBS-backed instances
-                                       </p>
-                                       
-                                    </li>
-                                    <li class="listitem">
-                                       
-                                       <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a> for instance store-backed instances
-                                       </p>
-                                       
-                                    </li>
-                                 </ul>
-                              </div> 
-                           </dd>
-                           
-                           
                            <dt><a id="cfn-ec2-instance-securitygroupids"></a><span class="term"><code class="code">SecurityGroupIds</code></span></dt>
-                           
                            <dd>
                               
-                              <p>A list that contains the security group IDs for VPC security groups to assign
-                                 to the Amazon EC2 instance. If you specified the <code class="code">NetworkInterfaces</code>
-                                 property, do not specify this property.
+                              <p>The IDs of the security groups. You can create a security group using 
+                                 	<a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSecurityGroup.html">CreateSecurityGroup</a>.
                               </p>
                               
-                              <p><em>Required</em>: Conditional. Required for VPC security
-                                 groups.
+                              <p>If you specify a network interface, you must specify any security groups as part of
+                                 the network interface.
                               </p>
                               
-                              <p><em>Type</em>: List of String values
+                              <p><em>Required</em>: Conditional
                               </p>
-                              
-                              <p><em>Update requires</em>:
+                              <p><em>Type</em>: List of String
                               </p>
-                              
-                              <div class="itemizedlist">
-                                 
-                                 
-                                 
-                                 <ul class="itemizedlist" type="disc">
-                                    <li class="listitem">
-                                       
-                                       <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a> for instances that are in a VPC.
-                                       </p>
-                                       
-                                    </li>
-                                    <li class="listitem">
-                                       
-                                       <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a> for instances that are not in a VPC.
-                                       </p>
-                                       
-                                    </li>
-                                 </ul>
-                              </div>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-ec2-instance-securitygroups"></a><span class="term"><code class="code">SecurityGroups</code></span></dt>
-                           
                            <dd>
                               
-                              <p>Valid only for Amazon EC2 security groups. A list that contains the Amazon EC2 security
-                                 groups to assign to the Amazon EC2 instance. The list can contain both the name of
-                                 existing Amazon EC2 security groups or references to AWS::EC2::SecurityGroup resources
-                                 created in the template.
+                              <p>[EC2-Classic, default VPC] The names of the security groups. For a nondefault VPC,
+                                 	you must use security group IDs instead.
                               </p>
+                              	  
+                              <p>You cannot specify this option and the network interfaces option in the same request.
+                                 The 
+                                 		list can contain both the name of existing Amazon EC2 security groups or references
+                                 to 
+                                 		AWS::EC2::SecurityGroup resources created in the template.
+                              </p>
+                              
+                              <p>Default: Amazon EC2 uses the default security group.</p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: List of String values
+                              <p><em>Type</em>: List of String
                               </p>
-                              
-                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a>.
-                              </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-ec2-instance-sourcedestcheck"></a><span class="term"><code class="code">SourceDestCheck</code></span></dt>
-                           
                            <dd>
                               
-                              <p>Controls whether source/destination checking is enabled on the instance. Also
-                                 determines if an instance in a VPC will perform network address translation
-                                 (NAT).
-                              </p>
-                              
-                              <p>A value of <code class="code">&quot;true&quot;</code> means that source/destination checking is
-                                 enabled, and a value of <code class="code">&quot;false&quot;</code> means that checking is disabled. For
-                                 the instance to perform NAT, the value <em>must</em> be
-                                 <code class="code">&quot;false&quot;</code>. For more information, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html">NAT
-                                    Instances</a> in the <em>Amazon Virtual Private Cloud User
-                                    Guide</em>.
+                              <p>Specifies whether to enable an instance launched in a VPC to perform NAT. This
+                                 controls whether source/destination checking is enabled on the instance. A value of
+                                 <code class="code">true</code> means that checking is enabled, and <code class="code">false</code> means that
+                                 checking is disabled. The value must be <code class="code">false</code> for the instance to perform
+                                 NAT. For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html">NAT Instances</a> in the
+                                 <em>Amazon Virtual Private Cloud User Guide</em>.
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: Boolean
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-ec2-instance-ssmassociations"></a><span class="term"><code class="code">SsmAssociations</code></span></dt>
-                           
                            <dd>
-                              
-                              <p>The SSM <a href="aws-resource-ssm-document.html">document</a> and parameter
-                                 values in AWS Systems Manager to associate with this instance. To use this property,
-                                 you
-                                 must specify an IAM instance profile role for the instance. For more
-                                 information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-configuring-access-role.html">Create an Instance Profile for Systems Manager</a> in the
-                                 <em>AWS Systems Manager User Guide</em>.
+                              	  
+                              <p>The SSM <a href="aws-resource-ssm-document.html">
+                                    		document</a> and parameter values in AWS Systems Manager to associate with this instance. To use
+                                 this 
+                                 		property, you must specify an IAM instance profile role for the instance. For more
+                                 information, see 
+                                 		<a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-configuring-access-role.html">
+                                    			Create an Instance Profile for Systems Manager</a> in the <em>AWS Systems Manager User 
+                                    				Guide</em>.
                               </p>
-                              
+                              		
+                              		
                               <div class="aws-note">
                                  <p class="aws-note">Note</p>
                                  <p>You can currently associate only one document with an instance.</p>
@@ -849,329 +644,162 @@ Properties:
                               
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: List of <a href="aws-properties-ec2-instance-ssmassociations.html">Amazon EC2 Instance
-                                    SsmAssociations</a>.
-                              </p>
-                              
+                              <p><em>Type</em>: List of <a href="aws-properties-ec2-instance-ssmassociations.html">SsmAssociation</a></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-ec2-instance-subnetid"></a><span class="term"><code class="code">SubnetId</code></span></dt>
-                           
                            <dd>
                               
-                              <p>If you&apos;re using Amazon VPC, this property specifies the ID of the subnet that
-                                 you want to launch the instance into. If you specified the
-                                 <code class="code">NetworkInterfaces</code> property, do not specify this property.
+                              <p>[EC2-VPC] The ID of the subnet to launch the instance into.</p>
+                              
+                              <p>If you specify a network interface, you must specify any subnets as part of the network
+                                 interface.
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-ec2-instance-tags"></a><span class="term"><code class="code">Tags</code></span></dt>
-                           
                            <dd>
                               
-                              <p>An arbitrary set of tags (key&#x2013;value pairs) for this instance.</p>
-                              
-                              <p><em>Required</em>: No
-                              </p>
-                              
-                              <p><em>Type</em>: <a href="aws-properties-resource-tags.html">Resource Tag</a></p>
-                              
-                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>.
-                              </p>
-                              
-                           </dd>
-                           
-                           
-                           <dt><a id="cfn-ec2-instance-tenancy"></a><span class="term"><code class="code">Tenancy</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>The tenancy of the instance that you want to launch, such as <code class="code">default</code>, <code class="code">dedicated</code>, or <code class="code">host</code>. If you specify a tenancy value of <code class="code">dedicated</code> or <code class="code">host</code>, you must launch the instance in a VPC. For more information, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/dedicated-instance.html">Dedicated Instances</a> in the <em>Amazon VPC User Guide</em>.
+                              <p>The tags to apply to the resources during launch. You can only tag instances and
+                                 volumes on launch. The specified tags are applied to all instances or volumes that
+                                 are
+                                 created during launch. To tag a resource after it has been created, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: String
-                              </p>
-                              
-                              <p><em>Update requires</em>:
-                              </p>
-                              
-                              <div class="itemizedlist">
-                                 
-                                 
-                                 
-                                 <ul class="itemizedlist" type="disc">
-                                    <li class="listitem">
-                                       
-                                       <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a> if this property was set to <code class="code">dedicated</code> and you change it to <code class="code">host</code> or vice versa.
-                                       </p>
-                                       
-                                    </li>
-                                    <li class="listitem">
-                                       
-                                       <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a> for all other changes.
-                                       </p>
-                                       
-                                    </li>
-                                 </ul>
-                              </div>
-                              
-                           </dd>
-                           
-                           
-                           <dt><a id="cfn-ec2-instance-userdata"></a><span class="term"><code class="code">UserData</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>Base64-encoded MIME user data that is made available to the instances.</p>
-                              
-                              <p><em>Required</em>: No
-                              </p>
-                              
-                              <p><em>Type</em>: String
-                              </p>
-                              
-                              <p><em>Update requires</em>:
-                              </p>
-                              
-                              <div class="itemizedlist">
-                                 
-                                 
-                                 
-                                 <ul class="itemizedlist" type="disc">
-                                    <li class="listitem">
-                                       
-                                       <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt">Some interruptions</a> for Amazon EBS-backed instances.
-                                       </p>
-                                       
-                                       <div class="aws-note">
-                                          <p class="aws-note">Note</p>
-                                          <p>For EBS-backed instances, changing the <code class="code">UserData</code> stops
-                                             and then starts the instance; however, Amazon EC2 doesn&apos;t automatically run
-                                             the updated <code class="code">UserData</code>. To update configurations on your
-                                             instance, use the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-hup.html">cfn-hup</a> helper
-                                             script.
-                                          </p>
-                                       </div>
-                                       
-                                    </li>
-                                    <li class="listitem">
-                                       
-                                       <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a> for instance store-backed instances.
-                                       </p>
-                                       
-                                    </li>
-                                 </ul>
-                              </div> 
-                           </dd>
-                           
-                           
-                           <dt><a id="cfn-ec2-instance-volumes"></a><span class="term"><code class="code">Volumes</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>The Amazon EBS volumes to attach to the instance.</p>
-                              
-                              <div class="aws-note">
-                                 <p class="aws-note">Note</p>
-                                 <p>Before detaching a volume, unmount any file systems on the device within
-                                    your operating system. If you don&apos;t unmount the file system, a volume might
-                                    get stuck in a busy state while detaching.
-                                 </p>
-                              </div>
-                              
-                              <p><em>Required</em>: No
-                              </p>
-                              
-                              <p><em>Type</em>: A list of <a href="aws-properties-ec2-mount-point.html">EC2 MountPoints</a>.
-                              </p>
-                              
+                              <p><em>Type</em>: List of <a href="aws-properties-resource-tags.html">Tag</a></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-ec2-instance-additionalinfo"></a><span class="term"><code class="code">AdditionalInfo</code></span></dt>
-                           
+                           <dt><a id="cfn-ec2-instance-tenancy"></a><span class="term"><code class="code">Tenancy</code></span></dt>
                            <dd>
                               
-                              <p>Reserved.</p>
+                              <p>The tenancy of the instance (if the instance is running in a VPC). An instance with
+                                 a
+                                 tenancy of <code class="code">dedicated</code> runs on single-tenant hardware. 
+                              </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
+                              <p><em>Allowed Values</em>: <code class="code">dedicated | default | host</code></p>
+                           </dd>
+                           <dt><a id="cfn-ec2-instance-userdata"></a><span class="term"><code class="code">UserData</code></span></dt>
+                           <dd>
                               
-                              <p><em>Update requires</em>:
+                              <p>The user data to make available to the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html">Running Commands
+                                    on Your Linux Instance at Launch</a> (Linux) and <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-instance-metadata.html#instancedata-add-user-data">Adding User Data</a> (Windows). If you are using a command line tool,
+                                 base64-encoding is performed for you, and you can load the text from a file. Otherwise,
+                                 you must provide base64-encoded text. User data is limited to 16 KB.
                               </p>
                               
-                              <div class="itemizedlist">
-                                 
-                                 
-                                 
-                                 <ul class="itemizedlist" type="disc">
-                                    <li class="listitem">
-                                       
-                                       <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt">Some interruptions</a> for Amazon EBS-backed instances
-                                       </p>
-                                       
-                                    </li>
-                                    <li class="listitem">
-                                       
-                                       <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a> for instance store-backed instances
-                                       </p>
-                                       
-                                    </li>
-                                 </ul>
-                              </div>
-                              
+                              <p><em>Required</em>: No
+                              </p>
+                              <p><em>Type</em>: String
+                              </p>
                            </dd>
-                           
+                           <dt><a id="cfn-ec2-instance-volumes"></a><span class="term"><code class="code">Volumes</code></span></dt>
+                           <dd>
+                              
+                              <p>The volumes to attach to the instance.</p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              <p><em>Type</em>: List of <a href="aws-properties-ec2-mount-point.html">Volume</a></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                           </dd>
                         </dl>
-                     </div><h2 id="aws-properties-ec2-instance-returnvalues">Return Values</h2><h3 id="aws-properties-ec2-instance-ref">Ref</h3><p>When you pass the logical ID of an AWS::EC2::Instance object to the intrinsic
-                        <code class="code">Ref</code> function, the object&apos;s InstanceId is returned. For example:
-                        <code class="code">i-1234567890abcdef0</code>.
+                     </div><h2 id="aws-properties-ec2-instance-return-values">Return Values</h2><h3 id="aws-properties-ec2-instance-return-values-ref">Ref</h3><p>When you pass the logical ID of this resource to the intrinsic <code class="code">Ref</code> function, <code class="code">Ref</code> returns the instance ID. For example: <code class="code">i-1234567890abcdef0</code>.
                      </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                     </p><h3 id="w2ab1c21c10d111c49c11b4">Fn::GetAtt</h3><p><code class="code">Fn::GetAtt</code> returns a value for a specified attribute of this type.
-                        The following are the available attributes and sample return values.
-                     </p><div class="variablelist">
-                        
-                        
-                        
-                        
-                        
-                        
+                     </p><h3 id="aws-properties-ec2-instance-return-values-fn--getatt">Fn::GetAtt</h3><p>The <code class="code">Fn::GetAtt</code> intrinsic function returns a value for a specified attribute of this type. The following
+                        are the available attributes and sample return values.
+                     </p><p>For more information about using the <code class="code">Fn::GetAtt</code> intrinsic function, see <a href="intrinsic-function-reference-getatt.html">Fn::GetAtt</a>.
+                     </p><h4 id="aws-properties-ec2-instance-return-values-fn--getatt-fn--getatt"></h4><div class="variablelist">
                         <dl>
-                           
-                           <dt><span class="term"><code class="code">AvailabilityZone</code></span></dt>
-                           
+                           <dt><a id="AvailabilityZone-fn::getatt"></a><span class="term"><code class="code">AvailabilityZone</code></span></dt>
                            <dd>
-                              
-                              <p>The Availability Zone where the specified instance is launched. For example: <span><code class="code">us-east-1b</code></span>.
+                              		    
+                              <p>The Availability Zone where the specified instance is launched. For example: <code class="code">us-east-1b</code>.
                               </p>
-                              
-                              <p>You can retrieve a list of all Availability Zones for a region by using the <a href="intrinsic-function-reference-getavailabilityzones.html">Fn::GetAZs</a> intrinsic function.
+                              		
+                              		    
+                              <p>You can retrieve a list of all Availability Zones for a Region by using the <a href="intrinsic-function-reference-getavailabilityzones.html">Fn::GetAZs</a> 
+                                 			intrinsic function.
                               </p>
-                              
+                              	  
                            </dd>
-                           
-                           
-                           <dt><span class="term"><code class="code">PrivateDnsName</code></span></dt>
-                           
+                           <dt><a id="PrivateDnsName-fn::getatt"></a><span class="term"><code class="code">PrivateDnsName</code></span></dt>
                            <dd>
-                              
+                              		    
                               <p>The private DNS name of the specified instance. For example: <code class="code">ip-10-24-34-0.ec2.internal</code>.
                               </p>
-                              
+                              	  
                            </dd>
-                           
-                           
-                           <dt><span class="term"><code class="code">PublicDnsName</code></span></dt>
-                           
+                           <dt><a id="PrivateIp-fn::getatt"></a><span class="term"><code class="code">PrivateIp</code></span></dt>
                            <dd>
-                              
-                              <p>The public DNS name of the specified instance. For example: <code class="code">ec2-107-20-50-45.compute-1.amazonaws.com</code>.
-                              </p>
-                              
-                           </dd>
-                           
-                           
-                           <dt><span class="term"><code class="code">PrivateIp</code></span></dt>
-                           
-                           <dd>
-                              
+                              		    
                               <p>The private IP address of the specified instance. For example: <code class="code">10.24.34.0</code>.
                               </p>
-                              
+                              	  
                            </dd>
-                           
-                           
-                           <dt><span class="term"><code class="code">PublicIp</code></span></dt>
-                           
+                           <dt><a id="PublicDnsName-fn::getatt"></a><span class="term"><code class="code">PublicDnsName</code></span></dt>
                            <dd>
-                              
+                              		    
+                              <p>The public DNS name of the specified instance. For example: <code class="code">ec2-107-20-50-45.compute-1.amazonaws.com</code>.
+                              </p>
+                              	  
+                           </dd>
+                           <dt><a id="PublicIp-fn::getatt"></a><span class="term"><code class="code">PublicIp</code></span></dt>
+                           <dd>
+                              		    
                               <p>The public IP address of the specified instance. For example: <code class="code">192.0.2.0</code>.
                               </p>
-                              
+                              	  
                            </dd>
-                           
                         </dl>
-                     </div><p>For more information about using <code class="code">Fn::GetAtt</code>, see <a href="intrinsic-function-reference-getatt.html">Fn::GetAtt</a>.
-                     </p><h2 id="aws-properties-ec2-instance-examples">Examples</h2><h3 id="w2ab1c21c10d111c49c13b2">EC2 Instance with an EBS Block Device Mapping</h3><div id="JSON" name="JSON" class="section langfilter">
-                        <h4 id="aws-properties-ec2-instance-examples-json1">JSON</h4>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">{
-   &quot;AWSTemplateFormatVersion&quot; : &quot;2010-09-09&quot;,
-   &quot;Description&quot; : &quot;Ec2 block device mapping&quot;,
-   &quot;Resources&quot; : {
-      &quot;MyEC2Instance&quot; : {
-         &quot;Type&quot; : &quot;AWS::EC2::Instance&quot;,
-         &quot;Properties&quot; : {
-            &quot;ImageId&quot; : &quot;ami-79fd7eee&quot;,
-            &quot;KeyName&quot; : &quot;testkey&quot;,
-            &quot;BlockDeviceMappings&quot; : [
-               {
-                  &quot;DeviceName&quot; : &quot;/dev/sdm&quot;,
-                  &quot;Ebs&quot; : {
-                     &quot;VolumeType&quot; : &quot;io1&quot;,
-                     &quot;Iops&quot; : &quot;200&quot;,
-                     &quot;DeleteOnTermination&quot; : &quot;false&quot;,
-                     &quot;VolumeSize&quot; : &quot;20&quot;
-                  }
-               },
-               {
-                  &quot;DeviceName&quot; : &quot;/dev/sdk&quot;,
-                  &quot;NoDevice&quot; : {}
-               }
-            ]
-         }
-      }
+                     </div><h2 id="aws-properties-ec2-instance--examples">Examples</h2><h3 id="aws-properties-ec2-instance--examples--EC2_Instance_with_an_EBS_Block_Device_Mapping">EC2 Instance with an EBS Block Device Mapping</h3><h4 id="aws-properties-ec2-instance--examples--EC2_Instance_with_an_EBS_Block_Device_Mapping--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">&quot;MyEC2Instance&quot; : {
+   &quot;Type&quot; : &quot;AWS::EC2::Instance&quot;,
+   &quot;Properties&quot; : {
+      &quot;ImageId&quot; : &quot;ami-79fd7eee&quot;,
+      &quot;KeyName&quot; : &quot;testkey&quot;,
+      &quot;BlockDeviceMappings&quot; : [
+         {
+            &quot;DeviceName&quot; : &quot;/dev/sdm&quot;,
+            &quot;Ebs&quot; : {
+              &quot;VolumeType&quot; : &quot;io1&quot;,
+              &quot;Iops&quot; : &quot;200&quot;,
+              &quot;DeleteOnTermination&quot; : &quot;false&quot;,
+              &quot;VolumeSize&quot; : &quot;20&quot;
+            }
+          }, 
+          {
+            &quot;DeviceName&quot; : &quot;/dev/sdk&quot;,
+            &quot;NoDevice&quot; : {}
+          }
+      ]
    }
-}        </code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h4 id="aws-properties-ec2-instance-examples-yaml1">YAML</h4>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">  AWSTemplateFormatVersion: &quot;2010-09-09&quot;
-  Description: &quot;Ec2 block device mapping&quot;
-  Resources: 
-    MyEC2Instance: 
-      Type: AWS::EC2::Instance
-      Properties: 
-        ImageId: &quot;ami-79fd7eee&quot;
-        KeyName: &quot;testkey&quot;
-        BlockDeviceMappings: 
-          - DeviceName: &quot;/dev/sdm&quot;
-            Ebs: 
-              VolumeType: &quot;io1&quot;
-              Iops: &quot;200&quot;
-              DeleteOnTermination: &quot;false&quot;
-              VolumeSize: &quot;20&quot;
-          - DeviceName: &quot;/dev/sdk&quot;
-            NoDevice: {}
-</code></pre>
-                        </div><h3 id="w2ab1c21c10d111c49c13b4">Automatically Assign a Public IP Address</h3><p>You can associate a public IP address with a network interface only if it has a device
-                        index of <code class="code">0</code> and if it is a new network interface (not an existing one).
-                     </p><div id="JSON" name="JSON" class="section langfilter">
-                        <h4 id="aws-properties-ec2-instance-examples-json2">JSON</h4>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">&quot;Ec2Instance&quot; : {
+}</code></pre><h4 id="aws-properties-ec2-instance--examples--EC2_Instance_with_an_EBS_Block_Device_Mapping--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">  MyEC2Instance: 
+    Type: AWS::EC2::Instance
+    Properties: 
+      ImageId: &quot;ami-79fd7eee&quot;
+      KeyName: &quot;testkey&quot;
+      BlockDeviceMappings: 
+      - DeviceName: &quot;/dev/sdm&quot;
+        Ebs: 
+          VolumeType: &quot;io1&quot;
+          Iops: &quot;200&quot;
+          DeleteOnTermination: &quot;false&quot;
+          VolumeSize: &quot;20&quot;
+      - DeviceName: &quot;/dev/sdk&quot;
+        NoDevice: {}</code></pre><h3 id="aws-properties-ec2-instance--examples--Automatically_Assign_a_Public_IP_Address">Automatically Assign a Public IP Address</h3><p>You can associate a public IP address with a network interface only if it has a 
+                        					device index of <code class="code">0</code> and if it is a new network interface (not an existing one).
+                     </p><h4 id="aws-properties-ec2-instance--examples--Automatically_Assign_a_Public_IP_Address--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">&quot;Ec2Instance&quot; : {
   &quot;Type&quot; : &quot;AWS::EC2::Instance&quot;,
   &quot;Properties&quot; : {
     &quot;ImageId&quot; : { &quot;Fn::FindInMap&quot; : [ &quot;RegionMap&quot;, { &quot;Ref&quot; : &quot;AWS::Region&quot; }, &quot;AMI&quot; ]},
@@ -1183,64 +811,48 @@ Properties:
       &quot;SubnetId&quot;: { &quot;Ref&quot; : &quot;PublicSubnet&quot; }
     } ]
   }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h4 id="aws-properties-ec2-instance-examples-yaml2">YAML</h4>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">  Ec2Instance: 
-    Type: AWS::EC2::Instance
-    Properties: 
-      ImageId: 
-        Fn::FindInMap: 
-          - &quot;RegionMap&quot;
-          - Ref: &quot;AWS::Region&quot;
-          - &quot;AMI&quot;
-      KeyName: 
-        Ref: &quot;KeyName&quot;
-      NetworkInterfaces: 
-        - AssociatePublicIpAddress: &quot;true&quot;
-          DeviceIndex: &quot;0&quot;
-          GroupSet: 
-            - Ref: &quot;myVPCEC2SecurityGroup&quot;
-          SubnetId: 
-            Ref: &quot;PublicSubnet&quot;</code></pre>
-                        </div><h3 id="w2ab1c21c10d111c49c13b6">Other Examples</h3><p>You can download templates that show how to use <code class="code">AWS::EC2::Instance</code> to create a virtual private cloud (VPC):
-                     </p><div class="itemizedlist">
-                        
-                        
-                        
+}</code></pre><h4 id="aws-properties-ec2-instance--examples--Automatically_Assign_a_Public_IP_Address--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Ec2Instance: 
+  Type: AWS::EC2::Instance
+  Properties: 
+    ImageId: 
+      Fn::FindInMap: 
+        - &quot;RegionMap&quot;
+        - Ref: &quot;AWS::Region&quot;
+        - &quot;AMI&quot;
+    KeyName: 
+      Ref: &quot;KeyName&quot;
+    NetworkInterfaces: 
+      - AssociatePublicIpAddress: &quot;true&quot;
+        DeviceIndex: &quot;0&quot;
+        GroupSet: 
+          - Ref: &quot;myVPCEC2SecurityGroup&quot;
+        SubnetId: 
+          Ref: &quot;PublicSubnet&quot;</code></pre><h2 id="aws-properties-ec2-instance--seealso">See Also</h2><div class="itemizedlist">
+                        				        
+                        				        
+                        			      
                         <ul class="itemizedlist" type="disc">
                            <li class="listitem">
-                              
-                              <p><a href="https://s3.amazonaws.com/cloudformation-templates-us-east-1/vpc_single_instance_in_subnet.template" target="_blank">Single instance in a single subnet</a></p>
-                              
+                              					          
+                              <p>
+                                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">
+                                    						RunInstances</a> in the <em>Amazon EC2 API Reference</em>
+                                 
+                              </p>
+                              				        
                            </li>
                            <li class="listitem">
-                              
-                              <p><a href="https://s3.amazonaws.com/cloudformation-templates-us-east-1/vpc_multiple_subnets.template" target="_blank">Multiple subnets with ELB and Auto Scaling group</a></p>
-                              
+                              					          
+                              <p>
+                                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#EBSOptimized">
+                                    						EBS-Optimized Instances</a> in the <em>Amazon EC2 API Reference</em>
+                                 
+                              </p>
+                              				        
                            </li>
                         </ul>
-                     </div><p>For more information about an <code class="code">AWS::EC2::Instance</code> that has an IAM instance profile, see: <a href="https://s3.amazonaws.com/cloudformation-templates-us-east-1/ec2_instance_with_instance_profile.template" target="_blank">Create an EC2 instance with an associated instance profile</a>.
-                     </p><p>For more information about Amazon EC2 template examples, see: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-ec2.html">Amazon EC2 Template Snippets</a>.
-                     </p><h2 id="w2ab1c21c10d111c49c15">See Also</h2><div class="itemizedlist">
-                        
-                        
-                        
-                        <ul class="itemizedlist" type="disc">
-                           <li class="listitem">
-                              
-                              <p><a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-RunInstances.html">RunInstances</a> in the <em>Amazon Elastic Compute Cloud API
-                                    Reference</em></p>
-                              
-                           </li>
-                           <li class="listitem">
-                              
-                              <p><a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#EBSOptimized">EBS-Optimized Instances</a> in the <em>Amazon Elastic Compute Cloud
-                                    User Guide</em></p>
-                              
-                           </li>
-                        </ul>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
                      </div></div>
 </body>
 </html>

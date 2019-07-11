@@ -8,70 +8,116 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-properties-as-metricscollection">Amazon EC2 Auto Scaling AutoScalingGroup
-                        MetricsCollection
-                     </h1><p>The <code class="code">MetricsCollection</code> is a property of the <a href="aws-properties-as-group.html">AWS::AutoScaling::AutoScalingGroup</a> resource that
-                        describes the group metrics that an Amazon EC2 Auto Scaling group sends to Amazon
-                        CloudWatch. These metrics describe
-                        the group rather than any of its instances. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html">EnableMetricsCollection</a> in the
-                        <em>Amazon EC2 Auto Scaling API Reference</em>.
-                     </p><h2 id="w2ab1c21c10c42c13c42b5">Syntax</h2><div id="JSON" name="JSON" class="section langfilter">
-                        
-                        <h3 id="aws-properties-as-metricscollection-syntax.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
-  &quot;<a href="aws-properties-as-metricscollection.html#cfn-as-metricscollection-granularity">Granularity</a>&quot; : <em class="replaceable"><code>String</code></em>,
-  &quot;<a href="aws-properties-as-metricscollection.html#cfn-as-metricscollection-metrics">Metrics</a>&quot; : [ <em class="replaceable"><code>String, ...</code></em> ]
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        
-                        <h3 id="aws-properties-as-metricscollection-syntax.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight"><a href="aws-properties-as-metricscollection.html#cfn-as-metricscollection-granularity">Granularity</a>: <em class="replaceable"><code>String</code></em>
-<a href="aws-properties-as-metricscollection.html#cfn-as-metricscollection-metrics">Metrics</a>:
-  - <em class="replaceable"><code>String</code></em>
-</code></pre>
-                        </div><h2 id="w2ab1c21c10c42c13c42b7">Properties</h2><div class="variablelist">
-                        
-                        
-                        
+    <h1 class="topictitle" id="aws-properties-as-metricscollection">AWS::AutoScaling::AutoScalingGroup MetricsCollection</h1><p>
+                        <code class="code">MetricsCollection</code> is a property of <a href="aws-properties-as-group.html">AutoScalingGroup</a> that describes the group metrics that an Amazon EC2 Auto Scaling
+                        group sends to Amazon CloudWatch. These metrics describe the group rather than any
+                        of its
+                        instances. 
+                     </p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-monitoring.html">Monitoring Your Auto Scaling
+                           Groups and Instances Using Amazon CloudWatch</a> in the <em>Amazon EC2 Auto
+                           Scaling User Guide</em>. You can find a sample template snippet in the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#aws-properties-as-group--examples">Examples</a> section of the <code class="code">AWS::AutoScaling::AutoScalingGroup</code>
+                        documentation.
+                     </p><h2 id="aws-properties-as-metricscollection-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-properties-as-metricscollection-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;<a href="#cfn-as-metricscollection-granularity">Granularity</a>&quot; : <em class="replaceable"><code>String</code></em>,
+  &quot;<a href="#cfn-as-metricscollection-metrics">Metrics</a>&quot; : <em class="replaceable"><code>[ String, ... ]</code></em>
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-properties-as-metricscollection-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">  <a href="#cfn-as-metricscollection-granularity">Granularity</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-as-metricscollection-metrics">Metrics</a>: <em class="replaceable"><code>
+    - String</code></em>
+</code></pre></div><h2 id="aws-properties-as-metricscollection-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
-                           <dt><a id="cfn-as-metricscollection-granularity"></a><span class="term"><code class="literal">Granularity</code></span></dt>
-                           
+                           <dt><a id="cfn-as-metricscollection-granularity"></a><span class="term"><code class="code">Granularity</code></span></dt>
                            <dd>
                               
                               <p>The frequency at which Amazon EC2 Auto Scaling sends aggregated data to CloudWatch.
-                                 The only valid
-                                 value is <code class="code">1Minute</code>.
+                                 The
+                                 only valid value is <code class="code">1Minute</code>.
                               </p>
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Minimum</em>: <code class="code">1</code></p>
+                              <p><em>Maximum</em>: <code class="code">255</code></p>
+                              <p><em>Pattern</em>: <code class="code">[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*</code></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-as-metricscollection-metrics"></a><span class="term"><code class="literal">Metrics</code></span></dt>
-                           
+                           <dt><a id="cfn-as-metricscollection-metrics"></a><span class="term"><code class="code">Metrics</code></span></dt>
                            <dd>
                               
-                              <p>The list of metrics to collect. If you don&apos;t specify any metrics, all metrics
-                                 are enabled.
+                              <p>The list of Auto Scaling group metrics to collect. If you specify <code class="code">Granularity</code>
+                                 and don&apos;t specify any metrics, all metrics are enabled. 
                               </p>
+                              
+                              <div class="itemizedlist">
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 <ul class="itemizedlist" type="disc">
+                                    <li class="listitem">
+                                       
+                                       <p><code class="code">GroupMinSize</code></p>
+                                       
+                                    </li>
+                                    <li class="listitem">
+                                       
+                                       <p><code class="code">GroupMaxSize</code></p>
+                                       
+                                    </li>
+                                    <li class="listitem">
+                                       
+                                       <p><code class="code">GroupDesiredCapacity</code></p>
+                                       
+                                    </li>
+                                    <li class="listitem">
+                                       
+                                       <p><code class="code">GroupInServiceInstances</code></p>
+                                       
+                                    </li>
+                                    <li class="listitem">
+                                       
+                                       <p><code class="code">GroupPendingInstances</code></p>
+                                       
+                                    </li>
+                                    <li class="listitem">
+                                       
+                                       <p><code class="code">GroupStandbyInstances</code></p>
+                                       
+                                    </li>
+                                    <li class="listitem">
+                                       
+                                       <p><code class="code">GroupTerminatingInstances</code></p>
+                                       
+                                    </li>
+                                    <li class="listitem">
+                                       
+                                       <p><code class="code">GroupTotalInstances</code></p>
+                                       
+                                    </li>
+                                 </ul>
+                              </div>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: List of String values
+                              <p><em>Type</em>: List of String
                               </p>
-                              
+                              <p><em>Minimum</em>: <code class="code">1</code></p>
+                              <p><em>Maximum</em>: <code class="code">255</code></p>
+                              <p><em>Pattern</em>: <code class="code">[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*</code></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
                         </dl>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
                      </div></div>
 </body>
 </html>

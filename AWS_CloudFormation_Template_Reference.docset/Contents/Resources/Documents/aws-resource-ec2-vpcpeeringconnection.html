@@ -8,156 +8,75 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-resource-ec2-vpcpeeringconnection">AWS::EC2::VPCPeeringConnection</h1><p>A VPC peering connection enables a network connection between two virtual private
-                        clouds
-                        (VPCs) so that you can route traffic between them using a private IP address. For
-                        more
-                        information about VPC peering and its limitations, see <a href="https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-overview.html">VPC Peering Overview</a> in the
-                        <em>Amazon VPC Peering Guide</em>. 
+    <h1 class="topictitle" id="aws-resource-ec2-vpcpeeringconnection">AWS::EC2::VPCPeeringConnection</h1><p>Requests a VPC peering connection between two VPCs: a requester VPC that you own and
+                        			an accepter VPC with which to create the connection. The accepter VPC can belong
+                        to
+                        			another AWS account and can be in a different Region to the requester VPC. The
+                        requester
+                        			VPC and accepter VPC cannot have overlapping CIDR blocks.
                      </p><div class="aws-note">
                         <p class="aws-note">Note</p>
-                        <p>You can create a peering connection with another AWS account. For a detailed
-                           walkthrough, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/peer-with-vpc-in-another-account.html">Walkthrough: Peer with an Amazon VPC in Another AWS Account</a>.
+                        <p>Limitations and rules apply to a VPC peering connection. For more information, 
+                           see the <a href="https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-basics.html#vpc-peering-limitations">limitations</a> section in the <em>VPC Peering Guide</em>.
                         </p>
-                     </div><div class="highlights" id="inline-topiclist">
-                        <p><strong>Topics</strong></p>
-                        <ul>
-                           <li><a href="#aws-resource-ec2-vpcpeeringconnection-syntax">Syntax</a></li>
-                           <li><a href="#w2ab1c21c10d111d202c10">Properties</a></li>
-                           <li><a href="#w2ab1c21c10d111d202c12">Return Values</a></li>
-                           <li><a href="#w2ab1c21c10d111d202c14">Examples</a></li>
-                        </ul>
-                     </div><h2 id="aws-resource-ec2-vpcpeeringconnection-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-resource-ec2-vpcpeeringconnection-syntax.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
-   &quot;Type&quot; : &quot;AWS::EC2::VPCPeeringConnection&quot;,
-   &quot;Properties&quot; : {
-      &quot;<a href="aws-resource-ec2-vpcpeeringconnection.html#cfn-ec2-vpcpeeringconnection-peervpcid">PeerVpcId</a>&quot; : <em class="replaceable"><code>String</code></em>,
-      &quot;<a href="aws-resource-ec2-vpcpeeringconnection.html#cfn-ec2-vpcpeeringconnection-tags">Tags</a>&quot; : [ <em class="replaceable"><code>Resource Tag, ...</code></em> ],
-      &quot;<a href="aws-resource-ec2-vpcpeeringconnection.html#cfn-ec2-vpcpeeringconnection-vpcid">VpcId</a>&quot; : <em class="replaceable"><code>String</code></em>,
-      &quot;<a href="aws-resource-ec2-vpcpeeringconnection.html#cfn-ec2-vpcpeeringconnection-peerownerid">PeerOwnerId</a>&quot; : <em class="replaceable"><code>String</code></em>,
-      &quot;<a href="aws-resource-ec2-vpcpeeringconnection.html#cfn-ec2-vpcpeeringconnection-peerregion">PeerRegion</a>&quot; : <em class="replaceable"><code>String</code></em>,
-      &quot;<a href="aws-resource-ec2-vpcpeeringconnection.html#cfn-ec2-vpcpeeringconnection-peerrolearn">PeerRoleArn</a>&quot; :  <em class="replaceable"><code>String</code></em>
-   }
-}     </code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-resource-ec2-vpcpeeringconnection-syntax.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">Type: AWS::EC2::VPCPeeringConnection
+                     </div><p>The owner of the accepter VPC must accept the peering request to activate the peering
+                        connection. The VPC peering connection request expires after 7 days, after which it
+                        cannot be accepted or rejected.
+                     </p><p>If you create a VPC peering connection request between VPCs with overlapping CIDR
+                        blocks, the VPC peering connection has a status of <code class="code">failed</code>.
+                     </p><h2 id="aws-resource-ec2-vpcpeeringconnection-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-resource-ec2-vpcpeeringconnection-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;Type&quot; : &quot;AWS::EC2::VPCPeeringConnection&quot;,
+  &quot;Properties&quot; : {
+      &quot;<a href="#cfn-ec2-vpcpeeringconnection-peerownerid">PeerOwnerId</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-ec2-vpcpeeringconnection-peerregion">PeerRegion</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-ec2-vpcpeeringconnection-peerrolearn">PeerRoleArn</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-ec2-vpcpeeringconnection-peervpcid">PeerVpcId</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-ec2-vpcpeeringconnection-tags">Tags</a>&quot; : <em class="replaceable"><code>[ <a href="aws-properties-resource-tags.html">Tag</a>, ... ]</code></em>,
+      &quot;<a href="#cfn-ec2-vpcpeeringconnection-vpcid">VpcId</a>&quot; : <em class="replaceable"><code>String</code></em>
+    }
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-ec2-vpcpeeringconnection-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Type: AWS::EC2::VPCPeeringConnection
 Properties: 
-  <a href="aws-resource-ec2-vpcpeeringconnection.html#cfn-ec2-vpcpeeringconnection-peervpcid">PeerVpcId</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-ec2-vpcpeeringconnection.html#cfn-ec2-vpcpeeringconnection-tags">Tags</a>:
-    - <em class="replaceable"><code>Resource Tag</code></em>
-  <a href="aws-resource-ec2-vpcpeeringconnection.html#cfn-ec2-vpcpeeringconnection-vpcid">VpcId</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-ec2-vpcpeeringconnection.html#cfn-ec2-vpcpeeringconnection-peerownerid">PeerOwnerId</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-ec2-vpcpeeringconnection.html#cfn-ec2-vpcpeeringconnection-peerregion">PeerRegion</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-ec2-vpcpeeringconnection.html#cfn-ec2-vpcpeeringconnection-peerrolearn">PeerRoleArn</a>:  <em class="replaceable"><code>String</code></em>
-</code></pre>
-                        </div><h2 id="w2ab1c21c10d111d202c10">Properties</h2><div class="variablelist">
-                        
-                        
-                        
-                        
-                        
-                        
-                        
+  <a href="#cfn-ec2-vpcpeeringconnection-peerownerid">PeerOwnerId</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-ec2-vpcpeeringconnection-peerregion">PeerRegion</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-ec2-vpcpeeringconnection-peerrolearn">PeerRoleArn</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-ec2-vpcpeeringconnection-peervpcid">PeerVpcId</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-ec2-vpcpeeringconnection-tags">Tags</a>: <em class="replaceable"><code>
+    - <a href="aws-properties-resource-tags.html">Tag</a></code></em>
+  <a href="#cfn-ec2-vpcpeeringconnection-vpcid">VpcId</a>: <em class="replaceable"><code>String</code></em>
+</code></pre></div><h2 id="aws-resource-ec2-vpcpeeringconnection-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
-                           <dt><a id="cfn-ec2-vpcpeeringconnection-peervpcid"></a><span class="term"><code class="literal">PeerVpcId</code></span></dt>
-                           
+                           <dt><a id="cfn-ec2-vpcpeeringconnection-peerownerid"></a><span class="term"><code class="code">PeerOwnerId</code></span></dt>
                            <dd>
                               
-                              <p>The ID of the VPC with which you are creating the peering connection.</p>
+                              <p>The AWS account ID of the owner of the accepter VPC.</p>
                               
-                              <p><em>Required</em>: Yes
-                              </p>
-                              
-                              <p><em>Type</em>: String
-                              </p>
-                              
-                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
-                           </dd>
-                           
-                           
-                           <dt><a id="cfn-ec2-vpcpeeringconnection-tags"></a><span class="term"><code class="literal">Tags</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>An arbitrary set of tags (key&#x2013;value pairs) for this
-                                 resource.
-                              </p>
+                              <p>Default: Your AWS account ID</p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: <a href="aws-properties-resource-tags.html">Resource Tag</a></p>
-                              
-                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>.
-                              </p>
-                              
-                           </dd>
-                           
-                           
-                           <dt><a id="cfn-ec2-vpcpeeringconnection-vpcid"></a><span class="term"><code class="literal">VpcId</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>The ID of the VPC that is requesting a peering connection.</p>
-                              
-                              <p><em>Required</em>: Yes
-                              </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-ec2-vpcpeeringconnection-peerownerid"></a><span class="term"><code class="literal">PeerOwnerId</code></span></dt>
-                           
+                           <dt><a id="cfn-ec2-vpcpeeringconnection-peerregion"></a><span class="term"><code class="code">PeerRegion</code></span></dt>
                            <dd>
                               
-                              <p>The AWS account ID of the owner of the VPC that you want to peer
-                                 with.
+                              <p>The Region code for the accepter VPC, if the accepter VPC is located in a Region
+                                 other than the Region in which you make the request.
                               </p>
+                              		       
+                              <p>Default: The Region in which you make the request.</p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-ec2-vpcpeeringconnection-peerregion"></a><span class="term"><code class="literal">PeerRegion</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>The region code for the accepter VPC, if the accepter VPC is located in a region other
-                                 than the region in which you make the request. The default is the region in which
-                                 you make the request.
-                              </p>
-                              
-                              <p><em>Required</em>: No
-                              </p>
-                              
-                              <p><em>Type</em>: String
-                              </p>
-                              
-                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
-                           </dd>
-                           
-                           
-                           <dt><a id="cfn-ec2-vpcpeeringconnection-peerrolearn"></a><span class="term"><code class="literal">PeerRoleArn</code></span></dt>
-                           
+                           <dt><a id="cfn-ec2-vpcpeeringconnection-peerrolearn"></a><span class="term"><code class="code">PeerRoleArn</code></span></dt>
                            <dd>
                               
                               <p>The Amazon Resource Name (ARN) of the VPC peer role for the peering connection in
@@ -166,84 +85,105 @@ Properties:
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                           </dd>
+                           <dt><a id="cfn-ec2-vpcpeeringconnection-peervpcid"></a><span class="term"><code class="code">PeerVpcId</code></span></dt>
+                           <dd>
                               
-                           </dd>              
-                           
+                              <p>The ID of the VPC with which you are creating the VPC peering connection. You must
+                                 			specify this parameter in the request.
+                              </p>
+                              
+                              <p><em>Required</em>: Yes
+                              </p>
+                              <p><em>Type</em>: String
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                           </dd>
+                           <dt><a id="cfn-ec2-vpcpeeringconnection-tags"></a><span class="term"><code class="code">Tags</code></span></dt>
+                           <dd>
+                              
+                              <p>Any tags assigned to the resource.</p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              <p><em>Type</em>: List of <a href="aws-properties-resource-tags.html">Tag</a></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                           </dd>
+                           <dt><a id="cfn-ec2-vpcpeeringconnection-vpcid"></a><span class="term"><code class="code">VpcId</code></span></dt>
+                           <dd>
+                              
+                              <p>The ID of the VPC.</p>
+                              
+                              <p><em>Required</em>: Yes
+                              </p>
+                              <p><em>Type</em>: String
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                           </dd>
                         </dl>
-                     </div><h2 id="w2ab1c21c10d111d202c12">Return Values</h2><h3 id="w2ab1c21c10d111d202c12b2">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code> intrinsic
-                        function, <code class="code">Ref</code> returns the resource name.
+                     </div><h2 id="aws-resource-ec2-vpcpeeringconnection-return-values">Return Values</h2><h3 id="aws-resource-ec2-vpcpeeringconnection-return-values-ref">Ref</h3><p>When you pass the logical ID of this resource to the intrinsic <code class="code">Ref</code> function, <code class="code">Ref</code> returns the ID of the VPC peering connection.
                      </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                     </p><h2 id="w2ab1c21c10d111d202c14">Examples</h2><p>The following example template creates two VPCs to demonstrate how to configure a
-                        peering connection. For a VPC peering connection, you must create a VPC peering route
-                        for each VPC route table, as shown in the example by <code class="code">PeeringRoute1</code> and
-                        <code class="code">PeeringRoute2</code>. If you launch the template, you can connect to the
-                        <code class="code">myInstance</code> instance using SSH, and then ping the
-                        <code class="code">myPrivateInstance</code> instance although both instances are in separate
-                        VPCs.
-                     </p><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-resource-ec2-vpcpeeringconnection-example-1.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">{
-    &quot;AWSTemplateFormatVersion&quot;: &quot;2010-09-09&quot;,
-    &quot;Description&quot;: &quot;Creates a VPC that and then creates a peering connection with an existing VPC that you specify.&quot;,
-    &quot;Parameters&quot;: {
-        &quot;EC2KeyPairName&quot;: {
-            &quot;Description&quot;: &quot;Name of an existing EC2 KeyPair to enable SSH access to the instances&quot;,
-            &quot;Type&quot;: &quot;AWS::EC2::KeyPair::KeyName&quot;,
-            &quot;ConstraintDescription&quot; : &quot;must be the name of an existing EC2 KeyPair.&quot;
-        },
-        &quot;InstanceType&quot;: {
+                     </p><h2 id="aws-resource-ec2-vpcpeeringconnection--examples">Examples</h2><h3 id="aws-resource-ec2-vpcpeeringconnection--examples--VPC_Peering_Connection">VPC Peering Connection</h3><p>The following example specifies a VPC, and then creates a peering connection with
+                        an existing VPC that you specify.
+                     </p><h4 id="aws-resource-ec2-vpcpeeringconnection--examples--VPC_Peering_Connection--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+   &quot;AWSTemplateFormatVersion&quot;: &quot;2010-09-09&quot;,
+   &quot;Description&quot;: &quot;Creates a VPC that and then creates a peering connection with an existing VPC that you specify.&quot;,
+   &quot;Parameters&quot;: {
+      &quot;EC2KeyPairName&quot;: {
+         &quot;Description&quot;: &quot;Name of an existing EC2 KeyPair to enable SSH access to the instances&quot;,
+         &quot;Type&quot;: &quot;AWS::EC2::KeyPair::KeyName&quot;,
+         &quot;ConstraintDescription&quot; : &quot;must be the name of an existing EC2 KeyPair.&quot;
+       },
+       &quot;InstanceType&quot;: {
             &quot;Description&quot;: &quot;EC2 instance type&quot;,
             &quot;Type&quot;: &quot;String&quot;,
             &quot;Default&quot;: &quot;t1.micro&quot;,
             &quot;AllowedValues&quot;: [
-                &quot;t1.micro&quot;,
-                &quot;m1.small&quot;,
-                &quot;m3.medium&quot;,
-                &quot;m3.large&quot;,
-                &quot;m3.xlarge&quot;,
-                &quot;m3.2xlarge&quot;,
-                &quot;c3.large&quot;,
-                &quot;c3.xlarge&quot;,
-                &quot;c3.2xlarge&quot;,
-                &quot;c3.4xlarge&quot;,
-                &quot;c3.8xlarge&quot;
-            ],
-            &quot;ConstraintDescription&quot;: &quot;must be a valid EC2 instance type.&quot;
-        },
-        &quot;myVPCIDCIDRRange&quot;: {
-            &quot;Description&quot;: &quot;The IP address range for your new VPC.&quot;,
-            &quot;Type&quot;: &quot;String&quot;,
-            &quot;MinLength&quot;: &quot;9&quot;,
-            &quot;MaxLength&quot;: &quot;18&quot;,
-            &quot;Default&quot;: &quot;10.1.0.0/16&quot;,
-            &quot;AllowedPattern&quot;: &quot;(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})/(\\d{1,2})&quot;,
-            &quot;ConstraintDescription&quot;: &quot;must be a valid IP CIDR range of the form x.x.x.x/x.&quot;
-        },
-        &quot;myPrivateVPCIDCIDRRange&quot;: {
-            &quot;Description&quot;: &quot;The IP address range for your new Private VPC.&quot;,
-            &quot;Type&quot;: &quot;String&quot;,
-            &quot;MinLength&quot;: &quot;9&quot;,
-            &quot;MaxLength&quot;: &quot;18&quot;,
-            &quot;Default&quot;: &quot;10.0.0.0/16&quot;,
-            &quot;AllowedPattern&quot;: &quot;(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})/(\\d{1,2})&quot;,
-            &quot;ConstraintDescription&quot;: &quot;must be a valid IP CIDR range of the form x.x.x.x/x.&quot;
-        },
-        &quot;EC2SubnetCIDRRange&quot;: {
-            &quot;Description&quot;: &quot;The IP address range for a subnet in myPrivateVPC.&quot;,
-            &quot;Type&quot;: &quot;String&quot;,
-            &quot;MinLength&quot;: &quot;9&quot;,
-            &quot;MaxLength&quot;: &quot;18&quot;,
-            &quot;Default&quot;: &quot;10.0.0.0/24&quot;,
-            &quot;AllowedPattern&quot;: &quot;(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})/(\\d{1,2})&quot;,
-            &quot;ConstraintDescription&quot;: &quot;must be a valid IP CIDR range of the form x.x.x.x/x.&quot;
-        },
-        &quot;EC2PublicSubnetCIDRRange&quot;: {
+            &quot;t1.micro&quot;,
+            &quot;m1.small&quot;,
+            &quot;m3.medium&quot;,
+            &quot;m3.large&quot;,
+            &quot;m3.xlarge&quot;,
+            &quot;m3.2xlarge&quot;,
+            &quot;c3.large&quot;,
+            &quot;c3.xlarge&quot;,
+            &quot;c3.2xlarge&quot;,
+            &quot;c3.4xlarge&quot;,
+            &quot;c3.8xlarge&quot;
+         ],
+        &quot;ConstraintDescription&quot;: &quot;must be a valid EC2 instance type.&quot;
+   },
+   &quot;myVPCIDCIDRRange&quot;: {
+        &quot;Description&quot;: &quot;The IP address range for your new VPC.&quot;,
+        &quot;Type&quot;: &quot;String&quot;,
+        &quot;MinLength&quot;: &quot;9&quot;,
+        &quot;MaxLength&quot;: &quot;18&quot;,
+        &quot;Default&quot;: &quot;10.1.0.0/16&quot;,
+        &quot;AllowedPattern&quot;: &quot;(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})/(\\d{1,2})&quot;,
+        &quot;ConstraintDescription&quot;: &quot;must be a valid IP CIDR range of the form x.x.x.x/x.&quot;
+   },
+   &quot;myPrivateVPCIDCIDRRange&quot;: {
+        &quot;Description&quot;: &quot;The IP address range for your new Private VPC.&quot;,
+        &quot;Type&quot;: &quot;String&quot;,
+        &quot;MinLength&quot;: &quot;9&quot;,
+        &quot;MaxLength&quot;: &quot;18&quot;,
+        &quot;Default&quot;: &quot;10.0.0.0/16&quot;,
+        &quot;AllowedPattern&quot;: &quot;(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})/(\\d{1,2})&quot;,
+        &quot;ConstraintDescription&quot;: &quot;must be a valid IP CIDR range of the form x.x.x.x/x.&quot;
+    },
+    &quot;EC2SubnetCIDRRange&quot;: {
+        &quot;Description&quot;: &quot;The IP address range for a subnet in myPrivateVPC.&quot;,
+        &quot;Type&quot;: &quot;String&quot;,
+        &quot;MinLength&quot;: &quot;9&quot;,
+        &quot;MaxLength&quot;: &quot;18&quot;,
+        &quot;Default&quot;: &quot;10.0.0.0/24&quot;,
+        &quot;AllowedPattern&quot;: &quot;(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})/(\\d{1,2})&quot;,
+        &quot;ConstraintDescription&quot;: &quot;must be a valid IP CIDR range of the form x.x.x.x/x.&quot;
+     },
+     &quot;EC2PublicSubnetCIDRRange&quot;: {
             &quot;Description&quot;: &quot;The IP address range for a subnet in myVPC.&quot;,
             &quot;Type&quot;: &quot;String&quot;,
             &quot;MinLength&quot;: &quot;9&quot;,
@@ -251,218 +191,214 @@ Properties:
             &quot;Default&quot;: &quot;10.1.0.0/24&quot;,
             &quot;AllowedPattern&quot;: &quot;(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})/(\\d{1,2})&quot;,
             &quot;ConstraintDescription&quot;: &quot;must be a valid IP CIDR range of the form x.x.x.x/x.&quot;
+     }
+ },
+ &quot;Mappings&quot;: {
+      &quot;AWSRegionToAMI&quot;: {
+          &quot;us-east-1&quot;: {
+              &quot;64&quot;: &quot;ami-0ff8a91507f77f867&quot;
+          },
+          &quot;us-west-2&quot;: {
+             &quot;64&quot;: &quot;ami-a0cfeed8&quot;
+          },
+          &quot;us-west-1&quot;: {
+              &quot;64&quot;: &quot;ami-0bdb828fd58c52235&quot;
+          },
+          &quot;eu-west-1&quot;: {
+              &quot;64&quot;: &quot;ami-047bb4163c506cd98&quot;
+          },
+          &quot;ap-southeast-1&quot;: {
+              &quot;64&quot;: &quot;ami-08569b978cc4dfa10&quot;
+          },
+          &quot;ap-southeast-2&quot;: {
+              &quot;64&quot;: &quot;ami-09b42976632b27e9b&quot;
+          },
+          &quot;ap-northeast-1&quot;: {
+              &quot;64&quot;: &quot;ami-06cd52961ce9f0d85&quot;
+          },
+          &quot;sa-east-1&quot;: {
+              &quot;64&quot;: &quot;ami-07b14488da8ea02a0&quot;
+          }
+      }
+   },
+   Resources&quot;: {
+      &quot;myPrivateVPC&quot;: {
+        &quot;Type&quot;: &quot;AWS::EC2::VPC&quot;,
+        &quot;Properties&quot;: {
+           &quot;CidrBlock&quot;: {&quot;Ref&quot;: &quot;myPrivateVPCIDCIDRRange&quot;},
+           &quot;EnableDnsSupport&quot;: false,
+           &quot;EnableDnsHostnames&quot;: false,
+           &quot;InstanceTenancy&quot;: &quot;default&quot;
         }
-    },
-    &quot;Mappings&quot;: {
-        &quot;AWSRegionToAMI&quot;: {
-            &quot;us-east-1&quot;: {
-                &quot;64&quot;: &quot;ami-0ff8a91507f77f867&quot;
+     },        
+     &quot;myPrivateEC2Subnet&quot; : {
+        &quot;Type&quot; : &quot;AWS::EC2::Subnet&quot;,
+        &quot;Properties&quot; : {
+            &quot;VpcId&quot; : { &quot;Ref&quot; : &quot;myPrivateVPC&quot; },
+            &quot;CidrBlock&quot; : {&quot;Ref&quot;: &quot;EC2SubnetCIDRRange&quot;}
+          }
+     },
+     &quot;RouteTable&quot; : {
+           &quot;Type&quot; : &quot;AWS::EC2::RouteTable&quot;,
+           &quot;Properties&quot; : {
+               &quot;VpcId&quot; : {&quot;Ref&quot; : &quot;myPrivateVPC&quot;}            
+           }
+     },        
+     &quot;PeeringRoute1&quot; : {
+         &quot;Type&quot; : &quot;AWS::EC2::Route&quot;,
+          &quot;Properties&quot; : {
+              &quot;DestinationCidrBlock&quot;: &quot;0.0.0.0/0&quot;,
+              &quot;RouteTableId&quot; : { &quot;Ref&quot; : &quot;RouteTable&quot; },
+              &quot;VpcPeeringConnectionId&quot; : { &quot;Ref&quot; : &quot;myVPCPeeringConnection&quot; }
+           }
+     },
+     &quot;SubnetRouteTableAssociation&quot; : {
+         &quot;Type&quot; : &quot;AWS::EC2::SubnetRouteTableAssociation&quot;,
+         &quot;Properties&quot; : {
+             &quot;SubnetId&quot; : { &quot;Ref&quot; : &quot;myPrivateEC2Subnet&quot; },
+             &quot;RouteTableId&quot; : { &quot;Ref&quot; : &quot;RouteTable&quot; }
+         }
+     },
+     &quot;myVPC&quot;: {
+         &quot;Type&quot;: &quot;AWS::EC2::VPC&quot;,
+         &quot;Properties&quot;: {
+             &quot;CidrBlock&quot;: {&quot;Ref&quot;: &quot;myVPCIDCIDRRange&quot;},
+             &quot;EnableDnsSupport&quot;: true,
+             &quot;EnableDnsHostnames&quot;: true,
+             &quot;InstanceTenancy&quot;: &quot;default&quot;
+         }
+     },        
+     &quot;PublicSubnet&quot;: {
+          &quot;Type&quot;: &quot;AWS::EC2::Subnet&quot;,
+          &quot;Properties&quot;: {
+              &quot;CidrBlock&quot;: {&quot;Ref&quot;: &quot;EC2PublicSubnetCIDRRange&quot;},
+              &quot;VpcId&quot;: {
+                  &quot;Ref&quot;: &quot;myVPC&quot;
+              }
+          }
+     },
+     &quot;myInternetGateway&quot;: {
+         &quot;Type&quot;: &quot;AWS::EC2::InternetGateway&quot;
+     },
+     &quot;AttachGateway&quot;: {
+         &quot;Type&quot;: &quot;AWS::EC2::VPCGatewayAttachment&quot;,
+         &quot;Properties&quot;: {
+             &quot;VpcId&quot;: {
+                 &quot;Ref&quot;: &quot;myVPC&quot;
             },
-            &quot;us-west-2&quot;: {
-                &quot;64&quot;: &quot;ami-a0cfeed8&quot;
-            },
-            &quot;us-west-1&quot;: {
-                &quot;64&quot;: &quot;ami-0bdb828fd58c52235&quot;
-            },
-            &quot;eu-west-1&quot;: {
-                &quot;64&quot;: &quot;ami-047bb4163c506cd98&quot;
-            },
-            &quot;ap-southeast-1&quot;: {
-                &quot;64&quot;: &quot;ami-08569b978cc4dfa10&quot;
-            },
-            &quot;ap-southeast-2&quot;: {
-                &quot;64&quot;: &quot;ami-09b42976632b27e9b&quot;
-            },
-            &quot;ap-northeast-1&quot;: {
-                &quot;64&quot;: &quot;ami-06cd52961ce9f0d85&quot;
-            },
-            &quot;sa-east-1&quot;: {
-                &quot;64&quot;: &quot;ami-07b14488da8ea02a0&quot;
+            &quot;InternetGatewayId&quot;: {
+               &quot;Ref&quot;: &quot;myInternetGateway&quot;
             }
-        }
-    },
-    &quot;Resources&quot;: {
-        &quot;myPrivateVPC&quot;: {
-            &quot;Type&quot;: &quot;AWS::EC2::VPC&quot;,
-            &quot;Properties&quot;: {
-                &quot;CidrBlock&quot;: {&quot;Ref&quot;: &quot;myPrivateVPCIDCIDRRange&quot;},
-                &quot;EnableDnsSupport&quot;: false,
-                &quot;EnableDnsHostnames&quot;: false,
-                &quot;InstanceTenancy&quot;: &quot;default&quot;
-            }
-        },        
-        &quot;myPrivateEC2Subnet&quot; : {
-            &quot;Type&quot; : &quot;AWS::EC2::Subnet&quot;,
-            &quot;Properties&quot; : {
-                &quot;VpcId&quot; : { &quot;Ref&quot; : &quot;myPrivateVPC&quot; },
-                &quot;CidrBlock&quot; : {&quot;Ref&quot;: &quot;EC2SubnetCIDRRange&quot;}
-            }
-        },
-        &quot;RouteTable&quot; : {
-            &quot;Type&quot; : &quot;AWS::EC2::RouteTable&quot;,
-            &quot;Properties&quot; : {
-                &quot;VpcId&quot; : {&quot;Ref&quot; : &quot;myPrivateVPC&quot;}            
-            }
-        },        
-        &quot;PeeringRoute1&quot; : {
-            &quot;Type&quot; : &quot;AWS::EC2::Route&quot;,
-            &quot;Properties&quot; : {
-                &quot;DestinationCidrBlock&quot;: &quot;0.0.0.0/0&quot;,
-                &quot;RouteTableId&quot; : { &quot;Ref&quot; : &quot;RouteTable&quot; },
-                &quot;VpcPeeringConnectionId&quot; : { &quot;Ref&quot; : &quot;myVPCPeeringConnection&quot; }
-            }
-        },
-        &quot;SubnetRouteTableAssociation&quot; : {
-            &quot;Type&quot; : &quot;AWS::EC2::SubnetRouteTableAssociation&quot;,
-            &quot;Properties&quot; : {
-                &quot;SubnetId&quot; : { &quot;Ref&quot; : &quot;myPrivateEC2Subnet&quot; },
-                &quot;RouteTableId&quot; : { &quot;Ref&quot; : &quot;RouteTable&quot; }
-            }
-        },
-        &quot;myVPC&quot;: {
-            &quot;Type&quot;: &quot;AWS::EC2::VPC&quot;,
-            &quot;Properties&quot;: {
-                &quot;CidrBlock&quot;: {&quot;Ref&quot;: &quot;myVPCIDCIDRRange&quot;},
-                &quot;EnableDnsSupport&quot;: true,
-                &quot;EnableDnsHostnames&quot;: true,
-                &quot;InstanceTenancy&quot;: &quot;default&quot;
-            }
-        },        
-        &quot;PublicSubnet&quot;: {
-            &quot;Type&quot;: &quot;AWS::EC2::Subnet&quot;,
-            &quot;Properties&quot;: {
-                &quot;CidrBlock&quot;: {&quot;Ref&quot;: &quot;EC2PublicSubnetCIDRRange&quot;},
-                &quot;VpcId&quot;: {
-                    &quot;Ref&quot;: &quot;myVPC&quot;
-                }
-            }
-        },
-        &quot;myInternetGateway&quot;: {
-            &quot;Type&quot;: &quot;AWS::EC2::InternetGateway&quot;
-        },
-        &quot;AttachGateway&quot;: {
-            &quot;Type&quot;: &quot;AWS::EC2::VPCGatewayAttachment&quot;,
-            &quot;Properties&quot;: {
-                &quot;VpcId&quot;: {
-                    &quot;Ref&quot;: &quot;myVPC&quot;
-                },
-                &quot;InternetGatewayId&quot;: {
-                    &quot;Ref&quot;: &quot;myInternetGateway&quot;
-                }
-            }
-        },
-        &quot;PublicRouteTable&quot;: {
-            &quot;Type&quot;: &quot;AWS::EC2::RouteTable&quot;,
-            &quot;Properties&quot;: {
-                &quot;VpcId&quot;: {
-                    &quot;Ref&quot;: &quot;myVPC&quot;
-                }
-            }
-        },
-        &quot;PeeringRoute2&quot; : {
-            &quot;Type&quot; : &quot;AWS::EC2::Route&quot;,
-            &quot;Properties&quot; : {
-                &quot;DestinationCidrBlock&quot;: { &quot;Ref&quot; : &quot;myPrivateVPCIDCIDRRange&quot; },
-                &quot;RouteTableId&quot; : { &quot;Ref&quot; : &quot;PublicRouteTable&quot; },
-                &quot;VpcPeeringConnectionId&quot; : { &quot;Ref&quot; : &quot;myVPCPeeringConnection&quot; }
-            }
-        },
-        &quot;PublicRoute&quot;: {
-            &quot;Type&quot;: &quot;AWS::EC2::Route&quot;,
-            &quot;DependsOn&quot;: &quot;AttachGateway&quot;,
-            &quot;Properties&quot;: {
-                &quot;RouteTableId&quot;: {
-                    &quot;Ref&quot;: &quot;PublicRouteTable&quot;
-                },
-                &quot;DestinationCidrBlock&quot;: &quot;0.0.0.0/0&quot;,
-                &quot;GatewayId&quot;: {
-                    &quot;Ref&quot;: &quot;myInternetGateway&quot;
-                }
-            }
-        },
-        &quot;PublicSubnetRouteTableAssociation&quot;: {
-            &quot;Type&quot;: &quot;AWS::EC2::SubnetRouteTableAssociation&quot;,
-            &quot;Properties&quot;: {
-                &quot;SubnetId&quot;: {
+         }
+     },
+     &quot;PublicRouteTable&quot;: {
+         &quot;Type&quot;: &quot;AWS::EC2::RouteTable&quot;,
+         &quot;Properties&quot;: {
+             &quot;VpcId&quot;: {
+                 &quot;Ref&quot;: &quot;myVPC&quot;
+             }
+         }
+     },
+     &quot;PeeringRoute2&quot; : {
+         &quot;Type&quot; : &quot;AWS::EC2::Route&quot;,
+         &quot;Properties&quot; : {
+            &quot;DestinationCidrBlock&quot;: { &quot;Ref&quot; : &quot;myPrivateVPCIDCIDRRange&quot; },
+            &quot;RouteTableId&quot; : { &quot;Ref&quot; : &quot;PublicRouteTable&quot; },
+            &quot;VpcPeeringConnectionId&quot; : { &quot;Ref&quot; : &quot;myVPCPeeringConnection&quot; }
+          }
+     },
+     &quot;PublicRoute&quot;: {
+         &quot;Type&quot;: &quot;AWS::EC2::Route&quot;,
+          &quot;DependsOn&quot;: &quot;AttachGateway&quot;,
+          &quot;Properties&quot;: {
+              &quot;RouteTableId&quot;: {
+                   &quot;Ref&quot;: &quot;PublicRouteTable&quot;
+              },
+             &quot;DestinationCidrBlock&quot;: &quot;0.0.0.0/0&quot;,
+             &quot;GatewayId&quot;: {
+                 &quot;Ref&quot;: &quot;myInternetGateway&quot;
+             }
+         }
+     },
+     &quot;PublicSubnetRouteTableAssociation&quot;: {
+         &quot;Type&quot;: &quot;AWS::EC2::SubnetRouteTableAssociation&quot;,
+         &quot;Properties&quot;: {
+             &quot;SubnetId&quot;: {
                     &quot;Ref&quot;: &quot;PublicSubnet&quot;
-                },
-                &quot;RouteTableId&quot;: {
+             },
+             &quot;RouteTableId&quot;: {
                     &quot;Ref&quot;: &quot;PublicRouteTable&quot;
-                }
+             }
+         }
+     },
+     &quot;myPrivateVPCEC2SecurityGroup&quot; : {
+         &quot;Type&quot; : &quot;AWS::EC2::SecurityGroup&quot;,
+         &quot;Properties&quot; : {
+             &quot;GroupDescription&quot;: &quot;Private instance security group&quot;,
+             &quot;VpcId&quot; : { &quot;Ref&quot; : &quot;myPrivateVPC&quot; },
+             &quot;SecurityGroupIngress&quot; : [
+                 {&quot;IpProtocol&quot; : &quot;-1&quot;, &quot;FromPort&quot; : &quot;0&quot;, &quot;ToPort&quot; : &quot;65535&quot;, &quot;CidrIp&quot; : &quot;0.0.0.0/0&quot;}
+              ]
+         }
+     },
+     &quot;myVPCEC2SecurityGroup&quot; : {
+        &quot;Type&quot; : &quot;AWS::EC2::SecurityGroup&quot;,
+        &quot;Properties&quot; : {
+            &quot;GroupDescription&quot;: &quot;Public instance security group&quot;,
+            &quot;VpcId&quot; : { &quot;Ref&quot; : &quot;myVPC&quot; },
+            &quot;SecurityGroupIngress&quot; : [
+                {&quot;IpProtocol&quot; : &quot;tcp&quot;, &quot;FromPort&quot; : &quot;80&quot;, &quot;ToPort&quot; : &quot;80&quot;, &quot;CidrIp&quot; : &quot;0.0.0.0/0&quot;},
+                {&quot;IpProtocol&quot; : &quot;tcp&quot;, &quot;FromPort&quot; : &quot;22&quot;, &quot;ToPort&quot; : &quot;22&quot;, &quot;CidrIp&quot; : &quot;0.0.0.0/0&quot;}
+            ]
+        }
+     },
+     &quot;myPrivateInstance&quot; : {
+         &quot;Type&quot; : &quot;AWS::EC2::Instance&quot;,
+         &quot;Properties&quot; : {
+            &quot;SecurityGroupIds&quot; : [{ &quot;Ref&quot; : &quot;myPrivateVPCEC2SecurityGroup&quot; }],
+            &quot;SubnetId&quot; : { &quot;Ref&quot; : &quot;myPrivateEC2Subnet&quot; },
+            &quot;KeyName&quot;: {
+                 &quot;Ref&quot;: &quot;EC2KeyPairName&quot;
+            },
+            &quot;ImageId&quot;: {
+                 &quot;Fn::FindInMap&quot;: [
+                     &quot;AWSRegionToAMI&quot;,
+                     {&quot;Ref&quot;: &quot;AWS::Region&quot;},
+                     &quot;64&quot;
+                  ]
             }
-        },
-        &quot;myPrivateVPCEC2SecurityGroup&quot; : {
-            &quot;Type&quot; : &quot;AWS::EC2::SecurityGroup&quot;,
-            &quot;Properties&quot; : {
-                &quot;GroupDescription&quot;: &quot;Private instance security group&quot;,
-                &quot;VpcId&quot; : { &quot;Ref&quot; : &quot;myPrivateVPC&quot; },
-                &quot;SecurityGroupIngress&quot; : [
-                    {&quot;IpProtocol&quot; : &quot;-1&quot;, &quot;FromPort&quot; : &quot;0&quot;, &quot;ToPort&quot; : &quot;65535&quot;, &quot;CidrIp&quot; : &quot;0.0.0.0/0&quot;}
-                ]
-            }
-        },
-        &quot;myVPCEC2SecurityGroup&quot; : {
-            &quot;Type&quot; : &quot;AWS::EC2::SecurityGroup&quot;,
-            &quot;Properties&quot; : {
-                &quot;GroupDescription&quot;: &quot;Public instance security group&quot;,
-                &quot;VpcId&quot; : { &quot;Ref&quot; : &quot;myVPC&quot; },
-                &quot;SecurityGroupIngress&quot; : [
-                    {&quot;IpProtocol&quot; : &quot;tcp&quot;, &quot;FromPort&quot; : &quot;80&quot;, &quot;ToPort&quot; : &quot;80&quot;, &quot;CidrIp&quot; : &quot;0.0.0.0/0&quot;},
-                    {&quot;IpProtocol&quot; : &quot;tcp&quot;, &quot;FromPort&quot; : &quot;22&quot;, &quot;ToPort&quot; : &quot;22&quot;, &quot;CidrIp&quot; : &quot;0.0.0.0/0&quot;}
-                ]
-            }
-        },
-        &quot;myPrivateInstance&quot; : {
-            &quot;Type&quot; : &quot;AWS::EC2::Instance&quot;,
-            &quot;Properties&quot; : {
-                &quot;SecurityGroupIds&quot; : [{ &quot;Ref&quot; : &quot;myPrivateVPCEC2SecurityGroup&quot; }],
-                &quot;SubnetId&quot; : { &quot;Ref&quot; : &quot;myPrivateEC2Subnet&quot; },
-                &quot;KeyName&quot;: {
-                    &quot;Ref&quot;: &quot;EC2KeyPairName&quot;
-                },
-                &quot;ImageId&quot;: {
-                    &quot;Fn::FindInMap&quot;: [
-                        &quot;AWSRegionToAMI&quot;,
-                        {&quot;Ref&quot;: &quot;AWS::Region&quot;},
-                        &quot;64&quot;
-                    ]
-                }
-            }
-        },
-        &quot;myInstance&quot; : {
-            &quot;Type&quot; : &quot;AWS::EC2::Instance&quot;,
-            &quot;Properties&quot; : {
-                &quot;NetworkInterfaces&quot;: [ {
-                    &quot;AssociatePublicIpAddress&quot;: &quot;true&quot;,
-                    &quot;DeviceIndex&quot;: &quot;0&quot;,
-                    &quot;GroupSet&quot;: [{ &quot;Ref&quot; : &quot;myVPCEC2SecurityGroup&quot; }],
-                    &quot;SubnetId&quot;: { &quot;Ref&quot; : &quot;PublicSubnet&quot; }
-                } ],
-                &quot;KeyName&quot;: {
-                    &quot;Ref&quot;: &quot;EC2KeyPairName&quot;
-                },
-                &quot;ImageId&quot;: {
-                    &quot;Fn::FindInMap&quot;: [
-                        &quot;AWSRegionToAMI&quot;,
-                        {&quot;Ref&quot;: &quot;AWS::Region&quot;},
-                        &quot;64&quot;
-                    ]
-                }
-            }
-        },
-        &quot;myVPCPeeringConnection&quot;: {
-            &quot;Type&quot;: &quot;AWS::EC2::VPCPeeringConnection&quot;,
-            &quot;Properties&quot;: {
-                &quot;VpcId&quot;: {&quot;Ref&quot;: &quot;myVPC&quot;},
-                &quot;PeerVpcId&quot;: {&quot;Ref&quot;: &quot;myPrivateVPC&quot;}
-            }
+         }
+     },
+     &quot;myInstance&quot; : {
+         &quot;Type&quot; : &quot;AWS::EC2::Instance&quot;,
+         &quot;Properties&quot; : {
+             &quot;NetworkInterfaces&quot;: [ {
+                 &quot;AssociatePublicIpAddress&quot;: &quot;true&quot;,
+                 &quot;DeviceIndex&quot;: &quot;0&quot;,
+                 &quot;GroupSet&quot;: [{ &quot;Ref&quot; : &quot;myVPCEC2SecurityGroup&quot; }],
+                 &quot;SubnetId&quot;: { &quot;Ref&quot; : &quot;PublicSubnet&quot; }
+             } ],
+            &quot;KeyName&quot;: {
+                &quot;Ref&quot;: &quot;EC2KeyPairName&quot;
+            },
+            &quot;ImageId&quot;: {
+                &quot;Fn::FindInMap&quot;: [
+                    &quot;AWSRegionToAMI&quot;,
+                    {&quot;Ref&quot;: &quot;AWS::Region&quot;},
+                    &quot;64&quot;
+                 ]
+             }
+        }
+     },
+     &quot;myVPCPeeringConnection&quot;: {
+        &quot;Type&quot;: &quot;AWS::EC2::VPCPeeringConnection&quot;,
+        &quot;Properties&quot;: {
+            &quot;VpcId&quot;: {&quot;Ref&quot;: &quot;myVPC&quot;},
+            &quot;PeerVpcId&quot;: {&quot;Ref&quot;: &quot;myPrivateVPC&quot;}
         }
     }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-resource-ec2-vpcpeeringconnection-example-1.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">AWSTemplateFormatVersion: &apos;2010-09-09&apos;
+  }
+}</code></pre><h4 id="aws-resource-ec2-vpcpeeringconnection--examples--VPC_Peering_Connection--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">AWSTemplateFormatVersion: &apos;2010-09-09&apos;
 Description: Creates a VPC that and then creates a peering connection with an existing
   VPC that you specify.
 Parameters:
@@ -470,7 +406,7 @@ Parameters:
     Description: Name of an existing EC2 KeyPair to enable SSH access to the instances
     Type: AWS::EC2::KeyPair::KeyName
     ConstraintDescription: must be the name of an existing EC2 KeyPair.
-  InstanceType:
+    InstanceType:
     Description: EC2 instance type
     Type: String
     Default: t1.micro
@@ -486,7 +422,7 @@ Parameters:
     - c3.2xlarge
     - c3.4xlarge
     - c3.8xlarge
-    ConstraintDescription: must be a valid EC2 instance type.
+     ConstraintDescription: must be a valid EC2 instance type.
   myVPCIDCIDRRange:
     Description: The IP address range for your new VPC.
     Type: String
@@ -512,11 +448,11 @@ Parameters:
     AllowedPattern: &quot;(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})/(\\d{1,2})&quot;
     ConstraintDescription: must be a valid IP CIDR range of the form x.x.x.x/x.
   EC2PublicSubnetCIDRRange:
-    Description: The IP address range for a subnet in myVPC.
-    Type: String
-    MinLength: &apos;9&apos;
-    MaxLength: &apos;18&apos;
-    Default: 10.1.0.0/24
+     Description: The IP address range for a subnet in myVPC.
+      Type: String
+      MinLength: &apos;9&apos;
+      MaxLength: &apos;18&apos;
+     Default: 10.1.0.0/24
     AllowedPattern: &quot;(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})/(\\d{1,2})&quot;
     ConstraintDescription: must be a valid IP CIDR range of the form x.x.x.x/x.
 Mappings:
@@ -535,162 +471,163 @@ Mappings:
       &apos;64&apos;: ami-09b42976632b27e9b
     ap-northeast-1:
       &apos;64&apos;: ami-06cd52961ce9f0d85
-    sa-east-1:
-      &apos;64&apos;: ami-07b14488da8ea02a0
+     sa-east-1:
+       &apos;64&apos;: ami-07b14488da8ea02a0
 Resources:
-  myPrivateVPC:
-    Type: AWS::EC2::VPC
-    Properties:
-      CidrBlock:
-        Ref: myPrivateVPCIDCIDRRange
-      EnableDnsSupport: false
-      EnableDnsHostnames: false
-      InstanceTenancy: default
-  myPrivateEC2Subnet:
-    Type: AWS::EC2::Subnet
-    Properties:
-      VpcId:
-        Ref: myPrivateVPC
-      CidrBlock:
-        Ref: EC2SubnetCIDRRange
-  RouteTable:
-    Type: AWS::EC2::RouteTable
-    Properties:
-      VpcId:
-        Ref: myPrivateVPC
-  PeeringRoute1:
-    Type: AWS::EC2::Route
-    Properties:
-      DestinationCidrBlock: 0.0.0.0/0
-      RouteTableId:
-        Ref: RouteTable
-      VpcPeeringConnectionId:
-        Ref: myVPCPeeringConnection
-  SubnetRouteTableAssociation:
-    Type: AWS::EC2::SubnetRouteTableAssociation
-    Properties:
-      SubnetId:
-        Ref: myPrivateEC2Subnet
-      RouteTableId:
-        Ref: RouteTable
-  myVPC:
-    Type: AWS::EC2::VPC
-    Properties:
-      CidrBlock:
-        Ref: myVPCIDCIDRRange
-      EnableDnsSupport: true
-      EnableDnsHostnames: true
-      InstanceTenancy: default
-  PublicSubnet:
-    Type: AWS::EC2::Subnet
-    Properties:
-      CidrBlock:
-        Ref: EC2PublicSubnetCIDRRange
-      VpcId:
-        Ref: myVPC
-  myInternetGateway:
-    Type: AWS::EC2::InternetGateway
-  AttachGateway:
-    Type: AWS::EC2::VPCGatewayAttachment
-    Properties:
-      VpcId:
-        Ref: myVPC
-      InternetGatewayId:
-        Ref: myInternetGateway
-  PublicRouteTable:
-    Type: AWS::EC2::RouteTable
-    Properties:
-      VpcId:
-        Ref: myVPC
-  PeeringRoute2:
-    Type: AWS::EC2::Route
-    Properties:
-      DestinationCidrBlock:
-        Ref: myPrivateVPCIDCIDRRange
-      RouteTableId:
-        Ref: PublicRouteTable
-      VpcPeeringConnectionId:
-        Ref: myVPCPeeringConnection
-  PublicRoute:
-    Type: AWS::EC2::Route
-    DependsOn: AttachGateway
-    Properties:
-      RouteTableId:
-        Ref: PublicRouteTable
-      DestinationCidrBlock: 0.0.0.0/0
-      GatewayId:
-        Ref: myInternetGateway
-  PublicSubnetRouteTableAssociation:
-    Type: AWS::EC2::SubnetRouteTableAssociation
-    Properties:
-      SubnetId:
-        Ref: PublicSubnet
-      RouteTableId:
-        Ref: PublicRouteTable
-  myPrivateVPCEC2SecurityGroup:
-    Type: AWS::EC2::SecurityGroup
-    Properties:
-      GroupDescription: Private instance security group
-      VpcId:
-        Ref: myPrivateVPC
-      SecurityGroupIngress:
-      - IpProtocol: &quot;-1&quot;
-        FromPort: &apos;0&apos;
-        ToPort: &apos;65535&apos;
-        CidrIp: 0.0.0.0/0
-  myVPCEC2SecurityGroup:
-    Type: AWS::EC2::SecurityGroup
-    Properties:
-      GroupDescription: Public instance security group
-      VpcId:
-        Ref: myVPC
-      SecurityGroupIngress:
-      - IpProtocol: tcp
-        FromPort: &apos;80&apos;
-        ToPort: &apos;80&apos;
-        CidrIp: 0.0.0.0/0
-      - IpProtocol: tcp
-        FromPort: &apos;22&apos;
-        ToPort: &apos;22&apos;
-        CidrIp: 0.0.0.0/0
-  myPrivateInstance:
-    Type: AWS::EC2::Instance
-    Properties:
-      SecurityGroupIds:
-      - Ref: myPrivateVPCEC2SecurityGroup
-      SubnetId:
-        Ref: myPrivateEC2Subnet
-      KeyName:
-        Ref: EC2KeyPairName
-      ImageId:
-        Fn::FindInMap:
-        - AWSRegionToAMI
-        - Ref: AWS::Region
-        - &apos;64&apos;
-  myInstance:
-    Type: AWS::EC2::Instance
-    Properties:
-      NetworkInterfaces:
-      - AssociatePublicIpAddress: &apos;true&apos;
-        DeviceIndex: &apos;0&apos;
-        GroupSet:
-        - Ref: myVPCEC2SecurityGroup
-        SubnetId:
-          Ref: PublicSubnet
-      KeyName:
-        Ref: EC2KeyPairName
-      ImageId:
-        Fn::FindInMap:
-        - AWSRegionToAMI
-        - Ref: AWS::Region
-        - &apos;64&apos;
-  myVPCPeeringConnection:
-    Type: AWS::EC2::VPCPeeringConnection
-    Properties:
-      VpcId:
-        Ref: myVPC
-      PeerVpcId:
-        Ref: myPrivateVPC</code></pre>
-                        </div></div>
+   myPrivateVPC:
+     Type: AWS::EC2::VPC
+     Properties:
+        CidrBlock:
+          Ref: myPrivateVPCIDCIDRRange
+        EnableDnsSupport: false
+        EnableDnsHostnames: false
+        InstanceTenancy: default
+    myPrivateEC2Subnet:
+       Type: AWS::EC2::Subnet
+       Properties:
+         VpcId:
+           Ref: myPrivateVPC
+         CidrBlock:
+           Ref: EC2SubnetCIDRRange
+         RouteTable:
+           Type: AWS::EC2::RouteTable
+           Properties:
+             VpcId:
+               Ref: myPrivateVPC
+         PeeringRoute1:
+           Type: AWS::EC2::Route
+           Properties:
+             DestinationCidrBlock: 0.0.0.0/0
+             RouteTableId:
+               Ref: RouteTable
+             VpcPeeringConnectionId:
+               Ref: myVPCPeeringConnection
+         SubnetRouteTableAssociation:
+          Type: AWS::EC2::SubnetRouteTableAssociation
+          Properties:
+            SubnetId:
+              Ref: myPrivateEC2Subnet
+            RouteTableId:
+              Ref: RouteTable
+         myVPC:
+           Type: AWS::EC2::VPC
+           Properties:
+             CidrBlock:
+               Ref: myVPCIDCIDRRange
+             EnableDnsSupport: true
+             EnableDnsHostnames: true
+             InstanceTenancy: default
+         PublicSubnet:
+           Type: AWS::EC2::Subnet
+           Properties:
+           CidrBlock:
+             Ref: EC2PublicSubnetCIDRRange
+           VpcId:
+             Ref: myVPC
+       myInternetGateway:     
+         Type: AWS::EC2::InternetGateway
+       AttachGateway:
+         Type: AWS::EC2::VPCGatewayAttachment
+         Properties:
+           VpcId:
+             Ref: myVPC
+           InternetGatewayId:
+             Ref: myInternetGateway
+       PublicRouteTable:
+         Type: AWS::EC2::RouteTable
+         Properties:
+            VpcId:
+               Ref: myVPC
+       PeeringRoute2:
+         Type: AWS::EC2::Route
+         Properties:
+           DestinationCidrBlock:
+             Ref: myPrivateVPCIDCIDRRange
+           RouteTableId:
+             Ref: PublicRouteTable
+           VpcPeeringConnectionId:
+             Ref: myVPCPeeringConnection
+       PublicRoute:
+         Type: AWS::EC2::Route
+         DependsOn: AttachGateway
+         Properties:
+           RouteTableId:
+             Ref: PublicRouteTable
+           DestinationCidrBlock: 0.0.0.0/0
+           GatewayId:
+             Ref: myInternetGateway
+       PublicSubnetRouteTableAssociation:
+         Type: AWS::EC2::SubnetRouteTableAssociation
+         Properties:
+           SubnetId:
+             Ref: PublicSubnet
+           RouteTableId:
+             Ref: PublicRouteTable
+       myPrivateVPCEC2SecurityGroup:
+         Type: AWS::EC2::SecurityGroup
+         Properties:
+           GroupDescription: Private instance security group
+           VpcId:
+              Ref: myPrivateVPC
+           SecurityGroupIngress:
+           - IpProtocol: &quot;-1&quot;
+             FromPort: &apos;0&apos;
+             ToPort: &apos;65535&apos;
+             CidrIp: 0.0.0.0/0
+       myVPCEC2SecurityGroup:
+          Type: AWS::EC2::SecurityGroup
+          Properties:
+            GroupDescription: Public instance security group
+            VpcId:
+               Ref: myVPC
+            SecurityGroupIngress:
+            - IpProtocol: tcp
+              FromPort: &apos;80&apos;
+              ToPort: &apos;80&apos;
+              CidrIp: 0.0.0.0/0
+              - IpProtocol: tcp
+                FromPort: &apos;22&apos;
+                ToPort: &apos;22&apos;
+                CidrIp: 0.0.0.0/0
+        myPrivateInstance:
+          Type: AWS::EC2::Instance
+          Properties:
+          SecurityGroupIds:
+          - Ref: myPrivateVPCEC2SecurityGroup
+          SubnetId:
+            Ref: myPrivateEC2Subnet
+          KeyName:
+            Ref: EC2KeyPairName
+          ImageId:
+            Fn::FindInMap:
+            - AWSRegionToAMI
+            - Ref: AWS::Region
+            - &apos;64&apos;
+        myInstance:
+          Type: AWS::EC2::Instance
+          Properties:
+            NetworkInterfaces:
+            - AssociatePublicIpAddress: &apos;true&apos;
+              DeviceIndex: &apos;0&apos;
+              GroupSet:
+              - Ref: myVPCEC2SecurityGroup
+              SubnetId:
+                Ref: PublicSubnet
+            KeyName:
+               Ref: EC2KeyPairName
+            ImageId:
+              Fn::FindInMap:
+              - AWSRegionToAMI
+              - Ref: AWS::Region
+              - &apos;64&apos;
+        myVPCPeeringConnection:
+          Type: AWS::EC2::VPCPeeringConnection
+          Properties:
+             VpcId:
+               Ref: myVPC
+             PeerVpcId:
+               Ref: myPrivateVPC</code></pre><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
+                     </div></div>
 </body>
 </html>

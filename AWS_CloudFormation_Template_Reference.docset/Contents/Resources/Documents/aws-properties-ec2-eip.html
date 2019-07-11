@@ -8,141 +8,119 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-properties-ec2-eip">AWS::EC2::EIP</h1><p>The AWS::EC2::EIP resource allocates an Elastic IP (EIP) address and can, optionally,
-                        associate it with an Amazon EC2 instance.
-                     </p><div class="highlights" id="inline-topiclist">
-                        <p><strong>Topics</strong></p>
-                        <ul>
-                           <li><a href="#aws-resource-ec2-eip-syntax">Syntax</a></li>
-                           <li><a href="#w2ab1c21c10d111c31b9">Properties</a></li>
-                           <li><a href="#aws-resource-ec2-eip-ref">Return Values</a></li>
-                           <li><a href="#w2ab1c21c10d111c31c13">Examples</a></li>
-                        </ul>
-                     </div><h2 id="aws-resource-ec2-eip-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-resource-ec2-eip-syntax.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
-   &quot;Type&quot; : &quot;AWS::EC2::EIP&quot;,
-   &quot;Properties&quot; : {
-      &quot;<a href="aws-properties-ec2-eip.html#cfn-ec2-eip-domain">Domain</a>&quot; : <em class="replaceable"><code>String</code></em>,
-      &quot;<a href="aws-properties-ec2-eip.html#cfn-ec2-eip-instanceid">InstanceId</a>&quot; : <em class="replaceable"><code>String</code></em>,
-      &quot;<a href="aws-properties-ec2-eip.html#cfn-ec2-eip-publicipv4pool">PublicIpv4Pool</a>&quot; : <em class="replaceable"><code>String</code></em>
-   }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-resource-ec2-eip-syntax.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">Type: AWS::EC2::EIP
-Properties:
-  <a href="aws-properties-ec2-eip.html#cfn-ec2-eip-domain">Domain</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-properties-ec2-eip.html#cfn-ec2-eip-instanceid">InstanceId</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-properties-ec2-eip.html#cfn-ec2-eip-publicipv4pool">PublicIpv4Pool</a>: <em class="replaceable"><code>String</code></em></code></pre>
-                        </div><h2 id="w2ab1c21c10d111c31b9">Properties</h2><div class="variablelist">
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
+    <h1 class="topictitle" id="aws-properties-ec2-eip">AWS::EC2::EIP</h1><p>Specifies an Elastic IP (EIP) address and can, optionally, associate it with an Amazon
+                        EC2 instance.
+                     </p><p>You can allocate an Elastic IP address from an address pool owned by AWS or from an
+                        address pool created 
+                        			from a public IPv4 address range that you have brought to AWS for use with your
+                        AWS resources using bring your own 
+                        			IP addresses (BYOIP). For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html">Bring Your Own IP Addresses (BYOIP)</a> in the <em>Amazon Elastic Compute Cloud User Guide</em>.
+                     </p><p>[EC2-VPC] If you release an Elastic IP address, you might be able to recover it. You
+                        cannot recover an 
+                        			Elastic IP address that you released after it is allocated to another AWS account.
+                        You cannot recover an Elastic IP
+                        			address for EC2-Classic. To attempt to recover an Elastic IP address that you released,
+                        specify it in this operation.
+                     </p><p>An Elastic IP address is for use either in the EC2-Classic platform or in a VPC. By
+                        default, you can allocate
+                        			5 Elastic IP addresses for EC2-Classic per Region and 5 Elastic IP addresses for
+                        EC2-VPC per Region.
+                     </p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic IP Addresses</a> in the <em>Amazon Elastic Compute Cloud User Guide</em>.
+                     </p><h2 id="aws-properties-ec2-eip-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-properties-ec2-eip-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;Type&quot; : &quot;AWS::EC2::EIP&quot;,
+  &quot;Properties&quot; : {
+      &quot;<a href="#cfn-ec2-eip-domain">Domain</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-ec2-eip-instanceid">InstanceId</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-ec2-eip-publicipv4pool">PublicIpv4Pool</a>&quot; : <em class="replaceable"><code>String</code></em>
+    }
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-properties-ec2-eip-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Type: AWS::EC2::EIP
+Properties: 
+  <a href="#cfn-ec2-eip-domain">Domain</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-ec2-eip-instanceid">InstanceId</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-ec2-eip-publicipv4pool">PublicIpv4Pool</a>: <em class="replaceable"><code>String</code></em>
+</code></pre></div><h2 id="aws-properties-ec2-eip-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
-                           <dt><a id="cfn-ec2-eip-domain"></a><span class="term"><code class="literal">Domain</code></span></dt>
-                           
+                           <dt><a id="cfn-ec2-eip-domain"></a><span class="term"><code class="code">Domain</code></span></dt>
                            <dd>
-                              
-                              <p>Set to <code class="code">vpc</code> to allocate the address to your Virtual Private Cloud
-                                 (VPC). No other values are supported.
+                              		
+                              <p>Set to <code class="code">vpc</code> to allocate the address for use with instances in a VPC.
                               </p>
-                              
-                              <div class="aws-note">
-                                 <p class="aws-note">Note</p>
-                                 <p>If you define an Elastic IP address and associate it with a VPC that is
-                                    defined in the same template, you must declare a dependency on the VPC-gateway
-                                    attachment by using the <code class="code">DependsOn</code> attribute on this resource. For
-                                    more information, see <a href="aws-attribute-dependson.html">DependsOn Attribute</a>.
-                                 </p>
-                              </div>
-                              
-                              <p>For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AllocateAddress.html">AllocateAddress</a> in the <em>Amazon EC2 API Reference</em>. For more
-                                 information about Elastic IP Addresses in VPC, go to <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-ip-addressing.html">IP Addressing in Your VPC</a> in the <em>Amazon VPC User
-                                    Guide</em>.
+                              		
+                              <p>Default: The address is for use with instances in EC2-Classic.</p>
+                              	
+                              <p>If you define an Elastic IP address and associate it with a VPC that is defined in
+                                 the same template, you 
+                                 	   must declare a dependency on the VPC-gateway attachment by using the <a href="aws-attribute-dependson.html">
+                                    	   DependsOn Attribute</a> on this resource.
                               </p>
-                              
-                              <p><em>Required</em>: Conditional. Required when allocating an address to a VPC
+                              		
+                              <p>Required when allocating an address to a VPC</p>
+                              	
+                              <p><em>Required</em>: Conditional
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Allowed Values</em>: <code class="code">standard | vpc</code></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-ec2-eip-instanceid"></a><span class="term"><code class="literal">InstanceId</code></span></dt>
-                           
+                           <dt><a id="cfn-ec2-eip-instanceid"></a><span class="term"><code class="code">InstanceId</code></span></dt>
                            <dd>
-                              
-                              <p>The Instance ID of the Amazon EC2 instance that you want to associate with this
-                                 Elastic IP address.
-                              </p>
-                              
+                              		
+                              <p>The ID of the instance.</p>
+                              	
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-ec2-eip-publicipv4pool"></a><span class="term"><code class="literal">PublicIpv4Pool</code></span></dt>
-                           
+                           <dt><a id="cfn-ec2-eip-publicipv4pool"></a><span class="term"><code class="code">PublicIpv4Pool</code></span></dt>
                            <dd>
-                              
-                              <p>Specifies the ID of an address pool that you own to let Amazon EC2 select an address
-                                 from the address pool.
+                              		
+                              <p>The ID of an address pool that you own. Use this parameter to let Amazon EC2 select
+                                 an address from the address pool.
                               </p>
-                              
+                              	
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
                         </dl>
-                     </div><h2 id="aws-resource-ec2-eip-ref">Return Values</h2><h3 id="w2ab1c21c10d111c31c11b2">Ref</h3><p>When you specify the logical ID of an AWS::EC2::EIP object as an argument to the <code class="code">Ref</code>
-                        function, AWS CloudFormation returns the value of the instance&apos;s <code class="code">PublicIp</code>.
+                     </div><h2 id="aws-properties-ec2-eip-return-values">Return Values</h2><h3 id="aws-properties-ec2-eip-return-values-ref">Ref</h3><p>When you pass the logical ID of this resource to the intrinsic <code class="code">Ref</code> function, <code class="code">Ref</code> returns the Elastic IP address.
                      </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                     </p><h3 id="w2ab1c21c10d111c31c11b4">Fn::GetAtt</h3><p><code class="code">Fn::GetAtt</code> returns a value for a specified attribute of this type.
-                        The following are the available attributes and sample return values.
-                     </p><div class="variablelist">
-                        
-                        
+                     </p><h3 id="aws-properties-ec2-eip-return-values-fn--getatt">Fn::GetAtt</h3><p>The <code class="code">Fn::GetAtt</code> intrinsic function returns a value for a specified attribute of this type. The following
+                        are the available attributes and sample return values.
+                     </p><p>For more information about using the <code class="code">Fn::GetAtt</code> intrinsic function, see <a href="intrinsic-function-reference-getatt.html">Fn::GetAtt</a>.
+                     </p><h4 id="aws-properties-ec2-eip-return-values-fn--getatt-fn--getatt"></h4><div class="variablelist">
                         <dl>
-                           
-                           <dt><span class="term"><code class="literal">AllocationId</code></span></dt>
-                           
+                           <dt><a id="AllocationId-fn::getatt"></a><span class="term"><code class="code">AllocationId</code></span></dt>
                            <dd>
-                              
-                              <p>The ID that AWS assigns to represent the allocation of the address for use
-                                 with Amazon VPC. This is returned only for VPC elastic IP addresses. Example
-                                 return value: <code class="code">eipalloc-5723d13e</code></p>
-                              
+                              		
+                              <p>The ID that AWS assigns to represent the allocation of the address for use with Amazon
+                                 VPC. This is 
+                                 			returned only for VPC elastic IP addresses. For example, <code class="code">eipalloc-5723d13e</code>.
+                              </p>		
+                              	
                            </dd>
-                           
                         </dl>
-                     </div><p>For more information about using <code class="code">Fn::GetAtt</code>, see <a href="intrinsic-function-reference-getatt.html">Fn::GetAtt</a>.
-                     </p><h2 id="w2ab1c21c10d111c31c13">Examples</h2><p>To view AWS::EC2::EIP snippets, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-ec2.html#scenario-ec2-eip">Assigning an Amazon EC2 Elastic IP Using AWS::EC2::EIP
-                           Snippet</a>.
-                     </p></div>
+                     </div><h2 id="aws-properties-ec2-eip--examples">Examples</h2><h3 id="aws-properties-ec2-eip--examples--Allocating_an_Amazon_EC2_Elastic_IP_Using_AWS::EC2::EIP.">Allocating an Amazon EC2 Elastic IP Using AWS::EC2::EIP.</h3><p>This example shows how to allocate an Amazon EC2 Elastic IP address and assign 
+                        					it to an Amazon EC2 instance using a <a href="aws-properties-ec2-eip.html">
+                           						AWS::EC2::EIP</a> resource.
+                     </p><h4 id="aws-properties-ec2-eip--examples--Allocating_an_Amazon_EC2_Elastic_IP_Using_AWS::EC2::EIP.--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">&quot;MyEIP&quot; : {
+  &quot;Type&quot; : &quot;AWS::EC2::EIP&quot;,
+  &quot;Properties&quot; : {
+    &quot;InstanceId&quot; : { &quot;Ref&quot; : &quot;logical name of an AWS::EC2::Instance resource&quot; }
+  }
+}</code></pre><h4 id="aws-properties-ec2-eip--examples--Allocating_an_Amazon_EC2_Elastic_IP_Using_AWS::EC2::EIP.--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">MyEIP:
+  Type: AWS::EC2::EIP
+  Properties:
+    InstanceId: !Ref Logical name of an AWS::EC2::Instance resource</code></pre><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
+                     </div></div>
 </body>
 </html>

@@ -8,72 +8,90 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-properties-dynamodb-keyschema">Amazon DynamoDB Table KeySchema</h1><p>Describes a primary key for the <a href="aws-resource-dynamodb-table.html">AWS::DynamoDB::Table</a> resource or a key schema for an index. Each
-                        element is composed of an <code class="code">AttributeName</code> and <code class="code">KeyType</code>.
-                     </p><p>For the primary key of an Amazon DynamoDB table that consists of only a hash attribute,
-                        specify
-                        one element with a <code class="code">KeyType</code> of <code class="code">HASH</code>. For the primary key of an
-                        Amazon DynamoDB table that consists of a hash and range attributes, specify two elements:
-                        one with a
-                        <code class="code">KeyType</code> of <code class="code">HASH</code> and one with a <code class="code">KeyType</code> of
-                        <code class="code">RANGE</code>.
-                     </p><p>For a complete discussion of DynamoDB primary keys, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataModel.html#DataModelPrimaryKey">Primary Key</a> in the
-                        <em>Amazon DynamoDB Developer Guide</em>.
-                     </p><h2 id="w2ab1c21c10d108c14c32b9">Syntax</h2><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-properties-dynamodb-keyschema-syntax.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
-  &quot;<a href="aws-properties-dynamodb-keyschema.html#cfn-dynamodb-keyschema-attributename">AttributeName</a>&quot; : <em class="replaceable"><code>String</code></em>,
-  &quot;<a href="aws-properties-dynamodb-keyschema.html#cfn-dynamodb-keyschema-keytype">KeyType</a>&quot; : &quot;<em class="replaceable"><code>HASH or RANGE</code></em>&quot;
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-properties-dynamodb-keyschema-syntax.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight"><a href="aws-properties-dynamodb-keyschema.html#cfn-dynamodb-keyschema-attributename">AttributeName</a>: <em class="replaceable"><code>String</code></em>
-<a href="aws-properties-dynamodb-keyschema.html#cfn-dynamodb-keyschema-keytype">KeyType</a>: <em class="replaceable"><code>HASH or RANGE</code></em>
-</code></pre>
-                        </div><h2 id="w2ab1c21c10d108c14c32c11">Properties</h2><div class="variablelist">
-                        
-                        
-                        
+    <h1 class="topictitle" id="aws-properties-dynamodb-keyschema">AWS::DynamoDB::Table KeySchema</h1><p>Represents <em>a single element</em> of a key schema. A key schema specifies the attributes
+                        that make up the primary key of a table, or the key attributes of an index.
+                     </p><p>A <code class="code">KeySchemaElement</code> represents exactly one attribute of the primary key. For example, a
+                        simple primary key would be represented by one <code class="code">KeySchemaElement</code> (for the partition key). A composite
+                        primary key would require one <code class="code">KeySchemaElement</code> for the partition key, and another
+                        <code class="code">KeySchemaElement</code> for the sort key.
+                     </p><p>A <code class="code">KeySchemaElement</code> must be a scalar, top-level attribute (not a nested attribute). The data type must
+                        be one of String, Number, or Binary.  The attribute cannot be nested within a List
+                        or a Map.
+                     </p><h2 id="aws-properties-dynamodb-keyschema-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-properties-dynamodb-keyschema-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;<a href="#aws-properties-dynamodb-keyschema-attributename">AttributeName</a>&quot; : <em class="replaceable"><code>String</code></em>,
+  &quot;<a href="#aws-properties-dynamodb-keyschema-keytype">KeyType</a>&quot; : <em class="replaceable"><code>String</code></em>
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-properties-dynamodb-keyschema-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">  <a href="#aws-properties-dynamodb-keyschema-attributename">AttributeName</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#aws-properties-dynamodb-keyschema-keytype">KeyType</a>: <em class="replaceable"><code>String</code></em>
+</code></pre></div><h2 id="aws-properties-dynamodb-keyschema-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
-                           <dt><a id="cfn-dynamodb-keyschema-attributename"></a><span class="term"><code class="literal">AttributeName</code></span></dt>
-                           
+                           <dt><a id="aws-properties-dynamodb-keyschema-attributename"></a><span class="term"><code class="code">AttributeName</code></span></dt>
                            <dd>
                               
-                              <p>The attribute name that is used as the primary key for this table. Primary key
-                                 element names can be 1 &#x2013; 255 characters long and have no character
-                                 restrictions.
-                              </p>
+                              <p>The name of a key attribute.</p>
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Minimum</em>: <code class="code">1</code></p>
+                              <p><em>Maximum</em>: <code class="code">255</code></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-dynamodb-keyschema-keytype"></a><span class="term"><code class="literal">KeyType</code></span></dt>
-                           
+                           <dt><a id="aws-properties-dynamodb-keyschema-keytype"></a><span class="term"><code class="code">KeyType</code></span></dt>
                            <dd>
                               
-                              <p>Represents the attribute data, consisting of the data type and the attribute
-                                 value itself. You can specify <code class="code">HASH</code> or <code class="code">RANGE</code>.
-                              </p>
+                              <p>The role that this key attribute will assume:</p>
+                              
+                              <div class="itemizedlist">
+                                 
+                                 
+                                 
+                                 <ul class="itemizedlist" type="disc">
+                                    <li class="listitem">
+                                       
+                                       <p>
+                                          <code class="code">HASH</code> - partition key
+                                       </p>
+                                       
+                                    </li>
+                                    <li class="listitem">
+                                       
+                                       <p>
+                                          <code class="code">RANGE</code> - sort key
+                                       </p>
+                                       
+                                    </li>
+                                 </ul>
+                              </div>
+                              
+                              <div class="aws-note">
+                                 <p class="aws-note">Note</p>
+                                 <p>The partition key of an item is also known as its <em>hash attribute</em>.  The
+                                    term &quot;hash attribute&quot; derives from DynamoDB&apos;s usage of an internal hash function to
+                                    evenly distribute data items across partitions, based on their partition key values.
+                                 </p>
+                                 <p>The sort key of an item is also known as its <em>range attribute</em>.
+                                    The term &quot;range attribute&quot; derives from the way DynamoDB stores items with the same
+                                    partition key physically close together, in sorted order by the sort key value.
+                                 </p>
+                              </div>
+                              
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Allowed Values</em>: <code class="code">HASH | RANGE</code></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
                         </dl>
-                     </div><h2 id="w2ab1c21c10d108c14c32c13">Examples</h2><p>For an example of a declared key schema, see <a href="aws-resource-dynamodb-table.html">AWS::DynamoDB::Table</a>.
-                     </p></div>
+                     </div><h2 id="aws-properties-dynamodb-keyschema--seealso">See Also</h2><p>For an example of a declared key schema, see <a href="aws-resource-dynamodb-table.html">AWS::DynamoDB::Table</a>.
+                        
+                     </p><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
+                     </div></div>
 </body>
 </html>

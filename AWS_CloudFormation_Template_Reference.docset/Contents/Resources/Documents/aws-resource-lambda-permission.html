@@ -8,222 +8,198 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-resource-lambda-permission">AWS::Lambda::Permission</h1><p>The <code class="code">AWS::Lambda::Permission</code> resource associates a policy statement with a
-                        specific AWS Lambda (Lambda) function&apos;s access policy. The function policy grants
-                        a specific AWS
-                        service or application permission to invoke the function. For more information, see
-                        <a href="https://docs.aws.amazon.com/lambda/latest/dg/API_AddPermission.html">AddPermission</a> in the
-                        <em>AWS Lambda Developer Guide</em>.
-                     </p><div class="highlights" id="inline-topiclist">
-                        <p><strong>Topics</strong></p>
-                        <ul>
-                           <li><a href="#aws-resource-lambda-permission-syntax">Syntax</a></li>
-                           <li><a href="#w2ab1c21c10d177c33b9">Properties</a></li>
-                           <li><a href="#w2ab1c21c10d177c33c11">Example</a></li>
-                        </ul>
-                     </div><h2 id="aws-resource-lambda-permission-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-resource-lambda-permission-syntax.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
+    <h1 class="topictitle" id="aws-resource-lambda-permission">AWS::Lambda::Permission</h1><p>The <code class="code">AWS::Lambda::Permission</code> resource grants an AWS service or another account permission to use a
+                        function. You can apply the policy at the function level, or specify a qualifier to
+                        restrict access to a single
+                        version or alias. If you use a qualifier, the invoker must use the full Amazon Resource
+                        Name (ARN) of that version
+                        or alias to invoke the function.
+                     </p><p>To grant permission to another account, specify the account ID as the <code class="code">Principal</code>. For AWS
+                        services, the principal is a domain-style identifier defined by the service, like
+                        <code class="code">s3.amazonaws.com</code> or
+                        <code class="code">sns.amazonaws.com</code>. For AWS services, you can also specify the ARN or owning account of the
+                        associated resource as the <code class="code">SourceArn</code> or <code class="code">SourceAccount</code>. If you grant permission to a
+                        service principal without specifying the source, other accounts could potentially
+                        configure resources in their
+                        account to invoke your Lambda function.
+                     </p><p>This resource adds a statement to a resource-based permission policy for the function.
+                        For more information
+                        about function policies, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html">Lambda Function Policies</a>. 
+                     </p><h2 id="aws-resource-lambda-permission-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-resource-lambda-permission-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
   &quot;Type&quot; : &quot;AWS::Lambda::Permission&quot;,
   &quot;Properties&quot; : {
-    &quot;<a href="aws-resource-lambda-permission.html#cfn-lambda-permission-action">Action</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-lambda-permission.html#cfn-lambda-permission-eventsourcetoken">EventSourceToken</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-lambda-permission.html#cfn-lambda-permission-functionname">FunctionName</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-lambda-permission.html#cfn-lambda-permission-principal">Principal</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-lambda-permission.html#cfn-lambda-permission-sourceaccount">SourceAccount</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-lambda-permission.html#cfn-lambda-permission-sourcearn">SourceArn</a>&quot; : <em class="replaceable"><code>String</code></em>
-  }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-resource-lambda-permission-syntax.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">Type: AWS::Lambda::Permission
+      &quot;<a href="#cfn-lambda-permission-action">Action</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-lambda-permission-eventsourcetoken">EventSourceToken</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-lambda-permission-functionname">FunctionName</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-lambda-permission-principal">Principal</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-lambda-permission-sourceaccount">SourceAccount</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-lambda-permission-sourcearn">SourceArn</a>&quot; : <em class="replaceable"><code>String</code></em>
+    }
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-lambda-permission-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Type: AWS::Lambda::Permission
 Properties: 
-  <a href="aws-resource-lambda-permission.html#cfn-lambda-permission-action">Action</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-lambda-permission.html#cfn-lambda-permission-eventsourcetoken">EventSourceToken</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-lambda-permission.html#cfn-lambda-permission-functionname">FunctionName</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-lambda-permission.html#cfn-lambda-permission-principal">Principal</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-lambda-permission.html#cfn-lambda-permission-sourceaccount">SourceAccount</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-lambda-permission.html#cfn-lambda-permission-sourcearn">SourceArn</a>: <em class="replaceable"><code>String</code></em>
-</code></pre>
-                        </div><h2 id="w2ab1c21c10d177c33b9">Properties</h2><p>For more information and current valid values, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/API_AddPermission.html">AddPermission</a> in the <em>AWS Lambda Developer Guide</em>.
-                     </p><div class="variablelist">
-                        
-                        
-                        
-                        
-                        
-                        
-                        
+  <a href="#cfn-lambda-permission-action">Action</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-lambda-permission-eventsourcetoken">EventSourceToken</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-lambda-permission-functionname">FunctionName</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-lambda-permission-principal">Principal</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-lambda-permission-sourceaccount">SourceAccount</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-lambda-permission-sourcearn">SourceArn</a>: <em class="replaceable"><code>String</code></em>
+</code></pre></div><h2 id="aws-resource-lambda-permission-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
                            <dt><a id="cfn-lambda-permission-action"></a><span class="term"><code class="code">Action</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The Lambda actions that you want to allow in this statement. For example, you can
-                                 specify <code class="code">lambda:CreateFunction</code> to specify a certain action, or use a wildcard (<code class="code">lambda:*</code>) to grant permission to all Lambda actions. For a list of actions, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_lambda.html">Actions and Condition Context Keys for AWS Lambda</a> in the <em>IAM User Guide</em>.
+                              <p>The action that the principal can use on the function. For example, <code class="code">lambda:InvokeFunction</code> or
+                                 <code class="code">lambda:GetFunction</code>.
                               </p>
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Pattern</em>: <code class="code">(lambda:[*]|lambda:[a-zA-Z]+|[*])</code></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-lambda-permission-eventsourcetoken"></a><span class="term"><code class="code">EventSourceToken</code></span></dt>
-                           
                            <dd>
                               
-                              <p>A unique token that must be supplied by the principal invoking the function.</p>
+                              <p>For Alexa Smart Home functions, a token that must be supplied by the invoker.</p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Minimum</em>: <code class="code">0</code></p>
+                              <p><em>Maximum</em>: <code class="code">256</code></p>
+                              <p><em>Pattern</em>: <code class="code">[a-zA-Z0-9._\-]+</code></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-lambda-permission-functionname"></a><span class="term"><code class="code">FunctionName</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The name (physical ID), Amazon Resource Name (ARN), or alias ARN of the Lambda
-                                 function that you want to associate with this statement. Lambda adds this statement
-                                 to the function&apos;s access policy.
+                              <p>The name of the Lambda function, version, or alias.</p>
+                              
+                              <div class="itemizedlist">
+                                 
+                                 <p class="title"><b>Name formats</b></p>
+                                 
+                                 
+                                 
+                                 
+                                 <ul class="itemizedlist" type="disc">
+                                    <li class="listitem">
+                                       
+                                       <p>
+                                          <b>Function name</b> - <code class="code">my-function</code> (name-only), <code class="code">my-function:v1</code> (with alias).
+                                       </p>
+                                       
+                                    </li>
+                                    <li class="listitem">
+                                       
+                                       <p>
+                                          <b>Function ARN</b> - <code class="code">arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.
+                                       </p>
+                                       
+                                    </li>
+                                    <li class="listitem">
+                                       
+                                       <p>
+                                          <b>Partial ARN</b> - <code class="code">123456789012:function:my-function</code>.
+                                       </p>
+                                       
+                                    </li>
+                                 </ul>
+                              </div>
+                              
+                              <p>You can append a version number or alias to any of the formats. The length constraint
+                                 applies only to the full ARN.
+                                 If you specify only the function name, it is limited to 64 characters in length.
                               </p>
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Minimum</em>: <code class="code">1</code></p>
+                              <p><em>Maximum</em>: <code class="code">140</code></p>
+                              <p><em>Pattern</em>: <code class="code">(arn:(aws[a-zA-Z-]*)?:lambda:)?([a-z]{2}(-gov)?-[a-z]+-\d{1}:)?(\d{12}:)?(function:)?([a-zA-Z0-9-_]+)(:(\$LATEST|[a-zA-Z0-9-_]+))?</code></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-lambda-permission-principal"></a><span class="term"><code class="code">Principal</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The entity for which you are granting permission to invoke the Lambda function.
-                                 This entity can be any valid AWS service principal, such as
-                                 <code class="code">s3.amazonaws.com</code> or <code class="code">sns.amazonaws.com</code>, or, if you are
-                                 granting cross-account permission, an AWS account ID. For example, you might want
-                                 to allow a custom application in another AWS account to push events to Lambda by
-                                 invoking your function.
+                              <p>The AWS service or account that invokes the function. If you specify a service, use
+                                 <code class="code">SourceArn</code> or
+                                 <code class="code">SourceAccount</code> to limit who can invoke the function through that service.
                               </p>
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Pattern</em>: <code class="code">.*</code></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-lambda-permission-sourceaccount"></a><span class="term"><code class="code">SourceAccount</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The AWS account ID (without hyphens) of the source owner. For example, if you
-                                 specify an S3 bucket in the <code class="code">SourceArn</code> property, this value is the
-                                 bucket owner&apos;s account ID. You can use this property to ensure that all source
-                                 principals are owned by a specific account.
+                              <p>For AWS services, the ID of the account that owns the resource. Use this instead of
+                                 <code class="code">SourceArn</code> to
+                                 grant permission to resources that are owned by another account (for example, all
+                                 of an account&apos;s Amazon S3
+                                 buckets). Or use it together with <code class="code">SourceArn</code> to ensure that the resource is owned by the specified
+                                 account. For example, an Amazon S3 bucket could be deleted by its owner and recreated
+                                 by another account.
                               </p>
-                              
-                              <div class="aws-note">
-                                 <p class="aws-note">Important</p>
-                                 <p>This property is not supported by all event sources. For more information, see the
-                                    <code class="code">SourceAccount</code> parameter for the <a href="https://docs.aws.amazon.com/lambda/latest/dg/API_AddPermission.html">AddPermission</a> action in the <em>AWS Lambda Developer Guide</em>.
-                                 </p>
-                              </div>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Pattern</em>: <code class="code">\d{12}</code></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-lambda-permission-sourcearn"></a><span class="term"><code class="code">SourceArn</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The ARN of a resource that is invoking your function. When granting Amazon Simple
-                                 Storage Service
-                                 (Amazon S3) permission to invoke your function, specify this property with the bucket
-                                 ARN as its value. This ensures that events generated only from the specified
-                                 bucket, not just any bucket from any AWS account that creates a mapping to your
-                                 function, can invoke the function.
+                              <p>For AWS services, the ARN of the AWS resource that invokes the function. For example,
+                                 an Amazon S3 bucket or
+                                 Amazon SNS topic.
                               </p>
-                              
-                              <div class="aws-note">
-                                 <p class="aws-note">Important</p>
-                                 <p>This property is not supported by all event sources. For more information, see the
-                                    <code class="code">SourceArn</code> parameter for the <a href="https://docs.aws.amazon.com/lambda/latest/dg/API_AddPermission.html">AddPermission</a> action in the <em>AWS Lambda Developer Guide</em>.
-                                 </p>
-                              </div>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Pattern</em>: <code class="code">arn:(aws[a-zA-Z0-9-]*):([a-zA-Z0-9\-])+:([a-z]{2}(-gov)?-[a-z]+-\d{1})?:(\d{12})?:(.*)</code></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
                         </dl>
-                     </div><h2 id="w2ab1c21c10d177c33c11">Example</h2><p>The following example grants an S3 bucket permission to invoke a Lambda function.</p><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-resource-lambda-permission-example.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">&quot;LambdaInvokePermission&quot;: {
-	&quot;Type&quot;: &quot;AWS::Lambda::Permission&quot;,
-	&quot;Properties&quot;: {
-		&quot;FunctionName&quot;: {
-			&quot;Fn::GetAtt&quot;: [
-				&quot;MyLambdaFunction&quot;,
-				&quot;Arn&quot;
-			]
-		},
-		&quot;Action&quot;: &quot;lambda:InvokeFunction&quot;,
-		&quot;Principal&quot;: &quot;s3.amazonaws.com&quot;,
-		&quot;SourceAccount&quot;: {
-			&quot;Ref&quot;: &quot;AWS::AccountId&quot;
-		},
-		&quot;SourceArn&quot;: {
-			&quot;Fn::GetAtt&quot;: [
-				&quot;MyBucket&quot;,
-				&quot;Arn&quot;
-			]
-		}
-	}
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-resource-lambda-permission-example.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">LambdaInvokePermission:
+                     </div><h2 id="aws-resource-lambda-permission--examples">Examples</h2><h3 id="aws-resource-lambda-permission--examples--Function_Permission">Function Permission</h3><p>Grant Amazon S3 permission to invoke <code class="code">MyLambdaFunction</code>.
+                     </p><h4 id="aws-resource-lambda-permission--examples--Function_Permission--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">&quot;LambdaInvokePermission&quot;: {
+    &quot;Type&quot;: &quot;AWS::Lambda::Permission&quot;,
+    &quot;Properties&quot;: {
+        &quot;FunctionName&quot;: {
+            &quot;Fn::GetAtt&quot;: [
+                &quot;MyLambdaFunction&quot;,
+                &quot;Arn&quot;
+            ]
+        },
+        &quot;Action&quot;: &quot;lambda:InvokeFunction&quot;,
+        &quot;Principal&quot;: &quot;s3.amazonaws.com&quot;,
+        &quot;SourceAccount&quot;: {
+            &quot;Ref&quot;: &quot;AWS::AccountId&quot;
+        },
+        &quot;SourceArn&quot;: {
+            &quot;Fn::GetAtt&quot;: [
+                &quot;MyBucket&quot;,
+                &quot;Arn&quot;
+            ]
+        }
+    }
+}</code></pre><h4 id="aws-resource-lambda-permission--examples--Function_Permission--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">LambdaInvokePermission:
   Type: AWS::Lambda::Permission
   Properties:
     FunctionName: !GetAtt 
@@ -234,7 +210,8 @@ Properties:
     SourceAccount: !Ref &apos;AWS::AccountId&apos;
     SourceArn: !GetAtt 
       - MyBucket
-      - Arn</code></pre>
-                        </div></div>
+      - Arn</code></pre><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
+                     </div></div>
 </body>
 </html>

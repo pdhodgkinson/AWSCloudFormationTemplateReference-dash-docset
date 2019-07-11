@@ -8,103 +8,47 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-properties-ec2-mount-point">EC2 MountPoint</h1><p>The EC2 MountPoint property is an embedded property of the <a href="aws-properties-ec2-instance.html">AWS::EC2::Instance</a> type.
-                     </p><h2 id="w2ab1c21c10d111c49c52b5">Syntax</h2><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-properties-ec2-mount-point-syntax.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
-  &quot;<a href="aws-properties-ec2-mount-point.html#cfn-ec2-mountpoint-device">Device</a>&quot; : <em class="replaceable"><code>String</code></em>,
-  &quot;<a href="aws-properties-ec2-mount-point.html#cfn-ec2-mountpoint-volumeid">VolumeId</a>&quot; : <em class="replaceable"><code>String</code></em>
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-properties-ec2-mount-point-syntax.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight"><a href="aws-properties-ec2-mount-point.html#cfn-ec2-mountpoint-device">Device</a>: <em class="replaceable"><code>String</code></em>,
-<a href="aws-properties-ec2-mount-point.html#cfn-ec2-mountpoint-volumeid">VolumeId</a>: <em class="replaceable"><code>String</code></em>
-</code></pre>
-                        </div><h2 id="w2ab1c21c10d111c49c52b7">Properties</h2><div class="variablelist">
-                        
-                        
-                        
-                        <dl>
-                           
-                           <dt><a id="cfn-ec2-mountpoint-device"></a><span class="term"><code class="literal">Device</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>How the device is exposed to the instance (such as /dev/sdh, or xvdh).</p>
-                              
-                              <p><em>Required</em>: Yes
-                              </p>
-                              
-                              <p><em>Type</em>: String
-                              </p>
-                              
-                           </dd>
-                           
-                           
-                           <dt><a id="cfn-ec2-mountpoint-volumeid"></a><span class="term"><code class="literal">VolumeId</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>The ID of the Amazon EBS volume. The volume and instance must be within the same Availability
-                                 Zone
-                                 and the instance must be running.
-                              </p>
-                              
-                              <p><em>Required</em>: Yes
-                              </p>
-                              
-                              <p><em>Type</em>: String
-                              </p>
-                              
-                           </dd>
-                           
-                        </dl>
-                     </div><h2 id="w2ab1c21c10d111c49c52b9">Example</h2><p>This mount point (specified in the <code class="code">Volumes</code> property in the EC2 instance) refers to a
-                        named EBS volume, &quot;NewVolume&quot;.
-                     </p><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">
-&quot;Ec2Instance&quot; : {
-   &quot;Type&quot; : &quot;AWS::EC2::Instance&quot;,
-   &quot;Properties&quot; : {
-      &quot;AvailabilityZone&quot; : {
-         &quot;Fn::FindInMap&quot; : [ &quot;RegionMap&quot;, { &quot;Ref&quot; : &quot;AWS::Region&quot; }, &quot;TestAz&quot; ]
-      },
-      &quot;SecurityGroups&quot; : [ { &quot;Ref&quot; : &quot;InstanceSecurityGroup&quot; } ],
-      &quot;KeyName&quot; : { &quot;Ref&quot; : &quot;KeyName&quot; },
-      &quot;ImageId&quot; : {
-         &quot;Fn::FindInMap&quot; : [ &quot;RegionMap&quot;, { &quot;Ref&quot; : &quot;AWS::Region&quot; }, &quot;AMI&quot; ]
-      },
-      <em class="replaceable"><code>&quot;Volumes&quot; : [
-         { &quot;VolumeId&quot; : { &quot;Ref&quot; : &quot;NewVolume&quot; }, &quot;Device&quot; : &quot;/dev/sdk&quot; }
-      ]</code></em>
-   }
-},
-&quot;NewVolume&quot; : {
-   &quot;Type&quot; : &quot;AWS::EC2::Volume&quot;,
-   &quot;Properties&quot; : {
-      &quot;Size&quot; : &quot;100&quot;,
-      &quot;AvailabilityZone&quot; : {
-         &quot;Fn::FindInMap&quot; : [ &quot;RegionMap&quot;, { &quot;Ref&quot; : &quot;AWS::Region&quot; }, &quot;TestAz&quot; ]
-      }
-   }
+    <h1 class="topictitle" id="aws-properties-ec2-mount-point">AWS::EC2::Instance Volume</h1><p>Specifies a volume to attach to an instance.</p><p>
+                        			<code class="code">Volume</code> is property is an embedded property of the <a href="aws-properties-ec2-instance.html">
+                           				AWS::EC2::Instance</a> resource.
+                     </p><h2 id="aws-properties-ec2-mount-point-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-properties-ec2-mount-point-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;<a href="#cfn-ec2-mountpoint-device">Device</a>&quot; : <em class="replaceable"><code>String</code></em>,
+  &quot;<a href="#cfn-ec2-mountpoint-volumeid">VolumeId</a>&quot; : <em class="replaceable"><code>String</code></em>
 }
-</code></pre><h2 id="w2ab1c21c10d111c49c52c11">See Also</h2><div class="itemizedlist">
-                        
-                        
-                        
-                        <ul class="itemizedlist" type="disc">
-                           <li class="listitem">
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-properties-ec2-mount-point-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">  <a href="#cfn-ec2-mountpoint-device">Device</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-ec2-mountpoint-volumeid">VolumeId</a>: <em class="replaceable"><code>String</code></em>
+</code></pre></div><h2 id="aws-properties-ec2-mount-point-properties">Properties</h2><div class="variablelist">
+                        <dl>
+                           <dt><a id="cfn-ec2-mountpoint-device"></a><span class="term"><code class="code">Device</code></span></dt>
+                           <dd>
                               
-                              <p><a href="aws-properties-ec2-instance.html">AWS::EC2::Instance</a></p>
+                              <p>The device name (for example, <code class="code">/dev/sdh</code> or <code class="code">xvdh</code>).
+                              </p>
                               
-                           </li>
-                           <li class="listitem">
+                              <p><em>Required</em>: Yes
+                              </p>
+                              <p><em>Type</em>: String
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                           </dd>
+                           <dt><a id="cfn-ec2-mountpoint-volumeid"></a><span class="term"><code class="code">VolumeId</code></span></dt>
+                           <dd>
                               
-                              <p><a href="aws-properties-ec2-ebs-volume.html">AWS::EC2::Volume</a></p>
+                              <p>The ID of the EBS volume. The volume and instance must be within the same Availability
+                                 Zone.
+                              </p>
                               
-                           </li>
-                        </ul>
+                              <p><em>Required</em>: Yes
+                              </p>
+                              <p><em>Type</em>: String
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                           </dd>
+                        </dl>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
                      </div></div>
 </body>
 </html>

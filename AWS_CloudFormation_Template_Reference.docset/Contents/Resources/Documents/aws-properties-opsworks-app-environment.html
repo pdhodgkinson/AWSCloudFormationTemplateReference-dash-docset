@@ -8,84 +8,63 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-properties-opsworks-app-environment">AWS OpsWorks App Environment</h1><p><code class="code">Environment</code> is a property of the <a href="aws-resource-opsworks-app.html">AWS::OpsWorks::App</a> resource that specifies the environment
-                        variable to associate with the AWS OpsWorks app.
-                     </p><h2 id="w2ab1c21c10d183c14c21b5">Syntax</h2><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-properties-opsworks-app-environment-syntax.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
-  &quot;<a href="aws-properties-opsworks-app-environment.html#cfn-opsworks-app-environment-key">Key</a>&quot; : <em class="replaceable"><code>String</code></em>,
-  &quot;<a href="aws-properties-opsworks-app-environment.html#cfn-opsworks-app-environment-secure">Secure</a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
-  &quot;<a href="aws-properties-opsworks-app-environment.html#cfn-opsworks-app-environment-value">Value</a>&quot; : <em class="replaceable"><code>String</code></em>
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-properties-opsworks-app-environment-syntax.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight"><a href="aws-properties-opsworks-app-environment.html#cfn-opsworks-app-environment-key">Key</a>: <em class="replaceable"><code>String</code></em>
-<a href="aws-properties-opsworks-app-environment.html#cfn-opsworks-app-environment-secure">Secure</a>: <em class="replaceable"><code>Boolean</code></em>
-<a href="aws-properties-opsworks-app-environment.html#cfn-opsworks-app-environment-value">Value</a>: <em class="replaceable"><code>String</code></em>
-</code></pre>
-                        </div><h2 id="w2ab1c21c10d183c14c21b7">Properties</h2><div class="variablelist">
-                        
-                        
-                        
-                        
+    <h1 class="topictitle" id="aws-properties-opsworks-app-environment">AWS::OpsWorks::App EnvironmentVariable</h1><p>Represents an app&apos;s environment variable.</p><h2 id="aws-properties-opsworks-app-environment-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-properties-opsworks-app-environment-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;<a href="#cfn-opsworks-app-environment-key">Key</a>&quot; : <em class="replaceable"><code>String</code></em>,
+  &quot;<a href="#cfn-opsworks-app-environment-secure">Secure</a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
+  &quot;<a href="#value">Value</a>&quot; : <em class="replaceable"><code>String</code></em>
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-properties-opsworks-app-environment-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">  <a href="#cfn-opsworks-app-environment-key">Key</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-opsworks-app-environment-secure">Secure</a>: <em class="replaceable"><code>Boolean</code></em>
+  <a href="#value">Value</a>: <em class="replaceable"><code>String</code></em>
+</code></pre></div><h2 id="aws-properties-opsworks-app-environment-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
                            <dt><a id="cfn-opsworks-app-environment-key"></a><span class="term"><code class="code">Key</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The name of the environment variable, which can consist of up to 64 characters.
-                                 You can use upper and lowercase letters, numbers, and underscores (_), but the
-                                 name must start with a letter or underscore.
+                              <p>(Required) The environment variable&apos;s name, which can consist of up to 64 characters
+                                 and must be specified. The name can contain upper- and lowercase letters, numbers,
+                                 and underscores (_), but it must start with a letter or underscore.
                               </p>
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-opsworks-app-environment-secure"></a><span class="term"><code class="code">Secure</code></span></dt>
-                           
                            <dd>
                               
-                              <p>Indicates whether the value of the environment variable is concealed, such as
-                                 with a <a href="https://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeApps.html">DescribeApps</a>
-                                 response. To conceal an environment variable&apos;s value, set the value to
-                                 <code class="code">true</code>.
+                              <p>(Optional) Whether the variable&apos;s value will be returned by the <a href="https://docs.aws.amazon.com/goto/WebAPI/opsworks-2013-02-18/DescribeApps">DescribeApps</a> action.
+                                 To conceal an environment variable&apos;s value, set <code class="code">Secure</code> to <code class="code">true</code>.
+                                 <code class="code">DescribeApps</code> then returns <code class="code">*****FILTERED*****</code> instead of the actual
+                                 value. The default value for <code class="code">Secure</code> is <code class="code">false</code>. 
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: Boolean
                               </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-opsworks-app-environment-value"></a><span class="term"><code class="code">Value</code></span></dt>
-                           
+                           <dt><a id="value"></a><span class="term"><code class="code">Value</code></span></dt>
                            <dd>
                               
-                              <p>The value of the environment variable, which can be empty. You can specify a
-                                 value of up to 256 characters.
+                              <p>(Optional) The environment variable&apos;s value, which can be left empty. If you specify
+                                 a value, it can contain up to 256 characters, which must all be printable.
                               </p>
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
                         </dl>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
                      </div></div>
 </body>
 </html>

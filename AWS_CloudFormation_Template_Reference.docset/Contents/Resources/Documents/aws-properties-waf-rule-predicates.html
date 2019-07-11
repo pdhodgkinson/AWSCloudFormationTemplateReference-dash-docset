@@ -8,91 +8,76 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-properties-waf-rule-predicates">AWS WAF Rule Predicates</h1><p><code class="code">Predicates</code> is a property of the <a href="aws-resource-waf-rule.html">AWS::WAF::Rule</a> resource that specifies the <code class="code">ByteMatchSet</code>, <code class="code">IPSet</code>, <code class="code">SizeConstraintSet</code>, <code class="code">SqlInjectionMatchSet</code>, or <code class="code">XssMatchSet</code> objects to include in an  AWS WAF rule. If you add more than one predicate to a rule,
-                        an incoming request must match all of the specifications in the predicates to be allowed
-                        or blocked.
-                     </p><h2 id="w2ab1c21c10d234c21c17b5">Syntax</h2><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-properties-waf-rule-predicates-syntax.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
-  &quot;<a href="aws-properties-waf-rule-predicates.html#cfn-waf-rule-predicates-dataid">DataId</a>&quot; : <em class="replaceable"><code>String</code></em>,
-  &quot;<a href="aws-properties-waf-rule-predicates.html#cfn-waf-rule-predicates-negated">Negated</a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
-  &quot;<a href="aws-properties-waf-rule-predicates.html#cfn-waf-rule-predicates-type">Type</a>&quot; : <em class="replaceable"><code>String</code></em>
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-properties-waf-rule-predicates-syntax.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight"><a href="aws-properties-waf-rule-predicates.html#cfn-waf-rule-predicates-dataid">DataId</a>: <em class="replaceable"><code>String</code></em>
-<a href="aws-properties-waf-rule-predicates.html#cfn-waf-rule-predicates-negated">Negated</a>: <em class="replaceable"><code>Boolean</code></em>
-<a href="aws-properties-waf-rule-predicates.html#cfn-waf-rule-predicates-type">Type</a>: <em class="replaceable"><code>String</code></em>
-</code></pre>
-                        </div><h2 id="w2ab1c21c10d234c21c17b7">Properties</h2><div class="variablelist">
-                        
-                        
-                        
-                        
+    <h1 class="topictitle" id="aws-properties-waf-rule-predicates">AWS::WAF::Rule Predicate</h1><p>Specifies the <code class="code">ByteMatchSet</code>, <code class="code">IPSet</code>, <code class="code">SqlInjectionMatchSet</code>, <code class="code">XssMatchSet</code>, <code class="code">RegexMatchSet</code>,  <code class="code">GeoMatchSet</code>, and <code class="code">SizeConstraintSet</code> objects 
+                        			that you want to add to a <code class="code">Rule</code> and, for each object, indicates whether you want to negate the settings, for example,
+                        requests that do 
+                        			NOT originate from the IP address 192.0.2.44. 
+                     </p><h2 id="aws-properties-waf-rule-predicates-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-properties-waf-rule-predicates-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;<a href="#cfn-waf-rule-predicates-dataid">DataId</a>&quot; : <em class="replaceable"><code>String</code></em>,
+  &quot;<a href="#cfn-waf-rule-predicates-negated">Negated</a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
+  &quot;<a href="#cfn-waf-rule-predicates-type">Type</a>&quot; : <em class="replaceable"><code>String</code></em>
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-properties-waf-rule-predicates-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">  <a href="#cfn-waf-rule-predicates-dataid">DataId</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-waf-rule-predicates-negated">Negated</a>: <em class="replaceable"><code>Boolean</code></em>
+  <a href="#cfn-waf-rule-predicates-type">Type</a>: <em class="replaceable"><code>String</code></em>
+</code></pre></div><h2 id="aws-properties-waf-rule-predicates-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
                            <dt><a id="cfn-waf-rule-predicates-dataid"></a><span class="term"><code class="code">DataId</code></span></dt>
-                           
                            <dd>
-                              
-                              <p>The unique identifier of a predicate, such as the ID of a <code class="code">ByteMatchSet</code> or <code class="code">IPSet</code>.
+                              		       
+                              <p>A unique identifier for a predicate in a <code class="code">Rule</code>, such as <code class="code">ByteMatchSetId</code> or <code class="code">IPSetId</code>. 
+                                 			The ID is returned by the corresponding <code class="code">Create</code> or <code class="code">List</code> command.
                               </p>
-                              
+                              	     
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Minimum</em>: <code class="code">1</code></p>
+                              <p><em>Maximum</em>: <code class="code">128</code></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-waf-rule-predicates-negated"></a><span class="term"><code class="code">Negated</code></span></dt>
-                           
                            <dd>
-                              
-                              <p>Whether to use the settings or the negated settings that you specified in the <code class="code">ByteMatchSet</code>, <code class="code">IPSet</code>, <code class="code">SizeConstraintSet</code>, <code class="code">SqlInjectionMatchSet</code>, or <code class="code">XssMatchSet</code> objects.
+                              		       
+                              <p>Set <code class="code">Negated</code> to <code class="code">False</code> if you want AWS WAF to allow, block, or count requests based on the settings in the
+                                 
+                                 		          specified <code class="code">ByteMatchSet</code>, <code class="code">IPSet</code>, <code class="code">SqlInjectionMatchSet</code>, <code class="code">XssMatchSet</code>, <code class="code">RegexMatchSet</code>,  <code class="code">GeoMatchSet</code>,  or <code class="code">SizeConstraintSet</code>.
+                                 			For example, if an <code class="code">IPSet</code> includes the IP address <code class="code">192.0.2.44</code>, AWS WAF will allow or block requests based on that IP address.
+                              </p> 
+                              		       
+                              <p>Set <code class="code">Negated</code> to <code class="code">True</code> if you want AWS WAF to allow or block a request based on the negation 
+                                 		          of the settings in the <code class="code">ByteMatchSet</code>, <code class="code">IPSet</code>, <code class="code">SqlInjectionMatchSet</code>, <code class="code">XssMatchSet</code>, <code class="code">RegexMatchSet</code>,  <code class="code">GeoMatchSet</code>, or <code class="code">SizeConstraintSet</code>.
+                                 			For example, if an <code class="code">IPSet</code> includes the IP address <code class="code">192.0.2.44</code>, AWS WAF will allow, block, or count requests based on 
+                                 			all IP addresses <em>except</em> 
+                                 <code class="code">192.0.2.44</code>.
                               </p>
-                              
-                              <p>Specify <code class="code">false</code> if you want AWS WAF to allow, block, or count requests based on the settings in the
-                                 specified <code class="code">ByteMatchSet</code>, <code class="code">IPSet</code>, <code class="code">SizeConstraintSet</code>, <code class="code">SqlInjectionMatchSet</code>, or <code class="code">XssMatchSet</code> objects. For example, if an <code class="code">IPSet</code> object includes the IP address <code class="code">192.0.2.44</code>, AWS WAF allows, blocks, or counts requests originating from that IP address.
-                              </p>
-                              
-                              <p>Specify <code class="code">true</code> if you want AWS WAF to allow, block, or count requests based on the negated settings
-                                 in the <code class="code">ByteMatchSet</code>, <code class="code">IPSet</code>, <code class="code">SizeConstraintSet</code>, <code class="code">SqlInjectionMatchSet</code>, or <code class="code">XssMatchSet</code> objects. For example, if an <code class="code">IPSet</code> object includes the IP address <code class="code">192.0.2.44</code>, AWS WAF allows, blocks, or counts requests originating from all IP addresses except
-                                 192.0.2.44.
-                              </p>
-                              
+                              	     
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: Boolean
                               </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-waf-rule-predicates-type"></a><span class="term"><code class="code">Type</code></span></dt>
-                           
                            <dd>
-                              
-                              <p>The type of predicate in a rule, such as an <code class="code">IPSet</code>
-                                 (<code class="code">IPMatch</code>). For valid values, see the <code class="code">Type</code> contents of the
-                                 <a href="https://docs.aws.amazon.com/waf/latest/APIReference/API_Predicate.html">Predicate</a> data type in the
-                                 <em>AWS WAF API Reference</em>.
+                              		       
+                              <p>The type of predicate in a <code class="code">Rule</code>, such as <code class="code">ByteMatch</code> or <code class="code">IPSet</code>.
                               </p>
-                              
+                              	     
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Allowed Values</em>: <code class="code">ByteMatch | GeoMatch | IPMatch | RegexMatch | SizeConstraint | SqlInjectionMatch |
+                                    XssMatch</code></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
                         </dl>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
                      </div></div>
 </body>
 </html>

@@ -8,192 +8,153 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-properties-elasticloadbalancingv2-listener-redirectconfig">Elastic Load Balancing V2 RedirectConfig</h1><p>The
-                        <code class="code">RedirectConfig</code> property type specifies information about a redirect action.
-                     </p><p>
-                        <code class="code">RedirectConfig</code> is a property of the <a href="aws-properties-elasticloadbalancingv2-listener-defaultactions.html">Elastic Load Balancing V2 Action</a> property
-                        type.
+    <h1 class="topictitle" id="aws-properties-elasticloadbalancingv2-listener-redirectconfig">AWS::ElasticLoadBalancingV2::Listener RedirectConfig</h1><p>Information about a redirect action.</p><p>A URI consists of the following components: protocol://hostname:port/path?query. You
+                        must
+                        modify at least one of the following components to avoid a redirect loop: protocol,
+                        hostname,
+                        port, or path. Any components that you do not modify retain their original values.
+                     </p><p>You can reuse URI components using the following reserved keywords:</p><div class="itemizedlist">
+                        
+                        
+                        
+                        
+                        
+                        
+                        <ul class="itemizedlist" type="disc">
+                           <li class="listitem">
+                              
+                              <p>#{protocol}</p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p>#{host}</p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p>#{port}</p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p>#{path} (the leading &quot;/&quot; is removed)</p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p>#{query}</p>
+                              
+                           </li>
+                        </ul>
+                     </div><p>For example, you can change the path to &quot;/new/#{path}&quot;, the hostname to &quot;example.#{host}&quot;,
+                        or the query to &quot;#{query}&amp;value=xyz&quot;.
                      </p><h2 id="aws-properties-elasticloadbalancingv2-listener-redirectconfig-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
-                        
-                        <h3 id="aws-properties-elasticloadbalancingv2-listener-redirectconfig-syntax.json">JSON</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
-  &quot;<a href="aws-properties-elasticloadbalancingv2-listener-redirectconfig.html#cfn-elasticloadbalancingv2-listener-redirectconfig-host">Host</a>&quot; : <em class="replaceable"><code>String</code></em>,
-  &quot;<a href="aws-properties-elasticloadbalancingv2-listener-redirectconfig.html#cfn-elasticloadbalancingv2-listener-redirectconfig-path">Path</a>&quot; : <em class="replaceable"><code>String</code></em>,
-  &quot;<a href="aws-properties-elasticloadbalancingv2-listener-redirectconfig.html#cfn-elasticloadbalancingv2-listener-redirectconfig-port">Port</a>&quot; : <em class="replaceable"><code>String</code></em>,
-  &quot;<a href="aws-properties-elasticloadbalancingv2-listener-redirectconfig.html#cfn-elasticloadbalancingv2-listener-redirectconfig-protocol">Protocol</a>&quot; : <em class="replaceable"><code>String</code></em>,
-  &quot;<a href="aws-properties-elasticloadbalancingv2-listener-redirectconfig.html#cfn-elasticloadbalancingv2-listener-redirectconfig-query">Query</a>&quot; : <em class="replaceable"><code>String</code></em>,
-  &quot;<a href="aws-properties-elasticloadbalancingv2-listener-redirectconfig.html#cfn-elasticloadbalancingv2-listener-redirectconfig-statuscode">StatusCode</a>&quot; : <em class="replaceable"><code>String</code></em>
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        
-                        <h3 id="aws-properties-elasticloadbalancingv2-listener-redirectconfig-syntax.yaml">YAML</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight"><a href="aws-properties-elasticloadbalancingv2-listener-redirectconfig.html#cfn-elasticloadbalancingv2-listener-redirectconfig-host">Host</a>: <em class="replaceable"><code>String</code></em>
-<a href="aws-properties-elasticloadbalancingv2-listener-redirectconfig.html#cfn-elasticloadbalancingv2-listener-redirectconfig-path">Path</a>: <em class="replaceable"><code>String</code></em>
-<a href="aws-properties-elasticloadbalancingv2-listener-redirectconfig.html#cfn-elasticloadbalancingv2-listener-redirectconfig-port">Port</a>: <em class="replaceable"><code>String</code></em>
-<a href="aws-properties-elasticloadbalancingv2-listener-redirectconfig.html#cfn-elasticloadbalancingv2-listener-redirectconfig-protocol">Protocol</a>: <em class="replaceable"><code>String</code></em>
-<a href="aws-properties-elasticloadbalancingv2-listener-redirectconfig.html#cfn-elasticloadbalancingv2-listener-redirectconfig-query">Query</a>: <em class="replaceable"><code>String</code></em>
-<a href="aws-properties-elasticloadbalancingv2-listener-redirectconfig.html#cfn-elasticloadbalancingv2-listener-redirectconfig-statuscode">StatusCode</a>: <em class="replaceable"><code>String</code></em>
-</code></pre>
-                        </div><h2 id="aws-properties-elasticloadbalancingv2-listener-redirectconfig-properties">Properties</h2><div class="variablelist">
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
+                        <h3 id="aws-properties-elasticloadbalancingv2-listener-redirectconfig-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;<a href="#cfn-elasticloadbalancingv2-listener-redirectconfig-host">Host</a>&quot; : <em class="replaceable"><code>String</code></em>,
+  &quot;<a href="#cfn-elasticloadbalancingv2-listener-redirectconfig-path">Path</a>&quot; : <em class="replaceable"><code>String</code></em>,
+  &quot;<a href="#cfn-elasticloadbalancingv2-listener-redirectconfig-port">Port</a>&quot; : <em class="replaceable"><code>String</code></em>,
+  &quot;<a href="#cfn-elasticloadbalancingv2-listener-redirectconfig-protocol">Protocol</a>&quot; : <em class="replaceable"><code>String</code></em>,
+  &quot;<a href="#cfn-elasticloadbalancingv2-listener-redirectconfig-query">Query</a>&quot; : <em class="replaceable"><code>String</code></em>,
+  &quot;<a href="#cfn-elasticloadbalancingv2-listener-redirectconfig-statuscode">StatusCode</a>&quot; : <em class="replaceable"><code>String</code></em>
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-properties-elasticloadbalancingv2-listener-redirectconfig-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">  <a href="#cfn-elasticloadbalancingv2-listener-redirectconfig-host">Host</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-elasticloadbalancingv2-listener-redirectconfig-path">Path</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-elasticloadbalancingv2-listener-redirectconfig-port">Port</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-elasticloadbalancingv2-listener-redirectconfig-protocol">Protocol</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-elasticloadbalancingv2-listener-redirectconfig-query">Query</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-elasticloadbalancingv2-listener-redirectconfig-statuscode">StatusCode</a>: <em class="replaceable"><code>String</code></em>
+</code></pre></div><h2 id="aws-properties-elasticloadbalancingv2-listener-redirectconfig-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
                            <dt><a id="cfn-elasticloadbalancingv2-listener-redirectconfig-host"></a><span class="term"><code class="code">Host</code></span></dt>
-                           
                            <dd>
                               
                               <p>The hostname. This component is not percent-encoded. The hostname can contain #{host}.</p>
                               
-                              <p>Length Constraints: Minimum length of 1. Maximum length of 128.</p>
-                              
-                              <p>
-                                 <em>Required</em>: No
+                              <p><em>Required</em>: No
                               </p>
-                              
-                              <p>
-                                 <em>Type</em>: String
+                              <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Minimum</em>: <code class="code">1</code></p>
+                              <p><em>Maximum</em>: <code class="code">128</code></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-elasticloadbalancingv2-listener-redirectconfig-path"></a><span class="term"><code class="code">Path</code></span></dt>
-                           
                            <dd>
                               
                               <p>The absolute path, starting with the leading &quot;/&quot;. This component is not percent-encoded.
                                  The path can contain #{host}, #{path}, and #{port}.
                               </p>
                               
-                              <p>Length Constraints: Minimum length of 1. Maximum length of 128.</p>
-                              
-                              <p>
-                                 <em>Required</em>: No
+                              <p><em>Required</em>: No
                               </p>
-                              
-                              <p>
-                                 <em>Type</em>: String
+                              <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Minimum</em>: <code class="code">1</code></p>
+                              <p><em>Maximum</em>: <code class="code">128</code></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-elasticloadbalancingv2-listener-redirectconfig-port"></a><span class="term"><code class="code">Port</code></span></dt>
-                           
                            <dd>
                               
                               <p>The port. You can specify a value from 1 to 65535 or #{port}.</p>
                               
-                              <p>
-                                 <em>Required</em>: No
+                              <p><em>Required</em>: No
                               </p>
-                              
-                              <p>
-                                 <em>Type</em>: String
+                              <p><em>Type</em>: String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-elasticloadbalancingv2-listener-redirectconfig-protocol"></a><span class="term"><code class="code">Protocol</code></span></dt>
-                           
                            <dd>
                               
                               <p>The protocol. You can specify HTTP, HTTPS, or #{protocol}. You can redirect HTTP to
-                                 HTTP, HTTP to HTTPS, and HTTPS to HTTPS. You cannot redirect HTTPS to HTTP.
+                                 HTTP,
+                                 HTTP to HTTPS, and HTTPS to HTTPS. You cannot redirect HTTPS to HTTP.
                               </p>
                               
-                              <p>Pattern: <code class="code">^(HTTPS?|#\{protocol\})$</code></p>
-                              
-                              <p>
-                                 <em>Required</em>: No
+                              <p><em>Required</em>: No
                               </p>
-                              
-                              <p>
-                                 <em>Type</em>: String
+                              <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Pattern</em>: <code class="code">^(HTTPS?|#\{protocol\})$</code></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-elasticloadbalancingv2-listener-redirectconfig-query"></a><span class="term"><code class="code">Query</code></span></dt>
-                           
                            <dd>
                               
                               <p>The query parameters, URL-encoded when necessary, but not percent-encoded. Do not
-                                 include the leading &quot;?&quot;, as it is automatically added. You can specify any of the
-                                 reserved keywords.
+                                 include
+                                 the leading &quot;?&quot;, as it is automatically added. You can specify any of the reserved
+                                 keywords.
                               </p>
                               
-                              <p>Length Constraints: Minimum length of 0. Maximum length of 128.</p>
-                              
-                              <p>
-                                 <em>Required</em>: No
+                              <p><em>Required</em>: No
                               </p>
-                              
-                              <p>
-                                 <em>Type</em>: String
+                              <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Minimum</em>: <code class="code">0</code></p>
+                              <p><em>Maximum</em>: <code class="code">128</code></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-elasticloadbalancingv2-listener-redirectconfig-statuscode"></a><span class="term"><code class="code">StatusCode</code></span></dt>
-                           
                            <dd>
                               
                               <p>The HTTP redirect code. The redirect is either permanent (HTTP 301) or temporary (HTTP
                                  302).
                               </p>
                               
-                              <p>Valid Values: <code class="code">HTTP_301</code> | <code class="code">HTTP_302</code></p>
-                              
-                              <p>
-                                 <em>Required</em>: Yes
+                              <p><em>Required</em>: Yes
                               </p>
-                              
-                              <p>
-                                 <em>Type</em>: String
+                              <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Allowed Values</em>: <code class="code">HTTP_301 | HTTP_302</code></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
                         </dl>
-                     </div><h2 id="aws-properties-elasticloadbalancingv2-listener-redirectconfig-seealso">See Also</h2><div class="itemizedlist">
-                        
-                        
-                        <ul class="itemizedlist" type="disc">
-                           <li class="listitem">
-                              
-                              <p><a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_RedirectActionConfig.html">RedirectActionConfig</a> in the <em>Elastic Load Balancing API Reference version 2015-12-01</em></p>
-                           </li>
-                        </ul>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
                      </div></div>
 </body>
 </html>

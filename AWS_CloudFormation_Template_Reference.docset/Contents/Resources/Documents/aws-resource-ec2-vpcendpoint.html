@@ -8,272 +8,185 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-resource-ec2-vpcendpoint">AWS::EC2::VPCEndpoint</h1><p>Creates a VPC endpoint that you can use to establish a private connection between
-                        your VPC 
-                        and another AWS service without requiring access over the Internet, a VPN connection,
-                        or AWS Direct Connect.
-                        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpoint.html">CreateVpcEndpoint</a>.
-                     </p><div class="highlights" id="inline-topiclist">
-                        <p><strong>Topics</strong></p>
-                        <ul>
-                           <li><a href="#aws-resource-ec2-vpcendpoint-syntax">Syntax</a></li>
-                           <li><a href="#aws-resource-ec2-vpcendpoint-properties">Properties</a></li>
-                           <li><a href="#aws-resource-ec2-vpcendpoint-return-values">Return Value</a></li>
-                           <li><a href="#aws-resource-ec2-vpcendpoint-examples">Example</a></li>
-                        </ul>
-                     </div><h2 id="aws-resource-ec2-vpcendpoint-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-resource-ec2-vpcendpoint-syntax.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
+    <h1 class="topictitle" id="aws-resource-ec2-vpcendpoint">AWS::EC2::VPCEndpoint</h1><p>Specifies a VPC endpoint for a service. An endpoint enables you to create a
+                        private connection between your VPC and the service. The service may be provided by
+                        AWS,
+                        an AWS Marketplace partner, or another AWS account. For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-endpoints.html">VPC Endpoints</a> in the <em>Amazon Virtual Private Cloud User Guide</em>.
+                     </p><p>A <code class="code">gateway</code> endpoint serves as a target for a route in your route table
+                        for traffic destined for the AWS service. You can specify an endpoint policy to attach
+                        to the endpoint that will control access to the service from your VPC. You can also
+                        specify the VPC route tables that use the endpoint.
+                     </p><p>An <code class="code">interface</code> endpoint is a network interface in your subnet that
+                        serves as an endpoint for communicating with the specified service. You can specify
+                        the
+                        subnets in which to create an endpoint, and the security groups to associate with
+                        the
+                        endpoint network interface.
+                     </p><h2 id="aws-resource-ec2-vpcendpoint-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-resource-ec2-vpcendpoint-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
   &quot;Type&quot; : &quot;AWS::EC2::VPCEndpoint&quot;,
   &quot;Properties&quot; : {
-    &quot;<a href="aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-vpcid">VpcId</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-routetableids">RouteTableIds</a>&quot; : [ <em class="replaceable"><code>String</code></em>, ... ],
-    &quot;<a href="aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-servicename">ServiceName</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-policydocument">PolicyDocument</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-vpcendpointtype">VpcEndpointType</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-privatednsenabled">PrivateDnsEnabled</a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
-    &quot;<a href="aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-subnetids">SubnetIds</a>&quot; : [ <em class="replaceable"><code>String</code></em>, ... ],
-    &quot;<a href="aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-securitygroupids">SecurityGroupIds</a>&quot; : [ <em class="replaceable"><code>String</code></em>, ... ]
-  }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-resource-ec2-vpcendpoint-syntax.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">
-Type: AWS::EC2::VPCEndpoint
+      &quot;<a href="#cfn-ec2-vpcendpoint-policydocument">PolicyDocument</a>&quot; : <em class="replaceable"><code>Json</code></em>,
+      &quot;<a href="#cfn-ec2-vpcendpoint-privatednsenabled">PrivateDnsEnabled</a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
+      &quot;<a href="#cfn-ec2-vpcendpoint-routetableids">RouteTableIds</a>&quot; : <em class="replaceable"><code>[ String, ... ]</code></em>,
+      &quot;<a href="#cfn-ec2-vpcendpoint-securitygroupids">SecurityGroupIds</a>&quot; : <em class="replaceable"><code>[ String, ... ]</code></em>,
+      &quot;<a href="#cfn-ec2-vpcendpoint-servicename">ServiceName</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-ec2-vpcendpoint-subnetids">SubnetIds</a>&quot; : <em class="replaceable"><code>[ String, ... ]</code></em>,
+      &quot;<a href="#cfn-ec2-vpcendpoint-vpcendpointtype">VpcEndpointType</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-ec2-vpcendpoint-vpcid">VpcId</a>&quot; : <em class="replaceable"><code>String</code></em>
+    }
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-ec2-vpcendpoint-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Type: AWS::EC2::VPCEndpoint
 Properties: 
-  <a href="aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-vpcid">VpcId</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-routetableids">RouteTableIds</a>: 
-    - <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-servicename">ServiceName</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-policydocument">PolicyDocument</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-vpcendpointtype">VpcEndpointType</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-privatednsenabled">PrivateDnsEnabled</a>: <em class="replaceable"><code>Boolean</code></em>
-  <a href="aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-subnetids">SubnetIds</a>: 
-    - <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-securitygroupids">SecurityGroupIds</a>: 
-    - <em class="replaceable"><code>String</code></em></code></pre>
-                        </div><h2 id="aws-resource-ec2-vpcendpoint-properties">Properties</h2><div class="variablelist">
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
+  <a href="#cfn-ec2-vpcendpoint-policydocument">PolicyDocument</a>: <em class="replaceable"><code>Json</code></em>
+  <a href="#cfn-ec2-vpcendpoint-privatednsenabled">PrivateDnsEnabled</a>: <em class="replaceable"><code>Boolean</code></em>
+  <a href="#cfn-ec2-vpcendpoint-routetableids">RouteTableIds</a>: <em class="replaceable"><code>
+    - String</code></em>
+  <a href="#cfn-ec2-vpcendpoint-securitygroupids">SecurityGroupIds</a>: <em class="replaceable"><code>
+    - String</code></em>
+  <a href="#cfn-ec2-vpcendpoint-servicename">ServiceName</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-ec2-vpcendpoint-subnetids">SubnetIds</a>: <em class="replaceable"><code>
+    - String</code></em>
+  <a href="#cfn-ec2-vpcendpoint-vpcendpointtype">VpcEndpointType</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-ec2-vpcendpoint-vpcid">VpcId</a>: <em class="replaceable"><code>String</code></em>
+</code></pre></div><h2 id="aws-resource-ec2-vpcendpoint-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
-                           <dt><a id="cfn-ec2-vpcendpoint-privatednsenabled"></a><span class="term"><code class="code">PrivateDnsEnabled</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>[Interface endpoint] Indicates whether to associate a private hosted zone with the
-                                 specified VPC.
-                              </p>
-                              
-                              <p>
-                                 <em>Required</em>: No
-                              </p>
-                              
-                              <p>
-                                 <em>Type</em>: Boolean
-                              </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: 
-                                 
-                                 <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
-                                 
-                              </p>
-                              
-                           </dd>
-                           
-                           
                            <dt><a id="cfn-ec2-vpcendpoint-policydocument"></a><span class="term"><code class="code">PolicyDocument</code></span></dt>
-                           
                            <dd>
                               
-                              <p>[Gateway endpoint] A policy to attach to the endpoint that controls access to the
-                                 service. The
-                                 policy must be valid JSON. The default policy allows full access to the AWS service.
-                                 For more information,
-                                 see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints.html#vpc-endpoints-access">Controlling Access to Services</a> 
-                                 in the <em>Amazon VPC User Guide</em>.
+                              <p>A policy to attach to the endpoint that controls access to the
+                                 service. The policy must be in valid JSON format. If this parameter is not specified,
+                                 we
+                                 attach a default policy that allows full access to the service.
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
+                              <p><em>Type</em>: Json
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                           </dd>
+                           <dt><a id="cfn-ec2-vpcendpoint-privatednsenabled"></a><span class="term"><code class="code">PrivateDnsEnabled</code></span></dt>
+                           <dd>
                               
-                              <p><em>Type</em>: JSON object
+                              <p>(Interface endpoint) Indicate whether to associate a private hosted zone with the
+                                 specified VPC. The private hosted zone contains a record set for the default public
+                                 DNS
+                                 name for the service for the Region (for example,
+                                 <code class="code">kinesis.us-east-1.amazonaws.com</code>) which resolves to the private IP
+                                 addresses of the endpoint network interfaces in the VPC. This enables you to make
+                                 requests to the default public DNS name for the service instead of the public DNS
+                                 names
+                                 that are automatically generated by the VPC endpoint service.
                               </p>
                               
-                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                              <p>To use a private hosted zone, you must set the following VPC attributes to
+                                 <code class="code">true</code>: <code class="code">enableDnsHostnames</code> and
+                                 <code class="code">enableDnsSupport</code>.
+                              </p>
                               
+                              <p>Default: <code class="code">true</code></p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              <p><em>Type</em>: Boolean
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-ec2-vpcendpoint-routetableids"></a><span class="term"><code class="code">RouteTableIds</code></span></dt>
-                           
                            <dd>
                               
-                              <p>[Gateway endpoint] One or more route table IDs that are used by the VPC to
-                                 reach the endpoint.
-                              </p>
+                              <p>(Gateway endpoint) One or more route table IDs.</p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: List of String values
+                              <p><em>Type</em>: List of String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-ec2-vpcendpoint-securitygroupids"></a><span class="term"><code class="code">SecurityGroupIds</code></span></dt>
-                           
                            <dd>
                               
-                              <p>[Interface endpoint] The ID of one or more security groups to associate with the
+                              <p>(Interface endpoint) The ID of one or more security groups to associate with the
                                  endpoint network interface.
                               </p>
                               
-                              <p>
-                                 <em>Required</em>: No
+                              <p><em>Required</em>: No
                               </p>
-                              
-                              <p>
-                                 <em>Type</em>: List of String values
+                              <p><em>Type</em>: List of String
                               </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: 
-                                 
-                                 <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
-                                 
-                              </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-ec2-vpcendpoint-servicename"></a><span class="term"><code class="code">ServiceName</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The name of the service. To get a list of available services, use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpointServices.html">DescribeVpcEndpointServices</a> or get the name from the service provider.
+                              <p>The service name. To get a list of available services, use the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpointServices.html">DescribeVpcEndpointServices</a> request, 
+                                 or get the name from the service provider.
                               </p>
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-ec2-vpcendpoint-subnetids"></a><span class="term"><code class="code">SubnetIds</code></span></dt>
-                           
                            <dd>
                               
-                              <p>[Interface endpoint] The ID of one or more subnets in which to create an endpoint
+                              <p>(Interface endpoint) The ID of one or more subnets in which to create an endpoint
                                  network interface.
                               </p>
                               
-                              <p>
-                                 <em>Required</em>: No
+                              <p><em>Required</em>: No
                               </p>
-                              
-                              <p>
-                                 <em>Type</em>: List of String values
+                              <p><em>Type</em>: List of String
                               </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: 
-                                 
-                                 <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
-                                 
-                              </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-ec2-vpcendpoint-vpcendpointtype"></a><span class="term"><code class="code">VpcEndpointType</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The type of endpoint. Valid values are <code class="code">Interface</code> and <code class="code">Gateway</code>.
-                              </p>
+                              <p>The type of endpoint.</p>
                               
-                              <p>
-                                 <em>Required</em>: No
-                              </p>
+                              <p>Default: Gateway</p>
                               
-                              <p>
-                                 <em>Type</em>: String
+                              <p><em>Required</em>: No
                               </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: 
-                                 
-                                 <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
-                                 
+                              <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Allowed Values</em>: <code class="code">Gateway | Interface</code></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-ec2-vpcendpoint-vpcid"></a><span class="term"><code class="code">VpcId</code></span></dt>
-                           
                            <dd>
                               
                               <p>The ID of the VPC in which the endpoint will be used.</p>
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
                         </dl>
-                     </div><h2 id="aws-resource-ec2-vpcendpoint-return-values">Return Value</h2><h3 id="aws-resource-ec2-vpcendpoint-ref">Ref</h3><p>When you pass the logical ID of an <code class="code">AWS::EC2::VPCEndpoint</code> resource to the
-                        intrinsic <code class="code">Ref</code> function, the function returns the endpoint ID, such
-                        as <code class="code">vpce-a123d0d1</code>.
+                     </div><h2 id="aws-resource-ec2-vpcendpoint-return-values">Return Values</h2><h3 id="aws-resource-ec2-vpcendpoint-return-values-ref">Ref</h3><p>When you pass the logical ID of this resource to the intrinsic <code class="code">Ref</code> function, <code class="code">Ref</code> returns the ID of the VPC endpoint.
                      </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                     </p><h3 id="aws-resource-ec2-vpcendpoint-getatt">Fn::GetAtt</h3><p><code class="code">Fn::GetAtt</code> returns a value for a specified attribute of this type.
-                        The following are the available attributes and sample return values.
-                     </p><div class="variablelist">
-                        
-                        
-                        
-                        
+                     </p><h3 id="aws-resource-ec2-vpcendpoint-return-values-fn--getatt">Fn::GetAtt</h3><p>The <code class="code">Fn::GetAtt</code> intrinsic function returns a value for a specified attribute of this type. The following
+                        are the available attributes and sample return values.
+                     </p><p>For more information about using the <code class="code">Fn::GetAtt</code> intrinsic function, see <a href="intrinsic-function-reference-getatt.html">Fn::GetAtt</a>.
+                     </p><h4 id="aws-resource-ec2-vpcendpoint-return-values-fn--getatt-fn--getatt"></h4><div class="variablelist">
                         <dl>
-                           
-                           <dt><span class="term"><code class="literal">CreationTimestamp</code></span></dt>
-                           
+                           <dt><a id="CreationTimestamp-fn::getatt"></a><span class="term"><code class="code">CreationTimestamp</code></span></dt>
                            <dd>
                               
-                              <p><em>Returns</em>: The date and time the VPC endpoint was created. For
-                                 example: <code class="code">Fri Sep 28 23:34:36 UTC 2018</code></p>
+                              <p>The date and time the VPC endpoint was created. For example: <code class="code">Fri Sep 28 23:34:36 UTC 2018.</code></p>
                               
                            </dd>
-                           
-                           
-                           <dt><span class="term"><code class="literal">DnsEntries</code></span></dt>
-                           
+                           <dt><a id="DnsEntries-fn::getatt"></a><span class="term"><code class="code">DnsEntries</code></span></dt>
                            <dd>
                               
-                              <p><em>Returns</em>: (Interface endpoint) The DNS entries for the 
+                              <p>(Interface endpoint) The DNS entries for the 
                                  endpoint. Each entry is a combination of the hosted zone ID and the DNS name.  
                                  The entries are ordered as follows: regional public DNS, zonal public DNS, 
                                  private DNS, and wildcard DNS. This order is not enforced for AWS Marketplace services.
@@ -295,77 +208,52 @@ Properties:
                               </p>
                               
                            </dd>
-                           
-                           
-                           <dt><span class="term"><code class="literal">NetworkInterfaceIds</code></span></dt>
-                           
+                           <dt><a id="NetworkInterfaceIds-fn::getatt"></a><span class="term"><code class="code">NetworkInterfaceIds</code></span></dt>
                            <dd>
                               
-                              <p><em>Returns</em>: (Interface endpoint) One or more network
-                                 interfaces for the endpoint. For example:
-                              </p>
-                              
-                              <p><code class="code">[&quot;eni-12345ab6789c10d1e&quot;, &quot;eni-012345678ab9c10d1&quot;]</code></p>
-                              
-                              <p>If you update the <code class="code">PrivateDnsEnabled</code> or <code class="code">SubnetIds</code> properties, 
-                                 the items in this list might change.
+                              <p>(Interface endpoint) One or more network interface IDs. If you update the <code class="code">PrivateDnsEnabled</code> 
+                                 or <code class="code">SubnetIds</code> properties, the items in this list might change.
                               </p>
                               
                            </dd>
-                           
                         </dl>
-                     </div><p>For more information about using <code class="code">Fn::GetAtt</code>, see <a href="intrinsic-function-reference-getatt.html">Fn::GetAtt</a>.
-                     </p><h2 id="aws-resource-ec2-vpcendpoint-examples">Example</h2><p>The following example creates a VPC endpoint that allows only the
-                        <code class="code">s3:GetObject</code> action on the <code class="code">examplebucket</code> bucket. Traffic to S3
-                        within subnets that are associated with the <code class="code">routetableA</code> and
-                        <code class="code">routetableB</code> route tables is automatically routed through the VPC
-                        endpoint.
-                     </p><div id="JSON" name="JSON" class="section langfilter">
-                        
-                        <h3 id="aws-resource-ec2-vpcendpoint-example.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">&quot;S3Endpoint&quot; : {
-  &quot;Type&quot; : &quot;AWS::EC2::VPCEndpoint&quot;,
-  &quot;Properties&quot; : {
-    &quot;PolicyDocument&quot; : {
-      &quot;Version&quot;:&quot;2012-10-17&quot;,
-      &quot;Statement&quot;:[{
-        &quot;Effect&quot;:&quot;Allow&quot;,
-        &quot;Principal&quot;: &quot;*&quot;,
-        &quot;Action&quot;:[&quot;s3:GetObject&quot;],
-        &quot;Resource&quot;:[&quot;arn:aws:s3:::examplebucket/*&quot;]
-      }]
-    },
-    &quot;RouteTableIds&quot; : [ {&quot;Ref&quot; : &quot;routetableA&quot;}, {&quot;Ref&quot; : &quot;routetableB&quot;} ],
-    &quot;ServiceName&quot; : { &quot;Fn::Join&quot;: [ &quot;&quot;, [ &quot;com.amazonaws.&quot;, { &quot;Ref&quot;: &quot;AWS::Region&quot; }, &quot;.s3&quot; ] ] },
-    &quot;VpcId&quot; : {&quot;Ref&quot; : &quot;VPCID&quot;}
-  }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        
-                        <h3 id="aws-resource-ec2-vpcendpoint-example.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">S3Endpoint:
-  Type: AWS::EC2::VPCEndpoint
-  Properties:
-    PolicyDocument:
-      Version: 2012-10-17
-      Statement:
-        - Effect: Allow
-          Principal: &apos;*&apos;
-          Action:
-            - &apos;s3:GetObject&apos;
-          Resource:
-            - &apos;arn:aws:s3:::examplebucket/*&apos;
-    RouteTableIds:
-      - !Ref routetableA
-      - !Ref routetableB
-    ServiceName: !Join 
-      - &apos;&apos;
-      - - com.amazonaws.
-        - !Ref &apos;AWS::Region&apos;
-        - .s3
-    VpcId: !Ref VPCID</code></pre>
-                        </div></div>
+                     </div><h2 id="aws-resource-ec2-vpcendpoint--examples">Examples</h2><h3 id="aws-resource-ec2-vpcendpoint--examples--VPC_Endpoint">VPC Endpoint</h3><p>The following example specifies a VPC endpoint that allows only the s3:GetObject action
+                        on the examplebucket bucket. Traffic to S3 within subnets that are associated with
+                        the routetableA and routetableB route tables is automatically routed through the VPC
+                        endpoint. 
+                     </p><h4 id="aws-resource-ec2-vpcendpoint--examples--VPC_Endpoint--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">
+&quot;S3Endpoint&quot; : {
+   &quot;Type&quot; : &quot;AWS::EC2::VPCEndpoint&quot;,
+   &quot;Properties&quot; : {
+      &quot;PolicyDocument&quot; : {
+         &quot;Version&quot;:&quot;2012-10-17&quot;,
+         &quot;Statement&quot;:[{
+            &quot;Effect&quot;:&quot;Allow&quot;,
+            &quot;Principal&quot;: &quot;*&quot;,
+            &quot;Action&quot;:[&quot;s3:GetObject&quot;],
+            &quot;Resource&quot;:[&quot;arn:aws:s3:::examplebucket/*&quot;]
+         }]
+   },
+   &quot;RouteTableIds&quot; : [ {&quot;Ref&quot; : &quot;routetableA&quot;}, {&quot;Ref&quot; : &quot;routetableB&quot;} ],
+   &quot;ServiceName&quot; : { &quot;Fn::Sub&quot;: &quot;com.amazonaws.${AWS::Region}.s3&quot; },
+   &quot;VpcId&quot; : {&quot;Ref&quot; : &quot;VPCID&quot;}
+ }
+}</code></pre><h4 id="aws-resource-ec2-vpcendpoint--examples--VPC_Endpoint--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Type: AWS::EC2::VPCEndpoint
+Properties:
+  PolicyDocument: 
+    Version: 2012-10-17
+    Statement:
+    - Effect: Allow
+      Action:
+        - &apos;s3:GetObject&apos;
+      Resource:
+        - &apos;arn:aws:s3:::examplebucket/&apos;
+  RouteTableIds:
+    - !Ref routetableA
+    - !Ref routetableB
+  ServiceName: !Sub com.amazonaws.${AWS::Region}.s3
+  VpcId: !Ref VPCID</code></pre><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
+                     </div></div>
 </body>
 </html>

@@ -8,103 +8,139 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-resource-kms-alias">AWS::KMS::Alias</h1><p>The <code class="code">AWS::KMS::Alias</code> resource creates a display name for a customer master key (CMK) in AWS Key Management
-                        Service (AWS KMS). Using an alias to refer to a key can help you simplify key management.
-                        For example, when rotating keys, you can just update the alias mapping instead of
-                        tracking and changing key IDs. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-aliases.html">Working with Aliases</a> in the <em>AWS Key Management Service Developer Guide</em>.
-                     </p><div class="highlights" id="inline-topiclist">
-                        <p><strong>Topics</strong></p>
-                        <ul>
-                           <li><a href="#aws-resource-kms-alias-syntax">Syntax</a></li>
-                           <li><a href="#aws-resource-kms-alias-properties">Properties</a></li>
-                           <li><a href="#aws-resource-kms-alias-returnvalues">Return Value</a></li>
-                           <li><a href="#aws-resource-kms-alias-examples">Examples</a></li>
+    <h1 class="topictitle" id="aws-resource-kms-alias">AWS::KMS::Alias</h1><p>The <code class="code">AWS::KMS::Alias</code> resource specifies a display name for a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys">customer master
+                           key</a> (CMK) in AWS Key Management Service (AWS KMS). You can use an alias to identify a
+                        CMK in cryptographic operations.
+                     </p><p>Using an alias to refer to a CMK can help you simplify key management. For example,
+                        an
+                        alias in your code can map to different CMKs in different AWS Regions. For more information,
+                        see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-aliases.html">Working with Aliases</a> in the <em>AWS Key Management Service Developer
+                           Guide</em>.
+                     </p><p>When specifying an alias, observe the following rules.</p><div class="itemizedlist">
+                        
+                        
+                        
+                        
+                        
+                        
+                        <ul class="itemizedlist" type="disc">
+                           <li class="listitem">
+                              
+                              <p>Each alias can point to only one CMK, but multiple aliases can point to the same
+                                 CMK.
+                              </p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p>The alias and the CMK it points to must be in the same AWS account and Region.</p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p>The alias name must be unique in the AWS account and Region. However, you can create
+                                 aliases with the same name in different AWS Regions. For example, you can have an
+                                 <code class="code">alias/projectKey</code> in multiple Regions, each of which points to a CMK in that
+                                 Region.
+                              </p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p>Each alias name must begin with <code class="code">alias/</code> followed by a name, such as
+                                 <code class="code">alias/exampleKey</code>. The alias name can contain only alphanumeric characters,
+                                 forward slashes (/), underscores (_), and dashes (-). Alias names cannot begin with
+                                 <b>alias/aws/</b>. That alias name prefix is reserved for <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk">AWS
+                                    managed CMKs</a>.
+                              </p>
+                              
+                           </li>
                         </ul>
-                     </div><h2 id="aws-resource-kms-alias-syntax">Syntax</h2><p>
-                        To declare this entity in your AWS CloudFormation template, use the following syntax:
-                     </p><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-resource-kms-alias-syntax.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
+                     </div><h2 id="aws-resource-kms-alias-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-resource-kms-alias-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
   &quot;Type&quot; : &quot;AWS::KMS::Alias&quot;,
   &quot;Properties&quot; : {
-    &quot;<a href="aws-resource-kms-alias.html#cfn-kms-alias-aliasname">AliasName</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-kms-alias.html#cfn-kms-alias-targetkeyid">TargetKeyId</a>&quot; : <em class="replaceable"><code>String</code></em>
-  }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-resource-kms-alias-syntax.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">Type: AWS::KMS::Alias
-Properties:
-  <a href="aws-resource-kms-alias.html#cfn-kms-alias-aliasname">AliasName</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-kms-alias.html#cfn-kms-alias-targetkeyid">TargetKeyId</a>: <em class="replaceable"><code>String</code></em>
-</code></pre>
-                        </div><h2 id="aws-resource-kms-alias-properties">Properties</h2><div class="variablelist">
-                        
-                        
-                        
+      &quot;<a href="#cfn-kms-alias-aliasname">AliasName</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-kms-alias-targetkeyid">TargetKeyId</a>&quot; : <em class="replaceable"><code>String</code></em>
+    }
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-kms-alias-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Type: AWS::KMS::Alias
+Properties: 
+  <a href="#cfn-kms-alias-aliasname">AliasName</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-kms-alias-targetkeyid">TargetKeyId</a>: <em class="replaceable"><code>String</code></em>
+</code></pre></div><h2 id="aws-resource-kms-alias-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
                            <dt><a id="cfn-kms-alias-aliasname"></a><span class="term"><code class="code">AliasName</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The name of the alias. The name must start with <code class="code">alias</code> followed by a forward slash, such as <code class="code">alias/</code>. You can&apos;t specify aliases that begin with <code class="code">alias/AWS</code>. These aliases are reserved.
+                              <p>Specifies the alias name. This value must begin with <code class="code">alias/</code> followed by a
+                                 name, such as <code class="code">alias/ExampleAlias</code>. The alias name cannot begin with
+                                 <code class="code">alias/aws/</code>. The <code class="code">alias/aws/</code> prefix is reserved for AWS managed
+                                 CMKs.
                               </p>
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Minimum</em>: <code class="code">1</code></p>
+                              <p><em>Maximum</em>: <code class="code">256</code></p>
+                              <p><em>Pattern</em>: <code class="code">^[a-zA-Z0-9:/_-]+$</code></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-kms-alias-targetkeyid"></a><span class="term"><code class="code">TargetKeyId</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The ID of the key for which you are creating the alias. Specify the key&apos;s globally
-                                 unique identifier or Amazon Resource Name (ARN). You can&apos;t specify another alias.
+                              <p>Identifies the CMK to which the alias refers. Specify the key ID or the Amazon Resource
+                                 Name (ARN) of the CMK. You cannot specify another alias. For help finding the key
+                                 ID and ARN,
+                                 see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/viewing-keys.html#find-cmk-id-arn">Finding the Key ID and
+                                    ARN</a> in the <em>AWS Key Management Service Developer Guide</em>.
                               </p>
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Minimum</em>: <code class="code">1</code></p>
+                              <p><em>Maximum</em>: <code class="code">2048</code></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
                         </dl>
-                     </div><h2 id="aws-resource-kms-alias-returnvalues">Return Value</h2><h3 id="w2ab1c21c10d174c13c11b2">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code> intrinsic function, <code class="code">Ref</code> returns the alias name, such as <code class="code">alias/myKeyAlias</code>.
+                     </div><h2 id="aws-resource-kms-alias-return-values">Return Values</h2><h3 id="aws-resource-kms-alias-return-values-ref">Ref</h3><p> 
+                        When you pass the logical ID of this resource to the intrinsic <code class="code">Ref</code> function, <code class="code">Ref</code> returns the alias name, such as
+                        <code class="code">alias/exampleAlias</code>.
                      </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                     </p><h2 id="aws-resource-kms-alias-examples">Examples</h2><p>The following examples create the <code class="code">alias/myKeyAlias</code> alias for the <code class="code">myKey</code> AWS KMS key.
-                     </p><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-resource-kms-alias-examples.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">&quot;myKeyAlias&quot; : {
+                     </p><h2 id="aws-resource-kms-alias--examples">Examples</h2><h3 id="aws-resource-kms-alias--examples--Create_an_alias">Create an alias</h3><p>The following examples create the <code class="code">alias/exampleAlias</code> alias for a CMK. The
+                        CMK is identified by referencing its resource name. Before using these examples, replace
+                        the example target key ID with a valid value.
+                     </p><h4 id="aws-resource-kms-alias--examples--Create_an_alias--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">&quot;myAlias&quot; : {
   &quot;Type&quot; : &quot;AWS::KMS::Alias&quot;,
   &quot;Properties&quot; : {
-    &quot;AliasName&quot; : &quot;alias/myKeyAlias&quot;,
-    &quot;TargetKeyId&quot; : {&quot;Ref&quot;:&quot;myKey&quot;}
+    &quot;AliasName&quot; : &quot;alias/exampleAlias&quot;,
+    &quot;TargetKeyId&quot; : {&quot;Ref&quot;: &quot;myKey&quot;}
   }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-resource-kms-alias-examples.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">myKeyAlias:
+}</code></pre><h4 id="aws-resource-kms-alias--examples--Create_an_alias--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">myAlias:
   Type: AWS::KMS::Alias
   Properties:
-    AliasName: alias/myKeyAlias
+    AliasName: alias/exampleAlias
     TargetKeyId:
-      Ref: myKey</code></pre>
-                        </div></div>
+      Ref: myKey</code></pre><h2 id="aws-resource-kms-alias--seealso">See Also</h2><div class="itemizedlist">
+                        
+                        
+                        <ul class="itemizedlist" type="disc">
+                           <li class="listitem">
+                              
+                              <p> 
+                                 <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateAlias.html">CreateAlias</a> in the <em>AWS Key Management Service API
+                                    Reference</em>.
+                              </p>
+                              
+                           </li>
+                        </ul>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
+                     </div></div>
 </body>
 </html>

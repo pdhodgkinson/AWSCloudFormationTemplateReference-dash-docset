@@ -8,105 +8,69 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-resource-cloudfront-distribution">AWS::CloudFront::Distribution</h1><p>Creates an Amazon CloudFront web distribution. For general information about CloudFront
-                        distributions, see
-                        the <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html">Introduction to Amazon CloudFront</a> in
-                        the <em>Amazon CloudFront Developer Guide</em>. For specific information about creating CloudFront web
-                        distributions, see <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_CreateDistribution.html">CreateDistribution</a> in the <em>Amazon CloudFront API Reference</em>.
+    <h1 class="topictitle" id="aws-resource-cloudfront-distribution">AWS::CloudFront::Distribution</h1><p>A distribution tells CloudFront where you want content to be delivered from, and the
+                        details about how to 
+                        			track and manage content delivery.
                      </p><h2 id="aws-resource-cloudfront-distribution-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-resource-cloudfront-distribution-syntax.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
-   &quot;Type&quot; : &quot;AWS::CloudFront::Distribution&quot;,
-   &quot;Properties&quot; : {
-      &quot;<a href="aws-resource-cloudfront-distribution.html#cfn-cloudfront-distribution-distributionconfig">DistributionConfig</a>&quot; : <a href="aws-properties-cloudfront-distribution-distributionconfig.html">DistributionConfig</a>,
-      &quot;<a href="aws-resource-cloudfront-distribution.html#cfn-cloudfront-distribution-tags">Tags</a>&quot; : [ <a href="aws-properties-resource-tags.html">Tag</a>, ... ]
-   }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-resource-cloudfront-distribution-syntax.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">Type: AWS::CloudFront::Distribution
-Properties:
-  <a href="aws-resource-cloudfront-distribution.html#cfn-cloudfront-distribution-distributionconfig">DistributionConfig</a>: 
-    <a href="aws-properties-cloudfront-distribution-distributionconfig.html">DistributionConfig</a>
-  <a href="aws-resource-cloudfront-distribution.html#cfn-cloudfront-distribution-tags">Tags</a>: 
-    - <a href="aws-properties-resource-tags.html">Tag</a><em class="replaceable"><code></code></em>
-</code></pre>
-                        </div><h2 id="aws-resource-cloudfront-distribution-prop">Properties</h2><div class="variablelist">
-                        
-                        
-                        
+                        <h3 id="aws-resource-cloudfront-distribution-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;Type&quot; : &quot;AWS::CloudFront::Distribution&quot;,
+  &quot;Properties&quot; : {
+      &quot;<a href="#cfn-cloudfront-distribution-distributionconfig">DistributionConfig</a>&quot; : <em class="replaceable"><code><a href="aws-properties-cloudfront-distribution-distributionconfig.html">DistributionConfig</a></code></em>,
+      &quot;<a href="#cfn-cloudfront-distribution-tags">Tags</a>&quot; : <em class="replaceable"><code>[ <a href="aws-properties-resource-tags.html">Tag</a>, ... ]</code></em>
+    }
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-cloudfront-distribution-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Type: AWS::CloudFront::Distribution
+Properties: 
+  <a href="#cfn-cloudfront-distribution-distributionconfig">DistributionConfig</a>: <em class="replaceable"><code>
+    <a href="aws-properties-cloudfront-distribution-distributionconfig.html">DistributionConfig</a></code></em>
+  <a href="#cfn-cloudfront-distribution-tags">Tags</a>: <em class="replaceable"><code>
+    - <a href="aws-properties-resource-tags.html">Tag</a></code></em>
+</code></pre></div><h2 id="aws-resource-cloudfront-distribution-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
-                           <dt><a id="cfn-cloudfront-distribution-distributionconfig"></a><span class="term"><code class="literal">DistributionConfig</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>The distribution&apos;s configuration information.</p>
-                              
+                           <dt><a id="cfn-cloudfront-distribution-distributionconfig"></a><span class="term"><code class="code">DistributionConfig</code></span></dt>
+                           <dd> 
+                              		       
+                              <p>The current configuration information for the distribution. Send a <code class="code">GET</code> 
+                                 			request to the <code class="code">/<em>CloudFront API version</em>/distribution ID/config</code> 
+                                 			resource.
+                              </p>
+                              	     
                               <p><em>Required</em>: Yes
                               </p>
-                              
-                              <p><em>Type</em>: <a href="aws-properties-cloudfront-distribution-distributionconfig.html">DistributionConfig</a> type
-                              </p>
-                              
+                              <p><em>Type</em>: <a href="aws-properties-cloudfront-distribution-distributionconfig.html">DistributionConfig</a></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-cloudfront-distribution-tags"></a><span class="term"><code class="code">Tags</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>An arbitrary set of tags (key&#x2013;value pairs) to associate with a CloudFront distribution.</p>
-                              
-                              <p>
-                                 <em>Required</em>: No
+                           <dd> 
+                              		       
+                              <p>A complex type that contains zero or more <code class="code">Tag</code> elements.
                               </p>
-                              
-                              <p>
-                                 <em>Type</em>: List of <a href="aws-properties-resource-tags.html">Resource Tag</a></p>
-                              
-                              <p>
-                                 <em>Update requires</em>: 
-                                 
-                                 <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
-                                 
+                              	     
+                              <p><em>Required</em>: No
                               </p>
-                              
-                              <p>Duplicates not allowed.</p>
-                              
+                              <p><em>Type</em>: List of <a href="aws-properties-resource-tags.html">Tag</a></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
                         </dl>
-                     </div><h2 id="aws-resource-cloudfront-distribution-ref">Return Values</h2><h3 id="w2ab1c21c10c60c14c11b2">Ref</h3><p><em>Returns</em>: The CloudFront
-                        distribution ID. For example: <code class="code">E27LVI50CSW06W</code>.
+                     </div><h2 id="aws-resource-cloudfront-distribution-return-values">Return Values</h2><h3 id="aws-resource-cloudfront-distribution-return-values-ref">Ref</h3><p>
+                        When you pass the logical ID of this resource to the intrinsic <code class="code">Ref</code> function, <code class="code">Ref</code> returns the CloudFront
+                        			distribution ID. For example: <code class="code">E27LVI50CSW06W</code>.
                      </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                     </p><h3 id="w2ab1c21c10c60c14c11b4">Fn::GetAtt</h3><p><code class="code">Fn::GetAtt</code> returns a value for a specified attribute of this type.
-                        The following are the available attributes and sample return values.
-                     </p><div class="variablelist">
-                        
-                        
+                     </p><h3 id="aws-resource-cloudfront-distribution-return-values-fn--getatt">Fn::GetAtt</h3><p>The <code class="code">Fn::GetAtt</code> intrinsic function returns a value for a specified attribute of this type. The following
+                        are the available attributes and sample return values.
+                     </p><p>For more information about using the <code class="code">Fn::GetAtt</code> intrinsic function, see <a href="intrinsic-function-reference-getatt.html">Fn::GetAtt</a>.
+                     </p><h4 id="aws-resource-cloudfront-distribution-return-values-fn--getatt-fn--getatt"></h4><div class="variablelist">
                         <dl>
-                           
-                           <dt><span class="term"><code class="literal">DomainName</code></span></dt>
-                           
+                           <dt><a id="DomainName-fn::getatt"></a><span class="term"><code class="code">DomainName</code></span></dt>
                            <dd>
-                              
-                              <p><em>Returns</em>: The domain name of the resource. For example:
-                                 <code class="code">d2fadu0nynjpfn.cloudfront.net</code>.
+                              	  
+                              <p>The domain name of the resource, such as <code class="code">sct27g85mgx04.cloudfront.net</code>. 
                               </p>
                               
                            </dd>
-                           
                         </dl>
-                     </div><p>For more information about using <code class="code">Fn::GetAtt</code>, see <a href="intrinsic-function-reference-getatt.html">Fn::GetAtt</a>.
-                     </p><h2 id="aws-resource-cloudfront-distribution-examples">Example</h2><p>The following example specifies a distribution and assigns it a single tag.</p><div id="JSON" name="JSON" class="section langfilter">
-                        
-                        <h4 id="aws-resource-cloudfront-distribution-example1.json">JSON</h4>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">{
+                     </div><h2 id="aws-resource-cloudfront-distribution--examples">Examples</h2><h3 id="aws-resource-cloudfront-distribution--examples--Create_a_distribution">Create a distribution</h3><p>The following example specifies a distribution and assigns it a single tag.</p><h4 id="aws-resource-cloudfront-distribution--examples--Create_a_distribution--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
     &quot;AWSTemplateFormatVersion&quot;: &quot;2010-09-09&quot;,
     &quot;Resources&quot;: {
         &quot;cloudfrontdistribution&quot;: {
@@ -150,11 +114,7 @@ Properties:
             }
         }
     }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        
-                        <h4 id="aws-resource-cloudfront-distribution-example1.yaml">YAML</h4>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">AWSTemplateFormatVersion: 2010-09-09
+}</code></pre><h4 id="aws-resource-cloudfront-distribution--examples--Create_a_distribution--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">AWSTemplateFormatVersion: 2010-09-09
 Resources:
   cloudfrontdistribution:
     Type: AWS::CloudFront::Distribution
@@ -175,18 +135,21 @@ Resources:
               OriginReadTimeout: integer-value
       Tags:
         - Key: string-value
-          Value: string-value</code></pre>
-                        </div><h2 id="aws-resource-cloudfront-distribution-seealso">See Also</h2><div class="itemizedlist">
-                        
-                        
+          Value: string-value</code></pre><h2 id="aws-resource-cloudfront-distribution--seealso">See Also</h2><div class="itemizedlist">
+                        				        
+                        			      
                         <ul class="itemizedlist" type="disc">
                            <li class="listitem">
-                              
-                              <p><a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_CreateDistribution.html">CreateDistribution</a> in
-                                 the <em>Amazon CloudFront API Reference</em></p>
-                              
+                              					          
+                              <p>
+                                 						            <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_CreateDistribution.html">CreateDistribution</a> in the <em>Amazon CloudFront API Reference</em>
+                                 					          
+                              </p>
+                              				        
                            </li>
                         </ul>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
                      </div></div>
 </body>
 </html>

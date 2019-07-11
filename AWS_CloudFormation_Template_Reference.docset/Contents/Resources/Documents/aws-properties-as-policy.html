@@ -8,441 +8,318 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-properties-as-policy">AWS::AutoScaling::ScalingPolicy</h1><p>Adds a scaling policy to an Amazon EC2 Auto Scaling group. A scaling policy specifies
-                        whether to scale the Auto Scaling group up or down, and by how much. 
-                        For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scale-based-on-demand.html">Dynamic Scaling</a> in the <em>Amazon EC2 Auto Scaling User Guide</em>.
-                     </p><p>You can use a scaling policy together with a CloudWatch alarm. A CloudWatch alarm
-                        can automatically initiate actions on your behalf, based on parameters you specify.
-                        A scaling policy is one type of action that an alarm can initiate. For a snippet showing
-                        how to create an Auto Scaling policy that is triggered by a CloudWatch alarm, see
-                        <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-autoscaling.html#scenario-as-policy">Auto Scaling Policy Triggered by CloudWatch Alarm</a>. Note that you can only associate one scaling policy with an alarm.
-                     </p><p>This type supports updates. For more information about updating this resource, see
-                        <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PutScalingPolicy.html">PutScalingPolicy</a>
-                        in the <em>Amazon EC2 Auto Scaling API Reference</em>.
-                     </p><h2 id="aws-resource-autoscaling-scalingpolicy-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-resource-autoscaling-scalingpolicy-syntax.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">
-{
-   &quot;Type&quot; : &quot;AWS::AutoScaling::ScalingPolicy&quot;,
-   &quot;Properties&quot; : {
-      &quot;<a href="aws-properties-as-policy.html#cfn-as-scalingpolicy-adjustmenttype">AdjustmentType</a>&quot; : <em class="replaceable"><code>String</code></em>,
-      &quot;<a href="aws-properties-as-policy.html#cfn-as-scalingpolicy-autoscalinggroupname">AutoScalingGroupName</a>&quot; : <em class="replaceable"><code>String</code></em>,
-      &quot;<a href="aws-properties-as-policy.html#cfn-as-scalingpolicy-cooldown">Cooldown</a>&quot; : <em class="replaceable"><code>String</code></em>,
-      &quot;<a href="aws-properties-as-policy.html#cfn-as-scalingpolicy-estimatedinstancewarmup">EstimatedInstanceWarmup</a>&quot; : <em class="replaceable"><code>Integer</code></em>,
-      &quot;<a href="aws-properties-as-policy.html#cfn-as-scalingpolicy-metricaggregationtype">MetricAggregationType</a>&quot; : <em class="replaceable"><code>String</code></em>,
-      &quot;<a href="aws-properties-as-policy.html#cfn-as-scalingpolicy-minadjustmentmagnitude">MinAdjustmentMagnitude</a>&quot; : <em class="replaceable"><code>Integer</code></em>,
-      &quot;<a href="aws-properties-as-policy.html#cfn-as-scalingpolicy-policytype">PolicyType</a>&quot; : <em class="replaceable"><code>String</code></em>,
-      &quot;<a href="aws-properties-as-policy.html#cfn-as-scalingpolicy-scalingadjustment">ScalingAdjustment</a>&quot; : <em class="replaceable"><code>Integer</code></em>,
-      &quot;<a href="aws-properties-as-policy.html#cfn-as-scalingpolicy-stepadjustments">StepAdjustments</a>&quot; : [ <a href="aws-properties-autoscaling-scalingpolicy-stepadjustments.html">StepAdjustments</a>, ... ],
-      &quot;<a href="aws-properties-as-policy.html#cfn-autoscaling-scalingpolicy-targettrackingconfiguration">TargetTrackingConfiguration</a>&quot; : <a href="aws-properties-autoscaling-scalingpolicy-targettrackingconfiguration.html">TargetTrackingConfiguration</a>
-   }
-}      </code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-resource-autoscaling-scalingpolicy-syntax.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">Type: AWS::AutoScaling::ScalingPolicy
-Properties:
-  <a href="aws-properties-as-policy.html#cfn-as-scalingpolicy-adjustmenttype">AdjustmentType</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-properties-as-policy.html#cfn-as-scalingpolicy-autoscalinggroupname">AutoScalingGroupName</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-properties-as-policy.html#cfn-as-scalingpolicy-cooldown">Cooldown</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-properties-as-policy.html#cfn-as-scalingpolicy-estimatedinstancewarmup">EstimatedInstanceWarmup</a>: <em class="replaceable"><code>Integer</code></em>
-  <a href="aws-properties-as-policy.html#cfn-as-scalingpolicy-metricaggregationtype">MetricAggregationType</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-properties-as-policy.html#cfn-as-scalingpolicy-minadjustmentmagnitude">MinAdjustmentMagnitude</a>: <em class="replaceable"><code>Integer</code></em>
-  <a href="aws-properties-as-policy.html#cfn-as-scalingpolicy-policytype">PolicyType</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-properties-as-policy.html#cfn-as-scalingpolicy-scalingadjustment">ScalingAdjustment</a>: <em class="replaceable"><code>Integer</code></em>
-  <a href="aws-properties-as-policy.html#cfn-as-scalingpolicy-stepadjustments">StepAdjustments</a>:
-    - <a href="aws-properties-autoscaling-scalingpolicy-stepadjustments.html">StepAdjustments</a>
-  <a href="aws-properties-as-policy.html#cfn-autoscaling-scalingpolicy-targettrackingconfiguration">TargetTrackingConfiguration</a>:
-    <a href="aws-properties-autoscaling-scalingpolicy-targettrackingconfiguration.html">TargetTrackingConfiguration</a></code></pre>
-                        </div><h2 id="w2ab1c21c10c42c26c13">Properties</h2><div class="variablelist">
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
+    <h1 class="topictitle" id="aws-properties-as-policy">AWS::AutoScaling::ScalingPolicy</h1><p>Specifies a scaling policy for an Amazon EC2 Auto Scaling group. </p><p>To update an existing scaling policy, use the existing policy name and set the property
+                        to
+                        change. If you leave a property unspecified when updating a scaling policy, the corresponding
+                        value remains unchanged.
+                     </p><p>If you create either a step scaling policy or a simple scaling policy, you must also
+                        create a CloudWatch alarm that monitors a CloudWatch metric for your Auto Scaling
+                        group. Note
+                        that you can associate a CloudWatch alarm with only one scaling policy. 
+                     </p><p>For more information about using scaling policies to scale your Auto Scaling group
+                        automatically, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scale-based-on-demand.html">Dynamic Scaling</a> in the
+                        <em>Amazon EC2 Auto Scaling User Guide</em>. 
+                     </p><h2 id="aws-properties-as-policy-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-properties-as-policy-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;Type&quot; : &quot;AWS::AutoScaling::ScalingPolicy&quot;,
+  &quot;Properties&quot; : {
+      &quot;<a href="#cfn-as-scalingpolicy-adjustmenttype">AdjustmentType</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-as-scalingpolicy-autoscalinggroupname">AutoScalingGroupName</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-as-scalingpolicy-cooldown">Cooldown</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-as-scalingpolicy-estimatedinstancewarmup">EstimatedInstanceWarmup</a>&quot; : <em class="replaceable"><code>Integer</code></em>,
+      &quot;<a href="#cfn-as-scalingpolicy-metricaggregationtype">MetricAggregationType</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-as-scalingpolicy-minadjustmentmagnitude">MinAdjustmentMagnitude</a>&quot; : <em class="replaceable"><code>Integer</code></em>,
+      &quot;<a href="#cfn-as-scalingpolicy-policytype">PolicyType</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-as-scalingpolicy-scalingadjustment">ScalingAdjustment</a>&quot; : <em class="replaceable"><code>Integer</code></em>,
+      &quot;<a href="#cfn-as-scalingpolicy-stepadjustments">StepAdjustments</a>&quot; : <em class="replaceable"><code>[ <a href="aws-properties-autoscaling-scalingpolicy-stepadjustments.html">StepAdjustment</a>, ... ]</code></em>,
+      &quot;<a href="#cfn-autoscaling-scalingpolicy-targettrackingconfiguration">TargetTrackingConfiguration</a>&quot; : <em class="replaceable"><code><a href="aws-properties-autoscaling-scalingpolicy-targettrackingconfiguration.html">TargetTrackingConfiguration</a></code></em>
+    }
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-properties-as-policy-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Type: AWS::AutoScaling::ScalingPolicy
+Properties: 
+  <a href="#cfn-as-scalingpolicy-adjustmenttype">AdjustmentType</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-as-scalingpolicy-autoscalinggroupname">AutoScalingGroupName</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-as-scalingpolicy-cooldown">Cooldown</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-as-scalingpolicy-estimatedinstancewarmup">EstimatedInstanceWarmup</a>: <em class="replaceable"><code>Integer</code></em>
+  <a href="#cfn-as-scalingpolicy-metricaggregationtype">MetricAggregationType</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-as-scalingpolicy-minadjustmentmagnitude">MinAdjustmentMagnitude</a>: <em class="replaceable"><code>Integer</code></em>
+  <a href="#cfn-as-scalingpolicy-policytype">PolicyType</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-as-scalingpolicy-scalingadjustment">ScalingAdjustment</a>: <em class="replaceable"><code>Integer</code></em>
+  <a href="#cfn-as-scalingpolicy-stepadjustments">StepAdjustments</a>: <em class="replaceable"><code>
+    - <a href="aws-properties-autoscaling-scalingpolicy-stepadjustments.html">StepAdjustment</a></code></em>
+  <a href="#cfn-autoscaling-scalingpolicy-targettrackingconfiguration">TargetTrackingConfiguration</a>: <em class="replaceable"><code>
+    <a href="aws-properties-autoscaling-scalingpolicy-targettrackingconfiguration.html">TargetTrackingConfiguration</a></code></em>
+</code></pre></div><h2 id="aws-properties-as-policy-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
-                           <dt><a id="cfn-as-scalingpolicy-adjustmenttype"></a><span class="term"><code class="literal">AdjustmentType</code></span></dt>
-                           
+                           <dt><a id="cfn-as-scalingpolicy-adjustmenttype"></a><span class="term"><code class="code">AdjustmentType</code></span></dt>
                            <dd>
                               
-                              <p>Specifies whether the <code class="code">ScalingAdjustment</code> is an
-                                 absolute number or a percentage of the current capacity. Valid values are
-                                 <code class="code">ChangeInCapacity</code>, <code class="code">ExactCapacity</code>,
-                                 and <code class="code">PercentChangeInCapacity</code>.
+                              <p>Specifies whether the <code class="code">ScalingAdjustment</code> property is an absolute number or a
+                                 percentage of the current capacity. The valid values are <code class="code">ChangeInCapacity</code>,
+                                 <code class="code">ExactCapacity</code>, and <code class="code">PercentChangeInCapacity</code>. 
+                              </p>
+                              
+                              <p>Valid only if the policy type is <code class="code">StepScaling</code> or <code class="code">SimpleScaling</code>.
+                                 For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html#as-scaling-adjustment">Scaling
+                                    Adjustment Types</a> in the <em>Amazon EC2 Auto Scaling User
+                                    Guide</em>.
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Minimum</em>: <code class="code">1</code></p>
+                              <p><em>Maximum</em>: <code class="code">255</code></p>
+                              <p><em>Pattern</em>: <code class="code">[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*</code></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-as-scalingpolicy-autoscalinggroupname"></a><span class="term"><code class="literal">AutoScalingGroupName</code></span></dt>
-                           
+                           <dt><a id="cfn-as-scalingpolicy-autoscalinggroupname"></a><span class="term"><code class="code">AutoScalingGroupName</code></span></dt>
                            <dd>
                               
-                              <p>The name or Amazon Resource Name (ARN) of the Auto Scaling group that you
-                                 want to attach the policy to.
+                              <p>The name or Amazon Resource Name (ARN) of the Auto Scaling group that you want to
+                                 attach
+                                 the policy to. 
                               </p>
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Minimum</em>: <code class="code">1</code></p>
+                              <p><em>Maximum</em>: <code class="code">255</code></p>
+                              <p><em>Pattern</em>: <code class="code">[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*</code></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-as-scalingpolicy-cooldown"></a><span class="term"><code class="literal">Cooldown</code></span></dt>
-                           
+                           <dt><a id="cfn-as-scalingpolicy-cooldown"></a><span class="term"><code class="code">Cooldown</code></span></dt>
                            <dd>
                               
-                              <p>The amount of time, in seconds, after a scaling activity completes before
-                                 any further trigger-related scaling activities can start.
+                              <p>The amount of time, in seconds, after a scaling activity completes before any further
+                                 dynamic scaling activities can start. If this property is not specified, the default
+                                 cooldown
+                                 period for the group applies. 
                               </p>
                               
-                              <p>Do not specify this property if you are using the <code class="code">StepScaling</code>
-                                 policy type.
+                              <p>Valid only if the policy type is <code class="code">SimpleScaling</code>. For more information, see
+                                 <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html">Scaling
+                                    Cooldowns</a> in the <em>Amazon EC2 Auto Scaling User Guide</em>.
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-as-scalingpolicy-estimatedinstancewarmup"></a><span class="term"><code class="code">EstimatedInstanceWarmup</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The estimated time, in seconds, until a newly launched instance can send
-                                 metrics to CloudWatch. By default, Amazon EC2 Auto Scaling uses the cooldown period,
-                                 as specified in the
-                                 <code class="code">Cooldown</code> property.
-                              </p>
-                              
-                              <p>Do not specify this property if you are using the <code class="code">SimpleScaling</code>
-                                 policy type.
-                              </p>
-                              
-                              <p><em>Required</em>: No
-                              </p>
-                              
-                              <p><em>Type</em>: Integer
-                              </p>
-                              
-                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
-                           </dd>
-                           
-                           
-                           <dt><a id="cfn-as-scalingpolicy-metricaggregationtype"></a><span class="term"><code class="code">MetricAggregationType</code></span></dt>
-                           
-                           <dd>
-                              
-                              
-                              <p>The aggregation type for the CloudWatch metrics. You can specify
-                                 <code class="code">Minimum</code>, <code class="code">Maximum</code>, or <code class="code">Average</code>. By default,
-                                 AWS CloudFormation specifies <code class="code">Average</code>.
-                              </p>
-                              
-                              
-                              <p>Do not specify this property if you are using the <code class="code">SimpleScaling</code>
-                                 policy type.
-                              </p>
-                              
-                              <p><em>Required</em>: No
-                              </p>
-                              
-                              <p><em>Type</em>: String
-                              </p>
-                              
-                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
-                           </dd>
-                           
-                           
-                           <dt><a id="cfn-as-scalingpolicy-minadjustmentmagnitude"></a><span class="term"><code class="code">MinAdjustmentMagnitude</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>For the <code class="code">PercentChangeInCapacity</code> adjustment type, the minimum
-                                 number of instances to scale. The scaling policy changes the desired capacity of
-                                 the Auto Scaling group by a minimum of this many instances. This property replaces
+                              <p>The estimated time, in seconds, until a newly launched instance can contribute to
                                  the
-                                 <code class="code">MinAdjustmentStep</code> property.
+                                 CloudWatch metrics. The default is to use the value specified for the default cooldown
+                                 period
+                                 for the group. 
+                              </p>
+                              
+                              <p>Valid only if the policy type is <code class="code">StepScaling</code> or
+                                 <code class="code">TargetTrackingScaling</code>. 
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: Integer
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-as-scalingpolicy-policytype"></a><span class="term"><code class="code">PolicyType</code></span></dt>
-                           
+                           <dt><a id="cfn-as-scalingpolicy-metricaggregationtype"></a><span class="term"><code class="code">MetricAggregationType</code></span></dt>
                            <dd>
                               
-                              <p>An Auto Scaling policy type. You can specify <code class="code">SimpleScaling</code>,
-                                 <code class="code">StepScaling</code>, or <code class="code">TargetTrackingScaling</code>. By default, AWS CloudFormation specifies
-                                 <code class="code">SimpleScaling</code>. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scale-based-on-demand.html">Dynamic Scaling</a> 
-                                 in the <em>Amazon EC2 Auto Scaling User Guide</em>.
+                              <p>The aggregation type for the CloudWatch metrics. The valid values are
+                                 <code class="code">Minimum</code>, <code class="code">Maximum</code>, and <code class="code">Average</code>. By default, AWS
+                                 CloudFormation specifies <code class="code">Average</code>. 
+                              </p>
+                              
+                              <p>Valid only if the policy type is <code class="code">StepScaling</code>. 
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Minimum</em>: <code class="code">1</code></p>
+                              <p><em>Maximum</em>: <code class="code">32</code></p>
+                              <p><em>Pattern</em>: <code class="code">[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*</code></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-as-scalingpolicy-scalingadjustment"></a><span class="term"><code class="literal">ScalingAdjustment</code></span></dt>
-                           
+                           <dt><a id="cfn-as-scalingpolicy-minadjustmentmagnitude"></a><span class="term"><code class="code">MinAdjustmentMagnitude</code></span></dt>
                            <dd>
                               
-                              <p>The number of instances by which to scale. The <code class="code">AdjustmentType</code> property determines if AWS CloudFormation interprets this number as an absolute number
-                                 (when the <code class="code">ExactCapacity</code> value is specified), increase or decrease capacity by a specified number (when the
-                                 <code class="code">ChangeInCapacity</code> value is specified), or increase or decrease capacity as a percentage of the existing
-                                 Auto Scaling group size (when the <code class="code">PercentChangeInCapacity</code> value is
-                                 specified). A positive value adds to the current capacity and a negative value subtracts
-                                 from the current capacity. For exact capacity, you must specify a positive value.
+                              <p>The minimum number of instances to scale. If the value of <code class="code">AdjustmentType</code> is
+                                 <code class="code">PercentChangeInCapacity</code>, the scaling policy changes the
+                                 <code class="code">DesiredCapacity</code> of the Auto Scaling group by at least this many instances. This
+                                 property replaces the <code class="code">MinAdjustmentStep</code> property. 
                               </p>
                               
-                              <p><em>Required</em>: Conditional. This property is required if the policy type
-                                 is&#xA0;<code class="code">SimpleScaling</code>. This property is not supported with any other
-                                 policy type. 
+                              <p>For example, suppose that you create a step scaling policy to scale out an Auto Scaling
+                                 group by 25 percent and you specify a <code class="code">MinAdjustmentMagnitude</code> of 2. If the group
+                                 has 4 instances and the scaling policy is performed, 25 percent of 4 is 1. However,
+                                 because
+                                 you specified a <code class="code">MinAdjustmentMagnitude</code> of 2, Amazon EC2 Auto Scaling scales out
+                                 the group by 2 instances. 
                               </p>
                               
+                              <p>Valid only if the policy type is <code class="code">StepScaling</code> or <code class="code">SimpleScaling</code>.
+                                 
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
                               <p><em>Type</em>: Integer
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-as-scalingpolicy-stepadjustments"></a><span class="term"><code class="code">StepAdjustments</code></span></dt>
-                           
+                           <dt><a id="cfn-as-scalingpolicy-policytype"></a><span class="term"><code class="code">PolicyType</code></span></dt>
                            <dd>
                               
-                              <p>A set of adjustments that enable you to scale based on the size of the alarm
-                                 breach.
+                              <p>The policy type. The valid values are <code class="code">SimpleScaling</code>,
+                                 <code class="code">StepScaling</code>, and <code class="code">TargetTrackingScaling</code>. By default, AWS
+                                 CloudFormation specifies <code class="code">SimpleScaling</code>. 
                               </p>
                               
-                              <p><em>Required</em>: Conditional. This property is required if the policy type
-                                 is&#xA0;<code class="code">StepScaling</code>. This property is not supported with any other
-                                 policy type. 
+                              <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: List of <a href="aws-properties-autoscaling-scalingpolicy-stepadjustments.html">Amazon EC2 Auto Scaling ScalingPolicy
-                                    StepAdjustments</a></p>
-                              
+                              <p><em>Type</em>: String
+                              </p>
+                              <p><em>Minimum</em>: <code class="code">1</code></p>
+                              <p><em>Maximum</em>: <code class="code">64</code></p>
+                              <p><em>Pattern</em>: <code class="code">[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*</code></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
+                           <dt><a id="cfn-as-scalingpolicy-scalingadjustment"></a><span class="term"><code class="code">ScalingAdjustment</code></span></dt>
+                           <dd>
+                              
+                              <p>The amount by which a simple scaling policy scales the Auto Scaling group in response
+                                 to
+                                 an alarm breach. The adjustment is based on the value that you specified in the
+                                 <code class="code">AdjustmentType</code> property (either an absolute number or a percentage). A positive
+                                 value adds to the current capacity and a negative value subtracts from the current
+                                 capacity.
+                                 For exact capacity, you must specify a positive value. 
+                              </p>
+                              
+                              <p>If you specify <code class="code">SimpleScaling</code> for the policy type, you must specify this
+                                 property. (Not used with any other policy type.) 
+                              </p>
+                              
+                              <p><em>Required</em>: Conditional
+                              </p>
+                              <p><em>Type</em>: Integer
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                           </dd>
+                           <dt><a id="cfn-as-scalingpolicy-stepadjustments"></a><span class="term"><code class="code">StepAdjustments</code></span></dt>
+                           <dd>
+                              
+                              <p>A set of adjustments that enable you to scale based on the size of the alarm breach.
+                                 
+                              </p>
+                              
+                              <p>If you specify <code class="code">StepScaling</code> for the policy type, you must specify this
+                                 property. (Not used with any other policy type.) 
+                              </p>
+                              
+                              <p><em>Required</em>: Conditional
+                              </p>
+                              <p><em>Type</em>: List of <a href="aws-properties-autoscaling-scalingpolicy-stepadjustments.html">StepAdjustment</a></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                           </dd>
                            <dt><a id="cfn-autoscaling-scalingpolicy-targettrackingconfiguration"></a><span class="term"><code class="code">TargetTrackingConfiguration</code></span></dt>
-                           
                            <dd>
                               
                               <p>Configures a target tracking scaling policy.</p>
                               
-                              <p><em>Required</em>: Conditional. This property is required if the policy type is 
-                                 <code class="code">TargetTrackingScaling</code>. This property is not supported with any other
-                                 policy type.
+                              <p>If you specify <code class="code">TargetTrackingScaling</code> for the policy type, you must specify
+                                 this property. (Not used with any other policy type.) 
                               </p>
                               
-                              <p><em>Type</em>: <a href="aws-properties-autoscaling-scalingpolicy-targettrackingconfiguration.html">Amazon EC2 Auto Scaling ScalingPolicy
-                                    TargetTrackingConfiguration</a></p>
-                              
+                              <p><em>Required</em>: Conditional
+                              </p>
+                              <p><em>Type</em>: <a href="aws-properties-autoscaling-scalingpolicy-targettrackingconfiguration.html">TargetTrackingConfiguration</a></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
                         </dl>
-                     </div><h2 id="w2ab1c21c10c42c26c15">Return Value</h2><p>When you specify an <code class="code">AWS::AutoScaling::ScalingPolicy</code> type as an argument to the <code class="code">Ref</code> function, AWS CloudFormation returns the policy Amazon Resource Name (ARN), 
-                        such as <code class="code">arn:aws:autoscaling:</code><span><code class="code">us-east-2</code></span><code class="code">:123456789012:scalingPolicy:ab12c4d5-a1b2-a1b2-a1b2-ab12c4d56789:autoScalingGroupName/myStack-AutoScalingGroup-AB12C4D5E6:policyName/myStack-myScalingPolicy-AB12C4D5E6</code>.
+                     </div><h2 id="aws-properties-as-policy-return-values">Return Values</h2><h3 id="aws-properties-as-policy-return-values-ref">Ref</h3><p>When you specify an <code class="code">AWS::AutoScaling::ScalingPolicy</code> type as an argument to
+                        the <code class="code">Ref</code> function, AWS CloudFormation returns the policy Amazon Resource Name
+                        (ARN). For example:
+                        <code class="code">arn:aws:autoscaling:us-east-2:123456789012:scalingPolicy:ab12c4d5-a1b2-a1b2-a1b2-ab12c4d56789:autoScalingGroupName/myStack-AutoScalingGroup-AB12C4D5E6:policyName/myStack-myScalingPolicy-AB12C4D5E6</code>.
                      </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                     </p><h2 id="w2ab1c21c10c42c26c17">Examples</h2><h3 id="w2ab1c21c10c42c26c17b3">Simple policy type</h3><p>The following example is a simple scaling policy that increases the number instances
-                        by one when it is triggered.
-                     </p><div id="JSON" name="JSON" class="section langfilter">
-                        <h4 id="aws-resource-autoscaling-scalingpolicy-example1.json">JSON</h4>
                         
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">&quot;SimpleScaling&quot; : {
-  &quot;Type&quot; : &quot;AWS::AutoScaling::ScalingPolicy&quot;,
-  &quot;Properties&quot; : {
-    &quot;AdjustmentType&quot; : &quot;ChangeInCapacity&quot;,
-    &quot;PolicyType&quot; : &quot;SimpleScaling&quot;,	
-    &quot;Cooldown&quot; : &quot;60&quot;,
-    &quot;AutoScalingGroupName&quot; : { &quot;Ref&quot; : &quot;ASG&quot; },
-    &quot;ScalingAdjustment&quot; : 1
-  }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h4 id="aws-resource-autoscaling-scalingpolicy-example1.yaml">YAML</h4>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">SimpleScaling: 
-  Type: AWS::AutoScaling::ScalingPolicy
-  Properties: 
-    AdjustmentType: &quot;ChangeInCapacity&quot;
-    PolicyType: &quot;SimpleScaling&quot;
-    Cooldown: &quot;60&quot;
-    AutoScalingGroupName: 
-      Ref: &quot;ASG&quot;
-    ScalingAdjustment: 1</code></pre>
-                        </div><h3 id="w2ab1c21c10c42c26c17b5">Step policy type</h3><p>The following example is a step scaling policy that increases the number instances
-                        by
-                        one or two, depending on the size of the alarm breach. For a breach that is less than
-                        50
-                        units than the threshold value, the policy increases the number of instances by one.
-                        For
-                        a breach that is 50 units or more higher than the threshold, the policy increases
-                        the
-                        number of instances by two.
-                     </p><div id="JSON" name="JSON" class="section langfilter">
-                        <h4 id="aws-resource-autoscaling-scalingpolicy-example2.json">JSON</h4>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">&quot;StepScaling&quot; : {
-  &quot;Type&quot; : &quot;AWS::AutoScaling::ScalingPolicy&quot;,
-  &quot;Properties&quot; : {
-    &quot;AdjustmentType&quot; : &quot;ChangeInCapacity&quot;,
-    &quot;AutoScalingGroupName&quot; : { &quot;Ref&quot; : &quot;ASG&quot; },
-    &quot;PolicyType&quot; : &quot;StepScaling&quot;,
-    &quot;MetricAggregationType&quot; : &quot;Average&quot;,
-    &quot;EstimatedInstanceWarmup&quot; : &quot;60&quot;,
-    &quot;StepAdjustments&quot;: [
-      {
-        &quot;MetricIntervalLowerBound&quot;: &quot;0&quot;,
-        &quot;MetricIntervalUpperBound&quot; : &quot;50&quot;,
-        &quot;ScalingAdjustment&quot;: &quot;1&quot;
-      },
-      {
-        &quot;MetricIntervalLowerBound&quot;: &quot;50&quot;,
-        &quot;ScalingAdjustment&quot;: &quot;2&quot;
-      }
-    ]
-  }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h4 id="aws-resource-autoscaling-scalingpolicy-example2.yaml">YAML</h4>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">StepScaling: 
-  Type: AWS::AutoScaling::ScalingPolicy
-  Properties: 
-    AdjustmentType: &quot;ChangeInCapacity&quot;
-    AutoScalingGroupName: 
-      Ref: &quot;ASG&quot;
-    PolicyType: &quot;StepScaling&quot;
-    MetricAggregationType: &quot;Average&quot;
-    EstimatedInstanceWarmup: &quot;60&quot;
-    StepAdjustments: 
-      - 
-        MetricIntervalLowerBound: &quot;0&quot;
-        MetricIntervalUpperBound: &quot;50&quot;
-        ScalingAdjustment: &quot;1&quot;
-      - 
-        MetricIntervalLowerBound: &quot;50&quot;
-        ScalingAdjustment: &quot;2&quot;</code></pre>
-                        </div><h3 id="aws-resource-autoscaling-scalingpolicy-example3">Target tracking scaling policy type</h3><p>The following example is a target tracking scaling policy based on the <code class="code">ASGAverageCPUUtilization</code> metric.
-                     </p><div id="JSON" name="JSON" class="section langfilter">
-                        <h4 id="aws-resource-autoscaling-scalingpolicy-example3.json">JSON</h4>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">{
-  &quot;AWSTemplateFormatVersion&quot; : &quot;2010-09-09&quot;,
-  &quot;Parameters&quot; : {
-    &quot;AMI&quot; : {
-      &quot;Type&quot; : &quot;String&quot;
+                     </p><h2 id="aws-properties-as-policy--examples">Examples</h2><p>The following examples specify scaling policies for an Auto Scaling group.</p><h3 id="aws-properties-as-policy--examples--Target_Tracking_Scaling_Policy">Target Tracking Scaling Policy</h3><p>The following example is a target tracking scaling policy based on the
+                        <code class="code">ASGAverageCPUUtilization</code> metric. The <code class="code">TargetValue</code> property of
+                        the scaling policy references a <code class="code">PolicyTargetValue</code>
+                        <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html">parameter</a> value from the same template.
+                     </p><h4 id="aws-properties-as-policy--examples--Target_Tracking_Scaling_Policy--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;AWSTemplateFormatVersion&quot;:&quot;2010-09-09&quot;,
+  &quot;Parameters&quot;:{
+    &quot;AMI&quot;:{
+      &quot;Type&quot;:&quot;String&quot;
     },
-    &quot;Subnets&quot;: {
-      &quot;Type&quot; : &quot;CommaDelimitedList&quot;
+    &quot;Subnets&quot;:{
+      &quot;Type&quot;:&quot;CommaDelimitedList&quot;
     },
-    &quot;AZs&quot;: {
-      &quot;Type&quot; : &quot;CommaDelimitedList&quot;
+    &quot;AZs&quot;:{
+      &quot;Type&quot;:&quot;CommaDelimitedList&quot;
     },
-    &quot;PolicyTargetValue&quot;: {
-      &quot;Type&quot; : &quot;String&quot;
+    &quot;PolicyTargetValue&quot;:{
+      &quot;Type&quot;:&quot;String&quot;
     }
   },
-  &quot;Resources&quot; : {
-    &quot;LC&quot; : {
-      &quot;Type&quot; : &quot;AWS::AutoScaling::LaunchConfiguration&quot;,
-      &quot;Properties&quot; : {
-        &quot;ImageId&quot; : { &quot;Ref&quot; : &quot;AMI&quot; },
-        &quot;InstanceType&quot; : &quot;t2.large&quot;
+  &quot;Resources&quot;:{
+    &quot;myLaunchConfig&quot;:{
+      &quot;Type&quot;:&quot;AWS::AutoScaling::LaunchConfiguration&quot;,
+      &quot;Properties&quot;:{
+        &quot;ImageId&quot;:{
+          &quot;Ref&quot;:&quot;AMI&quot;
+        },
+        &quot;InstanceType&quot;:&quot;t2.large&quot;
       }
     },
-    &quot;POL&quot; : {
-      &quot;Type&quot; : &quot;AWS::AutoScaling::ScalingPolicy&quot;,
-      &quot;Properties&quot; : {
-        &quot;AutoScalingGroupName&quot; : {
-          &quot;Ref&quot; : &quot;ASG&quot;
+    &quot;myCPUPolicy&quot;:{
+      &quot;Type&quot;:&quot;AWS::AutoScaling::ScalingPolicy&quot;,
+      &quot;Properties&quot;:{
+        &quot;AutoScalingGroupName&quot;:{
+          &quot;Ref&quot;:&quot;myASGroup&quot;
         },
-        &quot;PolicyType&quot; : &quot;TargetTrackingScaling&quot;,
-        &quot;TargetTrackingConfiguration&quot;: {
-          &quot;PredefinedMetricSpecification&quot;: {
-            &quot;PredefinedMetricType&quot;: &quot;ASGAverageCPUUtilization&quot;
+        &quot;PolicyType&quot;:&quot;TargetTrackingScaling&quot;,
+        &quot;TargetTrackingConfiguration&quot;:{
+          &quot;PredefinedMetricSpecification&quot;:{
+            &quot;PredefinedMetricType&quot;:&quot;ASGAverageCPUUtilization&quot;
           },
-          &quot;TargetValue&quot;: {&quot;Ref&quot;: &quot;PolicyTargetValue&quot;}
+          &quot;TargetValue&quot;:{
+            &quot;Ref&quot;:&quot;PolicyTargetValue&quot;
+          }
         }
       }
     },
-    &quot;ASG&quot; : {
-      &quot;Type&quot; : &quot;AWS::AutoScaling::AutoScalingGroup&quot;,
-      &quot;Properties&quot; : {
-        &quot;MaxSize&quot; : &quot;1&quot;,
-        &quot;AvailabilityZones&quot;: {
-          &quot;Ref&quot;: &quot;AZs&quot;
+    &quot;myASGroup&quot;:{
+      &quot;Type&quot;:&quot;AWS::AutoScaling::AutoScalingGroup&quot;,
+      &quot;Properties&quot;:{
+        &quot;MaxSize&quot;:&quot;2&quot;,
+        &quot;AvailabilityZones&quot;:{
+          &quot;Ref&quot;:&quot;AZs&quot;
         },
-        &quot;VPCZoneIdentifier&quot;: {
-          &quot;Ref&quot; : &quot;Subnets&quot;
+        &quot;VPCZoneIdentifier&quot;:{
+          &quot;Ref&quot;:&quot;Subnets&quot;
         },
-        &quot;MinSize&quot; : &quot;0&quot;,
-        &quot;DesiredCapacity&quot; : &quot;0&quot;,
-        &quot;LaunchConfigurationName&quot; : {
-          &quot;Ref&quot; : &quot;LC&quot;
+        &quot;MinSize&quot;:&quot;1&quot;,
+        &quot;LaunchConfigurationName&quot;:{
+          &quot;Ref&quot;:&quot;myLaunchConfig&quot;
         }
       }
     }
   }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h4 id="aws-resource-autoscaling-scalingpolicy-example3.yaml">YAML</h4>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">AWSTemplateFormatVersion: 2010-09-09
+}</code></pre><h4 id="aws-properties-as-policy--examples--Target_Tracking_Scaling_Policy--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">AWSTemplateFormatVersion: 2010-09-09
 Parameters:
   AMI:
     Type: String
@@ -453,29 +330,101 @@ Parameters:
   PolicyTargetValue:
     Type: String
 Resources:
-  LC:
+  myLaunchConfig:
     Type: AWS::AutoScaling::LaunchConfiguration
     Properties:
       ImageId: !Ref AMI
       InstanceType: t2.large
-  POL:
+  myCPUPolicy:
     Type: AWS::AutoScaling::ScalingPolicy
     Properties:
-      AutoScalingGroupName: !Ref ASG
+      AutoScalingGroupName: !Ref myASGroup
       PolicyType: TargetTrackingScaling
       TargetTrackingConfiguration:
         PredefinedMetricSpecification:
           PredefinedMetricType: ASGAverageCPUUtilization
         TargetValue: !Ref PolicyTargetValue
-  ASG:
+  myASGroup:
     Type: AWS::AutoScaling::AutoScalingGroup
     Properties:
-      MaxSize: &apos;1&apos;
+      MaxSize: &apos;2&apos;
       AvailabilityZones: !Ref AZs
       VPCZoneIdentifier: !Ref Subnets
-      MinSize: &apos;0&apos;
-      DesiredCapacity: &apos;0&apos;
-      LaunchConfigurationName: !Ref LC</code></pre>
-                        </div></div>
+      MinSize: &apos;1&apos;
+      LaunchConfigurationName: !Ref myLaunchConfig</code></pre><h3 id="aws-properties-as-policy--examples--Step_Scaling_Policy">Step Scaling Policy</h3><p>The following example is a step scaling policy that increases the number instances
+                        by
+                        one or two, depending on the size of the alarm breach. For a breach that is less than
+                        50
+                        units than the threshold value, the policy increases the number of instances by one.
+                        For a
+                        breach that is 50 units or more higher than the threshold, the policy increases the
+                        number
+                        of instances by two.
+                     </p><h4 id="aws-properties-as-policy--examples--Step_Scaling_Policy--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;ASGScaleOutPolicy&quot;:{
+    &quot;Type&quot;:&quot;AWS::AutoScaling::ScalingPolicy&quot;,
+    &quot;Properties&quot;:{
+      &quot;AdjustmentType&quot;:&quot;ChangeInCapacity&quot;,
+      &quot;AutoScalingGroupName&quot;:{
+        &quot;Ref&quot;:&quot;myASGroup&quot;
+      },
+      &quot;PolicyType&quot;:&quot;StepScaling&quot;,
+      &quot;MetricAggregationType&quot;:&quot;Average&quot;,
+      &quot;EstimatedInstanceWarmup&quot;:&quot;60&quot;,
+      &quot;StepAdjustments&quot;:[
+        {
+          &quot;MetricIntervalLowerBound&quot;:&quot;0&quot;,
+          &quot;MetricIntervalUpperBound&quot;:&quot;50&quot;,
+          &quot;ScalingAdjustment&quot;:&quot;1&quot;
+        },
+        {
+          &quot;MetricIntervalLowerBound&quot;:&quot;50&quot;,
+          &quot;ScalingAdjustment&quot;:&quot;2&quot;
+        }
+      ]
+    }
+  }
+}</code></pre><h4 id="aws-properties-as-policy--examples--Step_Scaling_Policy--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">ASGScaleOutPolicy: 
+  Type: AWS::AutoScaling::ScalingPolicy
+  Properties: 
+    AdjustmentType: &quot;ChangeInCapacity&quot;
+    AutoScalingGroupName: 
+      Ref: &quot;myASGroup&quot;
+    PolicyType: &quot;StepScaling&quot;
+    MetricAggregationType: &quot;Average&quot;
+    EstimatedInstanceWarmup: &quot;60&quot;
+    StepAdjustments: 
+      - 
+        MetricIntervalLowerBound: &quot;0&quot;
+        MetricIntervalUpperBound: &quot;50&quot;
+        ScalingAdjustment: &quot;1&quot;
+      - 
+        MetricIntervalLowerBound: &quot;50&quot;
+        ScalingAdjustment: &quot;2&quot;</code></pre><h3 id="aws-properties-as-policy--examples--Simple_Scaling_Policy">Simple Scaling Policy</h3><p>The following example is a simple scaling policy that increases the number instances
+                        by one when it is triggered.
+                     </p><h4 id="aws-properties-as-policy--examples--Simple_Scaling_Policy--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;ASGScaleOutPolicy&quot;:{
+    &quot;Type&quot;:&quot;AWS::AutoScaling::ScalingPolicy&quot;,
+    &quot;Properties&quot;:{
+      &quot;AdjustmentType&quot;:&quot;ChangeInCapacity&quot;,
+      &quot;PolicyType&quot;:&quot;SimpleScaling&quot;,
+      &quot;Cooldown&quot;:&quot;60&quot;,
+      &quot;AutoScalingGroupName&quot;:{
+        &quot;Ref&quot;:&quot;myASGroup&quot;
+      },
+      &quot;ScalingAdjustment&quot;:1
+    }
+  }
+}</code></pre><h4 id="aws-properties-as-policy--examples--Simple_Scaling_Policy--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">ASGScaleOutPolicy: 
+  Type: AWS::AutoScaling::ScalingPolicy
+  Properties: 
+    AdjustmentType: &quot;ChangeInCapacity&quot;
+    PolicyType: &quot;SimpleScaling&quot;
+    Cooldown: &quot;60&quot;
+    AutoScalingGroupName: 
+      Ref: &quot;myASGroup&quot;
+    ScalingAdjustment: 1</code></pre><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
+                     </div></div>
 </body>
 </html>

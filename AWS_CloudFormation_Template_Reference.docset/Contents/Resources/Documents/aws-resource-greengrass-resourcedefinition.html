@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="css/awsdocs.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/awsdocs.min.js"></script>
+    <meta charset="utf-8">
+</head>
+<body>
+    <div id="content" style="padding: 10px 30px;">
+    <h1 class="topictitle" id="aws-resource-greengrass-resourcedefinition">AWS::Greengrass::ResourceDefinition</h1><p>The 
+                        <code class="code">AWS::Greengrass::ResourceDefinition</code> resource represents a resource definition for AWS IoT Greengrass. 
+                        Resource definitions are used to organize your resource definition versions.
+                     </p><p>Resource definitions can reference multiple resource definition versions. All resource
+                        definition versions  
+                        must be associated with a resource definition. Each resource definition version can
+                        contain one or more resources. 
+                        		(In AWS CloudFormation, resources are named <em>resource instances</em>.)
+                     </p><div class="aws-note">
+                        <p class="aws-note">Note</p>
+                        <p>When you create a resource definition, you can optionally include an initial resource
+                           definition version. 
+                           To associate a resource definition version later, create an <a href="aws-resource-greengrass-resourcedefinitionversion.html"><code class="code">AWS::Greengrass::ResourceDefinitionVersion</code></a>  
+                           resource and specify the ID of this resource definition.
+                        </p>
+                        <p>After you create the resource definition version that contains the resources you want
+                           to deploy, 
+                           	    you must add it to your group version.
+                           	    For more information, see <a href="aws-resource-greengrass-group.html"><code class="code">AWS::Greengrass::Group</code></a>.
+                        </p>
+                     </div><h2 id="aws-resource-greengrass-resourcedefinition-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-resource-greengrass-resourcedefinition-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;Type&quot; : &quot;AWS::Greengrass::ResourceDefinition&quot;,
+  &quot;Properties&quot; : {
+      &quot;<a href="#cfn-greengrass-resourcedefinition-initialversion">InitialVersion</a>&quot; : <em class="replaceable"><code><a href="aws-properties-greengrass-resourcedefinition-resourcedefinitionversion.html">ResourceDefinitionVersion</a></code></em>,
+      &quot;<a href="#cfn-greengrass-resourcedefinition-name">Name</a>&quot; : <em class="replaceable"><code>String</code></em>
+    }
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-greengrass-resourcedefinition-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Type: AWS::Greengrass::ResourceDefinition
+Properties: 
+  <a href="#cfn-greengrass-resourcedefinition-initialversion">InitialVersion</a>: <em class="replaceable"><code>
+    <a href="aws-properties-greengrass-resourcedefinition-resourcedefinitionversion.html">ResourceDefinitionVersion</a></code></em>
+  <a href="#cfn-greengrass-resourcedefinition-name">Name</a>: <em class="replaceable"><code>String</code></em>
+</code></pre></div><h2 id="aws-resource-greengrass-resourcedefinition-properties">Properties</h2><div class="variablelist">
+                        <dl>
+                           <dt><a id="cfn-greengrass-resourcedefinition-initialversion"></a><span class="term"><code class="code">InitialVersion</code></span></dt>
+                           <dd>
+                              
+                              <p>The resource definition version to include when the resource definition is created.
+                                 
+                                 A resource definition version contains a list of 
+                                 <a href="aws-properties-greengrass-resourcedefinition-resourceinstance.html"><code class="code">resource instance</code></a> property types.
+                              </p>
+                              				  
+                              <div class="aws-note">
+                                 <p class="aws-note">Note</p>
+                                 <p>To associate a resource definition version after the resource definition is created,
+                                    
+                                    				      create an <a href="aws-resource-greengrass-resourcedefinitionversion.html"><code class="code">AWS::Greengrass::ResourceDefinitionVersion</code></a> 
+                                    				      resource and specify the ID of this resource definition.
+                                 </p>
+                              </div>
+                              <p><em>Required</em>: No
+                              </p>
+                              <p><em>Type</em>: <a href="aws-properties-greengrass-resourcedefinition-resourcedefinitionversion.html">ResourceDefinitionVersion</a></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                           </dd>
+                           <dt><a id="cfn-greengrass-resourcedefinition-name"></a><span class="term"><code class="code">Name</code></span></dt>
+                           <dd>
+                              
+                              <p>The name of the resource definition.</p>
+                              <p><em>Required</em>: Yes
+                              </p>
+                              <p><em>Type</em>: String
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                           </dd>
+                        </dl>
+                     </div><h2 id="aws-resource-greengrass-resourcedefinition-return-values">Return Values</h2><h3 id="aws-resource-greengrass-resourcedefinition-return-values-ref">Ref</h3><p>
+                        When you pass the logical ID of this resource to the intrinsic <code class="code">Ref</code> function, <code class="code">Ref</code> returns the 
+                        ID of the resource definition, such as 
+                        <code class="code">1234a5b6-78cd-901e-2fgh-3i45j6k178l9</code>.
+                     </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
+                     </p><h3 id="aws-resource-greengrass-resourcedefinition-return-values-fn--getatt">Fn::GetAtt</h3><p>The <code class="code">Fn::GetAtt</code> intrinsic function returns a value for a specified attribute of this type. The following
+                        are the available attributes and sample return values.
+                     </p><p>For more information about using the <code class="code">Fn::GetAtt</code> intrinsic function, see <a href="intrinsic-function-reference-getatt.html">Fn::GetAtt</a>.
+                     </p><h4 id="aws-resource-greengrass-resourcedefinition-return-values-fn--getatt-fn--getatt"></h4><div class="variablelist">
+                        <dl>
+                           <dt><a id="Arn-fn::getatt"></a><span class="term"><code class="code">Arn</code></span></dt>
+                           <dd>
+                              
+                              <p>The Amazon Resource Name (ARN) of the <code class="code">ResourceDefinition</code>, such as                                 
+                                 <code class="code">arn:aws:greengrass:us-east-1:123456789012:/greengrass/definition/resources/1234a5b6-78cd-901e-2fgh-3i45j6k178l9</code>.
+                              </p>
+                           </dd>
+                           <dt><a id="Id-fn::getatt"></a><span class="term"><code class="code">Id</code></span></dt>
+                           <dd>
+                              
+                              <p>The ID of the <code class="code">ResourceDefinition</code>, such as <code class="code">1234a5b6-78cd-901e-2fgh-3i45j6k178l9</code>.
+                              </p>
+                           </dd>
+                           <dt><a id="LatestVersionArn-fn::getatt"></a><span class="term"><code class="code">LatestVersionArn</code></span></dt>
+                           <dd>
+                              
+                              <p>The ARN of the last <code class="code">ResourceDefinitionVersion</code> that was added to the 
+                                 <code class="code">ResourceDefinition</code>, such as 
+                                 <code class="code">arn:aws:greengrass:us-east-1:123456789012:/greengrass/definition/resources/1234a5b6-78cd-901e-2fgh-3i45j6k178l9/versions/9876ac30-4bdb-4f9d-95af-b5fdb66be1a2</code>.
+                                 
+                              </p>
+                           </dd>
+                           <dt><a id="Name-fn::getatt"></a><span class="term"><code class="code">Name</code></span></dt>
+                           <dd>
+                              
+                              <p>The name of the <code class="code">ResourceDefinition</code>, such as <code class="code">MyResourceDefinition</code>.
+                              </p>
+                           </dd>
+                        </dl>
+                     </div><h2 id="aws-resource-greengrass-resourcedefinition--examples">Examples</h2><h3 id="aws-resource-greengrass-resourcedefinition--examples--Resource_Definition_Snippet">Resource Definition Snippet</h3><p>The following snippet defines a resource definition resource with an initial version
+                        that contains each  
+                        		  type of resource.
+                     </p><p>For an example of a complete template, see the <a href="aws-resource-greengrass-group.html"><code class="code">AWS::Greengrass::Group</code></a> resource.
+                     </p><h4 id="aws-resource-greengrass-resourcedefinition--examples--Resource_Definition_Snippet--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">&quot;TestResourceDefinition&quot;: {
+    &quot;Type&quot;: &quot;AWS::Greengrass::ResourceDefinition&quot;,
+    &quot;Properties&quot;: {
+        &quot;Name&quot;: &quot;DemoTestResourceDefinition&quot;,
+        &quot;InitialVersion&quot;: {
+            &quot;Resources&quot;: [
+                {
+                    &quot;Id&quot;: &quot;ResourceId1&quot;,
+                    &quot;Name&quot;: &quot;LocalDeviceResource&quot;,
+                    &quot;ResourceDataContainer&quot;: {
+                        &quot;LocalDeviceResourceData&quot;: {
+                            &quot;SourcePath&quot;: &quot;/dev/TestSourcePath1&quot;,
+                            &quot;GroupOwnerSetting&quot;: {
+                                &quot;AutoAddGroupOwner&quot;: &quot;false&quot;,
+                                &quot;GroupOwner&quot;: &quot;TestOwner&quot;
+                            }
+                        }
+                    }
+                },
+                {
+                    &quot;Id&quot;: &quot;ResourceId2&quot;,
+                    &quot;Name&quot;: &quot;LocalVolumeResourceData&quot;,
+                    &quot;ResourceDataContainer&quot;: {
+                        &quot;LocalVolumeResourceData&quot;: {
+                            &quot;SourcePath&quot;: &quot;/dev/TestSourcePath2&quot;,
+                            &quot;DestinationPath&quot;: &quot;/volumes/TestDestinationPath2&quot;,
+                            &quot;GroupOwnerSetting&quot;: {
+                                &quot;AutoAddGroupOwner&quot;: &quot;false&quot;,
+                                &quot;GroupOwner&quot;: &quot;TestOwner&quot;
+                            }
+                        }
+                    }
+                },
+                {
+                    &quot;Id&quot;: &quot;ResourceId3&quot;,
+                    &quot;Name&quot;: &quot;SageMakerMachineLearningModelResourceData&quot;,
+                    &quot;ResourceDataContainer&quot;: {
+                        &quot;SageMakerMachineLearningModelResourceData&quot;: {
+                            &quot;SageMakerJobArn&quot;: {
+                                &quot;Fn::Join&quot;: [
+                                    &quot;:&quot;,
+                                    [
+                                        &quot;arn:aws:sagemaker&quot;,
+                                        {
+                                            &quot;Ref&quot;: &quot;AWS::Region&quot;
+                                        },
+                                        {
+                                            &quot;Ref&quot;: &quot;AWS::AccountId&quot;
+                                        },
+                                        &quot;training-job/testJob&quot;
+                                    ]
+                                ]
+                            },
+                            &quot;DestinationPath&quot;: &quot;/sagemakermodels/TestDestinationPath3&quot;
+                        }
+                    }
+                },
+                {
+                    &quot;Id&quot;: &quot;ResourceId4&quot;,
+                    &quot;Name&quot;: &quot;S3MachineLearningModelResourceData&quot;,
+                    &quot;ResourceDataContainer&quot;: {
+                        &quot;S3MachineLearningModelResourceData&quot;: {
+                            &quot;S3Uri&quot;: &quot;http://testBucket.s3.amazonaws.com/testUri.zip&quot;,
+                            &quot;DestinationPath&quot;: &quot;/mlModels/TestDestinationPath4&quot;
+                        }
+                    }
+                },
+                {
+                    &quot;Id&quot;: &quot;ResourceId5&quot;,
+                    &quot;Name&quot;: &quot;SecretsManagerSecretResourceData&quot;,
+                    &quot;ResourceDataContainer&quot;: {
+                        &quot;SecretsManagerSecretResourceData&quot;: {
+                            &quot;ARN&quot;: {
+                                &quot;Fn::Join&quot;: [
+                                    &quot;:&quot;,
+                                    [
+                                        &quot;arn:aws:secretsmanager&quot;,
+                                        {
+                                            &quot;Ref&quot;: &quot;AWS::Region&quot;
+                                        },
+                                        {
+                                            &quot;Ref&quot;: &quot;AWS::AccountId&quot;
+                                        },
+                                        &quot;secret:testARN&quot;
+                                    ]
+                                ]
+                            },
+                            &quot;AdditionalStagingLabelsToDownload&quot;: [
+                                &quot;label1&quot;,
+                                &quot;label2&quot;
+                            ]
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}</code></pre><h4 id="aws-resource-greengrass-resourcedefinition--examples--Resource_Definition_Snippet--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">TestResourceDefinition:
+  Type: &apos;AWS::Greengrass::ResourceDefinition&apos;
+  Properties:
+    Name: DemoTestResourceDefinition
+TestResourceDefinitionVersion:
+  Type: &apos;AWS::Greengrass::ResourceDefinitionVersion&apos;
+  Properties:
+    ResourceDefinitionId: !Ref TestResourceDefinition
+    Resources:
+      - Id: ResourceId1
+        Name: LocalDeviceResource
+        ResourceDataContainer:
+          LocalDeviceResourceData:
+            SourcePath: /dev/TestSourcePath1
+            GroupOwnerSetting:
+              AutoAddGroupOwner: &apos;false&apos;
+              GroupOwner: TestOwner
+      - Id: ResourceId2
+        Name: LocalVolumeResourceData
+        ResourceDataContainer:
+          LocalVolumeResourceData:
+            SourcePath: /dev/TestSourcePath2
+            DestinationPath: /volumes/TestDestinationPath2
+            GroupOwnerSetting:
+              AutoAddGroupOwner: &apos;false&apos;
+              GroupOwner: TestOwner
+      - Id: ResourceId3
+        Name: SageMakerMachineLearningModelResourceData
+        ResourceDataContainer:
+          SageMakerMachineLearningModelResourceData:
+            SageMakerJobArn: !Join 
+              - &apos;:&apos;
+              - - &apos;arn:aws:sagemaker&apos;
+                - !Ref &apos;AWS::Region&apos;
+                - !Ref &apos;AWS::AccountId&apos;
+                - training-job/testJob
+            DestinationPath: /sagemakermodels/TestDestinationPath3
+      - Id: ResourceId4
+        Name: S3MachineLearningModelResourceData
+        ResourceDataContainer:
+          S3MachineLearningModelResourceData:
+            S3Uri: &apos;http://testBucket.s3.amazonaws.com/testUri.zip&apos;
+            DestinationPath: /mlModels/TestDestinationPath4
+      - Id: ResourceId5
+        Name: SecretsManagerSecretResourceData
+        ResourceDataContainer:
+          SecretsManagerSecretResourceData:
+            ARN: !Join 
+              - &apos;:&apos;
+              - - &apos;arn:aws:secretsmanager&apos;
+                - !Ref &apos;AWS::Region&apos;
+                - !Ref &apos;AWS::AccountId&apos;
+                - &apos;secret:testARN&apos;
+            AdditionalStagingLabelsToDownload:
+              - label1
+              - label2</code></pre><h2 id="aws-resource-greengrass-resourcedefinition--seealso">See Also</h2><div class="itemizedlist">          
+                                  
+                        
+                        
+                        <ul class="itemizedlist" type="disc">
+                           <li class="listitem">
+                              
+                              <p>
+                                 <a href="https://docs.aws.amazon.com/greengrass/latest/apireference/createresourcedefinition-post.html">CreateResourceDefinition</a> in the <em>
+                                    AWS IoT Greengrass API Reference
+                                    </em>
+                                 
+                              </p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p>
+                                 <a href="https://docs.aws.amazon.com/greengrass/latest/developerguide/">AWS IoT Greengrass Developer Guide</a>
+                                 
+                              </p>
+                              
+                           </li>
+                        </ul>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
+                     </div></div>
+</body>
+</html>

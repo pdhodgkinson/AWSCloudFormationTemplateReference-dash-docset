@@ -8,82 +8,61 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-properties-events-rule-runcommandtarget">Amazon CloudWatch Events Rule RunCommandTarget</h1><p>The
-                        <code class="code">RunCommandTarget</code> property type specifies information about the Amazon EC2 instances
-                        that the Run Command is sent to. A <code class="code">RunCommandTarget</code> block can include only one key,
-                        but the key can specify multiple values.
+    <h1 class="topictitle" id="aws-properties-events-rule-runcommandtarget">AWS::Events::Rule RunCommandTarget</h1><p>The <code class="code">RunCommandTarget</code> property type specifies information about the 
+                        Amazon EC2 instances that the Run Command is sent to. A <code class="code">RunCommandTarget</code> block can include 
+                        only one key, but the key can specify multiple values. 
                      </p><p>
-                        The <code class="code">RunCommandTargets</code> property of the <a href="aws-properties-events-rule-runcommandparameters.html">RunCommandParameters</a> property type contains a list of <code class="code">RunCommandTarget</code> property types.
-                        
+                        <code class="code">RunCommandTarget</code> is a property of the <a href="aws-properties-events-rule-runcommandparameters.html">RunCommandParameters</a> property type.
+                     </p><p>Information about the EC2 instances that are to be sent the command, specified as
+                        key-value pairs. Each <code class="code">RunCommandTarget</code> block can 
+                        include only one key, but this key may specify multiple values.
                      </p><h2 id="aws-properties-events-rule-runcommandtarget-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
-                        
-                        <h3 id="aws-properties-events-rule-runcommandtarget-syntax.json">JSON</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
-  &quot;<a href="aws-properties-events-rule-runcommandtarget.html#cfn-events-rule-runcommandtarget-key">Key</a>&quot; : <em class="replaceable"><code>String</code></em>,
-  &quot;<a href="aws-properties-events-rule-runcommandtarget.html#cfn-events-rule-runcommandtarget-values">Values</a>&quot; : [ <em class="replaceable"><code>String</code></em>, ... ]
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        
-                        <h3 id="aws-properties-events-rule-runcommandtarget-syntax.yaml">YAML</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight"><a href="aws-properties-events-rule-runcommandtarget.html#cfn-events-rule-runcommandtarget-key">Key</a>: <em class="replaceable"><code>String</code></em>
-<a href="aws-properties-events-rule-runcommandtarget.html#cfn-events-rule-runcommandtarget-values">Values</a>: 
-  - <em class="replaceable"><code>String</code></em></code></pre>
-                        </div><h2 id="aws-properties-events-rule-runcommandtarget-properties">Properties</h2><p>For more information, including constraints, see 
-                        <a href="https://docs.aws.amazon.com/AmazonCloudWatchEvents/latest/APIReference/API_RunCommandTarget.html">RunCommandTarget</a> 
-                        in the <em>Amazon CloudWatch Events API Reference</em>.
-                     </p><div class="variablelist">
-                        
-                        
-                        
+                        <h3 id="aws-properties-events-rule-runcommandtarget-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;<a href="#cfn-events-rule-runcommandtarget-key">Key</a>&quot; : <em class="replaceable"><code>String</code></em>,
+  &quot;<a href="#cfn-events-rule-runcommandtarget-values">Values</a>&quot; : <em class="replaceable"><code>[ String, ... ]</code></em>
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-properties-events-rule-runcommandtarget-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">  <a href="#cfn-events-rule-runcommandtarget-key">Key</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-events-rule-runcommandtarget-values">Values</a>: <em class="replaceable"><code>
+    - String</code></em>
+</code></pre></div><h2 id="aws-properties-events-rule-runcommandtarget-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
                            <dt><a id="cfn-events-rule-runcommandtarget-key"></a><span class="term"><code class="code">Key</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The key, either <code class="code">tag: <em class="replaceable"><code>tag-key</code></em></code> or <code class="code">InstanceIds</code>.
+                              
+                              <p>Can be either <code class="code">tag:</code>
+                                 <em>tag-key</em> or <code class="code">InstanceIds</code>.
                               </p>
                               
-                              <p>
-                                 <em>Required</em>: Yes
+                              <p><em>Required</em>: Yes
                               </p>
-                              
-                              <p>
-                                 <em>Type</em>: String
+                              <p><em>Type</em>: String
                               </p>
-                              
-                              <p>
-                                 <em>Update requires</em>:                                 
-                                 <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
-                                 
-                              </p>
-                              
+                              <p><em>Minimum</em>: <code class="code">1</code></p>
+                              <p><em>Maximum</em>: <code class="code">128</code></p>
+                              <p><em>Pattern</em>: <code class="code">^[\p{L}\p{Z}\p{N}_.:/=+\-@]*$</code></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-events-rule-runcommandtarget-values"></a><span class="term"><code class="code">Values</code></span></dt>
-                           
                            <dd>
                               
-                              <p>A list of tag values or EC2 instance IDs.</p>
-                              
-                              <p>
-                                 <em>Required</em>: Yes
+                              <p>If <code class="code">Key</code> is <code class="code">tag:</code>
+                                 <em>tag-key</em>, <code class="code">Values</code> is a list of tag values. 
+                                 If <code class="code">Key</code> is <code class="code">InstanceIds</code>, <code class="code">Values</code> is a list of Amazon EC2 instance IDs.
                               </p>
                               
-                              <p>
-                                 <em>Type</em>: List of String values
-                              </p>
                               
-                              <p>
-                                 <em>Update requires</em>:                                 
-                                 <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
-                                 
+                              <p><em>Required</em>: Yes
                               </p>
-                              
+                              <p><em>Type</em>: List of String
+                              </p>
+                              <p><em>Maximum</em>: <code class="code">50</code></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
                         </dl>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
                      </div></div>
 </body>
 </html>

@@ -8,103 +8,93 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-resource-logs-logstream">AWS::Logs::LogStream</h1><p>The <code class="code">AWS::Logs::LogStream</code> resource creates an Amazon CloudWatch Logs log stream in a log
-                        group. A log stream represents the sequence of events coming from an application instance
-                        or
-                        resource that you are monitoring. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/WhatIsCloudWatchLogs.html">Monitoring Log Files</a> in the
-                        <em>Amazon CloudWatch User Guide</em>.
-                     </p><div class="highlights" id="inline-topiclist">
-                        <p><strong>Topics</strong></p>
-                        <ul>
-                           <li><a href="#aws-resource-logs-logstream-syntax">Syntax</a></li>
-                           <li><a href="#w2ab1c21c10c69c47b9">Properties</a></li>
-                           <li><a href="#w2ab1c21c10c69c47c11">Return Values</a></li>
-                           <li><a href="#w2ab1c21c10c69c47c13">Example</a></li>
+    <h1 class="topictitle" id="aws-resource-logs-logstream">AWS::Logs::LogStream</h1><p>The <code class="code">AWS::Logs::LogStream</code> resource specifies an Amazon CloudWatch Logs log stream in a specific log group.
+                        
+                        A log stream represents the sequence of events coming from an application instance
+                        or resource that you are monitoring.
+                     </p><p>There is no limit on the number of log streams that you can create for a log group.</p><p>You must use the following guidelines when naming a log stream:</p><div class="itemizedlist">
+                        
+                        
+                        
+                        
+                        <ul class="itemizedlist" type="disc">
+                           <li class="listitem">
+                              
+                              <p>Log stream names must be unique within the log group.</p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p>Log stream names can be between 1 and 512 characters long.</p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p>The &apos;:&apos; (colon) and &apos;*&apos; (asterisk) characters are not allowed.</p>
+                              
+                           </li>
                         </ul>
                      </div><h2 id="aws-resource-logs-logstream-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-resource-logs-logstream-syntax.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
+                        <h3 id="aws-resource-logs-logstream-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
   &quot;Type&quot; : &quot;AWS::Logs::LogStream&quot;,
   &quot;Properties&quot; : {
-    &quot;<a href="aws-resource-logs-logstream.html#cfn-logs-logstream-loggroupname">LogGroupName</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-logs-logstream.html#cfn-logs-logstream-logstreamname">LogStreamName</a>&quot; : <em class="replaceable"><code>String</code></em>
-  }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-resource-logs-logstream-syntax.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">Type: AWS::Logs::LogStream
+      &quot;<a href="#cfn-logs-logstream-loggroupname">LogGroupName</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-logs-logstream-logstreamname">LogStreamName</a>&quot; : <em class="replaceable"><code>String</code></em>
+    }
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-logs-logstream-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Type: AWS::Logs::LogStream
 Properties: 
-  <a href="aws-resource-logs-logstream.html#cfn-logs-logstream-loggroupname">LogGroupName</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-logs-logstream.html#cfn-logs-logstream-logstreamname">LogStreamName</a>: <em class="replaceable"><code>String</code></em>
-</code></pre>
-                        </div><h2 id="w2ab1c21c10c69c47b9">Properties</h2><div class="variablelist">
-                        
-                        
-                        
+  <a href="#cfn-logs-logstream-loggroupname">LogGroupName</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-logs-logstream-logstreamname">LogStreamName</a>: <em class="replaceable"><code>String</code></em>
+</code></pre></div><h2 id="aws-resource-logs-logstream-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
                            <dt><a id="cfn-logs-logstream-loggroupname"></a><span class="term"><code class="code">LogGroupName</code></span></dt>
-                           
                            <dd>
                               
                               <p>The name of the log group where the log stream is created.</p>
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Minimum</em>: <code class="code">1</code></p>
+                              <p><em>Maximum</em>: <code class="code">512</code></p>
+                              <p><em>Pattern</em>: <code class="code">[\.\-_/#A-Za-z0-9]+</code></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-logs-logstream-logstreamname"></a><span class="term"><code class="code">LogStreamName</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The name of the log stream to create. The name must be unique within the log
-                                 group.
-                              </p>
+                              <p>The name of the log stream. The name must be unique within the log group.</p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Minimum</em>: <code class="code">1</code></p>
+                              <p><em>Maximum</em>: <code class="code">512</code></p>
+                              <p><em>Pattern</em>: <code class="code">[^:*]*</code></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
                         </dl>
-                     </div><h2 id="w2ab1c21c10c69c47c11">Return Values</h2><h3 id="w2ab1c21c10c69c47c11b2">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code>
-                        intrinsic function, <code class="code">Ref</code> returns the resource name, such as
-                        <code class="code">MyAppLogStream</code>.
+                     </div><h2 id="aws-resource-logs-logstream-return-values">Return Values</h2><h3 id="aws-resource-logs-logstream-return-values-ref">Ref</h3><p>
+                        When you pass the logical ID of this resource to the intrinsic <code class="code">Ref</code> function, <code class="code">Ref</code> returns the resource name, such as <code class="code"> MyAppLogStream</code>.
                      </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                     </p><h2 id="w2ab1c21c10c69c47c13">Example</h2><h3 id="w2ab1c21c10c69c47c13b2"></h3><p>The following example creates a CloudWatch Logs log stream named <code class="code">MyAppLogStream</code> in
+                     </p><h2 id="aws-resource-logs-logstream--examples">Examples</h2><h3 id="aws-resource-logs-logstream--examples--Create_a_Log_Stream">Create a Log Stream</h3><p>The following example creates a log stream named <code class="code">MyAppLogStream</code> in
                         the <code class="code">exampleLogGroup</code> log group.
-                     </p><div id="JSON" name="JSON" class="section langfilter">
-                        <h4 id="aws-resource-logs-logstream-example.json">JSON</h4>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">&quot;LogStream&quot;: {
+                     </p><h4 id="aws-resource-logs-logstream--examples--Create_a_Log_Stream--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">&quot;LogStream&quot;: {
   &quot;Type&quot;: &quot;AWS::Logs::LogStream&quot;,
   &quot;Properties&quot;: {
     &quot;LogGroupName&quot; : &quot;exampleLogGroup&quot;,
     &quot;LogStreamName&quot;: &quot;MyAppLogStream&quot;
   }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h4 id="aws-resource-logs-logstream-example.yaml">YAML</h4>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">LogStream: 
+}</code></pre><h4 id="aws-resource-logs-logstream--examples--Create_a_Log_Stream--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">LogStream: 
   Type: AWS::Logs::LogStream
   Properties: 
     LogGroupName: &quot;exampleLogGroup&quot;
-    LogStreamName: &quot;MyAppLogStream&quot;</code></pre>
-                        </div></div>
+    LogStreamName: &quot;MyAppLogStream&quot;</code></pre><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
+                     </div></div>
 </body>
 </html>

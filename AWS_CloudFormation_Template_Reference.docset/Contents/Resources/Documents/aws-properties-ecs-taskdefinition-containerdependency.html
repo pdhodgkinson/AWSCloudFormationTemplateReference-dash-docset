@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="css/awsdocs.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/awsdocs.min.js"></script>
+    <meta charset="utf-8">
+</head>
+<body>
+    <div id="content" style="padding: 10px 30px;">
+    <h1 class="topictitle" id="aws-properties-ecs-taskdefinition-containerdependency">AWS::ECS::TaskDefinition ContainerDependency</h1><p>The <code class="code">ContainerDependency</code> property specifies the dependencies defined for
+                        container startup and shutdown. A container can contain multiple dependencies. When
+                        a
+                        dependency is defined for container startup, for container shutdown it is
+                        reversed.
+                     </p><p>Your Amazon ECS container instances require at least version 1.26.0 of the container
+                        agent to enable container dependencies. However, we recommend using the latest container
+                        agent version. For information about checking your agent version and updating to the
+                        latest version, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html">Updating the Amazon ECS
+                           Container Agent</a> in the <em>Amazon Elastic Container Service Developer
+                           Guide</em>. If you are using an Amazon ECS-optimized Linux AMI, your instance
+                        needs at least version 1.26.0-1 of the <code class="code">ecs-init</code> package. If your container
+                        instances are launched from version <code class="code">20190301</code> or later, then they contain
+                        the required versions of the container agent and <code class="code">ecs-init</code>. For more
+                        information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html">Amazon ECS-optimized
+                           Linux AMI</a> in the <em>Amazon Elastic Container Service Developer
+                           Guide</em>.
+                     </p><div class="aws-note">
+                        <p class="aws-note">Note</p>
+                        <p>If you are using tasks that use the Fargate launch type, container dependency
+                           parameters are not supported.
+                        </p>
+                     </div><h2 id="aws-properties-ecs-taskdefinition-containerdependency-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-properties-ecs-taskdefinition-containerdependency-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;<a href="#cfn-ecs-taskdefinition-containerdependency-condition">Condition</a>&quot; : <em class="replaceable"><code>String</code></em>,
+  &quot;<a href="#cfn-ecs-taskdefinition-containerdependency-containername">ContainerName</a>&quot; : <em class="replaceable"><code>String</code></em>
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-properties-ecs-taskdefinition-containerdependency-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">  <a href="#cfn-ecs-taskdefinition-containerdependency-condition">Condition</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-ecs-taskdefinition-containerdependency-containername">ContainerName</a>: <em class="replaceable"><code>String</code></em>
+</code></pre></div><h2 id="aws-properties-ecs-taskdefinition-containerdependency-properties">Properties</h2><div class="variablelist">
+                        <dl>
+                           <dt><a id="cfn-ecs-taskdefinition-containerdependency-condition"></a><span class="term"><code class="code">Condition</code></span></dt>
+                           <dd>
+                              
+                              <p>The dependency condition of the container. The following are the available conditions
+                                 and their behavior:
+                              </p>
+                              
+                              <div class="itemizedlist">
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 <ul class="itemizedlist" type="disc">
+                                    <li class="listitem">
+                                       
+                                       <p>
+                                          <code class="code">START</code> - This condition emulates the behavior of links and
+                                          volumes today. It validates that a dependent container is started before
+                                          permitting other containers to start.
+                                       </p>
+                                       
+                                    </li>
+                                    <li class="listitem">
+                                       
+                                       <p>
+                                          <code class="code">COMPLETE</code> - This condition validates that a dependent
+                                          container runs to completion (exits) before permitting other containers to
+                                          start. This can be useful for nonessential containers that run a script and then
+                                          exit.
+                                       </p>
+                                       
+                                    </li>
+                                    <li class="listitem">
+                                       
+                                       <p>
+                                          <code class="code">SUCCESS</code> - This condition is the same as
+                                          <code class="code">COMPLETE</code>, but it also requires that the container exits with a
+                                          <code class="code">zero</code> status.
+                                       </p>
+                                       
+                                    </li>
+                                    <li class="listitem">
+                                       
+                                       <p>
+                                          <code class="code">HEALTHY</code> - This condition validates that the dependent
+                                          container passes its Docker health check before permitting other containers to
+                                          start. This requires that the dependent container has health checks configured.
+                                          This condition is confirmed only at task startup.
+                                       </p>
+                                       
+                                    </li>
+                                 </ul>
+                              </div>
+                              
+                              <p><em>Required</em>: Yes
+                              </p>
+                              <p><em>Type</em>: String
+                              </p>
+                              <p><em>Allowed Values</em>: <code class="code">COMPLETE | HEALTHY | START | SUCCESS</code></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                           </dd>
+                           <dt><a id="cfn-ecs-taskdefinition-containerdependency-containername"></a><span class="term"><code class="code">ContainerName</code></span></dt>
+                           <dd>
+                              
+                              <p>The name of a container.</p>
+                              
+                              <p><em>Required</em>: Yes
+                              </p>
+                              <p><em>Type</em>: String
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                           </dd>
+                        </dl>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
+                     </div></div>
+</body>
+</html>

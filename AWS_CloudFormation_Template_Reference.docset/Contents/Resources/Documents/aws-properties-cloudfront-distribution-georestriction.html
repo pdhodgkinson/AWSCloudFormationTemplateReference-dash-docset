@@ -8,110 +8,110 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-properties-cloudfront-distribution-georestriction">CloudFront
-                        Distribution GeoRestriction
-                     </h1><p><code class="code">GeoRestriction</code> is a property of the <a href="aws-properties-cloudfront-distribution-restrictions.html">CloudFront Distribution
-                           Restrictions</a> property that
-                        describes the countries in which Amazon CloudFront allows viewers to access your content.
-                     </p><h2 id="w2ab1c21c10c60c14c52b5">Syntax</h2><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-properties-cloudfront-distribution-georestriction-syntax.json">JSON</h3>
+    <h1 class="topictitle" id="aws-properties-cloudfront-distribution-georestriction">AWS::CloudFront::Distribution GeoRestriction</h1><p>A complex type that controls the countries in which your content is distributed. CloudFront
                         
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
-  &quot;<a href="aws-properties-cloudfront-distribution-georestriction.html#cfn-cloudfront-distribution-georestriction-locations">Locations</a>&quot; : [ <em class="replaceable"><code>String, ...</code></em> ],
-  &quot;<a href="aws-properties-cloudfront-distribution-georestriction.html#cfn-cloudfront-distribution-georestriction-restrictiontype">RestrictionType</a>&quot; : <em class="replaceable"><code>String</code></em>
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-properties-cloudfront-distribution-georestriction-syntax.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight"><a href="aws-properties-cloudfront-distribution-georestriction.html#cfn-cloudfront-distribution-georestriction-locations">Locations</a>:
-  - <em class="replaceable"><code>String</code></em>
-<a href="aws-properties-cloudfront-distribution-georestriction.html#cfn-cloudfront-distribution-georestriction-restrictiontype">RestrictionType</a>: <em class="replaceable"><code>String</code></em>
-</code></pre>
-                        </div><h2 id="w2ab1c21c10c60c14c52b7">Properties</h2><div class="aws-note">
-                        <p class="aws-note">Note</p>
-                        <p>For more information about the constraints and valid values of each property, see
-                           the
-                           <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_GeoRestriction.html">GeoRestriction</a> data type in
-                           the <em>Amazon CloudFront API Reference</em>.
-                        </p>
-                     </div><div class="variablelist">
-                        
-                        
-                        
+                        			determines the location of your users using <code class="code">MaxMind</code> GeoIP databases. 
+                     </p><h2 id="aws-properties-cloudfront-distribution-georestriction-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-properties-cloudfront-distribution-georestriction-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;<a href="#cfn-cloudfront-distribution-georestriction-locations">Locations</a>&quot; : <em class="replaceable"><code>[ String, ... ]</code></em>,
+  &quot;<a href="#cfn-cloudfront-distribution-georestriction-restrictiontype">RestrictionType</a>&quot; : <em class="replaceable"><code>String</code></em>
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-properties-cloudfront-distribution-georestriction-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">  <a href="#cfn-cloudfront-distribution-georestriction-locations">Locations</a>: <em class="replaceable"><code>
+    - String</code></em>
+  <a href="#cfn-cloudfront-distribution-georestriction-restrictiontype">RestrictionType</a>: <em class="replaceable"><code>String</code></em>
+</code></pre></div><h2 id="aws-properties-cloudfront-distribution-georestriction-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
-                           <dt><a id="cfn-cloudfront-distribution-georestriction-locations"></a><span class="term"><code class="literal">Locations</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>The two-letter, uppercase country code for a country that you want to include
-                                 in your blacklist or whitelist.
+                           <dt><a id="cfn-cloudfront-distribution-georestriction-locations"></a><span class="term"><code class="code">Locations</code></span></dt>
+                           <dd> 
+                              		       
+                              <p> A complex type that contains a <code class="code">Location</code> element for each country in which 
+                                 			you want CloudFront either to distribute your content (<code class="code">whitelist</code>) or not distribute 
+                                 			your content (<code class="code">blacklist</code>).
+                              </p> 
+                              		       
+                              <p>The <code class="code">Location</code> element is a two-letter, uppercase country code for a country 
+                                 			that you want to include in your <code class="code">blacklist</code> or <code class="code">whitelist</code>. Include one 
+                                 				<code class="code">Location</code> element for each country.
+                              </p> 
+                              		       
+                              <p>CloudFront and <code class="code">MaxMind</code> both use <code class="code">ISO 3166</code> country codes. For the 
+                                 			current list of countries and the corresponding codes, see <code class="code">ISO 3166-1-alpha-2</code> 
+                                 			code on the <em>International Organization for Standardization</em> website. You 
+                                 			can also refer to the country list on the CloudFront console, which includes both
+                                 country names and 
+                                 			codes.
                               </p>
-                              
-                              <p><em>Required</em>: Conditional. Required if you specified <code class="code">blacklist</code> or
-                                 <code class="code">whitelist</code> for the <code class="code">RestrictionType</code> property.
+                              	     
+                              <p><em>Required</em>: Conditional
                               </p>
-                              
-                              <p><em>Type</em>: List of String values
+                              <p><em>Type</em>: List of String
                               </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-cloudfront-distribution-georestriction-restrictiontype"></a><span class="term"><code class="literal">RestrictionType</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>The method to restrict distribution of your content:</p>
-                              <div class="variablelist">
-                                 
-                                 
-                                 
-                                 
-                                 <dl>
-                                    
-                                    <dt><a id="cfn-cloudfront-distribution-georestriction-restrictiontype"></a><span class="term"><code class="code">blacklist</code></span></dt>
-                                    
-                                    <dd>
-                                       
-                                       <p>Prevents viewers in the countries that you specified from accessing
-                                          your content.
-                                       </p>
-                                       
-                                    </dd>
-                                    
-                                    
-                                    <dt><a id="cfn-cloudfront-distribution-georestriction-restrictiontype"></a><span class="term"><code class="code">whitelist</code></span></dt>
-                                    
-                                    <dd>
-                                       
-                                       <p>Allows viewers in the countries that you specified to access your
-                                          content.
-                                       </p>
-                                       
-                                    </dd>
-                                    
-                                    
-                                    <dt><a id="cfn-cloudfront-distribution-georestriction-restrictiontype"></a><span class="term"><code class="code">none</code></span></dt>
-                                    
-                                    <dd>
-                                       
-                                       <p>No distribution restrictions by country.</p>
-                                       
-                                    </dd>
-                                    
-                                 </dl>
+                           <dt><a id="cfn-cloudfront-distribution-georestriction-restrictiontype"></a><span class="term"><code class="code">RestrictionType</code></span></dt>
+                           <dd> 
+                              		       
+                              <p>The method that you want to use to restrict distribution of your content by 
+                                 			country:
+                              </p> 
+                              		       
+                              <div class="itemizedlist"> 
+                                 			          
+                                 			          
+                                 			          
+                                 		       
+                                 <ul class="itemizedlist" type="disc">
+                                    <li class="listitem"> 
+                                       				           
+                                       <p>
+                                          <code class="code">none</code>: No geo restriction is enabled, meaning access to content is not 
+                                          					restricted by client geo location.
+                                       </p> 
+                                       			         
+                                    </li>
+                                    <li class="listitem"> 
+                                       				           
+                                       <p>
+                                          <code class="code">blacklist</code>: The <code class="code">Location</code> elements specify the countries in 
+                                          					which you don&apos;t want CloudFront to distribute your content.
+                                       </p> 
+                                       			         
+                                    </li>
+                                    <li class="listitem"> 
+                                       				           
+                                       <p>
+                                          <code class="code">whitelist</code>: The <code class="code">Location</code> elements specify the countries in 
+                                          					which you want CloudFront to distribute your content.
+                                       </p> 
+                                       			         
+                                    </li>
+                                 </ul>
                               </div>
-                              
+                              	     
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Allowed Values</em>: <code class="code">blacklist | none | whitelist</code></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
                         </dl>
+                     </div><h2 id="aws-properties-cloudfront-distribution-georestriction--seealso">See Also</h2><div class="itemizedlist">
+                        				        
+                        			      
+                        <ul class="itemizedlist" type="disc">
+                           <li class="listitem">
+                              					          
+                              <p>
+                                 						            <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_GeoRestriction.html">GeoRestriction</a> in the <em>Amazon CloudFront API Reference</em>
+                                 					          
+                              </p>
+                              				        
+                           </li>
+                        </ul>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
                      </div></div>
 </body>
 </html>

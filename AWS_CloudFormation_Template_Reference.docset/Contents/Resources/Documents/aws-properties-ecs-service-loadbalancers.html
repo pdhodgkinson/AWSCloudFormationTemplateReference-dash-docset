@@ -8,99 +8,121 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-properties-ecs-service-loadbalancers">Amazon Elastic Container Service Service
-                        LoadBalancers
-                     </h1><p><code class="code">LoadBalancers</code> is a property of the <a href="aws-resource-ecs-service.html">AWS::ECS::Service</a> resource that specifies the load balancer to
-                        associate with an Amazon Elastic Container Service (Amazon ECS) service.
-                     </p><h2 id="w2ab1c21c10d117c17c25b5">Syntax</h2><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-properties-ecs-service-loadbalancers-syntax.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
-  &quot;<a href="aws-properties-ecs-service-loadbalancers.html#cfn-ecs-service-loadbalancers-containername">ContainerName</a>&quot; : <em class="replaceable"><code>String</code></em>,
-  &quot;<a href="aws-properties-ecs-service-loadbalancers.html#cfn-ecs-service-loadbalancers-containerport">ContainerPort</a>&quot; : <em class="replaceable"><code>Integer</code></em>,
-  &quot;<a href="aws-properties-ecs-service-loadbalancers.html#cfn-ecs-service-loadbalancers-loadbalancername">LoadBalancerName</a>&quot; : <em class="replaceable"><code>String</code></em>,
-  &quot;<a href="aws-properties-ecs-service-loadbalancers.html#cfn-ecs-service-loadbalancers-targetgrouparn">TargetGroupArn</a>&quot; : <em class="replaceable"><code>String</code></em>
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-properties-ecs-service-loadbalancers-syntax.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight"><a href="aws-properties-ecs-service-loadbalancers.html#cfn-ecs-service-loadbalancers-containername">ContainerName</a>: <em class="replaceable"><code>String</code></em>
-<a href="aws-properties-ecs-service-loadbalancers.html#cfn-ecs-service-loadbalancers-containerport">ContainerPort</a>: <em class="replaceable"><code>Integer</code></em>
-<a href="aws-properties-ecs-service-loadbalancers.html#cfn-ecs-service-loadbalancers-loadbalancername">LoadBalancerName</a>: <em class="replaceable"><code>String</code></em>
-<a href="aws-properties-ecs-service-loadbalancers.html#cfn-ecs-service-loadbalancers-targetgrouparn">TargetGroupArn</a>: <em class="replaceable"><code>String</code></em>
-</code></pre>
-                        </div><h2 id="w2ab1c21c10d117c17c25b7">Properties</h2><div class="variablelist">
-                        
-                        
-                        
-                        
-                        
+    <h1 class="topictitle" id="aws-properties-ecs-service-loadbalancers">AWS::ECS::Service LoadBalancer</h1><p>The <code class="code">LoadBalancer</code> property specifies details on a load balancer that is
+                        used with a service.
+                     </p><p>If the service is using the <code class="code">ECS</code> deployment controller, you are limited to
+                        one load balancer or target group.
+                     </p><p>If the service is using the <code class="code">CODE_DEPLOY</code> deployment controller, the
+                        service is required to use either an Application Load Balancer or Network Load Balancer.
+                        When you are creating an AWS CodeDeploy deployment group, you specify two target groups
+                        (referred to as a <code class="code">targetGroupPair</code>). Each target group binds to a separate
+                        task set in the deployment. The load balancer can also have up to two listeners, a
+                        required listener for production traffic and an optional listener that allows you
+                        to
+                        test new revisions of the service before routing production traffic to it.
+                     </p><p>Services with tasks that use the <code class="code">awsvpc</code> network mode (for example, those
+                        with the Fargate launch type) only support Application Load Balancers and Network
+                        Load
+                        Balancers. Classic Load Balancers are not supported. Also, when you create any target
+                        groups for these services, you must choose <code class="code">ip</code> as the target type, not
+                        <code class="code">instance</code>. Tasks that use the <code class="code">awsvpc</code> network mode are
+                        associated with an elastic network interface, not an Amazon EC2 instance.
+                     </p><h2 id="aws-properties-ecs-service-loadbalancers-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-properties-ecs-service-loadbalancers-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;<a href="#cfn-ecs-service-loadbalancers-containername">ContainerName</a>&quot; : <em class="replaceable"><code>String</code></em>,
+  &quot;<a href="#cfn-ecs-service-loadbalancers-containerport">ContainerPort</a>&quot; : <em class="replaceable"><code>Integer</code></em>,
+  &quot;<a href="#cfn-ecs-service-loadbalancers-loadbalancername">LoadBalancerName</a>&quot; : <em class="replaceable"><code>String</code></em>,
+  &quot;<a href="#cfn-ecs-service-loadbalancers-targetgrouparn">TargetGroupArn</a>&quot; : <em class="replaceable"><code>String</code></em>
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-properties-ecs-service-loadbalancers-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">  <a href="#cfn-ecs-service-loadbalancers-containername">ContainerName</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-ecs-service-loadbalancers-containerport">ContainerPort</a>: <em class="replaceable"><code>Integer</code></em>
+  <a href="#cfn-ecs-service-loadbalancers-loadbalancername">LoadBalancerName</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-ecs-service-loadbalancers-targetgrouparn">TargetGroupArn</a>: <em class="replaceable"><code>String</code></em>
+</code></pre></div><h2 id="aws-properties-ecs-service-loadbalancers-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
                            <dt><a id="cfn-ecs-service-loadbalancers-containername"></a><span class="term"><code class="code">ContainerName</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The name of a container to use with the load balancer.</p>
-                              
-                              <p><em>Required</em>: Yes
+                              <p>The name of the container (as it appears in a container definition) to associate with
+                                 the load balancer.
                               </p>
                               
+                              <p><em>Required</em>: No
+                              </p>
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-ecs-service-loadbalancers-containerport"></a><span class="term"><code class="code">ContainerPort</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The port number on the container to direct load balancer traffic to. Your
-                                 container instances must allow ingress traffic on this port.
+                              <p>The port on the container to associate with the load balancer. This port must
+                                 correspond to a <code class="code">containerPort</code> in the service&apos;s task definition. Your
+                                 container instances must allow ingress traffic on the <code class="code">hostPort</code> of the port
+                                 mapping.
                               </p>
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: Integer
                               </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-ecs-service-loadbalancers-loadbalancername"></a><span class="term"><code class="code">LoadBalancerName</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The name of a Classic Load Balancer to associate with the Amazon ECS service.</p>
+                              <p>The name of the load balancer to associate with the Amazon ECS service or task set.</p>
+                              
+                              <p>A load balancer name is only specified when using a classic load balancer. If you
+                                 are
+                                 using an application load balancer or a network load balancer this should be
+                                 omitted.
+                              </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-ecs-service-loadbalancers-targetgrouparn"></a><span class="term"><code class="code">TargetGroupArn</code></span></dt>
-                           
                            <dd>
                               
-                              <p>An Application Load Balancer target group Amazon Resource Name (ARN) to associate
-                                 with the Amazon ECS service.
+                              <p>The full Amazon Resource Name (ARN) of the Elastic Load Balancing target group or
+                                 groups associated with a service or
+                                 task set.
                               </p>
+                              
+                              <p>A target group ARN is only specified when using an application load balancer or a
+                                 network load balancer. If you are using a classic load balancer this should be
+                                 omitted.
+                              </p>
+                              
+                              <p>For services using the <code class="code">ECS</code> deployment controller, you are limited to one
+                                 target group. For services using the <code class="code">CODE_DEPLOY</code> deployment controller, you
+                                 are required to define two target groups for the load balancer.
+                              </p>
+                              
+                              <div class="aws-note">
+                                 <p class="aws-note">Important</p>
+                                 <p>If your service&apos;s task definition uses the <code class="code">awsvpc</code> network mode (which
+                                    is required for the Fargate launch type), you must choose
+                                    <code class="code">ip</code> as the target type, not <code class="code">instance</code>, because tasks
+                                    that use the <code class="code">awsvpc</code> network mode are associated with an elastic network
+                                    interface, not an Amazon EC2 instance.
+                                 </p>
+                              </div>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
                            </dd>
-                           
                         </dl>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
                      </div></div>
 </body>
 </html>

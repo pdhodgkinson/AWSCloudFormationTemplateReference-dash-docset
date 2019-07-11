@@ -8,70 +8,121 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-properties-redshift-cluster-loggingproperties">Amazon Redshift LoggingProperties  </h1><p>Use the
-                        <code class="code">LoggingProperties</code>
-                        property of
-                        the <a href="aws-resource-redshift-cluster.html">AWS::Redshift::Cluster</a> resource
-                        to
-                        configure audit log files, containing information such as queries and connection attempts,
-                        for the cluster. 
-                     </p><h2 id="aws-properties-redshift-cluster-loggingproperties-syntax">Syntax</h2><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-properties-redshift-cluster-loggingproperties-syntax.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
-  &quot;<a href="aws-properties-redshift-cluster-loggingproperties.html#cfn-redshift-cluster-loggingproperties-bucketname">BucketName</a>&quot; : <em class="replaceable"><code>String</code></em>,
-  &quot;<a href="aws-properties-redshift-cluster-loggingproperties.html#cfn-redshift-cluster-loggingproperties-s3keyprefix">S3KeyPrefix</a>&quot; : <em class="replaceable"><code>String</code></em>
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-properties-redshift-cluster-loggingproperties-syntax.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight"><a href="aws-properties-redshift-cluster-loggingproperties.html#cfn-redshift-cluster-loggingproperties-bucketname">BucketName</a>: <em class="replaceable"><code>String</code></em>
-<a href="aws-properties-redshift-cluster-loggingproperties.html#cfn-redshift-cluster-loggingproperties-s3keyprefix">S3KeyPrefix</a>: <em class="replaceable"><code>String</code></em>
-</code></pre>
-                        </div><h2 id="aws-properties-redshift-cluster-loggingproperties-properties">Properties</h2><p>For more information and property constraints, see <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_EnableLogging.html">EnableLogging</a> in the
-                        <em>Amazon Redshift API Reference</em>.
-                     </p><div class="variablelist">
-                        
-                        
-                        
+    <h1 class="topictitle" id="aws-properties-redshift-cluster-loggingproperties">AWS::Redshift::Cluster LoggingProperties</h1><p>Specifies logging information, such as queries and connection attempts, for the
+                        specified Amazon Redshift cluster.
+                     </p><h2 id="aws-properties-redshift-cluster-loggingproperties-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-properties-redshift-cluster-loggingproperties-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;<a href="#cfn-redshift-cluster-loggingproperties-bucketname">BucketName</a>&quot; : <em class="replaceable"><code>String</code></em>,
+  &quot;<a href="#cfn-redshift-cluster-loggingproperties-s3keyprefix">S3KeyPrefix</a>&quot; : <em class="replaceable"><code>String</code></em>
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-properties-redshift-cluster-loggingproperties-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">  <a href="#cfn-redshift-cluster-loggingproperties-bucketname">BucketName</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-redshift-cluster-loggingproperties-s3keyprefix">S3KeyPrefix</a>: <em class="replaceable"><code>String</code></em>
+</code></pre></div><h2 id="aws-properties-redshift-cluster-loggingproperties-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
                            <dt><a id="cfn-redshift-cluster-loggingproperties-bucketname"></a><span class="term"><code class="code">BucketName</code></span></dt>
-                           
                            <dd>
                               
                               <p>The name of an existing S3 bucket where the log files are to be stored.</p>
                               
+                              <p>Constraints:</p>
+                              
+                              <div class="itemizedlist">
+                                 
+                                 
+                                 
+                                 <ul class="itemizedlist" type="disc">
+                                    <li class="listitem">
+                                       
+                                       <p>Must be in the same region as the cluster</p>
+                                       
+                                    </li>
+                                    <li class="listitem">
+                                       
+                                       <p>The cluster must have read bucket and put object permissions</p>
+                                       
+                                    </li>
+                                 </ul>
+                              </div>
+                              
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-redshift-cluster-loggingproperties-s3keyprefix"></a><span class="term"><code class="code">S3KeyPrefix</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The
-                                 prefix applied to the log file names.
-                              </p>
+                              <p>The prefix applied to the log file names.</p>
+                              
+                              <p>Constraints:</p>
+                              
+                              <div class="itemizedlist">
+                                 
+                                 
+                                 
+                                 <ul class="itemizedlist" type="disc">
+                                    <li class="listitem">
+                                       
+                                       <p>Cannot exceed 512 characters</p>
+                                       
+                                    </li>
+                                    <li class="listitem">
+                                       
+                                       <p>Cannot contain spaces( ), double quotes (&quot;), single quotes (&apos;), a backslash
+                                          (\), or control characters. The hexadecimal codes for invalid characters are: 
+                                       </p>
+                                       
+                                       <div class="itemizedlist">
+                                          
+                                          
+                                          
+                                          
+                                          
+                                          
+                                          <ul class="itemizedlist" type="disc">
+                                             <li class="listitem">
+                                                
+                                                <p>x00 to x20</p>
+                                                
+                                             </li>
+                                             <li class="listitem">
+                                                
+                                                <p>x22</p>
+                                                
+                                             </li>
+                                             <li class="listitem">
+                                                
+                                                <p>x27</p>
+                                                
+                                             </li>
+                                             <li class="listitem">
+                                                
+                                                <p>x5c</p>
+                                                
+                                             </li>
+                                             <li class="listitem">
+                                                
+                                                <p>x7f or larger</p>
+                                                
+                                             </li>
+                                          </ul>
+                                       </div>
+                                       
+                                    </li>
+                                 </ul>
+                              </div>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
                         </dl>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
                      </div></div>
 </body>
 </html>

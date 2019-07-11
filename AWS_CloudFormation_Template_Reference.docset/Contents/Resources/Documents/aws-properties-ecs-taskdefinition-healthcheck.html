@@ -8,194 +8,148 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-properties-ecs-taskdefinition-healthcheck">Amazon Elastic Container Service TaskDefinition HealthCheck</h1><p>The
-                        <code class="code">HealthCheck</code> property type specifies a container health check. Health check
-                        parameters that are specified in a container definition override any Docker health
-                        checks
-                        that exist in the container image (such as those specified in a parent image or from
-                        the
-                        image&apos;s Dockerfile).
-                     </p><p>
-                        <code class="code">HealthCheck</code> is a property of the <a href="aws-properties-ecs-taskdefinition-containerdefinitions.html">Amazon Elastic Container Service TaskDefinition ContainerDefinition</a> property
-                        type.
-                     </p><h2 id="aws-properties-ecs-taskdefinition-healthcheck-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
-                        
-                        <h3 id="aws-properties-ecs-taskdefinition-healthcheck-syntax.json">JSON</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
-  &quot;<a href="aws-properties-ecs-taskdefinition-healthcheck.html#cfn-ecs-taskdefinition-healthcheck-command">Command</a>&quot; : [ <em class="replaceable"><code>String</code></em>, ... ] ,
-  &quot;<a href="aws-properties-ecs-taskdefinition-healthcheck.html#cfn-ecs-taskdefinition-healthcheck-interval">Interval</a>&quot; : <em class="replaceable"><code>Integer</code></em>,
-  &quot;<a href="aws-properties-ecs-taskdefinition-healthcheck.html#cfn-ecs-taskdefinition-healthcheck-retries">Retries</a>&quot; : <em class="replaceable"><code>Integer</code></em>,
-  &quot;<a href="aws-properties-ecs-taskdefinition-healthcheck.html#cfn-ecs-taskdefinition-healthcheck-startperiod">StartPeriod</a>&quot; : <em class="replaceable"><code>Integer</code></em>,
-  &quot;<a href="aws-properties-ecs-taskdefinition-healthcheck.html#cfn-ecs-taskdefinition-healthcheck-timeout">Timeout</a>&quot; : <em class="replaceable"><code>Integer</code></em>
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        
-                        <h3 id="aws-properties-ecs-taskdefinition-healthcheck-syntax.yaml">YAML</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">
-<a href="aws-properties-ecs-taskdefinition-healthcheck.html#cfn-ecs-taskdefinition-healthcheck-command">Command</a>
-  - <em class="replaceable"><code>String</code></em>
-<a href="aws-properties-ecs-taskdefinition-healthcheck.html#cfn-ecs-taskdefinition-healthcheck-interval">Interval</a>: <em class="replaceable"><code>Integer</code></em>
-<a href="aws-properties-ecs-taskdefinition-healthcheck.html#cfn-ecs-taskdefinition-healthcheck-retries">Retries</a>: <em class="replaceable"><code>Integer</code></em>
-<a href="aws-properties-ecs-taskdefinition-healthcheck.html#cfn-ecs-taskdefinition-healthcheck-startperiod">StartPeriod</a>: <em class="replaceable"><code>Integer</code></em>
-<a href="aws-properties-ecs-taskdefinition-healthcheck.html#cfn-ecs-taskdefinition-healthcheck-timeout">Timeout</a>: <em class="replaceable"><code>Integer</code></em></code></pre>
-                        </div><h2 id="aws-properties-ecs-taskdefinition-healthcheck-properties">Properties</h2><div class="variablelist">
+    <h1 class="topictitle" id="aws-properties-ecs-taskdefinition-healthcheck">AWS::ECS::TaskDefinition HealthCheck</h1><p>The <code class="code">HealthCheck</code> property specifies an object representing a container
+                        health check. Health check parameters that are specified in a container definition
+                        override any Docker health checks that exist in the container image (such as those
+                        specified in a parent image or from the image&apos;s Dockerfile).
+                     </p><p>The following are notes about container health check support:</p><div class="itemizedlist">
                         
                         
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        <dl>
-                           
-                           <dt><a id="cfn-ecs-taskdefinition-healthcheck-command"></a><span class="term"><code class="code">Command</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>A string array representing the command that the container runs to determine if it
-                                 is healthy. The string array must start with CMD to execute the command arguments
-                                 directly, or CMD-SHELL to run the command with the container&apos;s default shell. For
-                                 example:
-                              </p>
-                              
-                              <p>[ &quot;CMD-SHELL&quot;, &quot;curl -f http://localhost/ || exit 1&quot; ]</p>
-                              
-                              <p>An exit code of 0 indicates success, and non-zero exit code indicates failure. </p>
-                              
-                              <p>
-                                 <em>Required</em>: Yes
-                              </p>
-                              
-                              <p>
-                                 <em>Type</em>: List of String values
-                              </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a>
-                                 
-                              </p>
-                              
-                           </dd>
-                           
-                           
-                           <dt><a id="cfn-ecs-taskdefinition-healthcheck-interval"></a><span class="term"><code class="code">Interval</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>The time period in seconds between each health check execution. You may specify between
-                                 5 and 300 seconds. The default value is 30 seconds.
-                              </p>
-                              
-                              <p>
-                                 <em>Required</em>: No
-                              </p>
-                              
-                              <p>
-                                 <em>Type</em>: Integer
-                              </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a>
-                                 
-                              </p>
-                              
-                           </dd>
-                           
-                           
-                           <dt><a id="cfn-ecs-taskdefinition-healthcheck-retries"></a><span class="term"><code class="code">Retries</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>The number of times to retry a failed health check before the container is considered
-                                 unhealthy. You may specify between 1 and 10 retries. The default value is 3 retries.
-                              </p>
-                              
-                              <p>
-                                 <em>Required</em>: No
-                              </p>
-                              
-                              <p>
-                                 <em>Type</em>: Integer
-                              </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a>
-                                 
-                              </p>
-                              
-                           </dd>
-                           
-                           
-                           <dt><a id="cfn-ecs-taskdefinition-healthcheck-startperiod"></a><span class="term"><code class="code">StartPeriod</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>The optional grace period within which to provide containers time to bootstrap before
-                                 failed health checks count towards the maximum number of retries. You may specify
-                                 between 0 and 300 seconds. The startPeriod is disabled by default.
-                              </p>
-                              
-                              <div class="aws-note">
-                                 <p class="aws-note">Note</p>
-                                 <p>If a health check succeeds within the startPeriod, then the container is considered
-                                    healthy and any subsequent failures count toward the maximum number of retries.
-                                 </p>
-                              </div>
-                              
-                              <p>
-                                 <em>Required</em>: No
-                              </p>
-                              
-                              <p>
-                                 <em>Type</em>: String
-                              </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a>
-                                 
-                              </p>
-                              
-                           </dd>
-                           
-                           
-                           <dt><a id="cfn-ecs-taskdefinition-healthcheck-timeout"></a><span class="term"><code class="code">Timeout</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>The time period in seconds to wait for a health check to succeed before it is considered
-                                 a failure. You may specify between 2 and 60 seconds. The default value is 5 seconds.
-                              </p>
-                              
-                              <p>
-                                 <em>Required</em>: No
-                              </p>
-                              
-                              <p>
-                                 <em>Type</em>: Integer
-                              </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a>
-                                 
-                              </p>
-                              
-                           </dd>
-                           
-                        </dl>
-                     </div><h2 id="aws-properties-ecs-taskdefinition-healthcheck-seealso">See Also</h2><div class="itemizedlist">
                         
                         
                         <ul class="itemizedlist" type="disc">
                            <li class="listitem">
                               
-                              <p><a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_HealthCheck.html">HealthCheck</a> in the <em>Amazon Elastic Container Service API Reference</em></p>
+                              <p>Container health checks require version 1.17.0 or greater of the Amazon ECS
+                                 container agent. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html">Updating the Amazon ECS Container Agent</a>.
+                              </p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p>Container health checks are supported for Fargate tasks if you are using
+                                 platform version 1.1.0 or greater. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">AWS Fargate Platform Versions</a>.
+                              </p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p>Container health checks are not supported for tasks that are part of a service
+                                 that is configured to use a Classic Load Balancer.
+                              </p>
+                              
                            </li>
                         </ul>
+                     </div><h2 id="aws-properties-ecs-taskdefinition-healthcheck-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-properties-ecs-taskdefinition-healthcheck-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;<a href="#cfn-ecs-taskdefinition-healthcheck-command">Command</a>&quot; : <em class="replaceable"><code>[ String, ... ]</code></em>,
+  &quot;<a href="#cfn-ecs-taskdefinition-healthcheck-interval">Interval</a>&quot; : <em class="replaceable"><code>Integer</code></em>,
+  &quot;<a href="#cfn-ecs-taskdefinition-healthcheck-retries">Retries</a>&quot; : <em class="replaceable"><code>Integer</code></em>,
+  &quot;<a href="#cfn-ecs-taskdefinition-healthcheck-startperiod">StartPeriod</a>&quot; : <em class="replaceable"><code>Integer</code></em>,
+  &quot;<a href="#cfn-ecs-taskdefinition-healthcheck-timeout">Timeout</a>&quot; : <em class="replaceable"><code>Integer</code></em>
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-properties-ecs-taskdefinition-healthcheck-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">  <a href="#cfn-ecs-taskdefinition-healthcheck-command">Command</a>: <em class="replaceable"><code>
+    - String</code></em>
+  <a href="#cfn-ecs-taskdefinition-healthcheck-interval">Interval</a>: <em class="replaceable"><code>Integer</code></em>
+  <a href="#cfn-ecs-taskdefinition-healthcheck-retries">Retries</a>: <em class="replaceable"><code>Integer</code></em>
+  <a href="#cfn-ecs-taskdefinition-healthcheck-startperiod">StartPeriod</a>: <em class="replaceable"><code>Integer</code></em>
+  <a href="#cfn-ecs-taskdefinition-healthcheck-timeout">Timeout</a>: <em class="replaceable"><code>Integer</code></em>
+</code></pre></div><h2 id="aws-properties-ecs-taskdefinition-healthcheck-properties">Properties</h2><div class="variablelist">
+                        <dl>
+                           <dt><a id="cfn-ecs-taskdefinition-healthcheck-command"></a><span class="term"><code class="code">Command</code></span></dt>
+                           <dd>
+                              
+                              <p>A string array representing the command that the container runs to determine if it
+                                 is
+                                 healthy. The string array must start with <code class="code">CMD</code> to execute the command
+                                 arguments directly, or <code class="code">CMD-SHELL</code> to run the command with the container&apos;s
+                                 default shell. For example:
+                              </p>
+                              
+                              <p>
+                                 <code class="code">[ &quot;CMD-SHELL&quot;, &quot;curl -f http://localhost/ || exit 1&quot; ]</code>
+                                 
+                              </p>
+                              
+                              <p>An exit code of 0 indicates success, and non-zero exit code indicates failure. For
+                                 more information, see <code class="code">HealthCheck</code> in the <a href="https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate" target="_blank">Create a container</a>
+                                 section of the <a href="https://docs.docker.com/engine/api/v1.35/" target="_blank">Docker Remote API</a>.
+                              </p>
+                              
+                              <p><em>Required</em>: Yes
+                              </p>
+                              <p><em>Type</em>: List of String
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                           </dd>
+                           <dt><a id="cfn-ecs-taskdefinition-healthcheck-interval"></a><span class="term"><code class="code">Interval</code></span></dt>
+                           <dd>
+                              
+                              <p>The time period in seconds between each health check execution. You may specify
+                                 between 5 and 300 seconds. The default value is 30 seconds.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              <p><em>Type</em>: Integer
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                           </dd>
+                           <dt><a id="cfn-ecs-taskdefinition-healthcheck-retries"></a><span class="term"><code class="code">Retries</code></span></dt>
+                           <dd>
+                              
+                              <p>The number of times to retry a failed health check before the container is considered
+                                 unhealthy. You may specify between 1 and 10 retries. The default value is 3.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              <p><em>Type</em>: Integer
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                           </dd>
+                           <dt><a id="cfn-ecs-taskdefinition-healthcheck-startperiod"></a><span class="term"><code class="code">StartPeriod</code></span></dt>
+                           <dd>
+                              
+                              <p>The optional grace period within which to provide containers time to bootstrap before
+                                 failed health checks count towards the maximum number of retries. You may specify
+                                 between 0 and 300 seconds. The <code class="code">startPeriod</code> is disabled by default.
+                              </p>
+                              
+                              <div class="aws-note">
+                                 <p class="aws-note">Note</p>
+                                 <p>If a health check succeeds within the <code class="code">startPeriod</code>, then the container
+                                    is considered healthy and any subsequent failures count toward the maximum number
+                                    of
+                                    retries.
+                                 </p>
+                              </div>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              <p><em>Type</em>: Integer
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                           </dd>
+                           <dt><a id="cfn-ecs-taskdefinition-healthcheck-timeout"></a><span class="term"><code class="code">Timeout</code></span></dt>
+                           <dd>
+                              
+                              <p>The time period in seconds to wait for a health check to succeed before it is
+                                 considered a failure. You may specify between 2 and 60 seconds. The default value
+                                 is
+                                 5.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              <p><em>Type</em>: Integer
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                           </dd>
+                        </dl>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
                      </div></div>
 </body>
 </html>

@@ -8,133 +8,80 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-resource-ssm-document">AWS::SSM::Document</h1><p>The <code class="code">AWS::SSM::Document</code> resource creates an SSM document in AWS Systems Manager that
-                        describes an instance configuration, which you can use to set up and run commands
-                        on your
-                        instances.
-                     </p><div class="highlights" id="inline-topiclist">
-                        <p><strong>Topics</strong></p>
-                        <ul>
-                           <li><a href="#aws-resource-ssm-document-syntax">Syntax</a></li>
-                           <li><a href="#w2ab1c21c10d231c16b9">Properties</a></li>
-                           <li><a href="#w2ab1c21c10d231c16c11">Return Value</a></li>
-                           <li><a href="#w2ab1c21c10d231c16c13">Examples</a></li>
-                        </ul>
-                     </div><h2 id="aws-resource-ssm-document-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
-                        
-                        <h3 id="aws-resource-ssm-document-syntax.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
+    <h1 class="topictitle" id="aws-resource-ssm-document">AWS::SSM::Document</h1><p>The <code class="code">AWS::SSM::Document</code> resource creates an SSM document in AWS Systems
+                        Manager that defines the actions that Systems Manager performs, which you can use
+                        to set up
+                        and run commands on your instances.
+                     </p><h2 id="aws-resource-ssm-document-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-resource-ssm-document-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
   &quot;Type&quot; : &quot;AWS::SSM::Document&quot;,
   &quot;Properties&quot; : {
-    &quot;<a href="aws-resource-ssm-document.html#cfn-ssm-document-content">Content</a>&quot; : <em class="replaceable"><code>JSON object</code></em>,
-    &quot;<a href="aws-resource-ssm-document.html#cfn-ssm-document-documenttype">DocumentType</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-ssm-document.html#cfn-ssm-document-tags">Tags</a>&quot; : [ <em class="replaceable"><code>Resource Tag, ...</code></em> ]
-  }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        
-                        <h3 id="aws-resource-ssm-document-syntax.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">Type: &quot;AWS::SSM::Document&quot;
+      &quot;<a href="#cfn-ssm-document-content">Content</a>&quot; : <em class="replaceable"><code>Json</code></em>,
+      &quot;<a href="#cfn-ssm-document-documenttype">DocumentType</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-ssm-document-tags">Tags</a>&quot; : <em class="replaceable"><code>[ <a href="aws-properties-resource-tags.html">Tag</a>, ... ]</code></em>
+    }
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-ssm-document-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Type: AWS::SSM::Document
 Properties: 
-  <a href="aws-resource-ssm-document.html#cfn-ssm-document-content">Content</a>: <em class="replaceable"><code>JSON object</code></em>
-  <a href="aws-resource-ssm-document.html#cfn-ssm-document-documenttype">DocumentType</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-ssm-document.html#cfn-ssm-document-tags">Tags</a>:
-    - <em class="replaceable"><code>Resource Tag</code></em>
-</code></pre>
-                        </div><h2 id="w2ab1c21c10d231c16b9">Properties</h2><div class="variablelist">
-                        
-                        
-                        
-                        
-                        
-                        
+  <a href="#cfn-ssm-document-content">Content</a>: <em class="replaceable"><code>Json</code></em>
+  <a href="#cfn-ssm-document-documenttype">DocumentType</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-ssm-document-tags">Tags</a>: <em class="replaceable"><code>
+    - <a href="aws-properties-resource-tags.html">Tag</a></code></em>
+</code></pre></div><h2 id="aws-resource-ssm-document-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
                            <dt><a id="cfn-ssm-document-content"></a><span class="term"><code class="code">Content</code></span></dt>
-                           
                            <dd>
                               
-                              <p>A JSON object that describes an instance configuration. For more information, see
-                                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/DeveloperGuide/create-ssm-doc.html">Creating Systems Manager Documents</a> in the
-                                 <em>AWS Systems Manager User Guide</em>.
-                              </p>
                               
-                              <div class="aws-note">
-                                 <p class="aws-note">Note</p>
-                                 <p>The <code class="code">Content</code> property is a non-stringified property. For more
-                                    information about automation actions, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-ami-actions.html">Systems Manager Automation Document
-                                       Reference</a> in the <em>AWS Systems Manager User Guide</em>.
-                                 </p>
-                              </div>
+                              <p>A valid JSON or YAML string.</p>
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
-                              <p><em>Type</em>: JSON object
+                              <p><em>Type</em>: Json
                               </p>
-                              
+                              <p><em>Minimum</em>: <code class="code">1</code></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-ssm-document-documenttype"></a><span class="term"><code class="code">DocumentType</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The type of document to create that relates to the purpose of your document, such
-                                 as
-                                 running commands, bootstrapping software, or automating tasks. For valid values, see
-                                 the
-                                 <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateDocument.html">CreateDocument</a> action in the
-                                 <em>AWS Systems Manager API Reference</em>.
+                              
+                              <p>The type of document to create. Valid document types include: <code class="code">Command</code>,
+                                 <code class="code">Policy</code>, <code class="code">Automation</code>, <code class="code">Session</code>, and
+                                 <code class="code">Package</code>.
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Allowed Values</em>: <code class="code">Automation | Command | Package | Policy | Session</code></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-ssm-document-tags"></a><span class="term"><code class="code">Tags</code></span></dt>
-                           
                            <dd>
                               
-                              <p>AWS CloudFormation resource tags to apply to the document, which can help you identify
-                                 and
-                                 categorize these resources. 
+                              <p>AWS CloudFormation resource tags to apply to the document. Use tags to help you
+                                 identify and categorize resources. 
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: <a href="aws-properties-resource-tags.html">Resource Tag</a></p>
-                              
+                              <p><em>Type</em>: List of <a href="aws-properties-resource-tags.html">Tag</a></p>
+                              <p><em>Maximum</em>: <code class="code">1000</code></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
                         </dl>
-                     </div><h2 id="w2ab1c21c10d231c16c11">Return Value</h2><h3 id="w2ab1c21c10d231c16c11b3">Ref</h3><p>When you pass the logical ID of an <code class="code">AWS::SSM::Document</code> resource to the
-                        intrinsic <code class="code">Ref</code> function, the function returns the Systems Manager document name, such as
+                     </div><h2 id="aws-resource-ssm-document-return-values">Return Values</h2><h3 id="aws-resource-ssm-document-return-values-ref">Ref</h3><p>
+                        When you pass the logical ID of this resource to the intrinsic <code class="code">Ref</code> function, <code class="code">Ref</code> returns the Systems Manager document name, such as
                         <code class="code">ssm-myinstanceconfig-ABCNPH3XCAO6</code>.
                      </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                     </p><h2 id="w2ab1c21c10d231c16c13">Examples</h2><h3 id="w2ab1c21c10d231c16c13b3"></h3><p>The following Systems Manager document joins instances to a directory in AWS Directory
-                        Service. The three runtime
-                        configuration parameters specify which directory the instance joins. You specify these
-                        parameter values when you associate the document with an instance.
-                     </p><div id="JSON" name="JSON" class="section langfilter">
-                        
-                        <h4 id="aws-resource-ssm-document-example.json">JSON</h4>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">&quot;document&quot; : {
+                     </p><h2 id="aws-resource-ssm-document--examples">Examples</h2><h3 id="aws-resource-ssm-document--examples--Join_a_managed_instance_to_a_directory_in_AWS_Directory_Service">Join a managed instance to a directory in AWS Directory Service</h3><p>The following Systems Manager document joins instances to a directory in AWS
+                        Directory Service. The three runtime configuration parameters specify which directory
+                        the instance joins. You specify these parameter values when you associate the
+                        document with an instance.
+                     </p><h4 id="aws-resource-ssm-document--examples--Join_a_managed_instance_to_a_directory_in_AWS_Directory_Service--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">&quot;document&quot; : {
   &quot;Type&quot; : &quot;AWS::SSM::Document&quot;,
   &quot;Properties&quot; : {
     &quot;Content&quot; : {
@@ -168,12 +115,7 @@ Properties:
       }
     }
   }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        
-                        <h4 id="aws-resource-ssm-document-example.yaml">YAML</h4>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">document: 
+}</code></pre><h4 id="aws-resource-ssm-document--examples--Join_a_managed_instance_to_a_directory_in_AWS_Directory_Service--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">document: 
   Type: &quot;AWS::SSM::Document&quot;
   Properties: 
     Content: 
@@ -196,16 +138,11 @@ Properties:
           properties: 
             directoryId: &quot;{{ directoryId }}&quot;
             directoryName: &quot;{{ directoryName }}&quot;
-            dnsIpAddresses: &quot;{{ dnsIpAddresses }}&quot;</code></pre>
-                        </div><h3 id="w2ab1c21c10d231c16c13b5"></h3><p>The following example shows how to associate the SSM document with an instance. The
-                        <code class="code">DocumentName</code> property specifies the SSM document and the
-                        <code class="code">AssociationParameters</code> property specifies values for the runtime configuration
-                        parameters.
-                     </p><div id="JSON" name="JSON" class="section langfilter">
-                        
-                        <h4 id="aws-resource-ssm-document-example2.json">JSON</h4>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">&quot;myEC2&quot; : {
+            dnsIpAddresses: &quot;{{ dnsIpAddresses }}&quot;</code></pre><h3 id="aws-resource-ssm-document--examples--Associate_the_Systems_Manager_document_with_an_instance">Associate the Systems Manager document with an instance</h3><p>The following example shows how to associate the SSM document with an instance.
+                        The <code class="code">DocumentName</code> property specifies the SSM document and the
+                        <code class="code">AssociationParameters</code> property specifies values for the runtime
+                        configuration parameters.
+                     </p><h4 id="aws-resource-ssm-document--examples--Associate_the_Systems_Manager_document_with_an_instance--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">&quot;myEC2&quot; : {
   &quot;Type&quot; : &quot;AWS::EC2::Instance&quot;,
   &quot;Properties&quot; : {
     &quot;ImageId&quot; : {&quot;Ref&quot; : &quot;myImageId&quot;},
@@ -226,12 +163,7 @@ Properties:
     } ],
     &quot;KeyName&quot; : {&quot;Ref&quot; : &quot;myKeyName&quot;}
   }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        
-                        <h4 id="aws-resource-ssm-document-example2.yaml">YAML</h4>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">myEC2: 
+}</code></pre><h4 id="aws-resource-ssm-document--examples--Associate_the_Systems_Manager_document_with_an_instance--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">myEC2: 
   Type: &quot;AWS::EC2::Instance&quot;
   Properties: 
     ImageId: 
@@ -266,7 +198,22 @@ Properties:
         SubnetId: 
           Ref: &quot;mySubnet&quot;
     KeyName: 
-      Ref: &quot;myKeyName&quot;</code></pre>
-                        </div></div>
+      Ref: &quot;myKeyName&quot;</code></pre><h2 id="aws-resource-ssm-document--seealso">See Also</h2><div class="itemizedlist">
+                        
+                        
+                        <ul class="itemizedlist" type="disc">
+                           <li class="listitem">
+                              
+                              <p>
+                                 <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-ssm-docs.html">AWS Systems Manager
+                                    Documents</a>
+                                 
+                              </p>
+                              
+                           </li>
+                        </ul>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
+                     </div></div>
 </body>
 </html>

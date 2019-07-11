@@ -8,174 +8,56 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-resource-emr-securityconfiguration">AWS::EMR::SecurityConfiguration</h1><p>The <code class="code">AWS::EMR::SecurityConfiguration</code> resource creates a security
-                        configuration that is stored in the Amazon EMR web service. You can specify the security
-                        configuration when creating a cluster. For more information, see <a href="https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-encryption-enable-security-configuration.html">
-                           Specifying Amazon EMR Encryption Options Using a Security Configuration</a> in the <em>Amazon EMR Release Guide</em>.
-                     </p><div class="highlights" id="inline-topiclist">
-                        <p><strong>Topics</strong></p>
-                        <ul>
-                           <li><a href="#aws-resource-emr-securityconfiguration-syntax">Syntax</a></li>
-                           <li><a href="#aws-resource-emr-securityconfiguration-properties">Properties</a></li>
-                           <li><a href="#aws-resource-emr-securityconfiguration-returnvalues">Return Values</a></li>
-                           <li><a href="#aws-resource-emr-securityconfiguration-examples">Example</a></li>
-                        </ul>
-                     </div><h2 id="aws-resource-emr-securityconfiguration-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-resource-emr-securityconfiguration-syntax.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
+    <h1 class="topictitle" id="aws-resource-emr-securityconfiguration">AWS::EMR::SecurityConfiguration</h1><p>Use a <code class="code">SecurityConfiguration</code> resource to configure data encryption, Kerberos authentication (available in Amazon
+                        EMR release version 5.10.0 and later), and Amazon S3 authorization for EMRFS (available
+                        in EMR 5.10.0 and later). You can re-use a security configuration for any number of
+                        clusters in your account. For more information and example security configuration
+                        JSON objects, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-create-security-configuration.html">Create a Security Configuration</a> in the <em>Amazon EMR Management Guide</em>.
+                     </p><h2 id="aws-resource-emr-securityconfiguration-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-resource-emr-securityconfiguration-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
   &quot;Type&quot; : &quot;AWS::EMR::SecurityConfiguration&quot;,
   &quot;Properties&quot; : {
-    &quot;<a href="aws-resource-emr-securityconfiguration.html#cfn-emr-securityconfiguration-name">Name</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-emr-securityconfiguration.html#cfn-emr-securityconfiguration-securityconfiguration">SecurityConfiguration</a>&quot; : <em class="replaceable"><code>String</code></em>
-  }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-resource-emr-securityconfiguration-syntax.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">Type: AWS::EMR::SecurityConfiguration
+      &quot;<a href="#cfn-emr-securityconfiguration-name">Name</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-emr-securityconfiguration-securityconfiguration">SecurityConfiguration</a>&quot; : <em class="replaceable"><code>Json</code></em>
+    }
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-emr-securityconfiguration-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Type: AWS::EMR::SecurityConfiguration
 Properties: 
-  <a href="aws-resource-emr-securityconfiguration.html#cfn-emr-securityconfiguration-name">Name</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-emr-securityconfiguration.html#cfn-emr-securityconfiguration-securityconfiguration">SecurityConfiguration</a>: <em class="replaceable"><code>String</code></em>
-</code></pre>
-                        </div><h2 id="aws-resource-emr-securityconfiguration-properties">Properties</h2><p>For more information about each property, including constraints and valid values,
-                        see <a href="https://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_CreateSecurityConfiguration.html">CreateSecurityConfiguration</a> in the <em>Amazon EMR API Reference</em>.
-                     </p><div class="variablelist">
-                        
-                        
-                        
+  <a href="#cfn-emr-securityconfiguration-name">Name</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-emr-securityconfiguration-securityconfiguration">SecurityConfiguration</a>: <em class="replaceable"><code>Json</code></em>
+</code></pre></div><h2 id="aws-resource-emr-securityconfiguration-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
                            <dt><a id="cfn-emr-securityconfiguration-name"></a><span class="term"><code class="code">Name</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The name of the security configuration. For a list of valid parameters for
-                                 encryption settings, see <a href="https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-encryption-enable-security-configuration.html#emr-encryption-cli-parameters"> AWS CLI Security Configuration JSON Reference</a> in the <em>Amazon EMR Release
-                                    Guide</em>.
-                              </p>
+                              <p>The name of the security configuration.</p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Minimum</em>: <code class="code">0</code></p>
+                              <p><em>Maximum</em>: <code class="code">10280</code></p>
+                              <p><em>Pattern</em>: <code class="code">[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*</code></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-emr-securityconfiguration-securityconfiguration"></a><span class="term"><code class="code">SecurityConfiguration</code></span></dt>
-                           
                            <dd>
                               
                               <p>The security configuration details in JSON format.</p>
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
-                              <p><em>Type</em>: String
+                              <p><em>Type</em>: Json
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
                         </dl>
-                     </div><h2 id="aws-resource-emr-securityconfiguration-returnvalues">Return Values</h2><h3 id="aws-resource-emr-securityconfiguration-ref">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code>
-                        intrinsic function, <code class="code">Ref</code> returns the security configuration name, such as
-                        <code class="code">mySecurityConfiguration</code>.
+                     </div><h2 id="aws-resource-emr-securityconfiguration-return-values">Return Values</h2><h3 id="aws-resource-emr-securityconfiguration-return-values-ref">Ref</h3><p>When you pass the logical ID of this resource to the intrinsic <code class="code">Ref</code> function, <code class="code">Ref</code> returns returns the security configuration name, such as <code class="code">mySecurityConfiguration</code>.
                      </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                     </p><h2 id="aws-resource-emr-securityconfiguration-examples">Example</h2><h3 id="aws-resource-emr-securityconfiguration-example1"></h3><p>The following example enables both in-transit data encryption and local disk encryption,
-                        as well as specifying Kerberos attributes. For additional encryption configuration
-                        examples,
-                        see <a href="https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-encryption-enable-security-configuration.html#emr-encryption-cli"> Creating a Security Configuration Using the AWS CLI</a> in the <em>Amazon EMR
-                           Release Guide</em>.
-                     </p><div id="JSON" name="JSON" class="section langfilter">
-                        <h4 id="aws-resource-emr-securityconfiguration-example1.json">JSON</h4>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">{
-    &quot;AWSTemplateFormatVersion&quot;: &quot;2010-09-09&quot;,
-    &quot;Resources&quot;: {
-        &quot;securityConfiguration&quot;: {
-            &quot;Type&quot;: &quot;AWS::EMR::SecurityConfiguration&quot;,
-            &quot;Properties&quot;: {
-                &quot;SecurityConfiguration&quot;: {
-                    &quot;EncryptionConfiguration&quot;: {
-                        &quot;EnableInTransitEncryption&quot;: true,
-                        &quot;EnableAtRestEncryption&quot;: true,
-                        &quot;InTransitEncryptionConfiguration&quot;: {
-                            &quot;TLSCertificateConfiguration&quot;: {
-                                &quot;CertificateProviderType&quot;: &quot;PEM&quot;,
-                                &quot;S3Object&quot;: &quot;arn:aws:s3:::MyConfigStore/artifacts/MyCerts.zip&quot;
-                            }
-                        },
-                        &quot;AtRestEncryptionConfiguration&quot;: {
-                            &quot;S3EncryptionConfiguration&quot;: {
-                                &quot;EncryptionMode&quot;: &quot;SSE-KMS&quot;,
-                                &quot;AwsKmsKey&quot;: &quot;arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012&quot;
-                            },
-                            &quot;LocalDiskEncryptionConfiguration&quot;: {
-                                &quot;EncryptionKeyProviderType&quot;: &quot;AwsKms&quot;,
-                                &quot;AwsKmsKey&quot;: &quot;arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012&quot;
-                            }
-                        }
-                    },
-                    &quot;AuthenticationConfiguration&quot;: {
-                        &quot;KerberosConfiguration&quot;: {
-                            &quot;Provider&quot;: &quot;ClusterDedicatedKdc&quot;,
-                            &quot;ClusterDedicatedKdcConfiguration&quot;: {
-                                &quot;TicketLifetimeInHours&quot;: 24,
-                                &quot;CrossRealmTrustConfiguration&quot;: {
-                                    &quot;Realm&quot;: &quot;AD.DOMAIN.COM&quot;,
-                                    &quot;Domain&quot;: &quot;ad.domain.com&quot;,
-                                    &quot;AdminServer&quot;: &quot;ad.domain.com&quot;,
-                                    &quot;KdcServer&quot;: &quot;ad.domain.com&quot;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h4 id="aws-resource-emr-securityconfiguration-example1.yaml">YAML</h4>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">AWSTemplateFormatVersion: 2010-09-09
-Resources:
-  securityConfiguration:
-    Type: AWS::EMR::SecurityConfiguration
-    Properties:
-      SecurityConfiguration:
-        EncryptionConfiguration:
-          EnableInTransitEncryption: true
-          EnableAtRestEncryption: true
-          InTransitEncryptionConfiguration:
-            TLSCertificateConfiguration:
-              CertificateProviderType: PEM
-              S3Object: &apos;arn:aws:s3:::MyConfigStore/artifacts/MyCerts.zip&apos;
-          AtRestEncryptionConfiguration:
-            S3EncryptionConfiguration:
-              EncryptionMode: SSE-KMS
-              AwsKmsKey: &gt;-
-                arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012
-            LocalDiskEncryptionConfiguration:
-              EncryptionKeyProviderType: AwsKms
-              AwsKmsKey: &gt;-
-                arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012
-        AuthenticationConfiguration:
-          KerberosConfiguration:
-            Provider: ClusterDedicatedKdc
-            ClusterDedicatedKdcConfiguration:
-              TicketLifetimeInHours: 24
-              CrossRealmTrustConfiguration:
-                Realm: AD.DOMAIN.COM
-                Domain: ad.domain.com
-                AdminServer: ad.domain.com
-                KdcServer: ad.domain.com</code></pre>
-                        </div></div>
+                     </p><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
+                     </div></div>
 </body>
 </html>

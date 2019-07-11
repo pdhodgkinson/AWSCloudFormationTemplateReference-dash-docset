@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="css/awsdocs.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/awsdocs.min.js"></script>
+    <meta charset="utf-8">
+</head>
+<body>
+    <div id="content" style="padding: 10px 30px;">
+    <h1 class="topictitle" id="aws-resource-wafregional-ratebasedrule">AWS::WAFRegional::RateBasedRule</h1><p>A <code class="code">RateBasedRule</code> is identical to a regular <code class="code">Rule</code>, with
+                        one addition: a <code class="code">RateBasedRule</code> counts the number of requests that arrive from a
+                        specified IP address every five minutes. For example, based on recent requests that
+                        you&apos;ve
+                        seen from an attacker, you might create a <code class="code">RateBasedRule</code> that includes the
+                        following conditions: 
+                     </p><div class="itemizedlist">
+                        
+                        
+                        
+                        <ul class="itemizedlist" type="disc">
+                           <li class="listitem">
+                              
+                              <p>The requests come from 192.0.2.44.</p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p>They contain the value <code class="code">BadBot</code> in the <code class="code">User-Agent</code>
+                                 header.
+                              </p>
+                              
+                           </li>
+                        </ul>
+                     </div><p>In the rule, you also define the rate limit as 15,000.</p><p>Requests that meet both of these conditions and exceed 15,000 requests every five
+                        minutes trigger the rule&apos;s action (block or count), which is defined in the web
+                        ACL.
+                     </p><p>Note you can only create rate-based rules using a CloudFormation template. To add
+                        the rate-based rules created through CloudFormation to a web ACL, use the AWS WAF
+                        console, API, or command line interface (CLI). For more information, see <a href="https://docs.aws.amazon.com/waf/latest/APIReference/API_regional_UpdateWebACL.html">UpdateWebACL</a>.
+                     </p><h2 id="aws-resource-wafregional-ratebasedrule-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-resource-wafregional-ratebasedrule-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;Type&quot; : &quot;AWS::WAFRegional::RateBasedRule&quot;,
+  &quot;Properties&quot; : {
+      &quot;<a href="#cfn-wafregional-ratebasedrule-matchpredicates">MatchPredicates</a>&quot; : <em class="replaceable"><code>[ <a href="aws-properties-wafregional-ratebasedrule-predicate.html">Predicate</a>, ... ]</code></em>,
+      &quot;<a href="#cfn-wafregional-ratebasedrule-metricname">MetricName</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-wafregional-ratebasedrule-name">Name</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-wafregional-ratebasedrule-ratekey">RateKey</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-wafregional-ratebasedrule-ratelimit">RateLimit</a>&quot; : <em class="replaceable"><code>Integer</code></em>
+    }
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-wafregional-ratebasedrule-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Type: AWS::WAFRegional::RateBasedRule
+Properties: 
+  <a href="#cfn-wafregional-ratebasedrule-matchpredicates">MatchPredicates</a>: <em class="replaceable"><code>
+    - <a href="aws-properties-wafregional-ratebasedrule-predicate.html">Predicate</a></code></em>
+  <a href="#cfn-wafregional-ratebasedrule-metricname">MetricName</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-wafregional-ratebasedrule-name">Name</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-wafregional-ratebasedrule-ratekey">RateKey</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-wafregional-ratebasedrule-ratelimit">RateLimit</a>: <em class="replaceable"><code>Integer</code></em>
+</code></pre></div><h2 id="aws-resource-wafregional-ratebasedrule-properties">Properties</h2><div class="variablelist">
+                        <dl>
+                           <dt><a id="cfn-wafregional-ratebasedrule-matchpredicates"></a><span class="term"><code class="code">MatchPredicates</code></span></dt>
+                           <dd>
+                              
+                              <p>The <code class="code">Predicates</code> object contains one <code class="code">Predicate</code> element for
+                                 each <code class="code">ByteMatchSet</code>, <code class="code">IPSet</code>, or <code class="code">SqlInjectionMatchSet&gt;</code> object that you want to include in a
+                                 <code class="code">RateBasedRule</code>.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              <p><em>Type</em>: List of <a href="aws-properties-wafregional-ratebasedrule-predicate.html">Predicate</a></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                           </dd>
+                           <dt><a id="cfn-wafregional-ratebasedrule-metricname"></a><span class="term"><code class="code">MetricName</code></span></dt>
+                           <dd>
+                              
+                              <p>A friendly name or description for the metrics for a <code class="code">RateBasedRule</code>. The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum
+                                 length 128 and minimum length one. It can&apos;t contain
+                                 whitespace or metric names reserved for AWS WAF, including &quot;All&quot; and &quot;Default_Action.&quot;
+                                 You can&apos;t change the name of the metric after you create the
+                                 <code class="code">RateBasedRule</code>.
+                              </p>
+                              
+                              <p><em>Required</em>: Yes
+                              </p>
+                              <p><em>Type</em>: String
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                           </dd>
+                           <dt><a id="cfn-wafregional-ratebasedrule-name"></a><span class="term"><code class="code">Name</code></span></dt>
+                           <dd>
+                              
+                              
+                              <p>A friendly name or description for a <code class="code">RateBasedRule</code>. You can&apos;t change the
+                                 name of a <code class="code">RateBasedRule</code> after you create it.
+                              </p>
+                              
+                              
+                              <p><em>Required</em>: Yes
+                              </p>
+                              <p><em>Type</em>: String
+                              </p>
+                              <p><em>Minimum</em>: <code class="code">1</code></p>
+                              <p><em>Maximum</em>: <code class="code">128</code></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                           </dd>
+                           <dt><a id="cfn-wafregional-ratebasedrule-ratekey"></a><span class="term"><code class="code">RateKey</code></span></dt>
+                           <dd>
+                              
+                              <p>The field that AWS WAF uses to determine if requests are likely arriving from single
+                                 source and thus subject to rate monitoring. The only valid value for <code class="code">RateKey</code>
+                                 is <code class="code">IP</code>. <code class="code">IP</code> indicates that requests arriving from the same IP
+                                 address are subject to the <code class="code">RateLimit</code> that is specified in the
+                                 <code class="code">RateBasedRule</code>.
+                              </p>
+                              
+                              <p><em>Required</em>: Yes
+                              </p>
+                              <p><em>Type</em>: String
+                              </p>
+                              <p><em>Allowed Values</em>: <code class="code">IP</code></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                           </dd>
+                           <dt><a id="cfn-wafregional-ratebasedrule-ratelimit"></a><span class="term"><code class="code">RateLimit</code></span></dt>
+                           <dd>
+                              
+                              <p>The maximum number of requests, which have an identical value in the field specified
+                                 by the <code class="code">RateKey</code>, allowed in a five-minute period. If the number of requests
+                                 exceeds the <code class="code">RateLimit</code> and the other predicates specified in the rule are also
+                                 met, AWS WAF triggers the action that is specified for this rule.
+                              </p>
+                              
+                              <p><em>Required</em>: Yes
+                              </p>
+                              <p><em>Type</em>: Integer
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                           </dd>
+                        </dl>
+                     </div><h2 id="aws-resource-wafregional-ratebasedrule-return-values">Return Values</h2><h3 id="aws-resource-wafregional-ratebasedrule-return-values-ref">Ref</h3><p>
+                        When you pass the logical ID of this resource to the intrinsic <code class="code">Ref</code> function, <code class="code">Ref</code> returns the resource physical ID, such as 1234a1a-a1b1-12a1-abcd-a123b123456.
+                     </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
+                     </p><h2 id="aws-resource-wafregional-ratebasedrule--examples">Examples</h2><h3 id="aws-resource-wafregional-ratebasedrule--examples--Associate_an_IPSet_with_a_Rate-Based_Rule">Associate an IPSet with a Rate-Based Rule</h3><p>The following example associates the <code class="code">MyIPSetBlacklist</code>
+                        <code class="code">IPSet</code> object with a rate-based rule.
+                     </p><h4 id="aws-resource-wafregional-ratebasedrule--examples--Associate_an_IPSet_with_a_Rate-Based_Rule--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">&quot;MyIPSetRateBasedRule&quot; : {
+  &quot;Type&quot;: &quot;AWS::WAFRegional::RateBasedRule&quot;,
+  &quot;Properties&quot;: {
+    &quot;Name&quot;: &quot;MyIPSetRateBasedRule&quot;,
+    &quot;MetricName&quot; : &quot;MyIPSetRateBasedRule&quot;,
+    &quot;RateKey&quot; : &quot;IP&quot;,
+    &quot;RateLimit&quot; : 8000
+    &quot;MatchPredicates&quot;: [
+      {
+        &quot;DataId&quot; : {  &quot;Ref&quot; : &quot;MyIPSetBlacklist&quot; },
+        &quot;Negated&quot; : false,
+        &quot;Type&quot; : &quot;IPMatch&quot;
+      }
+    ]
+  }      
+}</code></pre><h4 id="aws-resource-wafregional-ratebasedrule--examples--Associate_an_IPSet_with_a_Rate-Based_Rule--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">MyIPSetRateBasedRule: 
+  Type: &quot;AWS::WAFRegional::RateBasedRule&quot;
+  Properties: 
+    Name: &quot;MyIPSetRateBasedRule&quot;
+    MetricName: &quot;MyIPSetRateBasedRule&quot;
+    RateKey : &quot;IP&quot;
+    RateLimit : 8000
+    Predicates: 
+      - 
+        DataId: 
+          Ref: &quot;MyIPSetBlacklist&quot;
+        Negated: false
+        Type: &quot;IPMatch&quot;</code></pre><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
+                     </div></div>
+</body>
+</html>

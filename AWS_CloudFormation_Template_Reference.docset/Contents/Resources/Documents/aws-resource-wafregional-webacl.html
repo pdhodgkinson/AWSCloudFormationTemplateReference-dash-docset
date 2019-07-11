@@ -8,123 +8,96 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-resource-wafregional-webacl">AWS::WAFRegional::WebACL</h1><p>The <code class="code">AWS::WAFRegional::WebACL</code> resource creates an AWS WAF Regional web access control group
-                        (ACL) containing the rules that identify the Amazon CloudFront (CloudFront) web requests
-                        that you want to
-                        allow, block, or count. For more information, see <a href="https://docs.aws.amazon.com/waf/latest/APIReference/API_regional_CreateWebACL.html">CreateWebACL</a> in the
-                        <em>AWS WAF Regional API Reference</em>.
+    <h1 class="topictitle" id="aws-resource-wafregional-webacl">AWS::WAFRegional::WebACL</h1><p>Contains the <code class="code">Rules</code> that identify the requests that you want to allow, block, or count. In a <code class="code">WebACL</code>, you also specify a 
+                        default action (<code class="code">ALLOW</code> or <code class="code">BLOCK</code>), and the action for each <code class="code">Rule</code> that you add to a 
+                        <code class="code">WebACL</code>, for example, block requests from specified IP addresses or block requests from specified
+                        referrers. 
+                        You also associate the <code class="code">WebACL</code> with a CloudFront distribution to identify the requests that you want AWS WAF to
+                        filter. 
+                        If you add more than one <code class="code">Rule</code> to a <code class="code">WebACL</code>, a request needs to match only one of the specifications 
+                        to be allowed, blocked, or counted.
                      </p><h2 id="aws-resource-wafregional-webacl-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-resource-wafregional-webacl-syntax.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
+                        <h3 id="aws-resource-wafregional-webacl-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
   &quot;Type&quot; : &quot;AWS::WAFRegional::WebACL&quot;,
   &quot;Properties&quot; : {
-    &quot;<a href="aws-resource-wafregional-webacl.html#cfn-wafregional-webacl-defaultaction">DefaultAction</a>&quot; : <em class="replaceable"><code>Action</code></em>,
-    &quot;<a href="aws-resource-wafregional-webacl.html#cfn-wafregional-webacl-metricname">MetricName</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-wafregional-webacl.html#cfn-wafregional-webacl-name">Name</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-wafregional-webacl.html#cfn-wafregional-webacl-rules">Rules</a>&quot; : [ <em class="replaceable"><code>Rule, ...</code></em> ]
-  }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-resource-wafregional-webacl-syntax.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">Type: &quot;AWS::WAFRegional::WebACL&quot;
+      &quot;<a href="#cfn-wafregional-webacl-defaultaction">DefaultAction</a>&quot; : <em class="replaceable"><code><a href="aws-properties-wafregional-webacl-action.html">Action</a></code></em>,
+      &quot;<a href="#cfn-wafregional-webacl-metricname">MetricName</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-wafregional-webacl-name">Name</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-wafregional-webacl-rules">Rules</a>&quot; : <em class="replaceable"><code>[ <a href="aws-properties-wafregional-webacl-rule.html">Rule</a>, ... ]</code></em>
+    }
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-wafregional-webacl-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Type: AWS::WAFRegional::WebACL
 Properties: 
-  <a href="aws-resource-wafregional-webacl.html#cfn-wafregional-webacl-defaultaction">DefaultAction</a>:
-    <em class="replaceable"><code>Action</code></em>
-  <a href="aws-resource-wafregional-webacl.html#cfn-wafregional-webacl-metricname">MetricName</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-wafregional-webacl.html#cfn-wafregional-webacl-name">Name</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-wafregional-webacl.html#cfn-wafregional-webacl-rules">Rules</a>:
-    - <em class="replaceable"><code>Rule</code></em></code></pre>
-                        </div><h2 id="w2ab1c21c10d237c33b7">Properties</h2><div class="variablelist">
-                        
-                        
-                        
-                        
-                        
+  <a href="#cfn-wafregional-webacl-defaultaction">DefaultAction</a>: <em class="replaceable"><code>
+    <a href="aws-properties-wafregional-webacl-action.html">Action</a></code></em>
+  <a href="#cfn-wafregional-webacl-metricname">MetricName</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-wafregional-webacl-name">Name</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-wafregional-webacl-rules">Rules</a>: <em class="replaceable"><code>
+    - <a href="aws-properties-wafregional-webacl-rule.html">Rule</a></code></em>
+</code></pre></div><h2 id="aws-resource-wafregional-webacl-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
                            <dt><a id="cfn-wafregional-webacl-defaultaction"></a><span class="term"><code class="code">DefaultAction</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The action that you want AWS WAF to take when a request doesn&apos;t match the
-                                 criteria in any of the rules that are associated with the web ACL.
+                              <p>The action to perform if none of the <code class="code">Rules</code> contained in the <code class="code">WebACL</code> match. The action is specified by the 
+                                 <code class="code">WafAction</code> object.
                               </p>
-                              
+                              	     
                               <p><em>Required</em>: Yes
                               </p>
-                              
-                              <p><em>Type</em>: <a href="aws-properties-wafregional-webacl-action.html">AWS WAF Regional WebACL Action</a></p>
-                              
+                              <p><em>Type</em>: <a href="aws-properties-wafregional-webacl-action.html">Action</a></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-wafregional-webacl-metricname"></a><span class="term"><code class="code">MetricName</code></span></dt>
-                           
                            <dd>
                               
-                              <p>A friendly name or description for the Amazon CloudWatch metric of this web ACL. For
-                                 valid values, see the <code class="code">MetricName</code> parameter of the <a href="https://docs.aws.amazon.com/waf/latest/APIReference/API_regional_CreateWebACL.html">CreateWebACL</a> action in the <em>AWS WAF Regional API Reference</em>.
+                              <p>A friendly name or description for the metrics for this <code class="code">WebACL</code>. The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum
+                                 length 128 and minimum length one. It can&apos;t contain
+                                 whitespace or metric names reserved for AWS WAF, including &quot;All&quot; and &quot;Default_Action.&quot;
+                                 You can&apos;t change <code class="code">MetricName</code> after you create the <code class="code">WebACL</code>.
                               </p>
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-wafregional-webacl-name"></a><span class="term"><code class="code">Name</code></span></dt>
-                           
                            <dd>
-                              
-                              <p>A friendly name or description of the web ACL.</p>
-                              
+                              		       
+                              <p>A friendly name or description of the <code class="code">WebACL</code>. You can&apos;t change the name of a <code class="code">WebACL</code> after you create it.
+                              </p>	
+                              	     
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Minimum</em>: <code class="code">1</code></p>
+                              <p><em>Maximum</em>: <code class="code">128</code></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-wafregional-webacl-rules"></a><span class="term"><code class="code">Rules</code></span></dt>
-                           
                            <dd>
-                              
-                              <p>The rules to associate with the web ACL and the settings for each rule.</p>
-                              
+                              		       
+                              <p>An array that contains the action for each <code class="code">Rule</code> in a <code class="code">WebACL</code>, the priority of the <code class="code">Rule</code>, 
+                                 			and the ID of the <code class="code">Rule</code>.
+                              </p>
+                              	     
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: List of <a href="aws-properties-wafregional-webacl-rules.html">AWS WAF Regional WebACL Rules</a></p>
-                              
+                              <p><em>Type</em>: List of <a href="aws-properties-wafregional-webacl-rule.html">Rule</a></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
                         </dl>
-                     </div><h2 id="w2ab1c21c10d237c33b9">Return Values</h2><h3 id="w2ab1c21c10d237c33b9b2">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code>
-                        intrinsic function, <code class="code">Ref</code> returns the resource name, such as
-                        <code class="code">1234a1a-a1b1-12a1-abcd-a123b123456</code>.
+                     </div><h2 id="aws-resource-wafregional-webacl-return-values">Return Values</h2><h3 id="aws-resource-wafregional-webacl-return-values-ref">Ref</h3><p>
+                        When you pass the logical ID of this resource to the intrinsic <code class="code">Ref</code> function, <code class="code">Ref</code> returns the resource name, such as 1234a1a-a1b1-12a1-abcd-a123b123456.
                      </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                     </p><h2 id="w2ab1c21c10d237c33c11">Examples</h2><h3 id="w2ab1c21c10d237c33c11b2">Create a Web ACL</h3><p>The following example defines a web ACL that allows, by default, any web request.
+                     </p><h2 id="aws-resource-wafregional-webacl--examples">Examples</h2><h3 id="aws-resource-wafregional-webacl--examples--Create_a_Web_ACL">Create a Web ACL</h3><p>The following example defines a web ACL that allows, by default, any web request.
                         However, if the request matches any rule, AWS WAF blocks the request. AWS WAF evaluates
                         each rule in priority order, starting with the lowest value.
-                     </p><div id="JSON" name="JSON" class="section langfilter">
-                        <h4 id="aws-resource-wafregional-webacl-example1.json">JSON</h4>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">&quot;MyWebACL&quot;: {
+                     </p><h4 id="aws-resource-wafregional-webacl--examples--Create_a_Web_ACL--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">&quot;MyWebACL&quot;: {
   &quot;Type&quot;: &quot;AWS::WAFRegional::WebACL&quot;,
   &quot;Properties&quot;: {
     &quot;Name&quot;: &quot;WebACL to with three rules&quot;,
@@ -156,11 +129,7 @@ Properties:
       }
     ]
   }      
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h4 id="aws-resource-wafregional-webacl-example1.yaml">YAML</h4>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">MyWebACL: 
+}</code></pre><h4 id="aws-resource-wafregional-webacl--examples--Create_a_Web_ACL--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">MyWebACL: 
   Type: &quot;AWS::WAFRegional::WebACL&quot;
   Properties: 
     Name: &quot;WebACL to with three rules&quot;
@@ -185,7 +154,95 @@ Properties:
           Type: &quot;BLOCK&quot;
         Priority: 3
         RuleId: 
-          Ref: &quot;SqlInjRule&quot;</code></pre>
-                        </div></div>
+          Ref: &quot;SqlInjRule&quot;</code></pre><h3 id="aws-resource-wafregional-webacl--examples--Associate_a_Web_ACL_with_a_CloudFront_Distribution">Associate a Web ACL with a CloudFront Distribution</h3><p>The follow example associates the <code class="code">MyWebACL</code> web ACL with a CloudFront distribution.
+                        The web ACL restricts which requests can access content served by CloudFront.
+                     </p><h4 id="aws-resource-wafregional-webacl--examples--Associate_a_Web_ACL_with_a_CloudFront_Distribution--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">&quot;myDistribution&quot;: {
+  &quot;Type&quot;: &quot;AWS::CloudFront::Distribution&quot;,
+  &quot;Properties&quot;: {
+    &quot;DistributionConfig&quot;: {    
+      &quot;WebACLId&quot;: { &quot;Ref&quot; : &quot;MyWebACL&quot; },
+      &quot;Origins&quot;: [
+        {
+          &quot;DomainName&quot;: &quot;test.example.com&quot;,
+          &quot;Id&quot;: &quot;myCustomOrigin&quot;,
+          &quot;CustomOriginConfig&quot;: {
+            &quot;HTTPPort&quot;: &quot;80&quot;,
+            &quot;HTTPSPort&quot;: &quot;443&quot;,
+            &quot;OriginProtocolPolicy&quot;: &quot;http-only&quot;
+          }
+        }
+      ],
+      &quot;Enabled&quot;: &quot;true&quot;,
+      &quot;Comment&quot;: &quot;TestDistribution&quot;,
+      &quot;DefaultRootObject&quot;: &quot;index.html&quot;,
+      &quot;DefaultCacheBehavior&quot;: {
+        &quot;TargetOriginId&quot;: &quot;myCustomOrigin&quot;,
+        &quot;SmoothStreaming&quot; : &quot;false&quot;,
+        &quot;ForwardedValues&quot;: {
+          &quot;QueryString&quot;: &quot;false&quot;,
+          &quot;Cookies&quot; : { &quot;Forward&quot; : &quot;all&quot; }
+        },
+        &quot;ViewerProtocolPolicy&quot;: &quot;allow-all&quot;
+      },
+      &quot;CustomErrorResponses&quot; : [
+        {
+          &quot;ErrorCode&quot; : &quot;404&quot;,
+          &quot;ResponsePagePath&quot; : &quot;/error-pages/404.html&quot;,
+          &quot;ResponseCode&quot; : &quot;200&quot;,
+          &quot;ErrorCachingMinTTL&quot; : &quot;30&quot;
+        }
+      ],
+      &quot;PriceClass&quot; : &quot;PriceClass_200&quot;,
+      &quot;Restrictions&quot; : {
+        &quot;GeoRestriction&quot; : {
+          &quot;RestrictionType&quot; : &quot;whitelist&quot;,
+          &quot;Locations&quot; : [ &quot;AQ&quot;, &quot;CV&quot; ]
+        }
+      },
+      &quot;ViewerCertificate&quot; : { &quot;CloudFrontDefaultCertificate&quot; : &quot;true&quot; }
+    }
+  }
+}</code></pre><h4 id="aws-resource-wafregional-webacl--examples--Associate_a_Web_ACL_with_a_CloudFront_Distribution--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">myDistribution: 
+  Type: &quot;AWS::CloudFront::Distribution&quot;
+  Properties: 
+    DistributionConfig: 
+      WebACLId: 
+        Ref: &quot;MyWebACL&quot;
+      Origins: 
+        - 
+          DomainName: &quot;test.example.com&quot;
+          Id: &quot;myCustomOrigin&quot;
+          CustomOriginConfig: 
+            HTTPPort: &quot;80&quot;
+            HTTPSPort: &quot;443&quot;
+            OriginProtocolPolicy: &quot;http-only&quot;
+      Enabled: &quot;true&quot;
+      Comment: &quot;TestDistribution&quot;
+      DefaultRootObject: &quot;index.html&quot;
+      DefaultCacheBehavior: 
+        TargetOriginId: &quot;myCustomOrigin&quot;
+        SmoothStreaming: &quot;false&quot;
+        ForwardedValues: 
+          QueryString: &quot;false&quot;
+          Cookies: 
+            Forward: &quot;all&quot;
+        ViewerProtocolPolicy: &quot;allow-all&quot;
+      CustomErrorResponses: 
+        - 
+          ErrorCode: &quot;404&quot;
+          ResponsePagePath: &quot;/error-pages/404.html&quot;
+          ResponseCode: &quot;200&quot;
+          ErrorCachingMinTTL: &quot;30&quot;
+      PriceClass: &quot;PriceClass_200&quot;
+      Restrictions: 
+        GeoRestriction: 
+          RestrictionType: &quot;whitelist&quot;
+          Locations: 
+            - &quot;AQ&quot;
+            - &quot;CV&quot;
+      ViewerCertificate: 
+      CloudFrontDefaultCertificate: &quot;true&quot;</code></pre><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
+                     </div></div>
 </body>
 </html>

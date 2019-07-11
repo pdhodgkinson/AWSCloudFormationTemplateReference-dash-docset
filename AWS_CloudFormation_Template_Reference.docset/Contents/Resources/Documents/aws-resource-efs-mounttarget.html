@@ -8,194 +8,113 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-resource-efs-mounttarget">AWS::EFS::MountTarget</h1><p>The <code class="code">AWS::EFS::MountTarget</code> resource creates a mount target for an Amazon Elastic File System
-                        (Amazon EFS) file system (<a href="aws-resource-efs-filesystem.html">AWS::EFS::FileSystem</a>). Use the mount target to mount file systems
-                        on Amazon Elastic Compute Cloud (Amazon EC2) instances.
-                     </p><p>For more information on creating a mount target for a file system, see <a href="https://docs.aws.amazon.com/efs/latest/ug/API_CreateMountTarget.html">CreateMountTarget</a> in the
-                        <em>Amazon Elastic File System User Guide</em>. For a detailed overview of deploying EC2 instances
-                        associated with an Amazon EFS file system, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-efs.html">Amazon Elastic File System Sample Template</a>.
-                     </p><div class="aws-note">
-                        <p class="aws-note">Note</p>
-                        <p>EC2 instances and the mount target that they connect to must be in a VPC with DNS
-                           enabled.
-                        </p>
-                     </div><div class="highlights" id="inline-topiclist">
-                        <p><strong>Topics</strong></p>
-                        <ul>
-                           <li><a href="#aws-resource-efs-mounttarget-syntax">Syntax</a></li>
-                           <li><a href="#w2ab1c21c10d120c17c13">Properties</a></li>
-                           <li><a href="#w2ab1c21c10d120c17c15">Return Values</a></li>
-                           <li><a href="#w2ab1c21c10d120c17c17">Template Example</a></li>
-                           <li><a href="#w2ab1c21c10d120c17c19">Additional Resources</a></li>
-                        </ul>
-                     </div><h2 id="aws-resource-efs-mounttarget-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-resource-efs-mounttarget-syntax.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
+    <h1 class="topictitle" id="aws-resource-efs-mounttarget">AWS::EFS::MountTarget</h1><p>The <code class="code">AWS::EFS::MountTarget</code> resource is an Amazon EFS resource that creates a mount target for an EFS
+                        file system. You can then mount the file system on Amazon EC2 instances or other resources
+                        by using the mount target.
+                     </p><h2 id="aws-resource-efs-mounttarget-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-resource-efs-mounttarget-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
   &quot;Type&quot; : &quot;AWS::EFS::MountTarget&quot;,
   &quot;Properties&quot; : {
-    &quot;<a href="aws-resource-efs-mounttarget.html#cfn-efs-mounttarget-filesystemid">FileSystemId</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-efs-mounttarget.html#cfn-efs-mounttarget-ipaddress">IpAddress</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-efs-mounttarget.html#cfn-efs-mounttarget-securitygroups">SecurityGroups</a>&quot; : [ <em class="replaceable"><code>String, ...</code></em> ],
-    &quot;<a href="aws-resource-efs-mounttarget.html#cfn-efs-mounttarget-subnetid">SubnetId</a>&quot; : <em class="replaceable"><code>String</code></em>
-  }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-resource-efs-mounttarget-syntax.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">Type: AWS::EFS::MountTarget
-Properties:
-  <a href="aws-resource-efs-mounttarget.html#cfn-efs-mounttarget-filesystemid">FileSystemId</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-efs-mounttarget.html#cfn-efs-mounttarget-ipaddress">IpAddress</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-efs-mounttarget.html#cfn-efs-mounttarget-securitygroups">SecurityGroups</a>:
-    [ <em class="replaceable"><code>String, ...</code></em> ]
-  <a href="aws-resource-efs-mounttarget.html#cfn-efs-mounttarget-subnetid">SubnetId</a>: <em class="replaceable"><code>String</code></em>
-</code></pre>
-                        </div><h2 id="w2ab1c21c10d120c17c13">Properties</h2><div class="variablelist">
-                        
-                        
-                        
-                        
-                        
+      &quot;<a href="#cfn-efs-mounttarget-filesystemid">FileSystemId</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-efs-mounttarget-ipaddress">IpAddress</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-efs-mounttarget-securitygroups">SecurityGroups</a>&quot; : <em class="replaceable"><code>[ String, ... ]</code></em>,
+      &quot;<a href="#cfn-efs-mounttarget-subnetid">SubnetId</a>&quot; : <em class="replaceable"><code>String</code></em>
+    }
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-efs-mounttarget-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Type: AWS::EFS::MountTarget
+Properties: 
+  <a href="#cfn-efs-mounttarget-filesystemid">FileSystemId</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-efs-mounttarget-ipaddress">IpAddress</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-efs-mounttarget-securitygroups">SecurityGroups</a>: <em class="replaceable"><code>
+    - String</code></em>
+  <a href="#cfn-efs-mounttarget-subnetid">SubnetId</a>: <em class="replaceable"><code>String</code></em>
+</code></pre></div><h2 id="aws-resource-efs-mounttarget-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
                            <dt><a id="cfn-efs-mounttarget-filesystemid"></a><span class="term"><code class="code">FileSystemId</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The ID of the file system for which you want to create the mount target.</p>
+                              <p>The ID of the file system for which to create the mount target.</p>
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
-                              <p>Before updating this property, stop EC2 instances that are using this mount
-                                 target, and then restart them after the update is complete. This allows the
-                                 instances to unmount the file system before the mount target is replaced. If you
-                                 don&apos;t stop and restart them, instances or applications that are using those mounts
-                                 might be disrupted when the mount target is deleted (uncommitted writes might be
-                                 lost).
-                              </p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-efs-mounttarget-ipaddress"></a><span class="term"><code class="code">IpAddress</code></span></dt>
-                           
                            <dd>
                               
-                              <p>An IPv4 address that is within the address range of the subnet that is
-                                 specified in the <code class="code">SubnetId</code> property. If you don&apos;t specify an IP
-                                 address, Amazon EFS automatically assigns an address that is within the range of the
-                                 subnet.
-                              </p>
+                              <p>Valid IPv4 address within the address range of the specified subnet.</p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
-                              <p>Before updating this property, stop EC2 instances that are using this mount
-                                 target, and then restart them after the update is complete. This allows the
-                                 instances to unmount the file system before the mount target is replaced. If you
-                                 don&apos;t stop and restart them, instances or applications that are using those mounts
-                                 might be disrupted when the mount target is deleted (uncommitted writes might be
-                                 lost).
-                              </p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-efs-mounttarget-securitygroups"></a><span class="term"><code class="code">SecurityGroups</code></span></dt>
-                           
                            <dd>
                               
-                              <p>A maximum of five VPC security group IDs that are in the same VPC as the subnet
-                                 that is specified in the <code class="code">SubnetId</code> property. For more information
-                                 about security groups and mount targets, see <a href="https://docs.aws.amazon.com/efs/latest/ug/security-considerations.html">Security</a> in the
-                                 <em>Amazon Elastic File System User Guide</em>.
+                              <p>Up to five VPC security group IDs, of the form <code class="code">sg-xxxxxxxx</code>. These must be
+                                 for the same VPC as subnet specified.
                               </p>
+                              
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
-                              <p><em>Type</em>: List of String values
+                              <p><em>Type</em>: List of String
                               </p>
-                              
+                              <p><em>Maximum</em>: <code class="code">5</code></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-efs-mounttarget-subnetid"></a><span class="term"><code class="code">SubnetId</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The ID of the subnet in which you want to add the mount target.</p>
-                              
-                              <div class="aws-note">
-                                 <p class="aws-note">Note</p>
-                                 <p>For each file system, you can create only one mount target per Availability
-                                    Zone (AZ). All EC2 instances in an AZ share a single mount target for a file
-                                    system. If you create multiple mount targets for a single file system, do not
-                                    specify a subnet that is an AZ that already has a mount target associated with
-                                    the same file system.
-                                 </p>
-                              </div>
+                              <p>The ID of the subnet to add the mount target in.</p>
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                           </dd>
+                        </dl>
+                     </div><h2 id="aws-resource-efs-mounttarget-return-values">Return Values</h2><h3 id="aws-resource-efs-mounttarget-return-values-ref">Ref</h3><p>
+                        When you pass the logical ID of this resource to the intrinsic <code class="code">Ref</code> function, <code class="code">Ref</code> returns the resource ID. For example: 
+                     </p><p>
+                        <code class="code">{&quot;Ref&quot;:&quot;fsmt-12345678&quot;}</code>.
+                     </p><p>For the Amazon EFS file system mount target <code class="code">fsmt-12345678</code>, Ref returns the mount target ID.
+                     </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
+                     </p><h3 id="aws-resource-efs-mounttarget-return-values-fn--getatt">Fn::GetAtt</h3><p>The <code class="code">Fn::GetAtt</code> intrinsic function returns a value for a specified attribute of this type. The following
+                        are the available attributes and sample return values.
+                     </p><p>For more information about using the <code class="code">Fn::GetAtt</code> intrinsic function, see <a href="intrinsic-function-reference-getatt.html">Fn::GetAtt</a>.
+                     </p><h4 id="aws-resource-efs-mounttarget-return-values-fn--getatt-fn--getatt"></h4><div class="variablelist">
+                        <dl>
+                           <dt><a id="IpAddress-fn::getatt"></a><span class="term"><code class="code">IpAddress</code></span></dt>
+                           <dd>
                               
-                              <p>Before updating this property, stop EC2 instances that are using this mount
-                                 target and then restart them after the update is complete. That way the instances
-                                 can unmount the file system before the mount target is replaced. If you don&apos;t stop
-                                 and restart them, instances or applications that are using those mounts might be
-                                 disrupted when the mount target is deleted (uncommitted writes might be
-                                 lost).
-                              </p>
+                              <p>The IPv4 address of the mount target.</p>
                               
                            </dd>
-                           
                         </dl>
-                     </div><h2 id="w2ab1c21c10d120c17c15">Return Values</h2><h3 id="w2ab1c21c10d120c17c15b2">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code>
-                        intrinsic function, <code class="code">Ref</code> returns the resource ID, such as
-                        <code class="code">fsmt-55a4413c</code>.
-                     </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                     </p><h2 id="w2ab1c21c10d120c17c17">Template Example</h2><p>The following example declares a mount target that is associated with a file system,
+                     </div><h2 id="aws-resource-efs-mounttarget--examples">Examples</h2><h3 id="aws-resource-efs-mounttarget--examples--Declare_a_Mount_Target_for_an_EFS_File_System">Declare a Mount Target for an EFS File System</h3><p>The following example declares a mount target that is associated with a file system,
                         subnet, and security group, which are all declared in the same template. EC2 instances
                         that
-                        are in the same AZ as the mount target can use the mount target to connect to the
+                        are in the same Availability Zone (AZ) as the mount target can use the mount target
+                        to connect to the
                         associated file system. For information about mounting file systems on EC2 instances,
                         see
-                        <a href="https://docs.aws.amazon.com/efs/latest/ug/mounting-fs.html">Mounting File Systems</a> in the
-                        <em>Amazon Elastic File System User Guide</em>.
-                     </p><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-resource-efs-mounttarget-example.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">&quot;MountTarget&quot;: {
+                        <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/efs/latest/ug/mounting-fs.html" target="_blank">Mounting File Systems</a> in the
+                        <em>EFS User Guide</em>.
+                     </p><h4 id="aws-resource-efs-mounttarget--examples--Declare_a_Mount_Target_for_an_EFS_File_System--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">&quot;MountTarget&quot;: {
   &quot;Type&quot;: &quot;AWS::EFS::MountTarget&quot;,
   &quot;Properties&quot;: {
     &quot;FileSystemId&quot;: { &quot;Ref&quot;: &quot;FileSystem&quot; },
     &quot;SubnetId&quot;: { &quot;Ref&quot;: &quot;Subnet&quot; },
     &quot;SecurityGroups&quot;: [ { &quot;Ref&quot;: &quot;MountTargetSecurityGroup&quot; } ]        
   }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-resource-efs-mounttarget-example.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">MountTarget: 
+}</code></pre><h4 id="aws-resource-efs-mounttarget--examples--Declare_a_Mount_Target_for_an_EFS_File_System--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">MountTarget: 
   Type: AWS::EFS::MountTarget
   Properties: 
     FileSystemId: 
@@ -204,8 +123,39 @@ Properties:
       Ref: &quot;Subnet&quot;
     SecurityGroups: 
       - 
-        Ref: &quot;MountTargetSecurityGroup&quot;</code></pre>
-                        </div><h2 id="w2ab1c21c10d120c17c19">Additional Resources</h2><p>For a complete sample template, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-efs.html">Amazon Elastic File System Sample Template</a>.
-                     </p></div>
+Ref: &quot;MountTargetSecurityGroup&quot;</code></pre><h2 id="aws-resource-efs-mounttarget--seealso">See Also</h2><div class="itemizedlist">
+                        
+                        
+                        
+                        
+                        <ul class="itemizedlist" type="disc">
+                           <li class="listitem">
+                              
+                              <p>
+                                 <a href="https://docs.aws.amazon.com/efs/latest/ug/how-it-works.html">Amazon EFS: How It Works</a>
+                                 
+                              </p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p>
+                                 <a href="https://docs.aws.amazon.com/efs/latest/ug/accessing-fs.html">Creating Mount Targets</a>
+                                 
+                              </p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p>
+                                 <a href="https://docs.aws.amazon.com/efs/latest/ug/efs-onpremises.html">Walkthrough: Mounting a File System On-Premises</a>
+                                 
+                              </p>
+                              
+                           </li>
+                        </ul>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
+                     </div></div>
 </body>
 </html>

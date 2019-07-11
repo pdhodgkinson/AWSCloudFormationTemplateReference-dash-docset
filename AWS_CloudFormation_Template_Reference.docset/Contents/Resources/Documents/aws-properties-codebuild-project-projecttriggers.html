@@ -8,78 +8,56 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-properties-codebuild-project-projecttriggers">AWS CodeBuild Project ProjectTriggers</h1><p>
-                        <code class="code">ProjectTriggers</code> is a property of the <a href="aws-resource-codebuild-project.html">AWS::CodeBuild::Project</a> resource that specifies the environment for
-                        an AWS CodeBuild project.
+    <h1 class="topictitle" id="aws-properties-codebuild-project-projecttriggers">AWS::CodeBuild::Project ProjectTriggers</h1><p>
                         
-                     </p><h2 id="aws-properties-codebuild-project-projecttriggers-syntax">
-                        Syntax
+                        <code class="code">ProjectTriggers</code> is a property of the <a href="aws-resource-codebuild-project.html">AWS CodeBuild Project</a> 
+                        resource that specifies webhooks that trigger an AWS CodeBuild build.
                         
-                     </h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="
-                    JSON
-                " name="
-                    JSON
-                " class="section langfilter">
-                        
-                        <h3 id="aws-properties-codebuild-project-projecttriggers-syntax.json">
-                           JSON
-                           
-                        </h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
-  &quot;<a href="aws-properties-codebuild-project-projecttriggers.html#cfn-codebuild-project-projecttriggers-webhook">Webhook</a>&quot; : <em class="replaceable"><code>Boolean</code></em>
-  &quot;<a href="aws-properties-codebuild-project-projecttriggers.html#cfn-codebuild-project-projecttriggers-filtergroups">FilterGroups</a>&quot; : [<a href="aws-properties-codebuild-project-webhookfilter.html">[WebhookFilter, ...], ...</a>]
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-properties-codebuild-project-projecttriggers-syntax.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight"><a href="aws-properties-codebuild-project-projecttriggers.html#cfn-codebuild-project-projecttriggers-webhook">Webhook</a>: <em class="replaceable"><code>Boolean</code></em>
-<a href="aws-properties-codebuild-project-projecttriggers.html#cfn-codebuild-project-projecttriggers-filtergroups">FilterGroups</a>: 
- - -<a href="aws-properties-codebuild-project-webhookfilter.html"> WebhookFilter</a></code></pre>
-                        </div><h2 id="w2ab1c21c10c72c13c33b7">Properties</h2><div class="variablelist">
-                        
-                        
-                        
-                        
-                        
-                        
+                     </p><h2 id="aws-properties-codebuild-project-projecttriggers-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-properties-codebuild-project-projecttriggers-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;<a href="#cfn-codebuild-project-projecttriggers-filtergroups">FilterGroups</a>&quot; : <em class="replaceable"><code>[ <a href="aws-properties-codebuild-project-filtergroup.html">FilterGroup</a>, ... ]</code></em>,
+  &quot;<a href="#cfn-codebuild-project-projecttriggers-webhook">Webhook</a>&quot; : <em class="replaceable"><code>Boolean</code></em>
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-properties-codebuild-project-projecttriggers-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">  <a href="#cfn-codebuild-project-projecttriggers-filtergroups">FilterGroups</a>: <em class="replaceable"><code>
+    - <a href="aws-properties-codebuild-project-filtergroup.html">FilterGroup</a></code></em>
+  <a href="#cfn-codebuild-project-projecttriggers-webhook">Webhook</a>: <em class="replaceable"><code>Boolean</code></em>
+</code></pre></div><h2 id="aws-properties-codebuild-project-projecttriggers-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
-                           <dt><a id="cfn-codebuild-project-projecttriggers-webhook"></a><span class="term"><code class="code">Webhook</code></span></dt>
-                           
+                           <dt><a id="cfn-codebuild-project-projecttriggers-filtergroups"></a><span class="term"><code class="code">FilterGroups</code></span></dt>
                            <dd>
                               
-                              <p>Specifies whether or not to begin automatically rebuilding the source code every time
-                                 a code change is pushed to the repository.
+                              <p>
+                                          
+                                 A list of lists of <code class="code">WebhookFilter</code> objects used to determine which webhook 
+                                 events are triggered. At least one <code class="code">WebhookFilter</code> in the array must specify <code class="code">EVENT</code> as its type.         
+                                 
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
+                              <p><em>Type</em>: List of <a href="aws-properties-codebuild-project-filtergroup.html">FilterGroup</a></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                           </dd>
+                           <dt><a id="cfn-codebuild-project-projecttriggers-webhook"></a><span class="term"><code class="code">Webhook</code></span></dt>
+                           <dd>
                               
+                              <p>
+                                          
+                                 Specifies whether or not to begin automatically rebuilding the source code every time
+                                 a code change is pushed to the repository.
+                                 
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
                               <p><em>Type</em>: Boolean
                               </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-codebuild-project-projecttriggers-filtergroups"></a><span class="term"><code class="code">FilterGroups</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>A list of lists of <code class="code">WebhookFilter</code> objects used to determine
-                                 which webhook events are triggered. At least one <code class="code">WebhookFilter</code>
-                                 in the array must specify <code class="code">EVENT</code> as its type.
-                              </p>
-                              
-                              <p><em>Required</em>: No
-                              </p>
-                              
-                              <p><em>Type</em>: A list of a list of <a href="aws-properties-codebuild-project-webhookfilter.html">AWS CodeBuild Project WebhookFilter</a> objects.
-                              </p>
-                              
-                           </dd>
-                           
                         </dl>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
                      </div></div>
 </body>
 </html>

@@ -8,17 +8,15 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-properties-s3-bucket-notificationconfig">Amazon S3 Bucket NotificationConfiguration</h1><p>Describes the notification configuration for an <a href="aws-properties-s3-bucket.html">
-                           AWS::S3::Bucket</a> resource.
-                     </p><div class="aws-note">
+    <h1 class="topictitle" id="aws-properties-s3-bucket-notificationconfig">AWS::S3::Bucket NotificationConfiguration</h1><p>Describes the notification configuration for an Amazon S3 bucket.</p><div class="aws-note">
                         <p class="aws-note">Note</p>
                         <p>If you create the target resource and related permissions in the same template, you
                            might have a circular dependency.
                         </p>
-                        <p>For example, you might use the AWS::Lambda::Permission resource to grant the S3 bucket
-                           to invoke a Lambda function. However, AWS CloudFormation can&apos;t create the S3 bucket
-                           until the bucket has
-                           permission to invoke the function (AWS CloudFormation checks if the S3 bucket can
+                        <p>For example, you might use the <code class="code">AWS::Lambda::Permission</code> resource to grant the bucket
+                           permission to invoke an AWS Lambda function. However, AWS CloudFormation can&apos;t create
+                           the bucket until the bucket has
+                           permission to invoke the function (AWS CloudFormation checks whether the bucket can
                            invoke the function).
                            If you&apos;re using Refs to pass the bucket name, this leads to a circular dependency.
                         </p>
@@ -26,80 +24,60 @@
                            notification configuration. Then, update the stack with a notification
                            configuration.
                         </p>
-                     </div><h2 id="w2ab1c21c10d204c13c90b7">Syntax</h2><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-properties-s3-bucket-notificationconfig-syntax.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
-  &quot;<a href="aws-properties-s3-bucket-notificationconfig.html#cfn-s3-bucket-notificationconfig-lambdaconfig">LambdaConfigurations</a>&quot; : [ <em class="replaceable"><code>Lambda Configuration, ...</code></em> ],
-  &quot;<a href="aws-properties-s3-bucket-notificationconfig.html#cfn-s3-bucket-notificationconfig-queueconfig">QueueConfigurations</a>&quot; : [ <em class="replaceable"><code>Queue Configuration, ...</code></em> ],
-  &quot;<a href="aws-properties-s3-bucket-notificationconfig.html#cfn-s3-bucket-notificationconfig-topicconfig">TopicConfigurations</a>&quot; : [ <em class="replaceable"><code>Topic Configuration, ...</code></em> ]
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-properties-s3-bucket-notificationconfig-syntax.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight"><a href="aws-properties-s3-bucket-notificationconfig.html#cfn-s3-bucket-notificationconfig-lambdaconfig">LambdaConfigurations</a>:
-  - <em class="replaceable"><code>Lambda Configuration</code></em>
-<a href="aws-properties-s3-bucket-notificationconfig.html#cfn-s3-bucket-notificationconfig-queueconfig">QueueConfigurations</a>:
-  - <em class="replaceable"><code>Queue Configuration</code></em>
-<a href="aws-properties-s3-bucket-notificationconfig.html#cfn-s3-bucket-notificationconfig-topicconfig">TopicConfigurations</a>:
-  - <em class="replaceable"><code>Topic Configuration</code></em> 
-</code></pre>
-                        </div><h2 id="w2ab1c21c10d204c13c90b9">Properties</h2><div class="variablelist">
-                        
-                        
-                        
-                        
+                        <p>For more information on permissions, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html">AWS::Lambda::Permission</a> and <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#grant-destinations-permissions-to-s3             ">Granting Permissions to Publish Event Notification Messages to a Destination</a>.
+                        </p>
+                     </div><h2 id="aws-properties-s3-bucket-notificationconfig-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-properties-s3-bucket-notificationconfig-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;<a href="#cfn-s3-bucket-notificationconfig-lambdaconfig">LambdaConfigurations</a>&quot; : <em class="replaceable"><code>[ <a href="aws-properties-s3-bucket-notificationconfig-lambdaconfig.html">LambdaConfiguration</a>, ... ]</code></em>,
+  &quot;<a href="#cfn-s3-bucket-notificationconfig-queueconfig">QueueConfigurations</a>&quot; : <em class="replaceable"><code>[ <a href="aws-properties-s3-bucket-notificationconfig-queueconfig.html">QueueConfiguration</a>, ... ]</code></em>,
+  &quot;<a href="#cfn-s3-bucket-notificationconfig-topicconfig">TopicConfigurations</a>&quot; : <em class="replaceable"><code>[ <a href="aws-properties-s3-bucket-notificationconfig-topicconfig.html">TopicConfiguration</a>, ... ]</code></em>
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-properties-s3-bucket-notificationconfig-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">  <a href="#cfn-s3-bucket-notificationconfig-lambdaconfig">LambdaConfigurations</a>: <em class="replaceable"><code>
+    - <a href="aws-properties-s3-bucket-notificationconfig-lambdaconfig.html">LambdaConfiguration</a></code></em>
+  <a href="#cfn-s3-bucket-notificationconfig-queueconfig">QueueConfigurations</a>: <em class="replaceable"><code>
+    - <a href="aws-properties-s3-bucket-notificationconfig-queueconfig.html">QueueConfiguration</a></code></em>
+  <a href="#cfn-s3-bucket-notificationconfig-topicconfig">TopicConfigurations</a>: <em class="replaceable"><code>
+    - <a href="aws-properties-s3-bucket-notificationconfig-topicconfig.html">TopicConfiguration</a></code></em>
+</code></pre></div><h2 id="aws-properties-s3-bucket-notificationconfig-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
                            <dt><a id="cfn-s3-bucket-notificationconfig-lambdaconfig"></a><span class="term"><code class="code">LambdaConfigurations</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The AWS Lambda functions to invoke and the events for which to invoke the
-                                 functions.
-                              </p>
+                              <p>Describes the AWS Lambda functions to invoke and the events for which to invoke them.</p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: <a href="aws-properties-s3-bucket-notificationconfig-lambdaconfig.html">LambdaConfiguration</a></p>
-                              
+                              <p><em>Type</em>: List of <a href="aws-properties-s3-bucket-notificationconfig-lambdaconfig.html">LambdaConfiguration</a></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-s3-bucket-notificationconfig-queueconfig"></a><span class="term"><code class="code">QueueConfigurations</code></span></dt>
-                           
                            <dd>
                               
                               <p>The Amazon Simple Queue Service queues to publish messages to and the events for which
-                                 to publish
-                                 messages.
+                                 to publish messages.
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: <a href="aws-properties-s3-bucket-notificationconfig-queueconfig.html">QueueConfiguration</a></p>
-                              
+                              <p><em>Type</em>: List of <a href="aws-properties-s3-bucket-notificationconfig-queueconfig.html">QueueConfiguration</a></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-s3-bucket-notificationconfig-topicconfig"></a><span class="term"><code class="code">TopicConfigurations</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The topic to which notifications are sent and the events for which notification
-                                 are generated.
+                              <p>The topic to which notifications are sent and the events for which notifications are
+                                 generated.
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: <a href="aws-properties-s3-bucket-notificationconfig-topicconfig.html">TopicConfiguration</a></p>
-                              
+                              <p><em>Type</em>: List of <a href="aws-properties-s3-bucket-notificationconfig-topicconfig.html">TopicConfiguration</a></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
                         </dl>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
                      </div></div>
 </body>
 </html>

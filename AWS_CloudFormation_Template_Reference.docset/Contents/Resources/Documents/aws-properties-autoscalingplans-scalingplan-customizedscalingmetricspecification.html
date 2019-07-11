@@ -8,180 +8,122 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-properties-autoscalingplans-scalingplan-customizedscalingmetricspecification">AWS Auto Scaling ScalingPlan CustomizedScalingMetricSpecification</h1><p>The <code class="code">CustomizedScalingMetricSpecification</code> property type specifies a customized
-                        metric (an Amazon CloudWatch metric of your choosing) for a target tracking configuration
-                        to use with
-                        AWS Auto Scaling.
-                     </p><p>
-                        <code class="code">CustomizedScalingMetricSpecification</code> is a property of the <a href="aws-properties-autoscalingplans-scalingplan-targettrackingconfiguration.html">AWS Auto Scaling ScalingPlan TargetTrackingConfiguration</a>
-                        property type.
+    <h1 class="topictitle" id="aws-properties-autoscalingplans-scalingplan-customizedscalingmetricspecification">AWS::AutoScalingPlans::ScalingPlan CustomizedScalingMetricSpecification</h1><p>
+                        <code class="code">CustomizedScalingMetricSpecification</code> is a subproperty of <a href="aws-properties-autoscalingplans-scalingplan-targettrackingconfiguration.html">TargetTrackingConfiguration</a> that specifies a customized scaling metric for a
+                        target tracking configuration to use with AWS Auto Scaling. 
+                     </p><p>To create your customized scaling metric specification:</p><div class="itemizedlist">
+                        
+                        <ul class="itemizedlist" type="disc">
+                           <li class="listitem">
+                              
+                              <p>Add values for each required property from CloudWatch. You can use an existing
+                                 metric, or a new metric that you create. To use your own metric, you must first
+                                 publish the metric to CloudWatch. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html">Publish Custom
+                                    Metrics</a> in the <em>Amazon CloudWatch User Guide</em>. 
+                              </p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p>Choose a metric that changes proportionally with capacity. The value of the metric
+                                 should increase or decrease in inverse proportion to the number of capacity units.
+                                 That is, the value of the metric should decrease when capacity increases. 
+                              </p>
+                              
+                           </li>
+                        </ul>
+                     </div><p>For information about CloudWatch, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html">Amazon CloudWatch
+                           Concepts</a> in the <em>Amazon CloudWatch User Guide</em>. 
                      </p><h2 id="aws-properties-autoscalingplans-scalingplan-customizedscalingmetricspecification-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
-                        
-                        <h3 id="aws-properties-autoscalingplans-scalingplan-customizedscalingmetricspecification-syntax.json">JSON</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
-  &quot;<a href="aws-properties-autoscalingplans-scalingplan-customizedscalingmetricspecification.html#cfn-autoscalingplans-scalingplan-customizedscalingmetricspecification-metricname">MetricName</a>&quot; : <em class="replaceable"><code>String</code></em>,
-  &quot;<a href="aws-properties-autoscalingplans-scalingplan-customizedscalingmetricspecification.html#cfn-autoscalingplans-scalingplan-customizedscalingmetricspecification-statistic">Statistic</a>&quot; : <em class="replaceable"><code>String</code></em>,
-  &quot;<a href="aws-properties-autoscalingplans-scalingplan-customizedscalingmetricspecification.html#cfn-autoscalingplans-scalingplan-customizedscalingmetricspecification-dimensions">Dimensions</a>&quot; : [ <a href="aws-properties-autoscalingplans-scalingplan-metricdimension.html">MetricDimension</a>, ... ],
-  &quot;<a href="aws-properties-autoscalingplans-scalingplan-customizedscalingmetricspecification.html#cfn-autoscalingplans-scalingplan-customizedscalingmetricspecification-unit">Unit</a>&quot; : <em class="replaceable"><code>String</code></em>,
-  &quot;<a href="aws-properties-autoscalingplans-scalingplan-customizedscalingmetricspecification.html#cfn-autoscalingplans-scalingplan-customizedscalingmetricspecification-namespace">Namespace</a>&quot; : <em class="replaceable"><code>String</code></em>
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        
-                        <h3 id="aws-properties-autoscalingplans-scalingplan-customizedscalingmetricspecification-syntax.yaml">YAML</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">
-<a href="aws-properties-autoscalingplans-scalingplan-customizedscalingmetricspecification.html#cfn-autoscalingplans-scalingplan-customizedscalingmetricspecification-metricname">MetricName</a>: <em class="replaceable"><code>String</code></em>
-<a href="aws-properties-autoscalingplans-scalingplan-customizedscalingmetricspecification.html#cfn-autoscalingplans-scalingplan-customizedscalingmetricspecification-statistic">Statistic</a>: <em class="replaceable"><code>String</code></em>
-<a href="aws-properties-autoscalingplans-scalingplan-customizedscalingmetricspecification.html#cfn-autoscalingplans-scalingplan-customizedscalingmetricspecification-dimensions">Dimensions</a>: 
-  - <a href="aws-properties-autoscalingplans-scalingplan-metricdimension.html">MetricDimension</a>
-<a href="aws-properties-autoscalingplans-scalingplan-customizedscalingmetricspecification.html#cfn-autoscalingplans-scalingplan-customizedscalingmetricspecification-unit">Unit</a>: <em class="replaceable"><code>String</code></em>
-<a href="aws-properties-autoscalingplans-scalingplan-customizedscalingmetricspecification.html#cfn-autoscalingplans-scalingplan-customizedscalingmetricspecification-namespace">Namespace</a>: <em class="replaceable"><code>String</code></em></code></pre>
-                        </div><h2 id="aws-properties-autoscalingplans-scalingplan-customizedscalingmetricspecification-properties">Properties</h2><div class="variablelist">
-                        
-                        
-                        
-                        
-                        
-                        
+                        <h3 id="aws-properties-autoscalingplans-scalingplan-customizedscalingmetricspecification-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;<a href="#cfn-autoscalingplans-scalingplan-customizedscalingmetricspecification-dimensions">Dimensions</a>&quot; : <em class="replaceable"><code>[ <a href="aws-properties-autoscalingplans-scalingplan-metricdimension.html">MetricDimension</a>, ... ]</code></em>,
+  &quot;<a href="#cfn-autoscalingplans-scalingplan-customizedscalingmetricspecification-metricname">MetricName</a>&quot; : <em class="replaceable"><code>String</code></em>,
+  &quot;<a href="#cfn-autoscalingplans-scalingplan-customizedscalingmetricspecification-namespace">Namespace</a>&quot; : <em class="replaceable"><code>String</code></em>,
+  &quot;<a href="#cfn-autoscalingplans-scalingplan-customizedscalingmetricspecification-statistic">Statistic</a>&quot; : <em class="replaceable"><code>String</code></em>,
+  &quot;<a href="#cfn-autoscalingplans-scalingplan-customizedscalingmetricspecification-unit">Unit</a>&quot; : <em class="replaceable"><code>String</code></em>
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-properties-autoscalingplans-scalingplan-customizedscalingmetricspecification-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">  <a href="#cfn-autoscalingplans-scalingplan-customizedscalingmetricspecification-dimensions">Dimensions</a>: <em class="replaceable"><code>
+    - <a href="aws-properties-autoscalingplans-scalingplan-metricdimension.html">MetricDimension</a></code></em>
+  <a href="#cfn-autoscalingplans-scalingplan-customizedscalingmetricspecification-metricname">MetricName</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-autoscalingplans-scalingplan-customizedscalingmetricspecification-namespace">Namespace</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-autoscalingplans-scalingplan-customizedscalingmetricspecification-statistic">Statistic</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-autoscalingplans-scalingplan-customizedscalingmetricspecification-unit">Unit</a>: <em class="replaceable"><code>String</code></em>
+</code></pre></div><h2 id="aws-properties-autoscalingplans-scalingplan-customizedscalingmetricspecification-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
                            <dt><a id="cfn-autoscalingplans-scalingplan-customizedscalingmetricspecification-dimensions"></a><span class="term"><code class="code">Dimensions</code></span></dt>
-                           
                            <dd>
                               
                               <p>The dimensions of the metric.</p>
                               
-                              <p>
-                                 <em>Required</em>: No
+                              <p>Conditional: If you published your metric with dimensions, you must specify the same
+                                 dimensions in your customized scaling metric specification.
                               </p>
                               
-                              <p>
-                                 <em>Type</em>: List of <a href="aws-properties-autoscalingplans-scalingplan-metricdimension.html">MetricDimension</a></p>
-                              
-                              <p>
-                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No
-                                    interruption</a>
-                                 
+                              <p><em>Required</em>: No
                               </p>
-                              
+                              <p><em>Type</em>: List of <a href="aws-properties-autoscalingplans-scalingplan-metricdimension.html">MetricDimension</a></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-autoscalingplans-scalingplan-customizedscalingmetricspecification-metricname"></a><span class="term"><code class="code">MetricName</code></span></dt>
-                           
                            <dd>
                               
                               <p>The name of the metric.</p>
                               
-                              <p>
-                                 <em>Required</em>: Yes
+                              <p><em>Required</em>: Yes
                               </p>
-                              
-                              <p>
-                                 <em>Type</em>: String
+                              <p><em>Type</em>: String
                               </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No
-                                    interruption</a>
-                                 
-                              </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-autoscalingplans-scalingplan-customizedscalingmetricspecification-namespace"></a><span class="term"><code class="code">Namespace</code></span></dt>
-                           
                            <dd>
                               
                               <p>The namespace of the metric.</p>
                               
-                              <p>
-                                 <em>Required</em>: Yes
+                              <p><em>Required</em>: Yes
                               </p>
-                              
-                              <p>
-                                 <em>Type</em>: String
+                              <p><em>Type</em>: String
                               </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No
-                                    interruption</a>
-                                 
-                              </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-autoscalingplans-scalingplan-customizedscalingmetricspecification-statistic"></a><span class="term"><code class="code">Statistic</code></span></dt>
-                           
                            <dd>
                               
                               <p>The statistic of the metric.</p>
                               
-                              <p>
-                                 <em>Required</em>: Yes
+                              <p><em>Required</em>: Yes
                               </p>
-                              
-                              <p>
-                                 <em>Type</em>: String
+                              <p><em>Type</em>: String
                               </p>
-                              
-                              <p>
-                                 <em>Valid Values</em>: <code class="code">Average</code> | <code class="code">Minimum</code> |
-                                 <code class="code">Maximum</code> | <code class="code">SampleCount</code> | <code class="code">Sum</code>
-                                 
-                              </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No
-                                    interruption</a>
-                                 
-                              </p>
-                              
+                              <p><em>Allowed Values</em>: <code class="code">Average | Maximum | Minimum | SampleCount | Sum</code></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-autoscalingplans-scalingplan-customizedscalingmetricspecification-unit"></a><span class="term"><code class="code">Unit</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The unit of the metric.</p>
+                              <p>The unit of the metric. </p>
                               
-                              <p>
-                                 <em>Required</em>: No
+                              <p><em>Required</em>: No
                               </p>
-                              
-                              <p>
-                                 <em>Type</em>: String
+                              <p><em>Type</em>: String
                               </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No
-                                    interruption</a>
-                                 
-                              </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
                         </dl>
-                     </div><h2 id="aws-properties-autoscalingplans-scalingplan-customizedscalingmetricspecification-seealso">See Also</h2><div class="itemizedlist">
-                        
+                     </div><h2 id="aws-properties-autoscalingplans-scalingplan-customizedscalingmetricspecification--seealso">See Also</h2><div class="itemizedlist">
                         
                         
                         <ul class="itemizedlist" type="disc">
                            <li class="listitem">
                               
-                              <p><a href="https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_CustomizedScalingMetricSpecification.html">CustomizedScalingMetricSpecification</a> in the
-                                 <em>AWS Auto Scaling API Reference</em></p>
-                              
-                           </li>
-                           <li class="listitem">
-                              
-                              <p><a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html">Amazon CloudWatch Concepts</a>
-                                 in the <em>Amazon CloudWatch User Guide</em></p>
+                              <p><a href="https://docs.aws.amazon.com/autoscaling/plans/userguide/what-is-aws-auto-scaling.html">AWS Auto
+                                    Scaling User Guide</a></p>
                               
                            </li>
                         </ul>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
                      </div></div>
 </body>
 </html>

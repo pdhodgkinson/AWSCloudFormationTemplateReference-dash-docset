@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="css/awsdocs.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/awsdocs.min.js"></script>
+    <meta charset="utf-8">
+</head>
+<body>
+    <div id="content" style="padding: 10px 30px;">
+    <h1 class="topictitle" id="aws-resource-wafregional-geomatchset">AWS::WAFRegional::GeoMatchSet</h1><p>Contains one or more countries that AWS WAF will search for.</p><h2 id="aws-resource-wafregional-geomatchset-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-resource-wafregional-geomatchset-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;Type&quot; : &quot;AWS::WAFRegional::GeoMatchSet&quot;,
+  &quot;Properties&quot; : {
+      &quot;<a href="#cfn-wafregional-geomatchset-geomatchconstraints">GeoMatchConstraints</a>&quot; : <em class="replaceable"><code>[ <a href="aws-properties-wafregional-geomatchset-geomatchconstraint.html">GeoMatchConstraint</a>, ... ]</code></em>,
+      &quot;<a href="#cfn-wafregional-geomatchset-name">Name</a>&quot; : <em class="replaceable"><code>String</code></em>
+    }
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-wafregional-geomatchset-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Type: AWS::WAFRegional::GeoMatchSet
+Properties: 
+  <a href="#cfn-wafregional-geomatchset-geomatchconstraints">GeoMatchConstraints</a>: <em class="replaceable"><code>
+    - <a href="aws-properties-wafregional-geomatchset-geomatchconstraint.html">GeoMatchConstraint</a></code></em>
+  <a href="#cfn-wafregional-geomatchset-name">Name</a>: <em class="replaceable"><code>String</code></em>
+</code></pre></div><h2 id="aws-resource-wafregional-geomatchset-properties">Properties</h2><div class="variablelist">
+                        <dl>
+                           <dt><a id="cfn-wafregional-geomatchset-geomatchconstraints"></a><span class="term"><code class="code">GeoMatchConstraints</code></span></dt>
+                           <dd>
+                              
+                              <p>An array of <code class="code">GeoMatchConstraint</code> objects, which contain the country that you want AWS WAF to search for.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              <p><em>Type</em>: List of <a href="aws-properties-wafregional-geomatchset-geomatchconstraint.html">GeoMatchConstraint</a></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                           </dd>
+                           <dt><a id="cfn-wafregional-geomatchset-name"></a><span class="term"><code class="code">Name</code></span></dt>
+                           <dd>
+                              
+                              <p>A friendly name or description of the <a href="aws-resource-wafregional-geomatchset.html">AWS::WAFRegional::GeoMatchSet</a>. You can&apos;t change the name of an <code class="code">GeoMatchSet</code> after you create it.
+                              </p>  
+                              
+                              <p><em>Required</em>: Yes
+                              </p>
+                              <p><em>Type</em>: String
+                              </p>
+                              <p><em>Minimum</em>: <code class="code">1</code></p>
+                              <p><em>Maximum</em>: <code class="code">128</code></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                           </dd>
+                        </dl>
+                     </div><h2 id="aws-resource-wafregional-geomatchset-return-values">Return Values</h2><h3 id="aws-resource-wafregional-geomatchset-return-values-ref">Ref</h3><p>
+                        When you pass the logical ID of this resource to the intrinsic <code class="code">Ref</code> function, <code class="code">Ref</code> returns the resource physical ID, such as 1234a1a-a1b1-12a1-abcd-a123b123456.
+                     </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
+                     </p><h2 id="aws-resource-wafregional-geomatchset--examples">Examples</h2><h3 id="aws-resource-wafregional-geomatchset--examples--Define_Geographic_Constraints">Define Geographic Constraints</h3><p>The following example defines a set of GeoMatchConstraints for a web access control
+                        list
+                        (ACL) rule.
+                     </p><h4 id="aws-resource-wafregional-geomatchset--examples--Define_Geographic_Constraints--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">&quot;MyGeoConstraints&quot;: {
+  &quot;Type&quot;: &quot;AWS::WAFRegional::GeoMatchSet&quot;,
+  &quot;Properties&quot;: {
+    &quot;Name&quot;: &quot;GeoMatchSet for restricted countries&quot;,
+    &quot;GeoMatchConstraints&quot;: [
+      {
+        &quot;Type&quot; : &quot;Country&quot;,
+        &quot;Value&quot; : &quot;AE&quot;
+      },
+      {
+        &quot;Type&quot; : &quot;Country&quot;,
+        &quot;Value&quot; : &quot;ZW&quot;
+      }
+    ]
+  }      
+}</code></pre><h4 id="aws-resource-wafregional-geomatchset--examples--Define_Geographic_Constraints--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">MyGeoConstraints: 
+  Type: &quot;AWS::WAFRegional::GeoMatchSet&quot;
+  Properties: 
+    Name: &quot;GeoMatchSet for restricted countries&quot;
+    GeoMatchConstraints: 
+      - 
+        Type: &quot;Country&quot;
+        Value: &quot;AE&quot;
+      - 
+        Type: &quot;Country&quot;
+        Value: &quot;AE&quot;</code></pre><h3 id="aws-resource-wafregional-geomatchset--examples--Associate_a_GeoMatchSet_with_a_Web_ACL_Rule">Associate a GeoMatchSet with a Web ACL Rule</h3><p>The following example associates the <code class="code">MyGeoConstraints</code> with a web
+                        ACL rule.
+                     </p><h4 id="aws-resource-wafregional-geomatchset--examples--Associate_a_GeoMatchSet_with_a_Web_ACL_Rule--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">&quot;MyGeoMatchRule&quot; : {
+  &quot;Type&quot;: &quot;AWS::WAFRegional::Rule&quot;,
+  &quot;Properties&quot;: {
+    &quot;Name&quot;: &quot;MyGeoMatchRule&quot;,
+    &quot;MetricName&quot; : &quot;MyGeoMatchRule&quot;,
+    &quot;Predicates&quot;: [
+      {
+        &quot;DataId&quot; : {  &quot;Ref&quot; : &quot;MyGeoConstraints&quot; },
+        &quot;Negated&quot; : false,
+        &quot;Type&quot; : &quot;GeoMatch&quot;
+      }
+    ]
+  }      
+}</code></pre><h4 id="aws-resource-wafregional-geomatchset--examples--Associate_a_GeoMatchSet_with_a_Web_ACL_Rule--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">MyGeoMatchRule: 
+  Type: &quot;AWS::WAFRegional::Rule&quot;
+  Properties: 
+    Name: &quot;MyGeoMatchRule&quot;
+    MetricName: &quot;MyGeoMatchRule&quot;
+    Predicates: 
+      - 
+        DataId: 
+          Ref: &quot;MyGeoConstraints&quot;
+        Negated: false
+        Type: &quot;GeoMatch&quot;</code></pre><h3 id="aws-resource-wafregional-geomatchset--examples--Create_a_Web_ACL">Create a Web ACL</h3><p>The following example associates the <code class="code">MyGeoMatchRule</code> rule with a web ACL.
+                        The web ACL allows requests that originate from all countries except for those
+                        that are defined in the <code class="code">MyGeoMatchRule</code>.
+                     </p><h4 id="aws-resource-wafregional-geomatchset--examples--Create_a_Web_ACL--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">&quot;MyWebACL&quot;: {
+  &quot;Type&quot;: &quot;AWS::WAFRegional::WebACL&quot;,
+  &quot;Properties&quot;: {
+    &quot;Name&quot;: &quot;WebACL to block restricted countries&quot;,
+    &quot;DefaultAction&quot;: {
+      &quot;Type&quot;: &quot;ALLOW&quot;
+    },
+    &quot;MetricName&quot; : &quot;MyWebACL&quot;,
+    &quot;Rules&quot;: [
+      {
+        &quot;Action&quot; : {
+          &quot;Type&quot; : &quot;BLOCK&quot;
+        },
+        &quot;Priority&quot; : 1,
+        &quot;RuleId&quot; : { &quot;Ref&quot; : &quot;MyGeoMatchRule&quot; }
+      }
+    ]
+  }      
+}</code></pre><h4 id="aws-resource-wafregional-geomatchset--examples--Create_a_Web_ACL--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">MyWebACL: 
+  Type: &quot;AWS::WAFRegional::WebACL&quot;
+  Properties: 
+    Name: &quot;WebACL to block restricted countries&quot;
+    DefaultAction: 
+      Type: &quot;ALLOW&quot;
+    MetricName: &quot;MyWebACL&quot;
+    Rules: 
+      - 
+        Action: 
+          Type: &quot;BLOCK&quot;
+        Priority: 1
+        RuleId: 
+          Ref: &quot;MyGeoMatchRule&quot;</code></pre><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
+                     </div></div>
+</body>
+</html>

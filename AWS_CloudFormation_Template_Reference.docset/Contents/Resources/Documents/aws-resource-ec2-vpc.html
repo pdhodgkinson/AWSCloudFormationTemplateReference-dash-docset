@@ -8,114 +8,80 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-resource-ec2-vpc">AWS::EC2::VPC</h1><p>Creates a Virtual Private Cloud (VPC) with the CIDR block that you specify. To name
-                        a VPC resource, use the <code class="code">Tags</code> property and specify a value for the <code class="code">Name</code> key.
-                     </p><div class="highlights" id="inline-topiclist">
-                        <p><strong>Topics</strong></p>
-                        <ul>
-                           <li><a href="#aws-resource-ec2-vpc-syntax">Syntax</a></li>
-                           <li><a href="#w2ab1c21c10d111d174b9">Properties</a></li>
-                           <li><a href="#w2ab1c21c10d111d174c11">Return Values</a></li>
-                           <li><a href="#w2ab1c21c10d111d174c13">Example</a></li>
-                           <li><a href="#w2ab1c21c10d111d174c15">More Info</a></li>
-                        </ul>
-                     </div><h2 id="aws-resource-ec2-vpc-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-resource-ec2-vpc-syntax.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
-   &quot;Type&quot; : &quot;AWS::EC2::VPC&quot;,
-   &quot;Properties&quot; : {
-      &quot;<a href="aws-resource-ec2-vpc.html#cfn-aws-ec2-vpc-cidrblock">CidrBlock</a>&quot; : <em class="replaceable"><code>String</code></em>,
-      &quot;<a href="aws-resource-ec2-vpc.html#cfn-aws-ec2-vpc-EnableDnsSupport">EnableDnsSupport</a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
-      &quot;<a href="aws-resource-ec2-vpc.html#cfn-aws-ec2-vpc-EnableDnsHostnames">EnableDnsHostnames</a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
-      &quot;<a href="aws-resource-ec2-vpc.html#cfn-aws-ec2-vpc-instancetenancy">InstanceTenancy</a>&quot; : <em class="replaceable"><code>String</code></em>,
-      &quot;<a href="aws-resource-ec2-vpc.html#cfn-aws-ec2-vpc-tags">Tags</a>&quot; : [ <em class="replaceable"><code>Resource Tag, ...</code></em> ]
-   }
-}     </code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-resource-ec2-vpc-syntax.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">Type: AWS::EC2::VPC
+    <h1 class="topictitle" id="aws-resource-ec2-vpc">AWS::EC2::VPC</h1><p>Specifies a VPC with the specified IPv4 CIDR block. The smallest VPC you can create
+                        			uses a /28 netmask (16 IPv4 addresses), and the largest uses a /16 netmask (65,536
+                        IPv4
+                        			addresses). For more information about how large to make your VPC, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html">Your VPC and
+                           		   Subnets</a> in the <em>Amazon Virtual Private Cloud User Guide</em>.
+                     </p><h2 id="aws-resource-ec2-vpc-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-resource-ec2-vpc-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;Type&quot; : &quot;AWS::EC2::VPC&quot;,
+  &quot;Properties&quot; : {
+      &quot;<a href="#cfn-aws-ec2-vpc-cidrblock">CidrBlock</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-aws-ec2-vpc-EnableDnsHostnames">EnableDnsHostnames</a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
+      &quot;<a href="#cfn-aws-ec2-vpc-EnableDnsSupport">EnableDnsSupport</a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
+      &quot;<a href="#cfn-aws-ec2-vpc-instancetenancy">InstanceTenancy</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-aws-ec2-vpc-tags">Tags</a>&quot; : <em class="replaceable"><code>[ <a href="aws-properties-resource-tags.html">Tag</a>, ... ]</code></em>
+    }
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-ec2-vpc-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Type: AWS::EC2::VPC
 Properties: 
-  <a href="aws-resource-ec2-vpc.html#cfn-aws-ec2-vpc-cidrblock">CidrBlock</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-ec2-vpc.html#cfn-aws-ec2-vpc-EnableDnsSupport">EnableDnsSupport</a>: <em class="replaceable"><code>Boolean</code></em>
-  <a href="aws-resource-ec2-vpc.html#cfn-aws-ec2-vpc-EnableDnsHostnames">EnableDnsHostnames</a>: <em class="replaceable"><code>Boolean</code></em>
-  <a href="aws-resource-ec2-vpc.html#cfn-aws-ec2-vpc-instancetenancy">InstanceTenancy</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-ec2-vpc.html#cfn-aws-ec2-vpc-tags">Tags</a>:
-    - <em class="replaceable"><code>Resource Tag</code></em> 
-</code></pre>
-                        </div><h2 id="w2ab1c21c10d111d174b9">Properties</h2><div class="variablelist">
-                        
-                        
-                        
-                        
-                        
-                        
+  <a href="#cfn-aws-ec2-vpc-cidrblock">CidrBlock</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-aws-ec2-vpc-EnableDnsHostnames">EnableDnsHostnames</a>: <em class="replaceable"><code>Boolean</code></em>
+  <a href="#cfn-aws-ec2-vpc-EnableDnsSupport">EnableDnsSupport</a>: <em class="replaceable"><code>Boolean</code></em>
+  <a href="#cfn-aws-ec2-vpc-instancetenancy">InstanceTenancy</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-aws-ec2-vpc-tags">Tags</a>: <em class="replaceable"><code>
+    - <a href="aws-properties-resource-tags.html">Tag</a></code></em>
+</code></pre></div><h2 id="aws-resource-ec2-vpc-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
                            <dt><a id="cfn-aws-ec2-vpc-cidrblock"></a><span class="term"><code class="code">CidrBlock</code></span></dt>
-                           
                            <dd>
-                              
-                              <p>The CIDR block you want the VPC to cover. For example: <code class="code">&quot;10.0.0.0/16&quot;</code>.
-                              </p>
+                              		       
+                              <p>The primary IPv4 CIDR block for the VPC.</p>
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-aws-ec2-vpc-EnableDnsSupport"></a><span class="term"><code class="code">EnableDnsSupport</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>Specifies whether DNS resolution is supported for the VPC. If this attribute is
-                                 <code class="code">true</code>, the Amazon DNS server resolves DNS hostnames for your
-                                 instances to their corresponding IP addresses; otherwise, it does not. By default
-                                 the value is set to <code class="code">true</code>.
-                              </p>
-                              
-                              <p><em>Required</em>: No
-                              </p>
-                              
-                              <p><em>Type</em>: Boolean
-                              </p>
-                              
-                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
-                           </dd>
-                           
-                           
                            <dt><a id="cfn-aws-ec2-vpc-EnableDnsHostnames"></a><span class="term"><code class="code">EnableDnsHostnames</code></span></dt>
-                           
                            <dd>
                               
-                              <p>Specifies whether the instances launched in the VPC get DNS hostnames. If this
-                                 attribute is <code class="code">true</code>, instances in the VPC get DNS hostnames; otherwise,
-                                 they do not. You can only set <code class="code">EnableDnsHostnames</code> to <code class="code">true</code>
-                                 if you also set the <code class="code">EnableDnsSupport</code> attribute to <code class="code">true</code>.
-                                 By default, the value is set to <code class="code">false</code>.
+                              <p>Indicates whether the instances launched in the VPC get DNS hostnames. If enabled,
+                                 instances in the VPC get DNS hostnames; otherwise, they do not.
+                              </p>
+                              
+                              <p>You can only enable DNS hostnames if you&apos;ve enabled DNS support.</p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              <p><em>Type</em>: Boolean
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                           </dd>
+                           <dt><a id="cfn-aws-ec2-vpc-EnableDnsSupport"></a><span class="term"><code class="code">EnableDnsSupport</code></span></dt>
+                           <dd>
+                              		
+                              <p>Indicates whether the DNS resolution is supported for the VPC. If enabled, queries
+                                 to
+                                 			the Amazon provided DNS server at the 169.254.169.253 IP address, or the reserved
+                                 IP
+                                 			address at the base of the VPC network range &quot;plus two&quot; succeed. If disabled, the
+                                 Amazon
+                                 			provided DNS service in the VPC that resolves public DNS hostnames to IP addresses
+                                 is
+                                 			not enabled.
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: Boolean
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-aws-ec2-vpc-instancetenancy"></a><span class="term"><code class="code">InstanceTenancy</code></span></dt>
-                           
                            <dd>
                               
                               <p>The allowed tenancy of instances launched into the VPC. </p>
@@ -127,75 +93,50 @@ Properties:
                                  <ul class="itemizedlist" type="disc">
                                     <li class="listitem">
                                        
-                                       <p><code class="code">&quot;default&quot;</code>: Instances can be launched with any
-                                          tenancy.
+                                       <p><code class="code">&quot;default&quot;</code>: Instances can be launched with any tenancy.
                                        </p>
                                        
                                     </li>
                                     <li class="listitem">
                                        
-                                       <p><code class="code">&quot;dedicated&quot;</code>: Any instance launched into the VPC automatically has dedicated tenancy, unless you
-                                          launch it with the default
-                                          tenancy.
+                                       <p><code class="code">&quot;dedicated&quot;</code>: Any instance launched into the VPC automatically 
+                                          has dedicated tenancy, unless you launch it with the default tenancy.
                                        </p>
                                        
                                     </li>
                                  </ul>
                               </div>
                               
-                              <p>Update: Conditional. Updating <code class="code">InstanceTenancy</code> requires no replacement only if you are updating its value from <code class="code">&quot;dedicated&quot;</code> to <code class="code">&quot;default&quot;</code>. Updating <code class="code">InstanceTenancy</code> from <code class="code">&quot;default&quot;</code> to <code class="code">&quot;dedicated&quot;</code> requires replacement.
+                              <p>Updating <code class="code">InstanceTenancy</code> requires no replacement only if you are updating its value from <code class="code">&quot;dedicated&quot;</code> to <code class="code">&quot;default&quot;</code>. 
+                                 Updating <code class="code">InstanceTenancy</code> from <code class="code">&quot;default&quot;</code> to <code class="code">&quot;dedicated&quot;</code> requires replacement.
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
-                              <p><em>Valid values</em>: <code class="code">&quot;default&quot;</code> or
-                                 <code class="code">&quot;dedicated&quot;</code></p>
-                              
+                              <p><em>Allowed Values</em>: <code class="code">dedicated | default | host</code></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-aws-ec2-vpc-tags"></a><span class="term"><code class="code">Tags</code></span></dt>
-                           
                            <dd>
-                              
-                              <p>An arbitrary set of tags (key&#x2013;value pairs) for this VPC. To name a VPC resource, specify
-                                 a value for the <code class="code">Name</code> key.
-                              </p>
+                              	   
+                              <p>The tags for the VPC.</p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: <a href="aws-properties-resource-tags.html">Resource Tag</a></p>
-                              
-                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>.
-                              </p>
-                              
+                              <p><em>Type</em>: List of <a href="aws-properties-resource-tags.html">Tag</a></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
                         </dl>
-                     </div><h2 id="w2ab1c21c10d111d174c11">Return Values</h2><h3 id="w2ab1c21c10d111d174c11b2">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code>
-                        intrinsic function, <code class="code">Ref</code> returns the resource ID, such as
-                        <code class="code">vpc-18ac277d</code>.
+                     </div><h2 id="aws-resource-ec2-vpc-return-values">Return Values</h2><h3 id="aws-resource-ec2-vpc-return-values-ref">Ref</h3><p>When you pass the logical ID of this resource to the intrinsic <code class="code">Ref</code> function, <code class="code">Ref</code> returns the ID of the VPC.
                      </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                     </p><h3 id="w2ab1c21c10d111d174c11b4">Fn::GetAtt</h3><p><code class="code">Fn::GetAtt</code> returns a value for a specified attribute of this type.
-                        The following are the available attributes and sample return values.
-                     </p><div class="variablelist">
-                        
-                        
-                        
-                        
-                        
-                        
+                     </p><h3 id="aws-resource-ec2-vpc-return-values-fn--getatt">Fn::GetAtt</h3><p>The <code class="code">Fn::GetAtt</code> intrinsic function returns a value for a specified attribute of this type. The following
+                        are the available attributes and sample return values.
+                     </p><p>For more information about using the <code class="code">Fn::GetAtt</code> intrinsic function, see <a href="intrinsic-function-reference-getatt.html">Fn::GetAtt</a>.
+                     </p><h4 id="aws-resource-ec2-vpc-return-values-fn--getatt-fn--getatt"></h4><div class="variablelist">
                         <dl>
-                           
-                           <dt><span class="term"><code class="code">CidrBlock</code></span></dt>
-                           
+                           <dt><a id="CidrBlock-fn::getatt"></a><span class="term"><code class="code">CidrBlock</code></span></dt>
                            <dd>
                               
                               <p>The set of IP addresses for the VPC. For example,
@@ -203,10 +144,7 @@ Properties:
                               </p>
                               
                            </dd>
-                           
-                           
-                           <dt><span class="term"><code class="code">CidrBlockAssociations</code></span></dt>
-                           
+                           <dt><a id="CidrBlockAssociations-fn::getatt"></a><span class="term"><code class="code">CidrBlockAssociations</code></span></dt>
                            <dd>
                               
                               <p>A list of IPv4 CIDR block association IDs for the VPC. For example,
@@ -214,10 +152,7 @@ Properties:
                               </p>
                               
                            </dd>
-                           
-                           
-                           <dt><span class="term"><code class="code">DefaultNetworkAcl</code></span></dt>
-                           
+                           <dt><a id="DefaultNetworkAcl-fn::getatt"></a><span class="term"><code class="code">DefaultNetworkAcl</code></span></dt>
                            <dd>
                               
                               <p>The default network ACL ID that is associated with the VPC. For example,
@@ -225,10 +160,7 @@ Properties:
                               </p>
                               
                            </dd>
-                           
-                           
-                           <dt><span class="term"><code class="code">DefaultSecurityGroup</code></span></dt>
-                           
+                           <dt><a id="DefaultSecurityGroup-fn::getatt"></a><span class="term"><code class="code">DefaultSecurityGroup</code></span></dt>
                            <dd>
                               
                               <p>The default security group ID that is associated with the VPC. For example,
@@ -236,10 +168,7 @@ Properties:
                               </p>
                               
                            </dd>
-                           
-                           
-                           <dt><span class="term"><code class="code">Ipv6CidrBlocks</code></span></dt>
-                           
+                           <dt><a id="Ipv6CidrBlocks-fn::getatt"></a><span class="term"><code class="code">Ipv6CidrBlocks</code></span></dt>
                            <dd>
                               
                               <p>A list of IPv6 CIDR blocks that are associated with the VPC, such as <code class="code">[
@@ -247,54 +176,47 @@ Properties:
                               </p>
                               
                            </dd>
-                           
                         </dl>
-                     </div><p>For more information about using <code class="code">Fn::GetAtt</code>, see <a href="intrinsic-function-reference-getatt.html">Fn::GetAtt</a>.
-                     </p><h2 id="w2ab1c21c10d111d174c13">Example</h2><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-resource-ec2-vpc-example-1.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">
-{
-   &quot;AWSTemplateFormatVersion&quot; : &quot;2010-09-09&quot;,
-   &quot;Resources&quot; : {
-      &quot;myVPC&quot; : {
-         &quot;Type&quot; : &quot;AWS::EC2::VPC&quot;,
-         &quot;Properties&quot; : {
-            &quot;CidrBlock&quot; : &quot;10.0.0.0/16&quot;,
-    	    &quot;EnableDnsSupport&quot; : &quot;false&quot;,
-    	    &quot;EnableDnsHostnames&quot; : &quot;false&quot;,
-            &quot;InstanceTenancy&quot; : &quot;dedicated&quot;,
-            &quot;Tags&quot; : [ {&quot;Key&quot; : &quot;foo&quot;, &quot;Value&quot; : &quot;bar&quot;} ]
-         }
-      }
+                     </div><h2 id="aws-resource-ec2-vpc--examples">Examples</h2><h3 id="aws-resource-ec2-vpc--examples--VPC">VPC</h3><p>The following example specifies a VPC.</p><h4 id="aws-resource-ec2-vpc--examples--VPC--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">
+&quot;myVPC&quot; : {
+   &quot;Type&quot; : &quot;AWS::EC2::VPC&quot;,
+   &quot;Properties&quot; : {
+      &quot;CidrBlock&quot; : &quot;10.0.0.0/16&quot;,
+      &quot;EnableDnsSupport&quot; : &quot;false&quot;,
+      &quot;EnableDnsHostnames&quot; : &quot;false&quot;,
+      &quot;InstanceTenancy&quot; : &quot;dedicated&quot;,
+      &quot;Tags&quot; : [ {&quot;Key&quot; : &quot;foo&quot;, &quot;Value&quot; : &quot;bar&quot;} ]
    }
-}     </code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-resource-ec2-vpc-example-1.yaml">YAML</h3>
+}</code></pre><h4 id="aws-resource-ec2-vpc--examples--VPC--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">myVPC:
+  Type: AWS::EC2::VPC
+  Properties:
+    CidrBlock: 10.0.0.0/16
+    EnableDnsSupport: &apos;false&apos;
+    EnableDnsHostnames: &apos;false&apos;
+    InstanceTenancy: dedicated
+    Tags:
+     - Key: foo
+       Value: bar</code></pre><h2 id="aws-resource-ec2-vpc--seealso">See Also</h2><div class="itemizedlist">
                         
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">AWSTemplateFormatVersion: &apos;2010-09-09&apos;
-Resources:
-  myVPC:
-    Type: AWS::EC2::VPC
-    Properties:
-      CidrBlock: 10.0.0.0/16
-      EnableDnsSupport: &apos;false&apos;
-      EnableDnsHostnames: &apos;false&apos;
-      InstanceTenancy: dedicated
-      Tags:
-      - Key: foo
-        Value: bar</code></pre>
-                        </div><h2 id="w2ab1c21c10d111d174c15">More Info</h2><div class="itemizedlist">
                         
                         
                         <ul class="itemizedlist" type="disc">
                            <li class="listitem">
                               
-                              <p><a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVpc.html">CreateVpc</a> in the <em>Amazon EC2 API Reference</em>.
-                              </p>
+                              <p>
+                                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpc.html">CreateVpc</a> in the <em>Amazon EC2 API Reference</em></p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p>
+                                 <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">Your VPC and Subnets</a>
+                                 in the <em>Amazon Virtual Private Cloud User Guide</em></p>
                               
                            </li>
                         </ul>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
                      </div></div>
 </body>
 </html>

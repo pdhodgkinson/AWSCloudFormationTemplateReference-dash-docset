@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="css/awsdocs.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/awsdocs.min.js"></script>
+    <meta charset="utf-8">
+</head>
+<body>
+    <div id="content" style="padding: 10px 30px;">
+    <h1 class="topictitle" id="aws-resource-pinpointemail-identity">AWS::PinpointEmail::Identity</h1><p>Specifies an identity to use for sending email through Amazon Pinpoint. In Amazon
+                        Pinpoint, an <em>identity</em> is an email address or domain that you use when you
+                        send email. Before you can use Amazon Pinpoint to send an email from an identity,
+                        you first
+                        have to verify it. By verifying an identity, you demonstrate that you&apos;re the owner
+                        of the
+                        address or domain, and that you&apos;ve given Amazon Pinpoint permission to send email
+                        from that
+                        identity.
+                     </p><p>When you verify an email address, Amazon Pinpoint sends an email to the address. Your
+                        email address is verified as soon as you follow the link in the verification email.
+                     </p><p>When you verify a domain, this operation provides a set of DKIM tokens, which you
+                        can
+                        convert into CNAME tokens. You add these CNAME tokens to the DNS configuration for
+                        your
+                        domain. Your domain is verified when Amazon Pinpoint detects these records in the
+                        DNS
+                        configuration for your domain. It usually takes around 72 hours to complete the domain
+                        verification process.
+                     </p><div class="aws-note">
+                        <p class="aws-note">Important</p>
+                        <p>When you use CloudFormation to specify an identity, CloudFormation might indicate
+                           that
+                           the identity was created successfully. However, you have to verify the identity before
+                           you
+                           can use it to send email.
+                        </p>
+                     </div><h2 id="aws-resource-pinpointemail-identity-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-resource-pinpointemail-identity-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;Type&quot; : &quot;AWS::PinpointEmail::Identity&quot;,
+  &quot;Properties&quot; : {
+      &quot;<a href="#cfn-pinpointemail-identity-dkimsigningenabled">DkimSigningEnabled</a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
+      &quot;<a href="#cfn-pinpointemail-identity-feedbackforwardingenabled">FeedbackForwardingEnabled</a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
+      &quot;<a href="#cfn-pinpointemail-identity-mailfromattributes">MailFromAttributes</a>&quot; : <em class="replaceable"><code><a href="aws-properties-pinpointemail-identity-mailfromattributes.html">MailFromAttributes</a></code></em>,
+      &quot;<a href="#cfn-pinpointemail-identity-name">Name</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-pinpointemail-identity-tags">Tags</a>&quot; : <em class="replaceable"><code>[ <a href="aws-properties-pinpointemail-identity-tags.html">Tags</a>, ... ]</code></em>
+    }
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-pinpointemail-identity-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Type: AWS::PinpointEmail::Identity
+Properties: 
+  <a href="#cfn-pinpointemail-identity-dkimsigningenabled">DkimSigningEnabled</a>: <em class="replaceable"><code>Boolean</code></em>
+  <a href="#cfn-pinpointemail-identity-feedbackforwardingenabled">FeedbackForwardingEnabled</a>: <em class="replaceable"><code>Boolean</code></em>
+  <a href="#cfn-pinpointemail-identity-mailfromattributes">MailFromAttributes</a>: <em class="replaceable"><code>
+    <a href="aws-properties-pinpointemail-identity-mailfromattributes.html">MailFromAttributes</a></code></em>
+  <a href="#cfn-pinpointemail-identity-name">Name</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-pinpointemail-identity-tags">Tags</a>: <em class="replaceable"><code>
+    - <a href="aws-properties-pinpointemail-identity-tags.html">Tags</a></code></em>
+</code></pre></div><h2 id="aws-resource-pinpointemail-identity-properties">Properties</h2><div class="variablelist">
+                        <dl>
+                           <dt><a id="cfn-pinpointemail-identity-dkimsigningenabled"></a><span class="term"><code class="code">DkimSigningEnabled</code></span></dt>
+                           <dd>
+                              
+                              <p>For domain identities, this attribute is used to enable or disable DomainKeys Identified
+                                 Mail (DKIM) signing for the domain.
+                              </p>
+                              
+                              <p>If the value is <code class="code">true</code>, then the messages that you send from the domain are
+                                 signed using both the DKIM keys for your domain, as well as the keys for the
+                                 <code class="code">amazonses.com</code> domain. If the value is <code class="code">false</code>, then the messages
+                                 that you send are only signed using the DKIM keys for the <code class="code">amazonses.com</code>
+                                 domain.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              <p><em>Type</em>: Boolean
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                           </dd>
+                           <dt><a id="cfn-pinpointemail-identity-feedbackforwardingenabled"></a><span class="term"><code class="code">FeedbackForwardingEnabled</code></span></dt>
+                           <dd>
+                              
+                              <p>Used to enable or disable feedback forwarding for an identity. This setting determines
+                                 what happens when an identity is used to send an email that results in a bounce or
+                                 complaint
+                                 event.
+                              </p>
+                              
+                              <p>When you enable feedback forwarding, Amazon Pinpoint sends you email notifications
+                                 when
+                                 bounce or complaint events occur. Amazon Pinpoint sends this notification to the address
+                                 that
+                                 you specified in the Return-Path header of the original email.
+                              </p>
+                              
+                              <p>When you disable feedback forwarding, Amazon Pinpoint sends notifications through
+                                 other
+                                 mechanisms, such as by notifying an Amazon SNS topic. You&apos;re required to have a method
+                                 of
+                                 tracking bounces and complaints. If you haven&apos;t set up another mechanism for receiving
+                                 bounce
+                                 or complaint notifications, Amazon Pinpoint sends an email notification when these
+                                 events
+                                 occur (even if this setting is disabled).
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              <p><em>Type</em>: Boolean
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                           </dd>
+                           <dt><a id="cfn-pinpointemail-identity-mailfromattributes"></a><span class="term"><code class="code">MailFromAttributes</code></span></dt>
+                           <dd>
+                              
+                              <p>Used to enable or disable the custom Mail-From domain configuration for an email
+                                 identity.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              <p><em>Type</em>: <a href="aws-properties-pinpointemail-identity-mailfromattributes.html">MailFromAttributes</a></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                           </dd>
+                           <dt><a id="cfn-pinpointemail-identity-name"></a><span class="term"><code class="code">Name</code></span></dt>
+                           <dd>
+                              
+                              <p>The address or domain of the identity, such as <em>sender@example.com</em> or
+                                 <em>example.co.uk</em>.
+                              </p>
+                              
+                              <p><em>Required</em>: Yes
+                              </p>
+                              <p><em>Type</em>: String
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                           </dd>
+                           <dt><a id="cfn-pinpointemail-identity-tags"></a><span class="term"><code class="code">Tags</code></span></dt>
+                           <dd>
+                              
+                              <p>An object that defines the tags (keys and values) that you want to associate with
+                                 the
+                                 email identity.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              <p><em>Type</em>: <a href="aws-properties-pinpointemail-identity-tags.html">List</a> of <a href="aws-properties-pinpointemail-identity-tags.html">Tags</a></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                           </dd>
+                        </dl>
+                     </div><h2 id="aws-resource-pinpointemail-identity-return-values">Return Values</h2><h3 id="aws-resource-pinpointemail-identity-return-values-ref">Ref</h3><p>When you pass the logical ID of this resource to the intrinsic <code class="code">Ref</code> function, <code class="code">Ref</code> returns the resource name. For example:
+                     </p><p>
+                        <code class="code">{ &quot;Ref&quot;: &quot;myEmailIdentity&quot; }</code>
+                        
+                     </p><p>For the Amazon Pinpoint identity <code class="code">myEmailIdentity</code>, Ref returns the name of the
+                        identity (the email address or domain name).
+                     </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
+                     </p><h3 id="aws-resource-pinpointemail-identity-return-values-fn--getatt">Fn::GetAtt</h3><p>The <code class="code">Fn::GetAtt</code> intrinsic function returns a value for a specified attribute of this type. The following
+                        are the available attributes and sample return values.
+                     </p><p>For more information about using the <code class="code">Fn::GetAtt</code> intrinsic function, see <a href="intrinsic-function-reference-getatt.html">Fn::GetAtt</a>.
+                     </p><h4 id="aws-resource-pinpointemail-identity-return-values-fn--getatt-fn--getatt"></h4><div class="variablelist">
+                        <dl>
+                           <dt><a id="IdentityDNSRecordName1-fn::getatt"></a><span class="term"><code class="code">IdentityDNSRecordName1</code></span></dt>
+                           <dd>
+                              
+                              <p>The host name for the first token that you have to add to the DNS configuration for
+                                 your
+                                 domain.
+                              </p>
+                              
+                              <p>For more information, see <a href="https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-email-manage-verify.html#channels-email-manage-verify-domain">Verifying a Domain</a> in the Amazon Pinpoint User Guide.
+                              </p>
+                              
+                           </dd>
+                           <dt><a id="IdentityDNSRecordName2-fn::getatt"></a><span class="term"><code class="code">IdentityDNSRecordName2</code></span></dt>
+                           <dd>
+                              
+                              <p>The host name for the second token that you have to add to the DNS configuration for
+                                 your
+                                 domain.
+                              </p>
+                              
+                           </dd>
+                           <dt><a id="IdentityDNSRecordName3-fn::getatt"></a><span class="term"><code class="code">IdentityDNSRecordName3</code></span></dt>
+                           <dd>
+                              
+                              <p>The host name for the third token that you have to add to the DNS configuration for
+                                 your
+                                 domain.
+                              </p>
+                              
+                           </dd>
+                           <dt><a id="IdentityDNSRecordValue1-fn::getatt"></a><span class="term"><code class="code">IdentityDNSRecordValue1</code></span></dt>
+                           <dd>
+                              
+                              <p>The record value for the first token that you have to add to the DNS configuration
+                                 for
+                                 your domain.
+                              </p>
+                              
+                           </dd>
+                           <dt><a id="IdentityDNSRecordValue2-fn::getatt"></a><span class="term"><code class="code">IdentityDNSRecordValue2</code></span></dt>
+                           <dd>
+                              
+                              <p>The record value for the second token that you have to add to the DNS configuration
+                                 for
+                                 your domain.
+                              </p>
+                              
+                           </dd>
+                           <dt><a id="IdentityDNSRecordValue3-fn::getatt"></a><span class="term"><code class="code">IdentityDNSRecordValue3</code></span></dt>
+                           <dd>
+                              
+                              <p>The record value for the third token that you have to add to the DNS configuration
+                                 for
+                                 your domain.
+                              </p>
+                              
+                           </dd>
+                        </dl>
+                     </div><h2 id="aws-resource-pinpointemail-identity--seealso">See Also</h2><div class="itemizedlist">
+                        
+                        
+                        <ul class="itemizedlist" type="disc">
+                           <li class="listitem">
+                              
+                              <p><a href="https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-email-manage-verify.html">Verifying Email
+                                    Identities</a> in the <em>Amazon Pinpoint User Guide</em></p>
+                              
+                           </li>
+                        </ul>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
+                     </div></div>
+</body>
+</html>

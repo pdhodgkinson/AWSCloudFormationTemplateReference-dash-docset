@@ -8,187 +8,182 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-properties-sns-topic">AWS::SNS::Topic</h1><p>The <code class="code">AWS::SNS::Topic</code> type creates an Amazon Simple Notification Service (Amazon SNS) topic.
-                     </p><h2 id="aws-resource-sns-topic-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-resource-sns-topic-syntax.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
+    <h1 class="topictitle" id="aws-properties-sns-topic">AWS::SNS::Topic</h1><p>The <code class="code">AWS::SNS::Topic</code> resource creates a topic to which notifications can be
+                        published.
+                     </p><div class="aws-note">
+                        <p class="aws-note">Note</p>
+                        <div class="itemizedlist">
+                           
+                           
+                           
+                           <ul class="itemizedlist" type="disc">
+                              <li class="listitem">
+                                 
+                                 <p>One user can create a maximum of 100,000 topics.</p>
+                                 
+                              </li>
+                              <li class="listitem">
+                                 
+                                 <p>This action is idempotent: If the requester already owns a topic with the
+                                    specified name, that topic&apos;s ARN is returned without creating a new topic.
+                                 </p>
+                                 
+                              </li>
+                           </ul>
+                        </div>
+                     </div><h2 id="aws-properties-sns-topic-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-properties-sns-topic-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
   &quot;Type&quot; : &quot;AWS::SNS::Topic&quot;,
   &quot;Properties&quot; : {
-    &quot;<a href="aws-properties-sns-topic.html#cfn-sns-topic-displayname">DisplayName</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-properties-sns-topic.html#cfn-sns-topic-kmsmasterkeyid">KmsMasterKeyId</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-properties-sns-topic.html#cfn-sns-topic-subscription">Subscription</a>&quot; : [ <em class="replaceable"><code>SNS Subscription, ...</code></em> ],
-    &quot;<a href="aws-properties-sns-topic.html#cfn-sns-topic-name">TopicName</a>&quot; : <em class="replaceable"><code>String</code></em>
-  }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-resource-sns-topic-syntax.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">Type: AWS::SNS::Topic
+      &quot;<a href="#cfn-sns-topic-displayname">DisplayName</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-sns-topic-kmsmasterkeyid">KmsMasterKeyId</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-sns-topic-subscription">Subscription</a>&quot; : <em class="replaceable"><code>[ <a href="aws-properties-sns-subscription.html">Subscription</a>, ... ]</code></em>,
+      &quot;<a href="#cfn-sns-topic-topicname">TopicName</a>&quot; : <em class="replaceable"><code>String</code></em>
+    }
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-properties-sns-topic-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Type: AWS::SNS::Topic
 Properties: 
-  <a href="aws-properties-sns-topic.html#cfn-sns-topic-displayname">DisplayName</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-properties-sns-topic.html#cfn-sns-topic-kmsmasterkeyid">KmsMasterKeyId</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-properties-sns-topic.html#cfn-sns-topic-subscription">Subscription</a>:
-    - <em class="replaceable"><code>SNS Subscription</code></em>
-  <a href="aws-properties-sns-topic.html#cfn-sns-topic-name">TopicName</a>: <em class="replaceable"><code>String</code></em>
-</code></pre>
-                        </div><h2 id="w2ab1c21c10d222c17b7">Properties</h2><div class="variablelist">
-                        
-                        
-                        
-                        
-                        
-                        
-                        
+  <a href="#cfn-sns-topic-displayname">DisplayName</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-sns-topic-kmsmasterkeyid">KmsMasterKeyId</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-sns-topic-subscription">Subscription</a>: <em class="replaceable"><code>
+    - <a href="aws-properties-sns-subscription.html">Subscription</a></code></em>
+  <a href="#cfn-sns-topic-topicname">TopicName</a>: <em class="replaceable"><code>String</code></em>
+</code></pre></div><h2 id="aws-properties-sns-topic-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
                            <dt><a id="cfn-sns-topic-displayname"></a><span class="term"><code class="code">DisplayName</code></span></dt>
-                           
                            <dd>
                               
-                              <p>A developer-defined string that can be used to identify this SNS topic.</p>
+                              <p>The display name to use for an Amazon SNS topic with SMS subscriptions.</p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-sns-topic-kmsmasterkeyid"></a><span class="term"><code class="code">KmsMasterKeyId</code></span></dt>
-                           
                            <dd>
                               
-                              <p>An AWS KMS key identifier. This can be a key ID, key ARN, or key alias.</p>
+                              <p>The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK.
+                                 For
+                                 more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms">Key Terms</a>. For
+                                 more examples, see <code class="code">
+                                    <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters">KeyId</a>
+                                    </code> in the <em>AWS Key Management Service API
+                                    Reference</em>.
+                              </p>
+                              
+                              <p>This property applies only to <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html">server-side-encryption</a>.
+                              </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-sns-topic-subscription"></a><span class="term"><code class="code">Subscription</code></span></dt>
-                           
                            <dd>
                               
                               <p>The SNS subscriptions (endpoints) for this topic.</p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: List of <a href="aws-properties-sns-subscription.html">SNS
-                                    Subscriptions</a></p>
-                              
+                              <p><em>Type</em>: <a href="aws-properties-sns-subscription.html">List</a> of <a href="aws-properties-sns-subscription.html">Subscription</a></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-sns-topic-name"></a><span class="term"><code class="code">TopicName</code></span></dt>
-                           
+                           <dt><a id="cfn-sns-topic-topicname"></a><span class="term"><code class="code">TopicName</code></span></dt>
                            <dd>
                               
-                              <p>A name for the topic. If you don&apos;t specify a name, AWS CloudFormation generates a
-                                 unique
-                                 physical ID and uses that ID for the topic name. For more information, see <a href="aws-properties-name.html">Name Type</a>.
+                              <p>The name of the topic you want to create. Topic names must include only
+                                 uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must
+                                 be
+                                 between 1 and 256 characters long.
                               </p>
+                              
+                              <p>If you don&apos;t specify a name, AWS CloudFormation generates a unique physical ID and
+                                 uses
+                                 that ID for the topic name. For more information, see <a href="aws-properties-name.html">Name
+                                    Type</a>.
+                              </p>
+                              
                               <div class="aws-note">
                                  <p class="aws-note">Important</p>
-                                 <p>If you specify a name, you cannot perform updates that require replacement of this
-                                    resource.
-                                    You can perform updates that require no or some interruption. If you must replace
-                                    the resource, specify a new name.
+                                 <p>If you specify a name, you can&apos;t perform updates that require replacement of this
+                                    resource. You can perform updates that require no or some interruption. If you must
+                                    replace the resource, specify a new name.
                                  </p>
                               </div>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
                         </dl>
-                     </div><h2 id="w2ab1c21c10d222c17b9">Return Values</h2><h3 id="w2ab1c21c10d222c17b9b2">Ref</h3><p>For the <code class="code">AWS::SNS::Topic</code> resource, the <code class="code">Ref</code> intrinsic
-                        function returns the topic ARN, for example:
+                     </div><h2 id="aws-properties-sns-topic-return-values">Return Values</h2><h3 id="aws-properties-sns-topic-return-values-ref">Ref</h3><p>
+                        When you pass the logical ID of this resource to the intrinsic <code class="code">Ref</code> function, <code class="code">Ref</code> returns the topic ARN, for example:
                         <code class="code">arn:aws:sns:us-east-1:123456789012:mystack-mytopic-NZJ5JSMVGFIE</code>.
                      </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                     </p><h3 id="w2ab1c21c10d222c17b9b4">Fn::GetAtt</h3><p><code class="code">Fn::GetAtt</code> returns a value for a specified attribute of this type.
-                        The following are the available attributes and sample return values.
-                     </p><div class="variablelist">
-                        
-                        
+                     </p><h3 id="aws-properties-sns-topic-return-values-fn--getatt">Fn::GetAtt</h3><p>The <code class="code">Fn::GetAtt</code> intrinsic function returns a value for a specified attribute of this type. The following
+                        are the available attributes and sample return values.
+                     </p><p>For more information about using the <code class="code">Fn::GetAtt</code> intrinsic function, see <a href="intrinsic-function-reference-getatt.html">Fn::GetAtt</a>.
+                     </p><h4 id="aws-properties-sns-topic-return-values-fn--getatt-fn--getatt"></h4><div class="variablelist">
                         <dl>
-                           
-                           <dt><span class="term"><code class="code">TopicName</code></span></dt>
-                           
+                           <dt><a id="TopicName-fn::getatt"></a><span class="term"><code class="code">TopicName</code></span></dt>
                            <dd>
                               
-                              <p>Returns the name for an Amazon SNS topic.</p>
+                              <p>Returns the name of an Amazon SNS topic.</p>
                               
                            </dd>
-                           
                         </dl>
-                     </div><p>For more information about using <code class="code">Fn::GetAtt</code>, see <a href="intrinsic-function-reference-getatt.html">Fn::GetAtt</a>.
-                     </p><h2 id="w2ab1c21c10d222c17c11">Examples</h2><p>An example of an SNS topic subscribed to by two SQS queues:</p><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-resource-sns-topic-example.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">
-&quot;MySNSTopic&quot; : {
-   &quot;Type&quot; : &quot;AWS::SNS::Topic&quot;,
-   &quot;Properties&quot; : {
-      &quot;Subscription&quot; : [
-         { &quot;Endpoint&quot; : { &quot;Fn::GetAtt&quot; : [ &quot;MyQueue1&quot;, &quot;Arn&quot; ] }, &quot;Protocol&quot; : &quot;sqs&quot; },
-         { &quot;Endpoint&quot; : { &quot;Fn::GetAtt&quot; : [ &quot;MyQueue2&quot;, &quot;Arn&quot; ] }, &quot;Protocol&quot; : &quot;sqs&quot; }
-      ],
-      &quot;TopicName&quot; : &quot;SampleTopic&quot;
-   }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-resource-sns-topic-example.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">
-MySNSTopic: 
+                     </div><h2 id="aws-properties-sns-topic--examples">Examples</h2><h3 id="aws-properties-sns-topic--examples--An_Amazon_SNS_topic_subscribed_to_which_two_Amazon_SQS_queues_are_subscribed">An Amazon SNS topic subscribed to which two Amazon SQS queues are subscribed</h3><h4 id="aws-properties-sns-topic--examples--An_Amazon_SNS_topic_subscribed_to_which_two_Amazon_SQS_queues_are_subscribed--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">&quot;MySNSTopic&quot; : {
+  &quot;Type&quot; : &quot;AWS::SNS::Topic&quot;,
+  &quot;Properties&quot; : {
+    &quot;Subscription&quot; : [{
+      &quot;Endpoint&quot; : { &quot;Fn::GetAtt&quot; : [ &quot;MyQueue1&quot;, &quot;Arn&quot; ] },
+      &quot;Protocol&quot; : &quot;sqs&quot;
+    }, {
+      &quot;Endpoint&quot; : { &quot;Fn::GetAtt&quot; : [ &quot;MyQueue2&quot;, &quot;Arn&quot; ] },
+      &quot;Protocol&quot; : &quot;sqs&quot;
+    }],
+    &quot;TopicName&quot; : &quot;SampleTopic&quot;
+  }
+}</code></pre><h4 id="aws-properties-sns-topic--examples--An_Amazon_SNS_topic_subscribed_to_which_two_Amazon_SQS_queues_are_subscribed--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">MySNSTopic:
   Type: AWS::SNS::Topic
-  Properties: 
-    Subscription: 
-      - 
-        Endpoint: 
-          Fn::GetAtt: 
+  Properties:
+    Subscription:
+      -
+        Endpoint:
+          Fn::GetAtt:
             - &quot;MyQueue1&quot;
             - &quot;Arn&quot;
         Protocol: &quot;sqs&quot;
-      - 
-        Endpoint: 
-          Fn::GetAtt: 
+      - Endpoint:
+          Fn::GetAtt:
             - &quot;MyQueue2&quot;
             - &quot;Arn&quot;
         Protocol: &quot;sqs&quot;
-    TopicName: &quot;SampleTopic&quot;</code></pre>
-                        </div><h2 id="w2ab1c21c10d222c17c13">See Also</h2><div class="itemizedlist">
+    TopicName: &quot;SampleTopic&quot;</code></pre><h2 id="aws-properties-sns-topic--seealso">See Also</h2><div class="itemizedlist">
                         
                         
                         <ul class="itemizedlist" type="disc">
                            <li class="listitem">
                               
-                              <p><a href="http://docs.aws.amazon.com/sns/latest/dg/SendMessageToSQS.cloudformation.html">Using an AWS CloudFormation Template to Create a Topic that Sends Messages to
-                                    Amazon SQS Queues</a> in the <em>Amazon Simple Notification Service
-                                    Developer Guide</em></p>
+                              <p>
+                                 <a href="https://docs.aws.amazon.com/sns/latest/dg/SendMessageToSQS.cloudformation.html">Using an AWS
+                                    CloudFormation Template to Create a Topic that Sends Messages to Amazon SQS
+                                    Queues</a> in the <em>Amazon Simple Notification Service Developer
+                                    Guide</em>
+                                 
+                              </p>
                               
                            </li>
                         </ul>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
                      </div></div>
 </body>
 </html>

@@ -8,88 +8,99 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-properties-iot-topicrule-dynamodbv2action">AWS IoT TopicRule DynamoDBv2Action</h1><p>The 
-                        <code class="code">DynamoDBv2Action</code> property type is a property of the <code class="code">Actions</code> property that describes an AWS IoT action that writes data to a DynamoDB table.
-                     </p><p>
-                        <code class="code">DynamoDBv2Action</code> is a property of the <a href="aws-properties-iot-topicrule-action.html">AWS IoT TopicRule Action</a> property. 
-                        
+    <h1 class="topictitle" id="aws-properties-iot-topicrule-dynamodbv2action">AWS::IoT::TopicRule DynamoDBv2Action</h1><p>Describes an action to write to a DynamoDB table.</p><p>This DynamoDB action writes each attribute in the message payload into it&apos;s own
+                        column in the DynamoDB table.
                      </p><h2 id="aws-properties-iot-topicrule-dynamodbv2action-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
-                        
-                        <h3 id="aws-properties-iot-topicrule-dynamodbv2action-syntax.json">JSON</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
-  &quot;<a href="aws-properties-iot-topicrule-dynamodbv2action.html#cfn-iot-topicrule-dynamodbv2action-putitem">PutItem</a>&quot; : <a href="aws-properties-iot-topicrule-putiteminput.html">PutItemInput</a>,
-  &quot;<a href="aws-properties-iot-topicrule-dynamodbv2action.html#cfn-iot-topicrule-dynamodbv2action-rolearn">RoleArn</a>&quot; : <em class="replaceable"><code>String</code></em>
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        
-                        <h3 id="aws-properties-iot-topicrule-dynamodbv2action-syntax.yaml">YAML</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight"><a href="aws-properties-iot-topicrule-dynamodbv2action.html#cfn-iot-topicrule-dynamodbv2action-putitem">PutItem</a>: 
-  <a href="aws-properties-iot-topicrule-putiteminput.html">PutItemInput</a>
-<a href="aws-properties-iot-topicrule-dynamodbv2action.html#cfn-iot-topicrule-dynamodbv2action-rolearn">RoleArn</a>: <em class="replaceable"><code>String</code></em></code></pre>
-                        </div><h2 id="aws-properties-iot-topicrule-dynamodbv2action-properties">Properties</h2><p>For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-rule-actions.html">DynamoDBv2
-                           Action</a> in the <em>AWS IoT Developer Guide</em>.
-                     </p><div class="variablelist">
-                        
-                        
-                        
+                        <h3 id="aws-properties-iot-topicrule-dynamodbv2action-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;<a href="#cfn-iot-topicrule-dynamodbv2action-putitem">PutItem</a>&quot; : <em class="replaceable"><code><a href="aws-properties-iot-topicrule-putiteminput.html">PutItemInput</a></code></em>,
+  &quot;<a href="#cfn-iot-topicrule-dynamodbv2action-rolearn">RoleArn</a>&quot; : <em class="replaceable"><code>String</code></em>
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-properties-iot-topicrule-dynamodbv2action-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">  <a href="#cfn-iot-topicrule-dynamodbv2action-putitem">PutItem</a>: <em class="replaceable"><code>
+    <a href="aws-properties-iot-topicrule-putiteminput.html">PutItemInput</a></code></em>
+  <a href="#cfn-iot-topicrule-dynamodbv2action-rolearn">RoleArn</a>: <em class="replaceable"><code>String</code></em>
+</code></pre></div><h2 id="aws-properties-iot-topicrule-dynamodbv2action-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
                            <dt><a id="cfn-iot-topicrule-dynamodbv2action-putitem"></a><span class="term"><code class="code">PutItem</code></span></dt>
-                           
                            <dd>
                               
-                              <p>Specifies the database table to which to write the item for an AWS IoT topic rule.</p>
-                              
-                              <p>
-                                 <em>Required</em>: No
+                              <p>Specifies the DynamoDB table to which the message data will be written. For
+                                 example:
                               </p>
                               
                               <p>
-                                 <em>Type</em>: <a href="aws-properties-iot-topicrule-putiteminput.html">PutItemInput</a></p>
-                              
-                              <p>
-                                 <em>Update requires</em>:                                 
-                                 <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
+                                 <code class="code">{ &quot;dynamoDBv2&quot;: { &quot;roleArn&quot;: &quot;aws:iam:12341251:my-role&quot; &quot;putItem&quot;: { &quot;tableName&quot;:
+                                    &quot;my-table&quot; } } }</code>
                                  
                               </p>
                               
+                              <p>Each attribute in the message payload will be written to a separate column in the
+                                 DynamoDB database.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              <p><em>Type</em>: <a href="aws-properties-iot-topicrule-putiteminput.html">PutItemInput</a></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-iot-topicrule-dynamodbv2action-rolearn"></a><span class="term"><code class="code">RoleArn</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The IAM role that allows access to the DynamoDB table. At a minimum, the role must
-                                 allow the <code class="code">dynamoDB:PutItem</code> IAM action.
-                              </p>
+                              <p>The ARN of the IAM role that grants access to the DynamoDB table.</p>
                               
-                              <p>
-                                 <em>Required</em>: No
+                              <p><em>Required</em>: No
                               </p>
-                              
-                              <p>
-                                 <em>Type</em>: String
+                              <p><em>Type</em>: String
                               </p>
-                              
-                              <p>
-                                 <em>Update requires</em>:                                 
-                                 <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
-                                 
-                              </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
                         </dl>
-                     </div><h2 id="aws-properties-iot-topicrule-dynamodbv2action-seealso">See Also</h2><div class="itemizedlist">
+                     </div><h2 id="aws-properties-iot-topicrule-dynamodbv2action--seealso">See Also</h2><div class="itemizedlist">
+                        
+                        
+                        
+                        
                         
                         
                         <ul class="itemizedlist" type="disc">
                            <li class="listitem">
                               
-                              <p><a href="https://docs.aws.amazon.com/iot/latest/apireference/API_DynamoDBv2Action.html">DynamoDBv2Action</a> in the <em>AWS IoT API Reference</em></p>
+                              <p>
+                                 <a href="https://docs.aws.amazon.com/https://sdk.amazonaws.com/cpp/api/LATEST/class_aws_1_1_io_t_1_1_model_1_1_dynamo_d_bv2_action.html">AWS SDK for C++</a>.
+                              </p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p>
+                                 <a href="https://docs.aws.amazon.com/https://docs.aws.amazon.com/sdk-for-go/api/service/iot/#DynamoDBv2Action">AWS SDK for Go</a>.
+                              </p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p>
+                                 <a href="https://docs.aws.amazon.com/https://docs.aws.amazon.com/sdk-for-go/v1/api/service.iot.DynamoDBv2Action.html">AWS SDK for Go - Pilot</a>.
+                              </p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p>
+                                 <a href="https://docs.aws.amazon.com/https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/iot/model/DynamoDBv2Action.html">AWS SDK for Java</a>.
+                              </p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p>
+                                 <a href="https://docs.aws.amazon.com/https://docs.aws.amazon.com/sdkforruby/api/Aws/IoT/Types/DynamoDBv2Action.html">AWS SDK for Ruby V2</a>.
+                              </p>
+                              
                            </li>
                         </ul>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
                      </div></div>
 </body>
 </html>

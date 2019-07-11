@@ -8,153 +8,264 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-properties-cloudfront-distribution-origin">CloudFront Distribution Origin</h1><p><code class="code">Origin</code> is a property of the <a href="aws-properties-cloudfront-distribution-distributionconfig.html">DistributionConfig</a> property
-                        that describes an Amazon CloudFront distribution origin.
-                     </p><h2 id="w2ab1c21c10c60c14c66b5">Syntax</h2><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-properties-cloudfront-distribution-origin-syntax.json">JSON</h3>
+    <h1 class="topictitle" id="aws-properties-cloudfront-distribution-origin">AWS::CloudFront::Distribution Origin</h1><p>A complex type that describes the Amazon S3 bucket, HTTP server (for example, a web
                         
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
-  &quot;<a href="aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-customorigin">CustomOriginConfig</a>&quot; : <em class="replaceable"><code>CustomOriginConfig</code></em>,
-  &quot;<a href="aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-domainname">DomainName</a>&quot; : <em class="replaceable"><code>String</code></em>,
-  &quot;<a href="aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-id">Id</a>&quot; : <em class="replaceable"><code>String</code></em>,
-  &quot;<a href="aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-origincustomheaders">OriginCustomHeaders</a>&quot; : [ <em class="replaceable"><code>OriginCustomHeader, ...</code></em> ]
-  &quot;<a href="aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-originpath">OriginPath</a>&quot; : <em class="replaceable"><code>String</code></em>,
-  &quot;<a href="aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-s3origin">S3OriginConfig</a>&quot; : <em class="replaceable"><code>S3OriginConfig</code></em>
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-properties-cloudfront-distribution-origin-syntax.yaml">YAML</h3>
+                        			server), Amazon MediaStore, or other server from which CloudFront gets your files.
+                        This can
+                        			also be an origin group, if you&apos;ve created an origin group. You must specify at
                         
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight"><a href="aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-customorigin">CustomOriginConfig</a>:
-  <em class="replaceable"><code>CustomOriginConfig</code></em>
-<a href="aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-domainname">DomainName</a>: <em class="replaceable"><code>String</code></em>
-<a href="aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-id">Id</a>: <em class="replaceable"><code>String</code></em>
-<a href="aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-origincustomheaders">OriginCustomHeaders</a>:
-  - <em class="replaceable"><code>OriginCustomHeader</code></em>
-<a href="aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-originpath">OriginPath</a>: <em class="replaceable"><code>String</code></em>
-<a href="aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-s3origin">S3OriginConfig</a>:
-  <em class="replaceable"><code>S3OriginConfig</code></em></code></pre>
-                        </div><h2 id="w2ab1c21c10c60c14c66b7">Properties</h2><div class="aws-note">
-                        <p class="aws-note">Note</p>
-                        <p>For more information about the constraints and valid values of each property, see
-                           the
-                           <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_Origin.html">Origin</a> data type in the
-                           <em>Amazon CloudFront API Reference</em>.
-                        </p>
-                     </div><div class="variablelist">
-                        
-                        
-                        
-                        
-                        
-                        
-                        
+                        			least one origin or origin group.
+                     </p><p>For the current limit on the number of origins or origin groups that you can specify
+                        			for a distribution, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_cloudfront">Amazon CloudFront Limits</a> 
+                        			in the <em>AWS General Reference</em>.
+                     </p><h2 id="aws-properties-cloudfront-distribution-origin-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-properties-cloudfront-distribution-origin-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;<a href="#cfn-cloudfront-distribution-origin-customoriginconfig">CustomOriginConfig</a>&quot; : <em class="replaceable"><code><a href="aws-properties-cloudfront-distribution-customoriginconfig.html">CustomOriginConfig</a></code></em>,
+  &quot;<a href="#cfn-cloudfront-distribution-origin-domainname">DomainName</a>&quot; : <em class="replaceable"><code>String</code></em>,
+  &quot;<a href="#cfn-cloudfront-distribution-origin-id">Id</a>&quot; : <em class="replaceable"><code>String</code></em>,
+  &quot;<a href="#cfn-cloudfront-distribution-origin-origincustomheaders">OriginCustomHeaders</a>&quot; : <em class="replaceable"><code>[ <a href="aws-properties-cloudfront-distribution-origincustomheader.html">OriginCustomHeader</a>, ... ]</code></em>,
+  &quot;<a href="#cfn-cloudfront-distribution-origin-originpath">OriginPath</a>&quot; : <em class="replaceable"><code>String</code></em>,
+  &quot;<a href="#cfn-cloudfront-distribution-origin-s3originconfig">S3OriginConfig</a>&quot; : <em class="replaceable"><code><a href="aws-properties-cloudfront-distribution-s3originconfig.html">S3OriginConfig</a></code></em>
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-properties-cloudfront-distribution-origin-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">  <a href="#cfn-cloudfront-distribution-origin-customoriginconfig">CustomOriginConfig</a>: <em class="replaceable"><code>
+    <a href="aws-properties-cloudfront-distribution-customoriginconfig.html">CustomOriginConfig</a></code></em>
+  <a href="#cfn-cloudfront-distribution-origin-domainname">DomainName</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-cloudfront-distribution-origin-id">Id</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-cloudfront-distribution-origin-origincustomheaders">OriginCustomHeaders</a>: <em class="replaceable"><code>
+    - <a href="aws-properties-cloudfront-distribution-origincustomheader.html">OriginCustomHeader</a></code></em>
+  <a href="#cfn-cloudfront-distribution-origin-originpath">OriginPath</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-cloudfront-distribution-origin-s3originconfig">S3OriginConfig</a>: <em class="replaceable"><code>
+    <a href="aws-properties-cloudfront-distribution-s3originconfig.html">S3OriginConfig</a></code></em>
+</code></pre></div><h2 id="aws-properties-cloudfront-distribution-origin-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
-                           <dt><a id="cfn-cloudfront-distribution-origin-customorigin"></a><span class="term"><code class="literal">CustomOriginConfig</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>Origin information to specify a custom origin.</p>
-                              
-                              <p><em>Required</em>: Conditional. You cannot use <code class="code">CustomOriginConfig</code> and
-                                 <code class="code">S3OriginConfig</code> in the same <code class="code">Origin</code>, but you
-                                 <em>must</em> specify one or the other.
+                           <dt><a id="cfn-cloudfront-distribution-origin-customoriginconfig"></a><span class="term"><code class="code">CustomOriginConfig</code></span></dt>
+                           <dd> 
+                              		       
+                              <p>A complex type that contains information about a custom origin. If the origin is an
+                                 
+                                 			Amazon S3 bucket, use the <code class="code">S3OriginConfig</code> element instead.
                               </p>
-                              
-                              <p><em>Type</em>: <a href="aws-properties-cloudfront-distribution-customoriginconfig.html">CustomOriginConfig</a>
-                                 type
+                              	     
+                              <p><em>Required</em>: No
                               </p>
-                              
+                              <p><em>Type</em>: <a href="aws-properties-cloudfront-distribution-customoriginconfig.html">CustomOriginConfig</a></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-cloudfront-distribution-origin-domainname"></a><span class="term"><code class="literal">DomainName</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>The DNS name of the Amazon Simple Storage Service (S3) bucket or the HTTP server from
-                                 which you want
-                                 CloudFront to get objects for this origin.
+                           <dt><a id="cfn-cloudfront-distribution-origin-domainname"></a><span class="term"><code class="code">DomainName</code></span></dt>
+                           <dd> 
+                              		       
+                              <p>
+                                 <b>Amazon S3 origins</b>: The DNS name of the Amazon S3 bucket from 
+                                 			which you want CloudFront to get objects for this origin, for example, 
+                                 			<code class="code">myawsbucket.s3.amazonaws.com</code>. If you set up your bucket to be configured
+                                 			as a website endpoint, enter the Amazon S3 static website hosting endpoint for
+                                 the bucket.
                               </p>
-                              
+                              		       
+                              <p>For more information about specifying this value for different types of origins,
+                                 			see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesDomainName">Origin Domain
+                                    			Name</a> in the <em>Amazon CloudFront Developer Guide</em>.
+                              </p>
+                              		       
+                              <p>Constraints for Amazon S3 origins: </p> 
+                              		       
+                              <div class="itemizedlist"> 
+                                 			          
+                                 			          
+                                 			          
+                                 			          
+                                 		       
+                                 <ul class="itemizedlist" type="disc">
+                                    <li class="listitem"> 
+                                       				           
+                                       <p>If you configured Amazon S3 Transfer Acceleration for your bucket, don&apos;t specify the
+                                          
+                                          						<code class="code">s3-accelerate</code> endpoint for <code class="code">DomainName</code>.
+                                       </p> 
+                                       			         
+                                    </li>
+                                    <li class="listitem"> 
+                                       				           
+                                       <p>The bucket name must be between 3 and 63 characters long (inclusive).</p> 
+                                       			         
+                                    </li>
+                                    <li class="listitem"> 
+                                       				           
+                                       <p>The bucket name must contain only lowercase characters, numbers, periods, 
+                                          					underscores, and dashes.
+                                       </p> 
+                                       			         
+                                    </li>
+                                    <li class="listitem"> 
+                                       				           
+                                       <p>The bucket name must not contain adjacent periods.</p> 
+                                       			         
+                                    </li>
+                                 </ul>
+                              </div> 
+                              		       
+                              <p>
+                                 <b>Custom Origins</b>: The DNS domain name for the HTTP 
+                                 			server from which you want CloudFront to get objects for this origin, for example,
+                                 
+                                 				<code class="code">www.example.com</code>. 
+                              </p> 
+                              		       
+                              <p>Constraints for custom origins:</p> 
+                              		       
+                              <div class="itemizedlist"> 
+                                 			          
+                                 			          
+                                 		       
+                                 <ul class="itemizedlist" type="disc">
+                                    <li class="listitem"> 
+                                       				           
+                                       <p>
+                                          <code class="code">DomainName</code> must be a valid DNS name that contains only a-z, A-Z, 0-9, 
+                                          					dot (.), hyphen (-), or underscore (_) characters.
+                                       </p> 
+                                       			         
+                                    </li>
+                                    <li class="listitem"> 
+                                       				           
+                                       <p>The name cannot exceed 128 characters.</p> 
+                                       			         
+                                    </li>
+                                 </ul>
+                              </div>
+                              	     
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-cloudfront-distribution-origin-id"></a><span class="term"><code class="literal">Id</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>An identifier for the origin. The value of <code class="code">Id</code> must be unique
-                                 within the distribution.
+                           <dt><a id="cfn-cloudfront-distribution-origin-id"></a><span class="term"><code class="code">Id</code></span></dt>
+                           <dd> 
+                              		       
+                              <p>A unique identifier for the origin or origin group. The value of <code class="code">Id</code> must be unique within 
+                                 			the distribution.
+                              </p> 
+                              		       
+                              <p>When you specify the value of <code class="code">TargetOriginId</code> for the default cache 
+                                 			behavior or for another cache behavior, you indicate the origin to which you want
+                                 the cache 
+                                 			behavior to route requests by specifying the value of the <code class="code">Id</code> element for that 
+                                 			origin. When a request matches the path pattern for that cache behavior, CloudFront
+                                 routes the 
+                                 			request to the specified origin. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesCacheBehavior">Cache 
+                                    				Behavior Settings</a> in the <em>Amazon CloudFront Developer Guide</em>.
                               </p>
-                              
+                              	     
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-cloudfront-distribution-origin-origincustomheaders"></a><span class="term"><code class="code">OriginCustomHeaders</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>Custom headers that CloudFront includes when it forwards a request to your origin.</p>
-                              
+                           <dd> 
+                              		       
+                              <p>A complex type that contains names and values for the custom headers that you 
+                                 			want.
+                              </p>
+                              	     
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: List of <a href="aws-properties-cloudfront-distribution-origincustomheader.html">OriginCustomHeader</a> type
-                              </p>
-                              
+                              <p><em>Type</em>: List of <a href="aws-properties-cloudfront-distribution-origincustomheader.html">OriginCustomHeader</a></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-cloudfront-distribution-origin-originpath"></a><span class="term"><code class="literal">OriginPath</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>The path that CloudFront uses to request content from an S3 bucket or custom origin.
-                                 The combination of the <code class="code">DomainName</code> and <code class="code">OriginPath</code>
-                                 properties must resolve to a valid path. The value must start with a slash mark
-                                 (<code class="code">/</code>) and cannot end with a slash mark.
+                           <dt><a id="cfn-cloudfront-distribution-origin-originpath"></a><span class="term"><code class="code">OriginPath</code></span></dt>
+                           <dd> 
+                              		       
+                              <p>An optional element that causes CloudFront to request your content from a directory
+                                 in your 
+                                 			Amazon S3 bucket or your custom origin. When you include the <code class="code">OriginPath</code> element, 
+                                 			specify the directory name, beginning with a <code class="code">/</code>. CloudFront appends the directory name 
+                                 			to the value of <code class="code">DomainName</code>, for example, <code class="code">example.com/production</code>. Do 
+                                 			not include a <code class="code">/</code> at the end of the directory name.
+                              </p> 
+                              		       
+                              <p>For example, suppose you&apos;ve specified the following values for your 
+                                 			distribution:
+                              </p> 
+                              		       
+                              <div class="itemizedlist"> 
+                                 			          
+                                 			          
+                                 			          
+                                 		       
+                                 <ul class="itemizedlist" type="disc">
+                                    <li class="listitem"> 
+                                       				           
+                                       <p>
+                                          <code class="code">DomainName</code>: An Amazon S3 bucket named <code class="code">myawsbucket</code>.
+                                       </p> 
+                                       			         
+                                    </li>
+                                    <li class="listitem"> 
+                                       				           
+                                       <p>
+                                          <code class="code">OriginPath</code>: <code class="code">/production</code>
+                                          
+                                       </p> 
+                                       			         
+                                    </li>
+                                    <li class="listitem"> 
+                                       				           
+                                       <p>
+                                          <code class="code">CNAME</code>: <code class="code">example.com</code>
+                                          
+                                       </p> 
+                                       			         
+                                    </li>
+                                 </ul>
+                              </div> 
+                              		       
+                              <p>When a user enters <code class="code">example.com/index.html</code> in a browser, CloudFront sends a 
+                                 			request to Amazon S3 for <code class="code">myawsbucket/production/index.html</code>.
+                              </p> 
+                              		       
+                              <p>When a user enters <code class="code">example.com/acme/index.html</code> in a browser, CloudFront sends a 
+                                 			request to Amazon S3 for <code class="code">myawsbucket/production/acme/index.html</code>.
                               </p>
-                              
+                              	     
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-cloudfront-distribution-origin-s3origin"></a><span class="term"><code class="literal">S3OriginConfig</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>Origin information to specify an S3 origin.</p>
-                              
-                              <p><em>Required</em>: Conditional. You cannot use <code class="code">S3OriginConfig</code> and
-                                 <code class="code">CustomOriginConfig</code> in the same <code class="code">Origin</code>, but you
-                                 <em>must</em> specify one or the other.
+                           <dt><a id="cfn-cloudfront-distribution-origin-s3originconfig"></a><span class="term"><code class="code">S3OriginConfig</code></span></dt>
+                           <dd> 
+                              		       
+                              <p>A complex type that contains information about the Amazon S3 origin. If the origin
+                                 is a 
+                                 			custom origin, use the <code class="code">CustomOriginConfig</code> element instead.
                               </p>
-                              
-                              <p><em>Type</em>: <a href="aws-properties-cloudfront-distribution-s3originconfig.html">S3OriginConfig</a>
-                                 type
+                              	     
+                              <p><em>Required</em>: No
                               </p>
-                              
+                              <p><em>Type</em>: <a href="aws-properties-cloudfront-distribution-s3originconfig.html">S3OriginConfig</a></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
                         </dl>
+                     </div><h2 id="aws-properties-cloudfront-distribution-origin--seealso">See Also</h2><div class="itemizedlist">
+                        				        
+                        			      
+                        <ul class="itemizedlist" type="disc">
+                           <li class="listitem">
+                              					          
+                              <p>
+                                 						            <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_Origin.html">Origin</a> in the <em>Amazon CloudFront API Reference</em>
+                                 					          
+                              </p>
+                              				        
+                           </li>
+                        </ul>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
                      </div></div>
 </body>
 </html>

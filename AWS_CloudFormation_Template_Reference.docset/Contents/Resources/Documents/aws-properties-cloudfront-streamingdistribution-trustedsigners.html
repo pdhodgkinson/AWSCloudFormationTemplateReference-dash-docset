@@ -8,94 +8,99 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-properties-cloudfront-streamingdistribution-trustedsigners">Amazon CloudFront StreamingDistribution TrustedSigners</h1><p>The 
-                        <code class="code">TrustedSigners</code> property type specifies the AWS accounts, if any, that you want to allow to create
-                        signed URLs for private content for an Amazon CloudFront distribution. For more information,
-                        see <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_TrustedSigners.html">TrustedSigners</a> in
-                        the <em>Amazon CloudFront API Reference</em>.
-                     </p><p>
-                        <code class="code">TrustedSigners</code> is a property of the <a href="aws-properties-cloudfront-streamingdistribution-streamingdistributionconfig.html">StreamingDistributionConfig</a> property type.
+    <h1 class="topictitle" id="aws-properties-cloudfront-streamingdistribution-trustedsigners">AWS::CloudFront::StreamingDistribution TrustedSigners</h1><p>A complex type that specifies the AWS accounts, if any, that you want to allow to
                         
+                        			create signed URLs for private content.
+                     </p><p>If you want to require signed URLs in requests for objects in the target origin that
+                        
+                        			match the <code class="code">PathPattern</code> for this cache behavior, specify <code class="code">true</code> for 
+                        				<code class="code">Enabled</code>, and specify the applicable values for <code class="code">Quantity</code> and 
+                        				<code class="code">Items</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">Serving Private Content through CloudFront</a> in the <em>
+                           				Amazon CloudFront Developer Guide</em>.
+                     </p><p>If you don&apos;t want to require signed URLs in requests for objects that match 
+                        				<code class="code">PathPattern</code>, specify <code class="code">false</code> for <code class="code">Enabled</code> and 
+                        				<code class="code">0</code> for <code class="code">Quantity</code>. Omit <code class="code">Items</code>.
+                     </p><p>To add, change, or remove one or more trusted signers, change <code class="code">Enabled</code> to 
+                        				<code class="code">true</code> (if it&apos;s currently <code class="code">false</code>), change <code class="code">Quantity</code> as 
+                        			applicable, and specify all of the trusted signers that you want to include in
+                        the updated 
+                        			distribution.
+                     </p><p>For more information about updating the distribution configuration, see <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/DistributionConfig.html">DistributionConfig</a> in the 
+                        			<em>Amazon CloudFront API Reference</em>.
                      </p><h2 id="aws-properties-cloudfront-streamingdistribution-trustedsigners-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
-                        
-                        <h3 id="aws-properties-cloudfront-streamingdistribution-trustedsigners-syntax.json">JSON</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
-  &quot;<a href="aws-properties-cloudfront-streamingdistribution-trustedsigners.html#cfn-cloudfront-streamingdistribution-trustedsigners-awsaccountnumbers">AwsAccountNumbers</a>&quot; : [ <em class="replaceable"><code>String</code></em>, ... ]
-  &quot;<a href="aws-properties-cloudfront-streamingdistribution-trustedsigners.html#cfn-cloudfront-streamingdistribution-trustedsigners-enabled">Enabled</a>&quot; : <em class="replaceable"><code>Boolean</code></em>
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        
-                        <h3 id="aws-properties-cloudfront-streamingdistribution-trustedsigners-syntax.yaml">YAML</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight"><a href="aws-properties-cloudfront-streamingdistribution-trustedsigners.html#cfn-cloudfront-streamingdistribution-trustedsigners-awsaccountnumbers">AwsAccountNumbers</a>: 
-  - <em class="replaceable"><code>String</code></em>
-<a href="aws-properties-cloudfront-streamingdistribution-trustedsigners.html#cfn-cloudfront-streamingdistribution-trustedsigners-enabled">Enabled</a>: <em class="replaceable"><code>Boolean</code></em></code></pre>
-                        </div><h2 id="aws-properties-cloudfront-streamingdistribution-trustedsigners-properties">Properties</h2><div class="variablelist">
-                        
-                        
-                        
+                        <h3 id="aws-properties-cloudfront-streamingdistribution-trustedsigners-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;<a href="#cfn-cloudfront-streamingdistribution-trustedsigners-awsaccountnumbers">AwsAccountNumbers</a>&quot; : <em class="replaceable"><code>[ String, ... ]</code></em>,
+  &quot;<a href="#cfn-cloudfront-streamingdistribution-trustedsigners-enabled">Enabled</a>&quot; : <em class="replaceable"><code>Boolean</code></em>
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-properties-cloudfront-streamingdistribution-trustedsigners-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">  <a href="#cfn-cloudfront-streamingdistribution-trustedsigners-awsaccountnumbers">AwsAccountNumbers</a>: <em class="replaceable"><code>
+    - String</code></em>
+  <a href="#cfn-cloudfront-streamingdistribution-trustedsigners-enabled">Enabled</a>: <em class="replaceable"><code>Boolean</code></em>
+</code></pre></div><h2 id="aws-properties-cloudfront-streamingdistribution-trustedsigners-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
                            <dt><a id="cfn-cloudfront-streamingdistribution-trustedsigners-awsaccountnumbers"></a><span class="term"><code class="code">AwsAccountNumbers</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>The trusted signers for this cache behavior.</p>
-                              
-                              <p>
-                                 <em>Required</em>: No
+                           <dd> 
+                              		       
+                              <p>An AWS account that is included in the <code class="code">TrustedSigners</code> complex type for 
+                                 			this distribution. Valid values include:
+                              </p> 
+                              		       
+                              <div class="itemizedlist"> 
+                                 			          
+                                 			          
+                                 		       
+                                 <ul class="itemizedlist" type="disc">
+                                    <li class="listitem">
+                                       
+                                       <p>
+                                          <code class="code">self</code>, which is the AWS account used to create the distribution.
+                                       </p>
+                                       
+                                    </li>
+                                    <li class="listitem">
+                                       
+                                       <p>An AWS account number.</p>
+                                       
+                                    </li>
+                                 </ul>
+                              </div>
+                              	     
+                              <p><em>Required</em>: No
                               </p>
-                              
-                              <p>
-                                 <em>Type</em>: StringList
+                              <p><em>Type</em>: List of String
                               </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: 
-                                 
-                                 <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
-                                 
-                              </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-cloudfront-streamingdistribution-trustedsigners-enabled"></a><span class="term"><code class="code">Enabled</code></span></dt>
-                           
-                           <dd>
-                              
+                           <dd> 
+                              		       
                               <p>Specifies whether you want to require viewers to use signed URLs to access the files
-                                 specified by <code class="code">PathPattern</code> and <code class="code">TargetOriginId</code>.
-                              </p>
-                              
-                              <p>
-                                 <em>Required</em>: Yes
-                              </p>
-                              
-                              <p>
-                                 <em>Type</em>: Boolean
-                              </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: 
                                  
-                                 <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
-                                 
+                                 			specified by <code class="code">PathPattern</code> and <code class="code">TargetOriginId</code>.
                               </p>
-                              
+                              	     
+                              <p><em>Required</em>: Yes
+                              </p>
+                              <p><em>Type</em>: Boolean
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
                         </dl>
-                     </div><h2 id="aws-properties-cloudfront-streamingdistribution-trustedsigners-seealso">See Also</h2><div class="itemizedlist">
-                        			  
-                        			
+                     </div><h2 id="aws-properties-cloudfront-streamingdistribution-trustedsigners--seealso">See Also</h2><div class="itemizedlist">
+                        				        
+                        			      
                         <ul class="itemizedlist" type="disc">
                            <li class="listitem">
-                              			    
-                              <p><a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_TrustedSigners.html">TrustedSigners</a> in
-                                 			      the <em>Amazon CloudFront API Reference</em></p>
-                              		      
+                              					          
+                              <p>
+                                 						            <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_TrustedSigners.html">TrustedSigners</a> in the <em>Amazon CloudFront API Reference</em>
+                                 					          
+                              </p>
+                              				        
                            </li>
                         </ul>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
                      </div></div>
 </body>
 </html>

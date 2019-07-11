@@ -8,377 +8,354 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-resource-iam-role">AWS::IAM::Role</h1><p>Creates an AWS Identity and Access Management (IAM) role. Use an IAM role to enable
-                        applications running on an EC2 instance to securely access your AWS resources.
-                     </p><p>For more information about IAM roles, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html">Working with Roles</a> in the
-                        <em>AWS Identity and Access Management User Guide</em>.
-                     </p><div class="highlights" id="inline-topiclist">
-                        <p><strong>Topics</strong></p>
-                        <ul>
-                           <li><a href="#aws-resource-iam-role-syntax">Syntax</a></li>
-                           <li><a href="#w2ab1c21c10d156c37c11">Properties</a></li>
-                           <li><a href="#w2ab1c21c10d156c37c13">Return Values</a></li>
-                           <li><a href="#cfn-iam-role-templateexamples">Template Examples</a></li>
-                           <li><a href="#w2ab1c21c10d156c37c17">See Also</a></li>
-                        </ul>
-                     </div><h2 id="aws-resource-iam-role-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-resource-iam-role-syntax.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
-  &quot;Type&quot;: &quot;AWS::IAM::Role&quot;,
-  &quot;Properties&quot;: {
-    &quot;<a href="aws-resource-iam-role.html#cfn-iam-role-assumerolepolicydocument">AssumeRolePolicyDocument</a>&quot;: { <em class="replaceable"><code>JSON</code></em> },
-    &quot;<a href="aws-resource-iam-role.html#cfn-iam-role-managepolicyarns">ManagedPolicyArns</a>&quot;: [ <em class="replaceable"><code>String, ...</code></em> ],
-    &quot;<a href="aws-resource-iam-role.html#cfn-iam-role-maxsessionduration">MaxSessionDuration</a>&quot;: <em class="replaceable"><code>Integer</code></em>,
-    &quot;<a href="aws-resource-iam-role.html#cfn-iam-role-path">Path</a>&quot;: <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-iam-role.html#cfn-iam-role-permissionsboundary">PermissionsBoundary</a>&quot;: <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-iam-role.html#cfn-iam-role-policies">Policies</a>&quot;: [ <em class="replaceable"><code>Policies, ...</code></em> ],
-    &quot;<a href="aws-resource-iam-role.html#cfn-iam-role-rolename">RoleName</a>&quot;: <em class="replaceable"><code>String</code></em>
-  }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-resource-iam-role-syntax.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">Type: AWS::IAM::Role
+    <h1 class="topictitle" id="aws-resource-iam-role">AWS::IAM::Role</h1><p>Creates a new role for your AWS account. For more information about roles, go to
+                        <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html">IAM
+                           Roles</a>. For information about limitations on role names and the number of roles
+                        you can create, go to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html">Limitations on IAM Entities</a> in
+                        the <em>IAM User Guide</em>.
+                     </p><h2 id="aws-resource-iam-role-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-resource-iam-role-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;Type&quot; : &quot;AWS::IAM::Role&quot;,
+  &quot;Properties&quot; : {
+      &quot;<a href="#cfn-iam-role-assumerolepolicydocument">AssumeRolePolicyDocument</a>&quot; : <em class="replaceable"><code>Json</code></em>,
+      &quot;<a href="#cfn-iam-role-managepolicyarns">ManagedPolicyArns</a>&quot; : <em class="replaceable"><code>[ String, ... ]</code></em>,
+      &quot;<a href="#cfn-iam-role-maxsessionduration">MaxSessionDuration</a>&quot; : <em class="replaceable"><code>Integer</code></em>,
+      &quot;<a href="#cfn-iam-role-path">Path</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-iam-role-permissionsboundary">PermissionsBoundary</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-iam-role-policies">Policies</a>&quot; : <em class="replaceable"><code>[ <a href="aws-properties-iam-policy.html">Policy</a>, ... ]</code></em>,
+      &quot;<a href="#cfn-iam-role-rolename">RoleName</a>&quot; : <em class="replaceable"><code>String</code></em>
+    }
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-iam-role-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Type: AWS::IAM::Role
 Properties: 
-  <a href="aws-resource-iam-role.html#cfn-iam-role-assumerolepolicydocument">AssumeRolePolicyDocument</a>:
-    <em class="replaceable"><code>JSON object</code></em>
-  <a href="aws-resource-iam-role.html#cfn-iam-role-managepolicyarns">ManagedPolicyArns</a>:
-    - <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-iam-role.html#cfn-iam-role-maxsessionduration">MaxSessionDuration</a>: <em class="replaceable"><code>Integer</code></em>
-  <a href="aws-resource-iam-role.html#cfn-iam-role-path">Path</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-iam-role.html#cfn-iam-role-permissionsboundary">PermissionsBoundary</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-iam-role.html#cfn-iam-role-policies">Policies</a>:
-    - <em class="replaceable"><code>Policies</code></em>
-  <a href="aws-resource-iam-role.html#cfn-iam-role-rolename">RoleName</a>: <em class="replaceable"><code>String</code></em>
-</code></pre>
-                        </div><h2 id="w2ab1c21c10d156c37c11">Properties</h2><div class="variablelist">
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
+  <a href="#cfn-iam-role-assumerolepolicydocument">AssumeRolePolicyDocument</a>: <em class="replaceable"><code>Json</code></em>
+  <a href="#cfn-iam-role-managepolicyarns">ManagedPolicyArns</a>: <em class="replaceable"><code>
+    - String</code></em>
+  <a href="#cfn-iam-role-maxsessionduration">MaxSessionDuration</a>: <em class="replaceable"><code>Integer</code></em>
+  <a href="#cfn-iam-role-path">Path</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-iam-role-permissionsboundary">PermissionsBoundary</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-iam-role-policies">Policies</a>: <em class="replaceable"><code>
+    - <a href="aws-properties-iam-policy.html">Policy</a></code></em>
+  <a href="#cfn-iam-role-rolename">RoleName</a>: <em class="replaceable"><code>String</code></em>
+</code></pre></div><h2 id="aws-resource-iam-role-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
                            <dt><a id="cfn-iam-role-assumerolepolicydocument"></a><span class="term"><code class="code">AssumeRolePolicyDocument</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The trust policy that is associated with this role. You can associate only one assume
-                                 role policy with a role. For an example of
-                                 an assume role policy, see <a href="aws-resource-iam-role.html#cfn-iam-role-templateexamples">Template Examples</a>. For more information about the elements that you can use in an IAM policy, see <a href="https://docs.aws.amazon.com//IAM/latest/UserGuide/reference_policies_elements.html">IAM Policy Elements Reference</a> in the <em>IAM User Guide</em>.
+                              <p>The trust policy that is associated with this role. Trust policies define which entities
+                                 can assume the role. You can associate only one trust policy with a role. For an example
+                                 of
+                                 a policy that can be used to assume a role, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html#cfn-iam-role-templateexamples">Template Examples</a>. For more information about the elements that you can use in
+                                 an IAM policy, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html">IAM Policy Elements
+                                    Reference</a> in the <em>IAM User Guide</em>.
                               </p>
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
-                              <p><em>Type</em>: A JSON policy document
+                              <p><em>Type</em>: Json
                               </p>
-                              
-                              <div class="aws-note">
-                                 <p class="aws-note">Note</p>
-                                 <p>AWS Identity and Access Management (IAM) requires that policies be in JSON format.
-                                    However, for templates formatted in YAML, you can create an IAM policy in either JSON
-                                    or YAML format. AWS CloudFormation always converts a policy to JSON format before
-                                    submitting it to IAM.
-                                 </p>
-                              </div>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-iam-role-managepolicyarns"></a><span class="term"><code class="code">ManagedPolicyArns</code></span></dt>
-                           
                            <dd>
                               
-                              <p>One or more managed policy ARNs to attach to this role.</p>
+                              <p>A list of Amazon Resource Names (ARNs) of the IAM managed policies that you want to
+                                 attach to the user.
+                              </p>
+                              
+                              <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and
+                                    AWS Service Namespaces</a> in the <em>AWS General Reference</em>.
+                              </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: List of String values
+                              <p><em>Type</em>: List of String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-iam-role-maxsessionduration"></a><span class="term"><code class="code">MaxSessionDuration</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The maximum session duration (in seconds) for the specified role. Anyone who uses
-                                 the AWS CLI or API to assume the role can specify the duration using the optional
-                                 <code class="code">DurationSeconds</code> API parameter or <code class="code">duration-seconds</code> CLI parameter. Minimum value of 3600. Maximum value of 43200.
+                              <p>The maximum session duration (in seconds) that you want to set for the specified role.
+                                 If you do not specify a value for this setting, the default maximum of one hour is
+                                 applied.
+                                 This setting can have a value from 1 hour to 12 hours.
                               </p>
                               
-                              <p><em>Required</em>: No
-                              </p>
-                              
-                              <p><em>Type</em>: Integer
-                              </p>
-                              
-                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
-                           </dd>
-                           
-                           
-                           <dt><a id="cfn-iam-role-path"></a><span class="term"><code class="code">Path</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>The path associated with this role. For information about IAM paths, see
-                                 <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html#Identifiers_FriendlyNames">Friendly Names and Paths</a> in
+                              <p>Anyone who assumes the role from the AWS CLI or API can use the
+                                 <code class="code">DurationSeconds</code> API parameter or the <code class="code">duration-seconds</code> CLI
+                                 parameter to request a longer session. The <code class="code">MaxSessionDuration</code> setting
+                                 determines the maximum duration that can be requested using the
+                                 <code class="code">DurationSeconds</code> parameter. If users don&apos;t specify a value for the
+                                 <code class="code">DurationSeconds</code> parameter, their security credentials are valid for one
+                                 hour by default. This applies when you use the <code class="code">AssumeRole*</code> API operations or
+                                 the <code class="code">assume-role*</code> CLI operations but does not apply when you use those
+                                 operations to create a console URL. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html">Using IAM Roles</a> in the
                                  <em>IAM User Guide</em>.
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: String
+                              <p><em>Type</em>: Integer
                               </p>
-                              
-                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
+                              <p><em>Minimum</em>: <code class="code">3600</code></p>
+                              <p><em>Maximum</em>: <code class="code">43200</code></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-iam-role-permissionsboundary"></a><span class="term"><code class="code">PermissionsBoundary</code></span></dt>
-                           
+                           <dt><a id="cfn-iam-role-path"></a><span class="term"><code class="code">Path</code></span></dt>
                            <dd>
                               
-                              <p>The ARN of the policy that is used to set the permissions boundary for the role. Minimum
-                                 length of 20. Maximum length of 2048.
+                              <p> The path to the role. For more information about paths, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM Identifiers</a> in the
+                                 <em>IAM User Guide</em>.
+                              </p>
+                              
+                              <p>This parameter is optional. If it is not included, it defaults to a slash (/).</p>
+                              
+                              <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex" target="_blank">regex pattern</a>) a string of characters consisting 
+                                 of either a forward slash (/) by itself or a string that must begin and end with forward
+                                 slashes.
+                                 In addition, it can contain any ASCII character from the ! (\u0021) through the DEL
+                                 character (\u007F), including 
+                                 most punctuation characters, digits, and upper and lowercased letters.
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
-                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
+                              <p><em>Minimum</em>: <code class="code">1</code></p>
+                              <p><em>Maximum</em>: <code class="code">512</code></p>
+                              <p><em>Pattern</em>: <code class="code">(\u002F)|(\u002F[\u0021-\u007F]+\u002F)</code></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-iam-role-policies"></a><span class="term"><code class="code">Policies</code></span></dt>
-                           
+                           <dt><a id="cfn-iam-role-permissionsboundary"></a><span class="term"><code class="code">PermissionsBoundary</code></span></dt>
                            <dd>
                               
-                              <p>The policies to associate with this role. For sample templates, see <a href="aws-resource-iam-role.html#cfn-iam-role-templateexamples">Template Examples</a>.
+                              <p>The ARN of the policy used to set the permissions boundary for the role.</p>
+                              
+                              <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions Boundaries for IAM
+                                    Identities </a> in the <em>IAM User Guide</em>.
                               </p>
                               
-                              <div class="aws-note">
-                                 <p class="aws-note">Important</p>
-                                 <p>The name of each policy for a role, user, or group must be unique. If you don&apos;t, updates
-                                    to the IAM role will fail. 
-                                 </p>
-                              </div>
+                              <p><em>Required</em>: No
+                              </p>
+                              <p><em>Type</em>: String
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                           </dd>
+                           <dt><a id="cfn-iam-role-policies"></a><span class="term"><code class="code">Policies</code></span></dt>
+                           <dd>
+                              
+                              <p>Adds or updates an inline policy document that is embedded in the specified IAM
+                                 role.
+                              </p>
+                              
+                              <p>When you embed an inline policy in a role, the inline policy is used as part of the
+                                 role&apos;s access (permissions) policy. The role&apos;s trust policy is created at the same
+                                 time as
+                                 the role. You can update a role&apos;s trust policy later. For more information about IAM
+                                 roles,
+                                 go to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html">Using
+                                    Roles to Delegate Permissions and Federate Identities</a>.
+                              </p>
+                              
+                              <p>A role can also have an attached managed policy. For information about policies, see
+                                 <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed Policies and Inline Policies</a> in the <em>IAM User
+                                    Guide</em>.
+                              </p>
+                              
+                              <p>For information about limits on the number of inline policies that you can embed with
+                                 a
+                                 role, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html">Limitations on IAM Entities</a> in the <em>IAM User Guide</em>.
+                              </p>
                               
                               <div class="aws-note">
                                  <p class="aws-note">Note</p>
-                                 <p>If an external policy (such as <code class="code">AWS::IAM::Policy</code> or <code class="code">AWS::IAM::ManagedPolicy</code>) has a <code class="code">Ref</code> to a role and if a resource (such as <code class="code">AWS::ECS::Service</code>) also has a <code class="code">Ref</code> to the same role, add a <code class="code">DependsOn</code> attribute to the resource to make the resource depend on the external policy. This
-                                    dependency ensures that the role&apos;s policy is available throughout the resource&apos;s lifecycle.
-                                    For example, when you delete a
-                                    stack with an <code class="code">AWS::ECS::Service</code> resource, the <code class="code">DependsOn</code> attribute ensures that AWS CloudFormation deletes the <code class="code">AWS::ECS::Service</code> resource  before deleting its role&apos;s policy.
+                                 <p>If an external policy (such as <code class="code">AWS::IAM::Policy</code> or
+                                    <code class="code">AWS::IAM::ManagedPolicy</code>) has a <code class="code">Ref</code> to a role and if a
+                                    resource (such as <code class="code">AWS::ECS::Service</code>) also has a <code class="code">Ref</code> to the
+                                    same role, add a <code class="code">DependsOn</code> attribute to the resource to make the resource
+                                    depend on the external policy. This dependency ensures that the role&apos;s policy is
+                                    available throughout the resource&apos;s lifecycle. For example, when you delete a stack
+                                    with
+                                    an <code class="code">AWS::ECS::Service</code> resource, the <code class="code">DependsOn</code> attribute ensures
+                                    that AWS CloudFormation deletes the <code class="code">AWS::ECS::Service</code> resource before
+                                    deleting its role&apos;s policy.
                                  </p>
                               </div>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: List of <a href="aws-properties-iam-policy.html">IAM Policies</a></p>
-                              
+                              <p><em>Type</em>: List of <a href="aws-properties-iam-policy.html">Policy</a></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-iam-role-rolename"></a><span class="term"><code class="code">RoleName</code></span></dt>
-                           
                            <dd>
                               
-                              <p>A name for the IAM role. For valid values, see the <code class="code">RoleName</code> parameter for the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html"><code class="code">CreateRole</code></a> action in the <em>IAM API Reference</em>. If you don&apos;t specify a name, AWS CloudFormation generates a unique physical ID and
-                                 uses that ID for the group name.
+                              <p>A name for the IAM role. For valid values, see the <code class="code">RoleName</code> parameter for
+                                 the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html">
+                                    <code class="code">CreateRole</code>
+                                    </a> action in the <em>IAM User Guide</em>.
+                              </p>
+                              
+                              <p>This parameter allows (per its <a href="http://wikipedia.org/wiki/regex" target="_blank">regex
+                                    pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+                                 characters with no spaces. You can also include any of the following characters: _+=,.@-.
+                                 The role name must be unique within the account. Role names are not distinguished
+                                 by case.
+                                 For example, you cannot create roles named both &quot;Role1&quot; and &quot;role1&quot;.
+                              </p>
+                              
+                              <p>If you don&apos;t specify a name, AWS CloudFormation generates a unique physical ID and
+                                 uses
+                                 that ID for the role name.
+                              </p>
+                              
+                              <p>If you specify a name, you must specify the <code class="code">CAPABILITY_NAMED_IAM</code> value to
+                                 acknowledge your template&apos;s capabilities. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#using-iam-capabilities">Acknowledging IAM Resources in AWS CloudFormation Templates</a>.
                               </p>
                               
                               <div class="aws-note">
                                  <p class="aws-note">Important</p>
-                                 <p>If you specify a name, you cannot perform updates that require replacement of this
-                                    resource.
-                                    You can perform updates that require no or some interruption. If you must replace
-                                    the resource, specify a new name.
-                                 </p>
-                              </div>
-                              
-                              <p>If you specify a name, you must specify the <code class="code">CAPABILITY_NAMED_IAM</code> value to acknowledge your template&apos;s capabilities. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#using-iam-capabilities">Acknowledging IAM Resources in AWS CloudFormation Templates</a>.
-                              </p>
-                              
-                              <div class="aws-note">
-                                 <p class="aws-note">Warning</p>
-                                 <p>Naming an IAM resource can cause an unrecoverable error if you reuse the same template
-                                    in multiple regions. To prevent this, we recommend using <code class="code">Fn::Join</code> and <code class="code">AWS::Region</code> to create a region-specific name, as in the following example: <code class="code">{&quot;Fn::Join&quot;: [&quot;&quot;, [{&quot;Ref&quot;: &quot;AWS::Region&quot;}, {&quot;Ref&quot;: &quot;MyResourceName&quot;}]]}</code>.
+                                 <p>Naming an IAM resource can cause an unrecoverable error if you reuse the same
+                                    template in multiple Regions. To prevent this, we recommend using <code class="code">Fn::Join</code>
+                                    and <code class="code">AWS::Region</code> to create a Region-specific name, as in the following
+                                    example: <code class="code">{&quot;Fn::Join&quot;: [&quot;&quot;, [{&quot;Ref&quot;: &quot;AWS::Region&quot;}, {&quot;Ref&quot;:
+                                       &quot;MyResourceName&quot;}]]}</code>.
                                  </p>
                               </div>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
                         </dl>
-                     </div><h3 id="cfn-iam-role-policynotes">Notes on policies for IAM roles</h3><p>For general information about IAM policies and policy documents, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/AccessPolicyLanguage_HowToWritePolicies.html">How to Write a Policy</a> in <em>IAM User Guide</em>.
-                     </p><h2 id="w2ab1c21c10d156c37c13">Return Values</h2><h3 id="w2ab1c21c10d156c37c13b2">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code> intrinsic
-                        function, <code class="code">Ref</code> returns the resource name. For example:
-                     </p><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{ &quot;Ref&quot;: &quot;<em class="replaceable"><code>RootRole</code></em>&quot; }</code></pre><p>For the IAM::Role with the logical ID &quot;RootRole&quot;, <code class="code">Ref</code> will return the resource
-                        name.
+                     </div><h2 id="aws-resource-iam-role-return-values">Return Values</h2><h3 id="aws-resource-iam-role-return-values-ref">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code> intrinsic function, <code class="code">Ref</code> returns the resource name.
+                     </p><p>For example:</p><p>
+                        <code class="code">{ &quot;Ref&quot;: &quot;RootRole&quot; }</code>
+                        
+                     </p><p>For the <code class="code">AWS::IAM::Role</code> resource with the logical ID <code class="code">RootRole</code>,
+                        <code class="code">Ref</code> will return the role name.
                      </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                     </p><h3 id="w2ab1c21c10d156c37c13b4">Fn::GetAtt</h3><p><code class="code">Fn::GetAtt</code> returns a value for a specified attribute of this type.
-                        The following are the available attributes and sample return values.
-                     </p><div class="variablelist">
-                        
-                        
-                        
-                        
-                        
-                        
+                     </p><h3 id="aws-resource-iam-role-return-values-fn--getatt">Fn::GetAtt</h3><p>The <code class="code">Fn::GetAtt</code> intrinsic function returns a value for a specified attribute of this type. The following
+                        are the available attributes and sample return values.
+                     </p><p>For more information about using the <code class="code">Fn::GetAtt</code> intrinsic function, see <a href="intrinsic-function-reference-getatt.html">Fn::GetAtt</a>.
+                     </p><h4 id="aws-resource-iam-role-return-values-fn--getatt-fn--getatt"></h4><div class="variablelist">
                         <dl>
-                           
-                           <dt><span class="term"><code class="code">Arn</code></span></dt>
-                           
+                           <dt><a id="Arn-fn::getatt"></a><span class="term"><code class="code">Arn</code></span></dt>
                            <dd>
                               
                               <p>Returns the Amazon Resource Name (ARN) for the role. For example:</p>
-                              <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">{&quot;Fn::GetAtt&quot; : [&quot;MyRole&quot;, &quot;Arn&quot;] }</code></pre>
-                              <p>This will return a value such as <code class="code">&#x201C;arn:aws:iam::1234567890:role/MyRole-AJJHDSKSDF&#x201D;</code>.
+                              
+                              <p>
+                                 <code class="code">{&quot;Fn::GetAtt&quot; : [&quot;MyRole&quot;, &quot;Arn&quot;] }</code>
+                                 
+                              </p>
+                              
+                              <p>This will return a value such as
+                                 <code class="code">arn:aws:iam::1234567890:role/MyRole-AJJHDSKSDF</code>.
                               </p>
                               
                            </dd>
-                           
-                           
-                           <dt><span class="term"><code class="code">RoleId</code></span></dt>
-                           
+                           <dt><a id="RoleId-fn::getatt"></a><span class="term"><code class="code">RoleId</code></span></dt>
                            <dd>
                               
                               <p>Returns the stable and unique string identifying the role. For example,
                                  <code class="code">AIDAJQABLZS4A3QDU576Q</code>.
                               </p>
                               
-                              <p>For more information about IDs, see  <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html">IAM Identifiers</a> in the
+                              <p>For more information about IDs, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html">IAM Identifiers</a> in the
                                  <em>IAM User Guide</em>.
                               </p>
                               
                            </dd>
-                           
                         </dl>
-                     </div><p>For more information about using <code class="code">Fn::GetAtt</code>, see <a href="intrinsic-function-reference-getatt.html">Fn::GetAtt</a>.
-                     </p><h2 id="cfn-iam-role-templateexamples">Template Examples</h2><h3 id="w2ab1c21c10d156c37c15b4">IAM Role with Embedded Policy and Instance Profiles</h3><p>This example shows an embedded Policy in the IAM::Role. The policy is specified inline
-                        in the IAM::Role Policies
-                        property.
-                     </p><div id="JSON" name="JSON" class="section langfilter">
-                        
-                        <h4 id="aws-resource-iam-role-example1.json">JSON</h4>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">{
-   &quot;AWSTemplateFormatVersion&quot;: &quot;2010-09-09&quot;,
-   &quot;Resources&quot;: {
-      &quot;RootRole&quot;: {
-         &quot;Type&quot;: &quot;AWS::IAM::Role&quot;,
-         &quot;Properties&quot;: {
-            &quot;AssumeRolePolicyDocument&quot;: {
-               &quot;Version&quot; : &quot;2012-10-17&quot;,
-               &quot;Statement&quot;: [ {
-                  &quot;Effect&quot;: &quot;Allow&quot;,
-                  &quot;Principal&quot;: {
-                     &quot;Service&quot;: [ &quot;ec2.amazonaws.com&quot; ]
-                  },
-                  &quot;Action&quot;: [ &quot;sts:AssumeRole&quot; ]
-               } ]
-            },
-            &quot;Path&quot;: &quot;/&quot;,
-            &quot;Policies&quot;: [ {
-               &quot;PolicyName&quot;: &quot;root&quot;,
-               &quot;PolicyDocument&quot;: {
-                  &quot;Version&quot; : &quot;2012-10-17&quot;,
-                  &quot;Statement&quot;: [ {
-                     &quot;Effect&quot;: &quot;Allow&quot;,
-                     &quot;Action&quot;: &quot;*&quot;,
-                     &quot;Resource&quot;: &quot;*&quot;
-                  } ]
+                     </div><h2 id="aws-resource-iam-role--examples">Examples</h2><h3 id="aws-resource-iam-role--examples--IAM_Role_with_Embedded_Policy_and_Instance_Profiles">IAM Role with Embedded Policy and Instance Profiles</h3><p>This example shows an embedded policy in the <code class="code">AWS::IAM::Role</code>. The
+                        policy is specified inline in the <code class="code">Policies</code> property of the
+                        <code class="code">AWS::IAM::Role</code>.
+                     </p><h4 id="aws-resource-iam-role--examples--IAM_Role_with_Embedded_Policy_and_Instance_Profiles--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">
+            {
+              &quot;AWSTemplateFormatVersion&quot;: &quot;2010-09-09&quot;,
+              &quot;Resources&quot;: {
+                 &quot;RootRole&quot;: {
+                   &quot;Type&quot;: &quot;AWS::IAM::Role&quot;,
+                   &quot;Properties&quot;: {
+                     &quot;AssumeRolePolicyDocument&quot;: {
+                        &quot;Version&quot; : &quot;2012-10-17&quot;,
+                        &quot;Statement&quot;: [ {
+                          &quot;Effect&quot;: &quot;Allow&quot;,
+                          &quot;Principal&quot;: {
+                             &quot;Service&quot;: [ &quot;ec2.&amp;api-domain;&quot; ]
+                          },
+                          &quot;Action&quot;: [ &quot;sts:AssumeRole&quot; ]
+                       } ]
+                       },
+                       &quot;Path&quot;: &quot;/&quot;,
+                       &quot;Policies&quot;: [ {
+                          &quot;PolicyName&quot;: &quot;root&quot;,
+                          &quot;PolicyDocument&quot;: {
+                             &quot;Version&quot; : &quot;2012-10-17&quot;,
+                             &quot;Statement&quot;: [ {
+                               &quot;Effect&quot;: &quot;Allow&quot;,
+                               &quot;Action&quot;: &quot;*&quot;,
+                               &quot;Resource&quot;: &quot;*&quot;
+                             } ]
+                          }
+                          } ]
+                        }
+                 },
+                 &quot;RootInstanceProfile&quot;: {
+                   &quot;Type&quot;: &quot;AWS::IAM::InstanceProfile&quot;,
+                   &quot;Properties&quot;: {
+                     &quot;Path&quot;: &quot;/&quot;,
+                     &quot;Roles&quot;: [ {
+                       &quot;Ref&quot;: &quot;RootRole&quot;
+                     } ]
+                   }
+                 }
+                }
                }
-               } ]
-            }
-      },
-      &quot;RootInstanceProfile&quot;: {
-         &quot;Type&quot;: &quot;AWS::IAM::InstanceProfile&quot;,
-         &quot;Properties&quot;: {
-            &quot;Path&quot;: &quot;/&quot;,
-            &quot;Roles&quot;: [ {
-               &quot;Ref&quot;: &quot;RootRole&quot;
-            } ]
-         }
-      }
-   }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        
-                        <h4 id="aws-resource-iam-role-example1.yaml">YAML</h4>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">AWSTemplateFormatVersion: &quot;2010-09-09&quot;
-Resources: 
-  RootRole: 
-    Type: &quot;AWS::IAM::Role&quot;
-    Properties: 
-      AssumeRolePolicyDocument: 
-        Version: &quot;2012-10-17&quot;
-        Statement: 
-          - 
-            Effect: &quot;Allow&quot;
-            Principal: 
-              Service: 
-                - &quot;ec2.amazonaws.com&quot;
-            Action: 
-              - &quot;sts:AssumeRole&quot;
-      Path: &quot;/&quot;
-      Policies: 
-        - 
-          PolicyName: &quot;root&quot;
-          PolicyDocument: 
-            Version: &quot;2012-10-17&quot;
-            Statement: 
-              - 
-                Effect: &quot;Allow&quot;
-                Action: &quot;*&quot;
-                Resource: &quot;*&quot;
-  RootInstanceProfile: 
-    Type: &quot;AWS::IAM::InstanceProfile&quot;
-    Properties: 
-      Path: &quot;/&quot;
-      Roles: 
-        - 
-          Ref: &quot;RootRole&quot;</code></pre>
-                        </div><h3 id="w2ab1c21c10d156c37c15b8">IAM Role with External Policy and Instance Profiles</h3><p>In this example, the Policy and InstanceProfile resources are specified externally
-                        to the IAM Role. They refer
-                        to the role by specifying its name, &quot;RootRole&quot;, in their respective Roles properties.
-                     </p><div id="JSON" name="JSON" class="section langfilter">
-                        
-                        <h4 id="aws-resource-iam-role-example2.json">JSON</h4>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">{
+         </code></pre><h4 id="aws-resource-iam-role--examples--IAM_Role_with_Embedded_Policy_and_Instance_Profiles--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">
+            AWSTemplateFormatVersion: &quot;2010-09-09&quot;
+            Resources:
+              RootRole:
+                Type: &quot;AWS::IAM::Role&quot;
+                Properties:
+                  AssumeRolePolicyDocument:
+                    Version: &quot;2012-10-17&quot;
+                    Statement:
+                      -
+                        Effect: &quot;Allow&quot;
+                        Principal:
+                          Service:
+                            - &quot;ec2.&amp;api-domain;&quot; 
+                        Action: 
+                          - &quot;sts:AssumeRole&quot;
+                 Path: &quot;/&quot;
+                 Policies:
+                   -
+                     PolicyName: &quot;root&quot;
+                     PolicyDocument:
+                       Version: &quot;2012-10-17&quot;
+                       Statement:
+                         -
+                           Effect: &quot;Allow&quot;
+                           Action: &quot;*&quot;
+                           Resource: &quot;*&quot;
+           RootInstanceProfile:
+             Type: &quot;AWS::IAM::InstanceProfile&quot;
+             Properties:
+               Path: &quot;/&quot;
+               Roles:
+                 -
+                   Ref: &quot;RootRole&quot;
+         </code></pre><h3 id="aws-resource-iam-role--examples--IAM_Role_with_External_Policy_and_Instance_Profiles">IAM Role with External Policy and Instance Profiles</h3><p>In this example, the Policy and InstanceProfile resources are specified externally
+                        to the IAM Role. They refer to the role by specifying its name, &quot;RootRole&quot;, in their
+                        respective <code class="code">Roles</code> properties.
+                     </p><h4 id="aws-resource-iam-role--examples--IAM_Role_with_External_Policy_and_Instance_Profiles--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
    &quot;AWSTemplateFormatVersion&quot;: &quot;2010-09-09&quot;,
    &quot;Resources&quot;: {
       &quot;RootRole&quot;: {
@@ -424,11 +401,7 @@ Resources:
          }
       }
    }
-}  </code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        
-                        <h4 id="aws-resource-iam-role-example2.yaml">YAML</h4>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">AWSTemplateFormatVersion: &quot;2010-09-09&quot;
+}  </code></pre><h4 id="aws-resource-iam-role--examples--IAM_Role_with_External_Policy_and_Instance_Profiles--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">AWSTemplateFormatVersion: &quot;2010-09-09&quot;
 Resources: 
   RootRole: 
     Type: &quot;AWS::IAM::Role&quot;
@@ -465,23 +438,41 @@ Resources:
       Roles: 
         - 
           Ref: &quot;RootRole&quot;
-</code></pre>
-                        </div><h2 id="w2ab1c21c10d156c37c17">See Also</h2><div class="itemizedlist">
+</code></pre><h2 id="aws-resource-iam-role--seealso">See Also</h2><div class="itemizedlist">
+                        
                         
                         
                         
                         <ul class="itemizedlist" type="disc">
                            <li class="listitem">
                               
-                              <p><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-iam.html">AWS Identity and Access Management Template Snippets</a></p>
+                              <p>
+                                 <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html">CreateRole</a> in the <em>AWS Identity and Access Management API
+                                    Reference</em>
+                                 
+                              </p>
                               
                            </li>
                            <li class="listitem">
                               
-                              <p><a href="aws-resource-iam-instanceprofile.html">AWS::IAM::InstanceProfile</a></p>
+                              <p>
+                                 <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-iam.html">AWS Identity and
+                                    Access Management Template Snippets</a>
+                                 
+                              </p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p>
+                                 <a href="aws-resource-iam-instanceprofile.html">AWS::IAM::InstanceProfile</a>
+                                 
+                              </p>
                               
                            </li>
                         </ul>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
                      </div></div>
 </body>
 </html>

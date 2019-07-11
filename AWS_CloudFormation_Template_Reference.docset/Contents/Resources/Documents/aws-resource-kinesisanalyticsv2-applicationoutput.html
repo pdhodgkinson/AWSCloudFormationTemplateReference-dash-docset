@@ -8,105 +8,115 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-resource-kinesisanalyticsv2-applicationoutput">AWS::KinesisAnalyticsV2::ApplicationOutput</h1><p>The 
-                        <code class="code">AWS::KinesisAnalyticsV2::ApplicationOutput</code> resource describes a SQL-based Amazon Kinesis Data Analytics application&apos;s output
-                        configuration. 
-                        
-                     </p><div class="highlights">
-                        <p><strong>Topics</strong></p>
-                        <ul>
-                           <li><a href="#aws-resource-kinesisanalyticsv2-applicationoutput-syntax">Syntax</a></li>
-                           <li><a href="#aws-resource-kinesisanalyticsv2-applicationoutput-properties">Properties</a></li>
-                           <li><a href="#aws-resource-kinesisanalyticsv2-applicationoutput-examples">Examples</a></li>
-                           <li><a href="aws-properties-kinesisanalyticsv2-applicationoutput-destinationschema.html">Amazon Kinesis Data Analytics ApplicationOutput DestinationSchema</a></li>
-                           <li><a href="aws-properties-kinesisanalyticsv2-applicationoutput-kinesisfirehoseoutput.html">Amazon Kinesis Data Analytics ApplicationOutput KinesisFirehoseOutput</a></li>
-                           <li><a href="aws-properties-kinesisanalyticsv2-applicationoutput-kinesisstreamsoutput.html">Amazon Kinesis Data Analytics ApplicationOutput KinesisStreamsOutput</a></li>
-                           <li><a href="aws-properties-kinesisanalyticsv2-applicationoutput-lambdaoutput.html">Amazon Kinesis Data Analytics ApplicationOutput LambdaOutput</a></li>
-                           <li><a href="aws-properties-kinesisanalyticsv2-applicationoutput-output.html">Amazon Kinesis Data Analytics ApplicationOutput Output</a></li>
-                        </ul>
-                     </div><h2 id="aws-resource-kinesisanalyticsv2-applicationoutput-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
-                        
-                        <h3 id="aws-resource-kinesisanalyticsv2-applicationoutput-syntax.json">JSON</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
+    <h1 class="topictitle" id="aws-resource-kinesisanalyticsv2-applicationoutput">AWS::KinesisAnalyticsV2::ApplicationOutput</h1><p>Adds an external destination to your SQL-based Amazon Kinesis Data Analytics application.</p><p>If you want Kinesis Data Analytics to deliver data from an in-application stream within
+                        your application to an external destination (such as an Kinesis data stream, a Kinesis
+                        Data
+                        Firehose delivery stream, or an AWS Lambda function), you add the relevant configuration
+                        to
+                        your application using this operation. You can configure one or more outputs for your
+                        application. Each output configuration maps an in-application stream and an external
+                        destination.
+                     </p><p> You can use one of the output configurations to deliver data from your
+                        in-application error stream to an external destination so that you can analyze the
+                        errors.  
+                     </p><p> Any configuration update, including adding a streaming source using this
+                        operation, results in a new version of the application. You can use the <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/API_DescribeApplication.html">DescribeApplication</a> operation to find the current application
+                        version.
+                     </p><h2 id="aws-resource-kinesisanalyticsv2-applicationoutput-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-resource-kinesisanalyticsv2-applicationoutput-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
   &quot;Type&quot; : &quot;AWS::KinesisAnalyticsV2::ApplicationOutput&quot;,
   &quot;Properties&quot; : {
-    &quot;<a href="aws-resource-kinesisanalyticsv2-applicationoutput.html#cfn-kinesisanalyticsv2-applicationoutput-applicationname">ApplicationName</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-kinesisanalyticsv2-applicationoutput.html#cfn-kinesisanalyticsv2-applicationoutput-output">Output</a>&quot; : <a href="aws-properties-kinesisanalyticsv2-applicationoutput-output.html">Output</a>
-  }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        
-                        <h3 id="aws-resource-kinesisanalyticsv2-applicationoutput-syntax.yaml">YAML</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">Type: &quot;AWS::KinesisAnalyticsV2::ApplicationOutput&quot;
-Properties:
-  <a href="aws-resource-kinesisanalyticsv2-applicationoutput.html#cfn-kinesisanalyticsv2-applicationoutput-applicationname">ApplicationName</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-kinesisanalyticsv2-applicationoutput.html#cfn-kinesisanalyticsv2-applicationoutput-output">Output</a>: <a href="aws-properties-kinesisanalyticsv2-applicationoutput-output.html">Output</a></code></pre>
-                        </div><h2 id="aws-resource-kinesisanalyticsv2-applicationoutput-properties">Properties</h2><div class="variablelist">
-                        
-                        
-                        
+      &quot;<a href="#cfn-kinesisanalyticsv2-applicationoutput-applicationname">ApplicationName</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-kinesisanalyticsv2-applicationoutput-output">Output</a>&quot; : <em class="replaceable"><code><a href="aws-properties-kinesisanalyticsv2-applicationoutput-output.html">Output</a></code></em>
+    }
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-kinesisanalyticsv2-applicationoutput-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Type: AWS::KinesisAnalyticsV2::ApplicationOutput
+Properties: 
+  <a href="#cfn-kinesisanalyticsv2-applicationoutput-applicationname">ApplicationName</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-kinesisanalyticsv2-applicationoutput-output">Output</a>: <em class="replaceable"><code>
+    <a href="aws-properties-kinesisanalyticsv2-applicationoutput-output.html">Output</a></code></em>
+</code></pre></div><h2 id="aws-resource-kinesisanalyticsv2-applicationoutput-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
                            <dt><a id="cfn-kinesisanalyticsv2-applicationoutput-applicationname"></a><span class="term"><code class="code">ApplicationName</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The name of your application (for example, sample-app).</p>
+                              <p>The name of the application.</p>
                               
-                              <p>
-                                 <em>Required</em>: Yes
+                              <p><em>Required</em>: Yes
                               </p>
-                              
-                              <p>
-                                 <em>Type</em>: String
+                              <p><em>Type</em>: String
                               </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: 
-                                 
-                                 <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a>
-                                 
-                              </p>
-                              
+                              <p><em>Minimum</em>: <code class="code">1</code></p>
+                              <p><em>Maximum</em>: <code class="code">128</code></p>
+                              <p><em>Pattern</em>: <code class="code">[a-zA-Z0-9_.-]+</code></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-kinesisanalyticsv2-applicationoutput-output"></a><span class="term"><code class="code">Output</code></span></dt>
-                           
                            <dd>
                               
-                              <p>Describes an SQL-based Kinesis Data Analytics application&apos;s output configuration.</p>
-                              
-                              <p>
-                                 <em>Required</em>: Yes
+                              <p> Describes an SQL-based Amazon Kinesis Data Analytics application&apos;s output configuration,
+                                 in which you identify an in-application stream and a destination where you want the
+                                 in-application stream data to be written. The destination can be a Kinesis data stream
+                                 or a
+                                 Kinesis Data Firehose delivery stream. 
                               </p>
                               
-                              <p>
-                                 <em>Type</em>: <a href="aws-properties-kinesisanalyticsv2-applicationoutput-output.html">Output</a></p>
                               
-                              <p>
-                                 <em>Update requires</em>: 
-                                 
-                                 <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
-                                 
+                              
+                              
+                              <p><em>Required</em>: Yes
                               </p>
-                              
+                              <p><em>Type</em>: <a href="aws-properties-kinesisanalyticsv2-applicationoutput-output.html">Output</a></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
                         </dl>
-                     </div><h2 id="aws-resource-kinesisanalyticsv2-applicationoutput-examples">Examples</h2><h3 id="aws-resource-kinesisanalyticsv2-applicationoutput-example1">ApplicationOutput example</h3><p>The following example demonstrates how to create an <code class="code">ApplicationOutput</code> object.
-                     </p><div id="YAML" name="YAML" class="section langfilter">
-                        
-                        <h4 id="aws-resource-kinesisanalyticsv2-applicationoutput-example1.yaml">YAML</h4>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">Type: AWS::KinesisAnalytics::ApplicationOutput
+                     </div><h2 id="aws-resource-kinesisanalyticsv2-applicationoutput--examples">Examples</h2><h3 id="aws-resource-kinesisanalyticsv2-applicationoutput--examples--Create_an_ApplicationOutput_object">Create an ApplicationOutput object</h3><h4 id="aws-resource-kinesisanalyticsv2-applicationoutput--examples--Create_an_ApplicationOutput_object--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+    &quot;Type&quot;: &quot;AWS::KinesisAnalyticsV2::ApplicationOutput&quot;,
+    &quot;Properties&quot;: {
+        &quot;ApplicationName&quot;: {
+            &quot;Ref&quot;: &quot;BasicApplication&quot;
+        },
+        &quot;Output&quot;: {
+            &quot;Name&quot;: &quot;exampleOutput&quot;,
+            &quot;DestinationSchema&quot;: {
+                &quot;RecordFormatType&quot;: &quot;CSV&quot;
+            },
+            &quot;KinesisStreamsOutput&quot;: {
+                &quot;ResourceARN&quot;: {
+                    &quot;Fn::GetAtt&quot;: [
+                        &quot;OutputKinesisStream&quot;,
+                        &quot;Arn&quot;
+                    ]
+                }
+            }
+        }
+    }
+}</code></pre><h4 id="aws-resource-kinesisanalyticsv2-applicationoutput--examples--Create_an_ApplicationOutput_object--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Type: &apos;AWS::KinesisAnalyticsV2::ApplicationOutput&apos;
 Properties:
   ApplicationName: !Ref BasicApplication
   Output:
-    Name: &quot;exampleOutput&quot;
+    Name: exampleOutput
     DestinationSchema:
-      RecordFormatType: &quot;CSV&quot;
+      RecordFormatType: CSV
     KinesisStreamsOutput:
-      ResourceARN: !GetAtt OutputKinesisStream.Arn</code></pre>
-                        </div></div>
+      ResourceARN: !GetAtt 
+        - OutputKinesisStream
+        - Arn</code></pre><h2 id="aws-resource-kinesisanalyticsv2-applicationoutput--seealso">See Also</h2><div class="itemizedlist">
+                        
+                        
+                        <ul class="itemizedlist" type="disc">
+                           <li class="listitem">
+                              
+                              <p>
+                                 <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/API_AddApplicationOutput.html">AddApplicationOutput</a> in the <em>Amazon Kinesis Data Analytics API Reference</em>
+                                 
+                              </p>
+                              
+                           </li>
+                        </ul>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
+                     </div></div>
 </body>
 </html>

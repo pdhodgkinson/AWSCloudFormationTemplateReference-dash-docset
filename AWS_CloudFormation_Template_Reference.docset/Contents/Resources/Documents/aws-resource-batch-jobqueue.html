@@ -8,151 +8,103 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-resource-batch-jobqueue">AWS::Batch::JobQueue</h1><p>The <code class="code">AWS::Batch::JobQueue</code> resource defines your AWS Batch job queue. For more
-                        information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/job_queues.html">Job
-                           Queues</a> in the <em>AWS Batch User Guide</em>. 
+    <h1 class="topictitle" id="aws-resource-batch-jobqueue">AWS::Batch::JobQueue</h1><p>The <code class="code">AWS::Batch::JobQueue</code> resource specifies the parameters for an AWS Batch job queue definition.
+                        For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/job_queues.html">Job Queues</a>
+                        in the <em>AWS Batch User Guide</em>.
                      </p><h2 id="aws-resource-batch-jobqueue-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
-                        
-                        <h3 id="aws-resource-batch-jobqueue-syntax.json">JSON</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
+                        <h3 id="aws-resource-batch-jobqueue-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
   &quot;Type&quot; : &quot;AWS::Batch::JobQueue&quot;,
   &quot;Properties&quot; : {
-    &quot;<a href="aws-resource-batch-jobqueue.html#cfn-batch-jobqueue-computeenvironmentorder">ComputeEnvironmentOrder</a>&quot; : [ <a href="aws-properties-batch-jobqueue-computeenvironmentorder.html">ComputeEnvironmentOrder</a>, ... ],
-    &quot;<a href="aws-resource-batch-jobqueue.html#cfn-batch-jobqueue-priority">Priority</a>&quot; : <em class="replaceable"><code>Integer</code></em>,
-    &quot;<a href="aws-resource-batch-jobqueue.html#cfn-batch-jobqueue-state">State</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-batch-jobqueue.html#cfn-batch-jobqueue-jobqueuename">JobQueueName</a>&quot; : <em class="replaceable"><code>String</code></em>
-  }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-resource-batch-jobqueue-syntax.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">Type: AWS::Batch::JobQueue
-Properties:
-  <a href="aws-resource-batch-jobqueue.html#cfn-batch-jobqueue-computeenvironmentorder">ComputeEnvironmentOrder</a>: 
-    - <a href="aws-properties-batch-jobqueue-computeenvironmentorder.html">ComputeEnvironmentOrder</a> 
-  <a href="aws-resource-batch-jobqueue.html#cfn-batch-jobqueue-priority">Priority</a>: <em class="replaceable"><code>Integer</code></em>
-  <a href="aws-resource-batch-jobqueue.html#cfn-batch-jobqueue-state">State</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-batch-jobqueue.html#cfn-batch-jobqueue-jobqueuename">JobQueueName</a>: <em class="replaceable"><code>String</code></em></code></pre>
-                        </div><h2 id="aws-resource-batch-jobqueue-properties">Properties</h2><div class="variablelist">
-                        
-                        
-                        
-                        
-                        
+      &quot;<a href="#cfn-batch-jobqueue-computeenvironmentorder">ComputeEnvironmentOrder</a>&quot; : <em class="replaceable"><code>[ <a href="aws-properties-batch-jobqueue-computeenvironmentorder.html">ComputeEnvironmentOrder</a>, ... ]</code></em>,
+      &quot;<a href="#cfn-batch-jobqueue-jobqueuename">JobQueueName</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-batch-jobqueue-priority">Priority</a>&quot; : <em class="replaceable"><code>Integer</code></em>,
+      &quot;<a href="#cfn-batch-jobqueue-state">State</a>&quot; : <em class="replaceable"><code>String</code></em>
+    }
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-batch-jobqueue-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Type: AWS::Batch::JobQueue
+Properties: 
+  <a href="#cfn-batch-jobqueue-computeenvironmentorder">ComputeEnvironmentOrder</a>: <em class="replaceable"><code>
+    - <a href="aws-properties-batch-jobqueue-computeenvironmentorder.html">ComputeEnvironmentOrder</a></code></em>
+  <a href="#cfn-batch-jobqueue-jobqueuename">JobQueueName</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-batch-jobqueue-priority">Priority</a>: <em class="replaceable"><code>Integer</code></em>
+  <a href="#cfn-batch-jobqueue-state">State</a>: <em class="replaceable"><code>String</code></em>
+</code></pre></div><h2 id="aws-resource-batch-jobqueue-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
                            <dt><a id="cfn-batch-jobqueue-computeenvironmentorder"></a><span class="term"><code class="code">ComputeEnvironmentOrder</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The compute environments that are attached to the job queue and the order in
-                                 which job placement is preferred. Compute environments are selected for job placement
-                                 in
-                                 ascending order.
+                              <p>The set of compute environments mapped to a job queue and their order relative to
+                                 each other. The job scheduler
+                                 uses this parameter to determine which compute environment should execute a given
+                                 job. Compute environments must be
+                                 in the <code class="code">VALID</code> state before you can associate them with a job queue. You can associate up to three
+                                 compute
+                                 environments with a job queue.
                               </p>
                               
-                              <p>
-                                 <em>Required</em>: yes
+                              <p><em>Required</em>: Yes
                               </p>
-                              
-                              <p>
-                                 <em>Type</em>: List of <a href="aws-properties-batch-jobqueue-computeenvironmentorder.html">AWS Batch JobQueue
-                                    ComputeEnvironmentOrder</a></p>
-                              
-                              <p>
-                                 <em>Update requires</em>: 
-                                 No Interruption
-                                 
-                              </p>
-                              
+                              <p><em>Type</em>: <a href="aws-properties-batch-jobqueue-computeenvironmentorder.html">List</a> of <a href="aws-properties-batch-jobqueue-computeenvironmentorder.html">ComputeEnvironmentOrder</a></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-batch-jobqueue-state"></a><span class="term"><code class="code">State</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>The status of the job queue (for example, <code class="code">CREATING</code> or
-                                 <code class="code">VALID</code>).
-                              </p>
-                              
-                              <p>
-                                 <em>Required</em>: no
-                              </p>
-                              
-                              <p><em>Type</em>: String
-                              </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: 
-                                 No Interruption
-                                 
-                              </p>
-                              
-                           </dd>
-                           
-                           
-                           <dt><a id="cfn-batch-jobqueue-priority"></a><span class="term"><code class="code">Priority</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>The priority of the job queue.</p>
-                              
-                              <p>
-                                 <em>Required</em>: yes
-                              </p>
-                              
-                              <p><em>Type</em>: Integer
-                              </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: 
-                                 No Interruption
-                                 
-                              </p>
-                              
-                           </dd>
-                           
-                           
                            <dt><a id="cfn-batch-jobqueue-jobqueuename"></a><span class="term"><code class="code">JobQueueName</code></span></dt>
-                           
                            <dd>
                               
                               <p>The name of the job queue.</p>
                               
-                              <p>
-                                 <em>Required</em>: no
+                              <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
+                           </dd>
+                           <dt><a id="cfn-batch-jobqueue-priority"></a><span class="term"><code class="code">Priority</code></span></dt>
+                           <dd>
                               
-                              <p>
-                                 <em>Update requires</em>: 
-                                 Replacement
-                                 
+                              <p>The priority of the job queue. Job queues with a higher priority (or a higher integer
+                                 value for the
+                                 <code class="code">priority</code> parameter) are evaluated first when associated with the same compute environment.
+                                 Priority is
+                                 determined in descending order, for example, a job queue with a priority value of
+                                 <code class="code">10</code> is given scheduling
+                                 preference over a job queue with a priority value of <code class="code">1</code>.
                               </p>
                               
+                              <p><em>Required</em>: Yes
+                              </p>
+                              <p><em>Type</em>: Integer
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
+                           <dt><a id="cfn-batch-jobqueue-state"></a><span class="term"><code class="code">State</code></span></dt>
+                           <dd>
+                              
+                              <p>The state of the job queue. If the job queue state is <code class="code">ENABLED</code>, it is able to accept jobs.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              <p><em>Type</em>: String
+                              </p>
+                              <p><em>Allowed Values</em>: <code class="code">DISABLED | ENABLED</code></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                           </dd>
                         </dl>
-                     </div><h2 id="aws-resource-batch-jobqueue-returnvalues">Return Values</h2><h3 id="w2ab1c21c10c45c21c11b2">Ref</h3><p>When you pass the logical ID of an <code class="code">AWS::Batch::JobQueue</code> resource to the
-                        intrinsic <code class="code">Ref</code> function, the function returns the job queue ARN, such as
-                        <code class="code">arn:aws:batch:<em class="replaceable"><code>us-east-1</code></em>:<em class="replaceable"><code>111122223333</code></em>:job-queue/<em class="replaceable"><code>HighPriority</code></em></code>. 
+                     </div><h2 id="aws-resource-batch-jobqueue-return-values">Return Values</h2><h3 id="aws-resource-batch-jobqueue-return-values-ref">Ref</h3><p>When you pass the logical ID of this resource to the intrinsic <code class="code">Ref</code> function, <code class="code">Ref</code> returns the job queue ARN, such as
+                        <code class="code">arn:aws:batch:<em>us-east-1</em>:<em>111122223333</em>:job-queue/<em>HighPriority</em></code>.
                      </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                     </p><h2 id="aws-resource-batch-jobqueue-examples">Examples</h2><h3 id="aws-resource-batch-jobqueue-example1">Job queue with two compute environments</h3><p>The following example defines a job queue called <code class="code">HighPriority</code> that has
-                        two compute environments mapped to it.
-                     </p><div id="JSON" name="JSON" class="section langfilter">
-                        <h4 id="aws-resource-batch-jobqueue-example1.json">JSON</h4>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">{
+                     </p><h2 id="aws-resource-batch-jobqueue--examples">Examples</h2><h3 id="aws-resource-batch-jobqueue--examples--Job_queue_with_two_compute_environments">Job queue with two compute environments</h3><p>The following example defines a job queue called HighPriority that has two compute
+                        environments mapped to
+                        it.
+                     </p><h4 id="aws-resource-batch-jobqueue--examples--Job_queue_with_two_compute_environments--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
   &quot;JobQueue&quot;: {
     &quot;Type&quot;: &quot;AWS::Batch::JobQueue&quot;,
     &quot;Properties&quot;: {
       &quot;ComputeEnvironmentOrder&quot;: [
         {
-          &quot;Order&quot;: 1,
-          &quot;ComputeEnvironment&quot;: &quot;C4OnDemand&quot;
+         &quot;Order&quot;: 1,
+         &quot;ComputeEnvironment&quot;: &quot;C4OnDemand&quot;
         },
         {
           &quot;Order&quot;: 2,
@@ -164,21 +116,18 @@ Properties:
       &quot;JobQueueName&quot;: &quot;HighPriority&quot;
     }
   }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h4 id="aws-resource-batch-jobqueue-example1.yaml">YAML</h4>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">JobQueue:
+}</code></pre><h4 id="aws-resource-batch-jobqueue--examples--Job_queue_with_two_compute_environments--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">JobQueue:
   Type: AWS::Batch::JobQueue
   Properties:
-    <a href="aws-resource-batch-jobqueue.html#cfn-batch-jobqueue-computeenvironmentorder">ComputeEnvironmentOrder</a>:
-      - <a href="aws-properties-batch-jobqueue-computeenvironmentorder.html#cfn-batch-jobqueue-computeenvironmentorder-order">Order</a>: <em class="replaceable"><code>1</code></em>
-        <a href="aws-properties-batch-jobqueue-computeenvironmentorder.html#cfn-batch-jobqueue-computeenvironmentorder-computeenvironment">ComputeEnvironment</a>: <em class="replaceable"><code>C4OnDemand</code></em>
-      - <a href="aws-properties-batch-jobqueue-computeenvironmentorder.html#cfn-batch-jobqueue-computeenvironmentorder-order">Order</a>: <em class="replaceable"><code>2</code></em>
-        <a href="aws-properties-batch-jobqueue-computeenvironmentorder.html#cfn-batch-jobqueue-computeenvironmentorder-computeenvironment">ComputeEnvironment</a>: <em class="replaceable"><code>M4Spot</code></em>
-    <a href="aws-resource-batch-jobqueue.html#cfn-batch-jobqueue-state">State</a>: <em class="replaceable"><code>ENABLED</code></em>
-    <a href="aws-resource-batch-jobqueue.html#cfn-batch-jobqueue-priority">Priority</a>: <em class="replaceable"><code>1</code></em>
-    <a href="aws-resource-batch-jobqueue.html#cfn-batch-jobqueue-jobqueuename">JobQueueName</a>: <em class="replaceable"><code>HighPriority</code></em></code></pre>
-                        </div></div>
+    ComputeEnvironmentOrder:
+      - Order: 1
+        ComputeEnvironment: C4OnDemand
+      - Order: 2
+        ComputeEnvironment: M4Spot
+    State: ENABLED
+    Priority: 1
+    JobQueueName: HighPriority</code></pre><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
+                     </div></div>
 </body>
 </html>

@@ -9,91 +9,60 @@
 <body>
     <div id="content" style="padding: 10px 30px;">
     <h1 class="topictitle" id="aws-resource-ec2-vpcendpointservicepermissions">AWS::EC2::VPCEndpointServicePermissions</h1><p>Grant or revoke permissions for service consumers (IAM users, IAM roles, and AWS accounts)
-                        to connect to the 
-                        VPC endpoint service. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyVpcEndpointServicePermissions.html">ModifyVpcEndpointServicePermissions</a> in the <em>Amazon EC2 API Reference</em>.
+                        
+                        to connect to a VPC endpoint service.
                      </p><p>If you grant permissions to all principals, the service is public. Any users who know
                         the name of a
-                        public service can send a request to attach an endpoint. If the service does not require
-                        manual approval,
-                        attachments are automatically approved.
-                     </p><div class="highlights" id="inline-topiclist">
-                        <p><strong>Topics</strong></p>
-                        <ul>
-                           <li><a href="#aws-resource-ec2-vpcendpointservicepermissions-syntax">Syntax</a></li>
-                           <li><a href="#aws-resource-ec2-vpcendpointservicepermissions-properties">Properties</a></li>
-                           <li><a href="#aws-resource-ec2-vpcendpointservicepermissions-returnvalues">Return Values</a></li>
-                        </ul>
-                     </div><h2 id="aws-resource-ec2-vpcendpointservicepermissions-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
-                        
-                        <h3 id="aws-resource-ec2-vpcendpointservicepermissions-syntax.json">JSON</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
+                        	        public service can send a request to attach an endpoint. If the service does
+                        not require manual approval,
+                        	        attachments are automatically approved.
+                     </p><h2 id="aws-resource-ec2-vpcendpointservicepermissions-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-resource-ec2-vpcendpointservicepermissions-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
   &quot;Type&quot; : &quot;AWS::EC2::VPCEndpointServicePermissions&quot;,
   &quot;Properties&quot; : {
-    &quot;<a href="aws-resource-ec2-vpcendpointservicepermissions.html#cfn-ec2-vpcendpointservicepermissions-allowedprincipals">AllowedPrincipals</a>&quot; : [ <em class="replaceable"><code>String</code></em>, ... ],
-    &quot;<a href="aws-resource-ec2-vpcendpointservicepermissions.html#cfn-ec2-vpcendpointservicepermissions-serviceid">ServiceId</a>&quot; : <em class="replaceable"><code>String</code></em>
-  }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        
-                        <h3 id="aws-resource-ec2-vpcendpointservicepermissions-syntax.yaml">YAML</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">Type: &quot;AWS::EC2::VPCEndpointServicePermissions&quot;
-Properties:
-  <a href="aws-resource-ec2-vpcendpointservicepermissions.html#cfn-ec2-vpcendpointservicepermissions-allowedprincipals">AllowedPrincipals</a>: 
-    - <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-ec2-vpcendpointservicepermissions.html#cfn-ec2-vpcendpointservicepermissions-serviceid">ServiceId</a>: <em class="replaceable"><code>String</code></em></code></pre>
-                        </div><h2 id="aws-resource-ec2-vpcendpointservicepermissions-properties">Properties</h2><div class="variablelist">
-                        
-                        
-                        
+      &quot;<a href="#cfn-ec2-vpcendpointservicepermissions-allowedprincipals">AllowedPrincipals</a>&quot; : <em class="replaceable"><code>[ String, ... ]</code></em>,
+      &quot;<a href="#cfn-ec2-vpcendpointservicepermissions-serviceid">ServiceId</a>&quot; : <em class="replaceable"><code>String</code></em>
+    }
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-ec2-vpcendpointservicepermissions-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Type: AWS::EC2::VPCEndpointServicePermissions
+Properties: 
+  <a href="#cfn-ec2-vpcendpointservicepermissions-allowedprincipals">AllowedPrincipals</a>: <em class="replaceable"><code>
+    - String</code></em>
+  <a href="#cfn-ec2-vpcendpointservicepermissions-serviceid">ServiceId</a>: <em class="replaceable"><code>String</code></em>
+</code></pre></div><h2 id="aws-resource-ec2-vpcendpointservicepermissions-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
                            <dt><a id="cfn-ec2-vpcendpointservicepermissions-allowedprincipals"></a><span class="term"><code class="code">AllowedPrincipals</code></span></dt>
-                           
                            <dd>
                               
                               <p>The Amazon Resource Names (ARN) of one or more principals (IAM users, IAM roles, and
-                                 AWS accounts).
-                                 Permissions are granted to the principals in this list. To grant permissions to all
-                                 principals, specify an asterisk (*). 
-                                 Permissions are revoked for principals not in this list. If the list is empty, then
-                                 all permissions are revoked.
+                                 AWS accounts). Permissions are granted to the principals in this list. To grant permissions
+                                 to all principals, specify an asterisk (*). Permissions are revoked for principals
+                                 not in this list. If the list is empty, then all permissions are revoked. 
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: List of String values
+                              <p><em>Type</em>: List of String
                               </p>
-                              
-                              <p><em>Update requires</em>:
-                                 <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-ec2-vpcendpointservicepermissions-serviceid"></a><span class="term"><code class="code">ServiceId</code></span></dt>
-                           
                            <dd>
-                              
-                              <p>The ID of the VPC endpoint service.</p>
-                              
+                              		       
+                              <p>The ID of the service.</p>
+                              	     
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
-                              <p><em>Update requires</em>:                   
-                                 <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
                            </dd>
-                           
                         </dl>
-                     </div><h2 id="aws-resource-ec2-vpcendpointservicepermissions-returnvalues">Return Values</h2><h3 id="aws-resource-ec2-vpcendpointservicepermissions-ref">Ref</h3><p>When you pass the logical ID of an <code class="code">AWS::EC2::VPCEndpointServicePermissions</code> resource
-                        to the intrinsic <code class="code">Ref</code> function, the function returns the ID of the VPC endpoint service.
-                     </p><p>For more information about using the <code class="code">Ref</code> function, see 
-                        <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                        
-                     </p></div>
+                     </div><h2 id="aws-resource-ec2-vpcendpointservicepermissions-return-values">Return Values</h2><h3 id="aws-resource-ec2-vpcendpointservicepermissions-return-values-ref">Ref</h3><p>When you pass the logical ID of this resource to the intrinsic <code class="code">Ref</code> function, <code class="code">Ref</code> returns the ID of the VPC endpoint service permissions.
+                     </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
+                     </p><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
+                     </div></div>
 </body>
 </html>

@@ -8,67 +8,47 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-properties-s3-bucket-serversideencryptionbydefault">Amazon S3 Bucket ServerSideEncryptionByDefault</h1><p>The <code class="code">ServerSideEncryptionByDefault</code> property is part of the <a href="aws-properties-s3-bucket.html">AWS::S3::Bucket</a> resource that specifies the server-side encryption by default. For more information,
-                        see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTencryption.html">PUT Bucket encryption</a> in the <em>Amazon Simple Storage Service API Reference</em>.
-                     </p><h2 id="w2ab1c21c10d204c13d142b5">Syntax</h2><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-properties-s3-bucket-serversideencryptionbydefault.json">JSON</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
-&#xA0; &quot;<a href="aws-properties-s3-bucket-serversideencryptionbydefault.html#cfn-s3-bucket-serversideencryptionbydefault-kmsmasterkeyid">KMSMasterKeyID</a>&quot; : <em class="replaceable"><code>String</code></em>,
-  &quot;<a href="aws-properties-s3-bucket-serversideencryptionbydefault.html#cfn-s3-bucket-serversideencryptionbydefault-ssealgorithm">SSEAlgorithm</a>&quot; : <em class="replaceable"><code>String</code></em>
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-properties-s3-bucket-serversideencryptionbydefault.yaml">YAML</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight"><a href="aws-properties-s3-bucket-serversideencryptionbydefault.html#cfn-s3-bucket-serversideencryptionbydefault-kmsmasterkeyid">KMSMasterKeyID</a>: <em class="replaceable"><code>String</code></em>
-<a href="aws-properties-s3-bucket-serversideencryptionbydefault.html#cfn-s3-bucket-serversideencryptionbydefault-ssealgorithm">SSEAlgorithm</a>: <em class="replaceable"><code>String</code></em>
-</code></pre>
-                        </div><h2 id="w2ab1c21c10d204c13d142b7">Properties</h2><div class="variablelist">
-                        
-                        
+    <h1 class="topictitle" id="aws-properties-s3-bucket-serversideencryptionbydefault">AWS::S3::Bucket ServerSideEncryptionByDefault</h1><p>Describes the default server-side encryption to apply to new objects in the bucket.
+                        If a PUT Object request doesn&apos;t specify any server-side encryption, this default encryption
+                        will be applied. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTencryption.html">PUT Bucket encryption</a> in the <em>Amazon Simple Storage Service API Reference</em>.
+                     </p><h2 id="aws-properties-s3-bucket-serversideencryptionbydefault-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-properties-s3-bucket-serversideencryptionbydefault-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;<a href="#cfn-s3-bucket-serversideencryptionbydefault-kmsmasterkeyid">KMSMasterKeyID</a>&quot; : <em class="replaceable"><code>String</code></em>,
+  &quot;<a href="#cfn-s3-bucket-serversideencryptionbydefault-ssealgorithm">SSEAlgorithm</a>&quot; : <em class="replaceable"><code>String</code></em>
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-properties-s3-bucket-serversideencryptionbydefault-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">  <a href="#cfn-s3-bucket-serversideencryptionbydefault-kmsmasterkeyid">KMSMasterKeyID</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-s3-bucket-serversideencryptionbydefault-ssealgorithm">SSEAlgorithm</a>: <em class="replaceable"><code>String</code></em>
+</code></pre></div><h2 id="aws-properties-s3-bucket-serversideencryptionbydefault-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
-                           <dt><a id="cfn-s3-bucket-serversideencryptionbydefault-kmsmasterkeyid"></a><span class="term"><code class="literal">KMSMasterKeyID</code></span></dt>
-                           
+                           <dt><a id="cfn-s3-bucket-serversideencryptionbydefault-kmsmasterkeyid"></a><span class="term"><code class="code">KMSMasterKeyID</code></span></dt>
                            <dd>
                               
-                              <p>The AWS KMS master key ID used for the SSE-KMS encryption. </p>
-                              
-                              <p>Constraint: Can only be used when you set the value of <code class="code">SSEAlgorithm</code> as <code class="code">aws:kms</code>. The default aws/s3 AWS KMS master key is used if this property is absent while <code class="code">SSEAlgorithm</code> is <code class="code">aws:kms</code>.
+                              <p>KMS key ID to use for the default encryption. This parameter is allowed if SSEAlgorithm
+                                 is aws:kms.
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                        </dl>
-                     </div><div class="variablelist">
-                        
-                        
-                        <dl>
-                           
-                           <dt><a id="cfn-s3-bucket-serversideencryptionbydefault-ssealgorithm"></a><span class="term"><code class="literal">SSEAlgorithm</code></span></dt>
-                           
+                           <dt><a id="cfn-s3-bucket-serversideencryptionbydefault-ssealgorithm"></a><span class="term"><code class="code">SSEAlgorithm</code></span></dt>
                            <dd>
                               
-                              <p>The server-side encryption algorithm to use. Valid values include <code class="code">AES256</code> and <code class="code">aws:kms</code>.
-                              </p>
+                              <p>Server-side encryption algorithm to use for the default encryption.</p>
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Allowed Values</em>: <code class="code">AES256 | aws:kms</code></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
                         </dl>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
                      </div></div>
 </body>
 </html>

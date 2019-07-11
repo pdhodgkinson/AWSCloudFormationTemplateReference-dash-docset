@@ -8,106 +8,108 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-properties-autoscaling-scalingpolicy-stepadjustments">Amazon EC2 Auto Scaling ScalingPolicy
-                        StepAdjustments
-                     </h1><p><code class="code">StepAdjustments</code> is a property of the <a href="aws-properties-as-policy.html">AWS::AutoScaling::ScalingPolicy</a> resource that describes a scaling adjustment
-                        based on the difference between the value of the aggregated Amazon CloudWatch metric
-                        and the breach
-                        threshold that you&apos;ve defined for the alarm. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_StepAdjustment.html">StepAdjustment</a> in the
-                        <em>Amazon EC2 Auto Scaling API Reference</em>.
-                     </p><h2 id="w2ab1c21c10c42c26c28b5">Syntax</h2><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-properties-autoscaling-scalingpolicy-stepadjustments-syntax.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
-  &quot;<a href="aws-properties-autoscaling-scalingpolicy-stepadjustments.html#cfn-autoscaling-scalingpolicy-stepadjustment-metricintervallowerbound">MetricIntervalLowerBound</a>&quot; : <em class="replaceable"><code>Number</code></em>,
-  &quot;<a href="aws-properties-autoscaling-scalingpolicy-stepadjustments.html#cfn-autoscaling-scalingpolicy-stepadjustment-metricintervalupperbound">MetricIntervalUpperBound</a>&quot; : <em class="replaceable"><code>Number</code></em>,
-  &quot;<a href="aws-properties-autoscaling-scalingpolicy-stepadjustments.html#cfn-autoscaling-scalingpolicy-stepadjustment-scalingadjustment">ScalingAdjustment</a>&quot; : <em class="replaceable"><code>Integer</code></em>
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-properties-autoscaling-scalingpolicy-stepadjustments-syntax.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight"><a href="aws-properties-autoscaling-scalingpolicy-stepadjustments.html#cfn-autoscaling-scalingpolicy-stepadjustment-metricintervallowerbound">MetricIntervalLowerBound</a>: <em class="replaceable"><code>Number</code></em>
-<a href="aws-properties-autoscaling-scalingpolicy-stepadjustments.html#cfn-autoscaling-scalingpolicy-stepadjustment-metricintervalupperbound">MetricIntervalUpperBound</a>: <em class="replaceable"><code>Number</code></em>
-<a href="aws-properties-autoscaling-scalingpolicy-stepadjustments.html#cfn-autoscaling-scalingpolicy-stepadjustment-scalingadjustment">ScalingAdjustment</a>: <em class="replaceable"><code>Integer</code></em>
-</code></pre>
-                        </div><h2 id="w2ab1c21c10c42c26c28b7">Properties</h2><p>For more information, such as valid values, constraints, and examples of how to specify
-                        each property, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_StepAdjustment.html">StepAdjustment</a> in
-                        the <em>Amazon EC2 Auto Scaling API Reference</em>.
-                     </p><div class="variablelist">
+    <h1 class="topictitle" id="aws-properties-autoscaling-scalingpolicy-stepadjustments">AWS::AutoScaling::ScalingPolicy StepAdjustment</h1><p>
+                        <code class="code">StepAdjustments</code> is a subproperty of <a href="aws-properties-as-policy.html">ScalingPolicy</a>
+                        that represents a step adjustment for a step scaling policy. 
+                     </p><p>For the following examples, suppose that you have an alarm with a breach threshold
+                        of 50: 
+                     </p><div class="itemizedlist">
                         
                         
                         
-                        
+                        <ul class="itemizedlist" type="disc">
+                           <li class="listitem">
+                              
+                              <p>To trigger a step adjustment when the metric is greater than or equal to 50 and less
+                                 than 60, specify a lower bound of 0 and an upper bound of 10. 
+                              </p>
+                              
+                           </li>
+                           <li class="listitem">
+                              
+                              <p>To trigger a step adjustment when the metric is greater than 40 and less than or equal
+                                 to 50, specify a lower bound of -10 and an upper bound of 0. 
+                              </p>
+                              
+                           </li>
+                        </ul>
+                     </div><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html#as-scaling-steps">Step
+                           Adjustments</a> in the <em>Amazon EC2 Auto Scaling User Guide</em>. 
+                     </p><h2 id="aws-properties-autoscaling-scalingpolicy-stepadjustments-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-properties-autoscaling-scalingpolicy-stepadjustments-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;<a href="#cfn-autoscaling-scalingpolicy-stepadjustment-metricintervallowerbound">MetricIntervalLowerBound</a>&quot; : <em class="replaceable"><code>Double</code></em>,
+  &quot;<a href="#cfn-autoscaling-scalingpolicy-stepadjustment-metricintervalupperbound">MetricIntervalUpperBound</a>&quot; : <em class="replaceable"><code>Double</code></em>,
+  &quot;<a href="#cfn-autoscaling-scalingpolicy-stepadjustment-scalingadjustment">ScalingAdjustment</a>&quot; : <em class="replaceable"><code>Integer</code></em>
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-properties-autoscaling-scalingpolicy-stepadjustments-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">  <a href="#cfn-autoscaling-scalingpolicy-stepadjustment-metricintervallowerbound">MetricIntervalLowerBound</a>: <em class="replaceable"><code>Double</code></em>
+  <a href="#cfn-autoscaling-scalingpolicy-stepadjustment-metricintervalupperbound">MetricIntervalUpperBound</a>: <em class="replaceable"><code>Double</code></em>
+  <a href="#cfn-autoscaling-scalingpolicy-stepadjustment-scalingadjustment">ScalingAdjustment</a>: <em class="replaceable"><code>Integer</code></em>
+</code></pre></div><h2 id="aws-properties-autoscaling-scalingpolicy-stepadjustments-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
                            <dt><a id="cfn-autoscaling-scalingpolicy-stepadjustment-metricintervallowerbound"></a><span class="term"><code class="code">MetricIntervalLowerBound</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The lower bound of the breach size. The lower bound is the difference between the
-                                 breach threshold and the aggregated CloudWatch metric value. If the metric value is
-                                 within the lower and upper bounds, Auto Scaling triggers this step adjustment.
+                              <p>The lower bound for the difference between the alarm threshold and the CloudWatch
+                                 metric.
+                                 If the metric value is above the breach threshold, the lower bound is inclusive (the
+                                 metric
+                                 must be greater than or equal to the threshold plus the lower bound). Otherwise, it
+                                 is
+                                 exclusive (the metric must be greater than the threshold plus the lower bound). A
+                                 null value
+                                 indicates negative infinity.
                               </p>
                               
-                              <p>If the metric value is above the breach threshold, the metric must be greater than
-                                 or equal to the threshold plus the lower bound to trigger this step adjustment (the
-                                 metric value is inclusive). If the metric value is below the breach threshold, the
-                                 metric must be greater than the threshold plus the lower bound to trigger this step
-                                 adjustment (the metric value is exclusive). A null value indicates negative infinity.
-                              </p>
+                              <p>You must specify at least one upper or lower bound. </p>
                               
-                              <p><em>Required</em>: Conditional. You must specify at least one upper or lower bound.
+                              <p><em>Required</em>: Conditional
                               </p>
-                              
-                              <p><em>Type</em>: Number
+                              <p><em>Type</em>: Double
                               </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-autoscaling-scalingpolicy-stepadjustment-metricintervalupperbound"></a><span class="term"><code class="code">MetricIntervalUpperBound</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The upper bound of the breach size. The upper bound is the difference between the
-                                 breach threshold and the CloudWatch metric value. If the metric value is within the
-                                 lower and upper bounds, Auto Scaling triggers this step adjustment.
+                              <p>The upper bound for the difference between the alarm threshold and the CloudWatch
+                                 metric.
+                                 If the metric value is above the breach threshold, the upper bound is exclusive (the
+                                 metric
+                                 must be less than the threshold plus the upper bound). Otherwise, it is inclusive
+                                 (the metric
+                                 must be less than or equal to the threshold plus the upper bound). A null value indicates
+                                 positive infinity.
                               </p>
                               
-                              <p>If the metric value is above the breach threshold, the metric must be less than the
-                                 threshold plus the upper bound to trigger this step adjustment (the metric value is
-                                 exclusive). If the metric value is below the breach threshold, the metric must be
-                                 less than or equal to the threshold plus the upper bound to trigger this step adjustment
-                                 (the metric value is inclusive). A null value indicates positive infinity.
-                              </p>
+                              <p>You must specify at least one upper or lower bound. </p>
                               
-                              <p><em>Required</em>: Conditional. You must specify at least one upper or lower bound.
+                              <p><em>Required</em>: Conditional
                               </p>
-                              
-                              <p><em>Type</em>: Number
+                              <p><em>Type</em>: Double
                               </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-autoscaling-scalingpolicy-stepadjustment-scalingadjustment"></a><span class="term"><code class="code">ScalingAdjustment</code></span></dt>
-                           
                            <dd>
                               
                               <p>The amount by which to scale. The adjustment is based on the value that you specified
-                                 in the <code class="code">AdjustmentType</code> property (either an absolute number or a percentage). A positive value adds to the
-                                 current capacity and a negative number subtracts from the current capacity.
+                                 in
+                                 the <code class="code">AdjustmentType</code> property (either an absolute number or a percentage). A
+                                 positive value adds to the current capacity and a negative number subtracts from the
+                                 current
+                                 capacity. 
                               </p>
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: Integer
                               </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
                         </dl>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
                      </div></div>
 </body>
 </html>

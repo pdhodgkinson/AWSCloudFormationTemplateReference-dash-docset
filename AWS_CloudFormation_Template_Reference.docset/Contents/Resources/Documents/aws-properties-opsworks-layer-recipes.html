@@ -8,131 +8,103 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-properties-opsworks-layer-recipes">AWS OpsWorks Recipes Type</h1><p>Describes custom event recipes for the <a href="aws-resource-opsworks-layer.html">AWS::OpsWorks::Layer</a> resource type that AWS OpsWorks runs after the
-                        standard event recipes. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-events.html">AWS OpsWorks Lifecycle Events</a> in the
-                        <em>AWS OpsWorks User Guide</em>.
-                     </p><h2 id="w2ab1c21c10d183c29c29b5">Syntax</h2><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-properties-opsworks-layer-recipes-syntax.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
-  &quot;<a href="aws-properties-opsworks-layer-recipes.html#cfn-opsworks-layer-customrecipes-configure">Configure</a>&quot; : [ <em class="replaceable"><code>String, ...</code></em> ],
-  &quot;<a href="aws-properties-opsworks-layer-recipes.html#cfn-opsworks-layer-customrecipes-deploy">Deploy</a>&quot; : [ <em class="replaceable"><code>String, ...</code></em> ],
-  &quot;<a href="aws-properties-opsworks-layer-recipes.html#cfn-opsworks-layer-customrecipes-setup">Setup</a>&quot; : [ <em class="replaceable"><code>String, ...</code></em> ],
-  &quot;<a href="aws-properties-opsworks-layer-recipes.html#cfn-opsworks-layer-customrecipes-shutdown">Shutdown</a>&quot; : [ <em class="replaceable"><code>String, ...</code></em> ],
-  &quot;<a href="aws-properties-opsworks-layer-recipes.html#cfn-opsworks-layer-customrecipes-undeploy">Undeploy</a>&quot; : [ <em class="replaceable"><code>String, ...</code></em> ]
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-properties-opsworks-layer-recipes-syntax.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight"><a href="aws-properties-opsworks-layer-recipes.html#cfn-opsworks-layer-customrecipes-configure">Configure</a>:
-  - <em class="replaceable"><code>String</code></em>
-<a href="aws-properties-opsworks-layer-recipes.html#cfn-opsworks-layer-customrecipes-deploy">Deploy</a>:
-  - <em class="replaceable"><code>String</code></em>
-<a href="aws-properties-opsworks-layer-recipes.html#cfn-opsworks-layer-customrecipes-setup">Setup</a>:
-  - <em class="replaceable"><code>String</code></em>
-<a href="aws-properties-opsworks-layer-recipes.html#cfn-opsworks-layer-customrecipes-shutdown">Shutdown</a>:
-  - <em class="replaceable"><code>String</code></em>
-<a href="aws-properties-opsworks-layer-recipes.html#cfn-opsworks-layer-customrecipes-undeploy">Undeploy</a>:
-  - <em class="replaceable"><code>String</code></em>
-</code></pre>
-                        </div><h2 id="w2ab1c21c10d183c29c29b7">Properties</h2><div class="variablelist">
-                        
-                        
-                        
-                        
-                        
-                        
+    <h1 class="topictitle" id="aws-properties-opsworks-layer-recipes">AWS::OpsWorks::Layer Recipes</h1><p>AWS OpsWorks Stacks supports five
+                        lifecycle events:
+                        <b>setup</b>, <b>configuration</b>, <b>deploy</b>, <b>undeploy</b>, and <b>shutdown</b>. For
+                        each layer, AWS OpsWorks Stacks runs a set of standard recipes for each event. In
+                        addition, you can provide
+                        custom recipes for any or all layers and events. AWS OpsWorks Stacks runs custom event
+                        recipes after the
+                        standard recipes. <code class="code">LayerCustomRecipes</code> specifies the custom recipes for a
+                        particular layer to be run in response to each of the five events. 
+                     </p><p>To specify a recipe, use the cookbook&apos;s directory name in the repository followed
+                        by two colons and the recipe name, which is the recipe&apos;s file name without the .rb
+                        extension. For example: phpapp2::dbsetup specifies the dbsetup.rb recipe in the repository&apos;s
+                        phpapp2 folder.
+                     </p><h2 id="aws-properties-opsworks-layer-recipes-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-properties-opsworks-layer-recipes-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;<a href="#cfn-opsworks-layer-customrecipes-configure">Configure</a>&quot; : <em class="replaceable"><code>[ String, ... ]</code></em>,
+  &quot;<a href="#cfn-opsworks-layer-customrecipes-deploy">Deploy</a>&quot; : <em class="replaceable"><code>[ String, ... ]</code></em>,
+  &quot;<a href="#cfn-opsworks-layer-customrecipes-setup">Setup</a>&quot; : <em class="replaceable"><code>[ String, ... ]</code></em>,
+  &quot;<a href="#cfn-opsworks-layer-customrecipes-shutdown">Shutdown</a>&quot; : <em class="replaceable"><code>[ String, ... ]</code></em>,
+  &quot;<a href="#cfn-opsworks-layer-customrecipes-undeploy">Undeploy</a>&quot; : <em class="replaceable"><code>[ String, ... ]</code></em>
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-properties-opsworks-layer-recipes-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">  <a href="#cfn-opsworks-layer-customrecipes-configure">Configure</a>: <em class="replaceable"><code>
+    - String</code></em>
+  <a href="#cfn-opsworks-layer-customrecipes-deploy">Deploy</a>: <em class="replaceable"><code>
+    - String</code></em>
+  <a href="#cfn-opsworks-layer-customrecipes-setup">Setup</a>: <em class="replaceable"><code>
+    - String</code></em>
+  <a href="#cfn-opsworks-layer-customrecipes-shutdown">Shutdown</a>: <em class="replaceable"><code>
+    - String</code></em>
+  <a href="#cfn-opsworks-layer-customrecipes-undeploy">Undeploy</a>: <em class="replaceable"><code>
+    - String</code></em>
+</code></pre></div><h2 id="aws-properties-opsworks-layer-recipes-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
-                           <dt><a id="cfn-opsworks-layer-customrecipes-configure"></a><span class="term"><code class="literal">Configure</code></span></dt>
-                           
+                           <dt><a id="cfn-opsworks-layer-customrecipes-configure"></a><span class="term"><code class="code">Configure</code></span></dt>
                            <dd>
                               
-                              <p>Custom recipe names to be run following a Configure event. The event occurs on
-                                 all of the stack&apos;s instances when an instance enters or leaves the online
-                                 state.
+                              <p>An array of custom recipe names to be run following a <code class="code">configure</code> event.
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: List of String values
+                              <p><em>Type</em>: List of String
                               </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-opsworks-layer-customrecipes-deploy"></a><span class="term"><code class="literal">Deploy</code></span></dt>
-                           
+                           <dt><a id="cfn-opsworks-layer-customrecipes-deploy"></a><span class="term"><code class="code">Deploy</code></span></dt>
                            <dd>
                               
-                              <p>Custom recipe names to be run following a Deploy event. The event occurs when
-                                 you run a <code class="code">deploy</code> command, typically to deploy an application to a set
-                                 of application server instances.
+                              <p>An array of custom recipe names to be run following a <code class="code">deploy</code> event.
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: List of String values
+                              <p><em>Type</em>: List of String
                               </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-opsworks-layer-customrecipes-setup"></a><span class="term"><code class="literal">Setup</code></span></dt>
-                           
+                           <dt><a id="cfn-opsworks-layer-customrecipes-setup"></a><span class="term"><code class="code">Setup</code></span></dt>
                            <dd>
                               
-                              <p>Custom recipe names to be run following a Setup event. This event
-                                 occurs on a new instance after it successfully boots.
+                              <p>An array of custom recipe names to be run following a <code class="code">setup</code> event.
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: List of String values
+                              <p><em>Type</em>: List of String
                               </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-opsworks-layer-customrecipes-shutdown"></a><span class="term"><code class="literal">Shutdown</code></span></dt>
-                           
+                           <dt><a id="cfn-opsworks-layer-customrecipes-shutdown"></a><span class="term"><code class="code">Shutdown</code></span></dt>
                            <dd>
                               
-                              <p>Custom recipe names to be run following a Shutdown event. This
-                                 event occurs after you direct AWS OpsWorks to shut an instance down before the associated
-                                 Amazon EC2 instance is actually terminated. 
+                              <p>An array of custom recipe names to be run following a <code class="code">shutdown</code> event.
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: List of String values
+                              <p><em>Type</em>: List of String
                               </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-opsworks-layer-customrecipes-undeploy"></a><span class="term"><code class="literal">Undeploy</code></span></dt>
-                           
+                           <dt><a id="cfn-opsworks-layer-customrecipes-undeploy"></a><span class="term"><code class="code">Undeploy</code></span></dt>
                            <dd>
                               
-                              <p>Custom recipe names to be run following a Undeploy event. This
-                                 event occurs when you delete an app or run an <code class="code">undeploy</code> command to
-                                 remove an app from a set of application server instances.
+                              <p>An array of custom recipe names to be run following a <code class="code">undeploy</code> event.
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
-                              <p><em>Type</em>: List of String values
+                              <p><em>Type</em>: List of String
                               </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
                         </dl>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
                      </div></div>
 </body>
 </html>

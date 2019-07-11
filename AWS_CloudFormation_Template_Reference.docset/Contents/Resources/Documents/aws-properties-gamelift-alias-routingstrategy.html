@@ -8,91 +8,107 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-properties-gamelift-alias-routingstrategy">Amazon GameLift Alias
-                        RoutingStrategy
-                     </h1><p><code class="code">RoutingStrategy</code> is a property of the <a href="aws-resource-gamelift-alias.html">AWS::GameLift::Alias</a> resource
-                        that configures the routing strategy for an Amazon GameLift (GameLift) alias. For
-                        more information, see
-                        the <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_RoutingStrategy.html">RoutingStrategy</a> data type in the
-                        <em>Amazon GameLift API Reference</em>.
-                     </p><h2 id="w2ab1c21c10d147c13c15b5">Syntax</h2><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-properties-gamelift-alias-routingstrategy-syntax.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
-  &quot;<a href="aws-properties-gamelift-alias-routingstrategy.html#cfn-gamelift-alias-routingstrategy-fleetid">FleetId</a>&quot; : <em class="replaceable"><code>String</code></em>,
-  &quot;<a href="aws-properties-gamelift-alias-routingstrategy.html#cfn-gamelift-alias-routingstrategy-message">Message</a>&quot; : <em class="replaceable"><code>String</code></em>,
-  &quot;<a href="aws-properties-gamelift-alias-routingstrategy.html#cfn-gamelift-alias-routingstrategy-type">Type</a>&quot; : <em class="replaceable"><code>String</code></em>
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-properties-gamelift-alias-routingstrategy-syntax.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight"><a href="aws-properties-gamelift-alias-routingstrategy.html#cfn-gamelift-alias-routingstrategy-fleetid">FleetId</a>: <em class="replaceable"><code>String</code></em>
-<a href="aws-properties-gamelift-alias-routingstrategy.html#cfn-gamelift-alias-routingstrategy-message">Message</a>: <em class="replaceable"><code>String</code></em>
-<a href="aws-properties-gamelift-alias-routingstrategy.html#cfn-gamelift-alias-routingstrategy-type">Type</a>: <em class="replaceable"><code>String</code></em>
-</code></pre>
-                        </div><h2 id="w2ab1c21c10d147c13c15b7">Properties</h2><div class="variablelist">
-                        
-                        
+    <h1 class="topictitle" id="aws-properties-gamelift-alias-routingstrategy">AWS::GameLift::Alias RoutingStrategy</h1><p>Routing configuration for a fleet alias.</p><h2 id="aws-properties-gamelift-alias-routingstrategy-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-properties-gamelift-alias-routingstrategy-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;<a href="#cfn-gamelift-alias-routingstrategy-fleetid">FleetId</a>&quot; : <em class="replaceable"><code>String</code></em>,
+  &quot;<a href="#cfn-gamelift-alias-routingstrategy-message">Message</a>&quot; : <em class="replaceable"><code>String</code></em>,
+  &quot;<a href="#cfn-gamelift-alias-routingstrategy-type">Type</a>&quot; : <em class="replaceable"><code>String</code></em>
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-properties-gamelift-alias-routingstrategy-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">  <a href="#cfn-gamelift-alias-routingstrategy-fleetid">FleetId</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-gamelift-alias-routingstrategy-message">Message</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-gamelift-alias-routingstrategy-type">Type</a>: <em class="replaceable"><code>String</code></em>
+</code></pre></div><h2 id="aws-properties-gamelift-alias-routingstrategy-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
                            <dt><a id="cfn-gamelift-alias-routingstrategy-fleetid"></a><span class="term"><code class="code">FleetId</code></span></dt>
-                           
                            <dd>
                               
-                              <p>A unique identifier of a GameLift fleet to associate with the alias.</p>
                               
-                              <p><em>Required</em>: Conditional. If you specify <code class="code">SIMPLE</code> for the <code class="code">Type</code>
-                                 property, you must specify this property.
+                              <p>Unique identifier for a fleet that the alias points to.</p>
+                              
+                              <p>
+                                 <em>Required:</em> Conditional. If you specify <code class="code">SIMPLE</code> for the <code class="code">Type</code> property, you must specify this property.
                               </p>
                               
+                              <p><em>Required</em>: No
+                              </p>
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Pattern</em>: <code class="code">^fleet-\S+</code></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                        </dl>
-                     </div><div class="variablelist">
-                        
-                        
-                        
-                        <dl>
-                           
                            <dt><a id="cfn-gamelift-alias-routingstrategy-message"></a><span class="term"><code class="code">Message</code></span></dt>
-                           
                            <dd>
                               
-                              <p>A text message that GameLift displays for the <code class="code">Terminal</code> routing
-                                 type.
+                              
+                              <p>Message text to be used with a terminal routing strategy.</p>
+                              
+                              <p>
+                                 <em>Required:</em> Conditional. If you specify <code class="code">TERMINAL</code> for the <code class="code">Type</code> property, you must specify this property.
                               </p>
                               
-                              <p><em>Required</em>: Conditional. If you specify <code class="code">TERMINAL</code> for the
-                                 <code class="code">Type</code> property, you must specify this property.
+                              <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-gamelift-alias-routingstrategy-type"></a><span class="term"><code class="code">Type</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The type of routing strategy. For the <code class="code">SIMPLE</code> type, traffic is routed to
-                                 an active GameLift fleet. For the <code class="code">Terminal</code> type, GameLift returns an exception
-                                 with the message that you specified in the <code class="code">Message</code> property.
-                              </p>
+                              
+                              <p>Type of routing strategy.</p> 
+                              
+                              <p>Possible routing types include the following:</p> 
+                              
+                              <div class="itemizedlist">
+                                 
+                                 
+                                 
+                                 <ul class="itemizedlist" type="disc">
+                                    <li class="listitem">
+                                       
+                                       <p>
+                                          <b>SIMPLE</b> -- The alias resolves to one specific fleet. Use this type when routing to active
+                                          fleets.
+                                       </p>
+                                       
+                                    </li>
+                                    <li class="listitem">
+                                       
+                                       <p>
+                                          <b>TERMINAL</b> -- The alias does not resolve to a fleet but instead can be used to display a message
+                                          to the user. A terminal alias throws a TerminalRoutingStrategyException with the message
+                                          that you specified in the <code class="code">Message</code> property.
+                                       </p>
+                                       
+                                    </li>
+                                 </ul>
+                              </div>
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Allowed Values</em>: <code class="code">SIMPLE | TERMINAL</code></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
                         </dl>
+                     </div><h2 id="aws-properties-gamelift-alias-routingstrategy--seealso">See Also</h2><div class="itemizedlist">
+                        
+                        
+                        <ul class="itemizedlist" type="disc">
+                           <li class="listitem">
+                              
+                              <p>
+                                 <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_RoutingStrategy.html">RoutingStrategy</a> in the <em>Amazon GameLift API Reference</em>
+                                 
+                              </p>
+                              
+                           </li>
+                        </ul>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
                      </div></div>
 </body>
 </html>

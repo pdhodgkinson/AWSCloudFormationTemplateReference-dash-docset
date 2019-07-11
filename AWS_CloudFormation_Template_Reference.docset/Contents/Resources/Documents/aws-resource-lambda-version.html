@@ -8,142 +8,137 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-resource-lambda-version">AWS::Lambda::Version</h1><p>The <code class="code">AWS::Lambda::Version</code> resource publishes a specified version of an AWS Lambda (Lambda) function. When publishing
-                        a new version of your function, Lambda copies the latest version of your function.
-                        For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/versioning-intro.html">Introduction to AWS Lambda Versioning</a> in the <em>AWS Lambda Developer Guide</em>.
-                     </p><div class="highlights" id="inline-topiclist">
-                        <p><strong>Topics</strong></p>
-                        <ul>
-                           <li><a href="#aws-resource-lambda-version-syntax">Syntax</a></li>
-                           <li><a href="#w2ab1c21c10d177c37b9">Properties</a></li>
-                           <li><a href="#w2ab1c21c10d177c37c11">Return Values</a></li>
-                           <li><a href="#w2ab1c21c10d177c37c13">Example</a></li>
-                        </ul>
-                     </div><h2 id="aws-resource-lambda-version-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-resource-lambda-version-syntax.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
+    <h1 class="topictitle" id="aws-resource-lambda-version">AWS::Lambda::Version</h1><p>The <code class="code">AWS::Lambda::Version</code> resource creates a <a href="https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">version</a> from the current code and configuration of a
+                        function. Use versions to create a snapshot of your function code and configuration
+                        that doesn&apos;t change.
+                     </p><h2 id="aws-resource-lambda-version-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-resource-lambda-version-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
   &quot;Type&quot; : &quot;AWS::Lambda::Version&quot;,
-  &quot;Properties&quot; : {    
-    &quot;<a href="aws-resource-lambda-version.html#cfn-lambda-version-codesha256">CodeSha256</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-lambda-version.html#cfn-lambda-version-description">Description</a>&quot; : <em class="replaceable"><code>String</code></em>,         
-    &quot;<a href="aws-resource-lambda-version.html#cfn-lambda-version-functionname">FunctionName</a>&quot; : <em class="replaceable"><code>String</code></em>
-  }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-resource-lambda-version-syntax.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">Type: AWS::Lambda::Version
-Properties:     
-  <a href="aws-resource-lambda-version.html#cfn-lambda-version-codesha256">CodeSha256</a> : <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-lambda-version.html#cfn-lambda-version-description">Description</a> : <em class="replaceable"><code>String</code></em>         
-  <a href="aws-resource-lambda-version.html#cfn-lambda-version-functionname">FunctionName</a> : <em class="replaceable"><code>String</code></em></code></pre>
-                        </div><h2 id="w2ab1c21c10d177c37b9">Properties</h2><div class="variablelist">
-                        
-                        
-                        
-                        
+  &quot;Properties&quot; : {
+      &quot;<a href="#cfn-lambda-version-codesha256">CodeSha256</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-lambda-version-description">Description</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-lambda-version-functionname">FunctionName</a>&quot; : <em class="replaceable"><code>String</code></em>
+    }
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-lambda-version-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Type: AWS::Lambda::Version
+Properties: 
+  <a href="#cfn-lambda-version-codesha256">CodeSha256</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-lambda-version-description">Description</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-lambda-version-functionname">FunctionName</a>: <em class="replaceable"><code>String</code></em>
+</code></pre></div><h2 id="aws-resource-lambda-version-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
                            <dt><a id="cfn-lambda-version-codesha256"></a><span class="term"><code class="code">CodeSha256</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The SHA-256 hash of the deployment package that you want to publish. This value must
-                                 match the SHA-256 hash of the <code class="code">$LATEST</code> version of the function. Specify this property to validate that you are publishing
-                                 the correct package. 
+                              <p>Only publish a version if the hash value matches the value that&apos;s specified. Use this
+                                 option to avoid
+                                 publishing a version if the function code has changed since you last updated it.
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
-                              <p><em>Update requires</em>: Updates are not supported.
-                              </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-lambda-version-description"></a><span class="term"><code class="code">Description</code></span></dt>
-                           
                            <dd>
                               
-                              <p>A description of the version you are publishing. If you don&apos;t specify a value, Lambda
-                                 copies the description from the <code class="code">$LATEST</code> version of the function.
-                              </p>
+                              <p>A description for the version to override the description in the function configuration.</p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
-                              <p><em>Update requires</em>: Updates are not supported.
-                              </p>
-                              
+                              <p><em>Minimum</em>: <code class="code">0</code></p>
+                              <p><em>Maximum</em>: <code class="code">256</code></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-lambda-version-functionname"></a><span class="term"><code class="code">FunctionName</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The Lambda function for which you want to publish a version. You can specify the function&apos;s
-                                 name or its Amazon Resource Name (ARN).
+                              <p>The name of the Lambda function.</p>
+                              
+                              <div class="itemizedlist">
+                                 
+                                 <p class="title"><b>Name formats</b></p>
+                                 
+                                 
+                                 
+                                 
+                                 <ul class="itemizedlist" type="disc">
+                                    <li class="listitem">
+                                       
+                                       <p>
+                                          <b>Function name</b> - <code class="code">MyFunction</code>.
+                                       </p>
+                                       
+                                    </li>
+                                    <li class="listitem">
+                                       
+                                       <p>
+                                          <b>Function ARN</b> - <code class="code">arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.
+                                       </p>
+                                       
+                                    </li>
+                                    <li class="listitem">
+                                       
+                                       <p>
+                                          <b>Partial ARN</b> - <code class="code">123456789012:function:MyFunction</code>.
+                                       </p>
+                                       
+                                    </li>
+                                 </ul>
+                              </div>
+                              
+                              <p>The length constraint applies only to the full ARN. If you specify only the function
+                                 name, it is limited to 64
+                                 characters in length.
                               </p>
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Minimum</em>: <code class="code">1</code></p>
+                              <p><em>Maximum</em>: <code class="code">140</code></p>
+                              <p><em>Pattern</em>: <code class="code">(arn:(aws[a-zA-Z-]*)?:lambda:)?([a-z]{2}(-gov)?-[a-z]+-\d{1}:)?(\d{12}:)?(function:)?([a-zA-Z0-9-_]+)(:(\$LATEST|[a-zA-Z0-9-_]+))?</code></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
                         </dl>
-                     </div><h2 id="w2ab1c21c10d177c37c11">Return Values</h2><h3 id="w2ab1c21c10d177c37c11b2">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code> intrinsic function, <code class="code">Ref</code> returns the ARN of the Lambda version, such as <code class="code">arn:aws:lambda:us-west-2:123456789012:function:helloworld:1</code>.
+                     </div><h2 id="aws-resource-lambda-version-return-values">Return Values</h2><h3 id="aws-resource-lambda-version-return-values-ref">Ref</h3><p>
+                        When you pass the logical ID of this resource to the intrinsic <code class="code">Ref</code> function, <code class="code">Ref</code> returns the ARN of the version, such as
+                        <code class="code">arn:aws:lambda:us-west-2:123456789012:function:helloworld:1</code>. 
                      </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                     </p><h3 id="w2ab1c21c10d177c37c11b4">Fn::GetAtt</h3><p><code class="code">Fn::GetAtt</code> returns a value for a specified attribute of the specified resource type.
-                     </p><div class="variablelist">
-                        
-                        
+                     </p><h3 id="aws-resource-lambda-version-return-values-fn--getatt">Fn::GetAtt</h3><p>The <code class="code">Fn::GetAtt</code> intrinsic function returns a value for a specified attribute of this type. The following
+                        are the available attributes and sample return values.
+                     </p><p>For more information about using the <code class="code">Fn::GetAtt</code> intrinsic function, see <a href="intrinsic-function-reference-getatt.html">Fn::GetAtt</a>.
+                     </p><h4 id="aws-resource-lambda-version-return-values-fn--getatt-fn--getatt"></h4><div class="variablelist">
                         <dl>
-                           
-                           <dt><span class="term"><code class="code">Version</code></span></dt>
-                           
+                           <dt><a id="Version-fn::getatt"></a><span class="term"><code class="code">Version</code></span></dt>
                            <dd>
                               
-                              <p>The published version of a Lambda version, such as <code class="code">1</code>.
-                              </p>
+                              <p>The version number.</p>
                               
                            </dd>
-                           
                         </dl>
-                     </div><p>For more information about using <code class="code">Fn::GetAtt</code>, see <a href="intrinsic-function-reference-getatt.html">Fn::GetAtt</a>.
-                     </p><h2 id="w2ab1c21c10d177c37c13">Example</h2><p>The following example publishes a new version of the <code class="code">MyFunction</code> Lambda function.
-                     </p><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-resource-lambda-version-example.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">&quot;TestingNewFeature&quot; : {
-  &quot;Type&quot; : &quot;AWS::Lambda::Version&quot;,
-  &quot;Properties&quot; : {
-    &quot;FunctionName&quot; : { &quot;Ref&quot; : &quot;MyFunction&quot; },
-    &quot;Description&quot; : &quot;A test version of MyFunction&quot;
-  }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-resource-lambda-version-example.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">TestingNewFeature: 
+                     </div><h2 id="aws-resource-lambda-version--examples">Examples</h2><h3 id="aws-resource-lambda-version--examples--Function_Version">Function Version</h3><p>Create a version of function <code class="code">MyFunction</code>.
+                     </p><h4 id="aws-resource-lambda-version--examples--Function_Version--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">&quot;MyVersion&quot;: {
+    &quot;Type&quot;: &quot;AWS::Lambda::Version&quot;,
+    &quot;Properties&quot;: {
+        &quot;FunctionName&quot;: {
+            &quot;Ref&quot;: &quot;MyFunction&quot;
+        },
+        &quot;Description&quot;: &quot;A test version of MyFunction&quot;
+    }
+}</code></pre><h4 id="aws-resource-lambda-version--examples--Function_Version--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">MyVersion: 
   Type: AWS::Lambda::Version
   Properties: 
     FunctionName: 
       Ref: &quot;MyFunction&quot;
-    Description: &quot;A test version of MyFunction&quot;</code></pre>
-                        </div></div>
+    Description: &quot;A test version of MyFunction&quot;</code></pre><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
+                     </div></div>
 </body>
 </html>

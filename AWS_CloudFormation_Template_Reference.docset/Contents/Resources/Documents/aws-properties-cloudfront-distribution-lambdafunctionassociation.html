@@ -8,95 +8,110 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-properties-cloudfront-distribution-lambdafunctionassociation">Amazon CloudFront Distribution LambdaFunctionAssociation</h1><p>The 
-                        <code class="code">LambdaFunctionAssociation</code> property type specifies a Lambda function association for an Amazon CloudFront distribution.
-                     </p><p>
-                        <code class="code">LambdaFunctionAssociation</code> is a property of the <a href="aws-properties-cloudfront-distribution-cachebehavior.html">CloudFront Distribution
-                           CacheBehavior</a> and <a href="aws-properties-cloudfront-distribution-defaultcachebehavior.html">CloudFront Distribution
-                           DefaultCacheBehavior</a> property types.
-                        
-                     </p><h2 id="aws-properties-cloudfront-distribution-lambdafunctionassociation-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
-                        
-                        <h3 id="aws-properties-cloudfront-distribution-lambdafunctionassociation-syntax.json">JSON</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
-  &quot;<a href="aws-properties-cloudfront-distribution-lambdafunctionassociation.html#cfn-cloudfront-distribution-lambdafunctionassociation-eventtype">EventType</a>&quot; : <em class="replaceable"><code>String</code></em>,
-  &quot;<a href="aws-properties-cloudfront-distribution-lambdafunctionassociation.html#cfn-cloudfront-distribution-lambdafunctionassociation-lambdafunctionarn">LambdaFunctionARN</a>&quot; : <em class="replaceable"><code>String</code></em>
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        
-                        <h3 id="aws-properties-cloudfront-distribution-lambdafunctionassociation-syntax.yaml">YAML</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight"><a href="aws-properties-cloudfront-distribution-lambdafunctionassociation.html#cfn-cloudfront-distribution-lambdafunctionassociation-eventtype">EventType</a>: <em class="replaceable"><code>String</code></em>
-<a href="aws-properties-cloudfront-distribution-lambdafunctionassociation.html#cfn-cloudfront-distribution-lambdafunctionassociation-lambdafunctionarn">LambdaFunctionARN</a>: <em class="replaceable"><code>String</code></em></code></pre>
-                        </div><h2 id="aws-properties-cloudfront-distribution-lambdafunctionassociation-properties">Properties</h2><div class="variablelist">
-                        
-                        
-                        
+    <h1 class="topictitle" id="aws-properties-cloudfront-distribution-lambdafunctionassociation">AWS::CloudFront::Distribution LambdaFunctionAssociation</h1><p>A complex type that contains a Lambda function association.</p><h2 id="aws-properties-cloudfront-distribution-lambdafunctionassociation-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-properties-cloudfront-distribution-lambdafunctionassociation-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;<a href="#cfn-cloudfront-distribution-lambdafunctionassociation-eventtype">EventType</a>&quot; : <em class="replaceable"><code>String</code></em>,
+  &quot;<a href="#cfn-cloudfront-distribution-lambdafunctionassociation-lambdafunctionarn">LambdaFunctionARN</a>&quot; : <em class="replaceable"><code>String</code></em>
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-properties-cloudfront-distribution-lambdafunctionassociation-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">  <a href="#cfn-cloudfront-distribution-lambdafunctionassociation-eventtype">EventType</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-cloudfront-distribution-lambdafunctionassociation-lambdafunctionarn">LambdaFunctionARN</a>: <em class="replaceable"><code>String</code></em>
+</code></pre></div><h2 id="aws-properties-cloudfront-distribution-lambdafunctionassociation-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
                            <dt><a id="cfn-cloudfront-distribution-lambdafunctionassociation-eventtype"></a><span class="term"><code class="code">EventType</code></span></dt>
-                           
-                           <dd>
-                              
-                              <p>Specifies the event type that triggers a Lambda function invocation. For valid values
-                                 and definitions, see <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_LambdaFunctionAssociation.html">LambdaFunctionAssociation</a>
-                                 in the <em>Amazon CloudFront API Reference</em>.
+                           <dd> 
+                              		       
+                              <p>Specifies the event type that triggers a Lambda function invocation. You can specify
+                                 the following values:
+                              </p> 
+                              		       
+                              <div class="itemizedlist"> 
+                                 			          
+                                 			          
+                                 			          
+                                 			          
+                                 		       
+                                 <ul class="itemizedlist" type="disc">
+                                    <li class="listitem">
+                                       
+                                       <p>
+                                          <code class="code">viewer-request</code>: The function executes when CloudFront receives a request from a viewer 
+                                          				and before it checks to see whether the requested object is in the edge cache.
+                                          
+                                       </p>
+                                       
+                                    </li>
+                                    <li class="listitem">
+                                       
+                                       <p>
+                                          <code class="code">origin-request</code>: The function executes only when CloudFront forwards a request to your origin. 
+                                          				When the requested object is in the edge cache, the function doesn&apos;t execute.
+                                       </p>
+                                       
+                                    </li>
+                                    <li class="listitem">
+                                       
+                                       <p>
+                                          <code class="code">origin-response</code>: The function executes after CloudFront receives a response from the origin and 
+                                          				before it caches the object in the response. When the requested object is in the
+                                          edge cache, the function doesn&apos;t execute.
+                                       </p>
+                                       			         
+                                    </li>
+                                    <li class="listitem">
+                                       
+                                       <p>
+                                          <code class="code">viewer-response</code>: The function executes before CloudFront returns the requested object to the viewer.
+                                          
+                                          				The function executes regardless of whether the object was already in the edge
+                                          cache.
+                                       </p>
+                                       				           
+                                       <p>If the origin returns an HTTP status code other than HTTP 200 (OK), the function doesn&apos;t
+                                          execute.
+                                       </p>
+                                       			         
+                                    </li>
+                                 </ul>
+                              </div>
+                              	     
+                              <p><em>Required</em>: No
                               </p>
-                              
-                              <p>
-                                 <em>Required</em>: No
+                              <p><em>Type</em>: String
                               </p>
-                              
-                              <p>
-                                 <em>Type</em>: String
-                              </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: 
-                                 
-                                 <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
-                                 
-                              </p>
-                              
+                              <p><em>Allowed Values</em>: <code class="code">origin-request | origin-response | viewer-request | viewer-response</code></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-cloudfront-distribution-lambdafunctionassociation-lambdafunctionarn"></a><span class="term"><code class="code">LambdaFunctionARN</code></span></dt>
-                           
-                           <dd>
-                              
+                           <dd> 
+                              		       
                               <p>The ARN of the Lambda function. You must specify the ARN of a function version; you
-                                 can&apos;t specify a Lambda alias or $LATEST.
+                                 can&apos;t specify a Lambda alias 
+                                 			or $LATEST.
                               </p>
-                              
-                              <p>
-                                 <em>Required</em>: No
+                              	     
+                              <p><em>Required</em>: No
                               </p>
-                              
-                              <p>
-                                 <em>Type</em>: String
+                              <p><em>Type</em>: String
                               </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: 
-                                 
-                                 <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
-                                 
-                              </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
                         </dl>
-                     </div><h2 id="aws-properties-cloudfront-distribution-lambdafunctionassociation-seealso">See Also</h2><div class="itemizedlist">
-                        			  
-                        			
+                     </div><h2 id="aws-properties-cloudfront-distribution-lambdafunctionassociation--seealso">See Also</h2><div class="itemizedlist">
+                        				        
+                        			      
                         <ul class="itemizedlist" type="disc">
                            <li class="listitem">
-                              			    
-                              <p><a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_LambdaFunctionAssociation.html">LambdaFunctionAssociation</a>
-                                 			      in the <em>Amazon CloudFront API Reference</em></p>
-                              		      
+                              					          
+                              <p>
+                                 						            <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_LambdaFunctionAssociation.html">LambdaFunctionAssociation</a> in the <em>Amazon CloudFront API Reference</em>
+                                 					          
+                              </p>
+                              				        
                            </li>
                         </ul>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
                      </div></div>
 </body>
 </html>

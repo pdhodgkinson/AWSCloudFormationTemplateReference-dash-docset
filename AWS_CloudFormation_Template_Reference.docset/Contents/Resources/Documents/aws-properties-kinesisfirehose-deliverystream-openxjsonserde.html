@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="css/awsdocs.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/awsdocs.min.js"></script>
+    <meta charset="utf-8">
+</head>
+<body>
+    <div id="content" style="padding: 10px 30px;">
+    <h1 class="topictitle" id="aws-properties-kinesisfirehose-deliverystream-openxjsonserde">AWS::KinesisFirehose::DeliveryStream OpenXJsonSerDe</h1><p>The OpenX SerDe. Used by Kinesis Data Firehose for deserializing data, which means
+                        converting it from the JSON format in preparation for serializing it to the Parquet
+                        or ORC
+                        format. This is one of two deserializers you can choose, depending on which one offers
+                        the
+                        functionality you need. The other option is the native Hive / HCatalog JsonSerDe.
+                     </p><h2 id="aws-properties-kinesisfirehose-deliverystream-openxjsonserde-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-properties-kinesisfirehose-deliverystream-openxjsonserde-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;<a href="#cfn-kinesisfirehose-deliverystream-openxjsonserde-caseinsensitive">CaseInsensitive</a>&quot; : <em class="replaceable"><code>Boolean</code></em>,
+  &quot;<a href="#cfn-kinesisfirehose-deliverystream-openxjsonserde-columntojsonkeymappings">ColumnToJsonKeyMappings</a>&quot; : <em class="replaceable"><code>{<em class="replaceable"><code>Key</code></em> : <em class="replaceable"><code>Value</code></em>, ...}</code></em>,
+  &quot;<a href="#cfn-kinesisfirehose-deliverystream-openxjsonserde-convertdotsinjsonkeystounderscores">ConvertDotsInJsonKeysToUnderscores</a>&quot; : <em class="replaceable"><code>Boolean</code></em>
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-properties-kinesisfirehose-deliverystream-openxjsonserde-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">  <a href="#cfn-kinesisfirehose-deliverystream-openxjsonserde-caseinsensitive">CaseInsensitive</a>: <em class="replaceable"><code>Boolean</code></em>
+  <a href="#cfn-kinesisfirehose-deliverystream-openxjsonserde-columntojsonkeymappings">ColumnToJsonKeyMappings</a>: <em class="replaceable"><code>
+    <em class="replaceable"><code>Key</code></em> : <em class="replaceable"><code>Value</code></em></code></em>
+  <a href="#cfn-kinesisfirehose-deliverystream-openxjsonserde-convertdotsinjsonkeystounderscores">ConvertDotsInJsonKeysToUnderscores</a>: <em class="replaceable"><code>Boolean</code></em>
+</code></pre></div><h2 id="aws-properties-kinesisfirehose-deliverystream-openxjsonserde-properties">Properties</h2><div class="variablelist">
+                        <dl>
+                           <dt><a id="cfn-kinesisfirehose-deliverystream-openxjsonserde-caseinsensitive"></a><span class="term"><code class="code">CaseInsensitive</code></span></dt>
+                           <dd>
+                              
+                              <p>When set to <code class="code">true</code>, which is the default, Kinesis Data Firehose converts
+                                 JSON keys to lowercase before deserializing them.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              <p><em>Type</em>: Boolean
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                           </dd>
+                           <dt><a id="cfn-kinesisfirehose-deliverystream-openxjsonserde-columntojsonkeymappings"></a><span class="term"><code class="code">ColumnToJsonKeyMappings</code></span></dt>
+                           <dd>
+                              
+                              <p>Maps column names to JSON keys that aren&apos;t identical to the column names. This is
+                                 useful when the JSON contains keys that are Hive keywords. For example,
+                                 <code class="code">timestamp</code> is a Hive keyword. If you have a JSON key named
+                                 <code class="code">timestamp</code>, set this parameter to <code class="code">{&quot;ts&quot;: &quot;timestamp&quot;}</code> to map
+                                 this key to a column named <code class="code">ts</code>.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              <p><em>Type</em>: Map of String
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                           </dd>
+                           <dt><a id="cfn-kinesisfirehose-deliverystream-openxjsonserde-convertdotsinjsonkeystounderscores"></a><span class="term"><code class="code">ConvertDotsInJsonKeysToUnderscores</code></span></dt>
+                           <dd>
+                              
+                              <p>When set to <code class="code">true</code>, specifies that the names of the keys include dots and
+                                 that you want Kinesis Data Firehose to replace them with underscores. This is useful
+                                 because Apache Hive does not allow dots in column names. For example, if the JSON
+                                 contains
+                                 a key whose name is &quot;a.b&quot;, you can define the column name to be &quot;a_b&quot; when using this
+                                 option.
+                              </p>
+                              
+                              <p>The default is <code class="code">false</code>.
+                              </p>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              <p><em>Type</em>: Boolean
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
+                           </dd>
+                        </dl>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
+                     </div></div>
+</body>
+</html>

@@ -9,219 +9,161 @@
 <body>
     <div id="content" style="padding: 10px 30px;">
     <h1 class="topictitle" id="aws-resource-docdb-dbclusterparametergroup">AWS::DocDB::DBClusterParameterGroup</h1><p>The <code class="code">AWS::DocDB::DBClusterParameterGroup</code> Amazon DocumentDB (with MongoDB compatibility) resource describes a DBClusterParameterGroup.
-                        
-                        For more information, see <a href="https://docs.aws.amazon.com/amazondocdb/latest/developerguide/API_DBClusterParameterGroup">DBClusterParameterGroup</a> in the <em>Amazon DocumentDB Developer Guide</em>.
-                     </p><div class="highlights" id="inline-topiclist">
-                        <p><strong>Topics</strong></p>
-                        <ul>
-                           <li><a href="#aws-resource-docdb-dbclusterparametergroup-syntax">Syntax</a></li>
-                           <li><a href="#aws-resource-docdb-dbclusterparametergroup-properties">Properties</a></li>
-                           <li><a href="#aws-resource-docdb-dbclusterparametergroup-returnvalues">Return Values</a></li>
-                           <li><a href="#aws-resource-docdb-dbclusterparametergroup-examples">Example</a></li>
-                           <li><a href="#aws-resource-docdb-dbclusterparametergroup-seealso">See Also</a></li>
-                        </ul>
+                        For more information, see <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DBClusterParameterGroup.html">DBClusterParameterGroup</a> 
+                        in the <em>Amazon DocumentDB Developer Guide</em>.
+                     </p><p>Parameters in a DB cluster parameter group apply to all of the instances in a DB
+                        cluster.
+                     </p><p>A DB cluster parameter group is initially created with the default parameters for
+                        the
+                        database engine used by instances in the DB cluster. To provide custom values for
+                        any of
+                        the parameters, you must modify the group after you create it. After you create a
+                        DB
+                        cluster parameter group, you must associate it with your DB cluster. For the new DB
+                        cluster
+                        parameter group and associated settings to take effect, you must then reboot the DB
+                        instances in the DB cluster without failover.
+                     </p><div class="aws-note">
+                        <p class="aws-note">Important</p>
+                        <p>After you create a DB cluster parameter group, you should wait at least 5 minutes
+                           before creating your first DB cluster that uses that DB cluster parameter group as
+                           the
+                           default parameter group. This allows Amazon DocumentDB to fully complete the create
+                           action
+                           before the DB cluster parameter group is used as the default for a new DB cluster.
+                           This
+                           step is especially important for parameters that are critical when creating the default
+                           database for a DB cluster, such as the character set for the default database defined
+                           by
+                           the <code class="code">character_set_database</code> parameter.
+                        </p>
                      </div><h2 id="aws-resource-docdb-dbclusterparametergroup-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
-                        
-                        <h3 id="aws-resource-docdb-dbclusterparametergroup-syntax.json">JSON</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
+                        <h3 id="aws-resource-docdb-dbclusterparametergroup-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
   &quot;Type&quot; : &quot;AWS::DocDB::DBClusterParameterGroup&quot;,
   &quot;Properties&quot; : {
-    &quot;<a href="aws-resource-docdb-dbclusterparametergroup.html#cfn-docdb-dbclusterparametergroup-description">Description</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-docdb-dbclusterparametergroup.html#cfn-docdb-dbclusterparametergroup-family">Family</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-docdb-dbclusterparametergroup.html#cfn-docdb-dbclusterparametergroup-name">Name</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-docdb-dbclusterparametergroup.html#cfn-docdb-dbclusterparametergroup-parameters">Parameters</a>&quot; : <em class="replaceable"><code>Json</code></em>,
-    &quot;<a href="aws-resource-docdb-dbclusterparametergroup.html#cfn-docdb-dbclusterparametergroup-tags">Tags</a>&quot; : [ <a href="aws-properties-resource-tags.html">Tag</a>, ... ]
-  }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        
-                        <h3 id="aws-resource-docdb-dbclusterparametergroup-syntax.yaml">YAML</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">Type: &quot;AWS::DocDB::DBClusterParameterGroup&quot;
-Properties:
-  <a href="aws-resource-docdb-dbclusterparametergroup.html#cfn-docdb-dbclusterparametergroup-description">Description</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-docdb-dbclusterparametergroup.html#cfn-docdb-dbclusterparametergroup-family">Family</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-docdb-dbclusterparametergroup.html#cfn-docdb-dbclusterparametergroup-name">Name</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-docdb-dbclusterparametergroup.html#cfn-docdb-dbclusterparametergroup-parameters">Parameters</a>: <em class="replaceable"><code>Json</code></em>
-  <a href="aws-resource-docdb-dbclusterparametergroup.html#cfn-docdb-dbclusterparametergroup-tags">Tags</a>: 
-    - <a href="aws-properties-resource-tags.html">Tag</a></code></pre>
-                        </div><h2 id="aws-resource-docdb-dbclusterparametergroup-properties">Properties</h2><div class="variablelist">
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
+      &quot;<a href="#cfn-docdb-dbclusterparametergroup-description">Description</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-docdb-dbclusterparametergroup-family">Family</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-docdb-dbclusterparametergroup-name">Name</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-docdb-dbclusterparametergroup-parameters">Parameters</a>&quot; : <em class="replaceable"><code>Json</code></em>,
+      &quot;<a href="#cfn-docdb-dbclusterparametergroup-tags">Tags</a>&quot; : <em class="replaceable"><code>[ <a href="aws-properties-resource-tags.html">Tag</a>, ... ]</code></em>
+    }
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-docdb-dbclusterparametergroup-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Type: AWS::DocDB::DBClusterParameterGroup
+Properties: 
+  <a href="#cfn-docdb-dbclusterparametergroup-description">Description</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-docdb-dbclusterparametergroup-family">Family</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-docdb-dbclusterparametergroup-name">Name</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-docdb-dbclusterparametergroup-parameters">Parameters</a>: <em class="replaceable"><code>Json</code></em>
+  <a href="#cfn-docdb-dbclusterparametergroup-tags">Tags</a>: <em class="replaceable"><code>
+    - <a href="aws-properties-resource-tags.html">Tag</a></code></em>
+</code></pre></div><h2 id="aws-resource-docdb-dbclusterparametergroup-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
                            <dt><a id="cfn-docdb-dbclusterparametergroup-description"></a><span class="term"><code class="code">Description</code></span></dt>
-                           
                            <dd>
                               
-                              <p>Provides the customer-specified description for this DB cluster parameter group.</p>
+                              <p>The description for the DB cluster parameter group.</p>
                               
-                              <p>
-                                 <em>Required</em>: Yes
+                              <p><em>Required</em>: Yes
                               </p>
-                              
-                              <p>
-                                 <em>Type</em>: String
+                              <p><em>Type</em>: String
                               </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a>
-                                 
-                              </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-docdb-dbclusterparametergroup-family"></a><span class="term"><code class="code">Family</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The DB cluster parameter group from which user created DB cluster parameter groups
-                                 are
-                                 created. For example, <code class="code">default.docdb3.6</code>.
-                              </p>
+                              <p>The DB cluster parameter group family name.</p>
                               
-                              <p>
-                                 <em>Required</em>: Yes
+                              <p><em>Required</em>: Yes
                               </p>
-                              
-                              <p>
-                                 <em>Type</em>: String
+                              <p><em>Type</em>: String
                               </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a>
-                                 
-                              </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-docdb-dbclusterparametergroup-name"></a><span class="term"><code class="code">Name</code></span></dt>
-                           
                            <dd>
                               
-                              <p>Provides the name of the DB parameter group family that this DB cluster parameter
-                                 group is compatible with.
-                              </p>
+                              <p>The name of the DB cluster parameter group.</p>
                               
-                              <p>
-                                 <em>Required</em>: No
-                              </p>
+                              <p>Constraints:</p>
                               
-                              <p>
-                                 <em>Type</em>: String
-                              </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a>
+                              <div class="itemizedlist">
                                  
-                              </p>
+                                 
+                                 <ul class="itemizedlist" type="disc">
+                                    <li class="listitem">
+                                       
+                                       <p>Must match the name of an existing
+                                          <code class="code">DBClusterParameterGroup</code>.
+                                       </p>
+                                       
+                                    </li>
+                                 </ul>
+                              </div>
                               
+                              <div class="aws-note">
+                                 <p class="aws-note">Note</p>
+                                 <p>This value is stored as a lowercase string.</p>
+                              </div>
+                              
+                              <p><em>Required</em>: No
+                              </p>
+                              <p><em>Type</em>: String
+                              </p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-docdb-dbclusterparametergroup-parameters"></a><span class="term"><code class="code">Parameters</code></span></dt>
-                           
                            <dd>
                               
-                              <p>Provides the name of the DB cluster parameter group.</p>
+                              <p>Provides a list of parameters for the DB cluster parameter group.</p>
                               
-                              <p>
-                                 <em>Required</em>: Yes
+                              <p><em>Required</em>: Yes
                               </p>
-                              
-                              <p>
-                                 <em>Type</em>: Json
+                              <p><em>Type</em>: Json
                               </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
-                                 
-                              </p>
-                              
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-docdb-dbclusterparametergroup-tags"></a><span class="term"><code class="code">Tags</code></span></dt>
-                           
                            <dd>
                               
-                              <p>A list of up to 50 tags. A tag is metadata assigned to an Amazon DocumentDB resource
-                                 consisting of a key-value pair.
-                              </p>
+                              <p>The tags to be assigned to the DB cluster parameter group.</p>
                               
-                              <p>
-                                 <em>Required</em>: No
+                              <p><em>Required</em>: No
                               </p>
-                              
-                              <p>
-                                 <em>Type</em>: List of <a href="aws-properties-resource-tags.html">Resource Tag</a> property types
-                              </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
-                                 
-                              </p>
-                              
+                              <p><em>Type</em>: List of <a href="aws-properties-resource-tags.html">Tag</a></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
                         </dl>
-                     </div><h2 id="aws-resource-docdb-dbclusterparametergroup-returnvalues">Return Values</h2><h3 id="aws-resource-docdb-dbclusterparametergroup-ref">Ref</h3><p>When you pass the logical ID of an <code class="code">AWS::DocDB::DBClusterParameterGroup</code>
-                        resource to the intrinsic <code class="code">Ref</code> function, the function returns the
-                        DBClusterParameterGroup&apos;s name, such as <code class="code">sample-db-cluster-param-group</code>.
-                        
-                     </p><p>For more information about using the 
-                        <code class="code">Ref</code> function, see 
-                        <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                        
-                     </p><h2 id="aws-resource-docdb-dbclusterparametergroup-examples">Example</h2><div id="JSON" name="JSON" class="section langfilter">
-                        
-                        <h3 id="aws-resource-docdb-dbclusterparametergroup-example1.json">JSON</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
-   &quot;AWSTemplateFormatVersion&quot; : &quot;2010-09-09&quot;,
-   &quot;Resources&quot; : {
-      &quot;myDBInstance&quot; : {
-         &quot;Type&quot; : &quot;AWS::DocDB::DBClusterParameterGroup&quot;,
-         &quot;Properties&quot; : {
-            &quot;Description&quot; : &quot;description&quot;,
-            &quot;Family&quot; : &quot;docdb3.6&quot;,
-            &quot;Name&quot; : &quot;modified-docdb3.6&quot;,
-            &quot;Parameters&quot; : [ {&quot;Name&quot; : &quot;String&quot;, &quot;Value&quot; : &quot;String&quot;} ],
-            &quot;Tags&quot; : [ {&quot;Key&quot; : &quot;String&quot;, &quot;Value&quot; : &quot;String&quot;} ]
-         }
-      }
+                     </div><h2 id="aws-resource-docdb-dbclusterparametergroup-return-values">Return Values</h2><h3 id="aws-resource-docdb-dbclusterparametergroup-return-values-ref">Ref</h3><p>
+                        When you pass the logical ID of this resource to the intrinsic <code class="code">Ref</code> function, <code class="code">Ref</code> returns the DBClusterParameterGroup&apos;s name, such as <code class="code">sample-db-cluster-param-group</code>.
+                     </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
+                     </p><h2 id="aws-resource-docdb-dbclusterparametergroup--examples">Examples</h2><h3 id="aws-resource-docdb-dbclusterparametergroup--examples--"></h3><h4 id="aws-resource-docdb-dbclusterparametergroup--examples----json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+   &quot;Type&quot; : &quot;AWS::DocDB::DBClusterParameterGroup&quot;,
+   &quot;Properties&quot; : {
+      &quot;Description&quot; : &quot;description&quot;,
+      &quot;Family&quot; : &quot;docdb3.6&quot;,
+      &quot;Name&quot; : &quot;sampleParameterGroup&quot;,
+      &quot;Parameters&quot; :  [
+        &quot;audit_logs&quot;: &quot;disabled&quot;,
+        &quot;tls&quot;: &quot;enabled&quot;,
+        &quot;ttl_monitor&quot;: &quot;enabled&quot;
+     ],
+      &quot;Tags&quot; : [{ &quot;Key&quot;: &quot;String&quot;,&quot;Value&quot;: &quot;String&quot; }]
    }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        
-                        <h3 id="aws-resource-docdb-dbclusterparametergroup-example1.yaml">YAML</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">AWSTemplateFormatVersion: &quot;2010-09-09&quot;
-Resources: 
-  myDBInstance: 
-    Type: &quot;AWS::DocDB::DBClusterParameterGroup&quot;
-    Properties: 
-      Description : &quot;description&quot;
-      Family : &quot;docdb3.6&quot;
-      Name : &quot;modified-docdb3.6&quot;
-      Parameters : 
-        - 
-          Name : &quot;String&quot;
-          Value : &quot;String&quot;
-      Tags: 
-        - 
-          Key: &quot;String&quot;
-          Value: &quot;String&quot;</code></pre>
-                        </div><h2 id="aws-resource-docdb-dbclusterparametergroup-seealso">See Also</h2><p>For more information, see the following topics in the <em>Amazon DocumentDB Developers Guide</em>.
-                     </p><div class="itemizedlist">
+}</code></pre><h4 id="aws-resource-docdb-dbclusterparametergroup--examples----yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Type: &quot;AWS::DocDB::DBClusterParameterGroup&quot;
+Properties:
+   Description: &quot;description&quot;
+   Family: &quot;docdb3.6&quot;
+   Name: &quot;sampleParameterGroup&quot;
+   Parameters: 
+        audit_logs: &quot;disabled&quot;
+        tls: &quot;enabled&quot;
+        ttl_monitor: &quot;enabled&quot;
+   Tags: 
+      - 
+         Key: &quot;String&quot;
+         Value: &quot;String&quot; </code></pre><h2 id="aws-resource-docdb-dbclusterparametergroup--seealso">See Also</h2><div class="itemizedlist">
                         
                         
                         
@@ -230,21 +172,48 @@ Resources:
                         
                         <ul class="itemizedlist" type="disc">
                            <li class="listitem">
-                              <p><a href="https://docs.aws.amazon.com/amazondocdb/latest/developerguide/API_DBClusterParameterGroup">DBClusterParameterGroup</a></p>
+                              
+                              <p>
+                                 <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DBClusterParameterGroup.html">DBClusterParameterGroup</a>
+                                 
+                              </p>
+                              
                            </li>
                            <li class="listitem">
-                              <p><a href="https://docs.aws.amazon.com/amazondocdb/latest/developerguide/API_CreateDBClusterParameterGroup">CreateDBClusterParameterGroup</a></p>
+                              
+                              <p>
+                                 <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBClusterParameterGroup.html">CreateDBClusterParameterGroup</a>
+                                 
+                              </p>
+                              
                            </li>
                            <li class="listitem">
-                              <p><a href="https://docs.aws.amazon.com/amazondocdb/latest/developerguide/API_DeleteDBClusterParameterGroup">DeleteDBClusterParameterGroup</a></p>
+                              
+                              <p>
+                                 <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DeleteDBClusterParameterGroup.html">DeleteDBClusterParameterGroup</a>
+                                 
+                              </p>
+                              
                            </li>
                            <li class="listitem">
-                              <p><a href="https://docs.aws.amazon.com/amazondocdb/latest/developerguide/API_DescribeDBClusterParameterGroup">DescribeDBClusterParameterGroup</a></p>
+                              
+                              <p>
+                                 <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DescribeDBClusterParameterGroups.html">DescribeDBClusterParameterGroups</a>
+                                 
+                              </p>
+                              
                            </li>
                            <li class="listitem">
-                              <p><a href="https://docs.aws.amazon.com/amazondocdb/latest/developerguide/API_ModifyDBClusterParameterGroup">ModifyDBClusterParameterGroup</a></p>
+                              
+                              <p>
+                                 <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/API_ModifyDBClusterParameterGroup.html">ModifyDBClusterParameterGroup</a>
+                                 
+                              </p>
+                              
                            </li>
                         </ul>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
                      </div></div>
 </body>
 </html>

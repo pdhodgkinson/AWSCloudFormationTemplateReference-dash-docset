@@ -8,74 +8,94 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-properties-as-notificationconfigurations">Amazon EC2 Auto Scaling AutoScalingGroup 
-                        NotificationConfiguration
-                     </h1><p>The <code class="code">NotificationConfiguration</code> property type specifies the events that the Amazon EC2 Auto Scaling group sends notifications
-                        for.
-                     </p><p>The <code class="code">NotificationConfigurations</code> property of the
-                        <code class="code"><a href="aws-properties-as-group.html">AWS::AutoScaling::AutoScalingGroup</a></code> resource contains a list of 
-                        <code class="code">NotificationConfiguration</code> property types.
-                     </p><h2 id="w2ab1c21c10c42c13c50b7">Syntax</h2><div id="JSON" name="JSON" class="section langfilter">
-                        <h3 id="aws-properties-as-notificationconfigurations-syntax.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
-   &quot;<a href="aws-properties-as-notificationconfigurations.html#cfn-as-group-notificationconfigurations-notificationtypes">NotificationTypes</a>&quot; : [ <em class="replaceable"><code>String, ...</code></em> ],
-   &quot;<a href="aws-properties-as-notificationconfigurations.html#cfn-as-group-notificationconfigurations-topicarn">TopicARN</a>&quot; : <em class="replaceable"><code>String</code></em>
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        <h3 id="aws-properties-as-notificationconfigurations-syntax.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight"><a href="aws-properties-as-notificationconfigurations.html#cfn-as-group-notificationconfigurations-notificationtypes">NotificationTypes</a>:
-  - <em class="replaceable"><code>String</code></em>
-<a href="aws-properties-as-notificationconfigurations.html#cfn-as-group-notificationconfigurations-topicarn">TopicARN</a>: <em class="replaceable"><code>String</code></em>
-</code></pre>
-                        </div><h2 id="w2ab1c21c10c42c13c50b9">Properties</h2><div class="variablelist">
-                        
-                        
-                        
+    <h1 class="topictitle" id="aws-properties-as-notificationconfigurations">AWS::AutoScaling::AutoScalingGroup NotificationConfiguration</h1><p>
+                        <code class="code">NotificationConfiguration</code> specifies a list of notification configurations for the
+                        <code class="code">NotificationConfigurations</code> property of <a href="aws-properties-as-group.html">AutoScalingGroup</a>. <code class="code">NotificationConfiguration</code> specifies the events that
+                        the Amazon EC2 Auto Scaling group sends notifications for.
+                     </p><p>For example snippets, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-autoscaling.html#scenario-as-notification">Auto Scaling Group with Notifications</a>.
+                     </p><h2 id="aws-properties-as-notificationconfigurations-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-properties-as-notificationconfigurations-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;<a href="#cfn-as-group-notificationconfigurations-notificationtypes">NotificationTypes</a>&quot; : <em class="replaceable"><code>[ String, ... ]</code></em>,
+  &quot;<a href="#cfn-autoscaling-autoscalinggroup-notificationconfigurations-topicarn">TopicARN</a>&quot; : <em class="replaceable"><code>String</code></em>
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-properties-as-notificationconfigurations-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">  <a href="#cfn-as-group-notificationconfigurations-notificationtypes">NotificationTypes</a>: <em class="replaceable"><code>
+    - String</code></em>
+  <a href="#cfn-autoscaling-autoscalinggroup-notificationconfigurations-topicarn">TopicARN</a>: <em class="replaceable"><code>String</code></em>
+</code></pre></div><h2 id="aws-properties-as-notificationconfigurations-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
-                           <dt><a id="cfn-as-group-notificationconfigurations-notificationtypes"></a><span class="term"><code class="literal">NotificationTypes</code></span></dt>
-                           
+                           <dt><a id="cfn-as-group-notificationconfigurations-notificationtypes"></a><span class="term"><code class="code">NotificationTypes</code></span></dt>
                            <dd>
                               
-                              <p>A list of event types that trigger a notification. Event types can include any
-                                 of the following types: <code class="code">autoscaling:EC2_INSTANCE_LAUNCH</code>,
-                                 <code class="code">autoscaling:EC2_INSTANCE_LAUNCH_ERROR</code>,
-                                 <code class="code">autoscaling:EC2_INSTANCE_TERMINATE</code>,
-                                 <code class="code">autoscaling:EC2_INSTANCE_TERMINATE_ERROR</code>, and
-                                 <code class="code">autoscaling:TEST_NOTIFICATION</code>. For more information about event
-                                 types, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeAutoScalingNotificationTypes.html">DescribeAutoScalingNotificationTypes</a> in the
-                                 <em>Amazon EC2 Auto Scaling API Reference</em>.
+                              <p>A list of event types that trigger a notification. Event types can include any of
+                                 the
+                                 following types: 
                               </p>
                               
-                              <p><em>Required</em>: Yes
-                              </p>
+                              <div class="itemizedlist">
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 <ul class="itemizedlist" type="disc">
+                                    <li class="listitem">
+                                       
+                                       <p><code class="code">autoscaling:EC2_INSTANCE_LAUNCH</code></p>
+                                       
+                                    </li>
+                                    <li class="listitem">
+                                       
+                                       <p><code class="code">autoscaling:EC2_INSTANCE_LAUNCH_ERROR</code></p>
+                                       
+                                    </li>
+                                    <li class="listitem">
+                                       
+                                       <p><code class="code">autoscaling:EC2_INSTANCE_TERMINATE</code></p>
+                                       
+                                    </li>
+                                    <li class="listitem">
+                                       
+                                       <p><code class="code">autoscaling:EC2_INSTANCE_TERMINATE_ERROR</code></p>
+                                       
+                                    </li>
+                                    <li class="listitem">
+                                       
+                                       <p><code class="code">autoscaling:TEST_NOTIFICATION</code></p>
+                                       
+                                    </li>
+                                 </ul>
+                              </div>
                               
-                              <p><em>Type</em>: List of String values
+                              <p><em>Required</em>: No
                               </p>
-                              
+                              <p><em>Type</em>: List of String
+                              </p>
+                              <p><em>Minimum</em>: <code class="code">1</code></p>
+                              <p><em>Maximum</em>: <code class="code">255</code></p>
+                              <p><em>Pattern</em>: <code class="code">[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*</code></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-as-group-notificationconfigurations-topicarn"></a><span class="term"><code class="literal">TopicARN</code></span></dt>
-                           
+                           <dt><a id="cfn-autoscaling-autoscalinggroup-notificationconfigurations-topicarn"></a><span class="term"><code class="code">TopicARN</code></span></dt>
                            <dd>
                               
-                              <p>The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS)
+                              <p>The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (Amazon SNS)
                                  topic.
                               </p>
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Minimum</em>: <code class="code">1</code></p>
+                              <p><em>Maximum</em>: <code class="code">1600</code></p>
+                              <p><em>Pattern</em>: <code class="code">[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*</code></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
                         </dl>
-                     </div><h2 id="w2ab1c21c10c42c13c50c11">Examples</h2><p>For NotificationConfigurations snippets, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-autoscaling.html#scenario-as-notification">Auto Scaling Group with Notifications</a>.
-                     </p></div>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
+                     </div></div>
 </body>
 </html>

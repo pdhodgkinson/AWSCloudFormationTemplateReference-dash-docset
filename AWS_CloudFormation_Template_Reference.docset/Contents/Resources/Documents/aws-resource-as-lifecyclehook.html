@@ -8,295 +8,329 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-resource-as-lifecyclehook">AWS::AutoScaling::LifecycleHook</h1><p>Defines lifecycle hooks for an Amazon EC2 Auto Scaling group, which specify actions
-                        to perform when
-                        Amazon EC2 Auto Scaling launches or terminates instances. When you use a lifecycle
-                        hook, the Auto Scaling group
-                        pauses the instance either after it is launched (before it is put into service) or
-                        as it is
-                        terminated (before it is fully terminated). For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/lifecycle-hooks.html">Amazon EC2 Auto Scaling Lifecycle Hooks</a> in the
-                        <em>Amazon EC2 Auto Scaling User Guide</em>.
-                     </p><div class="highlights" id="inline-topiclist">
-                        <p><strong>Topics</strong></p>
-                        <ul>
-                           <li><a href="#aws-resource-autoscaling-lifecyclehook-syntax">Syntax</a></li>
-                           <li><a href="#w2ab1c21c10c42c22b9">Properties</a></li>
-                           <li><a href="#w2ab1c21c10c42c22c11">Return Value</a></li>
-                           <li><a href="#w2ab1c21c10c42c22c13">Example</a></li>
-                           <li><a href="#aws-resource-autoscaling-lifecyclehook-seealso">See Also</a></li>
-                        </ul>
-                     </div><h2 id="aws-resource-autoscaling-lifecyclehook-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+    <h1 class="topictitle" id="aws-resource-as-lifecyclehook">AWS::AutoScaling::LifecycleHook</h1><p>Defines lifecycle hooks for an Amazon EC2 Auto Scaling group. Lifecycle hooks specify
+                        actions to perform when Amazon EC2 Auto Scaling launches or terminates instances.
+                        When you use
+                        a lifecycle hook, the Auto Scaling group pauses the instance either after it is launched
+                        (before it is put into service) or as it is terminated (before it is fully terminated).
                         
-                        <h3 id="aws-resource-autoscaling-lifecyclehook-syntax.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
+                     </p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PutLifecycleHook.html">PutLifecycleHook</a> in the
+                        <em>Amazon EC2 Auto Scaling API Reference</em> and <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/lifecycle-hooks.html">Amazon EC2 Auto Scaling Lifecycle
+                           Hooks</a> in the <em>Amazon EC2 Auto Scaling User Guide</em>.
+                     </p><h2 id="aws-resource-as-lifecyclehook-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
+                        <h3 id="aws-resource-as-lifecyclehook-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
   &quot;Type&quot; : &quot;AWS::AutoScaling::LifecycleHook&quot;,
   &quot;Properties&quot; : {
-    &quot;<a href="aws-resource-as-lifecyclehook.html#cfn-as-lifecyclehook-autoscalinggroupname">AutoScalingGroupName</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-as-lifecyclehook.html#cfn-as-lifecyclehook-defaultresult">DefaultResult</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-as-lifecyclehook.html#cfn-as-lifecyclehook-heartbeattimeout">HeartbeatTimeout</a>&quot; : <em class="replaceable"><code>Integer</code></em>,
-    &quot;<a href="aws-resource-as-lifecyclehook.html#cfn-as-lifecyclehook-lifecyclehookname">LifecycleHookName</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-as-lifecyclehook.html#cfn-as-lifecyclehook-lifecycletransition">LifecycleTransition</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-as-lifecyclehook.html#cfn-as-lifecyclehook-notificationmetadata">NotificationMetadata</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-as-lifecyclehook.html#cfn-as-lifecyclehook-notificationtargetarn">NotificationTargetARN</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-as-lifecyclehook.html#cfn-as-lifecyclehook-rolearn">RoleARN</a>&quot; : <em class="replaceable"><code>String</code></em>
-  }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        
-                        <h3 id="aws-resource-autoscaling-lifecyclehook-syntax.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">Type: AWS::AutoScaling::LifecycleHook
-Properties:
-  <a href="aws-resource-as-lifecyclehook.html#cfn-as-lifecyclehook-autoscalinggroupname">AutoScalingGroupName</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-as-lifecyclehook.html#cfn-as-lifecyclehook-defaultresult">DefaultResult</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-as-lifecyclehook.html#cfn-as-lifecyclehook-heartbeattimeout">HeartbeatTimeout</a>: <em class="replaceable"><code>Integer</code></em>
-  <a href="aws-resource-as-lifecyclehook.html#cfn-as-lifecyclehook-lifecyclehookname">LifecycleHookName</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-as-lifecyclehook.html#cfn-as-lifecyclehook-lifecycletransition">LifecycleTransition</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-as-lifecyclehook.html#cfn-as-lifecyclehook-notificationmetadata">NotificationMetadata</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-as-lifecyclehook.html#cfn-as-lifecyclehook-notificationtargetarn">NotificationTargetARN</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-as-lifecyclehook.html#cfn-as-lifecyclehook-rolearn">RoleARN</a>: <em class="replaceable"><code>String</code></em>
-</code></pre>
-                        </div><h2 id="w2ab1c21c10c42c22b9">Properties</h2><p>For information about valid and default values, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PutLifecycleHook.html">PutLifecycleHook</a> in the
-                        <em>Amazon EC2 Auto Scaling API Reference</em>.
-                     </p><div class="variablelist">
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
+      &quot;<a href="#cfn-as-lifecyclehook-autoscalinggroupname">AutoScalingGroupName</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-as-lifecyclehook-defaultresult">DefaultResult</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-as-lifecyclehook-heartbeattimeout">HeartbeatTimeout</a>&quot; : <em class="replaceable"><code>Integer</code></em>,
+      &quot;<a href="#cfn-autoscaling-lifecyclehook-lifecyclehookname">LifecycleHookName</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-as-lifecyclehook-lifecycletransition">LifecycleTransition</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-as-lifecyclehook-notificationmetadata">NotificationMetadata</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-as-lifecyclehook-notificationtargetarn">NotificationTargetARN</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-as-lifecyclehook-rolearn">RoleARN</a>&quot; : <em class="replaceable"><code>String</code></em>
+    }
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-as-lifecyclehook-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Type: AWS::AutoScaling::LifecycleHook
+Properties: 
+  <a href="#cfn-as-lifecyclehook-autoscalinggroupname">AutoScalingGroupName</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-as-lifecyclehook-defaultresult">DefaultResult</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-as-lifecyclehook-heartbeattimeout">HeartbeatTimeout</a>: <em class="replaceable"><code>Integer</code></em>
+  <a href="#cfn-autoscaling-lifecyclehook-lifecyclehookname">LifecycleHookName</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-as-lifecyclehook-lifecycletransition">LifecycleTransition</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-as-lifecyclehook-notificationmetadata">NotificationMetadata</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-as-lifecyclehook-notificationtargetarn">NotificationTargetARN</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-as-lifecyclehook-rolearn">RoleARN</a>: <em class="replaceable"><code>String</code></em>
+</code></pre></div><h2 id="aws-resource-as-lifecyclehook-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
                            <dt><a id="cfn-as-lifecyclehook-autoscalinggroupname"></a><span class="term"><code class="code">AutoScalingGroupName</code></span></dt>
-                           
                            <dd>
                               
                               <p>The name of the Auto Scaling group for the lifecycle hook.</p>
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Minimum</em>: <code class="code">1</code></p>
+                              <p><em>Maximum</em>: <code class="code">1600</code></p>
+                              <p><em>Pattern</em>: <code class="code">[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*</code></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-as-lifecyclehook-defaultresult"></a><span class="term"><code class="code">DefaultResult</code></span></dt>
-                           
                            <dd>
                               
                               <p>The action the Auto Scaling group takes when the lifecycle hook timeout elapses or
-                                 if
-                                 an unexpected failure occurs. Valid values are <code class="code">CONTINUE</code> and
-                                 <code class="code">ABANDON</code> (default).
+                                 if an
+                                 unexpected failure occurs. The valid values are <code class="code">CONTINUE</code> and <code class="code">ABANDON</code>
+                                 (default).
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-as-lifecyclehook-heartbeattimeout"></a><span class="term"><code class="code">HeartbeatTimeout</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The amount of time (in seconds) that can elapse before the lifecycle hook times
-                                 out. When the lifecycle hook times out, Amazon EC2 Auto Scaling performs the action
-                                 that you
-                                 specified in the DefaultResult property.
+                              <p>The amount of time, in seconds, that can elapse before the lifecycle hook times out.
+                                 If
+                                 the lifecycle hook times out, Amazon EC2 Auto Scaling performs the action that you
+                                 specified
+                                 in the <code class="code">DefaultResult</code> property.
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: Integer
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
-                           <dt><a id="cfn-as-lifecyclehook-lifecyclehookname"></a><span class="term"><code class="code">LifecycleHookName</code></span></dt>
-                           
+                           <dt><a id="cfn-autoscaling-lifecyclehook-lifecyclehookname"></a><span class="term"><code class="code">LifecycleHookName</code></span></dt>
                            <dd>
                               
-                              <p>The name of the lifecycle hook. Length Constraints: Minimum length of 1.
-                                 Maximum length of 255.
-                              </p>
+                              <p>The name of the lifecycle hook.</p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Minimum</em>: <code class="code">1</code></p>
+                              <p><em>Maximum</em>: <code class="code">255</code></p>
+                              <p><em>Pattern</em>: <code class="code">[A-Za-z0-9\-_\/]+</code></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-as-lifecyclehook-lifecycletransition"></a><span class="term"><code class="code">LifecycleTransition</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The state of the Amazon EC2 instance to which you want to attach the lifecycle hook.
-                                 For valid values, see the <code class="code">LifecycleTransition</code> details for the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PutLifecycleHook.html">PutLifecycleHook</a> action in
-                                 the <em>Amazon EC2 Auto Scaling API Reference</em>.
+                              <p>The instance state to which you want to attach the lifecycle hook. The valid values
+                                 are:
                               </p>
+                              
+                              <div class="itemizedlist">
+                                 
+                                 
+                                 
+                                 <ul class="itemizedlist" type="disc">
+                                    <li class="listitem">
+                                       
+                                       <p>autoscaling:EC2_INSTANCE_LAUNCHING</p>
+                                       
+                                    </li>
+                                    <li class="listitem">
+                                       
+                                       <p>autoscaling:EC2_INSTANCE_TERMINATING</p>
+                                       
+                                    </li>
+                                 </ul>
+                              </div>
                               
                               <p><em>Required</em>: Yes
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-as-lifecyclehook-notificationmetadata"></a><span class="term"><code class="code">NotificationMetadata</code></span></dt>
-                           
                            <dd>
                               
-                              <p>Additional information that you want to include when Amazon EC2 Auto Scaling sends
-                                 a message
+                              <p>Additional information that is included any time Amazon EC2 Auto Scaling sends a message
                                  to the notification target.
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Minimum</em>: <code class="code">1</code></p>
+                              <p><em>Maximum</em>: <code class="code">1023</code></p>
+                              <p><em>Pattern</em>: <code class="code">[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*</code></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-as-lifecyclehook-notificationtargetarn"></a><span class="term"><code class="code">NotificationTargetARN</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The Amazon resource name (ARN) of the notification target that Amazon EC2 Auto Scaling
-                                 uses to
-                                 notify you when an instance is in the transition state for the lifecycle hook. You
-                                 can specify an Amazon SQS queue or an Amazon SNS topic. The notification message includes
-                                 the following information: lifecycle action token, user account ID, Auto Scaling group
-                                 name, lifecycle hook name, instance ID, lifecycle transition, and notification
-                                 metadata.
+                              <p>The Amazon Resource Name (ARN) of the notification target that Amazon EC2 Auto Scaling
+                                 uses to notify you when an instance is in the transition state for the lifecycle hook.
+                                 You can
+                                 specify an Amazon SQS queue or an Amazon SNS topic. The notification message includes
+                                 the
+                                 following information: lifecycle action token, user account ID, Auto Scaling group
+                                 name,
+                                 lifecycle hook name, instance ID, lifecycle transition, and notification metadata.
+                                 
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Minimum</em>: <code class="code">1</code></p>
+                              <p><em>Maximum</em>: <code class="code">1600</code></p>
+                              <p><em>Pattern</em>: <code class="code">[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*</code></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
-                           
                            <dt><a id="cfn-as-lifecyclehook-rolearn"></a><span class="term"><code class="code">RoleARN</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The ARN of the IAM role that allows the Auto Scaling group to publish to the
-                                 specified notification target. The role requires permissions to Amazon SNS and
-                                 Amazon SQS.
+                              <p>The ARN of the IAM role that allows the Auto Scaling group to publish to the specified
+                                 notification target, for example, an Amazon SNS topic or an Amazon SQS queue. For
+                                 information
+                                 about creating this role, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/lifecycle-hooks.html#preparing-for-notification">Preparing
+                                    for Notifications</a> in the <em>Amazon EC2 Auto Scaling User
+                                    Guide</em>.
                               </p>
                               
                               <p><em>Required</em>: No
                               </p>
-                              
                               <p><em>Type</em>: String
                               </p>
-                              
+                              <p><em>Minimum</em>: <code class="code">1</code></p>
+                              <p><em>Maximum</em>: <code class="code">1600</code></p>
+                              <p><em>Pattern</em>: <code class="code">[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\r\n\t]*</code></p>
                               <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
-                              
                            </dd>
-                           
                         </dl>
-                     </div><h2 id="w2ab1c21c10c42c22c11">Return Value</h2><p>When the logical ID of this resource is provided to the <code class="code">Ref</code> intrinsic
+                     </div><h2 id="aws-resource-as-lifecyclehook-return-values">Return Values</h2><h3 id="aws-resource-as-lifecyclehook-return-values-ref">Ref</h3><p>When the logical ID of this resource is provided to the <code class="code">Ref</code> intrinsic
                         function, <code class="code">Ref</code> returns the resource name. For example:
-                     </p><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{ &quot;Ref&quot;: &quot;<em class="replaceable"><code>myLifecycleHook</code></em>&quot; }</code></pre><p><code class="code">Ref</code> returns the lifecycle hook name, such as
-                        <code class="code">mylifecyclehookname</code>.
+                        <code class="code">mylifecyclehook</code>.
                      </p><p>For more information about using the <code class="code">Ref</code> function, see <a href="intrinsic-function-reference-ref.html">Ref</a>.
-                     </p><h2 id="w2ab1c21c10c42c22c13">Example</h2><p>In the following template snippet, the Amazon EC2 Auto Scaling pauses instances before
-                        completely
-                        terminating them. While in the pending state, you can, for example, connect to the
-                        instance
-                        and download logs or any other data before the instance is terminated.
-                     </p><div id="JSON" name="JSON" class="section langfilter">
                         
-                        <h3 id="aws-resource-autoscaling-lifecyclehook-example.json">JSON</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">&quot;myLifecycleHook&quot;: {
-  &quot;Type&quot;: &quot;AWS::AutoScaling::LifecycleHook&quot;,
-  &quot;Properties&quot;: {
-    &quot;AutoScalingGroupName&quot;: { &quot;Ref&quot;: &quot;myAutoScalingGroup&quot; },
-    &quot;LifecycleTransition&quot;: &quot;autoscaling:EC2_INSTANCE_TERMINATING&quot;,
-    &quot;NotificationTargetARN&quot;: { &quot;Ref&quot;: &quot;lifecycleHookTopic&quot; },
-    &quot;RoleARN&quot;: { &quot;Fn::GetAtt&quot;: [ &quot;lifecycleHookRole&quot;, &quot;Arn&quot; ] }
+                     </p><h2 id="aws-resource-as-lifecyclehook--examples">Examples</h2><p>The following examples specify lifecycle hooks.</p><h3 id="aws-resource-as-lifecyclehook--examples--Lifecycle_Hook_for_Instance_Termination">Lifecycle Hook for Instance Termination</h3><p>The following example specifies a lifecycle hook that supports a custom action at
+                        instance termination. It uses the <code class="code">Ref</code> intrinsic function to refer to an Auto
+                        Scaling group (whose logical name is <code class="code">myASGroup</code>) that is declared elsewhere in
+                        the same template.
+                     </p><p>Note that the snippet uses the <code class="code">NotificationTargetARN</code> and
+                        <code class="code">RoleARN</code> properties to specify the Amazon SNS topic and IAM role to use to
+                        receive notification when a lifecycle action occurs.
+                     </p><h4 id="aws-resource-as-lifecyclehook--examples--Lifecycle_Hook_for_Instance_Termination--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;myLifecycleHook&quot;:{
+    &quot;Type&quot;:&quot;AWS::AutoScaling::LifecycleHook&quot;,
+    &quot;Properties&quot;:{
+      &quot;AutoScalingGroupName&quot;:{
+        &quot;Ref&quot;:&quot;myASGroup&quot;
+      },
+      &quot;LifecycleTransition&quot;:&quot;autoscaling:EC2_INSTANCE_TERMINATING&quot;,
+      &quot;NotificationTargetARN&quot;:{
+        &quot;Ref&quot;:&quot;lifecycleHookTopic&quot;
+      },
+      &quot;RoleARN&quot;:{
+        &quot;Fn::GetAtt&quot;:[
+          &quot;lifecycleHookRole&quot;,
+          &quot;Arn&quot;
+        ]
+      }
+    }
   }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        
-                        <h3 id="aws-resource-autoscaling-lifecyclehook-example.yaml">YAML</h3>
-                        
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">myLifecycleHook: 
+}</code></pre><h4 id="aws-resource-as-lifecyclehook--examples--Lifecycle_Hook_for_Instance_Termination--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">myLifecycleHook: 
   Type: AWS::AutoScaling::LifecycleHook
   Properties: 
     AutoScalingGroupName: 
-      Ref: myAutoScalingGroup
+      Ref: myASGroup
     LifecycleTransition: &quot;autoscaling:EC2_INSTANCE_TERMINATING&quot;
     NotificationTargetARN: 
       Ref: lifecycleHookTopic
     RoleARN: 
       Fn::GetAtt: 
         - lifecycleHookRole
-        - Arn</code></pre>
-                        </div><h2 id="aws-resource-autoscaling-lifecyclehook-seealso">See Also</h2><div class="itemizedlist">
-                        
-                        
-                        
-                        <ul class="itemizedlist" type="disc">
-                           <li class="listitem">
-                              
-                              <p>
-                                 <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PutLifecycleHook.html">PutLifecycleHook</a> in the
-                                 <em>Amazon EC2 Auto Scaling API Reference</em> (for valid values and default values) 
-                              </p>
-                              
-                           </li>
-                           <li class="listitem">
-                              
-                              <p>
-                                 <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/lifecycle-hooks.html">Amazon EC2 Auto Scaling Lifecycle Hooks</a> in the
-                                 <em>Amazon EC2 Auto Scaling User Guide</em>
-                                 
-                              </p>
-                              
-                           </li>
-                        </ul>
+        - Arn</code></pre><h3 id="aws-resource-as-lifecyclehook--examples--Lifecycle_Hook_for_Instance_Launch">Lifecycle Hook for Instance Launch</h3><p>The following example specifies a lifecycle hook that supports a custom action at
+                        instance launch. The lifecycle hook is added to a new Auto Scaling group that&apos;s created
+                        from the same snippet. For more information, see <a href="aws-properties-autoscaling-autoscalinggroup-lifecyclehookspecification.html">LifecycleHookSpecification</a>. 
+                     </p><p>Note that the snippet uses the <code class="code">NotificationTargetARN</code> and
+                        <code class="code">RoleARN</code> properties to specify the Amazon SQS queue and IAM role to use to
+                        receive notification when a lifecycle action occurs.
+                     </p><h4 id="aws-resource-as-lifecyclehook--examples--Lifecycle_Hook_for_Instance_Launch--json">JSON</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;AWSTemplateFormatVersion&quot;:&quot;2010-09-09&quot;,
+  &quot;Parameters&quot;:{
+    &quot;Subnets&quot;:{
+      &quot;Type&quot;:&quot;CommaDelimitedList&quot;
+    },
+    &quot;AZs&quot;:{
+      &quot;Type&quot;:&quot;CommaDelimitedList&quot;
+    }
+  },
+  &quot;Resources&quot;:{
+    &quot;myASGroup&quot;:{
+      &quot;Type&quot;:&quot;AWS::AutoScaling::AutoScalingGroup&quot;,
+      &quot;Properties&quot;:{
+        &quot;AvailabilityZones&quot;:[
+          {
+            &quot;Ref&quot;:&quot;AZs&quot;
+          }
+        ],
+        &quot;VPCZoneIdentifier&quot;:{
+          &quot;Ref&quot;:&quot;Subnets&quot;
+        },
+        &quot;DesiredCapacity&quot;:&quot;2&quot;,
+        &quot;MaxSize&quot;:&quot;3&quot;,
+        &quot;MinSize&quot;:&quot;1&quot;,
+        &quot;LaunchConfigurationName&quot;:{
+          &quot;Ref&quot;:&quot;myLaunchConfig&quot;
+        },
+        &quot;LifecycleHookSpecificationList&quot;:[
+          {
+            &quot;LifecycleTransition&quot;:&quot;autoscaling:EC2_INSTANCE_LAUNCHING&quot;,
+            &quot;LifecycleHookName&quot;:&quot;myLifecycleHook&quot;,
+            &quot;HeartbeatTimeout&quot;:4800,
+            &quot;NotificationTargetARN&quot;:{
+              &quot;Fn::GetAtt&quot;:[
+                &quot;SQS&quot;,
+                &quot;Arn&quot;
+              ]
+            },
+            &quot;RoleArn&quot;:{
+              &quot;Fn::Join&quot;:[
+                &quot;:&quot;,
+                [
+                  &quot;arn:aws:iam:&quot;,
+                  {
+                    &quot;Ref&quot;:&quot;AWS::AccountId&quot;
+                  },
+                  &quot;role/role-name&quot;
+                ]
+              ]
+            }
+          }
+        ]
+      }
+    },
+    &quot;SQS&quot;:{
+      &quot;Type&quot;:&quot;AWS::SQS::Queue&quot;
+    }
+  }
+}</code></pre><h4 id="aws-resource-as-lifecyclehook--examples--Lifecycle_Hook_for_Instance_Launch--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">AWSTemplateFormatVersion: 2010-09-09
+Parameters:
+  Subnets:
+    Type: CommaDelimitedList
+  AZs:
+    Type: CommaDelimitedList
+Resources:
+  myASGroup:
+    Type: AWS::AutoScaling::AutoScalingGroup
+    Properties:
+      AvailabilityZones:
+        - !Ref AZs
+      VPCZoneIdentifier: !Ref Subnets
+      DesiredCapacity: &apos;2&apos;
+      MaxSize: &apos;3&apos;
+      MinSize: &apos;1&apos;
+      LaunchConfigurationName: !Ref myLaunchConfig
+      LifecycleHookSpecificationList:
+        - LifecycleTransition: &quot;autoscaling:EC2_INSTANCE_LAUNCHING&quot;
+          LifecycleHookName: &quot;myLifecycleHook&quot;
+          HeartbeatTimeout: 4800
+          NotificationTargetARN: !GetAtt SQS.Arn
+          RoleARN: !Join 
+            - &apos;:&apos;
+            - - &apos;arn:aws:iam:&apos;
+              - !Ref &apos;AWS::AccountId&apos;
+              - role/role-name
+  SQS:
+    Type: AWS::SQS::Queue</code></pre><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
                      </div></div>
 </body>
 </html>

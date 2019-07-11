@@ -8,93 +8,71 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-resource-kinesisanalytics-applicationreferencedatasource">AWS::KinesisAnalytics::ApplicationReferenceDataSource</h1><p>Use the AWS CloudFormation 
-                        <code class="code">AWS::KinesisAnalytics::ApplicationReferenceDataSource</code> resource  to add a reference data source to an existing  Amazon Kinesis Data Analytics
-                        application. 
-                        For more information, see <code class="code"><a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_AddApplicationReferenceDataSource.html">AddApplicationReferenceDataSource</a></code> in the     
-                        <em>Amazon Kinesis Data Analytics Developer Guide</em>.
+    <h1 class="topictitle" id="aws-resource-kinesisanalytics-applicationreferencedatasource">AWS::KinesisAnalytics::ApplicationReferenceDataSource</h1><p>Adds a reference data source to an existing application.</p><p>Amazon Kinesis Analytics reads reference data (that is, an Amazon S3 object) and creates
+                        an in-application table within your application. In the request, you provide the source
+                        (S3 bucket name and object key name), name of the in-application table to create,
+                        and the necessary mapping information that describes how data in Amazon S3 object
+                        maps to columns in the resulting in-application table.
+                     </p><p>
+                        For conceptual information, 
+                        see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html">Configuring Application Input</a>.
+                        For the limits on data sources you can add to your application, see 
+                        <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/limits.html">Limits</a>.
+                        
+                     </p><p>
+                        This operation requires permissions to perform the <code class="code">kinesisanalytics:AddApplicationOutput</code> action.
                         
                      </p><h2 id="aws-resource-kinesisanalytics-applicationreferencedatasource-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
-                        
-                        <h3 id="aws-resource-kinesisanalytics-applicationreferencedatasource-syntax.json">JSON</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
+                        <h3 id="aws-resource-kinesisanalytics-applicationreferencedatasource-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
   &quot;Type&quot; : &quot;AWS::KinesisAnalytics::ApplicationReferenceDataSource&quot;,
   &quot;Properties&quot; : {
-    &quot;<a href="aws-resource-kinesisanalytics-applicationreferencedatasource.html#cfn-kinesisanalytics-applicationreferencedatasource-applicationname">ApplicationName</a>&quot; : <em class="replaceable"><code>String</code></em>,
-    &quot;<a href="aws-resource-kinesisanalytics-applicationreferencedatasource.html#cfn-kinesisanalytics-applicationreferencedatasource-referencedatasource">ReferenceDataSource</a>&quot; : <a href="aws-properties-kinesisanalytics-applicationreferencedatasource-referencedatasource.html">ReferenceDataSource</a>,
-  }
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        
-                        <h3 id="aws-resource-kinesisanalytics-applicationreferencedatasource-syntax.yaml">YAML</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">Type: AWS::KinesisAnalytics::ApplicationReferenceDataSource
-Properties:
-  <a href="aws-resource-kinesisanalytics-applicationreferencedatasource.html#cfn-kinesisanalytics-applicationreferencedatasource-applicationname">ApplicationName</a>: <em class="replaceable"><code>String</code></em>
-  <a href="aws-resource-kinesisanalytics-applicationreferencedatasource.html#cfn-kinesisanalytics-applicationreferencedatasource-referencedatasource">ReferenceDataSource</a>: 
-    <a href="aws-properties-kinesisanalytics-applicationreferencedatasource-referencedatasource.html">ReferenceDataSource</a></code></pre>
-                        </div><h2 id="aws-resource-kinesisanalytics-applicationreferencedatasource-properties">Properties</h2><div class="variablelist">
-                        
-                        
-                        
+      &quot;<a href="#cfn-kinesisanalytics-applicationreferencedatasource-applicationname">ApplicationName</a>&quot; : <em class="replaceable"><code>String</code></em>,
+      &quot;<a href="#cfn-kinesisanalytics-applicationreferencedatasource-referencedatasource">ReferenceDataSource</a>&quot; : <em class="replaceable"><code><a href="aws-properties-kinesisanalytics-applicationreferencedatasource-referencedatasource.html">ReferenceDataSource</a></code></em>
+    }
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-resource-kinesisanalytics-applicationreferencedatasource-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">Type: AWS::KinesisAnalytics::ApplicationReferenceDataSource
+Properties: 
+  <a href="#cfn-kinesisanalytics-applicationreferencedatasource-applicationname">ApplicationName</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-kinesisanalytics-applicationreferencedatasource-referencedatasource">ReferenceDataSource</a>: <em class="replaceable"><code>
+    <a href="aws-properties-kinesisanalytics-applicationreferencedatasource-referencedatasource.html">ReferenceDataSource</a></code></em>
+</code></pre></div><h2 id="aws-resource-kinesisanalytics-applicationreferencedatasource-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
                            <dt><a id="cfn-kinesisanalytics-applicationreferencedatasource-applicationname"></a><span class="term"><code class="code">ApplicationName</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The name of an existing application.</p>
+                              <p>Name of an existing application.</p>
                               
-                              <p>
-                                 <em>Required</em>: Yes
+                              <p><em>Required</em>: Yes
                               </p>
-                              
-                              <p>
-                                 <em>Type</em>: String
+                              <p><em>Type</em>: String
                               </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: 
-                                 <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a>
-                                 
-                              </p>
-                              
+                              <p><em>Minimum</em>: <code class="code">1</code></p>
+                              <p><em>Maximum</em>: <code class="code">128</code></p>
+                              <p><em>Pattern</em>: <code class="code">[a-zA-Z0-9_.-]+</code></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement">Replacement</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-kinesisanalytics-applicationreferencedatasource-referencedatasource"></a><span class="term"><code class="code">ReferenceDataSource</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The reference data source, which is an object in your
-                                 Amazon Simple Storage Service
-                                 (Amazon S3) bucket. 
+                              <p>The reference data source can be an object in your Amazon S3 bucket. Amazon Kinesis
+                                 Analytics reads the object and copies the data into the in-application table that
+                                 is created. You provide an S3 bucket, object key name, and the resulting in-application
+                                 table that is created. You must also provide an IAM role with the necessary permissions
+                                 that Amazon Kinesis Analytics can assume to read the object from your S3 bucket on
+                                 your behalf.
                               </p>
                               
-                              <p>
-                                 <em>Required</em>: Yes
+                              
+                              <p><em>Required</em>: Yes
                               </p>
-                              
-                              <p>
-                                 <em>Type</em>: <a href="aws-properties-kinesisanalytics-applicationreferencedatasource-referencedatasource.html">ReferenceDataSource</a></p>
-                              
-                              <p>
-                                 <em>Update requires</em>: 
-                                 <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
-                                 
-                              </p>
-                              
+                              <p><em>Type</em>: <a href="aws-properties-kinesisanalytics-applicationreferencedatasource-referencedatasource.html">ReferenceDataSource</a></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
                         </dl>
-                     </div><h2 id="aws-resource-kinesisanalytics-applicationreferencedatasource-examples">Examples</h2><h3 id="aws-resource-kinesisanalytics-applicationreferencedatasource-examples-create">Creating
-                        an ApplicationReferenceDataSource Resource
-                     </h3><p>The following example creates an
-                        <code class="code">ApplicationReferenceDataSource</code>
-                        resource:
-                     </p><div id="YAML" name="YAML" class="section langfilter">
-                        
-                        <h4 id="aws-resource-kinesisanalytics-applicationreferencedatasource-example1.yaml">YAML</h4>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight ">ApplicationReferenceDataSource:
+                     </div><h2 id="aws-resource-kinesisanalytics-applicationreferencedatasource--examples">Examples</h2><h3 id="aws-resource-kinesisanalytics-applicationreferencedatasource--examples--Adding_an_ApplicationReferenceDataSource_Resource">Adding an ApplicationReferenceDataSource Resource</h3><p>The following example creates an <code class="code">ApplicationReferenceDataSource</code> resource: 
+                     </p><h4 id="aws-resource-kinesisanalytics-applicationreferencedatasource--examples--Adding_an_ApplicationReferenceDataSource_Resource--yaml">YAML</h4><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">
+ApplicationReferenceDataSource:
     Type: AWS::KinesisAnalytics::ApplicationReferenceDataSource
     Properties:
       ApplicationName: !Ref BasicApplication
@@ -113,7 +91,8 @@ Properties:
         S3ReferenceDataSource:
           BucketARN: !GetAtt S3Bucket.Arn
           FileKey: &apos;fakeKey&apos;
-          ReferenceRoleARN: !GetAtt KinesisAnalyticsRole.Arn</code></pre>
-                        </div></div>
+          ReferenceRoleARN: !GetAtt KinesisAnalyticsRole.Arn</code></pre><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
+                     </div></div>
 </body>
 </html>

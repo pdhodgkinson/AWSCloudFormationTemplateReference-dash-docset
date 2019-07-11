@@ -8,87 +8,62 @@
 </head>
 <body>
     <div id="content" style="padding: 10px 30px;">
-    <h1 class="topictitle" id="aws-properties-codepipeline-webhook-webhookfilterrule">CodePipeline Webhook
-                        WebhookFilterRule
-                     </h1><p>The
-                        <code class="code">WebhookFilterRule</code> property type specifies events that will trigger a webhook. For
-                        more information, see <a href="https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_WebhookDefinition.html">Webhook
-                           Definition</a> in the <em>AWS CodePipeline API Reference</em>.
-                     </p><p> The
-                        <code class="code">Filters</code> property of the <a href="aws-resource-codepipeline-webhook.html">AWS::CodePipeline::Webhook</a> resource contains a list of
-                        <code class="code">WebhookFilterRule</code> property types. The is the list of rules applied to the
-                        body/payload sent in the POST request to a webhook URL.
+    <h1 class="topictitle" id="aws-properties-codepipeline-webhook-webhookfilterrule">AWS::CodePipeline::Webhook WebhookFilterRule</h1><p>The event criteria that specify when a webhook notification is sent to your
+                        URL.
                      </p><h2 id="aws-properties-codepipeline-webhook-webhookfilterrule-syntax">Syntax</h2><p>To declare this entity in your AWS CloudFormation template, use the following syntax:</p><div id="JSON" name="JSON" class="section langfilter">
-                        
-                        <h3 id="aws-properties-codepipeline-webhook-webhookfilterrule-syntax.json">JSON</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">{
-  &quot;<a href="aws-properties-codepipeline-webhook-webhookfilterrule.html#cfn-codepipeline-webhook-webhookfilterrule-jsonpath">JsonPath</a>&quot; : <em class="replaceable"><code>String</code></em>,
-  &quot;<a href="aws-properties-codepipeline-webhook-webhookfilterrule.html#cfn-codepipeline-webhook-webhookfilterrule-matchequals">MatchEquals</a>&quot; : <em class="replaceable"><code>String</code></em>
-}</code></pre>
-                        </div><div id="YAML" name="YAML" class="section langfilter">
-                        
-                        <h3 id="aws-properties-codepipeline-webhook-webhookfilterrule-syntax.yaml">YAML</h3>
-                        <pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="nohighlight">
-<a href="aws-properties-codepipeline-webhook-webhookfilterrule.html#cfn-codepipeline-webhook-webhookfilterrule-jsonpath">JsonPath</a>: <em class="replaceable"><code>String</code></em>
-<a href="aws-properties-codepipeline-webhook-webhookfilterrule.html#cfn-codepipeline-webhook-webhookfilterrule-matchequals">MatchEquals</a>: <em class="replaceable"><code>String</code></em></code></pre>
-                        </div><h2 id="aws-properties-codepipeline-webhook-webhookfilterrule-properties">Properties</h2><div class="variablelist">
-                        
-                        
-                        
+                        <h3 id="aws-properties-codepipeline-webhook-webhookfilterrule-syntax.json">JSON</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="json ">{
+  &quot;<a href="#cfn-codepipeline-webhook-webhookfilterrule-jsonpath">JsonPath</a>&quot; : <em class="replaceable"><code>String</code></em>,
+  &quot;<a href="#cfn-codepipeline-webhook-webhookfilterrule-matchequals">MatchEquals</a>&quot; : <em class="replaceable"><code>String</code></em>
+}
+</code></pre></div><div id="YAML" name="YAML" class="section langfilter">
+                        <h3 id="aws-properties-codepipeline-webhook-webhookfilterrule-syntax.yaml">YAML</h3><pre class="programlisting"><div class="code-btn-container"><div class="btn-copy-code" title="Copy"></div><div class="btn-dark-theme" title="Dark theme" title-dark="Dark theme" title-light="Light theme"></div></div><code class="yaml ">  <a href="#cfn-codepipeline-webhook-webhookfilterrule-jsonpath">JsonPath</a>: <em class="replaceable"><code>String</code></em>
+  <a href="#cfn-codepipeline-webhook-webhookfilterrule-matchequals">MatchEquals</a>: <em class="replaceable"><code>String</code></em>
+</code></pre></div><h2 id="aws-properties-codepipeline-webhook-webhookfilterrule-properties">Properties</h2><div class="variablelist">
                         <dl>
-                           
                            <dt><a id="cfn-codepipeline-webhook-webhookfilterrule-jsonpath"></a><span class="term"><code class="code">JsonPath</code></span></dt>
-                           
                            <dd>
                               
-                              <p>A JsonPath expression that will be applied to the body/payload of the
-                                 webhook.
+                              <p>A JsonPath expression that will be applied to the body/payload of the webhook. The
+                                 value selected by the JsonPath expression must match the value specified in the
+                                 <code class="code">MatchEquals</code> field, otherwise the request will be ignored. For more
+                                 information about JsonPath expressions, see <a href="https://github.com/json-path/JsonPath" target="_blank">Java JsonPath implementation</a> in
+                                 GitHub.
                               </p>
                               
-                              <p>
-                                 <em>Required</em>: Yes
+                              <p><em>Required</em>: Yes
                               </p>
-                              
-                              <p>
-                                 <em>Type</em>: String
+                              <p><em>Type</em>: String
                               </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: 
-                                 
-                                 <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
-                                 
-                              </p>
-                              
+                              <p><em>Minimum</em>: <code class="code">1</code></p>
+                              <p><em>Maximum</em>: <code class="code">150</code></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
-                           
                            <dt><a id="cfn-codepipeline-webhook-webhookfilterrule-matchequals"></a><span class="term"><code class="code">MatchEquals</code></span></dt>
-                           
                            <dd>
                               
-                              <p>The value selected by the JsonPath expression must match what is supplied in the
-                                 MatchEquals field, otherwise the request will be ignored. 
+                              <p>The value selected by the <code class="code">JsonPath</code> expression must match what is
+                                 supplied in the <code class="code">MatchEquals</code> field, otherwise the request will be ignored.
+                                 Properties from the target action configuration can be included as placeholders in
+                                 this
+                                 value by surrounding the action configuration key with curly braces. For example,
+                                 if the
+                                 value supplied here is &quot;refs/heads/{Branch}&quot; and the target action has an action
+                                 configuration property called &quot;Branch&quot; with a value of &quot;master&quot;, the
+                                 <code class="code">MatchEquals</code> value will be evaluated as &quot;refs/heads/master&quot;. For a list
+                                 of action configuration properties for built-in action types, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements">Pipeline Structure Reference Action Requirements</a>.
                               </p>
                               
-                              <p>
-                                 <em>Required</em>: No
+                              <p><em>Required</em>: No
                               </p>
-                              
-                              <p>
-                                 <em>Type</em>: String
+                              <p><em>Type</em>: String
                               </p>
-                              
-                              <p>
-                                 <em>Update requires</em>: 
-                                 
-                                 <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a>
-                                 
-                              </p>
-                              
+                              <p><em>Minimum</em>: <code class="code">1</code></p>
+                              <p><em>Maximum</em>: <code class="code">150</code></p>
+                              <p><em>Update requires</em>: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-no-interrupt">No interruption</a></p>
                            </dd>
-                           
                         </dl>
+                     </div><div id="marketing-target"><span class="close-button"></span><div class="marketing-title" id="marketing-title"></div>
+                        <div class="marketing-description"><span id="marketing-description"></span><span id="marketing-cta"></span></div>
                      </div></div>
 </body>
 </html>
